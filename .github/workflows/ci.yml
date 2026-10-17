@@ -16,6 +16,13 @@ jobs:
         run: |
           npm run audit:splendor
           npm run verify:splendor
+      - name: New game source audits and independent rules comparisons
+        run: |
+          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
+            for script in "scripts/audit-$game.mjs" "scripts/audit-$game-catalog.mjs" "scripts/verify-$game.mjs"; do
+              if [ -f "$script" ]; then node "$script"; fi
+            done
+          done
       - name: Benchmark baseline vs guided search on the same runner
         run: npm run benchmark:search
       - name: Verify conditional MCTS reuse metrics
@@ -40,6 +47,11 @@ jobs:
         run: |
           npm run stage:preview
           npm run package:game -- splendor preview/standalone-splendor
+          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
+            if [ -f "$game/index.html" ]; then
+              npm run package:game -- "$game" "preview/standalone-$game"
+            fi
+          done
           python3 -m http.server 8080 --directory preview --bind 127.0.0.1 >/tmp/tabletop-server.log 2>&1 &
           sleep 1
           node scripts/browser-smoke.mjs
@@ -47,6 +59,13 @@ jobs:
           node scripts/browser-sessions.mjs
           node scripts/browser-boop.mjs
           node scripts/browser-splendor.mjs
+          failed=0
+          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
+            if [ -f "scripts/browser-$game.mjs" ]; then
+              STANDALONE_URL="http://127.0.0.1:8080/standalone-$game/" node "scripts/browser-$game.mjs" || failed=1
+            fi
+          done
+          exit "$failed"
       - name: Upload Boop browser evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -60,4 +79,16 @@ jobs:
         with:
           name: splendor-browser-review
           path: /tmp/splendor-*.png
+          if-no-files-found: ignore
+      - name: Save new game browser review images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: five-game-browser-review
+          path: |
+            /tmp/seven-wonders-duel-*.png
+            /tmp/carcassonne-*.png
+            /tmp/cascadia-*.png
+            /tmp/patchwork-*.png
+            /tmp/kingdomino-*.png
           if-no-files-found: ignore

@@ -1,0 +1,4187 @@
+{
+  "label": "Exploratory synthetic opponent comparison; no human-strength or matched-compute claim",
+  "games": 4,
+  "players": 2,
+  "iterations": 8,
+  "ms": 40,
+  "opponent": "search",
+  "seed": 51377,
+  "winShare": 0.25,
+  "meanScore": 83.5,
+  "meanMargin": -3.75,
+  "searchDecisions": 487,
+  "samples": 25486,
+  "searchMs": 20803.022788000017,
+  "decisionTiming": {
+    "challenger": {
+      "style": "search",
+      "samples": 1736,
+      "decisions": 240,
+      "totalMs": 10735.837318999995,
+      "medianMs": 43.74822900000072,
+      "p95Ms": 52.78472199999942,
+      "maxMs": 59.14073999999982,
+      "overrunCount": 240,
+      "overrunMs": 1135.8373189999952
+    },
+    "opponent": {
+      "style": "baseline-search",
+      "samples": 23750,
+      "decisions": 247,
+      "totalMs": 10071.761946999995,
+      "medianMs": 40.27508500000113,
+      "p95Ms": 43.14258999999947,
+      "maxMs": 46.32625400000143,
+      "overrunCount": 247,
+      "overrunMs": 191.76194699999525
+    }
+  },
+  "elapsedMs": 20926.118712,
+  "records": [
+    {
+      "game": 0,
+      "gameSeed": 51377,
+      "seat": 0,
+      "cards": {
+        "B": "A",
+        "E": "B",
+        "S": "C",
+        "H": "D",
+        "F": "A"
+      },
+      "scores": [
+        78,
+        87
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 0,
+      "trace": [
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "wipe",
+            "slots": [
+              0,
+              1,
+              2
+            ],
+            "reason": "overpopulation"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 3,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -1,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 3,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 0,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 4,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 1,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 2,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 4,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -2,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": -1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 3,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 4,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -3,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 0,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 5,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 0
+          }
+        }
+      ]
+    },
+    {
+      "game": 1,
+      "gameSeed": 51377,
+      "seat": 1,
+      "cards": {
+        "B": "A",
+        "E": "B",
+        "S": "C",
+        "H": "D",
+        "F": "A"
+      },
+      "scores": [
+        79,
+        72
+      ],
+      "winners": [
+        0
+      ],
+      "winShare": 0,
+      "trace": [
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 2,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "wipe",
+            "slots": [
+              0,
+              1,
+              2
+            ],
+            "reason": "nature"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 1,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 2,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 3,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -1,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -4,
+            "r": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -4,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -4,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 3,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -5,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -4,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 3,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 4,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -1
+          }
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "gameSeed": 51378,
+      "seat": 0,
+      "cards": {
+        "B": "B",
+        "E": "C",
+        "S": "D",
+        "H": "A",
+        "F": "B"
+      },
+      "scores": [
+        89,
+        96
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 0,
+      "trace": [
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 0,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "wipe",
+            "slots": [
+              1
+            ],
+            "reason": "nature"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 0,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "wipe",
+            "slots": [
+              1,
+              2,
+              3
+            ],
+            "reason": "overpopulation"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 0,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "wipe",
+            "slots": [
+              0,
+              1,
+              2
+            ],
+            "reason": "overpopulation"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "resolve"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -2,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": -2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 3,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 2,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -3,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -4,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 4,
+            "r": -1,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 4,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "wipe",
+            "slots": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "reason": "overpopulation"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 3,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 3,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 3,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -3,
+            "r": 3,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -4,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 2,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 4,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 4
+          }
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "gameSeed": 51378,
+      "seat": 1,
+      "cards": {
+        "B": "B",
+        "E": "C",
+        "S": "D",
+        "H": "A",
+        "F": "B"
+      },
+      "scores": [
+        87,
+        95
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 1,
+      "trace": [
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 0,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -1,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -1,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "release"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 1,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 3,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -1,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 0,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -2,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": -2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 3,
+            "r": -1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": -2,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 2,
+            "token": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 3,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": -2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 0,
+            "r": -2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -2,
+            "r": 1,
+            "rotation": 5
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -2,
+            "r": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": 2,
+            "rotation": 4
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 1,
+            "r": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 2,
+            "r": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": -1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 3,
+            "r": 0,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 3,
+            "r": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 0,
+            "token": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": 0,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": -1,
+            "r": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "draft",
+            "tile": 3,
+            "token": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeTile",
+            "q": 1,
+            "r": -3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": -3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "draft",
+            "tile": 1,
+            "token": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeTile",
+            "q": -1,
+            "r": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "placeWildlife",
+            "q": 2,
+            "r": 1
+          }
+        }
+      ]
+    }
+  ]
+}

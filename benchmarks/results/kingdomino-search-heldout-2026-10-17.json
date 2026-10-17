@@ -1,0 +1,1632 @@
+{
+  "game": "Kingdomino",
+  "sourceCommit": "96d11cbdecc946b9a8f649bb9cb9669fa5699890",
+  "sourceFiles": {
+    "kingdomino/core.js": "8b36edac8e0853f52a7e5933c45d42582b3c49de39803d25bedb648ef1a826a7",
+    "kingdomino/ai.js": "1a833630bc753971624e257bcff1c05ff60da7656dd11feefde0453e995637d7",
+    "kingdomino/catalog.js": "a0232359ee807ecc295211641232d9ec0d9d047e893623b39ba7f5619cf6294b",
+    "scripts/benchmark-kingdomino.mjs": "15c8e89554eeec99fa686fc8b0e23627fedeef5c793d5785366f09fb77c62e6d"
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "arch": "x64",
+    "cpu": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "edition": "original",
+  "players": 2,
+  "games": 4,
+  "seed": 910019,
+  "opponent": "search",
+  "search": {
+    "horizon": 6,
+    "beam": 12
+  },
+  "opponentSearch": {
+    "horizon": 2,
+    "beam": 0
+  },
+  "budget": {
+    "type": "time",
+    "ms": 100,
+    "includesRootEvaluation": true,
+    "singleSimulationCanOverrun": true,
+    "hostIsolation": "Not enforced; concurrent background work may affect elapsed budgets. Process CPU times also reported."
+  },
+  "winShare": 0.5,
+  "uncertainty": {
+    "independentSeedBlocks": 2,
+    "pairedMeanMarginSE": 2,
+    "note": "Seat rotations sharing a seed are grouped; few seed blocks give very weak uncertainty estimates."
+  },
+  "meanScore": 28.5,
+  "meanMargin": -4.5,
+  "elapsedMs": 18365.70643,
+  "timing": {
+    "searchMs": 9259.831494000013,
+    "opponentMs": 8978.248040999999,
+    "searchCpuMs": 9527.062000000002,
+    "opponentCpuMs": 9201.861000000003,
+    "searchDecisions": 96,
+    "opponentDecisions": 96,
+    "searchSamples": 1045,
+    "opponentSamples": 3818,
+    "searchOverruns": 10,
+    "opponentOverruns": 2,
+    "searchSolved": 8,
+    "opponentSolved": 8
+  },
+  "limitations": "Small deterministic synthetic-opponent experiment, not human strength or calibrated probabilities. Paired game seeds and rotated search seats; policy-dependent futures. Host isolation is not enforced, so nominal wall-clock budgets are not controlled matched CPU allocations.",
+  "results": [
+    {
+      "game": 0,
+      "seed": 910019,
+      "seat": 0,
+      "scores": [
+        30,
+        44
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 0,
+      "margin": -14,
+      "actions": [
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 20
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 21
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 25
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 28
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 34
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 0,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 38
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": -2,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 44
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 39
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 0,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 24
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 12
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 3,
+            "y": -3,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 16
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 11
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 45
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 3,
+            "y": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 26
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 3,
+            "y": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 40
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 43
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 23
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 27
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 32
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 3,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 42
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 3,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 17
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 8
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 1,
+            "rotation": 2
+          }
+        }
+      ]
+    },
+    {
+      "game": 1,
+      "seed": 910019,
+      "seat": 1,
+      "scores": [
+        31,
+        32
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 1,
+      "margin": 1,
+      "actions": [
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 20
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 21
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 25
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 28
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": 1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 34
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 38
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 44
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 39
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 24
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 12
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -3,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 11
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 0,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 16
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 26
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": -3,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 45
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 40
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 3,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 43
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 23
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 27
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 32
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": -1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 42
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 4
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 17
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 0,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 8
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -3,
+            "y": 1,
+            "rotation": 3
+          }
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "seed": 1014748,
+      "seat": 0,
+      "scores": [
+        26,
+        31
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 0,
+      "margin": -5,
+      "actions": [
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 8
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 32
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 39
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 28
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 30
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 6
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 11
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 33
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 43
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 48
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -3,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 15
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -2,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 22
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 3,
+            "y": 3,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 25
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 12
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 29
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -3,
+            "y": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 47
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 1,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 13
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 40
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -3,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 7
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 3,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 5
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": 3,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 46
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "discard"
+          }
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "seed": 1014748,
+      "seat": 1,
+      "scores": [
+        26,
+        26
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 1,
+      "margin": 0,
+      "actions": [
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 32
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 39
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 8
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 30
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 28
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 6
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 11
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 43
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 33
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 48
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": -1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 15
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -1,
+            "y": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 22
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": -1,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 25
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 12
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": 0,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 29
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 1,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 47
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 2,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 40
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 13
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": -2,
+            "rotation": 0
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": -2,
+            "y": -2,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 46
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 1,
+            "y": 3,
+            "rotation": 3
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 3
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": 1,
+            "rotation": 1
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "pick",
+            "id": 5
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "place",
+            "x": 0,
+            "y": 2,
+            "rotation": 2
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "pick",
+            "id": 7
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "discard"
+          }
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "place",
+            "x": 2,
+            "y": -1,
+            "rotation": 1
+          }
+        }
+      ]
+    }
+  ]
+}

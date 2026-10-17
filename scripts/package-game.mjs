@@ -3,10 +3,10 @@
 import {access,readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {games,sharedAssets} from './static-assets.mjs';
+import {games,sharedAssets,standaloneGames} from './static-assets.mjs';
 const [game,directory]=process.argv.slice(2);
-if(!['azul','pentago','boop','splendor'].includes(game)||!directory)
-  throw Error('Usage: node scripts/package-game.mjs azul|pentago|boop|splendor NEW_OUTPUT_DIRECTORY');
+if(!standaloneGames.includes(game)||!directory)
+  throw Error(`Usage: node scripts/package-game.mjs ${standaloneGames.join('|')} NEW_OUTPUT_DIRECTORY`);
 const root=fileURLToPath(new URL('../',import.meta.url));
 const destination=resolve(directory);
 try{await access(destination);throw Error('Output directory already exists');}
@@ -24,6 +24,7 @@ for(const file of files){
   if(game==='azul'&&file==='src/app.js'){
     content=content.replace(/<a href="[^"\n]+" title="Open [^"]+">[^<]+<\/a>/g,'');
   }
+  content=content.replace(/<a\b(?=[^>]*\bdata-suite-nav\b)[^>]*>[\s\S]*?<\/a>/g,'');
   const target=resolve(destination,relative);
   await mkdir(dirname(target),{recursive:true});await writeFile(target,content);
 }
