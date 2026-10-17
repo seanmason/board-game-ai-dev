@@ -20,6 +20,10 @@ jobs:
         run: npm run verify:gameplay
       - name: Compare 2,000 Pentago games with an independent rules engine
         run: npm run verify:pentago
+      - name: Compare Boop with an independent rules engine
+        run: npm run verify:boop
+      - name: Smoke-test Boop search
+        run: npm run benchmark:boop -- --games=2 --ms=5 --opponent=random
       - name: Smoke-test Pentago AI versus a baseline
         run: npm run benchmark:pentago -- --games=3 --playouts=6 --opponent=random
       - name: Smoke-test reproducible MCTS tournament
@@ -36,3 +40,11 @@ jobs:
           node scripts/browser-smoke.mjs
           node scripts/browser-pentago.mjs
           node scripts/browser-sessions.mjs
+          node scripts/browser-boop.mjs
+      - name: Upload Boop browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: boop-browser-evidence
+          path: test-artifacts/boop-*
+          if-no-files-found: ignore

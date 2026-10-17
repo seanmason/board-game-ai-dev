@@ -5,8 +5,8 @@ import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {games,sharedAssets} from './static-assets.mjs';
 const [game,directory]=process.argv.slice(2);
-if(!['azul','pentago'].includes(game)||!directory)
-  throw Error('Usage: node scripts/package-game.mjs azul|pentago NEW_OUTPUT_DIRECTORY');
+if(!Object.hasOwn(games,game)||game==='wingspan'||!directory)
+  throw Error('Usage: node scripts/package-game.mjs azul|pentago|boop NEW_OUTPUT_DIRECTORY');
 const root=fileURLToPath(new URL('../',import.meta.url));
 const destination=resolve(directory);
 try{await access(destination);throw Error('Output directory already exists');}
@@ -15,14 +15,14 @@ const files=[...games[game],...sharedAssets];
 await Promise.all(files.map(file=>access(resolve(root,file))));
 for(const file of files){
   let content=await readFile(resolve(root,file),'utf8');
-  const relative=game==='pentago'?file.replace(/^pentago\//,''):file;
-  if(game==='pentago'&&file.startsWith('pentago/')){
+  const relative=game!=='azul'?file.replace(new RegExp('^'+game+'/'),''):file;
+  if(game!=='azul'&&file.startsWith(game+'/')){
     content=content.replaceAll('../shared/','./shared/');
     // Suite-only navigation is omitted from a standalone game.
-    content=content.replace(/<a href="\.\.\/" title="Open Azul">Azul ↗<\/a>/g,'');
+    content=content.replace(/<a href="[^"\n]+" title="Open [^"]+">[^<]+<\/a>/g,'');
   }
   if(game==='azul'&&file==='src/app.js'){
-    content=content.replace(/<a href="\.\/pentago\/" title="Open Pentago">Pentago ↗<\/a>/g,'');
+    content=content.replace(/<a href="[^"\n]+" title="Open [^"]+">[^<]+<\/a>/g,'');
   }
   const target=resolve(destination,relative);
   await mkdir(dirname(target),{recursive:true});await writeFile(target,content);

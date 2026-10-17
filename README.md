@@ -1,6 +1,6 @@
 # Tabletop Observatory — Board Game AI
 
-A browser-native strategy-game companion and analysis workbench. Games: **Azul** and **Pentago** (in development).
+A browser-native strategy-game companion and analysis workbench. Games on this branch: **Azul**, **Pentago**, and **Boop** (development builds). Splendor and Wingspan have separate development branches.
 
 **Primary workflows:** enter moves and factory refills from a real physical board, or analyze candidate actions and continuations in a KataGo-inspired interface. Full digital play is also supported as an experimental secondary workflow.
 
@@ -148,3 +148,25 @@ Serve that directory over HTTP. The development preview can also include the
 experimental Wingspan directory when present on its draft branch; this is not
 release approval. CI tests the staged preview rather than relying on files that
 only exist in the development checkout.
+
+## Boop — original base game
+
+Open `/boop/` for the physical-board companion and analysis workbench. Select a
+kitten or adult cat, tap an empty square, choose a graduation/retrieval if needed,
+and confirm the complete move. Original CSS cats and quilt need no external art.
+Continuous tactical guided MCTS offers piece-specific visit heatmaps, full-move
+rankings, continuations, pause/resume, additional simulation requests, and exact
+conditional subtree reuse. Candidate previews and hypothetical variations leave
+the recorded game untouched. Undo/redo, autosave and atomic JSON import/export
+are supported; digital AI turns require an explicit button press.
+
+```sh
+npm run verify:boop
+npm run benchmark:boop -- --games=24 --ms=25 --opponent=baseline
+npm run package:game -- boop /tmp/boop-site
+```
+
+Search utilities are not calibrated win probabilities. See
+[Boop research and validation](docs/BOOP_RESEARCH.md) for rules sources, benchmark
+settings, limitations, and outstanding real-device/release checks. This is a
+development addition, not a finished-release publication.

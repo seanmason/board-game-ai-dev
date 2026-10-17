@@ -29,14 +29,14 @@ import {execFileSync} from 'node:child_process';
 test('each standalone package contains a complete local dependency graph and no cross-game navigation',()=>{
   const temp=mkdtempSync(join(tmpdir(),'board-game-package-'));
   try{
-    for(const game of ['azul','pentago']){
+    for(const game of ['azul','pentago','boop']){
       const target=join(temp,game);
       execFileSync(process.execPath,['scripts/package-game.mjs',game,target]);
       assert.ok(existsSync(join(target,'index.html')));
       const paths=readdirSync(target,{recursive:true}).filter(p=>/\.(js|html)$/.test(p));
       for(const path of paths){
         const content=readFileSync(join(target,path),'utf8');
-        assert.doesNotMatch(content,/title="Open (Azul|Pentago)"/);
+        assert.doesNotMatch(content,/title="Open (Azul|Pentago|Boop)"/);
         for(const pattern of [/(?:from\s*|import\s*)["'](\.[^"']+)["']/g,
           /new URL\(\s*["'](\.[^"']+)["']/g,/(?:src|href)=["']([^"']+\.(?:js|css))["']/g]){
           for(const match of content.matchAll(pattern)){
