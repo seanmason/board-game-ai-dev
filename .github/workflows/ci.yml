@@ -20,4 +20,4 @@ jobs:
         run: |
           python3 -m http.server 8080 --bind 127.0.0.1 >/tmp/tabletop-server.log 2>&1 &
           sleep 1
-          node test/browser-smoke.mjs
+          node scripts/browser-smoke.mjs
