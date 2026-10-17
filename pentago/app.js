@@ -1,3 +1,4 @@
+import {readSession, boundedInteger} from '../shared/session.js';
 import {
   BLACK,WHITE,EMPTY,PLAYERS,QUADRANTS,newGame,applyAction,legalActions,
   uniqueLegalActions,neutralQuadrants,actionKey,describeAction,fiveLines,
@@ -180,7 +181,7 @@ function searchDetails(){
     '<div class="stat"><div class="meta">Simulations</div><div class="value">'+
       fmt(s?.iterations??0)+'</div></div>'+
     '<div class="stat"><div class="meta">Simulations/s</div><div class="value">'+
-      fmt(s?.elapsed>0?s.iterations/(s.elapsed/1000):0)+'</div></div>'+
+      fmt(s?.elapsed>0?Math.max(0,s.iterations-s.retainedVisits)/(s.elapsed/1000):0)+'</div></div>'+
     '<div class="stat"><div class="meta">Tree nodes</div><div class="value">'+
       fmt(s?.nodes??0)+'</div></div></div>';
   const max=view==="analysis"?45:12;
@@ -425,17 +426,13 @@ function restore(){
     const raw=localStorage.getItem(KEY);
     if(!raw)return;
     const data=JSON.parse(raw);
-    if(data.version!==1||!Array.isArray(data.history)||!data.history.length)return;
-    data.history.forEach(h=>assertValid(h.state));
-    history=data.history;
-    index=Math.max(0,Math.min(history.length-1,data.index??history.length-1));
-    game=history[index].state;
-    seats=Array.isArray(data.seats)&&data.seats.length===2?data.seats:["human","human"];
+    const restored=readSession(data,{validateState:assertValid,playerCount:()=>2});
+    history=restored.history;index=restored.index;game=restored.game;seats=restored.seats;
     view=data.view==="analysis"?"analysis":"companion";
     analysisEnabled=data.analysisEnabled!==false;
     heatmapEnabled=data.heatmapEnabled!==false;
     selectionPolicy=data.selectionPolicy==="mcts"?"mcts":"heuristic";
-    workerCount=Math.max(1,Math.min(MAX_WORKERS,data.workerCount||workerCount));
+    workerCount=boundedInteger(data.workerCount,workerCount,1,MAX_WORKERS);
   }catch(error){console.warn("Invalid saved Pentago session:",error);}
 }
 function exportGame(){
@@ -448,13 +445,9 @@ function exportGame(){
 }
 async function importGame(file){
   const data=JSON.parse(await file.text());
-  if(data.format!=="board-game-ai-pentago"||data.version!==1||
-    !Array.isArray(data.history)||!data.history.length)throw Error("Invalid Pentago export");
-  data.history.forEach(h=>assertValid(h.state));
-  history=data.history;
-  index=Math.max(0,Math.min(history.length-1,data.index??history.length-1));
-  game=history[index].state;
-  seats=Array.isArray(data.seats)&&data.seats.length===2?data.seats:["human","human"];
+  const restored=readSession(data,{format:'board-game-ai-pentago',
+    validateState:assertValid,playerCount:()=>2});
+  history=restored.history;index=restored.index;game=restored.game;seats=restored.seats;
   afterChange();
 }
 root.addEventListener("click",event=>{
