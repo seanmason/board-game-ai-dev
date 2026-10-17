@@ -1,0 +1,73 @@
+name: Azul AI strength benchmark
+
+# A one-time branch run qualifies this workflow before first merge.
+# After it is on the default branch, workflow_dispatch offers manual reruns.
+on:
+  push:
+    branches:
+      - feat/azul-companion-mvp
+    paths:
+      - .github/workflows/benchmark.yml
+      - scripts/benchmark-ai.mjs
+      - src/mcts.js
+  workflow_dispatch:
+    inputs:
+      games:
+        description: 'Complete games per player count'
+        type: number
+        required: true
+        default: 24
+      playouts:
+        description: 'MCTS simulations per decision'
+        type: number
+        required: true
+        default: 64
+      opponent:
+        description: 'Opponent baseline'
+        type: choice
+        options:
+          - heuristic
+          - random
+        default: heuristic
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    name: ${{ matrix.players }}-player headless tournament
+    strategy:
+      fail-fast: false
+      matrix:
+        players: [2, 3, 4]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record reproducible tournament
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/benchmark-ai.mjs \
+            --games="${{ github.event.inputs.games || 24 }}" \
+            --playouts="${{ github.event.inputs.playouts || 256 }}" \
+            --variant=guided-informed \
+            --players="${{ matrix.players }}" \
+            --opponent="${{ github.event.inputs.opponent || 'heuristic' }}" \
+            --seed=147 | tee benchmark.json
+          {
+            echo '### Azul MCTS baseline · ${{ matrix.players }} players'
+            echo
+            echo 'Exploratory results; not a strength certification.'
+            echo '```json'
+            cat benchmark.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: azul-baseline-${{ matrix.players }}p
+          path: benchmark.json

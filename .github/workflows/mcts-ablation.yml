@@ -1,0 +1,48 @@
+name: MCTS variant ablation
+
+# Research only; no Pages deployment until a variant is promoted after review.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  variants:
+    name: ${{ matrix.variant }} · ${{ matrix.players }}p
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [baseline, guided, guided-softmax, guided-informed]
+        players: [2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - name: Run matched-seed tournament
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/benchmark-ai.mjs \
+            --variant=${{ matrix.variant }} \
+            --players=${{ matrix.players }} \
+            --playouts=256 \
+            --games=36 \
+            --opponent=heuristic \
+            --seed=147 | tee benchmark.json
+          {
+            echo '### MCTS variant comparison'
+            echo
+            echo '36 games at 256 simulations/decision; matched seeds and seat rotation. Small samples: exploratory.'
+            echo '```json'
+            cat benchmark.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ablation-${{ matrix.variant }}-${{ matrix.players }}p
+          path: benchmark.json

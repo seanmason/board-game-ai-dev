@@ -2,14 +2,14 @@
 
 **Status:** Approved direction, incremental implementation  
 **Initial game:** Original Azul (standard colored-wall rules, 2–4 players)  
-**Repositories:** [development/research](https://github.com/seanmason/board-game-ai-dev) (private) and [public release](https://github.com/seanmason/board-game-ai) (public)  
+**Repositories:** [development/research](https://github.com/seanmason/board-game-ai-dev) (currently public for development previews) and [public release](https://github.com/seanmason/board-game-ai) (public)  
 **Design priority:** Advanced, continuously improving AI analysis of real physical-board games, with standalone digital gameplay as a secondary use case.
 
 ## Product goals
 
 1. **Live physical-board companion (primary):** Quickly enter the players' real moves and observed random tile refills. The *physical* board is authoritative; analysis never modifies the recorded game. Undo, corrections, and state reconciliation are required.
 2. **Analysis workbench (primary):** KataGo-inspired continuous analysis with ranked candidate moves, visits, expected per-player scores/outcomes, plausible continuations, time/worker budgets, and optional highlights. Allow branching to hypothetical positions without changing the actual game.
-3. **Standalone digital play (secondary):** 2–4 human/AI seats, digital random draws, and the same game rules/rendering/search code.
+3. **Standalone digital play (secondary):** 2–4 human/AI seats, digital random draws, and the same game rules/rendering/search code. **No automatic AI moves**: explicitly press **Play Best Move** to commit the highest-visit analyzed move; an unsearched fallback is not silently played.
 4. **Extensible platform:** Additional games must reuse search coordination, observations, event history, persistence, and UI infrastructure while retaining their own rules and visuals.
 5. **Public open source:** Original visual presentation; independently written guides; zero required external runtime services; published games deploy statically on GitHub Pages.
 
@@ -18,7 +18,7 @@
 - **`board-game-ai-dev`:** source of truth for specifications, implementation, experiments, benchmarks, tests and release engineering.
 - **`board-game-ai`:** release destination, including complete source for released versions, build instructions, dependencies/licenses, and the finished static site.
 - The release pipeline must be explicit, reviewed, reproducible, and must not automatically publish experimental development commits.
-- Do not put unpublished experiments, secrets, or private development history in public artifacts.
+- The development repository is currently public, so never commit confidential research, credentials, or material requiring private access. The release pipeline must still publish only reviewed game assets to the separate finished-games repository.
 - License choice and intellectual-property review are gates before the first public release; mechanics are distinct from copyrighted illustrations, text, and trademark presentation.
 
 ## Game abstraction
@@ -47,7 +47,7 @@ Explicitly represent state errors and uncertain inventory rather than silently m
 
 ## Search subsystem
 
-A search session is tied to a canonical position/information-state hash and settings version. It supports start, pause, cancel, move-now, configurable budget, timed updates and interruptions when the observed state changes.
+A search session is tied to a canonical position/information-state hash and settings version. It supports start, pause, cancel, **Play Best Move**, configurable budget, timed updates and interruptions when the observed state changes. Pausing must preserve each worker’s search tree and cumulative playout statistics in memory; resuming continues from these statistics, not from zero. Changing the state or worker count invalidates the search and may discard its tree. Persisting full trees across page reloads is deferred.
 
 Initial baselines: random legal agent, fast heuristic evaluator, UCT Monte Carlo Tree Search, heuristic-guided MCTS. MCTS must support 2–4 selfish players with a vector of outcomes, not a fake two-team zero-sum reduction. Sampling after a refill must respect known tile counts. Track visits, reward sums, expected final scores and estimates of win/shared-win outcomes with appropriate qualifications; do not present these as calibrated probabilities.
 
@@ -65,9 +65,9 @@ Planned experiments: rollout policy, progressive bias, exploration constants, op
 
 **Companion:** current state, fast refill entry, active player, three-stage move entry, last recorded action, instant undo, quick recommendation; no automatic AI move application.
 
-**Analyst:** candidate move table with visits and outcomes, analysis on/off, worker/time budgets, progress, recommendation highlights, branching and variation inspection, move-quality comparison. A move in Azul consists of source + color + pattern-row/floor, so a heatmap on squares alone is inadequate.
+**Analyst:** candidate move table with visits and outcomes, analysis on/off, worker/time budgets, progress, recommendation highlights, branching and variation inspection, move-quality comparison. **Hovering any candidate** temporarily highlights its source tiles and destination without selecting or playing it. A move in Azul consists of source + color + pattern-row/floor, so a heatmap on squares alone is inadequate.
 
-**Digital:** game setup, human or AI assignment for each seat, autonomous AI turns, interrupted moves, and the same analysis overlays. UI must remain useful without AI enabled.
+**Digital:** game setup, human or AI assignment for each seat, explicitly user-triggered **Play Best Move** for AI turns, and the same analysis overlays. There is no fixed autoplay timer. Manual move entry works when analysis is unavailable, but Play Best Move requires an analyzed candidate.
 
 Guide: independently written rules, collapsed by default. Original CSS/SVG tile motifs; touch and mouse controls, keyboard affordances, colorblind-distinguishable patterns, responsive laptop/iPad layout. No agent-generation notices.
 
@@ -90,7 +90,7 @@ Initial **targets rather than measurements**: typical move entry ~3 selections a
 4. Add digital game mode, public-release packaging, licensing review, and deploy.
 5. Validate shared abstractions with a second game; then extend to a position editor.
 
-**Current implementation authorization:** develop and test in the private development repository. Do **not** publish unfinished work to the public release repository.
+**Current implementation authorization:** develop and test in the development repository (currently public). Do **not** publish unfinished work to the public release repository.
 
 ## Deferred questions
 
