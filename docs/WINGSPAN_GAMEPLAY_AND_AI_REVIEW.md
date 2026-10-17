@@ -76,14 +76,31 @@ The new method is much slower per simulation. Equal simulated moves are
 not equal CPU budgets. These data do not establish human strength, Elo,
 optimal play or calibrated win percentages.
 
+## Detailed human action input
+
+The primary quick-action menu still offers representative suggestions.
+A collapsed "Detailed action entry" section now accepts more precise human
+moves for all four base action types. Each action is passed directly to the
+authoritative core rules engine, which rejects invalid costs or allocations
+without recording a move. Chromium tests exercise both a zero-egg habitat
+action and a fully paid forest bird placement, with undo and card conservation.
+
+This significantly improves legal move coverage in digital play, but it is
+not a complete game-position editor and does not solve physical placeholder
+reconciliation.
+
 ## Release blockers
 
 - **Authoritative physical observation tracking:** separate known cards,
   dice, goals and private hands entered by users from randomly initialized
   placeholders. Do not infer real hands/deck order.
-- **Full choice enumeration and interface:** currently representative food
-  allocations, egg payments, face-up/hidden card draws, optional conversions
-  and extra bird payments; not every legal combination has a UI path.
+- **Full choice enumeration and interface:** the new collapsed, detailed
+  human-turn editor now accepts explicit bird food payments (including
+  two-for-one substitutes), egg-source allocation, sequential birdfeeder die
+  indices, grassland egg targets, deck/tray draws and ordinary optional
+  habitat conversions. The quick AI generator remains representative;
+  chained second-bird effects and some multi-stage, rerolled feeder choices
+  still do not have every desired UI path.
 - **Independent complete-game traces:** validate unusual white/brown/pink
   interactions against human-scored physical sessions and an independent
   implementation. The current card-by-card test covers representative
