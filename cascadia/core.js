@@ -46,7 +46,7 @@ export function legalActions(s){
  if(s.phase==='tile')return frontier(s.players[s.currentPlayer].board).flatMap(p=>Array.from({length:new Set(CATALOG[s.pending.tile].sides).size===1?1:6},(_,rotation)=>({type:'placeTile',...p,rotation})));
  if(s.phase==='wildlife')return [...s.players[s.currentPlayer].board.filter(t=>!t.token&&t.wildlife.includes(s.pending.token)).map(t=>({type:'placeWildlife',q:t.q,r:t.r})),{type:'release'}];return [];
 }
-const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+const equal=(a,b)=>JSON.stringify(a,Object.keys(a).sort())===JSON.stringify(b,Object.keys(b).sort());
 export function applyAction(state,action,{validate=true}={}){if(validate&&!legalActions(state).some(a=>equal(a,action)))throw Error('Illegal action');const s=copy(state),p=s.players[s.currentPlayer];
  if(action.type==='resolve'){s.heldTokens=[];return s;}
  if(action.type==='wipe'){
@@ -74,7 +74,7 @@ export function determinize(o,random){const s=observation(o);s.mode='digital';s.
 export function validateState(s){const fail=m=>{throw Error(`Invalid Cascadia state: ${m}`);};
  if(!s||s.version!==1||!['physical','digital'].includes(s.mode)||!Array.isArray(s.players)||s.players.length<1||s.players.length>4||!['setup','observe','draft','tile','wildlife','gameover'].includes(s.phase))fail('shape');
  if(!Number.isInteger(s.currentPlayer)||!s.players[s.currentPlayer]||!Number.isInteger(s.first)||!s.players[s.first])fail('seat');
- for(const a of SPECIES)if(!'ABCD'.includes(s.cards?.[a])||s.cards[a].length!==1)fail('scoring cards');
+ for(const a of SPECIES)if(typeof s.cards?.[a]!=='string'||!['A','B','C','D'].includes(s.cards[a]))fail('scoring cards');
  if(!Number.isInteger(s.tileRemaining)||s.tileRemaining<0||s.tileRemaining>83||!Array.isArray(s.marketTiles)||s.marketTiles.length!==4||!Array.isArray(s.marketTokens)||s.marketTokens.length!==4||!Array.isArray(s.discardedTiles)||!Array.isArray(s.heldTokens)||!Array.isArray(s.seenTiles))fail('inventory shape');
  if(s.marketTiles.some(id=>id!==null&&!TILES.some(t=>t.id===id))||s.marketTokens.some(a=>a!==null&&!SPECIES.includes(a))||s.heldTokens.some(a=>!SPECIES.includes(a)))fail('market');
  let turns=0;const starters=[];
@@ -89,6 +89,7 @@ export function validateState(s){const fail=m=>{throw Error(`Invalid Cascadia st
  const startingCount=s.players.length===1?43:s.players.length*20+3;
  if(s.seenTiles.length+s.tileRemaining!==startingCount||new Set(s.seenTiles).size!==s.seenTiles.length||s.seenTiles.some(id=>!TILES.some(t=>t.id===id))||ids.length!==s.seenTiles.length||ids.some(id=>!s.seenTiles.includes(id)))fail('observed habitat conservation');
  for(const p of s.players){if(p.starter!==null){const anchor=p.board.find(t=>t.id===STARTERS[p.starter][0].id);const rigid=anchor&&[0,1,2,3,4,5].some(rotation=>{const expected=starterBoard(p.starter,rotation);return expected.every(e=>p.board.some(t=>t.id===e.id&&t.q===e.q+anchor.q&&t.r===e.r+anchor.r&&t.rotation===rotation));});if(!rigid)fail('starter geometry');}if(p.starter===null&&p.board.length||p.starter!==null&&(!STARTERS[p.starter].every(t=>p.board.some(b=>b.id===t.id))||p.board.filter(t=>t.id.startsWith('s')).length!==3))fail('starter identity');if(p.board.filter(t=>t.token).length>p.turns||p.nature>p.board.filter(t=>t.keystone&&t.token).length)fail('wildlife/nature count');}
+ if(s.phase==='setup'&&(s.mode!=='physical'||s.turn!==0||s.marketTiles.some(Boolean)||s.marketTokens.some(Boolean)||s.heldTokens.length))fail('setup');if(s.phase!=='setup'&&s.players.some(p=>p.starter===null))fail('missing starter');
  const expected=(s.first+s.turn)%s.players.length;
  if(s.currentPlayer!==(s.phase==='gameover'?(expected+s.players.length-1)%s.players.length:expected))fail('turn order');
  if(s.players.some((p,i)=>p.turns!==Math.floor(s.turn/s.players.length)+( (i-s.first+s.players.length)%s.players.length<s.turn%s.players.length?1:0)))fail('unequal turns');

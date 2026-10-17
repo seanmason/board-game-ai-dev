@@ -100,16 +100,16 @@ The audit also accepts `--bga=Material.php --cpp=objects.cpp --rules=rules.pdf`
 to verify local reference bytes against pinned hashes. Retained factual fixtures
 make ordinary validation independent of network availability.
 
-Validation currently includes 108 targeted/subcomponent tests and 20 seeded full
+Validation currently includes 109 targeted/subcomponent tests and 20 seeded full
 games. An independently written arithmetic/transition oracle checks 120 further
 seeded games, **8,561 transitions and 143,880 payment quotations**, with zero
 discrepancies; 105 civilian, 13 military and 2 scientific endings. It shares factual
 catalog data, not rules helpers. This is not exhaustive or external certification.
 The browser script covers actual setup/draft/reveals, advisory pinning, continuous
 worker privacy/pause/resume, explicit recording, undo/redo/reload, malformed and
-malicious imports, phone overflow and standalone worker dependencies. Its hosted
-execution result is recorded by integration CI; no local browser executable was
-available during initial implementation.
+malicious imports, phone overflow and standalone worker dependencies. Hosted integration CI passed this browser script, including the standalone
+module worker. Desktop and phone screenshots were visually reviewed. No local
+browser executable was available during initial implementation.
 
 Benchmark scripts pair setup seeds and alternate seats against a tuned one-step
 heuristic with science denial, and retain replayable move traces, samples, nodes,
@@ -118,3 +118,33 @@ compute. Do not interpret a tiny pilot as expert play, human Elo, or matched-com
 superiority. Wider held-out and search-v-search evaluations remain release work.
 Physical-table acceptance, Safari/iPad performance and final release/licensing
 review remain development gates.
+
+## Initial reproducible search pilots
+
+These are deliberately small development probes, not evidence of expert play.
+Results and complete replayable action traces are in `benchmarks/results/`.
+
+| Opponent | Games | Requested budget | Search win share | Actual search/opponent time |
+|---|---:|---|---:|---|
+| Tuned one-step heuristic | 4 | 30 ms/search decision | 4/4 | 4.666 s / 0.081 s |
+| Adversarial depth 1, beam 4 | 2 | 100 ms/both decisions | 2/2 | 7.239 s / 6.528 s |
+
+The target search used depth 2, beam 7. The adversarial comparison alternated
+seats with the same setup seed, 819191. It ended 46–44 by civilian scoring, then
+37–34 through military supremacy. Deep search took 71 decisions, averaging
+101.96 ms; shallow search took 65, averaging 100.42 ms. Replays make decision
+counts unequal. Maximum synchronous-iteration overshoot was 12.73 ms for deep
+search and 3.49 ms for shallow search. Every measured decision exceeded its
+requested time by at least a small scheduling/iteration amount; the raw trace
+retains each elapsed time and overrun. Unrelated Node evaluation from another
+conversation also ran on the shared host, so the environment was not isolated;
+per-side actual wall times are the relevant evidence, and these runs should not
+be treated as clean throughput measurements. The illustrative 95% Wilson range for
+2/2 is approximately [0.342, 1.000]; paired setup outcomes are not independent.
+The heuristic comparison has a large compute imbalance. Neither comparison
+establishes robust strength, especially on held-out seeds or against other engines.
+
+```sh
+node scripts/benchmark-seven-wonders-duel.mjs --games=4 --ms=30 --depth=2 --seed=712351 --opponent=tuned --output=benchmarks/results/seven-wonders-duel-tuned-4x30ms.json
+node scripts/benchmark-seven-wonders-duel.mjs --games=2 --ms=100 --depth=2 --seed=819191 --opponent=search-shallow --output=benchmarks/results/seven-wonders-duel-search-paired-2x100ms.json
+```

@@ -97,7 +97,7 @@ node scripts/audit-carcassonne-catalog.mjs
 node scripts/audit-carcassonne-catalog.mjs --fetch
 node scripts/verify-carcassonne.mjs
 node scripts/benchmark-carcassonne.mjs --games=8 --iterations=4 --horizon=3 --seed=761993 --opponent=heuristic
-node scripts/benchmark-carcassonne.mjs --games=8 --ms=80 --horizon=3 --opponent=search --opponent-horizon=1 --seed=981781
+node scripts/benchmark-carcassonne.mjs --games=8 --ms=250 --horizon=3 --opponent=search --opponent-horizon=1 --seed=981781
 python3 -m http.server 8080
 node scripts/browser-carcassonne.mjs
 # Optional packaged worker test:
@@ -124,3 +124,31 @@ discard/redraw, no autoplay, pause/resume, undo/redo, persistence, atomic malfor
 import, zoom and phone horizontal overflow. The script needs installed Playwright
 and Chromium. Actual physical-table acceptance, iPad Safari, and independent
 opponents remain release gates.
+
+## Initial AI pilots (2026-10-17)
+
+After a development-screen finding that four first-visit ties merely selected the
+heuristic prior, widening was adjusted to revisit two initial alternatives sooner.
+The original development diagnostic remains recorded separately. Fresh seeds were
+then used for the following small pilots, with paired seats and two environment
+seeds in each experiment:
+
+| Search | Opponent | Games | Search wins | Mean score margin | Actual mean decision times |
+|---|---|---:|---:|---:|---|
+| 8 iterations, 3 future turns | Tuned static heuristic | 4 | 2 | −9 | 456.9 / 17.3 ms |
+| Nominal 250 ms, 3 future turns | Nominal 250 ms, 1 future turn | 4 | 1 | −18 | 275.3 / 258.7 ms |
+
+These results establish **no advantage over either opponent**. The second
+comparison uses the same nominal budget, not strictly matched actual compute;
+individual synchronous iterations overshot the target. Mean actual time was 6.4%
+higher for the three-turn variant. Both sides overshot on all 142 decisions. In
+that run, root creation had 38.2 ms p95 / 59.0 ms maximum, while individual
+iterations had 34.8 ms p95 / 165.0 ms maximum across both horizons. A separate
+61-tile, 59-candidate position took approximately 52 ms to prepare and 168 ms for
+one three-turn iteration. These measurements do not bound worst-case pause latency.
+
+Four games with paired seeds are much too few to select a superior policy or
+estimate a useful confidence interval. The three-turn default remains experimental;
+a larger independent budget-scaling and opponent study is needed. Raw files
+`carcassonne-heuristic-holdout-2026-10-17.json` and
+`carcassonne-nominal-budget-2026-10-17.json` contain all replayable traces.

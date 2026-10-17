@@ -16,14 +16,14 @@ export function boardValue(board,remaining=[]) {
  return v-holes*1.7-(w+h)*.13;
 }
 function remaining(s){let rem=remainingCache.get(s);if(!rem){const seen=new Set(s.seen);rem=TILES.filter(t=>!seen.has(t.id));remainingCache.set(s,rem);}return rem;}
-export function bestPlacement(s,who,id,{simple=false}={}){const board=s.players[who].board,acts=placements(board,id);if(!acts.length)return {value:boardValue(board,remaining(s))-5,action:{type:'discard'}};const rem=remaining(s);let best=null;for(const a of acts){const b=[...board,...placementCells(id,a)],v=simple?score({board:b}):boardValue(b,rem);if(!best||v>best.value)best={value:v,action:a};}return best;}
+export function bestPlacement(s,who,id,{simple=false}={}){const board=s.players[who].board,acts=placements(board,id);if(!acts.length)return {value:(simple?score(s.players[who]):boardValue(board,remaining(s)))-5,action:{type:'discard'}};const rem=remaining(s);let best=null;for(const a of acts){const b=[...board,...placementCells(id,a)],v=simple?score({board:b}):boardValue(b,rem);if(!best||v>best.value)best={value:v,action:a};}return best;}
 export function grade(s,a,{style='tuned'}={}){
  const who=currentPlayer(s),board=s.players[who].board,rem=remaining(s),simple=style==='greedy',base=simple?score(s.players[who]):boardValue(board,rem);
  if(a.type==='discard')return -8;
  if(a.type==='place')return (simple?score({board:[...board,...placementCells(s.current[s.cursor].id,a)]}):boardValue([...board,...placementCells(s.current[s.cursor].id,a)],rem))-base;
  const best=bestPlacement(s,who,a.id,{simple}),gain=best.value-base;
  if(simple)return gain;
- const available=s.offer.filter(t=>t.king===null),rank=s.offer.findIndex(t=>t.id===a.id),futureTurns=Math.max(0,(48-s.seen.length)/48);
+ const available=s.offer.filter(t=>t.king===null),rank=s.offer.findIndex(t=>t.id===a.id),futureTurns=Math.max(0,(totalTiles(s)-s.seen.length)/totalTiles(s));
  // Earlier kings choose first next row. Two-player kings retain individual priorities.
  const initiative=(s.offer.length-1-rank)*.6*futureTurns;
  const enemies=s.players.map((p,i)=>i===who?0:bestPlacement(s,i,a.id).value-boardValue(p.board,rem));
@@ -62,7 +62,7 @@ export function createSearch(o,{seed=1,horizon=6,beam=12}={}){
  }else if(publicState.phase==='place'&&publicState.offer.length&&beam>0){
   // Couple placement to this king's ensuing draft, rather than evaluating the two phases in isolation.
   const rem=remaining(publicState),available=publicState.offer.filter(t=>t.king===null),constants=new Map();
-  for(const t of available){const rank=publicState.offer.findIndex(x=>x.id===t.id),initiative=(publicState.offer.length-1-rank)*.6*Math.max(0,(48-publicState.seen.length)/48),denial=Math.max(0,...publicState.players.map((p,i)=>i===actor?0:bestPlacement(publicState,i,t.id).value-boardValue(p.board,rem)))*.16;constants.set(t.id,initiative+denial);}
+  for(const t of available){const rank=publicState.offer.findIndex(x=>x.id===t.id),initiative=(publicState.offer.length-1-rank)*.6*Math.max(0,(totalTiles(publicState)-publicState.seen.length)/totalTiles(publicState)),denial=Math.max(0,...publicState.players.map((p,i)=>i===actor?0:bestPlacement(publicState,i,t.id).value-boardValue(p.board,rem)))*.16;constants.set(t.id,initiative+denial);}
   for(const arm of arms.slice(0,beam)){
    const after=applyAction(publicState,arm.action,{validate:false}),base=boardValue(after.players[actor].board,rem);
    if(available.length)arm.prior+=Math.max(...available.map(t=>bestPlacement(after,actor,t.id).value-base+constants.get(t.id)))*.65;

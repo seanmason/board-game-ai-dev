@@ -12,7 +12,7 @@ try{
  assert.equal((await state()).drawn,'E');assert.equal((await state()).phase,'place');
  await page.waitForFunction(()=>Number(document.querySelector('#samples')?.textContent)>0);
  assert.equal((await state()).turn,0,'No autoplay');
- await page.locator('[data-action=pause]').click();await page.waitForTimeout(350);const samples=Number(await page.locator('#samples').innerText());await page.waitForTimeout(500);assert.equal(Number(await page.locator('#samples').innerText()),samples);
+ await page.locator('[data-action=pause]').click();await page.locator('#samples[data-paused="true"]').waitFor();const samples=Number(await page.locator('#samples').innerText());await page.waitForTimeout(500);assert.equal(Number(await page.locator('#samples').innerText()),samples);
  await page.locator('[data-action=pause]').click();await page.waitForFunction(n=>Number(document.querySelector('#samples')?.textContent)>n,samples);
  await page.locator('[data-action=rotate]').click();await page.locator('[data-action=rotate]').click();
  await page.locator('.cell[data-x="0"][data-y="-1"]').click();assert.equal((await state()).phase,'meeple');
@@ -22,6 +22,7 @@ try{
  const before=await state();await page.locator('#import-file').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({format:'board-game-ai-carcassonne',version:1,history:[{state:before,label:'Position'}],index:.5}))});await page.getByRole('alert').filter({hasText:'Invalid session history position'}).waitFor();assert.deepEqual(await state(),before);
  await page.locator('[data-action=choose][data-id=C]').click();await page.locator('[data-action=draw]').click();assert.equal((await state()).phase,'draw');assert.deepEqual((await state()).discarded,['C']);
  await page.locator('#mode').selectOption('digital');await page.locator('[data-action=new]').click();await page.waitForFunction(()=>Number(document.querySelector('#samples')?.textContent)>0);assert.equal((await state()).turn,0);const suggestion=page.locator('[data-action=suggestion]').first();await suggestion.hover();const pinned=await suggestion.getAttribute('data-payload');await page.waitForTimeout(700);assert.equal(await suggestion.getAttribute('data-payload'),pinned,'Hovered candidate action remains stable');await suggestion.click();assert.equal((await state()).turn,1);
+ await page.screenshot({path:'/tmp/carcassonne-desktop.png',fullPage:true});
  await page.setViewportSize({width:390,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+3));
  await page.screenshot({path:'/tmp/carcassonne-phone.png',fullPage:true});
  const vb=await page.locator('#board').getAttribute('viewBox');await page.locator('[data-action=in]').click();assert.notEqual(await page.locator('#board').getAttribute('viewBox'),vb);

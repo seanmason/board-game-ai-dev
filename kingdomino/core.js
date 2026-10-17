@@ -93,6 +93,12 @@ export function assertValid(s){
  if(s.mode==='physical'&&s.deck!==undefined)fail('physical hidden deck');
  if(s.mode==='digital'&&!Array.isArray(s.deck))fail('missing digital deck');
  if(s.deck!==undefined&&(!Array.isArray(s.deck)||s.deck.length!==totalTiles(s)-s.seen.length||new Set(s.deck).size!==s.deck.length||s.deck.some(id=>!integer(id,1,48)||s.seen.includes(id))))fail('hidden deck');
+ if(!s.current.length&&(s.rowCount>1||s.round!==0||s.players.some(p=>p.board.length!==1||p.discarded.length)))fail('initial round shape');
+ const kingsPerPlayer=s.players.length===2?2:1;
+ for(let i=0;i<s.players.length;i++){const p=s.players[i],placed=(p.board.length-1)/2+p.discarded.length,expected=s.current.length?(s.round-1)*kingsPerPlayer+s.current.filter(t=>t.resolved&&owner(s,t.king)===i).length:0;if(placed!==expected)fail('player turn inventory');}
+ const placedCount=s.players.reduce((n,p)=>n+(p.board.length-1)/2+p.discarded.length,0);
+ if(s.turn!==placedCount+s.round*nk+offerKings.length)fail('turn count');
+ if(s.unclaimed.length!==(s.players.length===3&&s.edition==='us2'?s.round:0))fail('unclaimed count');
  if(s.current.length&&s.current.some((t,i)=>t.resolved!==(i<s.cursor||(i===s.cursor&&s.phase==='draft'))))fail('resolved queue');
  if(s.offer.length&&s.offer.length!==rowSize(s))fail('offer size');
  if(s.round!==(s.current.length?s.rowCount-(s.offer.length?1:0):0))fail('round counter');

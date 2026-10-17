@@ -54,11 +54,13 @@ jobs:
           node scripts/browser-pentago.mjs
           node scripts/browser-sessions.mjs
           node scripts/browser-splendor.mjs
+          failed=0
           for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
             if [ -f "scripts/browser-$game.mjs" ]; then
-              STANDALONE_URL="http://127.0.0.1:8080/standalone-$game/" node "scripts/browser-$game.mjs"
+              STANDALONE_URL="http://127.0.0.1:8080/standalone-$game/" node "scripts/browser-$game.mjs" || failed=1
             fi
           done
+          exit "$failed"
       - name: Save Splendor browser review images
         if: always()
         uses: actions/upload-artifact@v4

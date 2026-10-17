@@ -3,7 +3,7 @@ export const TRACKS=Object.freeze({original:ORIGINAL_LEATHER,corrected:[26,32,38
 const clone=s=>structuredClone(s),int=(n,a,b)=>Number.isInteger(n)&&n>=a&&n<=b;
 const fail=m=>{throw Error(m);};
 export function newGame({mode='physical',starter=0,edition=null,seed=1}={}){
- if(!['physical','digital'].includes(mode)||!int(starter,0,1)||!(edition===null||TRACKS[edition]))fail('Invalid setup options');
+ if(!['physical','digital'].includes(mode)||!int(starter,0,1)||!(edition===null||Object.hasOwn(TRACKS,edition)))fail('Invalid setup options');
  const s={game:'patchwork',version:1,mode,starter,currentPlayer:starter,edition,phase:'setup',ring:[],players:[0,1].map(()=>({board:Array(81).fill(0),placements:[],buttons:5,income:0,time:0})),leather:[],pending:[],discarded:[],bonusOwner:null,firstFinished:null,turn:0};
  if(mode==='digital'){
   let n=seed>>>0;const random=()=>{n=(n+0x6D2B79F5)|0;let t=Math.imul(n^(n>>>15),1|n);t^=t+Math.imul(t^(t>>>7),61|t);return ((t^(t>>>14))>>>0)/4294967296;};
@@ -14,12 +14,14 @@ export function newGame({mode='physical',starter=0,edition=null,seed=1}={}){
 }
 export function observeSetup(s,ring,edition){
  if(s.phase!=='setup')fail('Setup is already complete');
- if(!TRACKS[edition])fail('Choose the time board printed in your edition');
+ if(!Object.hasOwn(TRACKS,edition))fail('Choose the time board printed in your edition');
+ if(s.edition!==null&&s.edition!==edition)fail('The chosen time board must match this session');
  if(!Array.isArray(ring)||ring.length!==33||new Set(ring).size!==33||ring.some(id=>!int(id,1,33))||ring[32]!==1)fail('Enter all 33 patches once, clockwise after the neutral token, ending with the 1×2 patch (#1)');
  const n=clone(s);n.edition=edition;n.ring=[...ring];n.leather=[...TRACKS[edition]];n.phase='play';return n;
 }
 export function placementCells(id,orientation,x,y){
- const shape=PATCHES[id]?.orientations[orientation];if(!shape||!int(x,0,8)||!int(y,0,8))return null;
+ if(!int(id,0,33)||!int(orientation,0,PATCHES[id].orientations.length-1))return null;
+ const shape=PATCHES[id].orientations[orientation];if(!shape||!int(x,0,8)||!int(y,0,8))return null;
  const cells=shape.map(([dx,dy])=>[x+dx,y+dy]);return cells.some(([a,b])=>a>8||b>8)?null:cells.map(([a,b])=>b*9+a);
 }
 export function canPlace(board,id,orientation,x,y){const cells=placementCells(id,orientation,x,y);return !!cells&&cells.every(i=>board[i]===0);}
@@ -86,10 +88,10 @@ export function assertValid(s){
   if(income!==p.income||board.some((v,i)=>v!==p.board[i]))fail('Board or income disagrees with placements');
  }
  if(s.phase==='setup'){
-  if(s.edition!==null&&!TRACKS[s.edition])fail('Invalid edition');
+  if(s.edition!==null&&!Object.hasOwn(TRACKS,s.edition))fail('Invalid edition');
   if(s.ring.length||s.leather.length||s.pending.length||s.turn||s.bonusOwner!==null||s.firstFinished!==null||s.currentPlayer!==s.starter||s.players.some(p=>p.buttons!==5||p.time||p.placements.length))fail('Invalid setup state');return true;
  }
- if(!TRACKS[s.edition]||used.size!==33||leathers.size!==5||[...leathers].some(t=>!TRACKS[s.edition].includes(t)))fail('Missing components or invalid track edition');
+ if(!Object.hasOwn(TRACKS,s.edition)||used.size!==33||leathers.size!==5||[...leathers].some(t=>!TRACKS[s.edition].includes(t)))fail('Missing components or invalid track edition');
  if(s.discarded.some(t=>!s.players.some(p=>!p.board.includes(0)&&p.time>=t)))fail('Leather can be discarded only after crossing with a full quilt');
  // Past unclaimed markers are impossible.
  if(s.leather.some(t=>t<=Math.max(...s.players.map(p=>p.time))))fail('Unclaimed passed leather marker');

@@ -126,6 +126,7 @@ export function validateState(s){const fail=m=>{throw Error('Invalid 7 Wonders D
  if(!Array.isArray(s.board)||s.board.length!==(s.age?20:0))fail('board size');
  const canonical=s.age?layout(s.age):[];for(let i=0;i<s.board.length;i++){const x=s.board[i],t=canonical[i];if(typeof x.up!=='boolean'||typeof x.removed!=='boolean'||!Array.isArray(x.coveredBy)||JSON.stringify(x.coveredBy)!==JSON.stringify(t.coveredBy)||x.index!==t.index||x.col!==t.col||x.row!==t.row||x.x!==t.x||(!x.up&&t.up)||(!x.id&&!x.removed&&s.mode==='digital')||(x.removed&&x.id!==null))fail('slot');if(x.removed&&!x.coveredBy.every(j=>s.board[j].removed)||!t.up&&x.up&&!x.removed&&!accessible(s,i)||s.mode==='physical'&&!x.up&&x.id!==null)fail('structure chronology');if(x.id&&(!CARDS[x.id]||!(CARDS[x.id].age===s.age||s.age===3&&CARDS[x.id].age===4)))fail('age card');}
  const ids=knownCards(s);if(!unique(ids)||!ids.every(id=>CARDS[id]))fail('duplicate card');
+ for(let age=1;age<=4;age++)if(ids.filter(id=>CARDS[id].age===age).length>(age===4?3:age===3?17:20))fail('age inventory');
  const ws=[...s.players.flatMap(p=>p.wonders),...s.wonderPool];if(!unique(ws)||!ws.every(id=>WONDERS[id])||s.players.some(p=>p.wonders.length>4)||builtCount(s)>7)fail('wonders');
  const ps=[...s.progress,...s.players.flatMap(p=>p.progress)];if(!unique(ps)||!ps.every(id=>PROGRESS[id])||s.progress.length>5)fail('progress');
  if(!Number.isInteger(s.military)||Math.abs(s.military)>9||!Array.isArray(s.looted)||!unique(s.looted)||!s.looted.every(x=>[-6,-3,3,6].includes(x))||!Number.isInteger(s.turn)||s.turn<0)fail('track');
@@ -142,7 +143,15 @@ export function validateState(s){const fail=m=>{throw Error('Invalid 7 Wonders D
  if(s.phase==='reveal'&&!visibleMissing(s).length)fail('empty reveal');
  if(s.phase==='library'&&(!choose(s.libraryOffer,PROGRESS,3)||s.libraryOffer.some(id=>ps.includes(id))))fail('library offer');
  if(s.phase==='gameover'&&(!s.result||!['military','science','civilian'].includes(s.result.reason)||!Array.isArray(s.result.winners)||!s.result.winners.length||!s.result.winners.every(x=>x===0||x===1)))fail('result');
+ if(s.phase==='gameover'&&(!unique(s.result.winners)))fail('duplicate winners');
  if(s.phase==='gameover'&&(!Array.isArray(s.result.scores)||s.result.scores.length!==2||s.result.scores.some((v,i)=>!Number.isInteger(v)||v!==score(s,i))))fail('result scores');
+ if(s.phase==='gameover'){
+  const r=s.result;let expected;
+  if(r.reason==='military'){if(Math.abs(s.military)!==9)fail('military result');expected=[s.military>0?0:1];}
+  else if(r.reason==='science'){expected=s.players.flatMap((p,i)=>new Set(science(p)).size>=6?[i]:[]);if(expected.length!==1)fail('science result');}
+  else{if(s.age!==3||s.board.some(x=>!x.removed))fail('civilian result');const d=score(s,0)-score(s,1)||scoreBreakdown(s,0).blue-scoreBreakdown(s,1).blue;expected=d===0?[0,1]:[d>0?0:1];}
+  if(JSON.stringify(r.winners)!==JSON.stringify(expected))fail('winner');
+ }
  const effectPhases=['progress','destroy','recover','library-offer','library'];if(effectPhases.includes(s.phase)&&(s.pending[0]!==s.phase||!legalActions(s).length&&s.phase!=='library-offer'))fail('effect phase');
  if(s.phase==='starter'&&(s.age<1||s.age>2||s.board.some(x=>!x.removed)||s.currentPlayer!==(s.military>0?1:s.military<0?0:s.lastActor)))fail('next age');
  if(s.phase==='wonder-draft'&&(!s.wonderPool.length||s.draftStep>=8||s.currentPlayer!==(s.firstPlayer^[0,1,1,0,1,0,0,1][s.draftStep])))fail('wonder draft');

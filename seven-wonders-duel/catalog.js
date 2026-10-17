@@ -4,7 +4,7 @@ export const RESOURCES=['wood','clay','stone','glass','papyrus'];
 export const RESOURCE_SYMBOLS=['♣','◒','⬡','◇','▤'];
 export const SCIENCE={1:'◎',3:'◴',4:'⚕',5:'△',6:'✒',7:'⚙',law:'⚖'};
 const cost=(s='')=>[...s].reduce((a,c)=>(a['wcs gp'.replaceAll(' ','').indexOf(c)]++,a),[0,0,0,0,0]);
-const cards={};
+const cards=Object.create(null);
 function card(n,name,age,color,c='',coins=0,effect={}){cards['c'+n]={id:'c'+n,name,age,color,cost:cost(c),coins,points:0,...effect};}
 card(1,'Lumber Yard',1,'brown','',0,{produce:cost('w')});
 card(2,'Stone Pit',1,'brown','',1,{produce:cost('s')});
@@ -80,7 +80,7 @@ card(71,'Scientists Guild',4,'purple','ccww',0,{guild:['green']});
 card(72,'Moneylenders Guild',4,'purple','ssww',0,{guild:['treasury']});
 card(73,'Tacticians Guild',4,'purple','sscp',0,{guild:['red']});
 export const CARDS=Object.freeze(cards);
-const wonders={};
+const wonders=Object.create(null);
 function wonder(n,name,c,points,e={}){wonders['w'+n]={id:'w'+n,name,cost:cost(c),coins:0,points,...e};}
 wonder(1,'The Pyramids','psss',9);
 wonder(2,'The Colossus','gccc',3,{shields:2});
@@ -95,10 +95,10 @@ wonder(10,'The Sphinx','ggcs',6,{replay:true});
 wonder(11,'The Appian Way','pccss',3,{gain:3,loot:3,replay:true});
 wonder(12,'Circus Maximus','gwss',3,{destroy:'grey',shields:1});
 export const WONDERS=Object.freeze(wonders);
-export const PROGRESS=Object.freeze(Object.fromEntries([
+export const PROGRESS=Object.freeze(Object.setPrototypeOf(Object.fromEntries([
  ['agriculture','Agriculture',4,6],['architecture','Architecture',0,0],['economy','Economy',0,0],
  ['law','Law',0,0],['masonry','Masonry',0,0],['mathematics','Mathematics',0,0],
  ['philosophy','Philosophy',7,0],['strategy','Strategy',0,0],['theology','Theology',0,0],['urbanism','Urbanism',0,6]
-].map(([id,name,points,gain])=>[id,{id,name,points,gain}])));
+].map(([id,name,points,gain])=>[id,{id,name,points,gain}])),null));
 export const PROGRESS_HELP={agriculture:'+6 coins · 4 points',architecture:'Wonders cost 2 fewer resources',economy:'Receive opponent resource trade payments',law:'One distinct science symbol',masonry:'Blue buildings cost 2 fewer resources',mathematics:'3 points for each progress token, including itself',philosophy:'7 points',strategy:'+1 shield on future red buildings',theology:'Future wonders grant one replay',urbanism:'+6 coins · +4 coins when constructing through a chain'};
 export const AGE_CARDS=Object.fromEntries([1,2,3,4].map(age=>[age,Object.values(CARDS).filter(c=>c.age===age).map(c=>c.id)]));

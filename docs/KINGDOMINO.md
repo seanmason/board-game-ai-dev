@@ -146,7 +146,10 @@ benchmark results are reported separately when run; a script's presence alone is
 not evidence that it passed. Benchmark JSON includes seeds, rotated seats, per-game
 scores/winners, realized time/sample counts and replayable action traces. Fixed
 iteration runs are explicitly not matched-compute comparisons; timed runs include
-root evaluation and disclose one-simulation budget overruns.
+root evaluation and disclose one-simulation budget overruns. The host is shared
+and unrelated background computation can affect wall-clock budgets; process CPU
+times are also reported. These are nominal equal-time comparisons, not isolated
+matched CPU allocations.
 
 Before release: numbered physical-set audit, live-table user acceptance, iPad/Safari
 performance, larger held-out matched-compute strength testing, and source/license

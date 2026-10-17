@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';import {chromium} from 'playwright';
-const base=process.env.SEVEN_WONDERS_DUEL_BASE_URL??'http://127.0.0.1:8080/seven-wonders-duel/';
-const standalone=process.env.SEVEN_WONDERS_DUEL_STANDALONE_URL??'http://127.0.0.1:8080/standalone-seven-wonders-duel/';
+const base=process.env.SEVEN_WONDERS_DUEL_BASE_URL??process.env.BASE_URL??'http://127.0.0.1:8080/seven-wonders-duel/';
+const standalone=process.env.SEVEN_WONDERS_DUEL_STANDALONE_URL??process.env.STANDALONE_URL??'http://127.0.0.1:8080/standalone-seven-wonders-duel/';
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});const page=await browser.newPage({viewport:{width:1360,height:960}}),errors=[];
 page.on('pageerror',e=>errors.push(e.message));page.on('console',e=>{if(e.type()==='error'&&!e.text().includes('favicon'))errors.push(e.text());});
 const state=()=>page.evaluate(()=>window.duel.getState());
