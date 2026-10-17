@@ -56,7 +56,16 @@ try {
   await page.locator('button[data-action="redo"]').click();
   assert.equal(await page.locator(".action-group").count(),4);
 
-  // Continuous Monte Carlo summaries, retained pause/resume and no autoplay.
+  // Both analysis methods must be independently usable in the browser.
+  await awaitSamples();
+  assert.equal(await page.locator("#search-method").inputValue(),"heuristic");
+  const unchanged=await page.locator(".banner strong").first().innerText();
+  await page.locator("#search-method").selectOption("belief-rollout");
+  assert.equal(await page.locator("#search-method").inputValue(),"belief-rollout");
+  await awaitSamples();
+  assert.equal(await page.locator(".banner strong").first().innerText(),unchanged,
+    "Rollout analysis must not play moves automatically");
+  await page.locator("#search-method").selectOption("heuristic");
   await awaitSamples();
   const beforePause=await samples();
   await page.locator('button[data-action="toggle-analysis"]').click();
