@@ -1,0 +1,40 @@
+name: Wingspan larger-table AI evaluation
+on:
+  push:
+    branches: [feat/wingspan-base-game]
+    paths: [.github/workflows/wingspan-ai-multiplayer.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tournament:
+    name: ${{ matrix.method }} · ${{ matrix.players }} players
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        method: [heuristic, belief-rollout]
+        players: [4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Balanced 4-5 player seeded games
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/benchmark-wingspan-ai.mjs \
+            --method=${{ matrix.method }} \
+            --players=${{ matrix.players }} \
+            --games=12 \
+            --samples=12 \
+            --horizon=4 \
+            --seed=1223337 \
+            --opponent=greedy | tee output.json
+          cat output.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wingspan-multi-${{ matrix.method }}-${{ matrix.players }}p
+          path: output.json
