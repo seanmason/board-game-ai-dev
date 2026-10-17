@@ -44,6 +44,25 @@ function actionScore(s,action) {
   }
   return perspective(next,me)*75;
 }
+/**
+ * Low-variance one-step recommendation. Pentago's branching factor is high:
+ * at short budgets, MCTS visits are noisy against tactical opponents.
+ * This policy is exposed independently from MCTS estimates, not mislabeled
+ * as a full-game optimal evaluation.
+ */
+export function heuristicBestAction(s) {
+  if(s.phase!=="play")return null;
+  let best=null,score=-Infinity;
+  for(const action of uniqueLegalActions(s)){
+    const next=applyAction(s,action);
+    const value=next.phase==="gameover" ?
+      (next.winner===s.currentPlayer?100000:
+        next.winner==="draw"?0:-100000) :
+      positionScore(next.board)*(s.currentPlayer===BLACK?1:-1);
+    if(value>score){score=value;best=action;}
+  }
+  return best;
+}
 function getOrdered(s) {
   if(s.phase!=="play")return [];
   // Identical post-rotation boards cannot carry distinct game-tree evidence.
@@ -62,10 +81,16 @@ export function createSearch(state,{
   rng=Math.random,maxNodes=14000,exploration=0.93,rolloutLength=10
 }={}) {
   if(state.phase!=="play")throw Error("Pentago search requires a playable position");
+  const root=nodeAt(state);
+  const heuristicAction=heuristicBestAction(state);
+  const heuristicKey=heuristicAction?actionKey(heuristicAction):null;
+  // Guarantee that the heuristic recommendation is represented by an
+  // expanded node even at minimal simulation budgets.
+  const pos=root.untried.findIndex(x=>actionKey(x.action)===heuristicKey);
+  if(pos>0)root.untried.unshift(root.untried.splice(pos,1)[0]);
   return {
-    rootState:cloneGame(state),root:nodeAt(state),
-    rng,maxNodes,exploration,rolloutLength,
-    iterations:0,nodeCount:1
+    rootState:cloneGame(state),root,rng,maxNodes,exploration,rolloutLength,
+    heuristicAction,heuristicKey,iterations:0,nodeCount:1
   };
 }
 function width(node){
@@ -153,12 +178,14 @@ export function searchSummary(search){
   return {
     iterations:search.iterations,nodeCount:search.nodeCount,
     currentPlayer:node.actor,rootLegalActions:node.children.length+node.untried.length,
+    heuristicAction:search.heuristicAction,heuristicKey:search.heuristicKey,
     candidates:actions
   };
 }
 export function bestAction(search) {
-  return searchSummary(search).candidates[0]?.action ??
-    getOrdered(search.rootState)[0]?.action??null;
+  // A stable, explicitly named policy recommendation; MCTS results are
+  // available separately in searchSummary(search).candidates.
+  return search.heuristicAction??searchSummary(search).candidates[0]?.action??null;
 }
 /** Retain only the subtree conditioned on the actually played action. */
 export function advanceSearch(search,action,nextState) {
@@ -179,5 +206,9 @@ export function advanceSearch(search,action,nextState) {
   search.rootState=cloneGame(nextState);
   search.nodeCount=nodes;
   search.iterations=child.visits;
+  search.heuristicAction=heuristicBestAction(nextState);
+  search.heuristicKey=search.heuristicAction?actionKey(search.heuristicAction):null;
+  const pos=child.untried.findIndex(x=>actionKey(x.action)===search.heuristicKey);
+  if(pos>0)child.untried.unshift(child.untried.splice(pos,1)[0]);
   return {reused:true,retainedVisits:child.visits,retainedNodes:nodes};
 }
