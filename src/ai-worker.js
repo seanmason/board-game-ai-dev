@@ -1,4 +1,4 @@
-import {createSearch, runSearch, searchSummary} from "./mcts.js";
+import {createSearch, advanceSearch, runSearch, searchSummary} from "./mcts.js";
 import {seededRandom} from "./azul.js";
 
 // A live worker owns one MCTS tree and PRNG. Pause does not destroy either.
@@ -6,6 +6,7 @@ import {seededRandom} from "./azul.js";
 // worker configuration, or when the browser discards the tab.
 let generation = 0, search = null, running = false, scheduled = null;
 let activeStarted = 0, activeMillis = 0, lastReport = 0, batchSize = 10;
+let retainedVisits = 0, retainedNodes = 0, wasReused = false;
 const now = () => performance.now();
 const elapsed = () => activeMillis + (running ? now() - activeStarted : 0);
 
@@ -13,6 +14,7 @@ function report() {
   if (!search) return;
   self.postMessage({
     type:"progress", generation, elapsedMs:elapsed(), paused:!running,
+    retainedVisits, retainedNodes, wasReused,
     ...searchSummary(search)
   });
 }
@@ -72,7 +74,35 @@ self.onmessage = event => {
     });
     batchSize = Math.max(1, Math.min(30, data.batch ?? 10));
     activeMillis = 0;
+    retainedVisits = 0; retainedNodes = 0; wasReused = false;
     resume();
+    return;
+  }
+  // A real move changes the search root without terminating the worker.
+  // Each worker independently falls back to a fresh tree if its chosen
+  // child was never explored. Paused searches remain paused across moves.
+  if (data.type === "advance") {
+    if (data.previousGeneration !== generation) return;
+    pause();
+    const previousRng = search?.rng ?? seededRandom(data.seed);
+    const transition = search &&
+      search.variant === data.variant &&
+      advanceSearch(search, data.action, data.state);
+    generation = data.generation;
+    wasReused = !!transition?.reused;
+    retainedVisits = wasReused ? transition.retainedVisits : 0;
+    retainedNodes = wasReused ? transition.retainedNodes : 0;
+    if (!wasReused) {
+      search = createSearch(data.state, {
+        rng: previousRng,
+        variant: data.variant ?? "guided-informed",
+        exploration: data.exploration,
+        maxNodes: data.maxNodes ?? 18000
+      });
+    }
+    activeMillis = 0;
+    if (data.running) resume();
+    else report();
     return;
   }
   if (data.generation !== generation) return;

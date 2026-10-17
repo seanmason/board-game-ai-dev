@@ -228,6 +228,46 @@ export function runSearch(search, iterations = 1) {
   }
   return search;
 }
+/**
+ * Reuse the subtree beneath a real, observed move.
+ *
+ * Only deterministic transitions in the current factory-drafting round are
+ * reusable. Future bag draws are deliberately not stored in the shared tree.
+ * This function never mutates the search when the state/action is incompatible.
+ */
+export function advanceSearch(search, action, observedNextState) {
+  if (search.rootState.phase !== "draft" ||
+      observedNextState.phase !== "draft") {
+    return {reused:false, reason:"chance-or-terminal-boundary"};
+  }
+  let expected;
+  try { expected = applyAction(search.rootState, action); }
+  catch { return {reused:false, reason:"illegal-transition"}; }
+  if (JSON.stringify(expected) !== JSON.stringify(observedNextState)) {
+    return {reused:false, reason:"different-observation"};
+  }
+  const key = actionKey(action);
+  const child = search.root.children.find(n =>
+    n.action && actionKey(n.action) === key);
+  if (!child) return {reused:false, reason:"unexplored-action"};
+  // Discard siblings and ancestors, which cannot supply evidence conditional
+  // on the ACTUAL move. Descendants retain visits, rewards and rollout PRNG.
+  const stack = [child];
+  let nodes = 0;
+  while (stack.length) {
+    const node = stack.pop();
+    nodes++;
+    stack.push(...node.children);
+  }
+  child.action = null;
+  child.prior = 0;
+  search.root = child;
+  search.rootState = cloneGame(observedNextState);
+  search.nodeCount = nodes;
+  search.iterations = child.visits;
+  return {reused:true, retainedVisits:child.visits, retainedNodes:nodes};
+}
+
 export function searchSummary(search) {
   const root = search.root;
   const choices = root.children.map(child => ({

@@ -241,13 +241,15 @@ function render() {
 function mergeWorkerResults() {
   const merged = new Map();
   let iterations = 0, nodes = 0, elapsed = 0, rootPlayer = game.currentPlayer;
-  let rootLegalActions = 0;
+  let rootLegalActions = 0, reusedWorkers = 0, retainedSimulations = 0, retainedNodes = 0;
   for (const data of partialResults.values()) {
     iterations += data.iterations;
     nodes += data.nodeCount;
     elapsed = Math.max(elapsed, data.elapsedMs);
     rootPlayer = data.rootPlayer;
     rootLegalActions = Math.max(rootLegalActions, data.rootLegalActions ?? 0);
+    if (data.wasReused) { reusedWorkers++; retainedSimulations += data.retainedVisits ?? 0;
+      retainedNodes += data.retainedNodes ?? 0; }
     for (const candidate of data.candidates) {
       const entry = merged.get(candidate.key) ?? {
         key:candidate.key, action:candidate.action, label:candidate.label, visits:0,
@@ -265,7 +267,8 @@ function mergeWorkerResults() {
   }
   const candidates = [...merged.values()].sort((a,b) => b.visits-a.visits ||
     b.rewardSum[rootPlayer]/Math.max(1,b.visits)-a.rewardSum[rootPlayer]/Math.max(1,a.visits));
-  aggregate = {iterations,nodes,elapsed,candidates,rootPlayer,rootLegalActions};
+  aggregate = {iterations,nodes,elapsed,candidates,rootPlayer,rootLegalActions,
+    reusedWorkers,retainedSimulations,retainedNodes};
 }
 function renderAnalysis() {
   const node = document.querySelector("#analysis-content");
@@ -309,7 +312,12 @@ function renderAnalysis() {
     '<p class="meta" id="search-coverage">Explored ' + data.candidates.length +
     ' of ' + data.rootLegalActions + ' legal moves</p>' :
     '<p class="meta" id="search-coverage">Starting search</p>';
-  node.innerHTML = recommended + stats + coverage + table +
+  const reuse = data?.reusedWorkers ?
+    '<p class="meta" id="search-reuse">Retained ' + fmt(data.retainedSimulations) +
+    ' simulations from the previous move in ' + data.reusedWorkers +
+    ' of ' + workerCount + ' workers.</p>' :
+    '<p class="meta" id="search-reuse">No previous-position search retained</p>';
+  node.innerHTML = recommended + stats + coverage + reuse + table +
     '<p class="meta">Win estimates come from simulated games and depend on the rollout policy. ' +
     'Opponent strategies are approximated. A higher visit count generally indicates greater search attention.</p>';
   // Progress updates replace the candidate table, but hover state and the
@@ -440,13 +448,38 @@ function makeAIMove() {
   }
   commitAction(action);
 }
-function afterChange() {
+function afterChange(advancedAction = null) {
   selection = null; preview = null; notification = "";
   if (game.phase === "refill") pendingFactories = makePending(game);
-  save(); render(); startAnalysis();
+  // A committed draft within the SAME round can reuse visited descendants.
+  // Refilled factories, an undo/import/correction, or worker-setting changes
+  // require a clean new search. Do not expose stale candidate moves.
+  if (advancedAction && game.phase === "draft" &&
+      workers.length === workerCount) {
+    const previousGeneration = generation;
+    generation++;
+    partialResults.clear();
+    aggregate = null;
+    hoveredCandidateKey = null;
+    const newGeneration = generation;
+    save(); render();
+    for (const worker of workers) {
+      worker.postMessage({
+        type:"advance", previousGeneration, generation:newGeneration,
+        action:advancedAction, state:game, variant:searchVariant,
+        seed:(Math.random()*4294967296)>>>0,
+        maxNodes:18000, running:analysisEnabled
+      });
+    }
+  } else {
+    save(); render(); startAnalysis();
+  }
 }
-function commit(next, label) {
+function commit(next, label, advancedAction = null) {
   assertValid(next);
+  // A move that ends a round crosses a chance-event boundary, so its tree
+  // cannot be reused after digital refilling of factories.
+  const canReuse = next.phase === "draft" ? advancedAction : null;
   history = history.slice(0,index+1);
   history.push({state:next, label});
   index = history.length-1; game = next;
@@ -456,12 +489,12 @@ function commit(next, label) {
     history.push({state:nextRound, label:"Draw round "+nextRound.round+" factories"});
     index++; game=nextRound;
   }
-  afterChange();
+  afterChange(canReuse);
 }
 function commitAction(action) {
   const next = applyAction(game,action);
   const actor = game.currentPlayer;
-  commit(next,"Player "+(actor+1)+": "+describeAction(action));
+  commit(next,"Player "+(actor+1)+": "+describeAction(action),action);
 }
 function beginNew() {
   const players = Number(document.querySelector("#players").value);
