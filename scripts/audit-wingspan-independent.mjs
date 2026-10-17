@@ -112,7 +112,7 @@ for(const b of BONUSES){
  if(!ref){errors.push({bonus:b.name,attribute:"identity",reason:"not found"});continue;}
  const vp=String(ref.VP??"").replaceAll("[point]","").trim();
  if(typeof b.per==="number"){
-   const m=vp.match(/^(\\d+)\\s+per\\s+bird/i);
+   const m=vp.match(/^(\d+)\s+per\s+bird/i);
    if(!m)warnings.push({bonus:b.name,field:"cannot-parse-per-bird",value:vp});
    else{
      independentlyComparedBonusScoring++;
@@ -120,7 +120,7 @@ for(const b of BONUSES){
        ours:b.per,theirs:Number(m[1])});
    }
  }else{
-   const m=vp.match(/^(\\d+)(?:\\s+to\\s+\\d+)?\\s+birds?:\\s*(\\d+)\\s*;\\s*(\\d+)\\+?\\s+birds?:\\s*(\\d+)/i);
+   const m=vp.match(/^(\d+)(?:\s+to\s+\d+)?\s+birds?:\s*(\d+)\s*;\s*(\d+)\+?\s+birds?:\s*(\d+)/i);
    if(!m){warnings.push({bonus:b.name,field:"cannot-parse-thresholds",value:vp});continue;}
    const actual=[Number(m[1]),Number(m[2]),Number(m[3]),Number(m[4])];
    independentlyComparedBonusScoring++;
