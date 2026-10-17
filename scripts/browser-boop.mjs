@@ -62,6 +62,7 @@ try{
   const cycleSession={format:'board-game-ai-boop',version:1,history:[...cycleHistory,{state:future,label:'Redo future'}],index:cycleHistory.length-1,seats:['human','ai']};
   await page.locator('#import-file').setInputFiles({name:'cycle.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(cycleSession))});
   await page.waitForFunction(()=>JSON.parse(localStorage.getItem('board-game-ai-boop-v1'))?.index===35);
+  await page.locator('[data-action="view"][data-view="analysis"]').click();
   await page.locator('[data-action="more"][data-count="1000"]').click();
   await page.waitForFunction(()=>document.querySelector('#analysis-status')?.textContent==='Paused',null,{timeout:45000});
   const bestKey=await page.locator('tr[data-candidate]').first().getAttribute('data-candidate'),suggestion=legalActions(cycleState).find(a=>actionKey(a)===bestKey);
