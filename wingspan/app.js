@@ -16,7 +16,7 @@ const MAX_WORKERS=Math.max(1,Math.min(4,(navigator.hardwareConcurrency||2)-1));
 const FIRST=newGame({players:2,mode:"digital",seed:912731});
 let history=[{state:FIRST,label:"New Wingspan session"}],index=0,game=FIRST;
 let seats=["human","human"],view="companion",analysisEnabled=true;
-let searchMethod="heuristic";
+let searchMethod="belief-rollout";
 let workerCount=Math.min(2,MAX_WORKERS),workers=[],partResults=new Map();
 let analysis=null,generation=0,options=[],notification="";
 let pinned=-1,hovered=-1;
@@ -532,7 +532,7 @@ function restore(){
       d.seats:game.players.map(()=>"human");
     view=d.view==="analysis"?"analysis":"companion";
     analysisEnabled=d.analysisEnabled!==false;
-    searchMethod=d.searchMethod==="belief-rollout"?"belief-rollout":"heuristic";
+    searchMethod=d.searchMethod==="heuristic"?"heuristic":"belief-rollout";
     workerCount=Math.min(MAX_WORKERS,Math.max(1,d.workerCount??workerCount));
   }catch(e){console.warn("Invalid Wingspan save",e);}
 }
