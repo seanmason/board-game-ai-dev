@@ -37,7 +37,7 @@ function fixture(bird){
   pull(s,bird.id);
   const owner=0;
   const habitat=bird.habitats[0];
-  const index=s.players[owner].habitats[habitat].length;
+  let index=s.players[owner].habitats[habitat].length;
   s.players[owner].habitats[habitat].push({
     id:bird.id,eggs:0,cached:[],tucked:[]
   });
@@ -63,11 +63,59 @@ function fixture(bird){
       }
     }
   }
+  // Put specifically qualifying recipient nests, repeats, and second birds
+  // on the board: without these, an effect may legitimately lack a choice.
+  const neededNest={2:"ground",18:"cavity",28:"bowl"}[bird.powerCode];
+  if(neededNest){
+    const supportId=s.deck.find(id=>BIRDS[id].nest===neededNest&&
+      BIRDS[id].eggs>0&&
+      BIRDS[id].habitats.length);
+    if(supportId!==undefined){
+      pull(s,supportId);
+      const support=BIRDS[supportId];
+      s.players[owner].habitats[support.habitats[0]].push({
+        id:supportId,eggs:0,cached:[],tucked:[]
+      });
+    }
+  }
+  if([43,49].includes(bird.powerCode)){
+    const repeatId=s.deck.find(id=>{
+      const b=BIRDS[id];
+      return b.powerType==="brown"&&b.habitats.includes(habitat)&&
+        b.powerCode!==43&&b.powerCode!==49&&
+        (bird.powerCode!==49||b.powerGroup==="hunting/fishing");
+    });
+    if(repeatId!==undefined){
+      pull(s,repeatId);
+      s.players[owner].habitats[habitat].push({
+        id:repeatId,eggs:0,cached:[],tucked:[]
+      });
+    }
+  }
+  if(bird.powerCode===20){
+    // Movable birds must be the rightmost in their habitat.
+    const row=s.players[owner].habitats[habitat];
+    const old=row.findIndex(e=>e.id===bird.id);
+    if(old>=0){row.push(row.splice(old,1)[0]);index=row.length-1;}
+  }
+  s.feeder=["seed","fruit","fish","invertebrate","rodent"];
   // Hand cards to tuck/discard or use for a "play second bird" white power.
   for(const player of [0,1,2]){
     for(let i=0;i<3;i++){
       const id=s.deck.pop();
       if(id!==undefined)s.players[player].hand.push(id);
+    }
+  }
+  if([37,38,44,51].includes(bird.powerCode)){
+    const preferred=[37,51].includes(bird.powerCode)?"forest":
+      bird.powerCode===38?"grassland":"wetland";
+    const available=s.deck.findIndex(id=>BIRDS[id].habitats.includes(preferred)&&
+      BIRDS[id].powerType==="none"&&
+      BIRDS[id].food.wild<=1);
+    if(available>=0){
+      const old=s.players[owner].hand[0];
+      s.players[owner].hand[0]=s.deck[available];
+      s.deck[available]=old;
     }
   }
   let event={type:"gainFood",actor:0,foods:["rodent"]};
