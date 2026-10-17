@@ -8,7 +8,7 @@ import {
   newGame,drawFactories,applyAction,legalActions,outcomes
 } from "../src/azul.js";
 import {
-  createSearch,runSearch,bestAction,heuristicScore
+  createSearch,runSearch,bestAction,heuristicScore,informedHeuristic
 } from "../src/mcts.js";
 
 function config(name,defaultValue) {
@@ -30,7 +30,21 @@ const games=int("games",12,1,20000),
   seed=int("seed",147,0,2147483647);
 const opponent=config("opponent","heuristic");
 const variant=config("variant","baseline");
-if(!["heuristic","random"].includes(opponent))throw Error("Unknown --opponent");
+const agent=config("agent","mcts");
+if(!["heuristic","informed","random"].includes(opponent))throw Error("Unknown --opponent");
+if(!["mcts","heuristic","informed"].includes(agent))throw Error("Unknown --agent");
+function choosePolicy(s,options,policy,rng) {
+  if (policy === "random") return options[Math.floor(rng()*options.length)];
+  const score=policy==="informed"?informedHeuristic:heuristicScore;
+  let best=-Infinity,choices=[];
+  for(const a of options){
+    const rating=score(s,a);
+    if(rating>best){best=rating;choices=[a];}
+    else if(rating===best)choices.push(a);
+  }
+  return choices[Math.floor(rng()*choices.length)];
+}
+
 const began=performance.now();
 let winShare=0,scores=0,scoreMargins=0,moveCount=0,sims=0,searchMs=0;
 let firstWins=0,sharedWins=0;
@@ -49,22 +63,16 @@ for(let n=0;n<games;n++){
     let action;
     const options=legalActions(s);
     if(s.currentPlayer===aiSeat){
-      const search=createSearch(s,{rng:seeded((seed^(n*23431+moves*1237))>>>0),
-        maxNodes:Math.max(2000,playouts+50),variant});
-      const t=performance.now();
-      runSearch(search,playouts);
-      searchMs+=performance.now()-t;
-      sims+=search.iterations;
-      action=bestAction(search);
-    } else if(opponent==="heuristic"){
-      let best=-Infinity,choices=[];
-      for(const a of options){
-        const rating=heuristicScore(s,a);
-        if(rating>best){best=rating;choices=[a];}
-        else if(rating===best)choices.push(a);
-      }
-      action=choices[Math.floor(random()*choices.length)];
-    } else action=options[Math.floor(random()*options.length)];
+      if(agent==="mcts") {
+        const search=createSearch(s,{rng:seeded((seed^(n*23431+moves*1237))>>>0),
+          maxNodes:Math.max(2000,playouts+50),variant});
+        const t=performance.now();
+        runSearch(search,playouts);
+        searchMs+=performance.now()-t;
+        sims+=search.iterations;
+        action=bestAction(search);
+      } else action=choosePolicy(s,options,agent,random);
+    } else action=choosePolicy(s,options,opponent,random);
     s=applyAction(s,action);
     moveCount++;
   }
@@ -90,11 +98,11 @@ const margin=(z/denominator)*Math.sqrt(
 const winRange=[Math.max(0,center-margin),Math.min(1,center+margin)];
 console.log(JSON.stringify({
   type:"exploratory tournament (not a strength certification)",
-  config:{games,playouts,players,seed,opponent,variant},
+  config:{games,playouts,players,seed,opponent,variant,agent},
   performance:{
     totalMs:Math.round(performance.now()-began),
     searchMs:Math.round(searchMs),
-    simulations:sims,simulationsPerSearchSecond:Math.round(sims/(searchMs/1000)),
+    simulations:sims,simulationsPerSearchSecond:searchMs?Math.round(sims/(searchMs/1000)):0,
     totalMoves:moveCount
   },
   agent:{
