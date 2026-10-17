@@ -92,6 +92,8 @@ try {
     const d=JSON.parse(localStorage.getItem("board-game-ai-wingspan-v1"));
     return d.history[d.index].state.deck.at(-1);
   });
+  // Observation corrections are intentionally in a collapsed advanced panel.
+  await page.getByText("Record physical observations and corrections").click();
   await page.locator("#obs-card").selectOption(String(wanted));
   await page.locator('button[data-action="observe-card"]').click();
   const tracked=await page.evaluate(()=>{
