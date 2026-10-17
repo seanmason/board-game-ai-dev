@@ -65,3 +65,77 @@ The [diverse opponent workflow](../.github/workflows/opponents.yml) records
 each game configuration separately; match simulation and CPU budgets before
 comparing algorithms. Research qualification is required before promoting the
 feature to the Github Pages development preview.
+
+
+## Observed search-reuse results (2026-10-17)
+
+[Complete rules and browser verification](https://github.com/seanmason/board-game-ai-dev/actions/runs/39005425254)
+
+The benchmark selects the top MCTS action in each of 24 initial drafting
+positions for 2, 3, and 4 players (350 original simulations per position).
+It advances the search to that action and measures how many simulations
+are still conditional on the observed move.
+
+| Players | Successfully rerooted | Original visits summed | Conditional visits retained | Average visits per new root |
+|---|---:|---:|---:|---:|
+| 2 | 24 / 24 | 8,400 | 600 (7.1%) | 25.0 |
+| 3 | 24 / 24 | 8,400 | 581 (6.9%) | 24.2 |
+| 4 | 24 / 24 | 8,400 | 510 (6.1%) | 21.3 |
+
+All 30 Node unit tests, the 10,000-game rules oracle comparison, and the
+Chromium smoke test passed in the cited validation run. The browser test
+confirmed that committing a paused, previously searched action retains the
+corresponding visits, that resume adds further visits, and that undo safely
+invalidates the tree.
+
+**Scope caveat:** these results concern selected first moves under this
+specific search budget, not arbitrary physical play. Unexpanded moves restart
+the worker. They also cannot be extrapolated to multi-round reuse across
+stochastic factory refills.
+
+## Diverse-opponent results (2026-10-17)
+
+[Completed tournament matrix](https://github.com/seanmason/board-game-ai-dev/actions/runs/39005335303)
+
+Headless complete-game tournament, matched RNG seeds and independently
+rotated AI seats/starting players. Each cell below is **24 games** at **128
+MCTS simulations per decision**, with the same separately implemented
+opponent strategy for both search variants. These are exploratory, noisy
+comparisons rather than human-strength measurements.
+
+| Opponent | Players | Guided MCTS win share | Original UCT win share |
+|---|---:|---:|---:|
+| Informed greedy | 2 | 91.7% | 54.2% |
+| Informed greedy | 3 | 54.2% | 4.2% |
+| Informed greedy | 4 | 25.0% | 0% |
+| Denial-oriented | 2 | 70.8% | 25.0% |
+| Denial-oriented | 3 | 22.9% | 0% |
+| Denial-oriented | 4 | 29.2% | 0% |
+| Mixed policies | 2 | 91.7% | 45.8% |
+| Mixed policies | 3 | 58.3% | 12.5% |
+| Mixed policies | 4 | 39.6% | 0% |
+| Stochastic informed | 2 | 100% | 95.8% |
+| Stochastic informed | 3 | 95.8% | 62.5% |
+| Stochastic informed | 4 | 100% | 45.8% |
+
+As an additional head-to-head-style opponent, the original UCT searched
+**64 simulations per decision**. In 12 games per player count, Guided MCTS
+(also 64 simulations) scored 91.7% / 100% / 91.7% win share for 2 / 3 / 4
+players, respectively. These especially small tests are exploratory and
+should not be considered proof of a calibrated strength differential.
+The original UCT versus an independently seeded original-UCT opponent
+produced volatile results, demonstrating how sensitive small tests can be
+to root choices, seating, and search randomness.
+
+### Interpretation
+
+Guided MCTS generally outperformed the original search against the
+different opponent styles at equal simulation budgets. It was not
+universally dominant: in the three-player denial-oriented contest,
+Guided MCTS won only 22.9% of the 24 games, below the equal-strength
+reference share of 33.3%.
+
+Future strength work should target more robust opponent modeling, especially
+defensive/denial drafting and diverse human-like policies. Tournament
+design should also incorporate more seeds, seat-swapped pairings and
+compute-normalized comparisons, rather than trusting small-sample win share.
