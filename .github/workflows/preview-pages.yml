@@ -34,6 +34,7 @@ jobs:
         run: |
           npm test
           npm run check
+          npm run verify:gameplay
       - name: Stage only the public-facing website
         run: |
           set -eu

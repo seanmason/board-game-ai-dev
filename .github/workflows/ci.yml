@@ -12,6 +12,8 @@ jobs:
           node-version: '22'
       - run: npm test
       - run: npm run check
+      - name: Compare 10,000 complete games with independent rules oracle
+        run: npm run verify:gameplay
       - name: Install browser test tools
         run: |
           npm install --no-save playwright@1.56.1
