@@ -32,7 +32,7 @@ try {
   const beforePause = await simulations();
   await page.locator('button[data-action="toggle-search"]').click();
   await page.waitForTimeout(600);
-  assert.match(await page.locator("#search-state").innerText(), /Paused/);
+  assert.match(await page.locator("#search-state").innerText(), /paused/i);
   const paused = await simulations();
   assert.ok(paused >= beforePause, "Pause must preserve prior simulation count");
   await page.waitForTimeout(750);
