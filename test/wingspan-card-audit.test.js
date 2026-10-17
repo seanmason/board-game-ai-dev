@@ -15,6 +15,7 @@ import {powerAvailable,powerOptions,powerDescription} from "../wingspan/powers.j
 
 const POWER_TYPES=new Set(["brown","white","pink","none"]);
 const executed=[],emptyChoices=[];
+let attemptedBranches=0,fullyResolvedBranches=0;
 const foodSum=b=>[...FOOD,"wild"].reduce((n,f)=>n+(b.food[f]||0),0);
 function pull(s,id){
   const pools=[s.deck,s.birdDiscard,s.tray,...s.players.map(p=>p.hand)];
@@ -176,12 +177,27 @@ for(const bird of BIRDS){
     // Skipping the original optional activation always preserves all cards.
     const skipped=applyAction(state,{type:"power",skip:true});
     assertValid(skipped);
-    if(choices.length){
-      const choice=choices[0].choice;
+    for(const option of choices) {
+      attemptedBranches++;
       let after;
-      assert.doesNotThrow(()=>{after=applyAction(state,{type:"power",choice});},
-        "Executable power choice failed for "+bird.name);
+      assert.doesNotThrow(()=>{after=applyAction(state,{
+        type:"power",choice:option.choice
+      });}, "Power choice failed for "+bird.name+" / "+option.label);
       assertValid(after);
+      // Resolve the entire nested chain as well: mandatory discards, shared
+      // drafts, replicated powers and card reveals cannot be left untested.
+      let hops=0;
+      while(after.phase==="power"){
+        if(++hops>40)throw Error("Power cycle exceeded 40 steps on "+bird.name);
+        const offered=powerChoices(after);
+        assert.ok(offered.length,
+          "Nested power has no resolvable decision for "+bird.name);
+        const preferred=offered.find(x=>x.type==="skip")??offered[0];
+        after=applyAction(after,preferred.type==="skip"?
+          {type:"power",skip:true}:{type:"power",choice:preferred.choice});
+        assertValid(after);
+      }
+      fullyResolvedBranches++;
     }
   });
 }
@@ -192,6 +208,7 @@ test("Card-effect fixture coverage ledger",()=>{
     .filter(c=>!archetypes.has(c));
   console.log("WINGSPAN_CARD_AUDIT "+JSON.stringify({
     totalBirds:BIRDS.length,activated:executed.length,
+    attemptedBranches,fullyResolvedBranches,
     noPositiveChoice:emptyChoices.length,
     codesActivated:archetypes.size,codesExpected:67,
     unexercisedCodes:unexercised,missingSample:emptyChoices
