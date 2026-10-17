@@ -58,15 +58,15 @@ try {
 
   // Both analysis methods must be independently usable in the browser.
   await awaitSamples();
-  assert.equal(await page.locator("#search-method").inputValue(),"heuristic");
-  const unchanged=await page.locator(".banner strong").first().innerText();
-  await page.locator("#search-method").selectOption("belief-rollout");
   assert.equal(await page.locator("#search-method").inputValue(),"belief-rollout");
+  const unchanged=await page.locator(".banner strong").first().innerText();
+  await page.locator("#search-method").selectOption("heuristic");
+  assert.equal(await page.locator("#search-method").inputValue(),"heuristic");
+  await awaitSamples();
+  await page.locator("#search-method").selectOption("belief-rollout");
   await awaitSamples();
   assert.equal(await page.locator(".banner strong").first().innerText(),unchanged,
     "Rollout analysis must not play moves automatically");
-  await page.locator("#search-method").selectOption("heuristic");
-  await awaitSamples();
   const beforePause=await samples();
   await page.locator('button[data-action="toggle-analysis"]').click();
   await page.waitForTimeout(550);
