@@ -74,7 +74,16 @@ for(let n=0;n<games;n++){
   scoreMargins+=score-otherScores.reduce((a,b)=>a+b,0)/otherScores.length;
 }
 const proportion=winShare/games;
-const se=Math.sqrt(Math.max(0,proportion*(1-proportion)/games));
+// Wilson interval: unlike a naive normal interval, zero observed wins do
+// not incorrectly imply a zero upper bound. Shared wins are weighted in the
+// estimated share; these bounds remain approximate, not calibrated.
+const z=1.96, z2=z*z;
+const denominator=1+z2/games;
+const center=(proportion+z2/(2*games))/denominator;
+const margin=(z/denominator)*Math.sqrt(
+  (proportion*(1-proportion)/games)+(z2/(4*games*games))
+);
+const winRange=[Math.max(0,center-margin),Math.min(1,center+margin)];
 console.log(JSON.stringify({
   type:"exploratory tournament (not a strength certification)",
   config:{games,playouts,players,seed,opponent},
@@ -88,7 +97,7 @@ console.log(JSON.stringify({
     averageScore:Number((scores/games).toFixed(2)),
     averageScoreMargin:Number((scoreMargins/games).toFixed(2)),
     winShare:Number(proportion.toFixed(3)),
-    approximate95PercentWinShareRange:[Math.max(0,proportion-1.96*se),Math.min(1,proportion+1.96*se)].map(n=>Number(n.toFixed(3))),
+    approximate95PercentWinShareRange:winRange.map(n=>Number(n.toFixed(3))),
     outrightWins:firstWins,sharedWins
   }
 },null,2));
