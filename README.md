@@ -1,10 +1,28 @@
 # Tabletop Observatory — Board Game AI
 
-A browser-native strategy-game companion and analysis workbench. Games: **Azul** and **Pentago** (in development).
+A browser-native strategy-game companion and analysis workbench. Games: **Azul, Pentago, Splendor**, plus five new development companions.
 
 **Primary workflows:** enter moves and factory refills from a real physical board, or analyze candidate actions and continuations in a KataGo-inspired interface. Full digital play is also supported as an experimental secondary workflow.
 
 **Status:** Development prototype, not yet publicly released. Rules and AI performance are being validated. Development takes place in this repository, currently public for previews; released, source-available standalone games will be published separately at [board-game-ai](https://github.com/seanmason/board-game-ai).
+
+## Game directory
+
+Open [the game directory](games.html) to choose a companion. The five new games
+are development previews; functional validation does not establish expert AI
+strength. Each report documents source evidence, tests and remaining limitations.
+
+| Game | Implemented scope | Development report |
+| --- | --- | --- |
+| 7 Wonders Duel | Base game, 2 players | [Rules, UI and AI](docs/SEVEN_WONDERS_DUEL.md) |
+| Carcassonne | 72 core tiles, farmers, 2–5 players; no River/Abbot | [Rules, UI and AI](docs/CARCASSONNE.md) |
+| Cascadia | Standard base game, all A–D wildlife cards, 1–4 players | [Rules, UI and AI](docs/CASCADIA.md) |
+| Patchwork | Original 33 patches, old/corrected time tracks, 2 players | [Rules, UI and AI](docs/PATCHWORK.md) |
+| Kingdomino | Original/US second edition, 5×5, 2–4 players | [Rules, UI and AI](docs/KINGDOMINO.md) |
+
+These companions require explicit recording of actual setup and reveal events.
+Analysis is an aid to decisions and never plays automatically. Saved histories
+can be corrected with undo/redo or imported after validation.
 
 ## Start locally
 

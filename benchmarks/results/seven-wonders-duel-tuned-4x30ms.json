@@ -1,0 +1,2899 @@
+{
+  "game": "seven-wonders-duel",
+  "schema": 1,
+  "seed": 712351,
+  "games": 4,
+  "opponent": "tuned",
+  "search": {
+    "depth": 2,
+    "iterations": null,
+    "ms": 30,
+    "rootCoverage": "time-limited; may not cover root"
+  },
+  "winShare": 1,
+  "approxWilson95": [
+    0.5100999795960008,
+    1
+  ],
+  "elapsedMs": 4867.996837000001,
+  "limitations": "Alternating seats with paired setup seeds; tuned heuristic has no adversarial search and uses substantially less compute. The search-shallow variant uses depth1/beam4 with the same requested time; target search uses the requested depth/beam7. Synchronous iterations may overshoot time budgets; actual per-game totals are retained. Finite-horizon/beam/hidden-world policy biases apply. Small pilots do not establish human strength, calibration, or matched-compute superiority.",
+  "results": [
+    {
+      "game": 0,
+      "seed": 712351,
+      "searchSeat": 0,
+      "firstPlayer": 0,
+      "share": 1,
+      "reason": "civilian",
+      "scores": [
+        74,
+        53
+      ],
+      "searchMs": 1194.067688,
+      "opponentMs": 23.463464999999587,
+      "samples": 634,
+      "nodes": 5774,
+      "opponentSamples": 0,
+      "opponentNodes": 0,
+      "moves": [
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w1"
+          },
+          "samples": 35
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w8"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w10"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w11"
+          },
+          "samples": 26
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w12"
+          },
+          "samples": 54
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w9"
+          },
+          "samples": 9
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w5"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 2
+        },
+        {
+          "turn": 1,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 2,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 5
+        },
+        {
+          "turn": 3,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 0
+        },
+        {
+          "turn": 4,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 14,
+            "id": "w11"
+          },
+          "samples": 6
+        },
+        {
+          "turn": 5,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 17
+          },
+          "samples": 7
+        },
+        {
+          "turn": 6,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 0
+        },
+        {
+          "turn": 7,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 8,
+            "id": "w1"
+          },
+          "samples": 6
+        },
+        {
+          "turn": 8,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 16
+          },
+          "samples": 0
+        },
+        {
+          "turn": 9,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 9
+          },
+          "samples": 8
+        },
+        {
+          "turn": 10,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 0
+        },
+        {
+          "turn": 11,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 5
+          },
+          "samples": 17
+        },
+        {
+          "turn": 12,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 0
+        },
+        {
+          "turn": 13,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 10
+        },
+        {
+          "turn": 14,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 2
+          },
+          "samples": 0
+        },
+        {
+          "turn": 15,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 7
+        },
+        {
+          "turn": 16,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 0
+        },
+        {
+          "turn": 17,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 0
+          },
+          "samples": 6
+        },
+        {
+          "turn": 18,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 4,
+            "id": "w8"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 19,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 0
+        },
+        {
+          "turn": 20,
+          "phase": "starter",
+          "seat": 1,
+          "action": {
+            "type": "starter",
+            "player": 1
+          },
+          "samples": 0
+        },
+        {
+          "turn": 20,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 18,
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 21,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 7
+        },
+        {
+          "turn": 22,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 0
+        },
+        {
+          "turn": 23,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 19,
+            "id": "w9"
+          },
+          "samples": 9
+        },
+        {
+          "turn": 24,
+          "phase": "destroy",
+          "seat": 0,
+          "action": {
+            "type": "destroy",
+            "id": "c2"
+          },
+          "samples": 11
+        },
+        {
+          "turn": 24,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 6
+          },
+          "samples": 0
+        },
+        {
+          "turn": 25,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 9
+        },
+        {
+          "turn": 26,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 0
+          },
+          "samples": 0
+        },
+        {
+          "turn": 27,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 18
+        },
+        {
+          "turn": 28,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 7
+          },
+          "samples": 0
+        },
+        {
+          "turn": 29,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 9
+        },
+        {
+          "turn": 30,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 17
+          },
+          "samples": 0
+        },
+        {
+          "turn": 31,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 6
+        },
+        {
+          "turn": 32,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 0
+        },
+        {
+          "turn": 33,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 2,
+            "id": "w12"
+          },
+          "samples": 12
+        },
+        {
+          "turn": 34,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 0
+        },
+        {
+          "turn": 35,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 18
+        },
+        {
+          "turn": 36,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 9
+          },
+          "samples": 0
+        },
+        {
+          "turn": 37,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 5
+          },
+          "samples": 5
+        },
+        {
+          "turn": 38,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 0
+        },
+        {
+          "turn": 39,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 3
+          },
+          "samples": 7
+        },
+        {
+          "turn": 40,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 8
+        },
+        {
+          "turn": 40,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 8
+        },
+        {
+          "turn": 41,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 0
+        },
+        {
+          "turn": 42,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 8
+        },
+        {
+          "turn": 43,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 14,
+            "id": "w10"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 44,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 45,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 26
+        },
+        {
+          "turn": 46,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 16
+          },
+          "samples": 0
+        },
+        {
+          "turn": 47,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 12
+        },
+        {
+          "turn": 48,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 0
+        },
+        {
+          "turn": 49,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 11
+        },
+        {
+          "turn": 50,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 0
+        },
+        {
+          "turn": 51,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 6
+        },
+        {
+          "turn": 52,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 5
+          },
+          "samples": 0
+        },
+        {
+          "turn": 53,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 10
+        },
+        {
+          "turn": 54,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 2
+          },
+          "samples": 0
+        },
+        {
+          "turn": 55,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 10
+        },
+        {
+          "turn": 56,
+          "phase": "progress",
+          "seat": 0,
+          "action": {
+            "type": "progress",
+            "id": "philosophy"
+          },
+          "samples": 17
+        },
+        {
+          "turn": 56,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 0
+          },
+          "samples": 0
+        },
+        {
+          "turn": 57,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 40
+        },
+        {
+          "turn": 58,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 0
+        },
+        {
+          "turn": 59,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 1
+          },
+          "samples": 169
+        }
+      ]
+    },
+    {
+      "game": 1,
+      "seed": 712351,
+      "searchSeat": 1,
+      "firstPlayer": 0,
+      "share": 1,
+      "reason": "civilian",
+      "scores": [
+        46,
+        67
+      ],
+      "searchMs": 1304.2196840000001,
+      "opponentMs": 23.147134999999707,
+      "samples": 588,
+      "nodes": 7905,
+      "opponentSamples": 0,
+      "opponentNodes": 0,
+      "moves": [
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w8"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w1"
+          },
+          "samples": 107
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w10"
+          },
+          "samples": 65
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w11"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w12"
+          },
+          "samples": 44
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w9"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w5"
+          },
+          "samples": 3
+        },
+        {
+          "turn": 0,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 1,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 2
+        },
+        {
+          "turn": 2,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 0
+        },
+        {
+          "turn": 3,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 13,
+            "id": "w1"
+          },
+          "samples": 3
+        },
+        {
+          "turn": 4,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 14,
+            "id": "w8"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 5,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 0
+        },
+        {
+          "turn": 6,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 9
+          },
+          "samples": 9
+        },
+        {
+          "turn": 7,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 0
+        },
+        {
+          "turn": 8,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 8
+          },
+          "samples": 10
+        },
+        {
+          "turn": 9,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 16,
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 10,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 11
+          },
+          "samples": 16
+        },
+        {
+          "turn": 11,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 0
+        },
+        {
+          "turn": 12,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 8
+        },
+        {
+          "turn": 13,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 5
+          },
+          "samples": 0
+        },
+        {
+          "turn": 14,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 2
+          },
+          "samples": 12
+        },
+        {
+          "turn": 15,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 0
+        },
+        {
+          "turn": 16,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 3,
+            "id": "w10"
+          },
+          "samples": 13
+        },
+        {
+          "turn": 17,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 20
+        },
+        {
+          "turn": 18,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 4
+          },
+          "samples": 0
+        },
+        {
+          "turn": 19,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 6
+        },
+        {
+          "turn": 20,
+          "phase": "starter",
+          "seat": 1,
+          "action": {
+            "type": "starter",
+            "player": 1
+          },
+          "samples": 6
+        },
+        {
+          "turn": 20,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 18
+          },
+          "samples": 7
+        },
+        {
+          "turn": 21,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 22,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 5
+        },
+        {
+          "turn": 23,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 0
+        },
+        {
+          "turn": 24,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 9
+        },
+        {
+          "turn": 25,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 19
+          },
+          "samples": 0
+        },
+        {
+          "turn": 26,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 3
+        },
+        {
+          "turn": 27,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 0
+        },
+        {
+          "turn": 28,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 3
+        },
+        {
+          "turn": 29,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 0
+        },
+        {
+          "turn": 30,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 9,
+            "id": "w12"
+          },
+          "samples": 3
+        },
+        {
+          "turn": 31,
+          "phase": "destroy",
+          "seat": 1,
+          "action": {
+            "type": "destroy",
+            "id": "c8"
+          },
+          "samples": 5
+        },
+        {
+          "turn": 31,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 0
+        },
+        {
+          "turn": 32,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 7
+          },
+          "samples": 2
+        },
+        {
+          "turn": 33,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 0
+        },
+        {
+          "turn": 34,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 3
+        },
+        {
+          "turn": 35,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 2
+          },
+          "samples": 0
+        },
+        {
+          "turn": 36,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 3
+          },
+          "samples": 2
+        },
+        {
+          "turn": 37,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 0
+        },
+        {
+          "turn": 38,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 5
+          },
+          "samples": 5
+        },
+        {
+          "turn": 39,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 4
+          },
+          "samples": 0
+        },
+        {
+          "turn": 40,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 1
+          },
+          "samples": 0
+        },
+        {
+          "turn": 40,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 1
+        },
+        {
+          "turn": 41,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 15,
+            "id": "w9"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 42,
+          "phase": "destroy",
+          "seat": 0,
+          "action": {
+            "type": "destroy",
+            "id": "c3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 42,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 3
+        },
+        {
+          "turn": 43,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 11
+          },
+          "samples": 0
+        },
+        {
+          "turn": 44,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 16,
+            "id": "w5"
+          },
+          "samples": 5
+        },
+        {
+          "turn": 45,
+          "phase": "recover",
+          "seat": 1,
+          "action": {
+            "type": "recover",
+            "id": "c64"
+          },
+          "samples": 11
+        },
+        {
+          "turn": 45,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 0
+        },
+        {
+          "turn": 46,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 14
+          },
+          "samples": 10
+        },
+        {
+          "turn": 47,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 0
+        },
+        {
+          "turn": 48,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 13
+          },
+          "samples": 8
+        },
+        {
+          "turn": 49,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 0
+        },
+        {
+          "turn": 50,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 5
+          },
+          "samples": 9
+        },
+        {
+          "turn": 51,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 0
+        },
+        {
+          "turn": 52,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 2
+          },
+          "samples": 18
+        },
+        {
+          "turn": 53,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 0
+        },
+        {
+          "turn": 54,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 17
+        },
+        {
+          "turn": 55,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 0
+        },
+        {
+          "turn": 56,
+          "phase": "progress",
+          "seat": 0,
+          "action": {
+            "type": "progress",
+            "id": "philosophy"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 56,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 0
+          },
+          "samples": 45
+        },
+        {
+          "turn": 57,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 8
+          },
+          "samples": 0
+        },
+        {
+          "turn": 58,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 90
+        },
+        {
+          "turn": 59,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 1
+          },
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "seed": 712352,
+      "searchSeat": 0,
+      "firstPlayer": 1,
+      "share": 1,
+      "reason": "civilian",
+      "scores": [
+        65,
+        59
+      ],
+      "searchMs": 1222.804646,
+      "opponentMs": 16.035494999999628,
+      "samples": 718,
+      "nodes": 8845,
+      "opponentSamples": 0,
+      "opponentNodes": 0,
+      "moves": [
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w8"
+          },
+          "samples": 171
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w7"
+          },
+          "samples": 142
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w11"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w4"
+          },
+          "samples": 71
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w1"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w2"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w5"
+          },
+          "samples": 4
+        },
+        {
+          "turn": 0,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 1,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 3
+        },
+        {
+          "turn": 2,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 18,
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 3,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 13,
+            "id": "w4"
+          },
+          "samples": 3
+        },
+        {
+          "turn": 4,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 17,
+            "id": "w8"
+          },
+          "samples": 5
+        },
+        {
+          "turn": 5,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 14
+          },
+          "samples": 5
+        },
+        {
+          "turn": 6,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 0
+        },
+        {
+          "turn": 7,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 16,
+            "id": "w7"
+          },
+          "samples": 9
+        },
+        {
+          "turn": 8,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 12
+        },
+        {
+          "turn": 9,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 11
+          },
+          "samples": 0
+        },
+        {
+          "turn": 10,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 9
+        },
+        {
+          "turn": 11,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 0
+        },
+        {
+          "turn": 12,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 6
+        },
+        {
+          "turn": 13,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 7
+          },
+          "samples": 0
+        },
+        {
+          "turn": 14,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 6
+        },
+        {
+          "turn": 15,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 0
+        },
+        {
+          "turn": 16,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 11
+        },
+        {
+          "turn": 17,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 5,
+            "id": "w2"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 18,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 2
+          },
+          "samples": 10
+        },
+        {
+          "turn": 19,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 0
+          },
+          "samples": 0
+        },
+        {
+          "turn": 20,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 8
+        },
+        {
+          "turn": 20,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 9
+        },
+        {
+          "turn": 21,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 0
+        },
+        {
+          "turn": 22,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 8
+        },
+        {
+          "turn": 23,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 0
+        },
+        {
+          "turn": 24,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 5
+          },
+          "samples": 8
+        },
+        {
+          "turn": 25,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 0
+        },
+        {
+          "turn": 26,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 4
+        },
+        {
+          "turn": 27,
+          "phase": "progress",
+          "seat": 0,
+          "action": {
+            "type": "progress",
+            "id": "philosophy"
+          },
+          "samples": 10
+        },
+        {
+          "turn": 27,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 0
+        },
+        {
+          "turn": 28,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 10
+        },
+        {
+          "turn": 29,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 0
+        },
+        {
+          "turn": 30,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 6
+        },
+        {
+          "turn": 31,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 0
+        },
+        {
+          "turn": 32,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 6
+        },
+        {
+          "turn": 33,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 0
+        },
+        {
+          "turn": 34,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 8
+        },
+        {
+          "turn": 35,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 2
+          },
+          "samples": 0
+        },
+        {
+          "turn": 36,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 19
+        },
+        {
+          "turn": 37,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 9
+          },
+          "samples": 0
+        },
+        {
+          "turn": 38,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 13
+        },
+        {
+          "turn": 39,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 4,
+            "id": "w11"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 40,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 22
+        },
+        {
+          "turn": 40,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 17
+        },
+        {
+          "turn": 41,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 42,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 17
+        },
+        {
+          "turn": 43,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 19
+          },
+          "samples": 0
+        },
+        {
+          "turn": 44,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 16
+        },
+        {
+          "turn": 45,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 0
+        },
+        {
+          "turn": 46,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 16
+          },
+          "samples": 20
+        },
+        {
+          "turn": 47,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 0
+        },
+        {
+          "turn": 48,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 12
+          },
+          "samples": 6
+        },
+        {
+          "turn": 49,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 0
+        },
+        {
+          "turn": 50,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 5
+        },
+        {
+          "turn": 51,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 0
+        },
+        {
+          "turn": 52,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 5
+          },
+          "samples": 4
+        },
+        {
+          "turn": 53,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 0
+        },
+        {
+          "turn": 54,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 5
+        },
+        {
+          "turn": 55,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 0
+        },
+        {
+          "turn": 56,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 6
+        },
+        {
+          "turn": 57,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 2
+          },
+          "samples": 0
+        },
+        {
+          "turn": 58,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 24
+        },
+        {
+          "turn": 59,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 0
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "seed": 712352,
+      "searchSeat": 1,
+      "firstPlayer": 1,
+      "share": 1,
+      "reason": "military",
+      "scores": [
+        30,
+        40
+      ],
+      "searchMs": 944.486441,
+      "opponentMs": 18.61495199999854,
+      "samples": 588,
+      "nodes": 6309,
+      "opponentSamples": 0,
+      "opponentNodes": 0,
+      "moves": [
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w8"
+          },
+          "samples": 97
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w7"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w11"
+          },
+          "samples": 51
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w4"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w2"
+          },
+          "samples": 132
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w5"
+          },
+          "samples": 15
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w1"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 0,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 2
+        },
+        {
+          "turn": 1,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 0
+        },
+        {
+          "turn": 2,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 14,
+            "id": "w8"
+          },
+          "samples": 2
+        },
+        {
+          "turn": 3,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 2
+        },
+        {
+          "turn": 4,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 17,
+            "id": "w3"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 5,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 4
+        },
+        {
+          "turn": 6,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 18
+          },
+          "samples": 0
+        },
+        {
+          "turn": 7,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 2
+        },
+        {
+          "turn": 8,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 0
+        },
+        {
+          "turn": 9,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 6
+          },
+          "samples": 3
+        },
+        {
+          "turn": 10,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 0
+        },
+        {
+          "turn": 11,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 5
+          },
+          "samples": 4
+        },
+        {
+          "turn": 12,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 12,
+            "id": "w4"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 13,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 2,
+            "id": "w1"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 14,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 8,
+            "id": "w2"
+          },
+          "samples": 8
+        },
+        {
+          "turn": 15,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 7
+          },
+          "samples": 0
+        },
+        {
+          "turn": 16,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 10
+        },
+        {
+          "turn": 17,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 0
+        },
+        {
+          "turn": 18,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 0
+          },
+          "samples": 7
+        },
+        {
+          "turn": 19,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 1,
+            "id": "w7"
+          },
+          "samples": 0
+        },
+        {
+          "turn": 20,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 0
+        },
+        {
+          "turn": 20,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 19
+          },
+          "samples": 0
+        },
+        {
+          "turn": 21,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 10
+        },
+        {
+          "turn": 22,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 0
+        },
+        {
+          "turn": 23,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 12
+        },
+        {
+          "turn": 24,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 5
+          },
+          "samples": 0
+        },
+        {
+          "turn": 25,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 18,
+            "id": "w11"
+          },
+          "samples": 14
+        },
+        {
+          "turn": 26,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 16
+        },
+        {
+          "turn": 27,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 28,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 13
+          },
+          "samples": 15
+        },
+        {
+          "turn": 29,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 11
+          },
+          "samples": 0
+        },
+        {
+          "turn": 30,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 6
+          },
+          "samples": 9
+        },
+        {
+          "turn": 31,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 0
+        },
+        {
+          "turn": 32,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 14
+        },
+        {
+          "turn": 33,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 4
+          },
+          "samples": 0
+        },
+        {
+          "turn": 34,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 17
+        },
+        {
+          "turn": 35,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 0
+        },
+        {
+          "turn": 36,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 35
+        },
+        {
+          "turn": 37,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 7
+          },
+          "samples": 0
+        },
+        {
+          "turn": 38,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 1
+          },
+          "samples": 21
+        },
+        {
+          "turn": 39,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 2
+          },
+          "samples": 0
+        },
+        {
+          "turn": 40,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 0
+        },
+        {
+          "turn": 40,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 19
+          },
+          "samples": 0
+        },
+        {
+          "turn": 41,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 17
+        },
+        {
+          "turn": 42,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 0
+        },
+        {
+          "turn": 43,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 18
+          },
+          "samples": 20
+        },
+        {
+          "turn": 44,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 0
+        },
+        {
+          "turn": 45,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 12
+        },
+        {
+          "turn": 46,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 0
+        },
+        {
+          "turn": 47,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 10
+        },
+        {
+          "turn": 48,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 0
+        },
+        {
+          "turn": 49,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 27
+        }
+      ]
+    }
+  ]
+}

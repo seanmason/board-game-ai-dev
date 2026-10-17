@@ -1,0 +1,1732 @@
+{
+  "game": "seven-wonders-duel",
+  "schema": 1,
+  "seed": 819191,
+  "games": 2,
+  "opponent": "search-shallow",
+  "search": {
+    "depth": 2,
+    "iterations": null,
+    "ms": 100,
+    "rootCoverage": "time-limited; may not cover root"
+  },
+  "winShare": 1,
+  "approxWilson95": [
+    0.34237195288961925,
+    1
+  ],
+  "elapsedMs": 13825.590344,
+  "limitations": "Alternating seats with paired setup seeds; tuned heuristic has no adversarial search and uses substantially less compute. The search-shallow variant uses depth1/beam4 with the same requested time; target search uses the requested depth/beam7. Synchronous iterations may overshoot time budgets; actual per-game totals are retained. Finite-horizon/beam/hidden-world policy biases apply. Small pilots do not establish human strength, calibration, or matched-compute superiority.",
+  "results": [
+    {
+      "game": 0,
+      "seed": 819191,
+      "searchSeat": 0,
+      "firstPlayer": 0,
+      "share": 1,
+      "reason": "civilian",
+      "scores": [
+        46,
+        44
+      ],
+      "searchMs": 3978.1065259999978,
+      "opponentMs": 3211.31592,
+      "samples": 2937,
+      "nodes": 27120,
+      "opponentSamples": 8282,
+      "opponentNodes": 33824,
+      "decisions": [
+        39,
+        32
+      ],
+      "timeOverruns": [
+        39,
+        32
+      ],
+      "maxOverrunsMs": [
+        12.730553999999984,
+        1.5271719999999505
+      ],
+      "moves": [
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w8"
+          },
+          "samples": 223,
+          "elapsedMs": 100.443423,
+          "overrunMs": 0.4434229999999957
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w1"
+          },
+          "samples": 648,
+          "elapsedMs": 100.07855799999999,
+          "overrunMs": 0.0785579999999868
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w2"
+          },
+          "samples": 1606,
+          "elapsedMs": 100.10548900000003,
+          "overrunMs": 0.10548900000003414
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w11"
+          },
+          "samples": 162,
+          "elapsedMs": 100.571686,
+          "overrunMs": 0.5716859999999997
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w12"
+          },
+          "samples": 623,
+          "elapsedMs": 100.06898300000006,
+          "overrunMs": 0.06898300000005975
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w10"
+          },
+          "samples": 385,
+          "elapsedMs": 100.25664099999995,
+          "overrunMs": 0.25664099999994505
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w4"
+          },
+          "samples": 53,
+          "elapsedMs": 100.62946899999997,
+          "overrunMs": 0.6294689999999719
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w9"
+          },
+          "samples": 68,
+          "elapsedMs": 100.18393700000001,
+          "overrunMs": 0.18393700000001445
+        },
+        {
+          "turn": 0,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 6,
+          "elapsedMs": 112.73055399999998,
+          "overrunMs": 12.730553999999984
+        },
+        {
+          "turn": 1,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 22,
+          "elapsedMs": 101.52717199999995,
+          "overrunMs": 1.5271719999999505
+        },
+        {
+          "turn": 2,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 14,
+            "id": "w4"
+          },
+          "samples": 10,
+          "elapsedMs": 101.55039800000009,
+          "overrunMs": 1.5503980000000865
+        },
+        {
+          "turn": 3,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 17,
+            "id": "w11"
+          },
+          "samples": 11,
+          "elapsedMs": 110.88474799999995,
+          "overrunMs": 10.884747999999945
+        },
+        {
+          "turn": 4,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 12
+          },
+          "samples": 14,
+          "elapsedMs": 104.3041189999999,
+          "overrunMs": 4.3041189999999006
+        },
+        {
+          "turn": 5,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 19
+          },
+          "samples": 92,
+          "elapsedMs": 100.64372000000003,
+          "overrunMs": 0.6437200000000303
+        },
+        {
+          "turn": 6,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 11,
+            "id": "w10"
+          },
+          "samples": 23,
+          "elapsedMs": 101.31282799999985,
+          "overrunMs": 1.312827999999854
+        },
+        {
+          "turn": 7,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 45,
+          "elapsedMs": 101.76510000000007,
+          "overrunMs": 1.765100000000075
+        },
+        {
+          "turn": 8,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 13
+          },
+          "samples": 233,
+          "elapsedMs": 100.02558700000009,
+          "overrunMs": 0.025587000000086846
+        },
+        {
+          "turn": 9,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 15
+          },
+          "samples": 29,
+          "elapsedMs": 102.40379299999995,
+          "overrunMs": 2.4037929999999506
+        },
+        {
+          "turn": 10,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 9,
+            "id": "w2"
+          },
+          "samples": 172,
+          "elapsedMs": 100.17235899999991,
+          "overrunMs": 0.17235899999991489
+        },
+        {
+          "turn": 11,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 10
+          },
+          "samples": 61,
+          "elapsedMs": 103.12782000000016,
+          "overrunMs": 3.127820000000156
+        },
+        {
+          "turn": 12,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 6
+          },
+          "samples": 175,
+          "elapsedMs": 100.21269999999959,
+          "overrunMs": 0.212699999999586
+        },
+        {
+          "turn": 13,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 3
+          },
+          "samples": 48,
+          "elapsedMs": 100.7836500000003,
+          "overrunMs": 0.783650000000307
+        },
+        {
+          "turn": 14,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 220,
+          "elapsedMs": 100.11599800000022,
+          "overrunMs": 0.11599800000021787
+        },
+        {
+          "turn": 15,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 76,
+          "elapsedMs": 101.54584999999997,
+          "overrunMs": 1.545849999999973
+        },
+        {
+          "turn": 16,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 1
+          },
+          "samples": 323,
+          "elapsedMs": 100.18548800000008,
+          "overrunMs": 0.1854880000000776
+        },
+        {
+          "turn": 17,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 5
+          },
+          "samples": 97,
+          "elapsedMs": 101.36780200000021,
+          "overrunMs": 1.3678020000002107
+        },
+        {
+          "turn": 18,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 2
+          },
+          "samples": 93,
+          "elapsedMs": 101.02760899999976,
+          "overrunMs": 1.0276089999997566
+        },
+        {
+          "turn": 19,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 36,
+          "elapsedMs": 101.08221999999978,
+          "overrunMs": 1.0822199999997792
+        },
+        {
+          "turn": 20,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 60,
+          "elapsedMs": 100.45138999999972,
+          "overrunMs": 0.4513899999997193
+        },
+        {
+          "turn": 20,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 18
+          },
+          "samples": 62,
+          "elapsedMs": 100.13271799999984,
+          "overrunMs": 0.13271799999984069
+        },
+        {
+          "turn": 21,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 15
+          },
+          "samples": 167,
+          "elapsedMs": 100.25179799999978,
+          "overrunMs": 0.2517979999997806
+        },
+        {
+          "turn": 22,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 27,
+          "elapsedMs": 100.3075630000003,
+          "overrunMs": 0.30756300000030024
+        },
+        {
+          "turn": 23,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 146,
+          "elapsedMs": 100.01409899999999,
+          "overrunMs": 0.014098999999987427
+        },
+        {
+          "turn": 24,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 42,
+          "elapsedMs": 101.1043850000001,
+          "overrunMs": 1.104385000000093
+        },
+        {
+          "turn": 25,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 14
+          },
+          "samples": 168,
+          "elapsedMs": 100.12088099999983,
+          "overrunMs": 0.1208809999998266
+        },
+        {
+          "turn": 26,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 6
+          },
+          "samples": 27,
+          "elapsedMs": 103.7638750000001,
+          "overrunMs": 3.7638750000000982
+        },
+        {
+          "turn": 27,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 202,
+          "elapsedMs": 100.2811529999999,
+          "overrunMs": 0.28115299999990384
+        },
+        {
+          "turn": 28,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 33,
+          "elapsedMs": 105.17281999999977,
+          "overrunMs": 5.172819999999774
+        },
+        {
+          "turn": 29,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 5
+          },
+          "samples": 366,
+          "elapsedMs": 100.11312399999997,
+          "overrunMs": 0.11312399999997069
+        },
+        {
+          "turn": 30,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 16
+          },
+          "samples": 30,
+          "elapsedMs": 102.58661000000029,
+          "overrunMs": 2.5866100000002916
+        },
+        {
+          "turn": 31,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 12
+          },
+          "samples": 211,
+          "elapsedMs": 100.26208300000053,
+          "overrunMs": 0.26208300000052986
+        },
+        {
+          "turn": 32,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 30,
+          "elapsedMs": 101.19323799999984,
+          "overrunMs": 1.1932379999998375
+        },
+        {
+          "turn": 33,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 1
+          },
+          "samples": 263,
+          "elapsedMs": 100.11155699999927,
+          "overrunMs": 0.11155699999926583
+        },
+        {
+          "turn": 34,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 13
+          },
+          "samples": 38,
+          "elapsedMs": 101.93879300000026,
+          "overrunMs": 1.9387930000002598
+        },
+        {
+          "turn": 35,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 224,
+          "elapsedMs": 100.40657099999953,
+          "overrunMs": 0.4065709999995306
+        },
+        {
+          "turn": 36,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 26,
+          "elapsedMs": 101.14345799999955,
+          "overrunMs": 1.1434579999995549
+        },
+        {
+          "turn": 37,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 3
+          },
+          "samples": 108,
+          "elapsedMs": 100.45836599999984,
+          "overrunMs": 0.45836599999984173
+        },
+        {
+          "turn": 38,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 2
+          },
+          "samples": 18,
+          "elapsedMs": 101.92849699999988,
+          "overrunMs": 1.9284969999998793
+        },
+        {
+          "turn": 39,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 4,
+            "id": "w1"
+          },
+          "samples": 69,
+          "elapsedMs": 100.94966100000056,
+          "overrunMs": 0.9496610000005603
+        },
+        {
+          "turn": 40,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 33,
+          "elapsedMs": 101.94412000000011,
+          "overrunMs": 1.9441200000001118
+        },
+        {
+          "turn": 40,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 19,
+            "id": "w8"
+          },
+          "samples": 31,
+          "elapsedMs": 101.55055799999991,
+          "overrunMs": 1.55055799999991
+        },
+        {
+          "turn": 41,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 29,
+          "elapsedMs": 101.07573999999931,
+          "overrunMs": 1.075739999999314
+        },
+        {
+          "turn": 42,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 17,
+            "id": "w12"
+          },
+          "samples": 121,
+          "elapsedMs": 101.05987699999969,
+          "overrunMs": 1.0598769999996875
+        },
+        {
+          "turn": 43,
+          "phase": "destroy",
+          "seat": 1,
+          "action": {
+            "type": "destroy",
+            "id": "c28"
+          },
+          "samples": 147,
+          "elapsedMs": 100.49670799999967,
+          "overrunMs": 0.4967079999996713
+        },
+        {
+          "turn": 43,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 44,
+          "elapsedMs": 100.7050220000001,
+          "overrunMs": 0.7050220000000991
+        },
+        {
+          "turn": 44,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 15
+          },
+          "samples": 234,
+          "elapsedMs": 100.43135900000016,
+          "overrunMs": 0.4313590000001568
+        },
+        {
+          "turn": 45,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 11
+          },
+          "samples": 33,
+          "elapsedMs": 101.3283620000002,
+          "overrunMs": 1.3283620000001974
+        },
+        {
+          "turn": 46,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 13
+          },
+          "samples": 198,
+          "elapsedMs": 100.4556509999993,
+          "overrunMs": 0.4556509999993068
+        },
+        {
+          "turn": 47,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 14
+          },
+          "samples": 52,
+          "elapsedMs": 101.52383699999973,
+          "overrunMs": 1.5238369999997303
+        },
+        {
+          "turn": 48,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 172,
+          "elapsedMs": 100.54722300000049,
+          "overrunMs": 0.5472230000004856
+        },
+        {
+          "turn": 49,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 68,
+          "elapsedMs": 100.37241999999969,
+          "overrunMs": 0.37241999999969266
+        },
+        {
+          "turn": 50,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 219,
+          "elapsedMs": 100.11674399999993,
+          "overrunMs": 0.11674399999992602
+        },
+        {
+          "turn": 51,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 8
+          },
+          "samples": 51,
+          "elapsedMs": 100.91707200000019,
+          "overrunMs": 0.9170720000001893
+        },
+        {
+          "turn": 52,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 4
+          },
+          "samples": 287,
+          "elapsedMs": 100.24997600000006,
+          "overrunMs": 0.2499760000000606
+        },
+        {
+          "turn": 53,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 9
+          },
+          "samples": 68,
+          "elapsedMs": 101.31121200000052,
+          "overrunMs": 1.3112120000005234
+        },
+        {
+          "turn": 54,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 198,
+          "elapsedMs": 100.367663,
+          "overrunMs": 0.3676629999999932
+        },
+        {
+          "turn": 55,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 3
+          },
+          "samples": 45,
+          "elapsedMs": 101.8723630000004,
+          "overrunMs": 1.872363000000405
+        },
+        {
+          "turn": 56,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 1
+          },
+          "samples": 236,
+          "elapsedMs": 100.16538199999923,
+          "overrunMs": 0.16538199999922654
+        },
+        {
+          "turn": 57,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 5
+          },
+          "samples": 149,
+          "elapsedMs": 100.88766200000009,
+          "overrunMs": 0.8876620000000912
+        },
+        {
+          "turn": 58,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 2
+          },
+          "samples": 271,
+          "elapsedMs": 100.13239799999974,
+          "overrunMs": 0.1323979999997391
+        },
+        {
+          "turn": 59,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 662,
+          "elapsedMs": 100.16955899999994,
+          "overrunMs": 0.16955899999993562
+        }
+      ]
+    },
+    {
+      "game": 1,
+      "seed": 819191,
+      "searchSeat": 1,
+      "firstPlayer": 0,
+      "share": 1,
+      "reason": "military",
+      "scores": [
+        34,
+        37
+      ],
+      "searchMs": 3261.044573,
+      "opponentMs": 3316.2499440000056,
+      "samples": 2941,
+      "nodes": 25968,
+      "opponentSamples": 6976,
+      "opponentNodes": 33530,
+      "decisions": [
+        33,
+        32
+      ],
+      "timeOverruns": [
+        33,
+        32
+      ],
+      "maxOverrunsMs": [
+        3.488492000000406,
+        8.470119999999952
+      ],
+      "moves": [
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w8"
+          },
+          "samples": 427,
+          "elapsedMs": 100.04474600000049,
+          "overrunMs": 0.044746000000486674
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w1"
+          },
+          "samples": 560,
+          "elapsedMs": 100.13389499999994,
+          "overrunMs": 0.1338949999999386
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w2"
+          },
+          "samples": 511,
+          "elapsedMs": 100.09029499999997,
+          "overrunMs": 0.09029499999996915
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w11"
+          },
+          "samples": 622,
+          "elapsedMs": 100.04109999999946,
+          "overrunMs": 0.041099999999460124
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w12"
+          },
+          "samples": 293,
+          "elapsedMs": 100.33678700000019,
+          "overrunMs": 0.3367870000001858
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w10"
+          },
+          "samples": 912,
+          "elapsedMs": 100.06137200000012,
+          "overrunMs": 0.06137200000011944
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 0,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w4"
+          },
+          "samples": 844,
+          "elapsedMs": 100.10149600000022,
+          "overrunMs": 0.10149600000022474
+        },
+        {
+          "turn": 0,
+          "phase": "wonder-draft",
+          "seat": 1,
+          "action": {
+            "type": "pick-wonder",
+            "id": "w9"
+          },
+          "samples": 8,
+          "elapsedMs": 104.46753600000011,
+          "overrunMs": 4.467536000000109
+        },
+        {
+          "turn": 0,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 18
+          },
+          "samples": 51,
+          "elapsedMs": 101.11297800000011,
+          "overrunMs": 1.112978000000112
+        },
+        {
+          "turn": 1,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 7,
+          "elapsedMs": 103.8080059999993,
+          "overrunMs": 3.8080059999992955
+        },
+        {
+          "turn": 2,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 15,
+            "id": "w4"
+          },
+          "samples": 51,
+          "elapsedMs": 100.58981800000038,
+          "overrunMs": 0.5898180000003777
+        },
+        {
+          "turn": 3,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 10,
+            "id": "w10"
+          },
+          "samples": 50,
+          "elapsedMs": 100.59561700000086,
+          "overrunMs": 0.5956170000008569
+        },
+        {
+          "turn": 4,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 77,
+          "elapsedMs": 100.70366000000104,
+          "overrunMs": 0.7036600000010367
+        },
+        {
+          "turn": 5,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 17,
+          "elapsedMs": 103.59208500000022,
+          "overrunMs": 3.5920850000002247
+        },
+        {
+          "turn": 6,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 131,
+          "elapsedMs": 100.30681100000038,
+          "overrunMs": 0.30681100000037986
+        },
+        {
+          "turn": 7,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 13
+          },
+          "samples": 18,
+          "elapsedMs": 100.74184400000013,
+          "overrunMs": 0.7418440000001283
+        },
+        {
+          "turn": 8,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 129,
+          "elapsedMs": 100.94439199999943,
+          "overrunMs": 0.944391999999425
+        },
+        {
+          "turn": 9,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 12
+          },
+          "samples": 26,
+          "elapsedMs": 101.1897450000015,
+          "overrunMs": 1.1897450000014942
+        },
+        {
+          "turn": 10,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 100,
+          "elapsedMs": 100.49431100000038,
+          "overrunMs": 0.49431100000037986
+        },
+        {
+          "turn": 11,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 5,
+            "id": "w1"
+          },
+          "samples": 42,
+          "elapsedMs": 100.8029660000011,
+          "overrunMs": 0.8029660000011063
+        },
+        {
+          "turn": 12,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 251,
+          "elapsedMs": 100.21304699999928,
+          "overrunMs": 0.21304699999927834
+        },
+        {
+          "turn": 13,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 65,
+          "elapsedMs": 100.20615700000053,
+          "overrunMs": 0.2061570000005304
+        },
+        {
+          "turn": 14,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 215,
+          "elapsedMs": 100.48340499999904,
+          "overrunMs": 0.4834049999990384
+        },
+        {
+          "turn": 15,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 2
+          },
+          "samples": 113,
+          "elapsedMs": 100.0516430000007,
+          "overrunMs": 0.05164300000069488
+        },
+        {
+          "turn": 16,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 3
+          },
+          "samples": 247,
+          "elapsedMs": 100.36100499999884,
+          "overrunMs": 0.3610049999988405
+        },
+        {
+          "turn": 17,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 0
+          },
+          "samples": 26,
+          "elapsedMs": 105.35325899999953,
+          "overrunMs": 5.353258999999525
+        },
+        {
+          "turn": 18,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 4
+          },
+          "samples": 55,
+          "elapsedMs": 100.41307899999993,
+          "overrunMs": 0.41307899999992514
+        },
+        {
+          "turn": 19,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 1
+          },
+          "samples": 18,
+          "elapsedMs": 103.96068900000137,
+          "overrunMs": 3.9606890000013664
+        },
+        {
+          "turn": 20,
+          "phase": "starter",
+          "seat": 1,
+          "action": {
+            "type": "starter",
+            "player": 1
+          },
+          "samples": 21,
+          "elapsedMs": 101.27664100000038,
+          "overrunMs": 1.2766410000003816
+        },
+        {
+          "turn": 20,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 19,
+            "id": "w9"
+          },
+          "samples": 27,
+          "elapsedMs": 102.82359400000132,
+          "overrunMs": 2.8235940000013215
+        },
+        {
+          "turn": 21,
+          "phase": "destroy",
+          "seat": 1,
+          "action": {
+            "type": "destroy",
+            "id": "c3"
+          },
+          "samples": 76,
+          "elapsedMs": 100.79613599999902,
+          "overrunMs": 0.7961359999990236
+        },
+        {
+          "turn": 21,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 17
+          },
+          "samples": 208,
+          "elapsedMs": 103.4884920000004,
+          "overrunMs": 3.488492000000406
+        },
+        {
+          "turn": 22,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 14
+          },
+          "samples": 23,
+          "elapsedMs": 108.47011999999995,
+          "overrunMs": 8.470119999999952
+        },
+        {
+          "turn": 23,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 10
+          },
+          "samples": 100,
+          "elapsedMs": 100.35913599999913,
+          "overrunMs": 0.3591359999991255
+        },
+        {
+          "turn": 24,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 5
+          },
+          "samples": 63,
+          "elapsedMs": 100.4299090000004,
+          "overrunMs": 0.4299090000004071
+        },
+        {
+          "turn": 25,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 18
+          },
+          "samples": 208,
+          "elapsedMs": 100.32344399999965,
+          "overrunMs": 0.3234439999996539
+        },
+        {
+          "turn": 26,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 15
+          },
+          "samples": 36,
+          "elapsedMs": 101.82095200000003,
+          "overrunMs": 1.8209520000000339
+        },
+        {
+          "turn": 27,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 16
+          },
+          "samples": 115,
+          "elapsedMs": 100.45474099999956,
+          "overrunMs": 0.45474099999955797
+        },
+        {
+          "turn": 28,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 12
+          },
+          "samples": 16,
+          "elapsedMs": 103.06247900000017,
+          "overrunMs": 3.0624790000001667
+        },
+        {
+          "turn": 29,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 66,
+          "elapsedMs": 101.14249900000141,
+          "overrunMs": 1.1424990000014077
+        },
+        {
+          "turn": 30,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 6
+          },
+          "samples": 18,
+          "elapsedMs": 106.43388899999991,
+          "overrunMs": 6.433888999999908
+        },
+        {
+          "turn": 31,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 7
+          },
+          "samples": 48,
+          "elapsedMs": 100.69073599999865,
+          "overrunMs": 0.6907359999986511
+        },
+        {
+          "turn": 32,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 0
+          },
+          "samples": 31,
+          "elapsedMs": 104.29736699999921,
+          "overrunMs": 4.297366999999213
+        },
+        {
+          "turn": 33,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 1
+          },
+          "samples": 57,
+          "elapsedMs": 100.42009000000144,
+          "overrunMs": 0.42009000000143715
+        },
+        {
+          "turn": 34,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 13,
+            "id": "w12"
+          },
+          "samples": 32,
+          "elapsedMs": 102.01916100000017,
+          "overrunMs": 2.0191610000001674
+        },
+        {
+          "turn": 35,
+          "phase": "destroy",
+          "seat": 1,
+          "action": {
+            "type": "destroy",
+            "id": "c28"
+          },
+          "samples": 100,
+          "elapsedMs": 100.71196000000054,
+          "overrunMs": 0.7119600000005448
+        },
+        {
+          "turn": 35,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 8
+          },
+          "samples": 193,
+          "elapsedMs": 100.21365200000037,
+          "overrunMs": 0.21365200000036566
+        },
+        {
+          "turn": 36,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 2
+          },
+          "samples": 77,
+          "elapsedMs": 101.26678100000026,
+          "overrunMs": 1.2667810000002646
+        },
+        {
+          "turn": 37,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 9
+          },
+          "samples": 199,
+          "elapsedMs": 100.47542299999986,
+          "overrunMs": 0.47542299999986426
+        },
+        {
+          "turn": 38,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 3
+          },
+          "samples": 97,
+          "elapsedMs": 100.57835800000066,
+          "overrunMs": 0.5783580000006623
+        },
+        {
+          "turn": 39,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 4
+          },
+          "samples": 94,
+          "elapsedMs": 100.98342899999989,
+          "overrunMs": 0.9834289999998873
+        },
+        {
+          "turn": 40,
+          "phase": "starter",
+          "seat": 0,
+          "action": {
+            "type": "starter",
+            "player": 0
+          },
+          "samples": 272,
+          "elapsedMs": 100.09831400000076,
+          "overrunMs": 0.09831400000075519
+        },
+        {
+          "turn": 40,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 19
+          },
+          "samples": 137,
+          "elapsedMs": 100.13442799999939,
+          "overrunMs": 0.1344279999993887
+        },
+        {
+          "turn": 41,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "wonder",
+            "slot": 17,
+            "id": "w2"
+          },
+          "samples": 40,
+          "elapsedMs": 100.51743600000009,
+          "overrunMs": 0.5174360000000888
+        },
+        {
+          "turn": 42,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 14
+          },
+          "samples": 219,
+          "elapsedMs": 100.19692199999918,
+          "overrunMs": 0.19692199999917648
+        },
+        {
+          "turn": 43,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 18
+          },
+          "samples": 40,
+          "elapsedMs": 100.15296699999999,
+          "overrunMs": 0.15296699999998964
+        },
+        {
+          "turn": 44,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "wonder",
+            "slot": 15,
+            "id": "w8"
+          },
+          "samples": 195,
+          "elapsedMs": 100.03528899999947,
+          "overrunMs": 0.035288999999465887
+        },
+        {
+          "turn": 45,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 11
+          },
+          "samples": 216,
+          "elapsedMs": 100.14311199999975,
+          "overrunMs": 0.14311199999974633
+        },
+        {
+          "turn": 46,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 16
+          },
+          "samples": 89,
+          "elapsedMs": 100.40549700000156,
+          "overrunMs": 0.4054970000015601
+        },
+        {
+          "turn": 47,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 12
+          },
+          "samples": 169,
+          "elapsedMs": 100.02080200000091,
+          "overrunMs": 0.020802000000912813
+        },
+        {
+          "turn": 48,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "discard",
+            "slot": 13
+          },
+          "samples": 52,
+          "elapsedMs": 100.75705799999923,
+          "overrunMs": 0.7570579999992333
+        },
+        {
+          "turn": 49,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "build",
+            "slot": 10
+          },
+          "samples": 168,
+          "elapsedMs": 100.53595399999904,
+          "overrunMs": 0.5359539999990375
+        },
+        {
+          "turn": 50,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 8
+          },
+          "samples": 79,
+          "elapsedMs": 100.34952299999895,
+          "overrunMs": 0.3495229999989533
+        },
+        {
+          "turn": 51,
+          "phase": "play",
+          "seat": 0,
+          "action": {
+            "type": "discard",
+            "slot": 7
+          },
+          "samples": 150,
+          "elapsedMs": 100.08846400000039,
+          "overrunMs": 0.08846400000038557
+        },
+        {
+          "turn": 52,
+          "phase": "play",
+          "seat": 1,
+          "action": {
+            "type": "build",
+            "slot": 4
+          },
+          "samples": 320,
+          "elapsedMs": 100.16437399999995,
+          "overrunMs": 0.1643739999999525
+        }
+      ]
+    }
+  ]
+}

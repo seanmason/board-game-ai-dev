@@ -1,0 +1,3243 @@
+{
+  "version": 1,
+  "game": "Carcassonne core 72 with farmers",
+  "seed": 4971833,
+  "games": 4,
+  "players": 2,
+  "iterations": 4,
+  "ms": 250,
+  "horizon": 3,
+  "opponent": "search",
+  "opponentHorizon": 1,
+  "method": "Wall time includes root preparation; uninterruptible single iterations may overshoot.",
+  "limitations": "Synthetic opponents; paired seats share environment seed, but tile availability can diverge after impossible discards. Finite rollout horizon. No human-strength or calibrated win-rate claim. Same-machine timings only. Small paired samples are not independent.",
+  "winShare": 0.25,
+  "meanMargin": -18,
+  "timing": {
+    "search": {
+      "n": 142,
+      "meanMs": 275.34827492253476,
+      "medianMs": 265.64796500000375,
+      "p95Ms": 335.5701709999994,
+      "maxMs": 352.9310699999987
+    },
+    "opponent": {
+      "n": 142,
+      "meanMs": 258.66765310563335,
+      "medianMs": 255.397782,
+      "p95Ms": 278.49261500000284,
+      "maxMs": 290.371403000001
+    }
+  },
+  "latency": {
+    "create": {
+      "n": 284,
+      "meanMs": 16.127740186619512,
+      "medianMs": 13.82010199999786,
+      "p95Ms": 38.16077199999927,
+      "maxMs": 58.99766600000294
+    },
+    "singleIteration": {
+      "n": 8826,
+      "meanMs": 8.069839932472233,
+      "medianMs": 2.418638000000101,
+      "p95Ms": 34.842978000000585,
+      "maxMs": 164.95417199999793
+    }
+  },
+  "nominalBudgetOverruns": {
+    "search": 142,
+    "opponent": 142
+  },
+  "meanIterations": 31.077464788732396,
+  "results": [
+    {
+      "seed": 4971833,
+      "searchSeat": 0,
+      "starter": 0,
+      "scores": [
+        50,
+        71
+      ],
+      "winners": [
+        1
+      ],
+      "winShare": 0,
+      "margin": -21,
+      "transcript": [
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -1,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 0,
+          "r": 0,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -1,
+          "r": 2,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -1,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 0,
+          "r": 1,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 0,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -2,
+          "r": 3,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -3,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 1,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -1,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "Q"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 1,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -3,
+          "r": 3,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -1,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -3,
+          "r": 3,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "X"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -1,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -2,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -4,
+          "r": 2,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -4,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -4,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -2,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -5,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -6,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -2,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 5,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 2,
+          "r": 2,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 5,
+          "y": -3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 2,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 5,
+          "y": -4,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -5,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": 6,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -3,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "C"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -5,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": 5,
+          "y": -5,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -3,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "T"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": 6,
+          "y": -5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 0,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "G"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -6,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -1,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -5,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -6,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -5,
+          "r": 2,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": 7,
+          "y": -5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": 2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -7,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 7,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -8,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -6,
+          "r": 1,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -5,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -7,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -6,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 1,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -4,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -9,
+          "r": 1,
+          "feature": null
+        }
+      ]
+    },
+    {
+      "seed": 4971833,
+      "searchSeat": 1,
+      "starter": 0,
+      "scores": [
+        97,
+        45
+      ],
+      "winners": [
+        0
+      ],
+      "winShare": 0,
+      "margin": -52,
+      "transcript": [
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 0,
+          "r": 0,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 0,
+          "r": 2,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -1,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -1,
+          "r": 3,
+          "feature": 5
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 1,
+          "r": 0,
+          "feature": 3
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -2,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -1,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -2,
+          "r": 2,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 1,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 0,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "Q"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -2,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -3,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -3,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "X"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 1,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -1,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -4,
+          "r": 1,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -5,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -4,
+          "r": 0,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 0,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -4,
+          "r": 1,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -3,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -5,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -2,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -4,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -5,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -6,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -6,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -1,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -7,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -4,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -3,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -5,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -8,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "C"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -9,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": -6,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -2,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "T"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -4,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -6,
+          "y": -5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -7,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": -3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "G"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -8,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -8,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": 0,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": -7,
+          "y": -5,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -5,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": -6,
+          "y": -3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -6,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -4,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -5,
+          "r": 1,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -7,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -7,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -5,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -9,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -6,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -5,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": -6,
+          "y": -1,
+          "r": 2,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -7,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -8,
+          "r": 0,
+          "feature": null
+        }
+      ]
+    },
+    {
+      "seed": 4972830,
+      "searchSeat": 0,
+      "starter": 1,
+      "scores": [
+        68,
+        57
+      ],
+      "winners": [
+        0
+      ],
+      "winShare": 1,
+      "margin": 11,
+      "transcript": [
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -1,
+          "r": 3,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -1,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -1,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 1,
+          "r": 1,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "G"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 1,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -2,
+          "r": 3,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 0,
+          "r": 0,
+          "feature": 4
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 2,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 0,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 2,
+          "r": 1,
+          "feature": 3
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 3,
+          "r": 2,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 3,
+          "r": 0,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 1,
+          "r": 2,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 4,
+          "r": 0,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": 0,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "X"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 4,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 1,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 2,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 3,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -3,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -1,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -1,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 5,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 0,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 1,
+          "r": 3,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": 0,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -1,
+          "r": 0,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 0,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -3,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 6,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -4,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 6,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -3,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -5,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "Q"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -6,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -7,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 6,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "T"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 7,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 0,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -4,
+          "r": 1,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -8,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -5,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -3,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "C"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -9,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -10,
+          "r": 0,
+          "feature": null
+        }
+      ]
+    },
+    {
+      "seed": 4972830,
+      "searchSeat": 1,
+      "starter": 1,
+      "scores": [
+        75,
+        65
+      ],
+      "winners": [
+        0
+      ],
+      "winShare": 0,
+      "margin": -10,
+      "transcript": [
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -1,
+          "r": 2,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -1,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -1,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 1,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "G"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 2,
+          "r": 3,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 0,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 2,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 3,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 2,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 3,
+          "r": 1,
+          "feature": 4
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 3,
+          "r": 2,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 4,
+          "r": 0,
+          "feature": 1
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 1,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": 5,
+          "r": 0,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 3,
+          "r": 2,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "X"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 0,
+          "r": 3,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 1,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -2,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "F"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "O"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 2,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 5,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 3,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 5,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 0,
+          "r": 2,
+          "feature": 2
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "M"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 6,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -3,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -1,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 0,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "L"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 1,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -1,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 3,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "P"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -1,
+          "r": 2,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "I"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -1,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 4,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -2,
+          "r": 3,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 6,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "J"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 4,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "B"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -3,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 2,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -4,
+          "y": -1,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 5,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -3,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "A"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": 1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": -2,
+          "r": 1,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": 5,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": 4,
+          "y": 0,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "Q"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": 6,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -4,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -4,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": -3,
+          "y": 6,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": 7,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "R"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": -1,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "T"
+        },
+        {
+          "type": "place",
+          "x": -2,
+          "y": -4,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "W"
+        },
+        {
+          "type": "place",
+          "x": 3,
+          "y": -2,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "N"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -5,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "U"
+        },
+        {
+          "type": "place",
+          "x": 0,
+          "y": -4,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -5,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "S"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": -6,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "D"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": 1,
+          "r": 1,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -5,
+          "y": 0,
+          "r": 0,
+          "feature": 0
+        },
+        {
+          "type": "draw",
+          "id": "H"
+        },
+        {
+          "type": "place",
+          "x": 2,
+          "y": -5,
+          "r": 3,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "C"
+        },
+        {
+          "type": "place",
+          "x": -6,
+          "y": -1,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "V"
+        },
+        {
+          "type": "place",
+          "x": -1,
+          "y": -6,
+          "r": 0,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "E"
+        },
+        {
+          "type": "place",
+          "x": -6,
+          "y": -2,
+          "r": 2,
+          "feature": null
+        },
+        {
+          "type": "draw",
+          "id": "K"
+        },
+        {
+          "type": "place",
+          "x": 1,
+          "y": 4,
+          "r": 2,
+          "feature": null
+        }
+      ]
+    }
+  ]
+}

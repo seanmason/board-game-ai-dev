@@ -1,0 +1,56 @@
+{
+  "auditedAt": "2026-10-17",
+  "scope": "Base game only: 23 Age I,23 Age II,20 Age III,7 guild,12 wonders,10 progress",
+  "sources": {
+    "rules": {
+      "url": "https://cdn.svc.asmodee.net/production-rprod/storage/downloads/games/7wonders-duel/en/7du-rules-us-15990558193s5I6.pdf",
+      "sha256": "09b2939823df80444da078e0713d0cc400da95d2f1e96edb86dc023c4dc956f2",
+      "pages": {
+        "3": "inventory",
+        "6-7": "setup and wonder draft",
+        "8-9": "production,trade,chains",
+        "10-12": "turns,reveals,wonders,military,science",
+        "13": "scoring and blue tiebreak",
+        "14": "all10 progress effects",
+        "15": "all building effect types",
+        "16": "all7 guild effects",
+        "17": "all12 wonder effects",
+        "18-19": "all73 building/guild names,costs,points,production,science,shields,links",
+        "20": "all60 structure slots and cover relations"
+      }
+    },
+    "faq": {
+      "url": "https://www.rprod.com/en/7-wonders-duel/faq",
+      "retrieved": "2026-10-17",
+      "rules": [
+        "Great Library's three randomly drawn box tokens are secret; only chosen token revealed",
+        "Law supplies a new,distinct science symbol"
+      ],
+      "excluded": "Pantheon and Agora FAQ entries are outside base-game scope"
+    },
+    "bga": {
+      "url": "https://github.com/koenheltzel/bga-sevenwondersduel/blob/f023693fa764eedbfea5f858749a09253e6064f3/modules/php/Material.php",
+      "commit": "f023693fa764eedbfea5f858749a09253e6064f3",
+      "sha256": "9a1feb4f0ecae6ebb65f9af10895033b019b2e5463aa1e1c35c62d00f0dc9fa4",
+      "coverage": "Every functional building,guild,wonder datum matches normalized retained factual reference. Progress effects additionally checked against official p14."
+    },
+    "cpp": {
+      "url": "https://github.com/indjev99/7-Wonders-Duel-AI/blob/01ed7a5f1b695c410800023ac3d26097600ffc32/src/game/objects.cpp",
+      "commit": "01ed7a5f1b695c410800023ac3d26097600ffc32",
+      "sha256": "685c87deaddde163d5273b72df5849890aa4e724873a9a47967deb0a67a32c70",
+      "coverage": "All95 component costs,printed fixed points; all73 card ages/colors; all production,science,shield and chain constructor facts. Dynamic effect semantics checked against publisher text,not copied implementation."
+    },
+    "structure": {
+      "url": "https://github.com/indjev99/7-Wonders-Duel-AI/blob/01ed7a5f1b695c410800023ac3d26097600ffc32/src/game/pyramid_schemes.cpp",
+      "sha256": "251d01aa6d55ecf8c12c6394e84fe8f1b05e1953809b1885fe8984f052f152f5",
+      "coverage": "Literal20-slot covering lists for all3 ages crosschecked with publisher p20; tests retain independent literals"
+    }
+  },
+  "disagreements": [],
+  "primaryAudit": {
+    "buildings": "Visually inspected publisher rulebook p18-19 at2100px and compared every cost,effect,science pair,and chain against catalog. No discrepancy.",
+    "wonders": "Publisher p17 verifies every effect; p11 explicitly illustrates Colossus cost. All12 costs agree across pinned BGA and indjev numerical references.",
+    "progress": "All10 fixed and conditional effects directly checked against publisher p14.",
+    "art": "No publisher illustration,image,creative description,or implementation code is bundled. Names and functional facts only; interface and symbols are original."
+  }
+}
