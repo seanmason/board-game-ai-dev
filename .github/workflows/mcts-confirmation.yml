@@ -1,0 +1,55 @@
+name: MCTS held-out confirmation
+on:
+  push:
+    branches:
+      - research/multiplayer-mcts
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  comparison:
+    name: ${{ matrix.policy }} · ${{ matrix.players }}p
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        policy: [baseline, enhanced, heuristic-only, enhanced-vs-informed]
+        players: [2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Complete seeded games using held-out random stream
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "${{ matrix.policy }}" in
+            baseline) agent=mcts; variant=baseline; opponent=heuristic ;;
+            enhanced) agent=mcts; variant=guided-informed; opponent=heuristic ;;
+            heuristic-only) agent=informed; variant=baseline; opponent=heuristic ;;
+            enhanced-vs-informed) agent=mcts; variant=guided-informed; opponent=informed ;;
+          esac
+          node scripts/benchmark-ai.mjs \
+            --variant="$variant" \
+            --agent="$agent" \
+            --opponent="$opponent" \
+            --players=${{ matrix.players }} \
+            --playouts=256 \
+            --games=48 \
+            --seed=913731 | tee benchmark.json
+          {
+            echo '### Held-out tournament'
+            echo
+            echo '48 complete games; seed 913731, independent of the initial ablation. Exploratory only.'
+            echo '```json'
+            cat benchmark.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: confirmation-${{ matrix.policy }}-${{ matrix.players }}p
+          path: benchmark.json
