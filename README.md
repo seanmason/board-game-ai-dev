@@ -148,3 +148,14 @@ Serve that directory over HTTP. The development preview can also include the
 experimental Wingspan directory when present on its draft branch; this is not
 release approval. CI tests the staged preview rather than relying on files that
 only exist in the development checkout.
+
+## Splendor base-game companion (development)
+
+`/splendor/` contains the 2–4 player physical companion and digital implementation.
+Enter the actual market/nobles, record moves explicitly, and supply replacement
+cards as they appear. Private reservations may remain unknown. Continuous
+hidden-world analysis supports pause/resume and never commits moves automatically.
+
+See [Splendor rules, catalog provenance, tests and limitations](docs/SPLENDOR.md).
+Run `npm run verify:splendor` or build a self-contained directory with
+`npm run package:game -- splendor /tmp/splendor-site`.
