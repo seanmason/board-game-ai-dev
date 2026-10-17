@@ -204,7 +204,7 @@ function render() {
   })() : "";
   root.innerHTML = '<div class="shell">' +
     '<header class="mast"><div class="brand"><h1>Azul</h1></div>' +
-    '<div class="mast-tools">' +
+    '<div class="mast-tools"><a href="./pentago/" title="Open Pentago">Pentago ↗</a>' +
     '<select id="players" aria-label="Player count">' +
     [2,3,4].map(n => '<option value="'+n+'"'+(n===game.players.length?' selected':'')+'>'+n+' players</option>').join("") +
     '</select><select id="mode" aria-label="Session mode">' +

@@ -1,0 +1,68 @@
+name: Pentago qualification and strength checks
+
+# Full rules verification and an exploratory opponent matrix; initial workflow
+# addition triggers once, then manual workflow_dispatch for further trials.
+on:
+  push:
+    branches:
+      - feat/pentago-analysis-mvp
+    paths:
+      - .github/workflows/pentago-benchmarks.yml
+  workflow_dispatch:
+    inputs:
+      games:
+        description: Games per opponent
+        type: number
+        required: true
+        default: 24
+      playouts:
+        description: Simulations per AI move
+        type: number
+        required: true
+        default: 48
+
+permissions:
+  contents: read
+
+jobs:
+  full-rules-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Independently verify 10,000 complete games
+        run: PENTAGO_GAMES=10000 npm run verify:pentago
+
+  opponent-tournaments:
+    needs: full-rules-check
+    name: MCTS versus ${{ matrix.opponent }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        opponent: [random, greedy, stochastic]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run deterministic Pentago agent tournament
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/benchmark-pentago.mjs \
+            --games="${{ github.event.inputs.games || 24 }}" \
+            --playouts="${{ github.event.inputs.playouts || 48 }}" \
+            --opponent="${{ matrix.opponent }}" \
+            --seed=913731 | tee benchmark.json
+          echo "Pentago versus ${{ matrix.opponent }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Artificial-opponent results; not calibrated strength." >> "$GITHUB_STEP_SUMMARY"
+          cat benchmark.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pentago-${{ matrix.opponent }}-baseline
+          path: benchmark.json

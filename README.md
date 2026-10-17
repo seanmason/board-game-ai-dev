@@ -1,6 +1,6 @@
 # Tabletop Observatory — Board Game AI
 
-A browser-native strategy-game companion and analysis workbench. The first game is **original Azul**.
+A browser-native strategy-game companion and analysis workbench. Games: **Azul** and **Pentago** (in development).
 
 **Primary workflows:** enter moves and factory refills from a real physical board, or analyze candidate actions and continuations in a KataGo-inspired interface. Full digital play is also supported as an experimental secondary workflow.
 
@@ -97,3 +97,32 @@ Opponent baselines include greedy, informed, stochastic, floor-averse,
 denial-oriented, mixed, random, and original-UCT search. They are
 synthetic strategy probes—not human playing-strength measurements. See
 [tree-reuse and opponent testing](docs/REUSE_AND_OPPONENTS.md).
+
+
+## Pentago — second game
+
+The **Pentago** prototype is separately deployable at `/pentago/`.
+When the Pentago feature branch is published by GitHub Pages, its
+development preview is:
+
+https://seanmason.github.io/board-game-ai-dev/pentago/
+
+Its printed-rule implementation covers the 6×6 rotating board, immediate
+wins from placement (without twisting), optional skipping while a neutral
+quadrant exists, opponent wins and simultaneous-line draws. It supports
+physical-game entry, manual digital AI turns, continuous MCTS, placement
+heatmaps, candidate highlights, undo/redo, local autosave and import/export.
+The default recommendation uses a **stable tactical heuristic**, while the
+analysis selector can display the **MCTS most-visited move** instead, without
+resetting accumulated simulations. This distinction matters because short-budget
+MCTS performed poorly against some greedy tactical opponents.
+The engine and browser assets have no runtime package dependencies.
+
+```sh
+npm run verify:pentago
+npm run benchmark:pentago -- --games=24 --playouts=32 --opponent=greedy
+```
+
+See [Pentago architecture and testing requirements](docs/PENTAGO_ARCHITECTURE.md).
+
+See [Pentago validation and benchmarks](docs/PENTAGO_VALIDATION.md) for testing evidence and limitations.
