@@ -34,10 +34,13 @@ const began=performance.now();
 let winShare=0,scores=0,scoreMargins=0,moveCount=0,sims=0,searchMs=0;
 let firstWins=0,sharedWins=0;
 for(let n=0;n<games;n++){
+  // Rotate the AI's seat and initial turn order independently, to avoid
+  // systematically advantaging one competitor throughout the tournament.
   const aiSeat=n%players;
+  const starter=Math.floor(n/players)%players;
   const draw=seeded((seed^(n*0x9e3779b1))>>>0);
   const random=seeded((seed^((n+1)*0x6c8e9cf5))>>>0);
-  let s=drawFactories(newGame({players,starter:(n+1)%players,mode:"digital"}),draw);
+  let s=drawFactories(newGame({players,starter,mode:"digital"}),draw);
   let moves=0;
   while(s.phase!=="gameover"){
     if(++moves>1500)throw Error("Game did not end at seed "+n);

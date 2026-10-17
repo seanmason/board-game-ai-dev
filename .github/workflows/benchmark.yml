@@ -8,6 +8,8 @@ on:
       - feat/azul-companion-mvp
     paths:
       - .github/workflows/benchmark.yml
+      - scripts/benchmark-ai.mjs
+      - src/mcts.js
   workflow_dispatch:
     inputs:
       games:
