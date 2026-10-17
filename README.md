@@ -23,7 +23,7 @@ Open http://localhost:8080/. The app uses native JavaScript modules and Web Work
 3. Choose a source/color tile group in the factory offer, then click a legal pattern row (or the floor) on the current player's board. Repeat as real players move.
 4. MCTS starts automatically in parallel browser workers. Rankings, simulated win estimates, and score projections update continuously. **Hover over a candidate** to temporarily highlight its source tiles and destination; click to pin a preview. No hover changes the recorded state.
 5. **Pause analysis** to stop using CPU while retaining each worker’s MCTS tree, accumulated visits, and results in memory. **Resume analysis** to continue the same search; its simulation count should increase from the previous value.
-5. Use undo/redo, timeline navigation, and export/import to preserve and correct observations. Analysis never commits a suggested move automatically in physical mode.
+6. Use undo/redo, timeline navigation, and export/import to preserve and correct observations. Analysis never commits a suggested move automatically in physical mode.
 
 **Digital gameplay:** switch to Digital game and start a new session. Factories are drawn in the browser. Each seat can be Human or AI. **AI players never move automatically**: MCTS searches indefinitely while that position is displayed; click **Play Best Move** on an AI turn to use its current highest-visit candidate. Wait for at least one result before playing.
 
@@ -43,7 +43,7 @@ npm run check
 
 ### Current limitations
 
-The search tree models deterministic draft actions in the **current** round and samples future random refills in rollouts. **Pause/resume retains the exact tree and playout statistics as long as this browser tab remains alive.** A changed position, changed worker count, page reload, or browser-tab eviction starts a fresh search; tree reuse across positions or refresh is not yet implemented. It also does not yet apply a learned value function. Its win estimates are policy-dependent and should not be read as calibrated probabilities. Manual late-game position editing, gray-wall variant, camera recognition, automatic worker throttling and native Rust/WASM optimization are roadmap work. Production release, licensing review, and stronger cross-browser testing are release gates.
+The search tree models deterministic draft actions in the **current** round and samples future random refills in rollouts. **Pause/resume retains the exact tree and playout statistics as long as this browser tab remains alive.** A real drafting move can reuse the portion of each worker's tree that actually explored that move. All irrelevant alternatives are discarded, so only **conditional** playouts remain. A newly observed random factory refill, unexpanded move, undo/redo, changed worker count or method, page reload, or browser-tab eviction starts a fresh search. Full-tree persistence across refresh is not implemented. It also does not yet apply a learned value function. Its win estimates are policy-dependent and should not be read as calibrated probabilities. Manual late-game position editing, gray-wall variant, camera recognition, automatic worker throttling and native Rust/WASM optimization are roadmap work. Production release, licensing review, and stronger cross-browser testing are release gates.
 
 See [architecture specification](docs/ARCHITECTURE.md) for intended long-run components and acceptance criteria. Official game rules: [Next Move Games](https://cdn.svc.asmodee.net/production-nextmove/uploads/sites/4/2024/06/EN-Azul-Rules-Next-Move-web.pdf).
 
@@ -75,3 +75,25 @@ for complete-game strength experiments. The baseline remains available via
 `--variant=baseline`.
 
 See [search research results](docs/SEARCH_RESEARCH.md).
+
+
+## Analysis reuse and opponent evaluation
+
+After a recorded drafting move, the analysis panel displays **Retained N simulations**
+if some workers already explored that exact child of the current tree.
+The count is deliberately smaller than the previous root's total: all
+simulations of other candidate moves are irrelevant to the observed action.
+Unvisited actions start fresh. Future random draws are never used for
+subtree matching. Pause/resume preserves retained conditional visits.
+
+```sh
+npm run benchmark:reuse
+npm run benchmark:ai -- --games=24 --playouts=128 --players=3 --opponent=mixed
+npm run benchmark:ai -- --games=24 --playouts=128 --players=4 --opponent=stochastic
+npm run benchmark:ai -- --games=12 --playouts=64 --players=2 --opponent=legacy-uct
+```
+
+Opponent baselines include greedy, informed, stochastic, floor-averse,
+denial-oriented, mixed, random, and original-UCT search. They are
+synthetic strategy probes—not human playing-strength measurements. See
+[tree-reuse and opponent testing](docs/REUSE_AND_OPPONENTS.md).

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "check": "node --check src/azul.js && node --check src/mcts.js && node --check src/ai-worker.js && node --check src/app.js",
+    "check": "node --check src/azul.js && node --check src/mcts.js && node --check src/ai-worker.js && node --check src/app.js && node --check benchmarks/opponents.js && node --check scripts/benchmark-tree-reuse.mjs",
     "verify:gameplay": "node scripts/verify-gameplay.mjs",
     "benchmark:ai": "node scripts/benchmark-ai.mjs",
     "benchmark:search": "node scripts/benchmark-search.mjs",
