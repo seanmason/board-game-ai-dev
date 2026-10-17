@@ -4,7 +4,7 @@ A browser-native strategy-game companion and analysis workbench. The first game 
 
 **Primary workflows:** enter moves and factory refills from a real physical board, or analyze candidate actions and continuations in a KataGo-inspired interface. Full digital play is also supported as an experimental secondary workflow.
 
-**Status:** Development prototype, not yet publicly released. Rules and AI performance are being validated. Development takes place in this private repository; released, source-available standalone games will be published separately at [board-game-ai](https://github.com/seanmason/board-game-ai).
+**Status:** Development prototype, not yet publicly released. Rules and AI performance are being validated. Development takes place in this repository, currently public for previews; released, source-available standalone games will be published separately at [board-game-ai](https://github.com/seanmason/board-game-ai).
 
 ## Start locally
 
@@ -43,7 +43,7 @@ npm run check
 
 ### Current limitations
 
-The search tree models deterministic draft actions in the **current** round and samples future random refills in rollouts. **Pause/resume retains the exact tree and playout statistics as long as this browser tab remains alive.** A changed position, changed worker count, page reload, or browser-tab eviction starts a fresh search; tree reuse across positions or refresh is not yet implemented. It also does not yet apply a learned value function. Its win estimates are policy-dependent and should not be read as calibrated probabilities. Manual late-game position editing, gray-wall variant, camera recognition, automatic worker throttling and native Rust/WASM optimization are roadmap work. Public deployment, licensing review, and stronger cross-browser testing are release gates.
+The search tree models deterministic draft actions in the **current** round and samples future random refills in rollouts. **Pause/resume retains the exact tree and playout statistics as long as this browser tab remains alive.** A changed position, changed worker count, page reload, or browser-tab eviction starts a fresh search; tree reuse across positions or refresh is not yet implemented. It also does not yet apply a learned value function. Its win estimates are policy-dependent and should not be read as calibrated probabilities. Manual late-game position editing, gray-wall variant, camera recognition, automatic worker throttling and native Rust/WASM optimization are roadmap work. Production release, licensing review, and stronger cross-browser testing are release gates.
 
 See [architecture specification](docs/ARCHITECTURE.md) for intended long-run components and acceptance criteria. Official game rules: [Next Move Games](https://cdn.svc.asmodee.net/production-nextmove/uploads/sites/4/2024/06/EN-Azul-Rules-Next-Move-web.pdf).
 

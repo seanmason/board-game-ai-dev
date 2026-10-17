@@ -2,7 +2,7 @@
 
 **Status:** Approved direction, incremental implementation  
 **Initial game:** Original Azul (standard colored-wall rules, 2–4 players)  
-**Repositories:** [development/research](https://github.com/seanmason/board-game-ai-dev) (private) and [public release](https://github.com/seanmason/board-game-ai) (public)  
+**Repositories:** [development/research](https://github.com/seanmason/board-game-ai-dev) (currently public for development previews) and [public release](https://github.com/seanmason/board-game-ai) (public)  
 **Design priority:** Advanced, continuously improving AI analysis of real physical-board games, with standalone digital gameplay as a secondary use case.
 
 ## Product goals
@@ -18,7 +18,7 @@
 - **`board-game-ai-dev`:** source of truth for specifications, implementation, experiments, benchmarks, tests and release engineering.
 - **`board-game-ai`:** release destination, including complete source for released versions, build instructions, dependencies/licenses, and the finished static site.
 - The release pipeline must be explicit, reviewed, reproducible, and must not automatically publish experimental development commits.
-- Do not put unpublished experiments, secrets, or private development history in public artifacts.
+- The development repository is currently public, so never commit confidential research, credentials, or material requiring private access. The release pipeline must still publish only reviewed game assets to the separate finished-games repository.
 - License choice and intellectual-property review are gates before the first public release; mechanics are distinct from copyrighted illustrations, text, and trademark presentation.
 
 ## Game abstraction
@@ -90,7 +90,7 @@ Initial **targets rather than measurements**: typical move entry ~3 selections a
 4. Add digital game mode, public-release packaging, licensing review, and deploy.
 5. Validate shared abstractions with a second game; then extend to a position editor.
 
-**Current implementation authorization:** develop and test in the private development repository. Do **not** publish unfinished work to the public release repository.
+**Current implementation authorization:** develop and test in the development repository (currently public). Do **not** publish unfinished work to the public release repository.
 
 ## Deferred questions
 
