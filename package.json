@@ -1,0 +1,10 @@
+{
+  "name": "board-game-ai-dev",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/azul.js && node --check src/mcts.js && node --check src/ai-worker.js && node --check src/app.js"
+  },
+  "engines": {"node": ">=20"}
+}
