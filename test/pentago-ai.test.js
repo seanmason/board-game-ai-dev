@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {newGame,legalActions,applyAction,seededRandom,actionKey} from "../pentago/core.js";
 import {
-  createSearch,runSearch,searchSummary,bestAction,advanceSearch,positionScore
+  createSearch,runSearch,searchSummary,bestAction,advanceSearch,positionScore,heuristicBestAction
 } from "../pentago/ai.js";
 function midState(seed=4,steps=4){
   let state=newGame({mode:"digital"});
@@ -72,4 +72,32 @@ test("Pentago evaluation is antisymmetric and neutral at empty board",()=>{
   assert.ok(positionScore(b)>0);
   b[7]=1;
   assert.ok(positionScore(b)<0);
+});
+
+
+test("Pentago default suggestion follows a stable heuristic independent of simulation noise",()=>{
+  for(const seed of [9,15,72]){
+    const s=midState(seed,4);
+    const expected=heuristicBestAction(s);
+    const search=createSearch(s,{rng:seededRandom(seed+200),maxNodes:1000});
+    assert.equal(actionKey(bestAction(search)),actionKey(expected));
+    assert.equal(searchSummary(search).heuristicKey,actionKey(expected));
+    runSearch(search,8);
+    assert.equal(actionKey(bestAction(search)),actionKey(expected));
+    assert.ok(searchSummary(search).candidates.some(c=>c.key===actionKey(expected)),
+      "Recommended action should be included even at small search budgets");
+  }
+});
+
+test("Heuristic recommendation is refreshed after a real Pentago move",()=>{
+  const s=midState(26,4);
+  const search=createSearch(s,{rng:seededRandom(348)});
+  runSearch(search,48);
+  const a=bestAction(search);
+  const next=applyAction(s,a);
+  assert.equal(next.phase,"play");
+  const result=advanceSearch(search,a,next);
+  assert.equal(result.reused,true);
+  assert.equal(searchSummary(search).heuristicKey,actionKey(heuristicBestAction(next)));
+  assert.equal(actionKey(bestAction(search)),actionKey(heuristicBestAction(next)));
 });
