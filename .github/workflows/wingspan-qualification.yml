@@ -1,0 +1,45 @@
+name: Wingspan full-game qualification
+
+# Extra seeded whole-game simulations; not a substitute for an independent
+# 67-card-power oracle or human-scored physical transcripts.
+on:
+  push:
+    branches:
+      - feat/wingspan-base-game
+    paths:
+      - .github/workflows/wingspan-qualification.yml
+  workflow_dispatch:
+    inputs:
+      games:
+        description: Full seeded Wingspan games
+        type: number
+        required: true
+        default: 500
+
+permissions:
+  contents: read
+
+jobs:
+  full-games:
+    name: Wingspan 2–5 player transition fuzzing
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Focused rules and bird-power tests
+        run: npm test
+      - name: Full-game seeded inventory and power exercise
+        shell: bash
+        run: |
+          set -euo pipefail
+          WINGSPAN_GAMES=${{ github.event.inputs.games || 500 }} node scripts/verify-wingspan.mjs |
+            tee wingspan-verification.json
+          echo "Wingspan whole-game verification" >> "$GITHUB_STEP_SUMMARY"
+          cat wingspan-verification.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wingspan-whole-game-verification
+          path: wingspan-verification.json
