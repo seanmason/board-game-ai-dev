@@ -159,25 +159,28 @@ export function powerOptions(s,p){
   if(c===11||c===48)return [choice("Begin player food picks",{})];
   if(c===8||c===13)return [choice("Reveal available choices",{})];
   if(c===3||c===59||DRAW_COUNTS[c])return [choice("Draw cards",{})];
+  if(c===15||c===58)return [choice("Take all matching feeder dice",{})];
+  if(c===5||c===33)
+    return eggSources(s,owner,p.birdId).flatMap(x=>
+      FOOD.map(food=>choice("Trade egg on "+BIRDS[x.id].name+
+        " for "+food,{habitat:x.habitat,index:x.index,food})));
   if(FEEDER_CODES[c])return feederOptions(s,FEEDER_CODES[c]);
   if(FOOD_CODES[c]||c===19||c===39)return gainFoodOptions(s,
     c===19?"fish":c===39?"invertebrate":FOOD_CODES[c][0]);
   if(c===31)return [choice("Cache a seed",{})];
   if(c===55)return [choice("Cache a rodent",{})];
-  if(c===58||c===15)return [choice("Take all matching feeder dice",{})];
   if(EGG_CODES[c]){
     if([12,26,52,65].includes(c))return [choice("Lay on all matching nests",{})];
     if(ALL_PLAYER_EGGS[c])return [choice("Offer eggs to all players",{})];
     return eggsForPower(s,owner,EGG_CODES[c],c===2||c===18||c===28?p.birdId:null);
   }
-  if(c===5||c===33){
-    return eggSources(s,owner,p.birdId).flatMap(x=>
-      FOOD.map(food=>choice("Trade egg on "+BIRDS[x.id].name+
-        " for "+food,{habitat:x.habitat,index:x.index,food})));
-  }
   if(c===34||c===21)return [choice("Draw, then discard",{})];
   if(c===41)return eggSources(s,owner).map(x=>choice(
     "Spend egg on "+BIRDS[x.id].name,{habitat:x.habitat,index:x.index}));
+  if(c===62)
+    return s.players[owner].hand.flatMap(id=>
+      ["invertebrate","seed"].map(food=>
+        choice("Tuck "+BIRDS[id].name+" for "+food,{cardId:id,food})));
   if(TUCK_FROM_HAND.has(c))return handChoices(s,owner);
   if(TUCK_FROM_DECK[c]){
     const need=c===23?"seed":"fish";
@@ -305,6 +308,21 @@ export function applyPower(s,p,selected,help){
       owner:players[0],event:{remaining:players.slice(1)}});
     return;
   }
+  if(c===15||c===58){
+    const needed=c===15?"fish":"invertebrate";
+    for(let i=s.feeder.length-1;i>=0;i--){
+      const face=s.feeder[i];
+      if(face===needed||(needed==="invertebrate"&&face==="dual")){
+        actor.food[needed]++;s.feeder.splice(i,1);
+      }
+    }
+    return;
+  }
+  if(c===5||c===33){
+    help.removeEggs(s,owner,[{...selected,count:1}],1);
+    supply(selected.food,c===33?2:1);
+    return;
+  }
   if(FEEDER_CODES[c]){
     const food=takeFood();if(food===null)return;
     if([1].includes(c))addCached(food);
@@ -319,16 +337,6 @@ export function applyPower(s,p,selected,help){
     return;
   }
   if(c===31||c===55){addCached(c===31?"seed":"rodent");return;}
-  if(c===15||c===58){
-    const needed=c===15?"fish":"invertebrate";
-    for(let i=s.feeder.length-1;i>=0;i--){
-      const face=s.feeder[i];
-      if(face===needed||(needed==="invertebrate"&&face==="dual")){
-        actor.food[needed]++;s.feeder.splice(i,1);
-      }
-    }
-    return;
-  }
   if(c===3){
     const least=Math.min(...s.players.map(x=>x.habitats.wetland.length));
     for(let i=0;i<s.players.length;i++)
@@ -357,11 +365,6 @@ export function applyPower(s,p,selected,help){
     }else putEgg(selected);
     return;
   }
-  if(c===5||c===33){
-    help.removeEggs(s,owner,[{...selected,count:1}],1);
-    supply(selected.food,c===33?2:1);
-    return;
-  }
   if(c===41){
     help.removeEggs(s,owner,[{...selected,count:1}],1);
     help.drawBird(s,owner);help.drawBird(s,owner);
@@ -377,7 +380,7 @@ export function applyPower(s,p,selected,help){
     else if(c===27)help.addEggs(s,owner,p.habitat,p.index,1);
     else if(c===32)supply("fruit");
     else if(c===35)supply("seed");
-    else if(c===62)supply("invertebrate");
+    else if(c===62)supply(selected.food);
     return;
   }
   if(TUCK_FROM_DECK[c]){
@@ -396,7 +399,7 @@ export function applyPower(s,p,selected,help){
     let hit=false;
     for(let i=0;i<outside;i++){
       const face=["invertebrate","seed","fish","fruit","rodent","dual"]
-        [Math.floor(s.rngState++ % 6)]; // deterministic stateful draw
+        [Math.floor(help.rng(s)*6)]; // dice outside feeder do not affect feeder faces
       if(face===PREDATOR_DICE[c])hit=true;
     }
     if(hit){
