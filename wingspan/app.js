@@ -331,7 +331,9 @@ function insightPanel(){
     '<p>Sampled utility '+(best.sum/Math.max(1,best.visits)).toFixed(2)+
     ' · '+pretty(best.visits)+' simulations. Not a win percentage.</p>'+
     button("pin-best","Highlight candidate","small")+' '+
-    button("record-best","Record suggested action","small primary")+'</div>':
+    (game.mode==="physical"?
+      '<span class="meta">Record real tabletop actions manually; unverified cards are placeholders.</span>':
+      button("record-best","Record suggested action","small primary"))+'</div>':
     '<div class="recommendation">Evaluating candidate actions…</div>';
   const stats='<div class="stats">'+
     '<div class="stat"><div class="meta">Samples</div><div class="value">'+
@@ -401,9 +403,11 @@ function render(){
       (game.mode==="physical"?"Physical tracking":"Digital game")+'</span></nav>'+
     (notification?'<div role="alert" class="banner error">'+esc(notification)+'</div>':"")+
     (game.mode==="physical"?
-      '<div class="banner warning">Physical tracking is experimental: recorded '+
-      'cards can be corrected from observation, but unobserved private hands '+
-      'and future deck draws remain unknown. Analysis does not assume they are visible.</div>':"")+
+      '<div class="banner warning">Physical tracking is provisional. '+
+      'Card identities, bonus offers, food dice and goals you have NOT entered '+
+      'are randomly initialized placeholders, NOT verified tabletop facts. '+
+      'Do not trust candidate recommendations until all relevant observations '+
+      'have been reconciled. Record actual tabletop moves manually.</div>':"")+
     statusPanel()+'<div class="layout"><main>'+
       marketPanel()+activeMat()+visible+handPanel()+observationPanel()+
     '</main><aside>'+analysisPanel()+scorePanel()+goalPanel()+
