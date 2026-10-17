@@ -96,3 +96,20 @@ order for a more meaningful raw-throughput comparison.
 The browser defaults to `guided-informed`. The original `baseline` remains
 available as an explicit comparison option. Switching methods invalidates the
 current search tree, while pause/resume within one method preserves visits.
+
+### Same-runner throughput after caching action scores
+
+[Validation and speed measurement](https://github.com/seanmason/board-game-ai-dev/actions/runs/39004656866).
+
+Each method ran 3,072 simulations over the same 12 positions per player count
+within a single Node process, with alternating execution order and warmups.
+Enhanced-to-original simulations/second ratios:
+
+| Player count | Original sims/s | Enhanced sims/s | Relative |
+|---|---:|---:|---:|
+| 2 | 3,961 | 3,889 | 98% |
+| 3 | 2,235 | 2,178 | 97% |
+| 4 | 1,490 | 1,430 | 96% |
+
+Search quality has improved dramatically at a nearly unchanged simulation rate.
+Machine-specific absolute numbers are not representative of every browser.

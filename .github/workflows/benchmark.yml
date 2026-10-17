@@ -55,6 +55,7 @@ jobs:
           node scripts/benchmark-ai.mjs \
             --games="${{ github.event.inputs.games || 24 }}" \
             --playouts="${{ github.event.inputs.playouts || 256 }}" \
+            --variant=guided-informed \
             --players="${{ matrix.players }}" \
             --opponent="${{ github.event.inputs.opponent || 'heuristic' }}" \
             --seed=147 | tee benchmark.json

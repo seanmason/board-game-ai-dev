@@ -29,7 +29,7 @@ const games=int("games",12,1,20000),
   players=int("players",2,2,4),
   seed=int("seed",147,0,2147483647);
 const opponent=config("opponent","heuristic");
-const variant=config("variant","baseline");
+const variant=config("variant","guided-informed");
 const agent=config("agent","mcts");
 if(!["heuristic","informed","random"].includes(opponent))throw Error("Unknown --opponent");
 if(!["mcts","heuristic","informed"].includes(agent))throw Error("Unknown --agent");
