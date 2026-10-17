@@ -45,6 +45,17 @@ try{
 
   // Search continues without committing any suggested action.
   await waitSims();
+  assert.equal(await page.locator("#move-policy").inputValue(),"heuristic");
+  assert.match(await page.locator(".recommendation .eyebrow").innerText(),
+    /Heuristic recommendation/);
+  const beforePolicy=await getSims();
+  await page.locator("#move-policy").selectOption("mcts");
+  assert.match(await page.locator(".recommendation .eyebrow").innerText(),
+    /MCTS most-visited move/);
+  assert.ok(await getSims()>=beforePolicy,
+    "Changing recommendation policy must preserve MCTS simulations");
+  await page.locator("#move-policy").selectOption("heuristic");
+  assert.equal(await page.locator("#move-policy").inputValue(),"heuristic");
   const status=await page.locator("#turn-status").innerText();
   await page.waitForTimeout(1700);
   assert.equal(await page.locator("#turn-status").innerText(),status);
