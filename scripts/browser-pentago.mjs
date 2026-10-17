@@ -98,6 +98,35 @@ try{
   await page.reload({waitUntil:"networkidle"});
   assert.match(await page.locator("#turn-status").innerText(),/White to play/);
   assert.equal(await page.locator(".marble.black").count(),1);
+  // Touch layouts: iPad companion and narrow mobile viewports must remain
+  // usable without a mouse or a sideways-scrolling board.
+  const tablet=await browser.newPage({
+    viewport:{width:768,height:1024},deviceScaleFactor:2,hasTouch:true,isMobile:true
+  });
+  tablet.on("pageerror",e=>errors.push("tablet: "+e.message));
+  await tablet.goto("http://127.0.0.1:8080/pentago/",{waitUntil:"networkidle"});
+  await tablet.locator('button[data-action="cell"][data-cell="7"]').tap();
+  assert.equal(await tablet.locator(".marble.ghost").count(),1);
+  await tablet.locator('button[data-action="skip-twist"]').tap();
+  assert.match(await tablet.locator("#turn-status").innerText(),/White to play/);
+  const tabletLayout=await tablet.evaluate(()=>
+    ({scroll:document.documentElement.scrollWidth,width:window.innerWidth}));
+  assert.ok(tabletLayout.scroll<=tabletLayout.width+2,
+    "iPad viewport must not scroll horizontally");
+  await tablet.close();
+
+  const phone=await browser.newPage({
+    viewport:{width:390,height:844},deviceScaleFactor:2,hasTouch:true,isMobile:true
+  });
+  phone.on("pageerror",e=>errors.push("phone: "+e.message));
+  await phone.goto("http://127.0.0.1:8080/pentago/",{waitUntil:"networkidle"});
+  const phoneLayout=await phone.evaluate(()=>
+    ({scroll:document.documentElement.scrollWidth,width:window.innerWidth}));
+  assert.ok(phoneLayout.scroll<=phoneLayout.width+2,
+    "Narrow viewport must not scroll horizontally");
+  assert.equal(await phone.locator(".quadrant").count(),4);
+  await phone.close();
+
   assert.equal(errors.length,0,"Browser errors: "+errors.join("; "));
   console.log("Pentago browser smoke passed: physical place/twist, neutral skip, pause/resume, "+
     "hover, reroot, manual AI, undo/redo and reload.");
