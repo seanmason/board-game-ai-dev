@@ -7,9 +7,10 @@ import {performance} from "node:perf_hooks";
 import {
   newGame,drawFactories,applyAction,legalActions,outcomes
 } from "../src/azul.js";
+import {createSearch,runSearch,bestAction} from "../src/mcts.js";
 import {
-  createSearch,runSearch,bestAction,heuristicScore,informedHeuristic
-} from "../src/mcts.js";
+  chooseOpponentAction,resolveOpponentPolicy,OPPONENT_POLICIES
+} from "../benchmarks/opponents.js";
 
 function config(name,defaultValue) {
   const arg=process.argv.find(a=>a.startsWith("--"+name+"="));
@@ -31,19 +32,9 @@ const games=int("games",12,1,20000),
 const opponent=config("opponent","heuristic");
 const variant=config("variant","guided-informed");
 const agent=config("agent","mcts");
-if(!["heuristic","informed","random"].includes(opponent))throw Error("Unknown --opponent");
+const opponentPlayouts=int("opponent-playouts",64,1,100000);
+if(!OPPONENT_POLICIES.includes(opponent))throw Error("Unknown --opponent");
 if(!["mcts","heuristic","informed"].includes(agent))throw Error("Unknown --agent");
-function choosePolicy(s,options,policy,rng) {
-  if (policy === "random") return options[Math.floor(rng()*options.length)];
-  const score=policy==="informed"?informedHeuristic:heuristicScore;
-  let best=-Infinity,choices=[];
-  for(const a of options){
-    const rating=score(s,a);
-    if(rating>best){best=rating;choices=[a];}
-    else if(rating===best)choices.push(a);
-  }
-  return choices[Math.floor(rng()*choices.length)];
-}
 
 const began=performance.now();
 let winShare=0,scores=0,scoreMargins=0,moveCount=0,sims=0,searchMs=0;
@@ -71,8 +62,14 @@ for(let n=0;n<games;n++){
         searchMs+=performance.now()-t;
         sims+=search.iterations;
         action=bestAction(search);
-      } else action=choosePolicy(s,options,agent,random);
-    } else action=choosePolicy(s,options,opponent,random);
+      } else action=chooseOpponentAction(s,agent,random);
+    } else {
+      const opposingPolicy=resolveOpponentPolicy(opponent,s.currentPlayer,n);
+      action=chooseOpponentAction(s,opposingPolicy,random,{
+        playouts:opponentPlayouts,
+        seed:(seed ^ (n*23431) ^ (moves*1789) ^ s.currentPlayer) >>> 0
+      });
+    }
     s=applyAction(s,action);
     moveCount++;
   }
@@ -98,7 +95,7 @@ const margin=(z/denominator)*Math.sqrt(
 const winRange=[Math.max(0,center-margin),Math.min(1,center+margin)];
 console.log(JSON.stringify({
   type:"exploratory tournament (not a strength certification)",
-  config:{games,playouts,players,seed,opponent,variant,agent},
+  config:{games,playouts,players,seed,opponent,opponentPlayouts,variant,agent},
   performance:{
     totalMs:Math.round(performance.now()-began),
     searchMs:Math.round(searchMs),
