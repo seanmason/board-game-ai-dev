@@ -1,5 +1,6 @@
 import {BIRDS,BONUSES} from "./catalog.js";
-import {FOOD,HABITATS} from "./scoring.js";
+import {FOOD,HABITATS,totalEggs} from "./scoring.js";
+import {findFoodPayment,EGG_COLUMN_COST} from "./core.js";
 
 const CODES=new Set([...BIRDS.map(b=>b.powerCode)].filter(x=>x>0));
 const FOOD_CODES={
@@ -210,12 +211,20 @@ export function powerOptions(s,p){
       .map(h=>choice("Move to "+h,{habitat:h}));
   }
   if(EXTRA_BIRD_HABITAT[c]){
-    const result=[];
-    for(const id of s.players[owner].hand)
-      for(const h of EXTRA_BIRD_HABITAT[c])
-        if(BIRDS[id].habitats.includes(h)&&s.players[owner].habitats[h].length<5)
-          result.push(choice("Play "+BIRDS[id].name+" in "+h,
-            {birdId:id,habitat:h}));
+    const result=[],player=s.players[owner];
+    for(const id of player.hand){
+      const bird=BIRDS[id];
+      // The second bird costs normal food AND eggs, so don't offer a
+      // superficially legal habitat choice that cannot be completed.
+      if(findFoodPayment(player.food,bird)===null)continue;
+      for(const h of EXTRA_BIRD_HABITAT[c]){
+        const count=player.habitats[h].length;
+        if(!bird.habitats.includes(h)||count>=5)continue;
+        if(totalEggs(player)<EGG_COLUMN_COST[count])continue;
+        result.push(choice("Play "+bird.name+" in "+h,
+          {birdId:id,habitat:h}));
+      }
+    }
     return result;
   }
   return []; // Not a valid no-op: explicit unsupported effect if requested.
