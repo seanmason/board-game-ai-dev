@@ -1,0 +1,24 @@
+name: Wingspan per-card audit
+on:
+  push:
+    branches: [feat/wingspan-base-game]
+    paths:
+      - wingspan/**
+      - test/wingspan-card-audit.test.js
+      - .github/workflows/wingspan-card-audit.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  catalog-and-power-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run one executable card subtest per original bird
+        run: node --test test/wingspan-card-audit.test.js
+      - name: Run targeted power examples
+        run: node --test test/wingspan-powers.test.js test/wingspan.test.js test/wingspan-actions.test.js test/wingspan-analysis.test.js
