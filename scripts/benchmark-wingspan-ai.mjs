@@ -27,12 +27,13 @@ const bounded=(name,def,min,max)=>{
 const games=bounded("games",6,1,1000);
 const players=bounded("players",2,2,5);
 const samples=bounded("samples",12,1,1000);
+const timeMs=bounded("time-ms",0,0,10000);
 const horizon=bounded("horizon",4,1,12);
 const seed=bounded("seed",15963,0,2147483647);
 const method=option("method","belief-rollout");
 if(!["heuristic","belief-rollout"].includes(method))throw Error("Invalid method");
 const opponent=option("opponent","greedy");
-if(!["greedy","random","stochastic"].includes(opponent))throw Error("Invalid opponent");
+if(!["greedy","random","stochastic","heuristic","belief-rollout"].includes(opponent))throw Error("Invalid opponent");
 const started=performance.now();
 let searches=0,simulations=0,searchMs=0,actions=0,won=0,scoreShare=0,margin=0;
 const tally=[];
@@ -73,10 +74,18 @@ for(let game=0;game<games;game++){
         method,horizon
       });
       const at=performance.now();
-      runSearch(search,samples);
+      if(timeMs){do{runSearch(search,1);}while(performance.now()-at<timeMs);}
+      else runSearch(search,samples);
       searchMs+=performance.now()-at;
       searches++;
-      simulations+=samples;
+      simulations+=search.iterations;
+      action=searchSummary(search).candidates[0].action;
+    }else if(['heuristic','belief-rollout'].includes(opponent)){
+      const search=createSearch(publicObservation(state,actor),choices,{
+        rng:seededRandom((seed^(game*982451653+steps*197))>>>0),method:opponent,horizon});
+      const at=performance.now();
+      if(timeMs){do{runSearch(search,1);}while(performance.now()-at<timeMs);}
+      else runSearch(search,samples);
       action=searchSummary(search).candidates[0].action;
     }else action=pickFrom(choices,state,rng,opponent).action;
     try{state=applyAction(state,action);}
@@ -98,7 +107,7 @@ for(let game=0;game<games;game++){
 }
 console.log(JSON.stringify({
   mode:"exploratory imperfect-information Wingspan benchmark",
-  config:{games,players,samples,horizon,seed,method,opponent},
+  config:{games,players,samples,timeMs,horizon,seed,method,opponent},
   performance:{elapsedMs:Math.round(performance.now()-started),
     searchMs:Math.round(searchMs),searches,simulations,actions,
     simulationsPerSecond:searchMs?Math.round(simulations*1000/searchMs):0},

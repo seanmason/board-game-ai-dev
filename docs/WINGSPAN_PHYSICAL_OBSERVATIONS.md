@@ -24,5 +24,5 @@ sessions retain their existing behavior.
 This change addresses incremental tabletop input, not overall release readiness.
 Wingspan still needs its independent rules/transcript audit, broader chained
 power interaction coverage, and AI strength qualification. Keep it in development.
-When integrating the separate shared-platform refactor, include observation-io.js
-and physical-ui.js in its optional Wingspan static package manifest.
+The integrated shared-platform manifest includes observation-io.js and
+physical-ui.js. Session imports validate all snapshots before replacing live state.

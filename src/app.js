@@ -1,3 +1,4 @@
+import {readSession, boundedInteger} from '../shared/session.js';
 import {
   COLORS, MARKER, FLOOR_COSTS, wallColor, wallColumn, newGame,
   drawFactories, recordFactories, legalActions, applyAction, outcomes,
@@ -13,7 +14,7 @@ let index = 0, game = history[0].state;
 let seatTypes = ["human", "human"];
 let view = "companion", selectedColor = 0, selection = null, preview = null;
 let pendingFactories = makePending(game), notification = "", generation = 0;
-let workers = [], partialResults = new Map(), aggregate = null, searchStarted = 0;
+let workers = [], partialResults = new Map(), aggregate = null;
 let analysisEnabled = true, workerCount = Math.min(2, MAX_WORKERS);
 let searchVariant = "guided-informed";
 let hoveredCandidateKey = null;
@@ -292,7 +293,7 @@ function renderAnalysis() {
   const stats = '<div class="stats-grid">' +
     '<div class="stat"><span class="meta">Simulations</span><span class="value">' + fmt(data?.iterations ?? 0) + '</span></div>' +
     '<div class="stat"><span class="meta">Simulations/s</span><span class="value">' +
-    fmt(data?.elapsed > 0 ? data.iterations / (data.elapsed/1000) : 0) + '</span></div>' +
+    fmt(data?.elapsed > 0 ? Math.max(0, data.iterations - data.retainedSimulations) / (data.elapsed/1000) : 0) + '</span></div>' +
     '<div class="stat"><span class="meta">Tree nodes</span><span class="value">' + fmt(data?.nodes ?? 0) + '</span></div></div>';
   const candidateRows = (data?.candidates ?? []).slice(0, view==="analyst"?40:9).map((c,i) => {
     const win = c.visits ? (100*c.winSum[data.rootPlayer]/c.visits).toFixed(1) : "—";
@@ -337,20 +338,20 @@ function restore() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
     const data = JSON.parse(raw);
-    if (data.version !== 1 || !Array.isArray(data.history) || !data.history.length) return;
-    data.history.forEach(e => assertValid(e.state));
-    history = data.history;
-    index = Math.min(history.length-1, Math.max(0, data.index ?? history.length-1));
-    game = history[index].state;
-    seatTypes = Array.isArray(data.seatTypes) && data.seatTypes.length === game.players.length
-      ? data.seatTypes : game.players.map(() => "human");
+    const restored = readSession(data, {validateState: assertValid,
+      playerCount: state => state.players.length, seatField: 'seatTypes'});
+    history = restored.history; index = restored.index; game = restored.game;
+    seatTypes = restored.seats;
     view = data.view === "analyst" ? "analyst" : "companion";
     analysisEnabled = data.analysisEnabled !== false;
-    workerCount = Math.min(MAX_WORKERS, Math.max(1, data.workerCount || workerCount));
+    workerCount = boundedInteger(data.workerCount, workerCount, 1, MAX_WORKERS);
     searchVariant = data.searchVariant === "baseline" ? "baseline" : "guided-informed";
-    selectedColor = Number.isInteger(data.selectedColor) ? data.selectedColor : 0;
+    selectedColor = boundedInteger(data.selectedColor, 0, -1, 4);
     pendingFactories = Array.isArray(data.pendingFactories) &&
-      data.pendingFactories.length === game.factories.length ? data.pendingFactories : makePending(game);
+      data.pendingFactories.length === game.factories.length &&
+      data.pendingFactories.every(factory => Array.isArray(factory) && factory.length === 4 &&
+        factory.every(color => color === null || (Number.isInteger(color) && color >= 0 && color < 5)))
+      ? data.pendingFactories : makePending(game);
   } catch (error) { console.warn("Invalid saved game, creating new session:", error); }
 }
 function applyCandidateHover() {
@@ -392,7 +393,6 @@ function stopAnalysis() {
 function startAnalysis() {
   stopAnalysis();
   if (game.phase !== "draft") { renderAnalysis(); return; }
-  searchStarted = Date.now();
   if (analysisEnabled && typeof Worker !== "undefined") {
     for (let i=0; i<workerCount; i++) {
       const worker = new Worker(new URL("./ai-worker.js", import.meta.url), {type:"module"});
@@ -521,7 +521,7 @@ function fillObserved() {
   commit(recordFactories(game,arrays),"Observed round "+game.round+" factories");
 }
 function navTo(nextIndex) {
-  if (nextIndex < 0 || nextIndex >= history.length) return;
+  if (!Number.isInteger(nextIndex) || nextIndex < 0 || nextIndex >= history.length) return;
   index=nextIndex; game=history[index].state;
   afterChange();
 }
@@ -537,13 +537,10 @@ function downloadGame() {
 }
 async function uploadGame(file) {
   const data=JSON.parse(await file.text());
-  if (data.format !== "tabletop-observatory-game" || data.version !== 1 ||
-      !Array.isArray(data.history) || !data.history.length) throw Error("Not a supported game export");
-  data.history.forEach(entry=>assertValid(entry.state));
-  history=data.history; index=Math.min(history.length-1,Math.max(0,data.index ?? history.length-1));
-  game=history[index].state;
-  seatTypes=Array.isArray(data.seatTypes) && data.seatTypes.length===game.players.length
-    ? data.seatTypes : game.players.map(()=>"human");
+  const restored = readSession(data, {format:'tabletop-observatory-game',
+    validateState:assertValid, playerCount:state => state.players.length, seatField:'seatTypes'});
+  history=restored.history; index=restored.index; game=restored.game;
+  seatTypes=restored.seats;
   afterChange();
 }
 root.addEventListener("click", event => {

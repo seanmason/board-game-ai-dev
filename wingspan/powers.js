@@ -247,8 +247,9 @@ export function powerOptions(s,p){
 const ASSERT=(ok,msg)=>{if(!ok)throw Error(msg);};
 export function applyPower(s,p,selected,help){
   const c=p.code,owner=p.owner;
+  const identity=EXTRA_BIRD_HABITAT[c]?{birdId:selected.birdId,habitat:selected.habitat}:selected;
   const valid=powerOptions(s,p).some(x=>
-    JSON.stringify(x.choice)===JSON.stringify(selected));
+    JSON.stringify(x.choice)===JSON.stringify(identity));
   ASSERT(valid,"Unsupported or invalid power choice for "+BIRDS[p.birdId]?.name);
   const actor=s.players[owner],instance=actor.habitats[p.habitat]?.[p.index];
   const supply=(food,count=1,receiver=owner)=>{

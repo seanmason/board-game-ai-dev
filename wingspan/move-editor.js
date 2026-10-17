@@ -15,6 +15,7 @@ const foodLabel=f=>({
 })[f]??f;
 const option=(value,label,selected=false)=>'<option value="'+esc(value)+'"'+
   (selected?' selected':'')+'>'+esc(label)+'</option>';
+const extraHabitats={37:["forest"],38:["grassland"],44:["wetland"],51:["forest","grassland"]};
 const entries=p=>HABITATS.flatMap(h=>p.habitats[h].map((b,i)=>
   ({habitat:h,index:i,bird:b,id:b.id})));
 function asField(id,label,body) {
@@ -40,15 +41,18 @@ function eggInputs(p,prefix="adv-egg",zero=false){
 export function advancedEditor(s,{
   kind="gainFood",birdId=null,habitat=null
 }={}){
-  if(s.phase!=="play")return "";
-  const p=s.players[s.currentPlayer];
-  const birds=p.hand.map(id=>BIRDS[id]);
-  if(birdId===null||!p.hand.includes(birdId))birdId=p.hand[0]??null;
+  const extra=s.phase==='power'?extraHabitats[s.pending[0]?.code]:null;
+  if(s.phase!=="play"&&!extra)return "";
+  if(extra)kind='playBird';
+  const p=s.players[extra?s.pending[0].owner:s.currentPlayer];
+  const birds=p.hand.map(id=>BIRDS[id]).filter(b=>!extra||b.habitats.some(h=>extra.includes(h)));
+  if(birdId===null||!birds.some(b=>b.id===birdId))birdId=birds[0]?.id??null;
   const b=birdId!==null?BIRDS[birdId]:null;
-  if(b&&!b.habitats.includes(habitat))habitat=b.habitats[0];
+  const habitats=b?b.habitats.filter(h=>!extra||extra.includes(h)):[];
+  if(b&&!habitats.includes(habitat))habitat=habitats[0];
   let html="";
   if(kind==="playBird"){
-    const selectedBird=b?birdId:null,available=b?.habitats??[];
+    const selectedBird=b?birdId:null,available=habitats;
     const row=b?p.habitats[habitat]:[];
     html='<div class="advanced-grid">'+
       asField("adv-bird","Bird",'<select id="adv-bird">'+
@@ -124,14 +128,14 @@ export function advancedEditor(s,{
         :"");
   }
   return '<section class="card"><details id="advanced-action-editor">'+
-    '<summary>Detailed action entry (specific payments and targets)</summary>'+
+    '<summary>'+ (extra?'Detailed second-bird entry':'Detailed action entry (specific payments and targets)')+'</summary>'+
     '<p class="meta">Overrides the quick suggestions. The engine validates '+
       'the exact cost and targets you specify; invalid actions do not change the game.</p>'+
     '<div class="toolbar">'+asField("adv-kind","Action type",
       '<select id="adv-kind">'+[
         ["playBird","Play a bird"],["gainFood","Gain food"],
         ["layEggs","Lay eggs"],["drawBirds","Draw birds"]
-      ].map(([value,label])=>option(value,label,value===kind)).join("")+
+      ].filter(([value])=>!extra||value==='playBird').map(([value,label])=>option(value,label,value===kind)).join("")+
       '</select>')+'</div><div id="advanced-inputs">'+html+'</div>'+
     '<div class="toolbar"><button type="button" class="primary" '+
       'data-action="advanced-commit">Confirm detailed action</button></div>'+
@@ -150,7 +154,13 @@ function drawChoice(root,id){
   return value==="deck"?"deck":Number(value);
 }
 export function detailedAction(root,state){
-  if(state.phase!=="play")throw Error("Detailed action requires a main turn");
+  if(state.phase==='power'&&extraHabitats[state.pending[0]?.code]){
+    const action=detailedAction(root,{...state,phase:'play',currentPlayer:state.pending[0].owner});
+    if(action.type!=='playBird')throw Error('Choose a second bird');
+    const {type,...choice}=action;
+    return {type:'power',choice};
+  }
+  if(state.phase!=="play")throw Error("Detailed action requires a main turn or second-bird power");
   const p=state.players[state.currentPlayer];
   const kind=get(root,"adv-kind")?.value;
   if(kind==="playBird"){

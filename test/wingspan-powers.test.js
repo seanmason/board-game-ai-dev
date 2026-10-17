@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {BIRDS} from "../wingspan/catalog.js";
 import {HABITATS,FOOD} from "../wingspan/scoring.js";
-import {newGame,applyAction,assertValid,powerChoices} from "../wingspan/core.js";
+import {newGame,applyAction,assertValid,powerChoices,findFoodPayment} from "../wingspan/core.js";
 
 function prepared(seed=58){
   let s=newGame({players:3,seed});
@@ -273,4 +273,24 @@ test("all-player bowl egg powers give owner a distinct extra bird target",()=>{
     assertValid(s);
   }
   assert.ok(secondarySeen,"Owner had two eligible birds and must see extra option");
+});
+test('two forest birds played in one white-power chain offer one pink reaction',()=>{
+  let s=prepared();
+  const pink=place(s,39,{owner:1});
+  support(s,0,2);
+  const first=BIRDS.find(b=>b.powerCode===37);
+  const second=BIRDS.find(b=>b.powerCode===31&&b.id!==first.id);
+  for(const b of [first,second]){takeBird(s,b.id);s.players[0].hand.push(b.id);}
+  // Start with a normally paid first bird; its white power precedes the pink response.
+  const row=s.players[0].habitats.forest;
+  // The support bird may live outside the forest; collect a legal egg source explicitly.
+  const eggSource=HABITATS.flatMap(h=>s.players[0].habitats[h].map((b,index)=>({h,b,index}))).find(x=>x.b.eggs>0);
+  s=applyAction(s,{type:'playBird',birdId:first.id,habitat:'forest',
+    payment:findFoodPayment(s.players[0].food,first),eggs:row.length?[{habitat:eggSource.h,index:eggSource.index,count:1}]:[]});
+  s=applyAction(s,{type:'power',choice:{birdId:second.id,habitat:'forest'}});
+  assert.equal(s.pending.filter(p=>p.birdId===pink.bird.id).length,1);
+  const before=s.players[1].food.invertebrate;
+  s=applyAction(s,{type:'power',choice:firstChoice(s)});
+  assert.equal(s.players[1].food.invertebrate,before+1);
+  assert.equal(s.phase,'play');assertValid(s);
 });

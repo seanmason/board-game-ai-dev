@@ -275,7 +275,8 @@ function reactPink(s,event){
       for(let j=0;j<birds.length;j++){
         const bird=BIRDS[birds[j].id];
         if(bird.powerType!=="pink"||!bird.powerCode||
-          s.players[i].pinkUsed.includes(bird.id))continue;
+          s.players[i].pinkUsed.includes(bird.id)||
+          s.pending.some(p=>p.owner===i&&p.birdId===bird.id&&p.timing==='pink'))continue;
         const pending={owner:i,habitat,index:j,birdId:bird.id,
           code:bird.powerCode,timing:"pink",event};
         if(powerAvailable(s,pending))s.pending.push(pending);
@@ -501,9 +502,10 @@ export function applyAction(state,action,{observations=null}={}){
             if(q){eggSources.push({habitat:h,index:i,count:q});left-=q;}
           }
         check(!left,"Second bird needs "+eggCost+" eggs");
-        const payment=findFoodPayment(p.food,bird);
+        const payment=request.payment??findFoodPayment(p.food,bird);
         check(payment!==null,"Cannot pay food to play second bird");
-        removeEggs(st,owner,eggSources,eggCost);
+        check(satisfiesCost(bird,payment),"Second bird food payment doesn't satisfy its cost");
+        removeEggs(st,owner,request.eggs??eggSources,eggCost);
         useFood(st,owner,payment);
         p.hand.splice(p.hand.indexOf(request.birdId),1);
         row.push(unitBird(request.birdId));
