@@ -264,6 +264,10 @@ function endRound(s){
   s.starter=(s.starter+1)%s.players.length;
   s.currentPlayer=s.starter;
   s.remaining=s.players.map(()=>ROUND_ACTIONS[s.round-1]);
+  // The last action of a round may have ended in a brown/pink power phase;
+  // the next round must always begin in the ordinary action phase.
+  s.phase="play";
+  s.players[s.currentPlayer].pinkUsed=[];
   // All face-up birds are discarded and three new ones revealed.
   s.birdDiscard.push(...s.tray);
   s.tray=[];
