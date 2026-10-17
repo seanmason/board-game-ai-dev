@@ -29,7 +29,7 @@ import {execFileSync} from 'node:child_process';
 test('each standalone package contains a complete local dependency graph and no cross-game navigation',()=>{
   const temp=mkdtempSync(join(tmpdir(),'board-game-package-'));
   try{
-    for(const game of ['azul','pentago','boop']){
+    for(const game of ['azul','pentago','boop','splendor']){
       const target=join(temp,game);
       execFileSync(process.execPath,['scripts/package-game.mjs',game,target]);
       assert.ok(existsSync(join(target,'index.html')));

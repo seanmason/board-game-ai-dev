@@ -5,8 +5,8 @@ import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {games,sharedAssets} from './static-assets.mjs';
 const [game,directory]=process.argv.slice(2);
-if(!Object.hasOwn(games,game)||game==='wingspan'||!directory)
-  throw Error('Usage: node scripts/package-game.mjs azul|pentago|boop NEW_OUTPUT_DIRECTORY');
+if(!['azul','pentago','boop','splendor'].includes(game)||!directory)
+  throw Error('Usage: node scripts/package-game.mjs azul|pentago|boop|splendor NEW_OUTPUT_DIRECTORY');
 const root=fileURLToPath(new URL('../',import.meta.url));
 const destination=resolve(directory);
 try{await access(destination);throw Error('Output directory already exists');}

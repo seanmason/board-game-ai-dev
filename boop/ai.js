@@ -43,24 +43,35 @@ function edgesFor(s,guided){
     .sort((a,b)=>guided?b.prior-a.prior||actionKey(a.action).localeCompare(actionKey(b.action)):0);
 }
 function nodeAt(state,action=null){return{state,action,edges:null,children:[],visits:0,valueSum:[0,0],terminalWins:[0,0],terminalSamples:0};}
+// Only rules-relevant position data: move numbers and display metadata do not
+// distinguish a repeated board. History affects root policy, never leaf values,
+// so subtree visit/value statistics remain valid after an actual move.
+export const positionKey=s=>JSON.stringify([s.currentPlayer,s.board,s.pools]);
+function rememberPosition(search,state){
+  const key=positionKey(state);search.positionCounts.set(key,(search.positionCounts.get(key)??0)+1);
+}
+export const compareCandidates=(a,b)=>b.tactic-a.tactic||(a.repetitions??0)-(b.repetitions??0)||b.visits-a.visits;
 function prepareRoot(search){
   const root=search.root;
   root.edges??=edgesFor(root.state,search.method==='guided');
-  // Exact one-turn tactical check. Graduation alternatives remain distinct.
-  for(const edge of root.edges){
-    const state=applyAction(root.state,edge.action);
+  search.rootTactics=new Map();search.rootRepetitions=new Map();
+  for(const edge of [...root.edges,...root.children]){
+    const state=edge.state??applyAction(root.state,edge.action),key=actionKey(edge.action);
     edge.tactic=state.phase==='gameover'?1:
       search.method==='guided'&&winningActions(state,true).length?-1:0;
+    // Baseline remains a plain UCT comparator. Guided search prefers less
+    // frequently visited real positions within the same exact tactical tier.
+    edge.repetitions=search.method==='guided'?(search.positionCounts.get(positionKey(state))??0):0;
+    search.rootTactics.set(key,edge.tactic);search.rootRepetitions.set(key,edge.repetitions);
   }
-  root.edges.sort((a,b)=>b.tactic-a.tactic|| (search.method==='guided'?b.prior-a.prior:0));
-  search.rootTactics=new Map(root.edges.map(e=>[actionKey(e.action),e.tactic]));
+  root.edges.sort((a,b)=>compareCandidates({...a,visits:0},{...b,visits:0})||(search.method==='guided'?b.prior-a.prior:0));
   search.legalCount=root.edges.length+root.children.length;
-  // On re-root, expanded children need the same tactical checks as new edges.
-  for(const child of root.children)search.rootTactics.set(actionKey(child.action),child.state.phase==='gameover'?1:search.method==='guided'&&winningActions(child.state,true).length?-1:0);
 }
-export function createSearch(state,{rng=Math.random,method='guided',maxNodes=10000,rolloutLength=8,exploration=0.8}={}){
+export function createSearch(state,{rng=Math.random,method='guided',maxNodes=10000,rolloutLength=8,exploration=0.8,history=[]}={}){
   assertValid(state);if(state.phase!=='play')throw Error('Boop search requires a playable position');
-  const search={root:nodeAt(cloneGame(state)),rng,method:method==='baseline'?'baseline':'guided',maxNodes,rolloutLength,exploration,nodeCount:1,iterations:0};
+  const search={root:nodeAt(cloneGame(state)),rng,method:method==='baseline'?'baseline':'guided',maxNodes,rolloutLength,exploration,nodeCount:1,iterations:0,positionCounts:new Map()};
+  for(const previous of history)rememberPosition(search,previous);
+  if(!history.length||positionKey(history.at(-1))!==positionKey(state))rememberPosition(search,state);
   prepareRoot(search);return search;
 }
 function rollout(s,search){
@@ -106,11 +117,14 @@ export function runSearch(search,count=1){
       }
       if(!node.children.length)break;
       const actor=node.state.currentPlayer,log=Math.log(node.visits+1);
-      let best=-Infinity,choice=null;
+      let best=-Infinity,choice=null,priority=null;
       for(const child of node.children){
         const tactic=node===search.root?(search.rootTactics.get(actionKey(child.action))??0):0;
-        const score=child.valueSum[actor]/child.visits+search.exploration*Math.sqrt(log/child.visits)+tactic*100;
-        if(score>best){best=score;choice=child;}
+        const repetitions=node===search.root?(search.rootRepetitions.get(actionKey(child.action))??0):0;
+        const rank={tactic,repetitions,visits:0};
+        const score=child.valueSum[actor]/child.visits+search.exploration*Math.sqrt(log/child.visits);
+        const order=priority?compareCandidates(rank,priority):-1;
+        if(order<0||(order===0&&score>best)){best=score;choice=child;priority=rank;}
       }
       node=choice;route.push(node);
       // Cycles are legal in Boop. Bound tree traversal as well as rollouts;
@@ -126,11 +140,11 @@ export function runSearch(search,count=1){
 }
 export function searchSummary(search){
   const root=search.root,me=root.state.currentPlayer;
-  const candidates=root.children.map(child=>({action:child.action,key:actionKey(child.action),label:describeAction(child.action),visits:child.visits,valueSum:[...child.valueSum],terminalWins:[...child.terminalWins],terminalSamples:child.terminalSamples,tactic:search.rootTactics.get(actionKey(child.action))??0}))
-    .sort((a,b)=>b.tactic-a.tactic||b.visits-a.visits||b.valueSum[me]/b.visits-a.valueSum[me]/a.visits);
+  const candidates=root.children.map(child=>({action:child.action,key:actionKey(child.action),label:describeAction(child.action),visits:child.visits,valueSum:[...child.valueSum],terminalWins:[...child.terminalWins],terminalSamples:child.terminalSamples,tactic:search.rootTactics.get(actionKey(child.action))??0,repetitions:search.rootRepetitions.get(actionKey(child.action))??0}))
+    .sort((a,b)=>compareCandidates(a,b)||b.valueSum[me]/b.visits-a.valueSum[me]/a.visits);
   const principalVariation=[];let node=root;
   for(let i=0;i<6;i++){
-    const child=[...node.children].sort((a,b)=>b.visits-a.visits)[0];if(!child)break;
+    const child=i===0?node.children.find(c=>actionKey(c.action)===candidates[0]?.key):[...node.children].sort((a,b)=>b.visits-a.visits)[0];if(!child)break;
     principalVariation.push(child.action);node=child;
   }
   return{iterations:search.iterations,nodeCount:search.nodeCount,currentPlayer:me,rootLegalActions:search.legalCount,candidates,principalVariation,terminalSamples:root.terminalSamples};
@@ -152,6 +166,6 @@ export function advanceSearch(search,action,nextState){
   const child=search.root.children.find(c=>actionKey(c.action)===actionKey(action));if(!child)return{reused:false};
   search.root=child;child.action=null;search.iterations=child.visits;
   let nodes=0,stack=[child];while(stack.length){const n=stack.pop();nodes++;stack.push(...n.children);}
-  search.nodeCount=nodes;prepareRoot(search);
+  search.nodeCount=nodes;rememberPosition(search,nextState);prepareRoot(search);
   return{reused:true,retainedVisits:child.visits,retainedNodes:nodes};
 }

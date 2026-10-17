@@ -49,3 +49,45 @@ test('node cap bounds expansion and finite rollouts never invent a game draw',()
 test('evaluation changes sign when the player colors are swapped',()=>{
   const s=fixture([[8,1],[20,-2]],[3,4]),other={...s,board:s.board.map(v=>-v),pools:[s.pools[1],s.pools[0]]};assert.ok(Math.abs(positionScore(s)+positionScore(other))<1e-9);
 });
+
+test('repetition identity includes board, pools and actor, ignoring display metadata',async()=>{
+  const {positionKey}=await import('../boop/ai.js');const s=newGame();
+  assert.equal(positionKey(s),positionKey({...s,ply:100,lastMove:{cell:4},mode:'digital'}));
+  for(const changed of [{...s,currentPlayer:1},{...s,pools:[[7,1],[8,0]]},{...s,board:s.board.map((v,i)=>i===0?1:v)}])assert.notEqual(positionKey(s),positionKey(changed));
+});
+test('history preference survives reuse without changing leaf values or declaring draws',async()=>{
+  const {positionKey}=await import('../boop/ai.js');const s=newGame(),search=createSearch(s,{rng:seededRandom(90),rolloutLength:0});runSearch(search,160);
+  const top=searchSummary(search).candidates[0],child=search.root.children.find(c=>actionKey(c.action)===top.key),next=child.state;
+  const repeated=applyAction(next,legalActions(next)[0]);search.positionCounts.set(positionKey(repeated),3);
+  const values=[...child.valueSum];assert.ok(advanceSearch(search,top.action,next).reused);
+  assert.deepEqual(search.root.valueSum,values);assert.equal(search.positionCounts.get(positionKey(next)),1);
+  runSearch(search,500);const summary=searchSummary(search),repeat=summary.candidates.find(c=>positionKey(applyAction(next,c.action))===positionKey(repeated));
+  assert.equal(repeat.repetitions,3);assert.equal(summary.candidates[0].repetitions,0);
+  assert.equal(search.root.state.phase,'play');assert.equal(summary.terminalSamples,0);
+  assert.equal(actionKey(summary.principalVariation[0]),summary.candidates[0].key);
+});
+test('history preference keeps immediate wins and safe defenses first',()=>{
+  for(const s of [fixture([[12,2],[13,2]],[3,0]),fixture([[12,-2],[13,-2]],[1,3])]){
+    const history=legalActions(s).map(a=>applyAction(s,a)).filter(next=>next.phase==='gameover'||!winningActions(next,true).length);
+    const search=createSearch(s,{history,rng:seededRandom(8),rolloutLength:0});runSearch(search,120);
+    const next=applyAction(s,bestAction(search));
+    if(winningActions(s,true).length)assert.equal(next.winner,s.currentPlayer);
+    else assert.equal(winningActions(next,true).length,0);
+  }
+});
+test('recorded two-turn cycle is escaped at 3,000 and 10,000 iterations',async()=>{
+  const {readFile}=await import('node:fs/promises'),{positionKey}=await import('../boop/ai.js');
+  const data=JSON.parse(await readFile(new URL('../benchmarks/boop-long/tactical-10000.json',import.meta.url),'utf8'));
+  const game=data.records.find(r=>r.game===11);let state=newGame({mode:'digital'});const history=[state];
+  for(const action of [...game.opening,...game.moves.filter(m=>m.ply<35).map(m=>m.action)]){state=applyAction(state,action);history.push(state);}
+  const cycle=game.moves.find(m=>m.ply===35).action,cycleKey=positionKey(applyAction(state,cycle));
+  assert.ok(history.some(s=>positionKey(s)===cycleKey));const before=JSON.stringify(history);
+  for(const count of [3000,10000]){
+    const search=createSearch(state,{history,rng:seededRandom(1642911)});runSearch(search,count);
+    const summary=searchSummary(search),next=applyAction(state,bestAction(search));
+    assert.notEqual(positionKey(next),cycleKey);assert.equal(summary.candidates[0].repetitions,0);
+    assert.equal(winningActions(next,true).length,0);assert.equal(summary.iterations,count);
+    assert.ok(summary.candidates.find(c=>c.key===actionKey(cycle)).repetitions>0);
+  }
+  assert.equal(JSON.stringify(history),before);
+});

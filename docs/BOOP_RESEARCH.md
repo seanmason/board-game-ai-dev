@@ -183,3 +183,31 @@ they do not measure human strength or establish optimal play. Repetition-aware
 search, stronger opponent policies, and diverse search-based opponents remain
 future work. No game rules, browser settings, or AI behavior were changed as
 part of this evaluation.
+
+
+## History-aware repetition preference
+
+Guided MCTS now counts positions in the active game/variation history through
+its current index, using board, pools and player to move. Within each exact
+root tactical tier, it prefers successor positions seen fewer times, then the
+usual search visits/utility. This preference controls root expansion, selection,
+worker aggregation and the first PV move. Immediate wins and avoiding immediate
+opponent wins retain priority. UCT baseline is unchanged.
+
+Repetition remains legal: no draw is added to the rules, and every move remains
+available. This is a simple anti-loop policy, not a proof of progress or optimal
+play. Deeper search/rollout values are unchanged, which allows conditional tree
+reuse; the new root's repetition priorities are recomputed after each real move.
+Fresh workers receive only history through the selected index, excluding redo
+positions. Hypothetical branches use their own active history.
+
+The archived game-11 loop at ply 35 is a regression fixture: searches at both
+3,000 and 10,000 iterations select a fresh, tactically safe successor instead of
+the repeated A5 kitten placement. The original benchmark records remain intact.
+
+A deterministic continuation from that same ply-35 position, using 3,000
+iterations per Gray move against tactical greedy, finished with a Gray win at
+ply 40 (five more moves). Every replay and continuation transition matched the
+independent oracle. Reproduce with `node scripts/verify-boop-repetition.mjs`;
+[the saved trace](../benchmarks/boop-long/repetition-regression.json) records the
+moves and history counts. This is a targeted regression, not a new tournament.

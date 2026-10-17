@@ -11,7 +11,7 @@ catch (error) { if (error.code !== 'ENOENT') throw error; }
 const assets = [...sharedAssets];
 for (const [game, paths] of Object.entries(games)) {
   try { await access(resolve(root, paths[0])); }
-  catch (error) { if (game === 'wingspan' && error.code === 'ENOENT') continue; throw error; }
+  catch (error) { if (['wingspan','splendor'].includes(game) && error.code === 'ENOENT') continue; throw error; }
   assets.push(...paths);
 }
 // Preflight every required source before creating output.

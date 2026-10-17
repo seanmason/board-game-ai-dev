@@ -12,6 +12,10 @@ jobs:
           node-version: '22'
       - run: npm test
       - run: npm run check
+      - name: Splendor card audit and independent rules comparison
+        run: |
+          npm run audit:splendor
+          npm run verify:splendor
       - name: Benchmark baseline vs guided search on the same runner
         run: npm run benchmark:search
       - name: Verify conditional MCTS reuse metrics
@@ -35,16 +39,25 @@ jobs:
       - name: Browser interaction smoke test
         run: |
           npm run stage:preview
+          npm run package:game -- splendor preview/standalone-splendor
           python3 -m http.server 8080 --directory preview --bind 127.0.0.1 >/tmp/tabletop-server.log 2>&1 &
           sleep 1
           node scripts/browser-smoke.mjs
           node scripts/browser-pentago.mjs
           node scripts/browser-sessions.mjs
           node scripts/browser-boop.mjs
+          node scripts/browser-splendor.mjs
       - name: Upload Boop browser evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: boop-browser-evidence
           path: test-artifacts/boop-*
+          if-no-files-found: ignore
+      - name: Save Splendor browser review images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: splendor-browser-review
+          path: /tmp/splendor-*.png
           if-no-files-found: ignore

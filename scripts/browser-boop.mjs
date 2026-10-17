@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
-import {mkdirSync,mkdtempSync,rmSync} from 'node:fs';
+import {mkdirSync,mkdtempSync,rmSync,readFileSync} from 'node:fs';
 import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {execFileSync,spawn} from 'node:child_process';
 import {chromium} from 'playwright';
-import {newGame,owner} from '../boop/core.js';
+import {newGame,owner,applyAction,legalActions,actionKey} from '../boop/core.js';
+import {positionKey} from '../boop/ai.js';
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 const base=process.env.BOOP_BROWSER_URL??'http://127.0.0.1:8080/boop/';
 const page=await browser.newPage({viewport:{width:1200,height:1000}}),errors=[];
@@ -53,6 +54,21 @@ try{
   await page.locator('.quilt:not(.preview-board) .cell[data-cell="35"]').click();assert.equal(await button('choice').count(),9);
   await page.getByRole('button',{name:'Retrieve / graduate A1',exact:true}).click();await button('confirm').click();
   const retrieval=(await stored()).history[1].state;assert.equal(retrieval.pools[0][1],1);assert.equal(retrieval.board[0],0);assert.equal(retrieval.board[2],1);
+  // Real imported history reaches workers and aggregation, excluding redo future.
+  const archived=JSON.parse(readFileSync(new URL('../benchmarks/boop-long/tactical-10000.json',import.meta.url),'utf8')).records.find(r=>r.game===11);
+  let cycleState=newGame({mode:'digital'});const cycleHistory=[{state:cycleState,label:'Start'}];
+  for(const action of [...archived.opening,...archived.moves.filter(m=>m.ply<35).map(m=>m.action)]){cycleState=applyAction(cycleState,action);cycleHistory.push({state:cycleState,label:'Recorded move'});}
+  const futureAction=legalActions(cycleState).find(a=>!cycleHistory.some(h=>positionKey(h.state)===positionKey(applyAction(cycleState,a)))),future=applyAction(cycleState,futureAction);
+  const cycleSession={format:'board-game-ai-boop',version:1,history:[...cycleHistory,{state:future,label:'Redo future'}],index:cycleHistory.length-1,seats:['human','ai']};
+  await page.locator('#import-file').setInputFiles({name:'cycle.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(cycleSession))});
+  await page.waitForFunction(()=>JSON.parse(localStorage.getItem('board-game-ai-boop-v1'))?.index===35);
+  await page.locator('[data-action="more"][data-count="1000"]').click();
+  await page.waitForFunction(()=>document.querySelector('#analysis-status')?.textContent==='Paused',null,{timeout:45000});
+  const bestKey=await page.locator('tr[data-candidate]').first().getAttribute('data-candidate'),suggestion=legalActions(cycleState).find(a=>actionKey(a)===bestKey);
+  assert.ok(suggestion);assert.ok(!cycleHistory.some(h=>positionKey(h.state)===positionKey(applyAction(cycleState,suggestion))));
+  assert.ok(await page.getByText('Returns to a position seen 1 time',{exact:true}).count());
+  assert.doesNotMatch(await page.locator(`tr[data-candidate="${actionKey(futureAction)}"]`).innerText(),/Returns to a position/,'Redo future does not count as visited');
+  assert.equal((await stored()).index,35,'Repetition analysis does not record a move');
   // Win terminal result and new-game reset remain usable.
   await load(fixture([[12,2],[13,2]],[3,0]));await page.locator('[data-action="piece"][data-piece="2"]').click();await page.locator('.quilt:not(.preview-board) [data-cell="14"]').click();await button('confirm').click();assert.match(await page.locator('#turn-status').innerText(),/Orange wins/);
   await page.locator('#mode').selectOption('digital');await button('new-game').click();await page.locator('[data-action="seat"][data-seat="0"]').selectOption('ai');

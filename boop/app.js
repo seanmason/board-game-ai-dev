@@ -1,3 +1,4 @@
+import {compareCandidates} from './ai.js';
 import {readSession,boundedInteger} from '../shared/session.js';
 import {PLAYERS,newGame,cloneGame,legalActions,previewPlacement,applyAction,actionKey,describeAction,assertValid,owner,coord,matchingLines} from './core.js';
 const KEY='board-game-ai-boop-v1',FORMAT='board-game-ai-boop',root=document.querySelector('#app');
@@ -32,7 +33,7 @@ function boardHtml(){
 }
 function detailsHtml(){
   const top=analysis?.candidates[0],me=game.currentPlayer;
-  const rows=(analysis?.candidates??[]).slice(0,view==='analysis'?120:8).map((c,i)=>`<tr data-candidate="${c.key}"><td><button data-action="candidate" data-key="${c.key}">${i+1}. ${esc(c.label)}</button>${c.tactic?`<div class="candidate-note">${c.tactic===1?'Wins this turn':'Allows immediate opponent win'}</div>`:''}</td><td class="right">${(c.valueSum[me]/c.visits*100).toFixed(1)}</td><td class="right">${fmt(c.visits)}</td></tr>`).join('');
+  const rows=(analysis?.candidates??[]).slice(0,view==='analysis'?120:8).map((c,i)=>`<tr data-candidate="${c.key}"><td><button data-action="candidate" data-key="${c.key}">${i+1}. ${esc(c.label)}</button>${c.repetitions?`<div class="candidate-note">Returns to a position seen ${c.repetitions} time${c.repetitions===1?'':'s'}</div>`:''}${c.tactic?`<div class="candidate-note">${c.tactic===1?'Wins this turn':'Allows immediate opponent win'}</div>`:''}</td><td class="right">${(c.valueSum[me]/c.visits*100).toFixed(1)}</td><td class="right">${fmt(c.visits)}</td></tr>`).join('');
   return `<div id="analysis-content"><div class="recommendation"><span class="eyebrow">${method==='guided'?'Tactical guided MCTS':'UCT baseline'}</span><div><strong>${top?esc(top.label):game.phase==='gameover'?'Game complete':'Waiting for simulations…'}</strong></div>${top?`${btn('pin','Preview best')} ${btn('record-best',game.mode==='physical'?'Record suggested move':'Play Best Move')} ${btn('branch-best','Explore variation')}`:''}<p>Evaluation is a 0–100 search utility, not a calibrated win percentage. Extra simulations stop at the next report and may exceed the requested increment.</p></div><div class="stats"><div class="stat"><div class="meta">Simulations</div><div class="value" id="simulations">${fmt(analysis?.iterations??0)}</div></div><div class="stat"><div class="meta">Simulations/s</div><div class="value">${fmt(analysis?.elapsed?Math.max(0,analysis.iterations-analysis.retained)/(analysis.elapsed/1000):0)}</div></div><div class="stat"><div class="meta">Tree nodes</div><div class="value">${fmt(analysis?.nodes??0)}</div></div></div><p class="details" id="coverage">Explored ${analysis?.candidates.length??0} / ${analysis?.legal??0} full moves. Retained ${fmt(analysis?.retained??0)} conditional simulations. ${fmt(analysis?.terminalSamples??0)} rollouts reached a real win; other leaves use a heuristic.</p>${top?.terminalSamples?`<p class="details">Best move: ${ (100*top.terminalWins[me]/top.terminalSamples).toFixed(1)}% wins among ${fmt(top.terminalSamples)} completed rollouts only. Cutoff leaves excluded; biased sample, not a win forecast.</p>`:''}<div class="table-scroll"><table class="moves"><thead><tr><th>Complete move</th><th>Eval.</th><th>Visits</th></tr></thead><tbody>${rows||'<tr><td colspan="3">No simulated moves yet.</td></tr>'}</tbody></table></div><p class="details">Continuation (most visited): ${esc((analysis?.pv??[]).map(describeAction).join(' → ')||'—')}. Suggestions never move pieces automatically.</p></div>`;
 }
 function render(){
@@ -53,7 +54,7 @@ function combine(){
     if(p.principalVariation.length>pv.length)pv=p.principalVariation;
     for(const c of p.candidates){const old=candidates.get(c.key)??{...c,visits:0,valueSum:[0,0],terminalWins:[0,0],terminalSamples:0};old.visits+=c.visits;old.terminalSamples+=c.terminalSamples;for(let i=0;i<2;i++){old.valueSum[i]+=c.valueSum[i];old.terminalWins[i]+=c.terminalWins[i];}candidates.set(c.key,old);}
   }
-  const me=game.currentPlayer,ranked=[...candidates.values()].sort((a,b)=>b.tactic-a.tactic||b.visits-a.visits||b.valueSum[me]/b.visits-a.valueSum[me]/a.visits);
+  const me=game.currentPlayer,ranked=[...candidates.values()].sort((a,b)=>compareCandidates(a,b)||b.valueSum[me]/b.visits-a.valueSum[me]/a.visits);
   analysis={iterations,nodes,elapsed,retained,legal,terminalSamples,pv,candidates:ranked};
 }
 function stop(){generation++;for(const w of workers)w.terminate();workers=[];parts.clear();analysis=null;target=null;}
@@ -68,7 +69,7 @@ function start(){
       if(target!==null&&analysis.iterations>=target){enabled=false;target=null;save();for(const worker of workers)worker.postMessage({type:'pause',generation});render();}
       display();};
     w.onerror=()=>{if(workers.includes(w)&&workerGeneration<=generation)fail('Search worker failed. Manual move recording remains available.');};
-    workers.push(w);w.postMessage({type:'start',generation,state:game,seed:(Math.random()*2**32)>>>0,method,running:enabled});
+    workers.push(w);w.postMessage({type:'start',generation,state:game,positionHistory:history.slice(0,index+1).map(e=>e.state),seed:(Math.random()*2**32)>>>0,method,running:enabled});
   }
   display();
 }
@@ -78,7 +79,7 @@ function changed(action=null){
   selection=null;choice=0;pinned=null;hovered=null;notification='';target=null;
   if(!game.pools[game.currentPlayer][piece-1])piece=game.pools[game.currentPlayer][0]?1:2;
   save();
-  if(action&&game.phase==='play'&&workers.length===workerCount){const previousGeneration=generation;generation++;parts.clear();analysis=null;render();for(const w of workers)w.postMessage({type:'advance',generation,previousGeneration,state:game,action,method,running:enabled,seed:(Math.random()*2**32)>>>0});}
+  if(action&&game.phase==='play'&&workers.length===workerCount){const previousGeneration=generation;generation++;parts.clear();analysis=null;render();for(const w of workers)w.postMessage({type:'advance',generation,previousGeneration,state:game,positionHistory:history.slice(0,index+1).map(e=>e.state),action,method,running:enabled,seed:(Math.random()*2**32)>>>0});}
   else{render();start();}
 }
 function commit(action){const next=applyAction(game,action);assertValid(next);history=history.slice(0,index+1);history.push({state:next,label:PLAYERS[game.currentPlayer]+': '+describeAction(action)});index=history.length-1;game=next;changed(action);}

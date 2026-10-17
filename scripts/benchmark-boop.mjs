@@ -42,12 +42,12 @@ export async function benchmark(options={}){
   const records=[];
   for(let local=0;local<games;local++){
     const g=offset+local,seat=g%2,rng=seededRandom(seed+Math.floor(g/2)*9973),openingRng=seededRandom(seed+Math.floor(g/2)*9973+1);
-    let state=newGame({mode:'digital'}),turn=0;const opening=[],moves=[];
-    for(let k=0;k<8;k++){const actions=legalActions(state),action=actions[Math.floor(openingRng()*actions.length)];opening.push(action);state=applyAction(state,action);}
+    let state=newGame({mode:'digital'}),turn=0;const opening=[],moves=[],history=[state];
+    for(let k=0;k<8;k++){const actions=legalActions(state),action=actions[Math.floor(openingRng()*actions.length)];opening.push(action);state=applyAction(state,action);history.push(state);}
     while(state.phase==='play'&&turn<cap){
       const actor=state.currentPlayer,guided=actor===seat,start=performance.now();let action,diagnostics=null;
       if(guided||opponent==='baseline'){
-        const search=createSearch(state,{rng,method:guided?'guided':'baseline',rolloutLength:8}),initializationMs=performance.now()-start;
+        const search=createSearch(state,{rng,history,method:guided?'guided':'baseline',rolloutLength:8}),initializationMs=performance.now()-start;
         do{runSearch(search,1);}while(sims?search.iterations<sims:search.iterations<minSims||performance.now()-start<ms);
         action=bestAction(search);
         // Freeze timing BEFORE inspecting the tree so diagnostics do not consume
@@ -60,7 +60,7 @@ export async function benchmark(options={}){
         else action=heuristicBestAction(state,{tactical:opponent==='tactical'});
         moves.push({ply:state.ply,actor,action,elapsedMs:performance.now()-start,search:null});
       }
-      state=applyAction(state,action);turn++;
+      state=applyAction(state,action);history.push(state);turn++;
     }
     const record={game:g,seat,winner:state.winner,turns:state.ply,capped:state.phase!=='gameover',opening,moves};records.push(record);
     if(options.progress)console.error(JSON.stringify({game:g,seat,winner:record.winner,capped:record.capped,turns:record.turns,...summarizeRecords(records),timing:undefined}));
