@@ -400,8 +400,12 @@ function activate(s,action){
 }
 export function powerChoices(s){
   check(s.phase==="power"&&s.pending.length,"No pending powers");
-  return [{type:"skip",label:"Skip optional power"},
-    ...powerOptions(s,s.pending[0])];
+  const effect=s.pending[0];
+  const required=[1000,1008,1013].includes(effect.code);
+  // A player can decline to activate a bird's power, but cannot decline
+  // a card discard or card selection already made mandatory by that choice.
+  return [...(required?[]:[{type:"skip",label:"Skip optional power"}]),
+    ...powerOptions(s,effect)];
 }
 export function applyAction(state,action){
   check(action&&typeof action==="object","Specify an action");
