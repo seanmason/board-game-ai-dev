@@ -96,7 +96,9 @@ try {
   // A new physical session supports observed cards without inventing IDs.
   await page.locator("#mode").selectOption("physical");
   await page.locator('button[data-action="new-game"]').click();
-  assert.ok(await page.getByText("Physical tracking is experimental").count());
+  assert.ok(await page.getByText("Physical tracking is provisional", {exact:false}).count());
+  assert.equal(await page.locator('button[data-action="record-best"]').count(),0,
+    "Speculative physical suggestions must not be directly committed");
   const wanted=await page.evaluate(()=>{
     const d=JSON.parse(localStorage.getItem("board-game-ai-wingspan-v1"));
     return d.history[d.index].state.deck.at(-1);
