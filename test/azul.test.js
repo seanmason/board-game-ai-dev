@@ -31,6 +31,8 @@ test("factory draft moves remainder to center, center claim takes marker", () =>
 test("floor only is always legal; cannot mix colors or duplicate wall color in a row", () => {
   let s = recordFactories(newGame(), [[0,0,1,2], [2,2,3,3], [4,4,4,4], [0,0,0,0], [1,1,1,1]]);
   s = applyAction(s, {source: 0, color: 0, row: 1});
+  // Inspect the same player board after a turn; a real turn passes to player 2.
+  s.currentPlayer = 0;
   const actions = legalActions(s).filter(a => a.source === 1 && a.color === 2);
   assert.ok(actions.some(a => a.row === -1));
   assert.ok(actions.every(a => a.row !== 1));
