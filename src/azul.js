@@ -50,28 +50,56 @@ const refillBag = s => {
     s.discard = Array(5).fill(0);
   }
 };
-function consumeObserved(s, color) {
-  check(validTile(color), "Unknown tile color");
-  refillBag(s);
-  check(s.bag[color] > 0, "Observed factory tiles conflict with tracked bag inventory. Correct an earlier entry or begin a new game.");
-  s.bag[color]--;
-}
+/**
+ * Record physical factories as UNORDERED tiles, not as the order in which the
+ * observer tapped the interface. When the bag runs out, the tiles in the box
+ * lid are recycled partway through filling the factories.
+ */
 export function recordFactories(state, factories) {
   check(state.phase === "refill", "Factory entry only allowed during refill");
-  check(Array.isArray(factories) && factories.length === state.factories.length, "Expected all factories");
-  const s = cloneGame(state);
-  s.factories = factories.map(factory => {
-    check(Array.isArray(factory) && factory.length <= 4, "Each factory has at most four tiles");
-    for (const color of factory) consumeObserved(s, color);
-    return [...factory];
-  });
-  check(s.factories.some(f => f.length), "At least one tile must be entered");
-  s.phase = "draft";
-  s.center = [];
-  s.markerAvailable = true;
-  s.nextStarter = null;
-  s.currentPlayer = s.starter;
-  return s;
+  check(Array.isArray(factories) && factories.length === state.factories.length,
+    "Expected all factories");
+  const available = sum(state.bag) + sum(state.discard);
+  const count = Math.min(state.factories.length * 4, available);
+  check(count > 0, "No tiles available for factory refill");
+  const observed = Array(5).fill(0);
+  for (let i = 0; i < factories.length; i++) {
+    const factory = factories[i];
+    const required = Math.min(4, Math.max(0, count - 4*i));
+    check(Array.isArray(factory) && factory.length === required,
+      "Factory " + (i+1) + " requires " + required + " tiles");
+    for (const color of factory) {
+      check(validTile(color), "Unknown tile color");
+      observed[color]++;
+    }
+  }
+  const result = cloneGame(state);
+  const oldBagCount = sum(result.bag);
+  if (count <= oldBagCount) {
+    // The box lid has NOT been returned to the bag yet.
+    for (let c = 0; c < 5; c++) {
+      check(observed[c] <= result.bag[c],
+        "Observed " + COLORS[c] + " exceeds remaining bag inventory");
+      result.bag[c] -= observed[c];
+    }
+  } else {
+    // Every old-bag tile must have appeared, but we cannot infer an
+    // individual tile's draw order from its position in a factory.
+    for (let c = 0; c < 5; c++) {
+      const recycled = observed[c] - result.bag[c];
+      check(recycled >= 0 && recycled <= result.discard[c],
+        "Observed " + COLORS[c] + " conflicts with bag/discard inventory");
+      result.bag[c] = result.discard[c] - recycled;
+      result.discard[c] = 0;
+    }
+  }
+  result.factories = factories.map(factory => [...factory]);
+  result.center = [];
+  result.markerAvailable = true;
+  result.nextStarter = null;
+  result.currentPlayer = result.starter;
+  result.phase = "draft";
+  return result;
 }
 export const seededRandom = (seed = 1) => {
   let value = seed >>> 0;
@@ -265,18 +293,46 @@ export function tileCounts(s) {
   return totals;
 }
 export function assertValid(s) {
-  check(s.version === 1, "Unsupported version");
-  check(s.factories.length === factoryCount(s.players.length), "Factory count mismatch");
-  check(s.currentPlayer >= 0 && s.currentPlayer < s.players.length, "Invalid current player");
+  check(s.version === 1 && ["physical","digital"].includes(s.mode), "Unsupported state");
+  check(Array.isArray(s.players) && s.players.length >= 2 && s.players.length <= 4,
+    "Invalid player count");
+  check(["refill","draft","gameover"].includes(s.phase), "Invalid phase");
+  check(Array.isArray(s.factories) && s.factories.length === factoryCount(s.players.length),
+    "Factory count mismatch");
+  check(Number.isInteger(s.currentPlayer) && s.currentPlayer >= 0 &&
+    s.currentPlayer < s.players.length, "Invalid current player");
+  check(Number.isInteger(s.starter) && s.starter >= 0 &&
+    s.starter < s.players.length, "Invalid starter");
+  check(s.nextStarter === null || (Number.isInteger(s.nextStarter) &&
+    s.nextStarter >= 0 && s.nextStarter < s.players.length), "Invalid next starter");
+  check(Number.isInteger(s.round) && s.round >= 1, "Invalid round");
+  check(typeof s.markerAvailable === "boolean", "Invalid marker flag");
+  for (const pool of [s.bag,s.discard]) check(Array.isArray(pool) &&
+    pool.length === 5 && pool.every(n => Number.isInteger(n) && n >= 0),
+    "Invalid bag/discard inventory");
+  for (const factory of s.factories) check(Array.isArray(factory) &&
+    factory.length <= 4 && factory.every(validTile), "Invalid factory");
+  check(Array.isArray(s.center) && s.center.every(validTile), "Invalid center");
+  if (s.phase !== "draft") check(s.factories.every(f => !f.length) &&
+    !s.center.length, "Drafting tiles outside draft phase");
+  let markerCount = 0;
   for (const p of s.players) {
-    check(p.floor.length <= 7, "Floor exceeds capacity");
-    check(p.lines.length === 5 && p.wall.length === 5, "Bad player board");
-    p.lines.forEach((l, r) => {
-      check(Number.isInteger(l.count) && l.count >= 0 && l.count <= r + 1, "Invalid pattern line");
-      check(l.count ? validTile(l.color) && !p.wall[r][wallColumn(r, l.color)] : l.color === EMPTY,
-        "Impossible pattern line");
+    check(Number.isInteger(p.score) && p.score >= 0, "Invalid score");
+    check(Array.isArray(p.floor) && p.floor.length <= 7 &&
+      p.floor.every(c => validTile(c) || c === MARKER), "Invalid floor");
+    markerCount += p.floor.filter(c => c === MARKER).length;
+    check(Array.isArray(p.lines) && p.lines.length === 5 &&
+      Array.isArray(p.wall) && p.wall.length === 5, "Bad player board");
+    p.wall.forEach(row => check(Array.isArray(row) && row.length === 5 &&
+      row.every(x => typeof x === "boolean"), "Invalid wall"));
+    p.lines.forEach((l,r) => {
+      check(Number.isInteger(l.count) && l.count >= 0 && l.count <= r+1,
+        "Invalid pattern line");
+      check(l.count ? validTile(l.color) &&
+        !p.wall[r][wallColumn(r,l.color)] : l.color === EMPTY, "Impossible pattern line");
     });
   }
-  check(tileCounts(s).every(n => n === 20), "Tile conservation violated");
+  check(markerCount <= 1, "Duplicate first-player marker");
+  check(tileCounts(s).every(n=>n === 20), "Tile conservation violated");
   return true;
 }
