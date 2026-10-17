@@ -112,6 +112,10 @@ wins from placement (without twisting), optional skipping while a neutral
 quadrant exists, opponent wins and simultaneous-line draws. It supports
 physical-game entry, manual digital AI turns, continuous MCTS, placement
 heatmaps, candidate highlights, undo/redo, local autosave and import/export.
+The default recommendation uses a **stable tactical heuristic**, while the
+analysis selector can display the **MCTS most-visited move** instead, without
+resetting accumulated simulations. This distinction matters because short-budget
+MCTS performed poorly against some greedy tactical opponents.
 The engine and browser assets have no runtime package dependencies.
 
 ```sh
@@ -120,3 +124,5 @@ npm run benchmark:pentago -- --games=24 --playouts=32 --opponent=greedy
 ```
 
 See [Pentago architecture and testing requirements](docs/PENTAGO_ARCHITECTURE.md).
+
+See [Pentago validation and benchmarks](docs/PENTAGO_VALIDATION.md) for testing evidence and limitations.
