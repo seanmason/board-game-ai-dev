@@ -111,8 +111,8 @@ try {
   // Detailed bird-play editor: explicitly pay food instead of accepting
   // the quick-action generator's preferred payment allocation.
   const detailedFixture=await page.evaluate(async()=>{
-    const {newGame,applyAction,assertValid}=await import("./wingspan/core.js");
-    const {BIRDS}=await import("./wingspan/catalog.js");
+    const {newGame,applyAction,assertValid}=await import("./core.js");
+    const {BIRDS}=await import("./catalog.js");
     let s=newGame({players:2,seed:31237,mode:"digital"});
     while(s.phase==="setup"){
       const p=s.players[s.currentPlayer];
