@@ -152,8 +152,8 @@ function useFood(s,player,payment){
 function satisfiesCost(card,payment){
   const cost=card.food;
   const required=card.either?
-    FOOD.filter(f=>cost[f]>0).map(type=>[type]):
-    FOOD.flatMap(f=>Array.from({length:cost[f]},()=>[f]));
+    [...FOOD,"wild"].filter(f=>cost[f]>0).map(type=>[type]):
+    [...FOOD,"wild"].flatMap(f=>Array.from({length:cost[f]},()=>[f]));
   const alternatives=card.either?
     [FOOD.filter(f=>cost[f]>0)] :
     required.map(([type])=>type==="wild"?[...FOOD]:[type]);
@@ -432,6 +432,9 @@ export function applyAction(state,action){
   } else if(s.phase==="power"){
     check(action.type==="power","Resolve the optional bird power");
     const pending=s.pending.shift();
+    if(action.skip)
+      check(![1008,1013].includes(pending.code),
+        "Complete the revealed card selection");
     if(!action.skip)applyPower(s,pending,action.choice??{},{ 
       drawBird,drawBonus,drawFromDeck,rollFeeder,selectDie,addEggs,
       removeEggs,useFood,refillTray,reactPink,rng,
@@ -476,7 +479,8 @@ export function applyAction(state,action){
 export function assertValid(s){
   check(s.version===1&&["digital","physical"].includes(s.mode),"Unsupported state");
   check(["setup","play","power","gameover"].includes(s.phase),"Bad game phase");
-  check(s.players.length>=2&&s.players.length<=5,"Wrong player count");
+  check(Array.isArray(s.players)&&s.players.length>=2&&s.players.length<=5,
+    "Wrong player count");
   check(s.round>=1&&s.round<=4,"Bad round");
   check(s.currentPlayer>=0&&s.currentPlayer<s.players.length,"Bad current player");
   check(s.remaining.length===s.players.length &&
@@ -508,6 +512,11 @@ export function assertValid(s){
     bonus.push(...p.bonuses,...p.bonusOffer);
   }
   addCards(s.deck);addCards(s.birdDiscard);addCards(s.tray);
+  // Temporary offers have left a deck but aren't yet in anyone's hand.
+  for(const offer of s.pending){
+    if(offer.code===1008)addCards(offer.event.cards);
+    if(offer.code===1013)bonus.push(...offer.event.cards);
+  }
   check(cards.length===170&&new Set(cards).size===170,"Bird cards lost or duplicated");
   bonus.push(...s.bonusDeck,...s.bonusDiscard);
   check(bonus.length===26&&new Set(bonus).size===26,"Bonus cards lost or duplicated");
@@ -524,6 +533,25 @@ export function gameSummary(s){
     actionsLeft:s.remaining[s.currentPlayer],
     scores:s.players.map(scorePlayer),
     winner:s.phase==="gameover"?finalOutcome(s.players):null};
+}
+export function publicObservation(s,viewer=null){
+  const result=cloneGame(s);
+  result.deckCount=s.deck.length;
+  result.bonusDeckCount=s.bonusDeck.length;
+  delete result.deck;
+  delete result.bonusDeck;
+  delete result.rngState;
+  for(let i=0;i<result.players.length;i++){
+    if(i===viewer)continue;
+    const player=result.players[i];
+    player.handCount=player.hand.length;
+    player.privateBonusCount=player.bonuses.length;
+    player.bonusOfferCount=player.bonusOffer.length;
+    player.hand=[];
+    player.bonuses=[];
+    player.bonusOffer=[];
+  }
+  return result;
 }
 export const getBird=id=>BIRDS[id];
 export const hasPower=id=>!!BIRDS[id]?.powerCode;
