@@ -176,6 +176,10 @@ try {
       index:0,seatTypes:["human","human"]
     }))
   });
+  // A previous digital AI test deliberately paused analysis. Importing a
+  // position preserves that preference; explicitly resume before sampling.
+  const searchToggle = page.locator('button[data-action="toggle-search"]');
+  if (/Resume/i.test(await searchToggle.innerText())) await searchToggle.click();
   await page.waitForFunction(() => {
     const node=document.querySelector(".stat .value");
     return node && Number(node.textContent.replaceAll(",","")) > 100;
