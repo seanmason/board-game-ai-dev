@@ -262,7 +262,8 @@ export function applyPower(s,p,selected,help){
     const remaining=p.event.remaining??[];
     if(remaining.length){
       s.pending.unshift({...p,owner:remaining[0],
-        event:{cards,remaining:remaining.slice(1)}});
+        event:{cards,initial:p.event.initial,
+          remaining:remaining.slice(1)}});
     }else{
       // The original active player takes the remaining extra card.
       if(cards.length)s.players[p.event.initial].hand.push(cards[0]);
