@@ -567,6 +567,14 @@ export function publicObservation(s,viewer=null){
     return {...effect,event:{...effect.event,
       cards:undefined,cardCount:effect.event.cards.length}};
   });
+  // Tucked cards are physically FACE DOWN. Their count is public, but the
+  // species identities must never be exposed to the analysis worker.
+  for(const player of result.players)
+    for(const habitat of HABITATS)
+      for(const bird of player.habitats[habitat]){
+        bird.tuckedCount=bird.tucked.length;
+        bird.tucked=Array(bird.tuckedCount).fill(null);
+      }
   return result;
 }
 export const getBird=id=>BIRDS[id];
