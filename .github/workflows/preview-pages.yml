@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-      - feat/azul-companion-mvp
+      - feat/pentago-analysis-mvp
   workflow_dispatch:
 
 permissions:
@@ -35,12 +35,18 @@ jobs:
           npm test
           npm run check
           npm run verify:gameplay
+          if [ -f pentago/index.html ]; then npm run verify:pentago; fi
       - name: Stage only the public-facing website
         run: |
           set -eu
           mkdir -p preview/src
           cp index.html styles.css preview/
           cp src/azul.js src/mcts.js src/ai-worker.js src/app.js preview/src/
+          if [ -f pentago/index.html ]; then
+            mkdir -p preview/pentago
+            cp pentago/index.html pentago/styles.css pentago/core.js \
+              pentago/ai.js pentago/worker.js pentago/app.js preview/pentago/
+          fi
           touch preview/.nojekyll
           test -f preview/index.html
           test -f preview/src/ai-worker.js
