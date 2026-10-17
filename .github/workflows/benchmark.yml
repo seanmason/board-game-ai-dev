@@ -52,7 +52,7 @@ jobs:
           set -euo pipefail
           node scripts/benchmark-ai.mjs \
             --games="${{ github.event.inputs.games || 24 }}" \
-            --playouts="${{ github.event.inputs.playouts || 64 }}" \
+            --playouts="${{ github.event.inputs.playouts || 256 }}" \
             --players="${{ matrix.players }}" \
             --opponent="${{ github.event.inputs.opponent || 'heuristic' }}" \
             --seed=147 | tee benchmark.json
