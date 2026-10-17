@@ -108,6 +108,46 @@ try {
   });
   assert.equal(once.remaining[1],7,"Play Best Move should spend exactly one action");
 
+  // Detailed bird-play editor: explicitly pay food instead of accepting
+  // the quick-action generator's preferred payment allocation.
+  const detailedFixture=await page.evaluate(async()=>{
+    const {newGame,applyAction,assertValid}=await import("./wingspan/core.js");
+    const {BIRDS}=await import("./wingspan/catalog.js");
+    let s=newGame({players:2,seed:31237,mode:"digital"});
+    while(s.phase==="setup"){
+      const p=s.players[s.currentPlayer];
+      s=applyAction(s,{type:"setup",keep:[],foodDiscard:[],
+        bonusId:p.bonusOffer[0]});
+    }
+    const birdId=s.deck.find(id=>BIRDS[id].habitats.includes("forest")&&
+      BIRDS[id].powerType!=="white");
+    if(birdId===undefined)throw Error("No affordable forest fixture bird");
+    s.deck.splice(s.deck.indexOf(birdId),1);
+    s.players[0].hand.push(birdId);
+    for(const k of ["invertebrate","seed","fish","fruit","rodent"])
+      s.players[0].food[k]=8;
+    assertValid(s);
+    return {state:s,birdId};
+  });
+  await page.locator("#import-file").setInputFiles({
+    name:"wingspan-detailed-bird.json",mimeType:"application/json",
+    buffer:Buffer.from(JSON.stringify({
+      format:"board-game-ai-wingspan",version:1,
+      history:[{state:detailedFixture.state,label:"Detailed bird fixture"}],
+      index:0,seats:["human","human"]
+    }))
+  });
+  await page.locator("#advanced-action-editor > summary").click();
+  await page.locator("#adv-kind").selectOption("playBird");
+  await page.locator('button[data-action="advanced-commit"]').click();
+  const afterBird=await page.evaluate(()=>{
+    const d=JSON.parse(localStorage.getItem("board-game-ai-wingspan-v1"));
+    return d.history[d.index].state;
+  });
+  assert.equal(afterBird.players[0].habitats.forest[0].id,detailedFixture.birdId);
+  assert.equal(afterBird.remaining[0],7,
+    "Custom food payment for a forest bird should complete one turn");
+
   // A new physical session supports observed cards without inventing IDs.
   await page.locator("#mode").selectOption("physical");
   await page.locator('button[data-action="new-game"]').click();
