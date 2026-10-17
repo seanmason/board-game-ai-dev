@@ -46,7 +46,7 @@ test("score connected wall tiles horizontally and vertically, without double cou
   assert.equal(scoreWallPlacement(wall, 2, 2), 2);
   wall[1][2] = true;
   wall[3][2] = true;
-  assert.equal(scoreWallPlacement(wall, 2, 2), 6); // 2 horizontal + 3 vertical = 5? Wait 2+3=5
+  assert.equal(scoreWallPlacement(wall, 2, 2), 5); // 2 horizontal + 3 vertical
 });
 test("end of round scores lines top-down and floors with correct penalties", () => {
   const s = newGame();
