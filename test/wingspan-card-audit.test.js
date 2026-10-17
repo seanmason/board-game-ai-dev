@@ -14,6 +14,7 @@ import {newGame,applyAction,assertValid,powerChoices,publicObservation} from "..
 import {powerAvailable,powerOptions,powerDescription} from "../wingspan/powers.js";
 
 const POWER_TYPES=new Set(["brown","white","pink","none"]);
+const executed=[],emptyChoices=[];
 const foodSum=b=>[...FOOD,"wild"].reduce((n,f)=>n+(b.food[f]||0),0);
 function pull(s,id){
   const pools=[s.deck,s.birdDiscard,s.tray,...s.players.map(p=>p.hand)];
@@ -117,6 +118,8 @@ for(const bird of BIRDS){
       assert.equal(powerAvailable(state,{...p,event:{type:"drawBirds",actor:1}}),false);
     }
     const choices=powerOptions(state,p);
+    if(!choices.length)emptyChoices.push({id:bird.id,name:bird.name,code:bird.powerCode});
+    else executed.push({id:bird.id,code:bird.powerCode});
     assert.ok(Array.isArray(choices),"Power must enumerate a legal option array");
     for(const option of choices){
       assert.equal(typeof option.label,"string");
@@ -134,3 +137,15 @@ for(const bird of BIRDS){
     }
   });
 }
+
+test("Card-effect fixture coverage ledger",()=>{
+  const archetypes=new Set(executed.map(x=>x.code));
+  const unexercised=[...new Set(BIRDS.map(b=>b.powerCode).filter(Boolean))]
+    .filter(c=>!archetypes.has(c));
+  console.log("WINGSPAN_CARD_AUDIT "+JSON.stringify({
+    totalBirds:BIRDS.length,activated:executed.length,
+    noPositiveChoice:emptyChoices.length,
+    codesActivated:archetypes.size,codesExpected:67,
+    unexercisedCodes:unexercised,missingSample:emptyChoices
+  }));
+});
