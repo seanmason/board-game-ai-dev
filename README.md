@@ -126,3 +126,25 @@ npm run benchmark:pentago -- --games=24 --playouts=32 --opponent=greedy
 See [Pentago architecture and testing requirements](docs/PENTAGO_ARCHITECTURE.md).
 
 See [Pentago validation and benchmarks](docs/PENTAGO_VALIDATION.md) for testing evidence and limitations.
+
+## Platform foundations and next game
+
+**Splendor** is the selected next game. The pre-expansion
+[platform review](docs/PLATFORM_REVIEW.md) records the shared contracts,
+remaining gaps and its implementation checklist.
+
+Azul and Pentago share worker lifecycle and session validation under `shared/`;
+their rules, search strategies and views remain independent. Existing saved
+sessions keep their v1 format. To prepare static files without publishing:
+
+```sh
+npm run stage:preview
+npm run package:game -- azul /tmp/azul-site
+npm run package:game -- pentago /tmp/pentago-site
+```
+
+Each standalone output has its own `index.html` and all runtime dependencies.
+Serve that directory over HTTP. The development preview can also include the
+experimental Wingspan directory when present on its draft branch; this is not
+release approval. CI tests the staged preview rather than relying on files that
+only exist in the development checkout.
