@@ -27,6 +27,12 @@ still pending.**
   effect in a tailored board position, preserving card/bonus/egg inventories.
   The six birds without a power have their absence verified.
 - All **67 distinct power archetypes** executed successfully.
+- All **164 powered cards' descriptions** cleared a normalized cross-source
+  comparison between pinned Morgan-Griffiths and Wingsearch datasets. The six
+  blank/no-power descriptions were intentionally excluded.
+- All **26 original bonus cards' printed scoring schedules** were independently
+  parsed and compared, with the documented original-rule exception for
+  Backyard Birder's misprinted 6+ tier in one community source.
 - The test harness exercised **316 different offered power-choice branches**
   and resolved resulting mandatory/nested power queues, including shared
   drafts, pink reactions, and forced discard selections.
