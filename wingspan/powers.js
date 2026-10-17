@@ -150,7 +150,9 @@ export function powerOptions(s,p){
   }
   if(c===1054){
     const targets=eggsForPower(s,owner,p.event.nest);
-    return targets;
+    const excluded=p.event.exclude;
+    return excluded?targets.filter(x=>x.choice.habitat!==excluded.habitat||
+      x.choice.index!==excluded.index):targets;
   }
   if(c===1000){
     return [choice("Discard a card",{cardId:s.players[owner].hand[0]})]
@@ -300,7 +302,20 @@ export function applyPower(s,p,selected,help){
     }
     return;
   }
-  if(c===1054){putEgg(selected);return;}
+  if(c===1054){
+    putEgg(selected);
+    if(!p.event.secondary){
+      // The owner may put the *additional* egg on another bird, never
+      // the same bird which already received the first egg.
+      const extra=s.pending.find(next=>next.code===1054&&
+        next.owner===owner&&next.event?.secondary&&
+        next.birdId===p.birdId);
+      if(extra)extra.event.exclude={
+        habitat:selected.habitat,index:selected.index
+      };
+    }
+    return;
+  }
   if(c===1000){
     const idx=actor.hand.indexOf(selected.cardId);
     ASSERT(idx>=0,"Discard a hand bird");
@@ -390,11 +405,11 @@ export function applyPower(s,p,selected,help){
       const nest=ALL_PLAYER_EGGS[c];
       const targets=Array.from({length:s.players.length},(_,i)=>i)
         .filter(i=>eggTargets(s,i,nest).length);
-      // Owner additionally receives a second optional target.
-      if(targets.includes(owner))targets.push(owner);
+      // Owner may lay an extra egg on a DIFFERENT matching bird.
+      if(eggTargets(s,owner,nest).length>=2)targets.push(owner);
       for(let i=targets.length-1;i>=0;i--)
         s.pending.unshift({...p,code:1054,owner:targets[i],
-          event:{nest}});
+          event:{nest,secondary:i===targets.length-1&&targets[i]===owner}});
     }else putEgg(selected);
     return;
   }
