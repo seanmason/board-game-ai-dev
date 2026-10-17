@@ -120,3 +120,27 @@ test("base pink bird powers retain one-trigger-between-turns flags",()=>{
   assert.equal(b.powerType,"pink");
   assert.ok(b.habitats.length>=1);
 });
+
+
+test("multiplayer shared bird draw preserves the initial player and all card identities",()=>{
+  let s=prepared(207);
+  pending(s,8);
+  s=applyAction(s,{type:"power",choice:firstChoice(s)});
+  assert.equal(s.phase,"power");
+  assert.equal(s.pending[0].code,1008);
+  assert.equal(s.pending[0].owner,0);
+  assert.equal(s.pending[0].event.cards.length,4);
+  assertValid(s);
+  for(const owner of [0,1,2]){
+    assert.equal(s.pending[0].owner,owner);
+    const options=powerChoices(s);
+    assert.ok(!options.some(x=>x.type==="skip"));
+    const pick=firstChoice(s);
+    s=applyAction(s,{type:"power",choice:pick});
+    assertValid(s);
+  }
+  assert.equal(s.phase,"play");
+  assert.equal(s.players[0].hand.length,2,"Initiator keeps chosen card and the extra");
+  assert.equal(s.players[1].hand.length,1);
+  assert.equal(s.players[2].hand.length,1);
+});
