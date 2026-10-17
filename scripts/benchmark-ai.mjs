@@ -29,6 +29,7 @@ const games=int("games",12,1,20000),
   players=int("players",2,2,4),
   seed=int("seed",147,0,2147483647);
 const opponent=config("opponent","heuristic");
+const variant=config("variant","baseline");
 if(!["heuristic","random"].includes(opponent))throw Error("Unknown --opponent");
 const began=performance.now();
 let winShare=0,scores=0,scoreMargins=0,moveCount=0,sims=0,searchMs=0;
@@ -49,7 +50,7 @@ for(let n=0;n<games;n++){
     const options=legalActions(s);
     if(s.currentPlayer===aiSeat){
       const search=createSearch(s,{rng:seeded((seed^(n*23431+moves*1237))>>>0),
-        maxNodes:Math.max(2000,playouts+50)});
+        maxNodes:Math.max(2000,playouts+50),variant});
       const t=performance.now();
       runSearch(search,playouts);
       searchMs+=performance.now()-t;
@@ -89,7 +90,7 @@ const margin=(z/denominator)*Math.sqrt(
 const winRange=[Math.max(0,center-margin),Math.min(1,center+margin)];
 console.log(JSON.stringify({
   type:"exploratory tournament (not a strength certification)",
-  config:{games,playouts,players,seed,opponent},
+  config:{games,playouts,players,seed,opponent,variant},
   performance:{
     totalMs:Math.round(performance.now()-began),
     searchMs:Math.round(searchMs),
