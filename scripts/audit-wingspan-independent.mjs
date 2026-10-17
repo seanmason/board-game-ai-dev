@@ -24,7 +24,7 @@ if(!Array.isArray(candidates)||!Array.isArray(bonusCatalog))
   throw Error("Wingsearch reference format unexpectedly changed");
 const base=candidates.filter(c=>c.Set==="core"&&c.CardType==="Bird"&&!present(c["Swift Start"]));
 const byName=new Map(base.map(c=>[norm(c["Common name"]),c]));
-const errors=[],warnings=[];
+const errors=[],warnings=[],referenceExceptions=[];
 const compare=(card,prop,ours,theirs)=>{
  if(ours!==theirs)errors.push({bird:card.name,attribute:prop,ours,theirs});
 };
@@ -52,8 +52,18 @@ for(const card of BIRDS){
    const field=bonus.name==="Omnivore Specialist"?"Omnivore Expert":
      bonus.name;
    if(!(field in ref))continue;
-   compare(card,"bonus."+bonus.key,card.bonuses.includes(bonus.key),
-     present(ref[field]));
+   const ours=card.bonuses.includes(bonus.key),theirs=present(ref[field]);
+   if(card.name==="Tufted Titmouse"&&bonus.key==="anatomist"){
+     // The base game's printed Anatomist keywords do not include "tuft"
+     // or "tit" (which is etymologically "small bird", not a body part).
+     // The modern Wingsearch bonus flag is a known reference-data error.
+     if(ours!==false||theirs!==true)
+       errors.push({bird:card.name,attribute:"anatomist exception",
+         ours,theirs,reason:"Known original-rule interpretation changed"});
+     else referenceExceptions.push({
+       bird:card.name,bonus:bonus.name,rule:"Original Anatomist keyword list excludes tuft/tit"
+     });
+   }else compare(card,"bonus."+bonus.key,ours,theirs);
  }
  const oursSpan=Number(card.wingspan),otherSpan=Number(ref.Wingspan);
  if(Number.isFinite(oursSpan)&&Number.isFinite(otherSpan))
@@ -76,6 +86,7 @@ const summary={
   referenceCoreBirds:base.length,ourBirds:BIRDS.length,
   referenceCoreBonuses:refBonuses.length,ourBonuses:BONUSES.length,
   extraReferenceBonuses:extras,
+  explainedReferenceExceptions:referenceExceptions,
   differences:errors.length,warnings:warnings.length,
   sampleDifferences:errors.slice(0,100),sampleWarnings:warnings.slice(0,20)
 };
