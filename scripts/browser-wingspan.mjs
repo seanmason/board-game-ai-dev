@@ -56,6 +56,21 @@ try {
   await page.locator('button[data-action="redo"]').click();
   assert.equal(await page.locator(".action-group").count(),4);
 
+  // Detailed human action input must support non-AI allocation decisions.
+  await page.locator("#advanced-action-editor > summary").click();
+  assert.ok(await page.locator("#adv-kind").count());
+  await page.locator("#adv-kind").selectOption("layEggs");
+  assert.equal(await page.locator("#advanced-action-editor").evaluate(el=>el.open),
+    true,"Changing detailed action type keeps the editor open");
+  await page.locator('button[data-action="advanced-commit"]').click();
+  const afterDetailed=await page.evaluate(()=>{
+    const d=JSON.parse(localStorage.getItem("board-game-ai-wingspan-v1"));
+    return d.history[d.index].state;
+  });
+  assert.equal(afterDetailed.remaining[1],7,
+    "Detailed action consumes exactly one player action cube");
+  await page.locator('button[data-action="undo"]').click();
+
   // Both analysis methods must be independently usable in the browser.
   await awaitSamples();
   assert.equal(await page.locator("#search-method").inputValue(),"belief-rollout");
