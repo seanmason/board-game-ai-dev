@@ -552,6 +552,10 @@ export function publicObservation(s,viewer=null){
   const result=cloneGame(s);
   result.deckCount=s.deck.length;
   result.bonusDeckCount=s.bonusDeck.length;
+  // Bonus objectives discarded during setup or white powers are hidden.
+  // Publishing the underlying IDs would reveal opponents' discarded goals.
+  result.bonusDiscardCount=s.bonusDiscard.length;
+  delete result.bonusDiscard;
   delete result.deck;
   delete result.bonusDeck;
   delete result.rngState;
