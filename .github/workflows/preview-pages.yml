@@ -19,6 +19,9 @@ concurrency:
 jobs:
   build:
     name: Validate and package browser preview
+    permissions:
+      contents: read
+      pages: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact development revision
