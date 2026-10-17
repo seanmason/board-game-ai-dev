@@ -105,6 +105,45 @@ try {
   await page.locator('button[data-action="new-game"]').click();
   assert.match(await page.locator(".banner").innerText(), /Player 4 to draft/);
   assert.equal(await page.locator(".player-board").count(),4);
+
+  // Factory colors from an observed refill are unordered. In this synthetic
+  // late-game inventory, the two old-bag tiles MUST be drawn before recycling,
+  // but the observer enters recycled colors first on the screen.
+  const recordedState=await page.evaluate(async()=>{
+    const {newGame}=await import("./src/azul.js");
+    const state=newGame({players:2,mode:"physical"});
+    state.round=4;
+    state.bag=[1,1,0,0,0];
+    state.discard=[19,19,20,20,20];
+    return state;
+  });
+  await page.locator("#import-file").setInputFiles({
+    name:"recycled-factories.json",mimeType:"application/json",
+    buffer:Buffer.from(JSON.stringify({
+      format:"tabletop-observatory-game",version:1,
+      history:[{state:recordedState,label:"Synthetic late refill"}],
+      index:0,seatTypes:["human","human"]
+    }))
+  });
+  await page.waitForSelector('button[data-action="set-slot"]');
+  const observed=[[2,2,2,2],[3,3,3,3],[4,4,4,4],[0,1,2,3],[0,1,4,3]];
+  for(let factory=0;factory<observed.length;factory++){
+    for(let slot=0;slot<observed[factory].length;slot++){
+      await page.locator('button[data-action="palette"][data-color="' +
+        observed[factory][slot] + '"]').click();
+      await page.locator('button[data-action="set-slot"][data-factory="' +
+        factory + '"][data-slot="' + slot + '"]').click();
+    }
+  }
+  await page.locator('button[data-action="confirm-factories"]').click();
+  assert.match(await page.locator(".banner").innerText(), /Player 1 to draft/);
+  const reconciledBag=await page.evaluate(()=>{
+    const data=JSON.parse(localStorage.getItem("tabletop-observatory-azul-v1"));
+    return data.history[data.index].state.bag;
+  });
+  assert.deepEqual(reconciledBag,[18,18,15,14,15],
+    "Physical refill must not depend on observed color entry order");
+
   assert.equal(errors.length, 0, "Browser errors: " + errors.join("; "));
   console.log("Browser smoke passed: physical game, hover preview, cumulative pause/resume, manual digital AI moves.");
 } finally {
