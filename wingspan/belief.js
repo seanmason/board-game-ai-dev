@@ -31,6 +31,7 @@ function knownIds(complete,pending,kind){
   return known;
 }
 export function determinize(observation,rng=Math.random){
+  if(observation.publicComplete===false)fail('public tabletop observations are incomplete');
   if("deck" in observation||"bonusDeck" in observation||
      "rngState" in observation)
     fail("expected REDACTED public observation, not actual hidden game");
@@ -87,6 +88,9 @@ export function determinize(observation,rng=Math.random){
       delete effect.event.cardCount;
     }
   }
+  const missingDiscard=(s.birdDiscardCount??s.birdDiscard.length)-s.birdDiscard.length;
+  for(let i=0;i<missingDiscard;i++)s.birdDiscard.push(takeBird());
+  delete s.birdDiscardCount;
   const discardCount=s.bonusDiscardCount??0;
   s.bonusDiscard=Array.from({length:discardCount},takeBonus);
   delete s.bonusDiscardCount;

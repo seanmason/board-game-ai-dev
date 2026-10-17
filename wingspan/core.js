@@ -1,3 +1,4 @@
+import {initializeKnowledge, knownCard, markKnown, bindCard} from './observation-io.js';
 import {BIRDS,BONUSES,GOAL_TILES} from "./catalog.js";
 import {FOOD,HABITATS,roundGoalScores,finalOutcome,totalEggs,scorePlayer} from "./scoring.js";
 import {powerAvailable,powerOptions,applyPower} from "./powers.js";
@@ -41,7 +42,9 @@ function shuffled(s,items){
   }
   return array;
 }
-function drawFromDeck(s,who="bird"){
+// Reader is scoped to this cloned transaction, never serialized or sent to workers.
+const observationReaders=new WeakMap();
+function drawFromDeck(s,who="bird",{owner=null,hidden=false}={}){
   const isBonus=who==="bonus";
   const deck=isBonus?"bonusDeck":"deck";
   const discard=isBonus?"bonusDiscard":"birdDiscard";
@@ -49,20 +52,42 @@ function drawFromDeck(s,who="bird"){
     s[deck]=shuffled(s,s[discard]);
     s[discard]=[];
   }
-  return s[deck].length?s[deck].pop():null;
+  if(!s[deck].length)return null;
+  const reader=observationReaders.get(s);
+  if(reader){
+    const cardId=reader.read({kind:isBonus?'bonus':'bird',owner,allowUnknown:hidden,
+      label:hidden?'Record drawn card, or leave it private':'Record the revealed card'});
+    if(cardId===null){
+      check(hidden,'This card is public; enter its identity');
+      markKnown(s,s[deck].at(-1),isBonus,false);
+    }else bindCard(s,s[deck],s[deck].length-1,cardId,isBonus);
+  }
+  return s[deck].pop();
 }
 function drawBird(s,player){
-  const card=drawFromDeck(s,"bird");
+  const card=drawFromDeck(s,"bird",{owner:player,hidden:player!==null});
   if(card!==null && player!==null)s.players[player].hand.push(card);
   return card;
 }
 function drawBonus(s,player){
-  const card=drawFromDeck(s,"bonus");
+  const card=drawFromDeck(s,"bonus",{owner:player,hidden:true});
   if(card!==null&&player!==null)s.players[player].bonusOffer.push(card);
   return card;
 }
+function rollDice(s,count,kind){
+  const reader=observationReaders.get(s);
+  if(!reader)return Array.from({length:count},()=>FEEDER_FACES[Math.floor(rng(s)*6)]);
+  if(!count)return [];
+  const faces=reader.read({kind,count,label:kind==='feeder'?'Roll the feeder and enter all five faces':'Enter the dice rolled outside the feeder'});
+  check(Array.isArray(faces)&&faces.length===count&&faces.every(f=>FEEDER_FACES.includes(f)),
+    'Enter exactly '+count+' valid die faces');
+  return [...faces];
+}
 function rollFeeder(s){
-  s.feeder=Array.from({length:5},()=>FEEDER_FACES[Math.floor(rng(s)*6)]);
+  s.feeder=rollDice(s,5,'feeder');
+  if(s.physical)s.physical.feederKnown=true;
+  const reader=observationReaders.get(s);
+  if(reader)reader.chooseFood=true;
   return s.feeder;
 }
 export function newGame({
@@ -108,6 +133,7 @@ export function newGame({
   }
   for(let i=0;i<3;i++){const bird=drawBird(s,null);if(bird!==null)s.tray.push(bird);}
   rollFeeder(s);
+  if(mode==="physical")initializeKnowledge(s,{goalsKnown:!!goals});
   return s;
 }
 export function cloneGame(s){return structuredClone(s);}
@@ -205,6 +231,10 @@ function selectDie(s,pick){
     rollFeeder(s);
   }
   if(!s.feeder.length)rollFeeder(s);
+  const reader=observationReaders.get(s);
+  if(reader?.chooseFood){
+    pick=reader.read({kind:'foodChoice',faces:[...s.feeder],label:'Which die did the player take?'});
+  }
   check(pick&&Number.isInteger(pick.index)&&pick.index>=0&&
     pick.index<s.feeder.length,"Choose a die currently in the birdfeeder");
   const face=s.feeder[pick.index];
@@ -412,9 +442,10 @@ export function powerChoices(s){
   return [...(required?[]:[{type:"skip",label:"Skip optional power"}]),
     ...powerOptions(s,effect)];
 }
-export function applyAction(state,action){
+export function applyAction(state,action,{observations=null}={}){
   check(action&&typeof action==="object","Specify an action");
   const s=cloneGame(state);
+  if(observations)observationReaders.set(s,observations);
   if(s.phase==="setup"){
     check(action.type==="setup","Finish your starting hand first");
     const p=emptySlot(s);
@@ -452,6 +483,7 @@ export function applyAction(state,action){
     if(!action.skip)applyPower(s,pending,action.choice??{},{ 
       drawBird,drawBonus,drawFromDeck,rollFeeder,selectDie,addEggs,
       removeEggs,useFood,refillTray,reactPink,rng,
+      rollOutside:st=>rollDice(st,5-st.feeder.length,"outsideDice"),
       playFreeBird:(st,owner,request)=>{
         const bird=BIRDS[request.birdId];
         const habitat=request.habitat;
@@ -487,12 +519,25 @@ export function applyAction(state,action){
     }
     finishOrResolve(s);
   }else fail("The Wingspan game has ended");
+  observations?.finish();
   assertValid(s);
   return s;
 }
 export function assertValid(s){
   check(s.version===1&&["digital","physical"].includes(s.mode),"Unsupported state");
   check(["setup","play","power","gameover"].includes(s.phase),"Bad game phase");
+  if(s.physical){
+    check(s.mode==='physical'&&s.physical.version===1,'Invalid observation metadata');
+    for(const [key,size] of [['knownBirds',170],['knownBonuses',26]])
+      check(Array.isArray(s.physical[key])&&new Set(s.physical[key]).size===s.physical[key].length&&
+        s.physical[key].every(id=>Number.isInteger(id)&&id>=0&&id<size),'Invalid known card IDs');
+    check(typeof s.physical.feederKnown==='boolean'&&typeof s.physical.goalsKnown==='boolean',
+      'Invalid public observation flags');
+  }
+  if(s.pendingObservation)check(s.mode==='physical'&&s.physical&&
+    s.pendingObservation.action&&Array.isArray(s.pendingObservation.answers)&&
+    s.pendingObservation.request&&typeof s.pendingObservation.request.kind==='string',
+    'Invalid pending observation');
   check(Array.isArray(s.players)&&s.players.length>=2&&s.players.length<=5,
     "Wrong player count");
   check(s.round>=1&&s.round<=4,"Bad round");
@@ -550,6 +595,17 @@ export function gameSummary(s){
 }
 export function publicObservation(s,viewer=null){
   const result=cloneGame(s);
+  delete result.physical;
+  delete result.pendingObservation;
+  if(s.mode==='physical'){
+    result.publicComplete=!!s.physical?.goalsKnown&&!!s.physical?.feederKnown&&
+      s.tray.every(id=>knownCard(s,id))&&!s.pendingObservation;
+    result.tray=s.tray.map(id=>knownCard(s,id)?id:null);
+    if(!s.physical?.feederKnown)result.feeder=Array(s.feeder.length).fill(null);
+    if(!s.physical?.goalsKnown)result.goals=Array(4).fill(null);
+  }
+  result.birdDiscardCount=s.birdDiscard.length;
+  result.birdDiscard=s.birdDiscard.filter(id=>knownCard(s,id));
   result.deckCount=s.deck.length;
   result.bonusDeckCount=s.bonusDeck.length;
   // Bonus objectives discarded during setup or white powers are hidden.
@@ -560,7 +616,13 @@ export function publicObservation(s,viewer=null){
   delete result.bonusDeck;
   delete result.rngState;
   for(let i=0;i<result.players.length;i++){
-    if(i===viewer)continue;
+    if(i===viewer){
+      const p=result.players[i];
+      p.handCount=p.hand.length;p.hand=p.hand.filter(id=>knownCard(s,id));
+      p.privateBonusCount=p.bonuses.length;p.bonuses=p.bonuses.filter(id=>knownCard(s,id,true));
+      p.bonusOfferCount=p.bonusOffer.length;p.bonusOffer=p.bonusOffer.filter(id=>knownCard(s,id,true));
+      continue;
+    }
     const player=result.players[i];
     player.handCount=player.hand.length;
     player.privateBonusCount=player.bonuses.length;
@@ -572,7 +634,8 @@ export function publicObservation(s,viewer=null){
   // Hide unresolved private card selections when a different player is
   // viewing the board. This projection is for analysis only, not mutations.
   result.pending=result.pending.map(effect=>{
-    if(effect.owner===viewer||!effect.event?.cards)return effect;
+    if(!effect.event?.cards)return effect;
+    if(effect.owner===viewer&&effect.event.cards.every(id=>knownCard(s,id,effect.code===1013)))return effect;
     return {...effect,event:{...effect.event,
       cards:undefined,cardCount:effect.event.cards.length}};
   });

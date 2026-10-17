@@ -151,7 +151,7 @@ try {
   // A new physical session supports observed cards without inventing IDs.
   await page.locator("#mode").selectOption("physical");
   await page.locator('button[data-action="new-game"]').click();
-  assert.ok(await page.getByText("Physical tracking is provisional", {exact:false}).count());
+  assert.ok(await page.getByText("Record the real table", {exact:false}).count());
   assert.equal(await page.locator('button[data-action="record-best"]').count(),0,
     "Speculative physical suggestions must not be directly committed");
   const wanted=await page.evaluate(()=>{
@@ -174,6 +174,38 @@ try {
   });
   assert.equal(reread.players[0].hand[0],wanted,"Physical observations should persist");
   assert.equal(reread.mode,"physical");
+
+  // Enter public setup through the UI, keeping starting private cards unknown.
+  const physical=reread;
+  for(let i=0;i<3;i++)await page.locator('#actual-tray-'+i).selectOption(String(physical.tray[i]));
+  await page.locator('button[data-action="observe-tray"]').click();
+  for(let i=0;i<5;i++)await page.locator('#observed-die-'+i).selectOption('seed');
+  await page.locator('button[data-action="observe-feeder"]').click();
+  for(let i=0;i<4;i++)await page.locator('#actual-goal-'+i).selectOption(i+':0');
+  await page.locator('button[data-action="observe-goals"]').click();
+  await page.locator('button[data-action="confirm-setup"]').click();
+  await page.locator('button[data-action="confirm-setup"]').click();
+  assert.match(await page.locator('#analysis-status').innerText(),/Needs observations/i);
+  await page.getByRole('button',{name:'Draw 1 hidden bird',exact:true}).click();
+  assert.equal(await page.locator('#physical-prompt').count(),1);
+  await page.reload({waitUntil:'networkidle'});
+  assert.equal(await page.locator('#physical-prompt').count(),1,'Pending draw survives reload');
+  await page.locator('#actual-card').selectOption('unknown');
+  await page.locator('button[data-action="answer-observation"]').click();
+  const completed=await page.evaluate(()=>{
+    const d=JSON.parse(localStorage.getItem('board-game-ai-wingspan-v1'));
+    return d.history[d.index].state;
+  });
+  assert.equal(completed.turn,1);
+  assert.equal(completed.players[0].hand.length,1);
+  assert.ok(!completed.physical.knownBirds.includes(completed.players[0].hand[0]));
+  await page.locator('button[data-action="undo"]').click();
+  assert.equal(await page.locator('#physical-prompt').count(),1);
+  await page.locator('button[data-action="redo"]').click();
+  assert.equal(await page.locator('#physical-prompt').count(),0);
+  await page.setViewportSize({width:390,height:844});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+4),
+    'Physical tracking should fit a phone');
 
   const tablet=await browser.newPage({
     viewport:{width:820,height:1110},deviceScaleFactor:2,hasTouch:true,isMobile:true

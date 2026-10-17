@@ -337,7 +337,7 @@ export function applyPower(s,p,selected,help){
   }
   if(c===13){
     const cards=[];
-    for(let i=0;i<2;i++){const id=help.drawFromDeck(s,"bonus");if(id!==null)cards.push(id);}
+    for(let i=0;i<2;i++){const id=help.drawFromDeck(s,"bonus",{owner,hidden:true});if(id!==null)cards.push(id);}
     if(cards.length)s.pending.unshift({...p,code:1013,event:{cards}});
     return;
   }
@@ -434,7 +434,7 @@ export function applyPower(s,p,selected,help){
   if(TUCK_FROM_DECK[c]){
     help.useFood(s,owner,[selected.food]);
     for(let i=0;i<TUCK_FROM_DECK[c];i++){
-      const id=help.drawFromDeck(s,"bird");
+      const id=help.drawFromDeck(s,"bird",{owner,hidden:true});
       if(id!==null)instance.tucked.push(id);
     }
     return;
@@ -445,9 +445,9 @@ export function applyPower(s,p,selected,help){
   if(PREDATOR_DICE[c]){
     const outside=5-s.feeder.length;
     let hit=false;
-    for(let i=0;i<outside;i++){
-      const face=["invertebrate","seed","fish","fruit","rodent","dual"]
-        [Math.floor(help.rng(s)*6)]; // dice outside feeder do not affect feeder faces
+    const rolled=help.rollOutside?help.rollOutside(s):Array.from({length:outside},()=>
+      ["invertebrate","seed","fish","fruit","rodent","dual"][Math.floor(help.rng(s)*6)]);
+    for(const face of rolled){ // outside rolls never change feeder faces
       if(face===PREDATOR_DICE[c])hit=true;
     }
     if(hit){

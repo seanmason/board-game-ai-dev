@@ -137,6 +137,7 @@ function chooseIndex(search) {
 export function createSearch(observation,choices,{
   rng=Math.random,exploration=null,method="heuristic",horizon=6
 }={}) {
+  if(observation.publicComplete===false)throw Error("Record public observations before analysis");
   if(!choices.length)throw Error("No candidate actions to analyze");
   if(!["heuristic","belief-rollout"].includes(method))
     throw Error("Unknown Wingspan analysis method");

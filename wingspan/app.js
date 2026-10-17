@@ -1,3 +1,5 @@
+import {knownCard} from './observation-io.js';
+import {physicalPanel,readObservationAnswer} from './physical-ui.js';
 import {BIRDS,BONUSES} from "./catalog.js";
 import {
   FOOD,HABITATS,scorePlayer,finalOutcome,allBirds,goalQuantity
@@ -6,8 +8,9 @@ import {
   newGame,applyAction,assertValid,publicObservation,
   ROUND_ACTIONS,RESOURCE_PROGRESSION,EGG_COLUMN_COST
 } from "./core.js";
-import {candidateActions} from "./actions.js";
-import {reconcileCard,reconcileFood,reconcileEggs} from "./observations.js";
+import {reconcileCard,reconcileFood,reconcileEggs,missingPublic,analysisBlocker,
+  knownChoiceState,observedCandidates,reconcileFeeder,reconcileGoals,
+  recordPhysicalAction,answerObservation,cancelObservation} from "./observations.js";
 import {powerDescription} from "./powers.js";
 import {advancedEditor,detailedAction} from "./move-editor.js";
 
@@ -48,6 +51,8 @@ function titleForState(){
     return "Bird power · Player "+(p.owner+1);
   }
   if(game.phase==="gameover"){
+    if(game.mode==='physical'&&game.players.some(p=>p.bonuses.some(id=>!knownCard(game,id,true))))
+      return 'Game complete · enter private bonuses to confirm final scores';
     const leaders=finalOutcome(game.players);
     return leaders.every(x=>x===leaders[0])?"Game complete · tie":
       "Game complete · Winner "+(leaders.findIndex(x=>x>0)+1);
@@ -82,9 +87,9 @@ function scorePanel(){
     '<div class="score-grid">'+game.players.map((p,i)=>{
       const subtotal=scorePublic(p);
       const current=game.currentPlayer===i&&game.phase!=="gameover";
-      const total=game.phase==="gameover"?subtotal.breakdown.total:
+      const total=game.phase==="gameover"&&p.bonuses.every(id=>knownCard(game,id,true))?subtotal.breakdown.total:
         subtotal.base;
-      const activeLabel=game.phase==="gameover"?"Final":"Public";
+      const activeLabel=game.phase==="gameover"?(p.bonuses.every(id=>knownCard(game,id,true))?"Final":"Public (bonus unknown)"):"Public";
       return '<div class="score-card '+(current?"current":"")+'">'+
         '<strong>Player '+(i+1)+'</strong>'+
         (game.mode==="digital"?
@@ -101,6 +106,8 @@ function scorePanel(){
     }).join("")+'</div></section>';
 }
 function birdView(entry,{compact=false,highlight=false}={}){
+  if(game.mode==='physical'&&!knownCard(game,entry.id))
+    return '<div class="bird unknown"><strong>Unknown / private bird</strong><small>Enter its identity only when observed.</small></div>';
   const b=BIRDS[entry.id];
   const info=FOOD.filter(f=>b.food[f]).map(f=>
     b.food[f]+' '+foodName(f).toLowerCase()).join(" + ")+
@@ -123,7 +130,7 @@ function marketPanel(){
     '<p>Food dice persist; visible birds replenish after card-drawing turns.</p></div>'+
     '<span class="eyebrow">'+game.feeder.length+' dice left</span></div>'+
     '<div class="dice">'+game.feeder.map((face,i)=>
-      '<span class="die" data-die="'+i+'">'+esc(foodName(face))+'</span>').join("")+
+      '<span class="die" data-die="'+i+'">'+esc(game.mode==='physical'&&!game.physical?.feederKnown?'Not entered':foodName(face))+'</span>').join("")+
     (game.feeder.length?"":'<span class="meta">Refills on next food draw</span>')+
     '</div><h3 style="margin-top:13px">Face-up birds</h3>'+
     '<div class="tray">'+game.tray.map((id,i)=>
@@ -163,6 +170,7 @@ function handPanel(){
     (cards||'<span class="meta">No bird cards</span>')+'</div></section>';
 }
 function goalPanel(){
+  if(game.mode==='physical'&&!game.physical?.goalsKnown)return '<section class="card"><h2>Round goals</h2><p>Not entered yet.</p></section>';
   return '<section class="card"><div class="card-head"><h2>Round goals</h2>'+
     '<span class="eyebrow">'+(game.goalMode==="green"?"Competitive":"Personal")+'</span></div>'+
     '<div class="score-grid">'+game.goals.map((g,i)=>{
@@ -199,13 +207,13 @@ function setupPanel(){
   const p=game.players[game.currentPlayer];
   if(bonusChoice===null||!p.bonusOffer.includes(bonusChoice))
     bonusChoice=p.bonusOffer[0];
-  const hand=p.hand.map(id=>
-    '<label class="check-card"><input type="checkbox" data-action="keep-card" '+
+  const hand=p.hand.map((id,slot)=>
+    '<label class="check-card"><span>Card '+(slot+1)+'</span><input type="checkbox" data-action="keep-card" '+
       'value="'+id+'"'+(keep.has(id)?" checked":"")+'>'+
       birdView({id},{compact:true})+'</label>').join("");
   const options=p.bonusOffer.map(id=>'<label><input type="radio" name="starting-bonus" '+
     'data-action="bonus" value="'+id+'"'+(bonusChoice===id?" checked":"")+'>'+
-    esc(BONUSES[id].name)+'</label>').join("");
+    esc(knownCard(game,id,true)?BONUSES[id].name:'Unknown private bonus '+(p.bonusOffer.indexOf(id)+1))+'</label>').join("");
   const food=FOOD.map(f=>'<label><input type="checkbox" data-action="discard-food" '+
     'value="'+f+'"'+(discardFood.has(f)?" checked":"")+'>'+
     esc(foodName(f))+'</label>').join("");
@@ -224,7 +232,6 @@ function setupPanel(){
 }
 function powerPanel(){
   const context=game.pending[0];
-  const options=candidateActions(game);
   return '<section class="card"><div class="card-head"><div><h2>Optional bird power</h2>'+
     '<p>'+esc(BIRDS[context.birdId].name)+' · '+
     esc(powerDescription(context.code))+'</p></div>'+
@@ -259,23 +266,25 @@ function actionPanel(){
 function observationPanel(){
   if(game.mode!=="physical")return "";
   const zone=observation.zone,player=observation.player;
-  const bonus=zone==="bonusOffer"||zone==="bonusOwned";
-  const arr=zone==="tray"?game.tray:
-    game.players[player][zone]??[];
+  const bonus=["bonusOffer","bonusOwned","pendingBonus"].includes(zone);
+  const arr=zone==='tray'?game.tray:zone==='bonusOwned'?game.players[player].bonuses:
+    zone==='pendingBird'||zone==='pendingBonus'?game.pending.find(p=>p.owner===player&&
+      p.code===(zone==='pendingBonus'?1013:1008))?.event.cards??[]:game.players[player][zone]??[];
   const catalog=bonus?BONUSES:BIRDS;
   const zoneNames=[
     ["hand","Player hand"],["tray","Face-up tray"],
-    ["bonusOffer","Starting bonus offer"],["bonusOwned","Owned bonus"]
+    ["bonusOffer","Starting bonus offer"],["bonusOwned","Owned bonus"],
+    ["pendingBird","Pending bird offer"],["pendingBonus","Pending bonus offer"]
   ];
   const list=catalog.map(x=>'<option value="'+x.id+'"'+
     (x.id===observation.cardId?" selected":"")+'>'+esc(x.name)+'</option>').join("");
   const slots=arr.map((id,i)=>'<option value="'+i+'"'+
     (i===observation.slot?" selected":"")+'>'+ (i+1)+
-    '. '+esc(catalog[id]?.name??"Unknown")+'</option>').join("");
+    '. '+esc(knownCard(game,id,bonus)?catalog[id]?.name??"Unknown":"Unknown / private")+'</option>').join("");
   return '<section class="card"><details><summary>Record physical observations and corrections</summary>'+
-    '<p class="meta">The actual tabletop is authoritative. Replace initial/drawn '+
-      'card placeholders with the cards you observe, without inventing extra copies.'+
-      ' The unknown deck order remains a simulation.</p>'+
+    '<p class="meta">Record a card in its hand or offer slot when you learn its identity. '+
+      'Other private cards may stay unknown. For an opponent playing a bird, '+
+      'enter that bird in an unknown hand slot, then record the play.</p>'+
     '<div class="toolbar"><label>Zone <select id="obs-zone">'+
       zoneNames.map(([value,label])=>'<option value="'+value+'"'+
         (zone===value?" selected":"")+'>'+label+'</option>').join("")+
@@ -289,10 +298,8 @@ function observationPanel(){
       FOOD.map(f=>'<option value="'+f+'">'+esc(foodName(f))+'</option>').join("")+
       '</select></label><label>Count <input id="obs-count" type="number" min="0" max="99" value="1"></label>'+
       button("observe-food","Correct food count","small")+'</div>'+
-    '<p class="risk">Private hands and hidden draw order cannot be inferred from '+
-      'the public table. If a real card power requires a different effect than '+
-      'the simulation, record the corrected public state rather than accepting '+
-      'an inferred draw as fact.</p></details></section>';
+    '<p class="meta">Setup can be recorded by card slot and food discarded without '+
+      'revealing private cards. Enter pending offers here if their owner wants advice.</p></details></section>';
 }
 function historyPanel(){
   const recent=history.slice(Math.max(0,history.length-35));
@@ -325,6 +332,8 @@ function rulesPanel(){
     '</details></section>';
 }
 function insightPanel(){
+  const blocked=analysisBlocker(game);
+  if(blocked)return '<div class="recommendation" id="analysis-blocked">'+esc(blocked)+'</div>';
   const c=analysis?.candidates??[];
   const best=c[0];
   const summary=best?
@@ -334,7 +343,7 @@ function insightPanel(){
     ' · '+pretty(best.visits)+' simulations. Not a win percentage.</p>'+
     button("pin-best","Highlight candidate","small")+' '+
     (game.mode==="physical"?
-      '<span class="meta">Record real tabletop actions manually; unverified cards are placeholders.</span>':
+      '<span class="meta">Record real tabletop actions manually; new draws and rolls ask for actual results.</span>':
       button("record-best","Record suggested action","small primary"))+'</div>':
     '<div class="recommendation">Evaluating candidate actions…</div>';
   const stats='<div class="stats">'+
@@ -372,7 +381,7 @@ function analysisPanel(){
       "Hidden-world game rollouts with simulated opponent decisions.":
       "Fast sampled action-utility baseline.")+'</p></div>'+
     '<span class="eyebrow" id="analysis-status">'+
-      (game.phase==="gameover"?"Finished":analysisEnabled?"Analyzing":"Paused")+
+      (game.phase==="gameover"?"Finished":analysisBlocker(game)?"Needs observations":analysisEnabled?"Analyzing":"Paused")+
       '</span></div><div class="toolbar">'+
     '<label class="meta" for="search-method">Method</label>'+
     '<select id="search-method" aria-label="Analysis method">'+
@@ -391,8 +400,9 @@ function analysisPanel(){
     '</div>'+insightPanel()+'</section>';
 }
 function render(){
-  options=candidateActions(game);
-  const visible=game.phase==="setup"?setupPanel():
+  options=observedCandidates(game);
+  const waiting=game.mode==='physical'&&(game.pendingObservation||missingPublic(game).length);
+  const visible=waiting?'':game.phase==="setup"?setupPanel():
     game.phase==="power"?powerPanel():
     game.phase==="play"?actionPanel():"";
   root.innerHTML='<div class="shell">'+setupHeader()+
@@ -404,16 +414,10 @@ function render(){
     '<span class="meta">Round '+game.round+' · '+
       (game.mode==="physical"?"Physical tracking":"Digital game")+'</span></nav>'+
     (notification?'<div role="alert" class="banner error">'+esc(notification)+'</div>':"")+
-    (game.mode==="physical"?
-      '<div class="banner warning">Physical tracking is provisional. '+
-      'Card identities, bonus offers, food dice and goals you have NOT entered '+
-      'are randomly initialized placeholders, NOT verified tabletop facts. '+
-      'Do not trust candidate recommendations until all relevant observations '+
-      'have been reconciled. Record actual tabletop moves manually.</div>':"")+
     statusPanel()+'<div class="layout"><main>'+
-      marketPanel()+activeMat()+visible+advancedEditor(game,{
+      physicalPanel(game)+marketPanel()+activeMat()+visible+(waiting?"":advancedEditor(knownChoiceState(game),{
         kind:advancedKind,birdId:advancedBirdId,habitat:advancedHabitat
-      })+handPanel()+observationPanel()+
+      }))+handPanel()+(game.pendingObservation?"":observationPanel())+
     '</main><aside>'+analysisPanel()+scorePanel()+goalPanel()+
       historyPanel()+rulesPanel()+'</aside></div></div>';
   highlightPinned();
@@ -479,7 +483,7 @@ function stopAnalysis(){
 }
 function startAnalysis(){
   stopAnalysis();
-  if(game.phase==="gameover"||!options.length){
+  if(game.phase==="gameover"||!options.length||analysisBlocker(game)){
     refreshAnalysis();return;
   }
   if(typeof Worker==="undefined"){
@@ -493,7 +497,7 @@ function startAnalysis(){
     const w=new Worker(new URL("./worker.js",import.meta.url),{type:"module"});
     w.onmessage=e=>{
       const result=e.data;
-      if(result.generation!==token)return;
+      if(token!==generation||result.generation!==generation)return;
       if(result.type==="error"){
         notification="Analysis error: "+result.message;render();return;
       }
@@ -532,7 +536,8 @@ function restore(){
     if(!raw)return;
     const d=JSON.parse(raw);
     if(d.version!==1||!Array.isArray(d.history)||!d.history.length)return;
-    d.history.forEach(x=>assertValid(x.state));
+    d.history.forEach(x=>{assertValid(x.state);
+      if(x.state.mode==='physical'&&!x.state.physical)throw Error('Legacy physical save: start a new observation session');});
     history=d.history;
     index=Math.min(history.length-1,Math.max(0,d.index??history.length-1));
     game=history[index].state;
@@ -557,12 +562,13 @@ function commit(next,label){
 }
 function perform(action,label){
   const actor=phaseOwner();
-  commit(applyAction(game,action),
+  if(game.pendingObservation)throw Error('Finish the pending tabletop result first');
+  commit(game.mode==='physical'?recordPhysicalAction(game,action):applyAction(game,action),
     label??("P"+(actor+1)+" · "+(action.type==="playBird"?
       BIRDS[action.birdId].name:action.type)));
 }
 function goTo(n){
-  if(n<0||n>=history.length)return;
+  if(!Number.isInteger(n)||n<0||n>=history.length)return;
   index=n;game=history[index].state;
   resetSelections();save();render();startAnalysis();
 }
@@ -599,7 +605,8 @@ async function importGame(file){
   if(data.format!=="board-game-ai-wingspan"||data.version!==1||
     !Array.isArray(data.history)||!data.history.length)
     throw Error("Not a supported Wingspan session file");
-  data.history.forEach(h=>assertValid(h.state));
+  data.history.forEach(h=>{assertValid(h.state);
+    if(h.state.mode==='physical'&&!h.state.physical)throw Error('Legacy physical export: start a new observation session');});
   history=data.history;
   index=Math.max(0,Math.min(history.length-1,data.index??history.length-1));
   game=history[index].state;
@@ -642,6 +649,30 @@ root.addEventListener("click",e=>{
   try{
     if(a==="new-game")newSession();
     else if(a==="view"){view=target.dataset.view;save();render();}
+    else if(a==='answer-observation'){
+      commit(answerObservation(game,readObservationAnswer(root,game.pendingObservation.request)),
+        'Recorded tabletop result');
+    }else if(a==='cancel-observation')commit(cancelObservation(game),'Canceled pending action');
+    else if(a==='observe-tray'){
+      let next=game;
+      for(let i=0;i<game.tray.length;i++){
+        const value=root.querySelector('#actual-tray-'+i).value;
+        if(value==='')throw Error('Enter each face-up bird');
+        next=reconcileCard(next,{zone:'tray',index:i,cardId:Number(value)});
+      }
+      commit(next,'Recorded face-up tray');
+    }else if(a==='observe-feeder'){
+      const faces=Array.from({length:5},(_,i)=>root.querySelector('#observed-die-'+i).value).filter(Boolean);
+      if(!game.physical.feederKnown&&faces.length!==5)throw Error('Record all five starting feeder dice');
+      commit(reconcileFeeder(game,faces),'Recorded feeder dice');
+    }else if(a==='observe-goals'){
+      const goals=Array.from({length:4},(_,i)=>{
+        const value=root.querySelector('#actual-goal-'+i).value;
+        if(!value)throw Error('Choose all four round goals');
+        const [tile,side]=value.split(':').map(Number);return {tile,side};
+      });
+      commit(reconcileGoals(game,goals),'Recorded round goals');
+    }
     else if(a==="confirm-setup")acceptSetup();
     else if(a==="advanced-commit"){
       const action=detailedAction(root,game);
