@@ -151,6 +151,36 @@ and unrelated background computation can affect wall-clock budgets; process CPU
 times are also reported. These are nominal equal-time comparisons, not isolated
 matched CPU allocations.
 
+### Initial held-out search evaluation (2026-10-17)
+
+Both runs used the frozen implementation at `96d11cb` (portable source hashes are
+also in each JSON), original rules and two players, with search seats rotated on
+the same deck seeds. Seeds 910019/1014748 and 920023/1024752 were held out from
+the earlier development pilots.
+
+| Opponent and allocation | Games / independent seed blocks | Search wins | Mean score margin |
+| --- | --- | --- | --- |
+| Horizon-2, no placement/draft beam; nominal 100 ms per side versus horizon-6/beam-12 search | 4 / 2 | 2 / 4 | −4.5 |
+| Tuned terrain/crown/draft heuristic; search gets 16 simulations per decision | 4 / 2 | 1 / 4 | −5.0 |
+
+Results: `benchmarks/results/kingdomino-search-heldout-2026-10-17.json` and
+`benchmarks/results/kingdomino-tuned-heldout-2026-10-17.json`. Every game includes
+its complete replayable action trace. The nominal-time comparison used 9.26 s
+versus 8.98 s elapsed decision time, and 9.53 s versus 9.20 s process CPU time.
+Ten of 96 deeper-search decisions and two of 96 shallow-search decisions exceeded
+the nominal budget by more than 10%. Eight final-row decisions per side were
+solved exactly and returned immediately. Unique exact root evaluations are counted
+once, not resampled repeatedly. The fixed-iteration comparison used about 13.76 s
+search CPU versus 0.123 s heuristic CPU, so it is explicitly unequal compute.
+
+These tiny samples **do not establish an improvement from the deeper search**;
+the observed mean margins were negative. Only two independent deck seeds per run
+make uncertainty estimates very weak. The shared host had unrelated background
+computation, so the wall-clock experiment is not an isolated matched-CPU test.
+The UI continues to label lookahead as experimental; no strong play, calibrated
+win probability or human skill claim follows from these results. Larger held-out
+experiments, budget scaling and independently authored opponents remain open work.
+
 Before release: numbered physical-set audit, live-table user acceptance, iPad/Safari
 performance, larger held-out matched-compute strength testing, and source/license
 review remain necessary. This implementation is not publisher endorsed.

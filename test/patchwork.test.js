@@ -26,3 +26,13 @@ test('income on a final overshooting purchase uses the purchased income',()=>{le
 test('leather is claimed on landing, many income icons are paid on a long advance',()=>{let s=setup();s.players[0].time=19;s.players[1].time=19;s=applyAction(s,{type:'advance'});assert.deepEqual(s.pending,[20]);let t=setup();t.players[0].time=4;t.players[0].income=3;t.players[1].time=18;t=applyAction(t,{type:'advance'});assert.equal(t.players[0].buttons,5+15+9);});
 test('single remaining circle patch is still purchasable and a filled quilt discards claimed leather',()=>{let s=setup();s.ring=[1];s.players[1].time=3;s=applyAction(s,buy(1));assert.deepEqual(s.ring,[]);let t=setup();t.players[0].time=19;t.players[1].time=21;t.players[0].board.fill(1);t=applyAction(t,{type:'advance'});assert.equal(t.phase,'play');assert.deepEqual(t.discarded,[20]);assert.deepEqual(t.pending,[]);});
 test('7×7 detection covers all offset squares and catalog has 166 regular squares',()=>{for(let sy=0;sy<3;sy++)for(let sx=0;sx<3;sx++){const board=Array(81).fill(0);for(let y=sy;y<sy+7;y++)for(let x=sx;x<sx+7;x++)board[y*9+x]=1;assert(hasSquare(board));board[(sy+3)*9+sx+3]=0;assert.equal(hasSquare(board),false);}assert.equal(REGULAR.reduce((n,p)=>n+p.area,0),166);});
+
+test('actual worker adapter cancels solved search again if a stale resume arrives',async()=>{
+ const {installSearchWorker}=await import('../shared/search-worker.js'),{workerAdapter}=await import('../patchwork/worker.js');
+ let clock=0,next=0;const jobs=new Map(),messages=[],scope={postMessage:m=>messages.push(m)};
+ const adapter=workerAdapter(scope),baseCreate=adapter.create;adapter.create=data=>{const search=baseCreate(data);search.complete=true;return search;};
+ const lifecycle=installSearchWorker(adapter,{scope,now:()=>clock,schedule:fn=>{jobs.set(++next,fn);return next;},cancel:id=>jobs.delete(id)});
+ const tick=()=>{const [id,fn]=jobs.entries().next().value;jobs.delete(id);clock++;fn();};
+ scope.onmessage({data:{type:'start',generation:12,state:newGame({mode:'digital'})}});tick();assert.equal(jobs.size,0);assert.equal(messages.at(-1).paused,true);
+ scope.onmessage({data:{type:'resume',generation:12}});tick();assert.equal(jobs.size,0,'A solved resume must leave no scheduled hot loop');assert.equal(messages.at(-1).paused,true);lifecycle.dispose();
+});

@@ -163,7 +163,8 @@ BATCH_AUDIT_WORKTREES=1 node --test test/batch-audit-independent.test.js
 ```
 
 Latest focused run: twelve tests passed, no skips, against implementation
-worktrees. All five games are now integrated; without the environment override
+worktrees. The integrated full suite subsequently passed 274 tests with no skips,
+including all twelve independent fixtures. All five games are now integrated; without the environment override
 these tests use the integrated game directories. Both hidden-world projection
 fixtures establish invariance under changed actual hidden stacks, RNG state,
 and unrevealed Duel identities, including equal-seed determinization.
