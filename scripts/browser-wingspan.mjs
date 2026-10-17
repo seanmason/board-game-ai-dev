@@ -148,6 +148,48 @@ try {
   assert.equal(afterBird.remaining[0],7,
     "Custom food payment for a forest bird should complete one turn");
 
+  // A white second-bird power accepts a human-selected payment and egg source.
+  const secondBird=await page.evaluate(async()=>{
+    const {newGame,applyAction}=await import('/wingspan/core.js');
+    let s=newGame({seed:12});
+    while(s.phase==='setup')s=applyAction(s,{type:'setup',keep:[],foodDiscard:[],bonusId:s.players[s.currentPlayer].bonusOffer[0]});
+    for(const id of [68,105,107]){
+      const pool=[s.deck,s.birdDiscard,s.tray].find(a=>a.includes(id));pool.splice(pool.indexOf(id),1);
+    }
+    s.players[0].habitats.forest=[{id:68,eggs:1,cached:[],tucked:[]}];
+    s.players[0].habitats.grassland=[{id:105,eggs:2,cached:[],tucked:[]}];
+    s.eggSupply-=3;s.players[0].hand=[107];
+    s.players[0].food={seed:1,fruit:1,fish:2,rodent:0,invertebrate:0};
+    s.phase='power';s.pending=[{owner:0,habitat:'forest',index:0,birdId:68,code:37,timing:'white',event:{}}];
+    return s;
+  });
+  await page.locator('#import-file').setInputFiles({name:'second-bird.json',mimeType:'application/json',
+    buffer:Buffer.from(JSON.stringify({format:'board-game-ai-wingspan',version:1,
+      history:[{state:secondBird,label:'Second bird'}],index:0,seats:['human','human']}))});
+  await page.locator('#advanced-action-editor > summary').click();
+  await page.locator('#adv-food-seed').fill('0');
+  await page.locator('#adv-food-fish').fill('2');
+  await page.locator('[data-adv-egg][data-habitat="grassland"]').fill('1');
+  await page.locator('button[data-action="advanced-commit"]').click();
+  const paid=await page.evaluate(()=>{
+    const d=JSON.parse(localStorage.getItem('board-game-ai-wingspan-v1'));return d.history[d.index].state;
+  });
+  assert.equal(paid.players[0].food.seed,1);
+  assert.equal(paid.players[0].food.fish,0);
+  assert.equal(paid.players[0].habitats.forest[1].id,107);
+  assert.equal(paid.players[0].habitats.forest[0].eggs,1);
+  assert.equal(paid.players[0].habitats.grassland[0].eggs,1);
+
+  // Invalid session positions cannot partially replace the current game.
+  await page.locator('#import-file').setInputFiles({name:'invalid-session.json',mimeType:'application/json',
+    buffer:Buffer.from(JSON.stringify({format:'board-game-ai-wingspan',version:1,
+      history:[{state:secondBird,label:'Must not replace live game'}],index:0.5}))});
+  await page.getByRole('alert').filter({hasText:'Invalid session history position'}).waitFor();
+  const stillPaid=await page.evaluate(()=>{
+    const d=JSON.parse(localStorage.getItem('board-game-ai-wingspan-v1'));return d.history[d.index].state;
+  });
+  assert.deepEqual(stillPaid,paid);
+
   // A new physical session supports observed cards without inventing IDs.
   await page.locator("#mode").selectOption("physical");
   await page.locator('button[data-action="new-game"]').click();

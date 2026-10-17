@@ -1,3 +1,4 @@
+import {readSession,boundedInteger} from '../shared/session.js';
 import {knownCard} from './observation-io.js';
 import {physicalPanel,readObservationAnswer} from './physical-ui.js';
 import {BIRDS,BONUSES} from "./catalog.js";
@@ -530,23 +531,23 @@ function save(){
     notification="Browser storage is unavailable; export your game before leaving.";
   }
 }
+function decodeSession(data,format){
+  return readSession(data,{format,playerCount:s=>s.players.length,validateState:s=>{
+    assertValid(s);
+    if(s.mode==='physical'&&!s.physical)throw Error('Legacy physical session: start a new observation session');
+  }});
+}
 function restore(){
   try{
     const raw=localStorage.getItem(KEY);
     if(!raw)return;
     const d=JSON.parse(raw);
-    if(d.version!==1||!Array.isArray(d.history)||!d.history.length)return;
-    d.history.forEach(x=>{assertValid(x.state);
-      if(x.state.mode==='physical'&&!x.state.physical)throw Error('Legacy physical save: start a new observation session');});
-    history=d.history;
-    index=Math.min(history.length-1,Math.max(0,d.index??history.length-1));
-    game=history[index].state;
-    seats=Array.isArray(d.seats)&&d.seats.length===game.players.length?
-      d.seats:game.players.map(()=>"human");
+    const decoded=decodeSession(d);
+    ({history,index,game,seats}=decoded);
     view=d.view==="analysis"?"analysis":"companion";
     analysisEnabled=d.analysisEnabled!==false;
     searchMethod=d.searchMethod==="heuristic"?"heuristic":"belief-rollout";
-    workerCount=Math.min(MAX_WORKERS,Math.max(1,d.workerCount??workerCount));
+    workerCount=boundedInteger(d.workerCount,workerCount,1,MAX_WORKERS);
   }catch(e){console.warn("Invalid Wingspan save",e);}
 }
 function resetSelections(){
@@ -602,16 +603,8 @@ function exportGame(){
 }
 async function importGame(file){
   const data=JSON.parse(await file.text());
-  if(data.format!=="board-game-ai-wingspan"||data.version!==1||
-    !Array.isArray(data.history)||!data.history.length)
-    throw Error("Not a supported Wingspan session file");
-  data.history.forEach(h=>{assertValid(h.state);
-    if(h.state.mode==='physical'&&!h.state.physical)throw Error('Legacy physical export: start a new observation session');});
-  history=data.history;
-  index=Math.max(0,Math.min(history.length-1,data.index??history.length-1));
-  game=history[index].state;
-  seats=Array.isArray(data.seats)&&data.seats.length===game.players.length?
-    data.seats:game.players.map(()=>"human");
+  const decoded=decodeSession(data,'board-game-ai-wingspan');
+  ({history,index,game,seats}=decoded);
   resetSelections();save();render();startAnalysis();
 }
 function getCurrentAction(idx){

@@ -80,7 +80,7 @@ function foodActions(s,p) {
         extra:true,discardCard:p.hand.at(-1)},
         "Discard card for "+(count+1)+" food","Food"));
   }
-  if(faces.length===1){
+  if(faces.length>0&&new Set(faces).size===1){
     // Optional all-same-face reroll before selecting this action's first die.
     const dice=Array.from({length:count},(_,i)=>({index:0,
       ...(i===0?{reroll:true}:{})}));

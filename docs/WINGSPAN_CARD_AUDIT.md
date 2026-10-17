@@ -68,6 +68,9 @@ Community card sources: [Wingsearch](https://github.com/navarog/wingsearch),
 8. Chained bonus choices and shared card drafts could lose the identity of the
    original player; mandatory downstream decisions now cannot be skipped.
 
+9. Chained white bird plays could enqueue the same pending pink reaction twice;
+   the pending queue now prevents duplicate once-between-turns reactions.
+
 These are genuine rules/privacy defects discovered by deeper tests, not
 changes made merely to quiet warnings.
 

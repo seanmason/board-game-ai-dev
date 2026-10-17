@@ -158,3 +158,24 @@ python3 -m http.server 8080
 ```
 
 See [base-game implementation scope](docs/WINGSPAN_ARCHITECTURE.md).
+## Platform foundations and next game
+
+**Splendor** is the selected next game. The pre-expansion
+[platform review](docs/PLATFORM_REVIEW.md) records the shared contracts,
+remaining gaps and its implementation checklist.
+
+Azul and Pentago share worker lifecycle and session validation under `shared/`;
+their rules, search strategies and views remain independent. Existing saved
+sessions keep their v1 format. To prepare static files without publishing:
+
+```sh
+npm run stage:preview
+npm run package:game -- azul /tmp/azul-site
+npm run package:game -- pentago /tmp/pentago-site
+```
+
+Each standalone output has its own `index.html` and all runtime dependencies.
+Serve that directory over HTTP. The development preview can also include the
+experimental Wingspan directory when present on its draft branch; this is not
+release approval. CI tests the staged preview rather than relying on files that
+only exist in the development checkout.

@@ -18,7 +18,7 @@ and https://stonemaiergames.com/games/wingspan/rules/.
 | Round progression | 8/7/6/5 turns, starter rotation and goal scoring | Tested and round-end tray defect fixed |
 | Inventory | Every transition checks conservation of 170 bird IDs, 26 bonus IDs and 75 eggs | Tested across seeded games |
 | Privacy | Public projection hides opponents' hands, hidden decks, discarded bonus IDs and facedown tucked species | Shuffle-invariance tests passed |
-| Physical companion | Simulated placeholders for unobserved cards, dice and goals can still be mistaken for authoritative physical data | **Not release-ready** |
+| Physical companion | Explicit knowledge metadata; transactional input for cards, goals and dice; unknown cards redacted; save/reload and undo/redo tested | Implemented, tabletop acceptance still needed |
 | Solo Automa | Not implemented | Missing from a complete base-box adaptation |
 
 ### Confirmed defect corrected
@@ -86,21 +86,20 @@ without recording a move. Chromium tests exercise both a zero-egg habitat
 action and a fully paid forest bird placement, with undo and card conservation.
 
 This significantly improves legal move coverage in digital play, but it is
-not a complete game-position editor and does not solve physical placeholder
-reconciliation.
+not a complete game-position editor. Physical observation reconciliation is now
+implemented separately; see WINGSPAN_PHYSICAL_OBSERVATIONS.md.
 
 ## Release blockers
 
-- **Authoritative physical observation tracking:** separate known cards,
-  dice, goals and private hands entered by users from randomly initialized
-  placeholders. Do not infer real hands/deck order.
+- **Physical acceptance:** observation tracking is implemented and browser-tested;
+  validate its usability against real tabletop sessions.
 - **Full choice enumeration and interface:** the new collapsed, detailed
   human-turn editor now accepts explicit bird food payments (including
   two-for-one substitutes), egg-source allocation, sequential birdfeeder die
   indices, grassland egg targets, deck/tray draws and ordinary optional
   habitat conversions. The quick AI generator remains representative;
-  chained second-bird effects and some multi-stage, rerolled feeder choices
-  still do not have every desired UI path.
+  second-bird payments and egg sources now have detailed entry, and physical
+  rerolls prompt for actual dice. Exhaustive enumeration for AI search is still absent.
 - **Independent complete-game traces:** validate unusual white/brown/pink
   interactions against human-scored physical sessions and an independent
   implementation. The current card-by-card test covers representative
@@ -113,3 +112,36 @@ reconciliation.
 
 Keep Wingspan isolated in draft PR #3 and the finished-games repository
 untouched until these blockers are addressed or explicitly descoped.
+
+## Integration follow-up — October 17, 2026
+
+PR #4 (platform foundations) and PR #5 (physical observations) are merged into
+main and the Wingspan development branch respectively. Their integration adds
+both observation modules to the static manifest, runs browser tests against the
+staged assets, and adopts atomic shared-session validation in Wingspan.
+
+Further regression-driven fixes:
+- Chained white powers could queue an opponent's identical pink reaction twice
+  before either was resolved. Pending pink reactions are now deduplicated.
+- Second-bird powers now validate user-selected food payments and egg sources,
+  including two-for-one food substitutions, instead of always spending defaults.
+- Quick suggestions now offer rerolls for multiple identical feeder faces.
+
+The second-bird and pink-chain scenarios are hand-constructed tests, not an
+independent complete-game oracle or a recorded physical playthrough. The pinned
+catalog comparison was rerun with zero unexplained differences.
+
+AI benchmarks accept --time-ms and search-based opponents. Both players receive
+the same per-decision wall-time target, with a minimum of one non-preemptible
+sample, so expensive samples can overrun. Timing changes sample counts and makes
+results hardware-dependent; fixed-sample mode remains available. See the saved
+benchmark results for exploratory outcomes; these do not establish human strength.
+
+Time-budgeted follow-up: 24 two-player games, seed 731043, four-action rollout
+horizon, alternating AI seat and rotating starting player. Rollout search won
+19/24 games (79.2%), with mean margin +12.88 points against heuristic search.
+Both received 20 ms per decision, subject to the sample overrun noted above.
+A preceding 12-game pilot at seed 731042 yielded 9 wins. No parameters were tuned
+between those trials. The saved 24-game result is
+`benchmarks/results/wingspan-time-budget-2026-10-17.json`.
+This is evidence against the old internal baseline, not expert human validation.

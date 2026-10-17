@@ -75,3 +75,12 @@ test("power choices surface optional skip and legal explicit decisions",()=>{
  assert.ok(options.find(x=>x.action.skip));
  for(const entry of options)assertValid(applyAction(s,entry.action));
 });
+
+test('quick actions offer reroll when multiple feeder dice show the same face',()=>{
+  let s=newGame({seed:19});
+  while(s.phase==='setup')s=applyAction(s,{type:'setup',keep:[],foodDiscard:[],bonusId:s.players[s.currentPlayer].bonusOffer[0]});
+  s.feeder=['seed','seed','seed'];
+  assert.ok(candidateActions(s).some(x=>x.action.dice?.[0]?.reroll));
+  s.feeder=['seed','dual'];
+  assert.ok(!candidateActions(s).some(x=>x.action.dice?.[0]?.reroll));
+});
