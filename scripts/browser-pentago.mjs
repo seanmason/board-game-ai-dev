@@ -47,11 +47,11 @@ try{
   await waitSims();
   assert.equal(await page.locator("#move-policy").inputValue(),"heuristic");
   assert.match(await page.locator(".recommendation .eyebrow").innerText(),
-    /Heuristic recommendation/);
+    /Heuristic recommendation/i);
   const beforePolicy=await getSims();
   await page.locator("#move-policy").selectOption("mcts");
   assert.match(await page.locator(".recommendation .eyebrow").innerText(),
-    /MCTS most-visited move/);
+    /MCTS most-visited move/i);
   assert.ok(await getSims()>=beforePolicy,
     "Changing recommendation policy must preserve MCTS simulations");
   await page.locator("#move-policy").selectOption("heuristic");
