@@ -17,6 +17,12 @@ still pending.**
   **0 discrepancies**. Both Wingsearch and Morgan-Griffiths have community
   data ancestry, so this is independently curated data comparison, not a
   wholly independent photographed-card transcription.
+- An additional comparison of the **individual bonus-eligibility flags**
+  found one difference: Wingsearch incorrectly flags **Tufted Titmouse**
+  as qualifying for Anatomist. The base game's printed Anatomist word list
+  excludes both "tuft" and "tit", so we explicitly retain its **nonqualifying**
+  status. The pinned-source audit records this as an explained reference
+  exception rather than silently changing base-game rules.
 - All **164 bird cards with powers** have executed at least one non-skip
   effect in a tailored board position, preserving card/bonus/egg inventories.
   The six birds without a power have their absence verified.

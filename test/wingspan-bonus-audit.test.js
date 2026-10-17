@@ -67,3 +67,14 @@ for(const card of BONUSES){
     assert.equal(scorePlayer(player).bonuses,bonusPoints(card.id,player));
   });
 }
+
+
+test("Tufted Titmouse is not an Anatomist bird under original printed keywords",()=>{
+  const bird=BIRDS.find(b=>b.name==="Tufted Titmouse");
+  assert.ok(bird);
+  assert.ok(!bird.bonuses.includes("anatomist"));
+  const anatomist=BONUSES.find(b=>b.name==="Anatomist");
+  const player=fixture();
+  player.habitats.forest=[played(bird.id)];
+  assert.equal(bonusPoints(anatomist.id,player),0);
+});
