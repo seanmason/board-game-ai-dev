@@ -16,6 +16,7 @@ const MAX_WORKERS=Math.max(1,Math.min(4,(navigator.hardwareConcurrency||2)-1));
 const FIRST=newGame({players:2,mode:"digital",seed:912731});
 let history=[{state:FIRST,label:"New Wingspan session"}],index=0,game=FIRST;
 let seats=["human","human"],view="companion",analysisEnabled=true;
+let searchMethod="heuristic";
 let workerCount=Math.min(2,MAX_WORKERS),workers=[],partResults=new Map();
 let analysis=null,generation=0,options=[],notification="";
 let pinned=-1,hovered=-1;
@@ -363,10 +364,18 @@ function insightPanel(){
 function analysisPanel(){
   return '<section class="card"><div class="card-head"><div>'+
     '<h2>Public-information analysis</h2>'+
-    '<p>Continuous Monte Carlo comparison of legal action plans.</p></div>'+
+    '<p>'+(searchMethod==="belief-rollout"?
+      "Hidden-world game rollouts with simulated opponent decisions.":
+      "Fast sampled action-utility baseline.")+'</p></div>'+
     '<span class="eyebrow" id="analysis-status">'+
       (game.phase==="gameover"?"Finished":analysisEnabled?"Analyzing":"Paused")+
       '</span></div><div class="toolbar">'+
+    '<label class="meta" for="search-method">Method</label>'+
+    '<select id="search-method" aria-label="Analysis method">'+
+    '<option value="heuristic"'+(searchMethod==="heuristic"?" selected":"")+
+      '>Heuristic samples</option>'+
+    '<option value="belief-rollout"'+(searchMethod==="belief-rollout"?" selected":"")+
+      '>Hidden-world rollouts</option></select>'+
     '<label class="meta" for="worker-count">Workers</label>'+
     '<select id="worker-count">'+Array.from({length:MAX_WORKERS},(_,i)=>
       '<option value="'+(i+1)+'"'+(workerCount===i+1?" selected":"")+
@@ -494,14 +503,15 @@ function startAnalysis(){
     workers.push(w);
     w.postMessage({type:"start",generation:token,observation:obs,
       actions:options,seed:(Math.random()*0x100000000)>>>0,
-      running:analysisEnabled,chunk:24});
+      method:searchMethod,horizon:6,
+      running:analysisEnabled,chunk:searchMethod==="belief-rollout"?1:24});
   }
   refreshAnalysis();
 }
 function save(){
   try{
     localStorage.setItem(KEY,JSON.stringify({
-      version:1,history,index,seats,view,analysisEnabled,workerCount
+      version:1,history,index,seats,view,analysisEnabled,workerCount,searchMethod
     }));
   }catch(e){
     console.warn("Wingspan autosave failed",e);
@@ -522,6 +532,7 @@ function restore(){
       d.seats:game.players.map(()=>"human");
     view=d.view==="analysis"?"analysis":"companion";
     analysisEnabled=d.analysisEnabled!==false;
+    searchMethod=d.searchMethod==="belief-rollout"?"belief-rollout":"heuristic";
     workerCount=Math.min(MAX_WORKERS,Math.max(1,d.workerCount??workerCount));
   }catch(e){console.warn("Invalid Wingspan save",e);}
 }
@@ -666,6 +677,9 @@ root.addEventListener("change",e=>{
       bonusChoice=Number(t.value);render();
     }else if(t.dataset.action==="seat"){
       seats[Number(t.dataset.player)]=t.value;save();render();
+    }else if(t.id==="search-method"){
+      searchMethod=t.value==="belief-rollout"?"belief-rollout":"heuristic";
+      save();render();startAnalysis();
     }else if(t.id==="worker-count"){
       workerCount=Math.min(MAX_WORKERS,Math.max(1,Number(t.value)));
       save();render();startAnalysis();
