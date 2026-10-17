@@ -1,6 +1,6 @@
 # Wingspan and documentation integration
 
-Status: implementation complete; hosted integration gate pending. Date: 2026-10-17.
+Status: complete. Merged through PR #10 on 2026-10-17. Date: 2026-10-17.
 
 ## Objective
 
@@ -31,13 +31,18 @@ Local verification on the combined working tree (commit containing this record):
 - `npm run stage:preview`: 85 allowlisted assets, including observation modules.
 - `git diff --check`: clean.
 
-No local Chromium executable was available. The integration PR's hosted Validation
-workflow is the browser/packaging merge gate; inspect its exact head revision and
-conclusion before merging. No new tournament or human-strength claim is made.
+No local Chromium executable was available. Hosted [Validation run 39051070055](https://github.com/seanmason/board-game-ai-dev/actions/runs/39051070055)
+passed on integration head `00b856ebc11f996f887e897d5cc2a390a1e9e724`
+(tree `111e47282e9eb9b57e4aa560f0bbafd197ed6a9e`). This includes all staged
+browser scripts, documentation checks, source audits, Wingspan scenarios and
+Azul/Pentago/Boop reference regressions. Browser automation is not real-device
+Safari or physical-table acceptance. No new strength tournament was performed.
 
-## Resume / closure
+## Closure
 
-Merge only after the hosted combined suite passes; retain the known limitations
-in the current Wingspan overview. The user explicitly authorized the Wingspan
-merge into main. Once merged, this record preserves integration evidence rather
-than a continuing implementation backlog.
+[PR #10](https://github.com/seanmason/board-game-ai-dev/pull/10) merged as
+`17c32487fa504de84f9cffebc6fc93fa42766f11`. Its merge preserves Wingspan branch
+ancestry and the existing games. This final documentation-only closure records
+the passing run; it does not change runtime code. Remaining product/release gates
+live in the [current Wingspan overview](../games/wingspan/README.md), not this
+completed handoff. The finished-release repository was not modified.

@@ -32,7 +32,7 @@ acceptance remains open. AI: representative quick-action generator and sampled
 utility, not exhaustive legal search or calibrated wins. The recorded 19/24 timed
 result is against an internal baseline, not independent human-strength evidence.
 Browser/device: automated browser coverage does not establish real iPad Safari
-performance. Release: rights/provenance and integration gates remain open.
+performance. Release: final rights/provenance and release review remain open.
 
 ## Integration verification
 
