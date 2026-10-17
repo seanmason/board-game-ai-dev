@@ -1,0 +1,64 @@
+name: Preview on GitHub Pages
+
+# This preview publishes from the private development repository.
+# The resulting site is PUBLIC even though the Git repository is private.
+on:
+  push:
+    branches:
+      - main
+      - feat/azul-companion-mvp
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dev-pages-preview
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Validate and package browser preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact development revision
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify rules and MCTS
+        run: |
+          npm test
+          npm run check
+      - name: Stage only the public-facing website
+        run: |
+          set -eu
+          mkdir -p preview/src
+          cp index.html styles.css preview/
+          cp src/azul.js src/mcts.js src/ai-worker.js src/app.js preview/src/
+          touch preview/.nojekyll
+          test -f preview/index.html
+          test -f preview/src/ai-worker.js
+          echo "Preview contains only $(find preview -type f | wc -l) explicitly selected static files"
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload preview
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./preview
+
+  deploy:
+    name: Publish preview
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
