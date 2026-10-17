@@ -1,35 +1,30 @@
 # Development preview (GitHub Pages)
 
-The development repository was switched to **public** to support GitHub Pages; its preview website is also publicly accessible.
+The development repository and preview have been public. Confirm actual repository
+visibility/settings when operating; never assume development work is private.
+Preview address: https://seanmason.github.io/board-game-ai-dev/ . This document does
+not certify the currently deployed revision or that its deployment succeeded.
 
-Preview URL (configured and previously deployed successfully):
-**https://seanmason.github.io/board-game-ai-dev/**
+## Configuration and published surface
 
-The preview workflow deploys changes to `main` and to `feat/azul-companion-mvp` while that implementation branch is in progress. It is not a production release: production-ready public games go to `seanmason/board-game-ai`.
+The [preview workflow](../.github/workflows/preview-pages.yml) is authoritative for
+triggers, environment and validation. At documentation review it targets `main`
+and `feat/wingspan-base-game`, plus manual dispatch. GitHub Pages uses GitHub
+Actions as its build source. Inspect the actual deployment run for live state.
 
-## Initial setup
+The workflow runs `npm run stage:preview`. The [asset allowlist](../scripts/static-assets.mjs)
+and [stager](../scripts/stage-preview.mjs) define the suite navigation, available
+game directories and shared runtime assets. Optional games depend on the checkout;
+the preview is no longer an Azul-only six-file site. Tests, research reports and
+source-reference datasets are not included by the runtime asset allowlist.
 
-1. Open https://github.com/seanmason/board-game-ai-dev/settings/pages.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-3. Push to a configured branch to run **Preview on GitHub Pages**; the deployment uses the `development-preview` environment to permit feature-branch previews.
+Static runtime files are publicly downloadable. The development repository itself
+may also expose research/source files regardless of what the preview stages.
+No credentials, restricted assets or private data belong in either surface.
 
-The development repository and deployed source files are public. Treat both as untrusted publication surfaces and avoid secrets or restricted materials.
+## Release boundary
 
-## Published surface
-
-The workflow builds a temporary `preview/` directory containing only:
-- `index.html`
-- `styles.css`
-- `src/azul.js`
-- `src/mcts.js`
-- `src/ai-worker.js`
-- `src/app.js`
-- `.nojekyll`
-
-No tests, private architecture notes, Git history, credentials, or experimental datasets are included. Code needed to render/run the browser site can be downloaded from any publicly available website, so do not put sensitive information in these assets.
-
-## Safety checks
-
-Unit tests and syntax checks must pass before packaging. Deployment occurs via official GitHub Pages actions and the `github-pages` environment. Pages only hosts static assets; no backend, tokens, API keys, or server processes are required.
-
-The public release repository is not modified by this workflow.
+Preview deployment does not modify the finished-game repository or establish a
+release gate. See [packaging and release](platform/release.md) for the separate
+reviewed release procedure. Inspect CI/browser evidence for the exact source
+revision rather than inferring readiness from a successful static deployment.

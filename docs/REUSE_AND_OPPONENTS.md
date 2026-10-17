@@ -1,5 +1,7 @@
 # Search-tree reuse and diverse opponent experiments
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current azul overview](games/azul/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 **Scope:** Azul MCTS workers, after each observed drafting move, and external
 headless experiments. This implementation is independent of the public
 finished-game repository.

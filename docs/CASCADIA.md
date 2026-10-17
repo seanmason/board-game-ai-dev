@@ -1,5 +1,7 @@
 # Cascadia base-game companion
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current cascadia overview](games/cascadia/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 `/cascadia/` implements standard base Cascadia for 2–4 players and the official
 20-turn solo mode. Physical observation is the primary workflow. Every starter,
 opening offer and replacement comes from the actual table. Digital play is a

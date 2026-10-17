@@ -1,5 +1,7 @@
 # Kingdomino base-game companion
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current kingdomino overview](games/kingdomino/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 `/kingdomino/` is a physical tabletop companion first: record actual face-up
 numbers, record the initial randomly drawn king order, and explicitly confirm
 placements and claims. No recommendation ever plays automatically. Digital mode

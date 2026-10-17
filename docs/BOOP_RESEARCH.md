@@ -1,5 +1,7 @@
 # Boop: rules, search, and validation
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current boop overview](games/boop/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 Original base game only, researched 2026-10-17. No Halloween ghosts, holiday
 ornaments, younger-player variant, publisher art, or copied rulebook prose.
 

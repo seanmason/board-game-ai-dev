@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-      - feat/pentago-analysis-mvp
+      - feat/wingspan-base-game
   workflow_dispatch:
 
 permissions:
@@ -36,6 +36,7 @@ jobs:
           npm run check
           npm run verify:gameplay
           if [ -f pentago/index.html ]; then npm run verify:pentago; fi
+          if [ -f wingspan/index.html ]; then npm run verify:wingspan; fi
       - name: Stage only the public-facing website
         run: npm run stage:preview
       - name: Setup Pages

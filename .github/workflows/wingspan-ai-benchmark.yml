@@ -1,0 +1,55 @@
+name: Wingspan hidden-world AI research
+on:
+  push:
+    branches: [feat/wingspan-base-game]
+    paths:
+      - .github/workflows/wingspan-ai-benchmark.yml
+      - wingspan/belief.js
+      - wingspan/rollout.js
+      - wingspan/analysis.js
+      - scripts/benchmark-wingspan-ai.mjs
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-belief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test test/wingspan-belief.test.js test/wingspan-rollout.test.js
+      - run: npm run check
+  benchmark:
+    needs: test-belief
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        method: [heuristic, belief-rollout]
+    name: ${{ matrix.method }} vs greedy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Balanced seeded full-game pilot
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/benchmark-wingspan-ai.mjs \
+            --method=${{ matrix.method }} \
+            --players=2 \
+            --games=6 \
+            --samples=12 \
+            --horizon=4 \
+            --seed=15963 \
+            --opponent=greedy | tee result.json
+          cat result.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wingspan-ai-${{ matrix.method }}
+          path: result.json

@@ -1,5 +1,7 @@
 # 7 Wonders Duel — base-game companion
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current seven-wonders-duel overview](games/seven-wonders-duel/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 Dependency-free browser prototype at `/seven-wonders-duel/`. Two players; no
 expansions or promo components. Physical-table recording is the primary workflow.
 Continuous analysis is advisory. Every move requires an explicit recording action.

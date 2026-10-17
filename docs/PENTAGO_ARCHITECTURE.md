@@ -1,5 +1,7 @@
 # Pentago: Companion, Digital Play and AI Analysis
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current pentago overview](games/pentago/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 Status: Approved implementation scope; experimental until browser, rules and AI tests pass.
 
 ## Goal and release boundary

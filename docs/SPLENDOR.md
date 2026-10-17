@@ -1,5 +1,7 @@
 # Splendor base game
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current splendor overview](games/splendor/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 Development implementation for 2–4 players, no expansions. The primary workflow
 is a physical table companion; digital play and research use the same pure engine.
 No action is played automatically. This is not a publisher-endorsed product.

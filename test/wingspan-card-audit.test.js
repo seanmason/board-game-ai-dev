@@ -1,0 +1,216 @@
+/**
+ * Original Wingspan base: ONE EXECUTABLE SUBTEST PER PHYSICAL BIRD.
+ *
+ * These tests validate card identity, metadata, habitat, resource cost shape,
+ * timing and a representative legal activation under a deliberately rich
+ * board fixture. This is a coverage audit, NOT exhaustive proof of all
+ * combinations; docs/WINGSPAN_CARD_AUDIT.md states the boundaries.
+ */
+import test from "node:test";
+import assert from "node:assert/strict";
+import {BIRDS,BONUSES,GOAL_TILES} from "../wingspan/catalog.js";
+import {FOOD,HABITATS} from "../wingspan/scoring.js";
+import {newGame,applyAction,assertValid,powerChoices,publicObservation} from "../wingspan/core.js";
+import {powerAvailable,powerOptions,powerDescription} from "../wingspan/powers.js";
+
+const POWER_TYPES=new Set(["brown","white","pink","none"]);
+const executed=[],emptyChoices=[];
+let attemptedBranches=0,fullyResolvedBranches=0;
+const foodSum=b=>[...FOOD,"wild"].reduce((n,f)=>n+(b.food[f]||0),0);
+function pull(s,id){
+  const pools=[s.deck,s.birdDiscard,s.tray,...s.players.map(p=>p.hand)];
+  for(const items of pools){
+    const at=items.indexOf(id);
+    if(at>=0){items.splice(at,1);return;}
+  }
+  throw Error("Card "+id+" missing from fixture inventory");
+}
+function fixture(bird){
+  let s=newGame({players:3,seed:1000+bird.id,mode:"digital"});
+  while(s.phase==="setup"){
+    const p=s.players[s.currentPlayer];
+    s=applyAction(s,{type:"setup",keep:[],foodDiscard:[],
+      bonusId:p.bonusOffer[0]});
+  }
+  s.players.forEach(p=>{
+    for(const food of FOOD)p.food[food]=12;
+  });
+  pull(s,bird.id);
+  const owner=0;
+  const habitat=bird.habitats[0];
+  let index=s.players[owner].habitats[habitat].length;
+  s.players[owner].habitats[habitat].push({
+    id:bird.id,eggs:0,cached:[],tucked:[]
+  });
+  // A separate bird with eggs makes egg-discard, bowl/cavity/ground-nest,
+  // opponent-trigger and simultaneous effects exercisable.
+  const support=[...BIRDS].filter(x=>x.id!==bird.id&&x.eggs>=3);
+  for(const player of [0,1,2]){
+    const pick=support.find(x=>
+      x.habitats.length&&
+      (player===0||x.nest==="bowl"||x.nest==="cavity"));
+    if(pick){
+      // Select a fresh support card; duplicates are never permitted.
+      const supportId=s.deck.find(id=>BIRDS[id].eggs>=3&&
+        !s.players.flatMap(p=>HABITATS.flatMap(h=>p.habitats[h]))
+          .some(x=>x.id===id));
+      if(supportId!==undefined){
+        pull(s,supportId);
+        const habitat=BIRDS[supportId].habitats[0];
+        s.players[player].habitats[habitat].push({
+          id:supportId,eggs:2,cached:[],tucked:[]
+        });
+        s.eggSupply-=2;
+      }
+    }
+  }
+  // Put specifically qualifying recipient nests, repeats, and second birds
+  // on the board: without these, an effect may legitimately lack a choice.
+  const neededNest={2:"ground",18:"cavity",28:"bowl"}[bird.powerCode];
+  if(neededNest){
+    const supportId=s.deck.find(id=>BIRDS[id].nest===neededNest&&
+      BIRDS[id].eggs>0&&
+      BIRDS[id].habitats.length);
+    if(supportId!==undefined){
+      pull(s,supportId);
+      const support=BIRDS[supportId];
+      s.players[owner].habitats[support.habitats[0]].push({
+        id:supportId,eggs:0,cached:[],tucked:[]
+      });
+    }
+  }
+  if([43,49].includes(bird.powerCode)){
+    const repeatId=s.deck.find(id=>{
+      const b=BIRDS[id];
+      return b.powerType==="brown"&&b.habitats.includes(habitat)&&
+        b.powerCode!==43&&b.powerCode!==49&&
+        (bird.powerCode!==49||b.powerGroup==="hunting/fishing");
+    });
+    if(repeatId!==undefined){
+      pull(s,repeatId);
+      s.players[owner].habitats[habitat].push({
+        id:repeatId,eggs:0,cached:[],tucked:[]
+      });
+    }
+  }
+  if(bird.powerCode===20){
+    // Movable birds must be the rightmost in their habitat.
+    const row=s.players[owner].habitats[habitat];
+    const old=row.findIndex(e=>e.id===bird.id);
+    if(old>=0){row.push(row.splice(old,1)[0]);index=row.length-1;}
+  }
+  s.feeder=["seed","fruit","fish","invertebrate","rodent"];
+  // Hand cards to tuck/discard or use for a "play second bird" white power.
+  for(const player of [0,1,2]){
+    for(let i=0;i<3;i++){
+      const id=s.deck.pop();
+      if(id!==undefined)s.players[player].hand.push(id);
+    }
+  }
+  if([37,38,44,51].includes(bird.powerCode)){
+    const preferred=[37,51].includes(bird.powerCode)?"forest":
+      bird.powerCode===38?"grassland":"wetland";
+    const available=s.deck.findIndex(id=>BIRDS[id].habitats.includes(preferred)&&
+      BIRDS[id].powerType==="none"&&
+      BIRDS[id].food.wild<=1);
+    if(available>=0){
+      const old=s.players[owner].hand[0];
+      s.players[owner].hand[0]=s.deck[available];
+      s.deck[available]=old;
+    }
+  }
+  let event={type:"gainFood",actor:0,foods:["rodent"]};
+  if([2,18,28].includes(bird.powerCode))
+    event={type:"layEggs",actor:1,count:2};
+  else if([19,39,50].includes(bird.powerCode))
+    event={type:"playBird",actor:1,habitat:
+      bird.powerCode===19?"wetland":bird.powerCode===39?"forest":"grassland"};
+  else if(bird.powerCode===22)
+    event={type:"predatorSuccess",actor:1};
+  else if(bird.powerCode===55)
+    event={type:"gainFood",actor:1,foods:["rodent"]};
+  const pending={owner,habitat,index,birdId:bird.id,code:bird.powerCode,
+    timing:bird.powerType,event};
+  s.phase="power";
+  s.pending=[pending];
+  assertValid(s);
+  return s;
+}
+test("bird source itself: exact 170 original identities, 67 effect codes",()=>{
+  assert.equal(BIRDS.length,170);
+  assert.equal(BONUSES.length,26);
+  assert.equal(GOAL_TILES.length,8);
+  assert.equal(new Set(BIRDS.map(b=>b.name)).size,170);
+  assert.equal(new Set(BIRDS.map(b=>b.powerCode).filter(Boolean)).size,67);
+  assert.ok(BIRDS.every(b=>POWER_TYPES.has(b.powerType)));
+});
+for(const bird of BIRDS){
+  test("Bird card "+String(bird.id).padStart(3,"0")+" · "+bird.name,()=>{
+    assert.equal(bird.id,BIRDS.indexOf(bird));
+    assert.ok(bird.name&&bird.name.length>3);
+    assert.ok(Number.isInteger(bird.points)&&bird.points>=0&&bird.points<=9);
+    assert.ok(Number.isInteger(bird.eggs)&&bird.eggs>=0&&bird.eggs<=7);
+    assert.ok(bird.habitats.length&&bird.habitats.every(h=>HABITATS.includes(h)));
+    assert.ok(bird.nest&&typeof bird.nest==="string");
+    assert.ok(foodSum(bird)<=4);
+    assert.ok(bird.powerType==="none"?
+      bird.powerCode===0:bird.powerCode>=1&&bird.powerCode<=67);
+    if(bird.powerCode===0)return;
+    assert.ok(powerDescription(bird.powerCode)!=="Resolve optional power");
+    const state=fixture(bird);
+    const p=state.pending[0];
+    assert.equal(p.birdId,bird.id);
+    assert.equal(p.timing,bird.powerType);
+    // Pink powers may not trigger except for a matching opponent event.
+    if(bird.powerType==="pink"){
+      assert.ok(powerAvailable(state,p),"Missing pink trigger for "+bird.name);
+      assert.equal(powerAvailable(state,{...p,event:{type:"drawBirds",actor:1}}),false);
+    }
+    const choices=powerOptions(state,p);
+    if(!choices.length)emptyChoices.push({id:bird.id,name:bird.name,code:bird.powerCode});
+    else executed.push({id:bird.id,code:bird.powerCode});
+    assert.ok(Array.isArray(choices),"Power must enumerate a legal option array");
+    for(const option of choices){
+      assert.equal(typeof option.label,"string");
+      assert.ok(option.choice&&typeof option.choice==="object");
+    }
+    // Skipping the original optional activation always preserves all cards.
+    const skipped=applyAction(state,{type:"power",skip:true});
+    assertValid(skipped);
+    for(const option of choices) {
+      attemptedBranches++;
+      let after;
+      assert.doesNotThrow(()=>{after=applyAction(state,{
+        type:"power",choice:option.choice
+      });}, "Power choice failed for "+bird.name+" / "+option.label);
+      assertValid(after);
+      // Resolve the entire nested chain as well: mandatory discards, shared
+      // drafts, replicated powers and card reveals cannot be left untested.
+      let hops=0;
+      while(after.phase==="power"){
+        if(++hops>40)throw Error("Power cycle exceeded 40 steps on "+bird.name);
+        const offered=powerChoices(after);
+        assert.ok(offered.length,
+          "Nested power has no resolvable decision for "+bird.name);
+        const preferred=offered.find(x=>x.type==="skip")??offered[0];
+        after=applyAction(after,preferred.type==="skip"?
+          {type:"power",skip:true}:{type:"power",choice:preferred.choice});
+        assertValid(after);
+      }
+      fullyResolvedBranches++;
+    }
+  });
+}
+
+test("Card-effect fixture coverage ledger",()=>{
+  const archetypes=new Set(executed.map(x=>x.code));
+  const unexercised=[...new Set(BIRDS.map(b=>b.powerCode).filter(Boolean))]
+    .filter(c=>!archetypes.has(c));
+  console.log("WINGSPAN_CARD_AUDIT "+JSON.stringify({
+    totalBirds:BIRDS.length,activated:executed.length,
+    attemptedBranches,fullyResolvedBranches,
+    noPositiveChoice:emptyChoices.length,
+    codesActivated:archetypes.size,codesExpected:67,
+    unexercisedCodes:unexercised,missingSample:emptyChoices
+  }));
+});

@@ -1,5 +1,7 @@
 # Carcassonne core base game
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current carcassonne overview](games/carcassonne/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 Physical-table companion first, continuous analysis second, digital play secondary.
 2–5 players, **all 72 base tiles including farmers**. The starting D tile is one
 of the four D tiles. River and Abbot mini-expansions are explicitly excluded;

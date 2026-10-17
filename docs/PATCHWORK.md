@@ -1,5 +1,7 @@
 # Patchwork original base game
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current patchwork overview](games/patchwork/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 `/patchwork/` is a two-player physical-table companion with continuous public-position analysis. Digital games use the same engine. Every move needs an explicit click; there is no autoplay. Original 33-patch base game only, with an explicit choice of original or corrected time board. No expansions, Express, Halloween rebalanced tiles, anniversary Automa, or 5×5 promo.
 
 ## Rules and component evidence

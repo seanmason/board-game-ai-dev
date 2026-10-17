@@ -1,5 +1,7 @@
 # Platform review before Splendor
 
+> Retained investigation/integration record. Its dated plans and verification apply to the recorded work, not automatically to later revisions. Start with the [game directory](games/INDEX.md) or [current platform contracts](platform/README.md).
+
 Reviewed 2026-10-17 against main `87220d9` and Wingspan draft `8b5b5c9`.
 Splendor is the selected next game; this change does not implement it.
 

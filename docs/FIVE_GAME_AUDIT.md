@@ -1,5 +1,7 @@
 # Five-game independent audit
 
+> Retained investigation/integration record. Its dated plans and verification apply to the recorded work, not automatically to later revisions. Start with the [game directory](games/INDEX.md) or [current platform contracts](platform/README.md).
+
 Audit started 2026-10-17. This document records fixtures chosen from publisher
 rules before examining the new engines. It is an acceptance checklist, not a
 claim that implementation or catalogue completeness has been established.
