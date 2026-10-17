@@ -127,10 +127,27 @@ comparison is **not matched compute**. Baseline actual means were 26.03 ms
 the guided default; they do not establish expert strength. Raw records are
 under `benchmarks/boop-*-heldout.json`.
 
+## Hosted verification completed
+
+[Full CI passed](https://github.com/seanmason/board-game-ai-dev/actions/runs/39039893999)
+for implementation commit `d328f4d517314feb14e486b193251fad25f5bf09`:
+
+- All **84 Node tests**, JavaScript syntax, asset-closure and standalone packaging.
+- Existing **10,000 Azul / 894,795 transitions** and **2,000 Pentago / 58,232
+  transitions** reference regressions; existing browser suites still pass.
+- Boop's 500-game CI oracle run plus the separate 1,000-game local run above.
+- Chromium: manual preview/record, complete graduation alternatives, single cat
+  retrieval, terminal wins, pause/resume, conditional reuse, extra simulations,
+  hypothetical-branch isolation, invalid-import rejection and recovery, explicit
+  AI turns, autosave/reload, touch viewports at 768/390 px, and a real worker in
+  the relocated standalone package. Screenshots are retained in the run's
+  `boop-browser-evidence` artifact. This is automated browser validation; the
+  screenshots have not been independently visually reviewed.
+
 ## Remaining release gates
 
-Browser CI, real-table transcripts, real-device iPad Safari, longer-budget
-strategic opponents and release/licensing review remain necessary before a
-finished-game publication. Local Chromium installation was blocked by the
-runtime's download route; hosted CI is the browser verification route.
-The separate finished-games repository and live preview deployment are untouched.
+Real-table transcripts, real-device iPad Safari, longer-budget strategic
+opponents and release/licensing review remain before a finished publication.
+Local Chromium installation was blocked by the runtime's download route; hosted
+Chromium validation passed instead. The separate finished-games repository and
+live preview deployment are untouched.
