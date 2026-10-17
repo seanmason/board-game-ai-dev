@@ -442,7 +442,7 @@ export function applyAction(state,action){
     check(action.type==="power","Resolve the optional bird power");
     const pending=s.pending.shift();
     if(action.skip)
-      check(![1008,1013].includes(pending.code),
+      check(![1000,1008,1013].includes(pending.code),
         "Complete the revealed card selection");
     if(!action.skip)applyPower(s,pending,action.choice??{},{ 
       drawBird,drawBonus,drawFromDeck,rollFeeder,selectDie,addEggs,
