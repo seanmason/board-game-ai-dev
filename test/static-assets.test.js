@@ -36,7 +36,7 @@ test('each standalone package contains a complete local dependency graph and no 
       const paths=readdirSync(target,{recursive:true}).filter(p=>/\.(js|html)$/.test(p));
       for(const path of paths){
         const content=readFileSync(join(target,path),'utf8');
-        assert.doesNotMatch(content,/title="Open (Azul|Pentago)"/);
+        assert.doesNotMatch(content,/title="Open (Azul|Pentago|Boop)"/);
         for(const pattern of [/(?:from\s*|import\s*)["'](\.[^"']+)["']/g,
           /new URL\(\s*["'](\.[^"']+)["']/g,/(?:src|href)=["']([^"']+\.(?:js|css))["']/g]){
           for(const match of content.matchAll(pattern)){

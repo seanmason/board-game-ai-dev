@@ -19,10 +19,10 @@ for(const file of files){
   if(game!=='azul'&&file.startsWith(game+'/')){
     content=content.replaceAll('../shared/','./shared/');
     // Suite-only navigation is omitted from a standalone game.
-    content=content.replace(/<a href="\.\.\/" title="Open Azul">Azul ↗<\/a>/g,'');
+    content=content.replace(/<a href="[^"\n]+" title="Open [^"]+">[^<]+<\/a>/g,'');
   }
   if(game==='azul'&&file==='src/app.js'){
-    content=content.replace(/<a href="\.\/pentago\/" title="Open Pentago">Pentago ↗<\/a>/g,'');
+    content=content.replace(/<a href="[^"\n]+" title="Open [^"]+">[^<]+<\/a>/g,'');
   }
   content=content.replace(/<a\b(?=[^>]*\bdata-suite-nav\b)[^>]*>[\s\S]*?<\/a>/g,'');
   const target=resolve(destination,relative);
