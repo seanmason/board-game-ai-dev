@@ -40,8 +40,11 @@ for(let game=0;game<games;game++){
     }else if(s.phase==="power"){
       powers++;
       const special=options.filter(x=>!x.action.skip);
-      if(special.length&&rng()<.50)candidates=special;
-      else candidates=options.filter(x=>x.action.skip);
+      const skip=options.filter(x=>x.action.skip);
+      // Once a bird power has revealed or drawn cards, subsequent
+      // discards/choices are mandatory. Do not sample an illegal skip.
+      if(special.length&&(rng()<.50||!skip.length))candidates=special;
+      else candidates=skip;
     }
     const chosen=candidates[Math.floor(rng()*candidates.length)];
     const before=s.phase,round=s.round;
