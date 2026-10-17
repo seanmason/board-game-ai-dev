@@ -21,10 +21,11 @@ Open http://localhost:8080/. The app uses native JavaScript modules and Web Work
 1. Select **Physical board** and 2–4 players, then start a session.
 2. Choose a tile color and tap factory slots to record the **actual observed** tiles. Number keys 1–5 select colors; Erase clears a slot. Confirm when the entire round has been entered.
 3. Choose a source/color tile group in the factory offer, then click a legal pattern row (or the floor) on the current player's board. Repeat as real players move.
-4. MCTS starts automatically in parallel browser workers. Rankings, simulated win estimates, and score projections update continuously. Highlight an option without changing the recorded state.
+4. MCTS starts automatically in parallel browser workers. Rankings, simulated win estimates, and score projections update continuously. **Hover over a candidate** to temporarily highlight its source tiles and destination; click to pin a preview. No hover changes the recorded state.
+5. **Pause analysis** to stop using CPU while retaining each worker’s MCTS tree, accumulated visits, and results in memory. **Resume analysis** to continue the same search; its simulation count should increase from the previous value.
 5. Use undo/redo, timeline navigation, and export/import to preserve and correct observations. Analysis never commits a suggested move automatically in physical mode.
 
-**Digital gameplay:** switch to Digital game and start a new session. Factories are drawn in the browser. Each seat can be Human or AI; AI seats act after a short computation period. "AI move now" bypasses the wait.
+**Digital gameplay:** switch to Digital game and start a new session. Factories are drawn in the browser. Each seat can be Human or AI. **AI players never move automatically**: MCTS searches indefinitely while that position is displayed; click **Play Best Move** on an AI turn to use its current highest-visit candidate. Wait for at least one result before playing.
 
 ## Technical notes
 
@@ -42,6 +43,6 @@ npm run check
 
 ### Current limitations
 
-The search tree models deterministic draft actions in the **current** round and samples future random refills in rollouts; it does not yet retain a tree across moves or apply a learned value function. Its win estimates are policy-dependent and should not be read as calibrated probabilities. Manual late-game position editing, gray-wall variant, camera recognition, automatic worker throttling and native Rust/WASM optimization are roadmap work. Public deployment, licensing review, and stronger cross-browser testing are release gates.
+The search tree models deterministic draft actions in the **current** round and samples future random refills in rollouts. **Pause/resume retains the exact tree and playout statistics as long as this browser tab remains alive.** A changed position, changed worker count, page reload, or browser-tab eviction starts a fresh search; tree reuse across positions or refresh is not yet implemented. It also does not yet apply a learned value function. Its win estimates are policy-dependent and should not be read as calibrated probabilities. Manual late-game position editing, gray-wall variant, camera recognition, automatic worker throttling and native Rust/WASM optimization are roadmap work. Public deployment, licensing review, and stronger cross-browser testing are release gates.
 
 See [architecture specification](docs/ARCHITECTURE.md) for intended long-run components and acceptance criteria. Official game rules: [Next Move Games](https://cdn.svc.asmodee.net/production-nextmove/uploads/sites/4/2024/06/EN-Azul-Rules-Next-Move-web.pdf).
