@@ -164,10 +164,16 @@ export function powerOptions(s,p){
   if(c===8||c===13)return [choice("Reveal available choices",{})];
   if(c===3||c===59||DRAW_COUNTS[c])return [choice("Draw cards",{})];
   if(c===15||c===58)return [choice("Take all matching feeder dice",{})];
-  if(c===5||c===33)
+  if(c===5)
     return eggSources(s,owner,p.birdId).flatMap(x=>
       FOOD.map(food=>choice("Trade egg on "+BIRDS[x.id].name+
         " for "+food,{habitat:x.habitat,index:x.index,food})));
+  if(c===33)
+    return eggSources(s,owner,p.birdId).flatMap(x=>
+      FOOD.flatMap((a,i)=>FOOD.slice(i).map(b=>
+        choice("Trade egg for "+a+" + "+b,{
+          habitat:x.habitat,index:x.index,foods:[a,b]
+        }))));
   if(c===1)return feederOptions(s,"seed").flatMap(item=>[
     choice(item.label+" and keep the food",{...item.choice,cache:false}),
     choice(item.label+" and cache on bird",{...item.choice,cache:true})
@@ -343,7 +349,11 @@ export function applyPower(s,p,selected,help){
   }
   if(c===5||c===33){
     help.removeEggs(s,owner,[{...selected,count:1}],1);
-    supply(selected.food,c===33?2:1);
+    if(c===33){
+      ASSERT(Array.isArray(selected.foods)&&selected.foods.length===2,
+        "Choose two independent food tokens");
+      for(const food of selected.foods)supply(food);
+    }else supply(selected.food);
     return;
   }
   if(FEEDER_CODES[c]){
