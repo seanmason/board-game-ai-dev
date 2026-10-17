@@ -144,3 +144,23 @@ footer { font-size:11px; text-align:center; color:#91a7b9; margin:28px 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition:none !important; }
 }
+
+
+/* Transient hover hints for MCTS candidates: source, tiles and destination. */
+.factory.ai-hover-source, .center-supply.ai-hover-source {
+  border-color: #f9d08e;
+  box-shadow: 0 0 0 2px #e7bb7570, 0 0 18px #e7bb752b;
+}
+.tile-count.ai-hover-color {
+  outline: 3px solid #f4d499;
+  outline-offset: 1px;
+  background: #5b4934;
+}
+.player-board.current .pattern.ai-hover-destination,
+.player-board.current .floor-target.ai-hover-destination {
+  background: #6f5734;
+  outline: 2px solid #fbd89b;
+  outline-offset: 1px;
+  opacity: 1;
+}
+.moves tr.ai-hover-candidate td { background: #3b536b; }

@@ -3,7 +3,6 @@ import {
   drawFactories, recordFactories, legalActions, applyAction, outcomes,
   actionKey, assertValid, describeAction
 } from "./azul.js";
-import {rolloutAction} from "./mcts.js";
 
 // No build step or runtime packages: the same folder can be served as a static site.
 const STORAGE_KEY = "tabletop-observatory-azul-v1";
@@ -15,7 +14,8 @@ let seatTypes = ["human", "human"];
 let view = "companion", selectedColor = 0, selection = null, preview = null;
 let pendingFactories = makePending(game), notification = "", generation = 0;
 let workers = [], partialResults = new Map(), aggregate = null, searchStarted = 0;
-let analysisEnabled = true, workerCount = Math.min(2, MAX_WORKERS), autoPending = false;
+let analysisEnabled = true, workerCount = Math.min(2, MAX_WORKERS);
+let hoveredCandidateKey = null;
 
 function makePending(s) { return s.factories.map(() => Array(4).fill(null)); }
 const fmt = n => new Intl.NumberFormat("en-US").format(Math.round(n));
@@ -142,7 +142,8 @@ function showAnalysisPanel() {
     '</select>' +
     button("toggle-search", analysisEnabled ? "Pause analysis" : "Resume analysis", "tiny") +
     (game.mode === "digital" && game.phase === "draft" && seatTypes[game.currentPlayer] === "ai"
-      ? button("move-now", "AI move now", "tiny primary") : "") +
+      ? button("move-now", "Play Best Move", "tiny primary",
+          aggregate?.candidates.length ? "" : 'disabled title="Analyze a position to find the best move"') : "") +
     '</div><div id="analysis-content"></div></section>';
 }
 function showHistory() {
@@ -216,7 +217,9 @@ function render() {
     (game.phase === "refill" ? " · Select a color, then fill the slots to match your real factories. " +
       "Click confirm only when you have recorded every tile." : 
      game.phase === "draft" ? " · Choose a source and color, then click a legal pattern row. " +
-       "AI suggestions never change the real game automatically." : " · " + esc(winnerText)) +
+       (game.mode === "digital" && seatTypes[game.currentPlayer] === "ai" ?
+         "The AI waits for Play Best Move; no autoplay." :
+         "AI suggestions never change the real game automatically.") : " · " + esc(winnerText)) +
     '</div>' +
     '<main class="layout"><div>' +
     (game.phase === "refill" ? (game.mode === "physical" ? showRefill() :
@@ -282,7 +285,7 @@ function renderAnalysis() {
     const win = c.visits ? (100*c.winSum[data.rootPlayer]/c.visits).toFixed(1) : "—";
     const score = c.visits ? (c.scoreSum[data.rootPlayer]/c.visits).toFixed(1) : "—";
     const selected = preview && actionKey(preview) === c.key;
-    return '<tr class="' + (selected ? "highlight" : "") + '"><td>' +
+    return '<tr data-candidate-key="' + esc(c.key) + '" class="' + (selected ? "highlight" : "") + '"><td>' +
       button("preview-move", (i+1)+'. '+esc(c.label),"",'data-key="'+esc(c.key)+'"') +
       '</td><td class="right">' + win + (c.visits?"%":"") + '</td>' +
       '<td class="right">' + score + '</td><td class="right">' +
@@ -296,6 +299,11 @@ function renderAnalysis() {
   node.innerHTML = recommended + stats + table +
     '<p class="meta">Win estimates come from simulated games and depend on the rollout policy. ' +
     'Opponent strategies are approximated. A higher visit count generally indicates greater search attention.</p>';
+  // Progress updates replace the candidate table, but hover state and the
+  // button outside this panel must remain synchronized with the new results.
+  const moveNow = document.querySelector('button[data-action="move-now"]');
+  if (moveNow) moveNow.disabled = !best;
+  applyCandidateHover();
 }
 function save() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify({
@@ -322,13 +330,41 @@ function restore() {
       data.pendingFactories.length === game.factories.length ? data.pendingFactories : makePending(game);
   } catch (error) { console.warn("Invalid saved game, creating new session:", error); }
 }
+function applyCandidateHover() {
+  for (const el of root.querySelectorAll(
+    ".ai-hover-source, .ai-hover-color, .ai-hover-destination, .ai-hover-candidate"
+  )) {
+    el.classList.remove("ai-hover-source", "ai-hover-color",
+      "ai-hover-destination", "ai-hover-candidate");
+  }
+  if (!hoveredCandidateKey || game.phase !== "draft") return;
+  const candidate = aggregate?.candidates.find(c => c.key === hoveredCandidateKey);
+  if (!candidate) { hoveredCandidateKey = null; return; }
+  const {source, color, row} = candidate.action;
+  const hoverRow = [...root.querySelectorAll("tr[data-candidate-key]")]
+    .find(el => el.dataset.candidateKey === hoveredCandidateKey);
+  hoverRow?.classList.add("ai-hover-candidate");
+  const sourceEl = source < 0 ? root.querySelector(".center-supply") :
+    root.querySelectorAll(".factories .factory")[source];
+  sourceEl?.classList.add("ai-hover-source");
+  const chosenTiles = [...root.querySelectorAll(".tile-count")].find(el =>
+    Number(el.dataset.source) === source && Number(el.dataset.color) === color);
+  chosenTiles?.classList.add("ai-hover-color");
+  const board = root.querySelector(".player-board.current");
+  const destination = row < 0 ? board?.querySelector(".floor-target") :
+    [...(board?.querySelectorAll(".pattern[data-row]") ?? [])].find(
+      el => Number(el.dataset.row) === row);
+  destination?.classList.add("ai-hover-destination");
+}
 function stopAnalysis() {
+  // Changing the position or worker count invalidates the current tree.
+  // PAUSING is deliberately not implemented here.
   generation++;
   workers.forEach(w => w.terminate());
   workers = [];
   partialResults.clear();
   aggregate = null;
-  autoPending = false;
+  hoveredCandidateKey = null;
 }
 function startAnalysis() {
   stopAnalysis();
@@ -359,24 +395,35 @@ function startAnalysis() {
       });
     }
   }
-  queueAutoPlay();
   renderAnalysis();
 }
-function queueAutoPlay() {
-  if (autoPending || game.mode !== "digital" || game.phase !== "draft" ||
-      seatTypes[game.currentPlayer] !== "ai") return;
-  autoPending = true;
-  const activeGeneration = generation;
-  setTimeout(() => {
-    autoPending = false;
-    if (generation !== activeGeneration || game.mode !== "digital" ||
-        game.phase !== "draft" || seatTypes[game.currentPlayer] !== "ai") return;
-    makeAIMove();
-  }, 1650);
+function setAnalysisEnabled(enabled) {
+  if (analysisEnabled === enabled) return;
+  analysisEnabled = enabled;
+  save();
+  if (game.phase !== "draft") { render(); return; }
+  if (workers.length) {
+    // The very same worker and in-memory MCTS tree survives pause/resume.
+    const command = enabled ? "resume" : "pause";
+    for (const worker of workers) worker.postMessage({type:command,generation});
+    render();
+  } else if (enabled) {
+    // A new position loaded while paused has no search tree to resume yet.
+    render();
+    startAnalysis();
+  } else {
+    render();
+  }
 }
 function makeAIMove() {
-  const action = aggregate?.candidates[0]?.action ?? rolloutAction(game);
-  if (action) commitAction(action);
+  // Never fall back to a random/heuristic unexamined move in "Play Best Move".
+  const action = aggregate?.candidates[0]?.action;
+  if (!action) {
+    notification = "No analyzed move yet. Resume analysis and allow at least one simulation.";
+    render();
+    return;
+  }
+  commitAction(action);
 }
 function afterChange() {
   selection = null; preview = null; notification = "";
@@ -455,7 +502,7 @@ root.addEventListener("click", event => {
   const action=target.dataset.action;
   try {
     if (action==="new-game") beginNew();
-    else if (action==="view") {view=target.dataset.view;save();render();}
+    else if (action==="view") {view=target.dataset.view;hoveredCandidateKey=null;save();render();}
     else if (action==="palette") {
       selectedColor=Number(target.dataset.color);save();render();
     }
@@ -484,9 +531,7 @@ root.addEventListener("click", event => {
     else if (action==="jump") navTo(Number(target.dataset.index));
     else if (action==="export") downloadGame();
     else if (action==="import") document.querySelector("#import-file").click();
-    else if (action==="toggle-search") {
-      analysisEnabled=!analysisEnabled;save();render();startAnalysis();
-    }
+    else if (action==="toggle-search") setAnalysisEnabled(!analysisEnabled);
     else if (action==="move-now") makeAIMove();
     else if (action==="preview-best" || action==="preview-move") {
       const chosen=action==="preview-best" ? aggregate?.candidates[0] :
@@ -507,11 +552,26 @@ root.addEventListener("change",event=>{
   if (node.id==="import-file" && node.files?.length) {
     uploadGame(node.files[0]).catch(err => {notification=err.message;render();});
   } else if (node.dataset.action==="seat-type") {
-    seatTypes[Number(node.dataset.seat)]=node.value;save();render();queueAutoPlay();
+    seatTypes[Number(node.dataset.seat)]=node.value;save();render();
   } else if (node.dataset.action==="worker-count") {
     workerCount=Math.min(MAX_WORKERS,Math.max(1,Number(node.value)));
     save();render();startAnalysis();
   }
+});
+// Mouse/pen hover previews never change the game or select a candidate.
+// Delegating pointer movement avoids recreating the ever-updating move table.
+root.addEventListener("pointermove", event => {
+  if (event.pointerType !== "mouse" && event.pointerType !== "pen") return;
+  const row = event.target.closest("tr[data-candidate-key]");
+  const key = row?.dataset.candidateKey ?? null;
+  if (key === hoveredCandidateKey) return;
+  hoveredCandidateKey = key;
+  applyCandidateHover();
+});
+root.addEventListener("pointerleave", () => {
+  if (!hoveredCandidateKey) return;
+  hoveredCandidateKey = null;
+  applyCandidateHover();
 });
 document.addEventListener("keydown",event=>{
   if (event.ctrlKey || event.metaKey) {
