@@ -11,6 +11,7 @@ const initial=newGame();
 let game=initial,history=[{state:initial,label:"New Pentago session"}],index=0;
 let seats=["human","human"],view="companion",selectedCell=null,hoverKey=null,pinnedKey=null;
 let analysisEnabled=true,heatmapEnabled=true,workerCount=Math.min(2,MAX_WORKERS);
+let selectionPolicy="heuristic";
 let workers=[],partial=new Map(),analysis=null,generation=0,notification="";
 const fmt=n=>new Intl.NumberFormat("en-US").format(Math.round(n));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>
@@ -147,6 +148,11 @@ function seatsHtml(){
 }
 function analysisControls(){
   return '<div class="search-tools">'+
+    '<label for="move-policy">Recommendation</label>'+
+    '<select id="move-policy" data-action="move-policy" aria-label="How to select the leading move">'+
+    '<option value="heuristic"'+(selectionPolicy==="heuristic"?" selected":"")+'>Tactical heuristic</option>'+
+    '<option value="mcts"'+(selectionPolicy==="mcts"?" selected":"")+'>MCTS visits</option>'+
+    '</select>'+
     '<label for="workers">Workers</label><select id="workers" data-action="workers">'+
     Array.from({length:MAX_WORKERS},(_,i)=>'<option value="'+(i+1)+'"'+
       (workerCount===i+1?" selected":"")+'>'+(i+1)+'</option>').join("")+
@@ -161,7 +167,9 @@ function analysisControls(){
 function searchDetails(){
   const s=analysis,top=s?.candidates[0],active=game.phase==="play";
   const recommendation=top?
-    '<div class="recommendation"><span class="eyebrow">Current leading move</span>'+
+    '<div class="recommendation"><span class="eyebrow">'+
+    (selectionPolicy==="heuristic"?"Heuristic recommendation":"MCTS most-visited move")+
+    '</span>'+
     '<div><strong>'+esc(top.label)+'</strong></div>'+
     '<p>Estimated outcomes come from simulated or heuristic continuations; not calibrated probabilities.</p>'+
     button("pin-best","Highlight move","small")+' '+
@@ -285,11 +293,12 @@ function displayAnalysis(){
 function combineResults(){
   const candidates=new Map();
   let iterations=0,nodes=0,elapsed=0,rootLegalActions=0;
-  let currentPlayer=game.currentPlayer,reusedWorkers=0,retainedVisits=0;
+  let currentPlayer=game.currentPlayer,reusedWorkers=0,retainedVisits=0,heuristicKey=null;
   for(const part of partial.values()){
     iterations+=part.iterations;nodes+=part.nodeCount;
     elapsed=Math.max(elapsed,part.elapsedMs);
     currentPlayer=part.currentPlayer;
+    heuristicKey=part.heuristicKey??heuristicKey;
     rootLegalActions=Math.max(rootLegalActions,part.rootLegalActions??0);
     if(part.reused){reusedWorkers++;retainedVisits+=part.retainedVisits??0;}
     for(const candidate of part.candidates){
@@ -305,11 +314,17 @@ function combineResults(){
       candidates.set(candidate.key,entry);
     }
   }
-  const ranked=[...candidates.values()].sort((a,b)=>b.visits-a.visits ||
-    b.valueSum[currentPlayer]/Math.max(1,b.visits)-
-      a.valueSum[currentPlayer]/Math.max(1,a.visits));
+  const ranked=[...candidates.values()].sort((a,b)=>{
+    if(selectionPolicy==="heuristic"&&heuristicKey){
+      if(a.key===heuristicKey)return -1;
+      if(b.key===heuristicKey)return 1;
+    }
+    return b.visits-a.visits ||
+      b.valueSum[currentPlayer]/Math.max(1,b.visits)-
+        a.valueSum[currentPlayer]/Math.max(1,a.visits);
+  });
   analysis={iterations,nodes,elapsed,candidates:ranked,currentPlayer,
-    rootLegalActions,reusedWorkers,retainedVisits};
+    heuristicKey,rootLegalActions,reusedWorkers,retainedVisits};
 }
 function stopAnalysis(){
   generation++;
@@ -401,7 +416,7 @@ function save(){
   try{
     localStorage.setItem(KEY,JSON.stringify({
       version:1,history,index,seats,view,analysisEnabled,
-      heatmapEnabled,workerCount
+      heatmapEnabled,workerCount,selectionPolicy
     }));
   }catch(error){console.warn("Could not autosave Pentago:",error);}
 }
@@ -419,6 +434,7 @@ function restore(){
     view=data.view==="analysis"?"analysis":"companion";
     analysisEnabled=data.analysisEnabled!==false;
     heatmapEnabled=data.heatmapEnabled!==false;
+    selectionPolicy=data.selectionPolicy==="mcts"?"mcts":"heuristic";
     workerCount=Math.max(1,Math.min(MAX_WORKERS,data.workerCount||workerCount));
   }catch(error){console.warn("Invalid saved Pentago session:",error);}
 }
@@ -488,6 +504,21 @@ root.addEventListener("change",event=>{
     importGame(target.files[0]).catch(e=>{notification=e.message;render();});
   }else if(target.dataset.action==="seat"){
     seats[Number(target.dataset.seat)]=target.value;save();render();
+  }else if(target.dataset.action==="move-policy"){
+    selectionPolicy=target.value==="mcts"?"mcts":"heuristic";
+    if(analysis) {
+      const key=analysis.heuristicKey;
+      analysis.candidates.sort((a,b)=>{
+        if(selectionPolicy==="heuristic"&&key){
+          if(a.key===key)return -1;
+          if(b.key===key)return 1;
+        }
+        return b.visits-a.visits ||
+          b.valueSum[analysis.currentPlayer]/Math.max(1,b.visits)-
+          a.valueSum[analysis.currentPlayer]/Math.max(1,a.visits);
+      });
+    }
+    pinnedKey=null;save();render();
   }else if(target.dataset.action==="workers"){
     workerCount=Math.max(1,Math.min(MAX_WORKERS,Number(target.value)));
     save();render();startAnalysis();
