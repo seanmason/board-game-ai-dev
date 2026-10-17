@@ -47,7 +47,8 @@ self.onmessage=event=>{
     activeMilliseconds=0;
     try{
       search=createSearch(data.observation,data.actions,{
-        rng:seededRandom(data.seed),exploration:data.exploration??1.8
+        rng:seededRandom(data.seed),exploration:data.exploration,
+        method:data.method??"heuristic",horizon:data.horizon??6
       });
     }catch(error){
       search=null;
