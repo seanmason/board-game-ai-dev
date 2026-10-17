@@ -180,7 +180,29 @@ function satisfiesCost(card,payment){
   const rem=FOOD.map(f=>payment.filter(x=>x===f).length);
   return matches(0,rem);
 }
+/** Return a single explicitly computable legal payment for AI/second-bird use. */
+export function findFoodPayment(owned,card){
+  const types=FOOD.flatMap(f=>Array.from({length:owned[f]},()=>f));
+  // A card requires at most three food symbols (or one if alternative).
+  for(let k=0;k<=Math.min(types.length,6);k++){
+    function pick(from,left,result){
+      if(!left)return satisfiesCost(card,result)?result:null;
+      for(let i=from;i<=types.length-left;i++){
+        const t=pick(i+1,left-1,[...result,types[i]]);
+        if(t)return t;
+      }
+      return null;
+    }
+    const candidate=pick(0,k,[]);
+    if(candidate)return candidate;
+  }
+  return null;
+}
 function selectDie(s,pick){
+  if(pick?.reroll){
+    check(canReroll(s.feeder),"Reroll requires all remaining dice to show the same face");
+    rollFeeder(s);
+  }
   if(!s.feeder.length)rollFeeder(s);
   check(pick&&Number.isInteger(pick.index)&&pick.index>=0&&
     pick.index<s.feeder.length,"Choose a die currently in the birdfeeder");
@@ -250,6 +272,7 @@ function endRound(s){
 function finishTurn(s){
   s.pending=[];
   s.turnContext=null;
+  refillTray(s);
   s.turn++;
   if(s.remaining.every(x=>x===0)){endRound(s);return;}
   let next=s.currentPlayer;
@@ -292,7 +315,7 @@ function activate(s,action){
     const birdCount=p.habitats[habitat].length;
     const extra=!!action.extra;
     const quantity=RESOURCE_PROGRESSION.forest[birdCount]+(extra?1:0);
-    check(!extra||birdCount>=2,"Extra die requires the forest upgrade");
+    check(!extra||birdCount%2===1,"This forest column has no extra-food conversion");
     if(extra){
       check(Number.isInteger(action.discardCard)&&p.hand.includes(action.discardCard),
         "Discard a hand card for an additional die");
@@ -319,7 +342,7 @@ function activate(s,action){
     const count=p.habitats[habitat].length;
     const extra=!!action.extra;
     const quantity=RESOURCE_PROGRESSION.grassland[count]+(extra?1:0);
-    check(!extra||count>=2,"Extra egg requires the grassland upgrade");
+    check(!extra||count%2===1,"This grassland column has no extra-egg conversion");
     if(extra){
       check(FOOD.includes(action.payment),"Pay one food for the extra egg");
       useFood(s,actor,[action.payment]);
@@ -346,7 +369,7 @@ function activate(s,action){
     const count=p.habitats[habitat].length;
     const extra=!!action.extra;
     const quantity=RESOURCE_PROGRESSION.wetland[count]+(extra?1:0);
-    check(!extra||count>=2,"Extra card requires the wetlands upgrade");
+    check(!extra||count%2===1,"This wetland column has no extra-card conversion");
     if(extra)removeEggs(s,actor,action.eggSource?[action.eggSource]:[],1);
     check(Array.isArray(action.draws)&&action.draws.length<=quantity,
       "Too many cards selected");
@@ -411,7 +434,36 @@ export function applyAction(state,action){
     const pending=s.pending.shift();
     if(!action.skip)applyPower(s,pending,action.choice??{},{ 
       drawBird,drawBonus,drawFromDeck,rollFeeder,selectDie,addEggs,
-      removeEggs,useFood,refillTray,reactPink
+      removeEggs,useFood,refillTray,reactPink,rng,
+      playFreeBird:(st,owner,request)=>{
+        const bird=BIRDS[request.birdId];
+        const habitat=request.habitat;
+        const p=st.players[owner];
+        check(p.hand.includes(request.birdId)&&
+          bird.habitats.includes(habitat),"Invalid second bird");
+        const row=p.habitats[habitat];
+        check(row.length<5,"Habitat full");
+        const eggCost=EGG_COLUMN_COST[row.length];
+        const eggSources=[];
+        let left=eggCost;
+        for(const h of HABITATS)
+          for(let i=0;i<p.habitats[h].length&&left;i++){
+            const q=Math.min(left,p.habitats[h][i].eggs);
+            if(q){eggSources.push({habitat:h,index:i,count:q});left-=q;}
+          }
+        check(!left,"Second bird needs "+eggCost+" eggs");
+        const payment=findFoodPayment(p.food,bird);
+        check(payment!==null,"Cannot pay food to play second bird");
+        removeEggs(st,owner,eggSources,eggCost);
+        useFood(st,owner,payment);
+        p.hand.splice(p.hand.indexOf(request.birdId),1);
+        row.push(unitBird(request.birdId));
+        if(bird.powerType==="white"&&bird.powerCode)
+          st.pending.unshift({owner,habitat,index:row.length-1,
+            birdId:bird.id,code:bird.powerCode,timing:"white",
+            event:{type:"playBird",actor:owner,id:bird.id,habitat}});
+        reactPink(st,{type:"playBird",actor:owner,id:bird.id,habitat});
+      }
     });
     if(pending.timing==="pink" && !action.skip){
       s.players[pending.owner].pinkUsed.push(pending.birdId);
