@@ -44,6 +44,17 @@ for(const card of BIRDS){
  compare(card,"slash_food",card.either,present(ref["/ (food cost)"]));
  const color=String(ref.Color||"none").toLowerCase();
  compare(card,"power_type",card.powerType,color);
+ // Check card-specific eligibility for every original bonus whose printed
+ // criterion is an intrinsic bird trait rather than a mutable player state.
+ for(const bonus of BONUSES){
+   if(["breeding_manager","ecologist","oologist","visionary_leader"]
+     .includes(bonus.key))continue;
+   const field=bonus.name==="Omnivore Specialist"?"Omnivore Expert":
+     bonus.name;
+   if(!(field in ref))continue;
+   compare(card,"bonus."+bonus.key,card.bonuses.includes(bonus.key),
+     present(ref[field]));
+ }
  const oursSpan=Number(card.wingspan),otherSpan=Number(ref.Wingspan);
  if(Number.isFinite(oursSpan)&&Number.isFinite(otherSpan))
    compare(card,"wingspan",oursSpan,otherSpan);
