@@ -132,7 +132,7 @@ function showBoards() {
 }
 function showAnalysisPanel() {
   return '<section class="card"><div class="card-head"><div><h2>Position analysis</h2>' +
-    '<p>Independent MCTS workers · continuously improving estimates</p></div>' +
+    '<p>MCTS · current position</p></div>' +
     '<span class="eyebrow" id="search-state"></span></div>' +
     '<div class="search-tools"><label for="worker-count">Workers</label>' +
     '<select id="worker-count" data-action="worker-count">' +
@@ -198,18 +198,21 @@ function render() {
       ". Final scores: " + game.players.map((p,i) => "P"+(i+1)+" "+p.score).join(" · ");
   })() : "";
   root.innerHTML = '<div class="shell">' +
-    '<header class="mast"><div class="brand"><div class="emblem">◇</div>' +
-    '<div><small>Tabletop Observatory</small><h1>Azul · AI Companion</h1></div></div>' +
+    '<header class="mast"><div class="brand"><h1>Azul</h1></div>' +
     '<div class="mast-tools">' +
     '<select id="players" aria-label="Player count">' +
     [2,3,4].map(n => '<option value="'+n+'"'+(n===game.players.length?' selected':'')+'>'+n+' players</option>').join("") +
     '</select><select id="mode" aria-label="Session mode">' +
     '<option value="physical"'+(game.mode==='physical'?' selected':'')+'>Physical board</option>' +
     '<option value="digital"'+(game.mode==='digital'?' selected':'')+'>Digital game</option>' +
+    '</select><label class="meta" for="starter">First player</label>' +
+    '<select id="starter" aria-label="First player for the next new game">' +
+    Array.from({length:game.players.length}, (_,i) => '<option value="'+i+'"' +
+      (i===game.starter?' selected':'') + '>Player '+(i+1)+'</option>').join("") +
     '</select>' + button("new-game","New session","primary") + '</div></header>' +
     '<nav class="tab-bar">' +
     button("view","Companion","tab"+(view==='companion'?' active':''),'data-view="companion"') +
-    button("view","Analysis workbench","tab"+(view==='analyst'?' active':''),'data-view="analyst"') +
+    button("view","Analysis","tab"+(view==='analyst'?' active':''),'data-view="analyst"') +
     '<span class="meta">Round ' + game.round + ' · ' +
     (game.mode === 'physical' ? "Live board tracking" : "Digital gameplay") + '</span></nav>' +
     (notification ? '<div role="alert" class="banner error">' + esc(notification) + '</div>' : '') +
@@ -227,7 +230,6 @@ function render() {
      game.phase === "draft" ? showSources() : '') +
     showBoards() +
     '</div><aside>' + showAnalysisPanel() + showHistory() + showRules() + '</aside></main>' +
-    '<footer>Independent strategic analysis · Runs entirely in your browser · Original tile visuals</footer>' +
     '</div>';
   renderAnalysis();
 }
@@ -451,7 +453,8 @@ function commitAction(action) {
 function beginNew() {
   const players = Number(document.querySelector("#players").value);
   const mode = document.querySelector("#mode").value;
-  game = newGame({players, mode});
+  const starter = Number(document.querySelector("#starter").value);
+  game = newGame({players, mode, starter});
   if (mode === "digital") game = drawFactories(game);
   history = [{state:game, label:"New "+mode+" session"}];
   index=0; seatTypes=Array.from({length:players},()=> "human");
@@ -551,6 +554,14 @@ root.addEventListener("change",event=>{
   const node=event.target;
   if (node.id==="import-file" && node.files?.length) {
     uploadGame(node.files[0]).catch(err => {notification=err.message;render();});
+  } else if (node.id === "players") {
+    // Keep initial-player choices consistent with a pending player-count change.
+    const starter = root.querySelector("#starter");
+    const before = Number(starter.value);
+    const count = Number(node.value);
+    starter.innerHTML = Array.from({length:count}, (_,i) =>
+      '<option value="'+i+'"' + (i === Math.min(before,count-1)?' selected':'') +
+      '>Player '+(i+1)+'</option>').join("");
   } else if (node.dataset.action==="seat-type") {
     seatTypes[Number(node.dataset.seat)]=node.value;save();render();
   } else if (node.dataset.action==="worker-count") {
