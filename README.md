@@ -59,3 +59,18 @@ npm run benchmark:ai -- --games=24 --playouts=100 --players=4 --opponent=random
 ```
 
 The tournament rotates the MCTS player through seats, uses reproducible random seeds, and reports win-share estimates, scores, playout throughput and timing. Small sample sizes and rollout-policy biases mean results are exploratory. No real physical game transcripts have yet been supplied for external confirmation.
+
+## Search method
+
+The analysis panel defaults to **Guided MCTS**: heuristic-ranked progressive
+widening, continuous multiplayer relative-score utility and improved Azul
+rollouts. Switch to **UCT baseline** to compare with the original search.
+Changing methods starts a new analysis; pause and resume still preserve the
+current tree. No AI moves automatically.
+
+Use `npm run benchmark:search` for a same-machine throughput comparison.
+Use `npm run benchmark:ai -- --games=48 --playouts=256 --players=4 --variant=guided-informed --seed=913731`
+for complete-game strength experiments. The baseline remains available via
+`--variant=baseline`.
+
+See [search research results](docs/SEARCH_RESEARCH.md).

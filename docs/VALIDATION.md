@@ -98,3 +98,12 @@ master-level performance.
 An earlier 64-playout experiment unintentionally correlated the AI seat
 with the round starter; its results should not be treated as a fair
 controlled comparison with these later figures.
+
+## Multiplayer AI search iteration
+
+We compared the original MCTS and three guided variants on 36 seeded games
+per player count, then ran 48 fresh-seed games per pairing with a separate
+no-search informed heuristic control. The strongest variant won substantially
+more than the original search in all player counts, though multiplayer strength
+requires further research. See [SEARCH_RESEARCH.md](SEARCH_RESEARCH.md) for
+complete tables and methodological cautions.

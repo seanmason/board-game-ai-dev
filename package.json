@@ -6,7 +6,8 @@
     "test": "node --test",
     "check": "node --check src/azul.js && node --check src/mcts.js && node --check src/ai-worker.js && node --check src/app.js",
     "verify:gameplay": "node scripts/verify-gameplay.mjs",
-    "benchmark:ai": "node scripts/benchmark-ai.mjs"
+    "benchmark:ai": "node scripts/benchmark-ai.mjs",
+    "benchmark:search": "node scripts/benchmark-search.mjs"
   },
   "engines": {
     "node": ">=20"
