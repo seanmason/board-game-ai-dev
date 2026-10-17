@@ -195,3 +195,30 @@ test("private observation redacts deck order and opponent hands",()=>{
   assert.equal(a.players[1].handCount,5);
   assert.equal(a.players[2].bonuses.length,0);
 });
+
+test("round-end discards only previously visible birds before revealing new tray",()=>{
+  let state=newGame({players:2,seed:1742});
+  while(state.phase==="setup"){
+    const p=state.players[state.currentPlayer];
+    state=applyAction(state,{type:"setup",keep:[],foodDiscard:[],
+      bonusId:p.bonusOffer[0]});
+  }
+  state.remaining=[0,1];
+  state.currentPlayer=1;
+  assertValid(state);
+  const faceUp=[...state.tray];
+  const deckBefore=state.deck.length;
+  const discardedBefore=state.birdDiscard.length;
+  const taken=faceUp[0];
+  const end=applyAction(state,{type:"drawBirds",draws:[0]});
+  assert.equal(end.round,2);
+  assert.equal(end.phase,"play");
+  assert.ok(end.players[1].hand.includes(taken));
+  assert.equal(end.birdDiscard.length,discardedBefore+2,
+    "Only the two visible, unclaimed birds are discarded at round end");
+  assert.ok(faceUp.slice(1).every(id=>end.birdDiscard.includes(id)));
+  assert.equal(end.deck.length,deckBefore-3,
+    "Draw exactly three new bird cards after round-end discard");
+  assert.ok(end.tray.every(id=>!faceUp.includes(id)));
+  assertValid(end);
+});
