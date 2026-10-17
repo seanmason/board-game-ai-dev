@@ -52,6 +52,8 @@ for(const card of BIRDS){
 }
 const refBonuses=bonusCatalog.filter(x=>x.Set==="core"&&x.CardType==="Bonus");
 const byBonus=new Map(refBonuses.map(x=>[norm(x["Bonus card"]),x]));
+const extras=refBonuses.filter(x=>!BONUSES.some(b=>norm(b.name)===norm(x["Bonus card"])))
+  .map(x=>({name:x["Bonus card"],cardId:x.id,notes:String(x.Note??"").slice(0,100)}));
 for(const b of BONUSES){
  const ref=byBonus.get(norm(b.name));
  if(!ref){errors.push({bonus:b.name,attribute:"identity",reason:"not found"});continue;}
@@ -62,10 +64,11 @@ const summary={
   independentReference:"Wingsearch pinned commit 43e5036de9e68fa9c4fabaf4c760412a887adf05",
   referenceCoreBirds:base.length,ourBirds:BIRDS.length,
   referenceCoreBonuses:refBonuses.length,ourBonuses:BONUSES.length,
+  extraReferenceBonuses:extras,
   differences:errors.length,warnings:warnings.length,
   sampleDifferences:errors.slice(0,100),sampleWarnings:warnings.slice(0,20)
 };
 console.log(JSON.stringify(summary,null,2));
-if(base.length!==170||refBonuses.length!==26)
+if(base.length!==170||BONUSES.length!==26||!BONUSES.every(b=>byBonus.has(norm(b.name))))
   throw Error("Unexpected independent base deck counts");
 if(errors.length)process.exitCode=1;
