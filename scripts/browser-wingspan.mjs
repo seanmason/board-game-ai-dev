@@ -185,7 +185,7 @@ try {
   await page.locator('button[data-action="observe-goals"]').click();
   await page.locator('button[data-action="confirm-setup"]').click();
   await page.locator('button[data-action="confirm-setup"]').click();
-  assert.match(await page.locator('#analysis-status').innerText(),/Needs observations/);
+  assert.match(await page.locator('#analysis-status').innerText(),/Needs observations/i);
   await page.getByRole('button',{name:'Draw 1 hidden bird',exact:true}).click();
   assert.equal(await page.locator('#physical-prompt').count(),1);
   await page.reload({waitUntil:'networkidle'});

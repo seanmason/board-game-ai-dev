@@ -117,3 +117,20 @@ test('unidentified birds cannot be played by bypassing the UI',()=>{
   const s=playState();s.players[0].hand.push(s.deck.pop());
   assert.throws(()=>recordPhysicalAction(s,{type:'playBird',birdId:s.players[0].hand[0]}),/Identify/);
 });
+test('hunting records outside dice without altering the feeder',()=>{
+  let s=playState();
+  const id=s.deck.find(id=>BIRDS[id].powerCode===7),bird=BIRDS[id];
+  s.deck.splice(s.deck.indexOf(id),1);
+  const habitat=bird.habitats[0];
+  s.players[0].habitats[habitat].push({id,eggs:0,cached:[],tucked:[]});
+  s.physical.knownBirds.push(id);
+  s=reconcileFeeder(s,['seed','fruit','fish']);
+  s.phase='power';s.pending=[{owner:0,habitat,index:0,birdId:id,code:7,timing:'brown',event:{}}];
+  const waiting=recordPhysicalAction(s,{type:'power',choice:{}});
+  assert.equal(waiting.pendingObservation.request.kind,'outsideDice');
+  assert.equal(waiting.pendingObservation.request.count,2);
+  const next=answerObservation(waiting,['rodent','seed']);
+  assert.deepEqual(next.feeder,s.feeder);
+  assert.deepEqual(next.players[0].habitats[habitat][0].cached,['rodent']);
+  assertValid(next);
+});
