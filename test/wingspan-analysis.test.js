@@ -93,3 +93,22 @@ test("candidate analysis does not expose an opponent's private hand or bonus",()
   assert.ok(summary.candidates.every(x=>x.action.type==="setup"));
   assert.equal(json,JSON.stringify(publicObservation(s,0)));
 });
+
+
+test("face-down tucked birds reveal their COUNT, never their species",()=>{
+  const state=newGame({players:2,seed:1001});
+  const placed=state.deck.pop();
+  const tucked=state.deck.pop();
+  const habitat=BIRDS[placed].habitats[0];
+  state.players[1].habitats[habitat].push({
+    id:placed,eggs:0,cached:[],tucked:[tucked]
+  });
+  assertValid(state);
+  const visible=publicObservation(state,0);
+  const bird=visible.players[1].habitats[habitat][0];
+  assert.equal(bird.tuckedCount,1);
+  assert.deepEqual(bird.tucked,[null]);
+  assert.ok(!JSON.stringify(visible).includes('"'+tucked+'"'),
+    "The tucked species must not be identifiable from public observation");
+  assert.equal(state.players[1].habitats[habitat][0].tucked[0],tucked);
+});
