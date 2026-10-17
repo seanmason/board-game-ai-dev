@@ -46,3 +46,16 @@ npm run check
 The search tree models deterministic draft actions in the **current** round and samples future random refills in rollouts. **Pause/resume retains the exact tree and playout statistics as long as this browser tab remains alive.** A changed position, changed worker count, page reload, or browser-tab eviction starts a fresh search; tree reuse across positions or refresh is not yet implemented. It also does not yet apply a learned value function. Its win estimates are policy-dependent and should not be read as calibrated probabilities. Manual late-game position editing, gray-wall variant, camera recognition, automatic worker throttling and native Rust/WASM optimization are roadmap work. Public deployment, licensing review, and stronger cross-browser testing are release gates.
 
 See [architecture specification](docs/ARCHITECTURE.md) for intended long-run components and acceptance criteria. Official game rules: [Next Move Games](https://cdn.svc.asmodee.net/production-nextmove/uploads/sites/4/2024/06/EN-Azul-Rules-Next-Move-web.pdf).
+
+## Rule validation and AI benchmarks
+
+The 10,000-game differential validator compares every transition, score, tile inventory, legal move and final result against a separately written Azul model. It is an independent implementation **within this repository**, not an externally certified rules engine.
+
+```sh
+npm run verify:gameplay
+VERIFY_GAMES=200 npm run verify:gameplay
+npm run benchmark:ai -- --games=24 --playouts=100 --players=2 --opponent=heuristic
+npm run benchmark:ai -- --games=24 --playouts=100 --players=4 --opponent=random
+```
+
+The tournament rotates the MCTS player through seats, uses reproducible random seeds, and reports win-share estimates, scores, playout throughput and timing. Small sample sizes and rollout-policy biases mean results are exploratory. No real physical game transcripts have yet been supplied for external confirmation.

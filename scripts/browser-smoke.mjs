@@ -11,6 +11,8 @@ const simulations = async () => Number(
 try {
   await page.goto("http://127.0.0.1:8080/", {waitUntil:"networkidle"});
   assert.match(await page.locator("h1").innerText(), /Azul/);
+  assert.equal(await page.locator("footer").count(),0,"Do not show promotional footer");
+  assert.equal(await page.getByText("Tabletop Observatory").count(),0);
   assert.equal(await page.locator('button[data-action="set-slot"]').count(), 20);
 
   // Real factory observations must be entered explicitly.
@@ -97,6 +99,12 @@ try {
   await page.waitForTimeout(2000);
   assert.match(await page.locator(".banner").innerText(), /Player 2 to draft/,
     "Second AI seat must also wait for an explicit command");
+  // New sessions can begin with a selected first player (not always seat one).
+  await page.locator("#players").selectOption("4");
+  await page.locator("#starter").selectOption("3");
+  await page.locator('button[data-action="new-game"]').click();
+  assert.match(await page.locator(".banner").innerText(), /Player 4 to draft/);
+  assert.equal(await page.locator(".player-board").count(),4);
   assert.equal(errors.length, 0, "Browser errors: " + errors.join("; "));
   console.log("Browser smoke passed: physical game, hover preview, cumulative pause/resume, manual digital AI moves.");
 } finally {
