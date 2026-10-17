@@ -277,9 +277,14 @@ function endRound(s){
 function finishTurn(s){
   s.pending=[];
   s.turnContext=null;
-  refillTray(s);
   s.turn++;
-  if(s.remaining.every(x=>x===0)){endRound(s);return;}
+  if(s.remaining.every(x=>x===0)){
+    // The publisher's round-end procedure DISCARDS the remaining face-up
+    // birds BEFORE restocking. Never draw replacements immediately before
+    // that discard, or they will be silently removed and change deck odds.
+    endRound(s);return;
+  }
+  refillTray(s);
   let next=s.currentPlayer;
   do{next=(next+1)%s.players.length;}while(s.remaining[next]===0);
   s.currentPlayer=next;
