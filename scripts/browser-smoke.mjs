@@ -160,8 +160,57 @@ try {
   assert.deepEqual(reconciledBag,[18,18,15,14,15],
     "Physical refill must not depend on observed color entry order");
 
+
+  // Recreate a complete valid physical-draft position with multiple factories,
+  // then verify that a previously analyzed move re-roots the search rather
+  // than discarding all conditional visits (even when initially paused).
+  const treePosition = await page.evaluate(async () => {
+    const {newGame,drawFactories,seededRandom}=await import("./src/azul.js");
+    return drawFactories(newGame({players:2,mode:"physical"}),seededRandom(1259));
+  });
+  await page.locator("#import-file").setInputFiles({
+    name:"tree-reuse-setup.json",mimeType:"application/json",
+    buffer:Buffer.from(JSON.stringify({
+      format:"tabletop-observatory-game",version:1,
+      history:[{state:treePosition,label:"Tree reuse setup"}],
+      index:0,seatTypes:["human","human"]
+    }))
+  });
+  await page.waitForFunction(() => {
+    const node=document.querySelector(".stat .value");
+    return node && Number(node.textContent.replaceAll(",","")) > 100;
+  }, null, {timeout:15000});
+  await page.locator('button[data-action="toggle-search"]').click();
+  await page.waitForTimeout(550);
+  const pausedTotal = await simulations();
+  const leadingRow = page.locator('tr[data-candidate-key]').first();
+  const conditionalVisits = Number((await leadingRow.locator("td").last().innerText()).replaceAll(",",""));
+  assert.ok(conditionalVisits>0 && pausedTotal>=conditionalVisits);
+  await leadingRow.locator('button[data-action="preview-move"]').click();
+  await page.locator('button[data-action="commit-best"]').click();
+  assert.match(await page.locator(".banner").innerText(), /Player 2 to draft/);
+  await page.waitForFunction(() =>
+    document.querySelector("#search-reuse")?.textContent.startsWith("Retained"),
+    null, {timeout:10000});
+  assert.match(await page.locator("#search-state").innerText(), /paused/i);
+  assert.equal(await simulations(),conditionalVisits,
+    "Rerooted simulation count must be the explored child visit total");
+  const retainedText = await page.locator("#search-reuse").innerText();
+  assert.match(retainedText,/Retained \d[\d,]* simulations from the previous move/);
+  await page.locator('button[data-action="toggle-search"]').click();
+  await page.waitForFunction(previous => {
+    const el=document.querySelector(".stat .value");
+    return el && Number(el.textContent.replaceAll(",","")) > previous;
+  },conditionalVisits,{timeout:15000});
+  // Undo/redo is a different history transition; no subtree statistics may
+  // leak into an alternate position.
+  await page.locator('button[data-action="undo"]').click();
+  await page.waitForFunction(() =>
+    document.querySelector("#search-reuse")?.textContent.includes("No previous-position"),
+    null, {timeout:10000});
+
   assert.equal(errors.length, 0, "Browser errors: " + errors.join("; "));
-  console.log("Browser smoke passed: physical game, hover preview, cumulative pause/resume, manual digital AI moves.");
+  console.log("Browser smoke passed: physical game, preserved MCTS subtree across moves, hover, pause/resume, explicit AI turns.");
 } finally {
   await browser.close();
 }
