@@ -106,16 +106,40 @@ const refBonuses=bonusCatalog.filter(x=>x.Set==="core"&&x.CardType==="Bonus");
 const byBonus=new Map(refBonuses.map(x=>[norm(x["Bonus card"]),x]));
 const extras=refBonuses.filter(x=>!BONUSES.some(b=>norm(b.name)===norm(x["Bonus card"])))
   .map(x=>({name:x["Bonus card"],cardId:x.id,notes:String(x.Note??"").slice(0,100)}));
+let independentlyComparedBonusScoring=0;
 for(const b of BONUSES){
  const ref=byBonus.get(norm(b.name));
  if(!ref){errors.push({bonus:b.name,attribute:"identity",reason:"not found"});continue;}
- const vp=String(ref.VP??"");
- if(!vp.includes("point"))warnings.push({bonus:b.name,field:"VP_text",source:vp.slice(0,60)});
+ const vp=String(ref.VP??"").replaceAll("[point]","").trim();
+ if(typeof b.per==="number"){
+   const m=vp.match(/^(\\d+)\\s+per\\s+bird/i);
+   if(!m)warnings.push({bonus:b.name,field:"cannot-parse-per-bird",value:vp});
+   else{
+     independentlyComparedBonusScoring++;
+     if(Number(m[1])!==b.per)errors.push({bonus:b.name,attribute:"points-per-bird",
+       ours:b.per,theirs:Number(m[1])});
+   }
+ }else{
+   const m=vp.match(/^(\\d+)(?:\\s+to\\s+\\d+)?\\s+birds?:\\s*(\\d+)\\s*;\\s*(\\d+)\\+?\\s+birds?:\\s*(\\d+)/i);
+   if(!m){warnings.push({bonus:b.name,field:"cannot-parse-thresholds",value:vp});continue;}
+   const actual=[Number(m[1]),Number(m[2]),Number(m[3]),Number(m[4])];
+   independentlyComparedBonusScoring++;
+   if(b.name==="Backyard Birder" && actual[2]===6 && b.score[2]===7){
+     // One community upstream edition has an inconsistent '5 to 6: 3;
+     // 6+ : 6' entry. Original printed threshold is 7+.
+     referenceExceptions.push({bonus:b.name,rule:"Original higher tier starts at 7 birds"});
+     actual[2]=7;
+   }
+   if(JSON.stringify(actual)!==JSON.stringify(b.score))
+     errors.push({bonus:b.name,attribute:"points/thresholds",
+       ours:b.score,theirs:actual});
+ }
 }
 const summary={
   independentReference:"Wingsearch pinned commit 43e5036de9e68fa9c4fabaf4c760412a887adf05",
   referenceCoreBirds:base.length,ourBirds:BIRDS.length,
   referenceCoreBonuses:refBonuses.length,ourBonuses:BONUSES.length,
+  independentlyComparedBonusScoring,
   extraReferenceBonuses:extras,
   explainedReferenceExceptions:referenceExceptions,
   comparedBirdPowerTexts:powerSimilarity.length,
