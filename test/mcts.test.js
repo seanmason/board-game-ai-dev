@@ -62,3 +62,11 @@ test("guided tree visits and action ranking are reproducible with a fixed seed",
     assert.deepEqual(bestAction(a),bestAction(b));
   }
 });
+
+
+test("enhanced MCTS is the default and baseline remains selectable", () => {
+  const state=drawFactories(newGame({players:3,mode:"digital"}),seededRandom(147));
+  assert.equal(createSearch(state).variant,"guided-informed");
+  assert.equal(createSearch(state,{variant:"baseline"}).variant,"baseline");
+  assert.throws(()=>createSearch(state,{variant:"not-a-policy"}),/Unknown MCTS variant/);
+});

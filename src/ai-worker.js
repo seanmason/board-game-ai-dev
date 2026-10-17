@@ -66,8 +66,9 @@ self.onmessage = event => {
     generation = data.generation;
     search = createSearch(data.state, {
       rng:seededRandom(data.seed),
-      exploration:data.exploration ?? 1.3,
-      maxNodes:data.maxNodes ?? 18000
+      exploration:data.exploration,
+      maxNodes:data.maxNodes ?? 18000,
+      variant:data.variant ?? "guided-informed"
     });
     batchSize = Math.max(1, Math.min(30, data.batch ?? 10));
     activeMillis = 0;

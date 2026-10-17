@@ -11,6 +11,7 @@ const simulations = async () => Number(
 try {
   await page.goto("http://127.0.0.1:8080/", {waitUntil:"networkidle"});
   assert.match(await page.locator("h1").innerText(), /Azul/);
+  assert.equal(await page.locator("#search-variant").inputValue(), "guided-informed");
   assert.equal(await page.locator("footer").count(),0,"Do not show promotional footer");
   assert.equal(await page.getByText("Tabletop Observatory").count(),0);
   assert.equal(await page.locator('button[data-action="set-slot"]').count(), 20);
@@ -60,6 +61,19 @@ try {
     return el && Number(el.textContent.replaceAll(",","")) > previous;
   }, paused, {timeout:15000});
   assert.ok(await simulations() > paused, "Resume must accumulate prior playouts");
+  // Changing MCTS policy intentionally invalidates the current search tree.
+  await page.locator("#search-variant").selectOption("baseline");
+  assert.equal(await page.locator("#search-variant").inputValue(), "baseline");
+  await page.waitForFunction(() => {
+    const count=document.querySelector(".stat .value");
+    return count && Number(count.textContent.replaceAll(",",""))>0;
+  }, null, {timeout:15000});
+  await page.locator("#search-variant").selectOption("guided-informed");
+  assert.equal(await page.locator("#search-variant").inputValue(), "guided-informed");
+  await page.waitForFunction(() => {
+    const count=document.querySelector(".stat .value");
+    return count && Number(count.textContent.replaceAll(",",""))>0;
+  }, null, {timeout:15000});
 
   // Physical game remains editable, including undo/redo.
   await page.locator('button[data-action="select-source"][data-source="0"][data-color="0"]').click();

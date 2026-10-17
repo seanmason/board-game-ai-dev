@@ -103,7 +103,7 @@ function createNode(state, action = null, prior = 0, variant = "baseline") {
   };
 }
 export function createSearch(rootState, {
-  rng = Math.random, exploration, maxNodes = 18000, variant = "baseline"
+  rng = Math.random, exploration, maxNodes = 18000, variant = "guided-informed"
 } = {}) {
   if (rootState.phase !== "draft") throw Error("Search requires a drafting position");
   if (!SEARCH_VARIANTS.includes(variant)) throw Error("Unknown MCTS variant");
@@ -244,5 +244,6 @@ export function searchSummary(search) {
 }
 export function bestAction(search) {
   return searchSummary(search).candidates[0]?.action ??
-    rolloutAction(search.rootState, search.rng);
+    rolloutAction(search.rootState, search.rng,
+      search.variant === "guided-informed" ? "informed" : "baseline");
 }

@@ -15,6 +15,7 @@ let view = "companion", selectedColor = 0, selection = null, preview = null;
 let pendingFactories = makePending(game), notification = "", generation = 0;
 let workers = [], partialResults = new Map(), aggregate = null, searchStarted = 0;
 let analysisEnabled = true, workerCount = Math.min(2, MAX_WORKERS);
+let searchVariant = "guided-informed";
 let hoveredCandidateKey = null;
 
 function makePending(s) { return s.factories.map(() => Array(4).fill(null)); }
@@ -134,7 +135,11 @@ function showAnalysisPanel() {
   return '<section class="card"><div class="card-head"><div><h2>Position analysis</h2>' +
     '<p>MCTS · current position</p></div>' +
     '<span class="eyebrow" id="search-state"></span></div>' +
-    '<div class="search-tools"><label for="worker-count">Workers</label>' +
+    '<div class="search-tools"><label for="search-variant">Method</label>' +
+    '<select id="search-variant" data-action="search-variant" title="Changing the method starts a new search">' +
+    '<option value="guided-informed"' + (searchVariant==="guided-informed"?' selected':'') + '>Guided MCTS</option>' +
+    '<option value="baseline"' + (searchVariant==="baseline"?' selected':'') + '>UCT baseline</option>' +
+    '</select><label for="worker-count">Workers</label>' +
     '<select id="worker-count" data-action="worker-count">' +
     Array.from({length:MAX_WORKERS}, (_,i) =>
       '<option value="' + (i+1) + '"' + (workerCount === i+1 ? " selected" : "") + '>' +
@@ -309,7 +314,7 @@ function renderAnalysis() {
 }
 function save() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify({
-    version:1, history,index,seatTypes,view,analysisEnabled,workerCount,pendingFactories,selectedColor
+    version:1, history,index,seatTypes,view,analysisEnabled,workerCount,searchVariant,pendingFactories,selectedColor
   })); } catch (error) { console.warn("Could not autosave:", error); }
 }
 function restore() {
@@ -327,6 +332,7 @@ function restore() {
     view = data.view === "analyst" ? "analyst" : "companion";
     analysisEnabled = data.analysisEnabled !== false;
     workerCount = Math.min(MAX_WORKERS, Math.max(1, data.workerCount || workerCount));
+    searchVariant = data.searchVariant === "baseline" ? "baseline" : "guided-informed";
     selectedColor = Number.isInteger(data.selectedColor) ? data.selectedColor : 0;
     pendingFactories = Array.isArray(data.pendingFactories) &&
       data.pendingFactories.length === game.factories.length ? data.pendingFactories : makePending(game);
@@ -393,7 +399,8 @@ function startAnalysis() {
       workers.push(worker);
       worker.postMessage({
         type:"start",generation,state:game,
-        seed:(Math.random()*4294967296)>>>0, maxNodes:18000, batch:8
+        seed:(Math.random()*4294967296)>>>0, maxNodes:18000, batch:8,
+        variant:searchVariant
       });
     }
   }
@@ -566,6 +573,9 @@ root.addEventListener("change",event=>{
     seatTypes[Number(node.dataset.seat)]=node.value;save();render();
   } else if (node.dataset.action==="worker-count") {
     workerCount=Math.min(MAX_WORKERS,Math.max(1,Number(node.value)));
+    save();render();startAnalysis();
+  } else if (node.dataset.action==="search-variant") {
+    searchVariant = node.value === "baseline" ? "baseline" : "guided-informed";
     save();render();startAnalysis();
   }
 });
