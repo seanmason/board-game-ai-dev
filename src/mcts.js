@@ -85,14 +85,16 @@ export function rolloutAction(state, rng = Math.random, policy = "baseline") {
 }
 
 function createNode(state, action = null, prior = 0, variant = "baseline") {
-  const untried = state.phase === "draft" ? legalActions(state) : [];
+  let untried = state.phase === "draft" ? legalActions(state) : [];
   if (variant !== "baseline") {
-    // Actions are only ordered, never pruned: progressive widening eventually
-    // considers every legal move as visits increase.
-    untried.sort((a, b) =>
-      heuristicScore(state, a) < heuristicScore(state, b) ? 1 :
-      heuristicScore(state, a) > heuristicScore(state, b) ? -1 :
-      actionKey(a).localeCompare(actionKey(b)));
+    // Cache each action's score once instead of recomputing evaluations
+    // O(actions * log(actions)) times during sort. This preserves the
+    // previous deterministic order and doesn't change move selection.
+    untried = untried.map(action => ({
+      action, score: heuristicScore(state, action)
+    })).sort((a, b) => b.score - a.score ||
+      actionKey(a.action).localeCompare(actionKey(b.action)))
+      .map(item => item.action);
   }
   return {
     action, prior, actor: state.currentPlayer, untried,
