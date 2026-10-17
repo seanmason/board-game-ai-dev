@@ -118,3 +118,13 @@ font-size:12px;line-height:1.5}
 @media(max-width:400px){.shell{padding:8px}.tray{gap:4px}.tray .bird{padding:5px}
 .tabs .meta{margin:0}.score-grid{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Optional detailed human turn editor. It stays collapsed during normal play. */
+.advanced-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:9px;margin:9px 0 15px}
+.advanced-field{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--muted)}
+.advanced-field select,.advanced-field input[type=number]{width:100%;min-width:0}
+.advanced-field input[type=checkbox]{width:19px;height:19px}
+#advanced-action-editor>summary{font-weight:700;cursor:pointer}
+#advanced-action-editor h3{margin-top:12px}
+#advanced-action-editor .meta{line-height:1.5}

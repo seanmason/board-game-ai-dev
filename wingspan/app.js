@@ -9,6 +9,7 @@ import {
 import {candidateActions} from "./actions.js";
 import {reconcileCard,reconcileFood,reconcileEggs} from "./observations.js";
 import {powerDescription} from "./powers.js";
+import {advancedEditor,detailedAction} from "./move-editor.js";
 
 const root=document.querySelector("#app");
 const KEY="board-game-ai-wingspan-v1";
@@ -20,6 +21,7 @@ let searchMethod="belief-rollout";
 let workerCount=Math.min(2,MAX_WORKERS),workers=[],partResults=new Map();
 let analysis=null,generation=0,options=[],notification="";
 let pinned=-1,hovered=-1;
+let advancedKind="gainFood",advancedBirdId=null,advancedHabitat=null;
 let keep=new Set(),discardFood=new Set(),bonusChoice=null;
 let observation={zone:"hand",player:0,slot:0,cardId:0,food:"seed",count:1};
 const pretty=n=>new Intl.NumberFormat("en-US").format(Math.round(n));
@@ -409,7 +411,9 @@ function render(){
       'Do not trust candidate recommendations until all relevant observations '+
       'have been reconciled. Record actual tabletop moves manually.</div>':"")+
     statusPanel()+'<div class="layout"><main>'+
-      marketPanel()+activeMat()+visible+handPanel()+observationPanel()+
+      marketPanel()+activeMat()+visible+advancedEditor(game,{
+        kind:advancedKind,birdId:advancedBirdId,habitat:advancedHabitat
+      })+handPanel()+observationPanel()+
     '</main><aside>'+analysisPanel()+scorePanel()+goalPanel()+
       historyPanel()+rulesPanel()+'</aside></div></div>';
   highlightPinned();
@@ -639,6 +643,10 @@ root.addEventListener("click",e=>{
     if(a==="new-game")newSession();
     else if(a==="view"){view=target.dataset.view;save();render();}
     else if(a==="confirm-setup")acceptSetup();
+    else if(a==="advanced-commit"){
+      const action=detailedAction(root,game);
+      perform(action,"P"+(game.currentPlayer+1)+" · Detailed "+action.type);
+    }
     else if(a==="choose-option"){
       const idx=Number(target.dataset.index);
       const option=options[idx];
@@ -687,6 +695,19 @@ root.addEventListener("change",e=>{
     }else if(t.id==="worker-count"){
       workerCount=Math.min(MAX_WORKERS,Math.max(1,Number(t.value)));
       save();render();startAnalysis();
+    }else if(t.id==="adv-kind"){
+      advancedKind=t.value;render();
+      const section=root.querySelector("#advanced-action-editor");
+      if(section)section.open=true;
+    }else if(t.id==="adv-bird"){
+      advancedBirdId=Number(t.value);advancedHabitat=null;
+      render();
+      const section=root.querySelector("#advanced-action-editor");
+      if(section)section.open=true;
+    }else if(t.id==="adv-habitat"){
+      advancedHabitat=t.value;render();
+      const section=root.querySelector("#advanced-action-editor");
+      if(section)section.open=true;
     }else if(t.id==="players"){
       const starter=root.querySelector("#starter");
       const n=Number(t.value);
