@@ -119,7 +119,9 @@ const summary={
   extraReferenceBonuses:extras,
   explainedReferenceExceptions:referenceExceptions,
   comparedBirdPowerTexts:powerSimilarity.length,
-  lowAgreementPowerTexts:powerSimilarity.filter(x=>x.score<.6),
+  poweredCardTextsCompared:powerSimilarity.filter(x=>x.code>0).length,
+  noPowerBirds:powerSimilarity.filter(x=>x.code===0).length,
+  lowAgreementPowerTexts:powerSimilarity.filter(x=>x.code>0&&x.score<.6),
   differences:errors.length,warnings:warnings.length,
   sampleDifferences:errors.slice(0,100),sampleWarnings:warnings.slice(0,20)
 };
