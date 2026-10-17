@@ -111,6 +111,10 @@ Validation:
   undo/redo, pause/resume, malformed import rejection, phone viewport overflow,
   and a self-contained package including its worker.
 
+The follow-up [search evaluation](SPLENDOR_AI_EVALUATION.md) compares actual search
+opponents at matched time, tests budget scaling and records uncertainty and
+replayable game traces. It does not establish absolute human-level strength.
+
 Before calling it a finished release: user acceptance on a real table, iPad Safari
-performance/usability, stronger equal-time opponent benchmarks, and final source/
+performance/usability, independent-opponent strength validation, and final source/
 release review. Development packaging does not publish to the finished-games repo.
