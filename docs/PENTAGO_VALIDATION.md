@@ -1,5 +1,7 @@
 # Pentago correctness and AI validation
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current pentago overview](games/pentago/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 Development preview: https://seanmason.github.io/board-game-ai-dev/pentago/
 
 ## Rules compliance

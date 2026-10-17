@@ -1,0 +1,24 @@
+name: Wingspan independent metadata audit
+on:
+  push:
+    branches: [feat/wingspan-base-game]
+    paths:
+      - .github/workflows/wingspan-independent-audit.yml
+      - scripts/audit-wingspan-independent.mjs
+      - wingspan/catalog.js
+      - wingspan/data/birds.json
+      - wingspan/data/bonuses.json
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Independently compare 170 birds + 26 bonuses
+        run: node scripts/audit-wingspan-independent.mjs

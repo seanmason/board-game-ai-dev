@@ -11,6 +11,7 @@
     "benchmark:reuse": "node scripts/benchmark-tree-reuse.mjs",
     "verify:pentago": "node scripts/verify-pentago.mjs",
     "benchmark:pentago": "node scripts/benchmark-pentago.mjs",
+    "verify:wingspan": "node scripts/verify-wingspan.mjs",
     "stage:preview": "node scripts/stage-preview.mjs",
     "package:game": "node scripts/package-game.mjs",
     "verify:boop": "node scripts/verify-boop.mjs",
@@ -34,7 +35,8 @@
     "audit:kingdomino": "node scripts/audit-kingdomino-catalog.mjs",
     "audit:seven-wonders-duel": "node scripts/audit-seven-wonders-duel.mjs",
     "audit:patchwork": "node scripts/audit-patchwork-catalog.mjs",
-    "audit:cascadia": "node scripts/audit-cascadia-catalog.mjs"
+    "audit:cascadia": "node scripts/audit-cascadia-catalog.mjs",
+    "check:docs": "node scripts/check-docs.mjs"
   },
   "engines": {
     "node": ">=20"

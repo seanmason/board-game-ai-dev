@@ -1,5 +1,7 @@
 # Splendor search evaluation — 2026-10-17
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current splendor overview](games/splendor/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 ## Question and protocol
 
 The initial 16/16 two-player and 10/12 three-player pilots used nonsearching

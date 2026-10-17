@@ -15,7 +15,7 @@ export const games = {
     ...['catalog','scoring','core','ai','worker','app'].map(name => `cascadia/${name}.js`)],
   // Optional draft game: only packaged in a checkout that actually contains it.
   wingspan: ['wingspan/index.html', 'wingspan/styles.css',
-    ...['catalog','scoring','powers','core','actions','observations','analysis','belief',
+    ...['catalog','scoring','powers','core','actions','observation-io','physical-ui','observations','analysis','belief',
       'rollout','move-editor','worker','app'].map(n => `wingspan/${n}.js`),
     ...['birds','bonuses','goal-tiles','power-index'].map(n => `wingspan/data/${n}.json`)]
 };

@@ -12,6 +12,8 @@ jobs:
           node-version: '22'
       - run: npm test
       - run: npm run check
+      - name: Check maintained documentation links and game entry points
+        run: npm run check:docs
       - name: Splendor card audit and independent rules comparison
         run: |
           npm run audit:splendor
@@ -23,6 +25,8 @@ jobs:
               if [ -f "$script" ]; then node "$script"; fi
             done
           done
+      - name: Full Wingspan turn and card-conservation scenarios
+        run: WINGSPAN_GAMES=20 npm run verify:wingspan
       - name: Benchmark baseline vs guided search on the same runner
         run: npm run benchmark:search
       - name: Verify conditional MCTS reuse metrics
@@ -56,6 +60,7 @@ jobs:
           sleep 1
           node scripts/browser-smoke.mjs
           node scripts/browser-pentago.mjs
+          node scripts/browser-wingspan.mjs
           node scripts/browser-sessions.mjs
           node scripts/browser-boop.mjs
           node scripts/browser-splendor.mjs

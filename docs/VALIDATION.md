@@ -1,5 +1,7 @@
 # Azul rules validation and AI benchmark policy
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current azul overview](games/azul/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 **Status:** Browser prototype, validated internally against a separately coded rules oracle. **Not externally certified.**
 
 ## Rule reference

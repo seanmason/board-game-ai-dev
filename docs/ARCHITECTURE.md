@@ -1,6 +1,6 @@
 # Board Game AI — Architecture and Implementation Specification
 
-**Status:** Approved direction, incremental implementation  
+**Status:** Intended architecture and acceptance criteria; current implementation is mapped in [platform contracts](platform/README.md) and [game overviews](games/INDEX.md)
 **Initial game:** Original Azul (standard colored-wall rules, 2–4 players)  
 **Repositories:** [development/research](https://github.com/seanmason/board-game-ai-dev) (currently public for development previews) and [public release](https://github.com/seanmason/board-game-ai) (public)  
 **Design priority:** Advanced, continuously improving AI analysis of real physical-board games, with standalone digital gameplay as a secondary use case.
@@ -55,8 +55,8 @@ Planned experiments: rollout policy, progressive bias, exploration constants, op
 
 ### Browser execution strategy
 
-- A responsive HTML/CSS/SVG interface and TypeScript application services are the intended long-run frontend.
-- Rust compiled to WebAssembly is the intended **optimized** game/search implementation, gated by measured need and benchmark equivalence. A dependency-free JavaScript vertical slice is acceptable for the first implementation where immediate compilation/portability and verified correctness are more useful than premature optimization.
+- Use the existing responsive HTML/CSS/SVG interface and native JavaScript modules. Additional frameworks or a TypeScript migration are not prerequisites for new games.
+- JavaScript and browser workers are the default implementation. Rust/WASM, neural training and major optimization rewrites are optional future changes requiring explicit authorization and a compelling measured need; breadth and practical adequacy take priority over marginal strength.
 - Use independent Web Workers for search parallelism (root-parallel MCTS), rather than relying on shared-memory WebAssembly threads and custom cross-origin isolation headers unavailable through ordinary GitHub Pages configurations.
 - Bound memory and per-update computation; keep the main/UI thread free; throttle updates; offer single-worker and mobile-friendly fallbacks. Browsers can suspend background tabs—persist the game, do not promise background compute while suspended.
 - For GitHub Pages project sites, all assets must use relative links or a proper `/board-game-ai/` build base.
@@ -81,7 +81,10 @@ Guide: independently written rules, collapsed by default. Original CSS/SVG tile 
 
 Initial **targets rather than measurements**: typical move entry ~3 selections after tile setup; p95 input response <100 ms; initial desktop analysis feedback ~1 s; stale analysis canceled <250 ms. Do not claim targets are achieved until tested.
 
-## Implementation sequence and gates
+## Initial implementation sequence (historical)
+
+The sequence below records the initial Azul plan, not the current backlog. Use the
+game overviews for present capabilities and remaining gates.
 
 0. Commit this specification and clarify decisions.
 1. Complete, tested original Azul game rules and physical-board capture workflow.
@@ -97,5 +100,5 @@ Initial **targets rather than measurements**: typical move entry ~3 selections a
 - Open-source license selection before release (MIT vs Apache-2.0 are candidates).
 - Camera-assisted factory/state recognition (valuable for physical-board use, not MVP).
 - Arbitrary position editor and uncertain late-game inventory.
-- Neural policies, learned value estimation, and heavier MCTS methods after baselines.
+- Neural policies and learned values are deferred unless explicitly authorized with a compelling game-specific justification; adequate lightweight AI is the goal.
 - Optional PWA/offline-install enhancements and accessibility audit.

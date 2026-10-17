@@ -1,5 +1,7 @@
 # Multiplayer MCTS research · October 17, 2026
 
+> Retained development report: sections describe the work and evidence at their recorded stages. Start with the [current azul overview](games/azul/README.md) for present behavior and remaining gates. Historical counts and results were not rerun for the documentation migration.
+
 All experiments use original Azul standard rules and the same independently
 validated state-transition engine. This work is distinct from rules correctness
 validation, and does not claim that any policy is perfect.

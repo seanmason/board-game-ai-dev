@@ -1,5 +1,7 @@
 # Five-game development implementation
 
+> Retained investigation/integration record. Its dated plans and verification apply to the recorded work, not automatically to later revisions. Start with the [game directory](games/INDEX.md) or [current platform contracts](platform/README.md).
+
 Implemented in parallel with five GPT-6.1-Sol agents at high reasoning, plus an
 independent agent using the same model for rules and component review. Each game
 had an isolated worktree and owned game-specific code. Shared packaging,
