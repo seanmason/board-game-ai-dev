@@ -241,11 +241,13 @@ function render() {
 function mergeWorkerResults() {
   const merged = new Map();
   let iterations = 0, nodes = 0, elapsed = 0, rootPlayer = game.currentPlayer;
+  let rootLegalActions = 0;
   for (const data of partialResults.values()) {
     iterations += data.iterations;
     nodes += data.nodeCount;
     elapsed = Math.max(elapsed, data.elapsedMs);
     rootPlayer = data.rootPlayer;
+    rootLegalActions = Math.max(rootLegalActions, data.rootLegalActions ?? 0);
     for (const candidate of data.candidates) {
       const entry = merged.get(candidate.key) ?? {
         key:candidate.key, action:candidate.action, label:candidate.label, visits:0,
@@ -263,7 +265,7 @@ function mergeWorkerResults() {
   }
   const candidates = [...merged.values()].sort((a,b) => b.visits-a.visits ||
     b.rewardSum[rootPlayer]/Math.max(1,b.visits)-a.rewardSum[rootPlayer]/Math.max(1,a.visits));
-  aggregate = {iterations,nodes,elapsed,candidates,rootPlayer};
+  aggregate = {iterations,nodes,elapsed,candidates,rootPlayer,rootLegalActions};
 }
 function renderAnalysis() {
   const node = document.querySelector("#analysis-content");
@@ -303,7 +305,11 @@ function renderAnalysis() {
     '</tr></thead><tbody>' + (candidateRows ||
       '<tr><td colspan="4">Search will list candidate moves as simulations finish.</td></tr>') +
     '</tbody></table></div>';
-  node.innerHTML = recommended + stats + table +
+  const coverage = data && data.rootLegalActions ?
+    '<p class="meta" id="search-coverage">Explored ' + data.candidates.length +
+    ' of ' + data.rootLegalActions + ' legal moves</p>' :
+    '<p class="meta" id="search-coverage">Starting search</p>';
+  node.innerHTML = recommended + stats + coverage + table +
     '<p class="meta">Win estimates come from simulated games and depend on the rollout policy. ' +
     'Opponent strategies are approximated. A higher visit count generally indicates greater search attention.</p>';
   // Progress updates replace the candidate table, but hover state and the

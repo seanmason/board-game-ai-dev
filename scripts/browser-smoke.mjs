@@ -32,6 +32,8 @@ try {
     const el=document.querySelector(".stat .value");
     return el && Number(el.textContent.replaceAll(",",""))>0;
   }, null, {timeout:15000});
+  assert.match(await page.locator("#search-coverage").innerText(),
+    /Explored \d+ of \d+ legal moves/);
   const beforePause = await simulations();
   await page.locator('button[data-action="toggle-search"]').click();
   await page.waitForTimeout(600);
