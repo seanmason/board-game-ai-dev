@@ -170,6 +170,9 @@ export function powerOptions(s,p){
   if(c===31)return [choice("Cache a seed",{})];
   if(c===55)return [choice("Cache a rodent",{})];
   if(EGG_CODES[c]){
+    if(c===30)
+      return instance.eggs<BIRDS[instance.id].eggs?
+        [choice("Lay on this bird",{habitat:p.habitat,index:p.index})]:[];
     if([12,26,52,65].includes(c))return [choice("Lay on all matching nests",{})];
     if(ALL_PLAYER_EGGS[c])return [choice("Offer eggs to all players",{})];
     return eggsForPower(s,owner,EGG_CODES[c],c===2||c===18||c===28?p.birdId:null);

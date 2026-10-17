@@ -155,7 +155,8 @@ function satisfiesCost(card,payment){
     [...FOOD,"wild"].filter(f=>cost[f]>0).map(type=>[type]):
     [...FOOD,"wild"].flatMap(f=>Array.from({length:cost[f]},()=>[f]));
   const alternatives=card.either?
-    [FOOD.filter(f=>cost[f]>0)] :
+    [[...FOOD,"wild"].filter(f=>cost[f]>0)
+      .flatMap(type=>type==="wild"?FOOD:[type])] :
     required.map(([type])=>type==="wild"?[...FOOD]:[type]);
   function matches(index,remaining){
     if(index===alternatives.length)return remaining.every(c=>c===0);
@@ -551,6 +552,13 @@ export function publicObservation(s,viewer=null){
     player.bonuses=[];
     player.bonusOffer=[];
   }
+  // Hide unresolved private card selections when a different player is
+  // viewing the board. This projection is for analysis only, not mutations.
+  result.pending=result.pending.map(effect=>{
+    if(effect.owner===viewer||!effect.event?.cards)return effect;
+    return {...effect,event:{...effect.event,
+      cards:undefined,cardCount:effect.event.cards.length}};
+  });
   return result;
 }
 export const getBird=id=>BIRDS[id];
