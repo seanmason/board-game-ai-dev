@@ -151,3 +151,35 @@ opponents and release/licensing review remain before a finished publication.
 Local Chromium installation was blocked by the runtime's download route; hosted
 Chromium validation passed instead. The separate finished-games repository and
 live preview deployment are untouched.
+
+## Longer-budget evaluation — October 17, 2026
+
+[Complete report and replayable records](../benchmarks/boop-long/REPORT.md).
+The engine, rollout policy and evaluator were unchanged. Against the same
+tactical-greedy opponent and the original 24-game paired opening set:
+
+| Budget per move | Wins | Losses | Capped | Mean time |
+| --- | ---: | ---: | ---: | ---: |
+| Original nominal 25 ms | 17 | 7 | 0 | 0.026 s |
+| 3,000 iterations | 24 | 0 | 0 | 4.61 s |
+| 10,000 iterations | 23 | 0 | 1 | 12.52 s |
+| Five seconds, minimum 3,000 iterations (12 games) | 12 | 0 | 0 | 5.63 s |
+
+All seven previous losses became wins at 3,000 iterations. Increasing to
+10,000 did not improve this result: one game repeated a two-turn position
+until the 250-turn evaluation cap. One position occurred 113 times while
+Gray's search utility remained near 0.83. This is a search-policy/repetition
+weakness, not a rules-engine draw. The raw capped result is preserved.
+
+All 60 new traces were replayed against the independent two-dimensional oracle:
+2,118 transitions, zero differences. Instrumentation passed 89 Node tests and
+[hosted CI](https://github.com/seanmason/board-game-ai-dev/actions/runs/39046459343).
+Counts distinguish terminal tree revisits, actual rollout wins and heuristic
+cutoffs. The five-second run deliberately continues after known wins, so its
+large terminal-revisit count must not be called independent full-game playouts.
+
+These tests strongly improve the evidence against this particular opponent;
+they do not measure human strength or establish optimal play. Repetition-aware
+search, stronger opponent policies, and diverse search-based opponents remain
+future work. No game rules, browser settings, or AI behavior were changed as
+part of this evaluation.
