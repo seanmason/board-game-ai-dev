@@ -16,6 +16,7 @@ const games=Number(process.env.WINGSPAN_GAMES??20);
 if(!Number.isInteger(games)||games<1||games>10000)
   throw Error("WINGSPAN_GAMES must be integer 1–10000");
 let moves=0,powers=0,activated=0,skipped=0,birds=0,rounds=0;
+const powerCodesSeen=new Set();
 let gameLength=0;
 const start=performance.now();
 for(let game=0;game<games;game++){
@@ -39,6 +40,8 @@ for(let game=0;game<games;game++){
       if(matching.length)candidates=matching;
     }else if(s.phase==="power"){
       powers++;
+      if(s.pending[0]?.code>0&&s.pending[0].code<=67)
+        powerCodesSeen.add(s.pending[0].code);
       const special=options.filter(x=>!x.action.skip);
       const skip=options.filter(x=>x.action.skip);
       // Once a bird power has revealed or drawn cards, subsequent
@@ -72,4 +75,6 @@ for(let game=0;game<games;game++){
 console.log(JSON.stringify({status:"PASS",games,actions:moves,powers,
   powersActivated:activated,powersSkipped:skipped,birdsPlayed:birds,
   roundTransitions:rounds,meanMainTurns:Number((gameLength/games).toFixed(2)),
+  powerArchetypesEncountered:powerCodesSeen.size,
+  unexercisedPowerCodes:Array.from({length:67},(_,i)=>i+1).filter(x=>!powerCodesSeen.has(x)),
   elapsedMs:Math.round(performance.now()-start)},null,2));
