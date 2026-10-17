@@ -1,0 +1,45 @@
+name: Wingspan AI held-out strategy trials
+on:
+  push:
+    branches: [feat/wingspan-base-game]
+    paths: [.github/workflows/wingspan-ai-holdout.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tournament:
+    name: ${{ matrix.method }} · ${{ matrix.players }}p · ${{ matrix.opponent }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {method: heuristic, players: 2, opponent: greedy, games: 24}
+          - {method: belief-rollout, players: 2, opponent: greedy, games: 24}
+          - {method: heuristic, players: 2, opponent: stochastic, games: 24}
+          - {method: belief-rollout, players: 2, opponent: stochastic, games: 24}
+          - {method: heuristic, players: 3, opponent: greedy, games: 15}
+          - {method: belief-rollout, players: 3, opponent: greedy, games: 15}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Held-out seeded benchmark
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/benchmark-wingspan-ai.mjs \
+            --method=${{ matrix.method }} \
+            --players=${{ matrix.players }} \
+            --games=${{ matrix.games }} \
+            --samples=12 \
+            --horizon=4 \
+            --seed=907331 \
+            --opponent=${{ matrix.opponent }} | tee output.json
+          cat output.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wingspan-holdout-${{ matrix.method }}-${{ matrix.players }}p-${{ matrix.opponent }}
+          path: output.json
