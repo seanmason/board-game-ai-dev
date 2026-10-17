@@ -126,7 +126,7 @@ export function powerAvailable(s,p){
     if(!PINK_CODES.has(code))return false;
     const event=p.event;
     if(code===2||code===18||code===28)
-      return event.type==="layEggs"&&event.count>0;
+      return event.type==="layEggs";
     if(code===19)return event.type==="playBird"&&event.habitat==="wetland";
     if(code===39)return event.type==="playBird"&&event.habitat==="forest";
     if(code===50)return event.type==="playBird"&&event.habitat==="grassland";
@@ -157,7 +157,10 @@ export function powerOptions(s,p){
       .filter(x=>x.choice.cardId!==undefined)
       .concat(handChoices(s,owner));
   }
-  if(c===11||c===48)return [choice("Begin player food picks",{})];
+  if(c===11)
+    return s.players.map((_,i)=>choice("Let player "+(i+1)+
+      " choose food first",{firstPlayer:i}));
+  if(c===48)return [choice("Begin food picks for players with fewest forest birds",{})];
   if(c===8||c===13)return [choice("Reveal available choices",{})];
   if(c===3||c===59||DRAW_COUNTS[c])return [choice("Draw cards",{})];
   if(c===15||c===58)return [choice("Take all matching feeder dice",{})];
@@ -165,6 +168,10 @@ export function powerOptions(s,p){
     return eggSources(s,owner,p.birdId).flatMap(x=>
       FOOD.map(food=>choice("Trade egg on "+BIRDS[x.id].name+
         " for "+food,{habitat:x.habitat,index:x.index,food})));
+  if(c===1)return feederOptions(s,"seed").flatMap(item=>[
+    choice(item.label+" and keep the food",{...item.choice,cache:false}),
+    choice(item.label+" and cache on bird",{...item.choice,cache:true})
+  ]);
   if(FEEDER_CODES[c])return feederOptions(s,FEEDER_CODES[c]);
   if(FOOD_CODES[c]||c===19||c===39)return gainFoodOptions(s,
     c===19?"fish":c===39?"invertebrate":FOOD_CODES[c][0]);
@@ -246,7 +253,9 @@ export function applyPower(s,p,selected,help){
     return amount;
   };
   const requestDiscard=(count)=>{
-    s.pending.unshift({...p,code:1000,event:{remaining:count}});
+    // The power says "at the end of your turn". Process this mandatory
+    // discard AFTER any other birds' activated powers, not immediately.
+    s.pending.push({...p,code:1000,event:{remaining:count}});
   };
   const takeFood=()=>{
     if(selected.refill) {
@@ -313,7 +322,8 @@ export function applyPower(s,p,selected,help){
   }
   if(c===11||c===48){
     const players=c===11?
-      Array.from({length:s.players.length},(_,i)=>(owner+i)%s.players.length):
+      Array.from({length:s.players.length},(_,i)=>
+        (selected.firstPlayer+i)%s.players.length):
       s.players.map((pl,i)=>({i,n:pl.habitats.forest.length}))
         .filter(x=>x.n===Math.min(...s.players.map(p=>p.habitats.forest.length)))
         .map(x=>x.i);
@@ -338,7 +348,7 @@ export function applyPower(s,p,selected,help){
   }
   if(FEEDER_CODES[c]){
     const food=takeFood();if(food===null)return;
-    if([1].includes(c))addCached(food);
+    if(c===1 && selected.cache)addCached(food);
     else supply(food);
     return;
   }
