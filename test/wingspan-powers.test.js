@@ -215,3 +215,62 @@ test("optional card draws defer their mandatory hand discard until the other bro
   s=applyAction(s,{type:"power",choice:firstChoice(s)});
   assertValid(s);
 });
+
+
+test("Common Raven and Chihuahuan Raven can select two DIFFERENT foods",()=>{
+  for(const code of [33]){
+    let s=prepared(810+code);
+    support(s,0,2);
+    pending(s,code);
+    const options=powerChoices(s);
+    const selected=options.find(x=>
+      x.choice?.foods?.includes("fruit")&&
+      x.choice?.foods?.includes("rodent"));
+    assert.ok(selected,"Raven must offer mixed food pairs");
+    const before={...s.players[0].food};
+    s=applyAction(s,{type:"power",choice:selected.choice});
+    assert.equal(s.players[0].food.fruit,before.fruit+1);
+    assert.equal(s.players[0].food.rodent,before.rodent+1);
+    assertValid(s);
+  }
+});
+test("all-player bowl egg powers give owner a distinct extra bird target",()=>{
+  let s=prepared(899);
+  const addNest=(owner)=>{
+    const id=s.deck.find(id=>BIRDS[id].nest==="bowl"&&BIRDS[id].eggs>=2);
+    assert.ok(id!==undefined);
+    s.deck.splice(s.deck.indexOf(id),1);
+    const habitat=BIRDS[id].habitats[0];
+    const index=s.players[owner].habitats[habitat].length;
+    s.players[owner].habitats[habitat].push({
+      id,eggs:0,cached:[],tucked:[]
+    });
+    return {habitat,index};
+  };
+  addNest(0);addNest(0);addNest(1);addNest(2);
+  pending(s,54);
+  s=applyAction(s,{type:"power",choice:firstChoice(s)});
+  assert.equal(s.phase,"power");
+  let originalTarget=null,secondarySeen=false,steps=0;
+  while(s.phase==="power"){
+    if(++steps>15)throw Error("all-player egg effect did not terminate");
+    const effect=s.pending[0];
+    const options=powerChoices(s);
+    const choice=options.find(x=>x.type!=="skip")??options[0];
+    assert.ok(choice);
+    if(effect.owner===0 && !effect.event.secondary){
+      originalTarget=choice.choice;
+    }
+    if(effect.owner===0 && effect.event.secondary){
+      secondarySeen=true;
+      assert.ok(originalTarget);
+      assert.ok(!options.some(x=>x.choice?.habitat===originalTarget.habitat&&
+        x.choice?.index===originalTarget.index),
+        "Extra egg cannot go on the original bowl bird");
+    }
+    s=applyAction(s,choice.type==="skip"?
+      {type:"power",skip:true}:{type:"power",choice:choice.choice});
+    assertValid(s);
+  }
+  assert.ok(secondarySeen,"Owner had two eligible birds and must see extra option");
+});
