@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-      - feat/pentago-analysis-mvp
+      - feat/wingspan-base-game
   workflow_dispatch:
 
 permissions:
@@ -36,6 +36,7 @@ jobs:
           npm run check
           npm run verify:gameplay
           if [ -f pentago/index.html ]; then npm run verify:pentago; fi
+          if [ -f wingspan/index.html ]; then npm run verify:wingspan; fi
       - name: Stage only the public-facing website
         run: |
           set -eu
@@ -46,6 +47,13 @@ jobs:
             mkdir -p preview/pentago
             cp pentago/index.html pentago/styles.css pentago/core.js \
               pentago/ai.js pentago/worker.js pentago/app.js preview/pentago/
+          fi
+          if [ -f wingspan/index.html ]; then
+            mkdir -p preview/wingspan
+            cp wingspan/index.html wingspan/styles.css wingspan/catalog.js \
+              wingspan/core.js wingspan/scoring.js wingspan/powers.js \
+              wingspan/actions.js wingspan/observations.js wingspan/analysis.js \
+              wingspan/worker.js wingspan/app.js preview/wingspan/
           fi
           touch preview/.nojekyll
           test -f preview/index.html

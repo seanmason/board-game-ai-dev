@@ -4,13 +4,14 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "check": "node --check src/azul.js && node --check src/mcts.js && node --check src/ai-worker.js && node --check src/app.js && node --check benchmarks/opponents.js && node --check scripts/benchmark-tree-reuse.mjs && node --check pentago/core.js && node --check pentago/ai.js && node --check pentago/worker.js && node --check pentago/app.js && node --check wingspan/catalog.js && node --check wingspan/scoring.js && node --check wingspan/powers.js && node --check wingspan/core.js",
+    "check": "node --check src/azul.js && node --check src/mcts.js && node --check src/ai-worker.js && node --check src/app.js && node --check benchmarks/opponents.js && node --check scripts/benchmark-tree-reuse.mjs && node --check pentago/core.js && node --check pentago/ai.js && node --check pentago/worker.js && node --check pentago/app.js && node --check wingspan/catalog.js && node --check wingspan/scoring.js && node --check wingspan/powers.js && node --check wingspan/core.js && node --check wingspan/actions.js && node --check wingspan/observations.js && node --check wingspan/analysis.js && node --check wingspan/worker.js && node --check wingspan/app.js",
     "verify:gameplay": "node scripts/verify-gameplay.mjs",
     "benchmark:ai": "node scripts/benchmark-ai.mjs",
     "benchmark:search": "node scripts/benchmark-search.mjs",
     "benchmark:reuse": "node scripts/benchmark-tree-reuse.mjs",
     "verify:pentago": "node scripts/verify-pentago.mjs",
-    "benchmark:pentago": "node scripts/benchmark-pentago.mjs"
+    "benchmark:pentago": "node scripts/benchmark-pentago.mjs",
+    "verify:wingspan": "node scripts/verify-wingspan.mjs"
   },
   "engines": {
     "node": ">=20"

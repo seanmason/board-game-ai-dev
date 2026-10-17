@@ -116,6 +116,7 @@ function setupHtml(){
   return '<header class="mast"><div><h1>Pentago</h1>'+
     '<div class="tagline">Two players · Place and rotate · Five in a row</div></div>'+
     '<div class="mast-controls"><a href="../" title="Open Azul">Azul ↗</a>'+
+    '<a href="../wingspan/" title="Open Wingspan">Wingspan ↗</a>'+
     '<select id="mode" aria-label="Game mode">'+
     '<option value="physical"'+(game.mode==="physical"?" selected":"")+
       '>Physical board</option><option value="digital"'+(game.mode==="digital"?" selected":"")+

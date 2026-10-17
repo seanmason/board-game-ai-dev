@@ -1,6 +1,6 @@
 # Tabletop Observatory — Board Game AI
 
-A browser-native strategy-game companion and analysis workbench. Games: **Azul** and **Pentago** (in development).
+A browser-native strategy-game companion and analysis workbench. Games: **Azul**, **Pentago**, and **Wingspan** (experimental base-game prototype).
 
 **Primary workflows:** enter moves and factory refills from a real physical board, or analyze candidate actions and continuations in a KataGo-inspired interface. Full digital play is also supported as an experimental secondary workflow.
 
@@ -126,3 +126,35 @@ npm run benchmark:pentago -- --games=24 --playouts=32 --opponent=greedy
 See [Pentago architecture and testing requirements](docs/PENTAGO_ARCHITECTURE.md).
 
 See [Pentago validation and benchmarks](docs/PENTAGO_VALIDATION.md) for testing evidence and limitations.
+
+
+## Wingspan original base-game prototype (draft)
+
+The experimental Wingspan build is in `wingspan/` and deploys at
+https://seanmason.github.io/board-game-ai-dev/wingspan/ on the
+Wingspan development branch.
+
+The 170 original bird cards exclude the ten optional Swift-Start additions.
+The 26 base bonus cards and 16 round-goal faces are modeled. The prototype
+tracks starting hand/food exchange, four rounds (8/7/6/5 turns per player),
+card/food/egg costs, habitat action progression, basic bonus/endgame scoring,
+optional bird power decisions, private/public card information, undo/redo,
+physical card/food observations, and sampled *utility* analysis without
+pretending to know hidden deck order. Bird and goal visuals are original
+and text-only; no licensed card illustrations are used.
+
+**Research status:** The power engine covers 67 effect archetypes in code,
+but not every complex card choice, reveal or interaction has been externally
+verified. This is **not a certified complete Wingspan digital adaptation**.
+Research, user testing, and per-power independent tests must precede a
+finished release. The physical mode reconciles observed public cards, but
+unobserved random deck draws remain uncertain.
+
+```sh
+npm test
+npm run verify:wingspan
+python3 -m http.server 8080
+# open /wingspan/
+```
+
+See [base-game implementation scope](docs/WINGSPAN_ARCHITECTURE.md).
