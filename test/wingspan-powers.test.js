@@ -144,3 +144,74 @@ test("multiplayer shared bird draw preserves the initial player and all card ide
   assert.equal(s.players[1].hand.length,1);
   assert.equal(s.players[2].hand.length,1);
 });
+
+
+test("Acorn Woodpecker may keep feeder seed as food OR cache it",()=>{
+  let s=prepared(455);
+  pending(s,1);
+  s.feeder=["seed","fish"];
+  const choices=powerChoices(s).filter(x=>x.type!=="skip");
+  assert.ok(choices.some(x=>x.choice.cache===false));
+  assert.ok(choices.some(x=>x.choice.cache===true));
+  const inHand=applyAction(s,{type:"power",
+    choice:choices.find(x=>x.choice.cache===false).choice});
+  const cached=applyAction(s,{type:"power",
+    choice:choices.find(x=>x.choice.cache===true).choice});
+  const bird=BIRDS.find(x=>x.powerCode===1);
+  const habitat=bird.habitats[0];
+  assert.equal(inHand.players[0].food.seed,s.players[0].food.seed+1);
+  assert.equal(inHand.players[0].habitats[habitat][0].cached.length,0);
+  assert.equal(cached.players[0].food.seed,s.players[0].food.seed);
+  assert.deepEqual(cached.players[0].habitats[habitat][0].cached,["seed"]);
+  assertValid(inHand);assertValid(cached);
+});
+test("Anna's Hummingbird can choose a different player to start feeder picks",()=>{
+  let s=prepared(456);
+  pending(s,11);
+  s.feeder=["seed","fish","fruit","rodent","invertebrate"];
+  const starter=powerChoices(s).find(x=>x.choice?.firstPlayer===2);
+  assert.ok(starter);
+  s=applyAction(s,{type:"power",choice:starter.choice});
+  assert.equal(s.pending[0].code,1011);
+  assert.equal(s.pending[0].owner,2);
+  const original=s.players.map(p=>FOOD.reduce((n,f)=>n+p.food[f],0));
+  const sequence=[];
+  while(s.phase==="power"){
+    assert.equal(s.pending[0].code,1011);
+    sequence.push(s.pending[0].owner);
+    s=applyAction(s,{type:"power",choice:firstChoice(s)});
+    assertValid(s);
+  }
+  assert.deepEqual(sequence,[2,0,1]);
+  s.players.forEach((p,i)=>assert.equal(
+    FOOD.reduce((n,f)=>n+p.food[f],0),original[i]+1));
+});
+test("pink parasite responds to lay eggs action even if zero eggs were actually laid",async()=>{
+  let s=prepared(457);
+  const bird=BIRDS.find(x=>x.powerCode===2);
+  const powerAvailable=(await import("../wingspan/powers.js")).powerAvailable;
+  assert.ok(powerAvailable(s,{
+    owner:0,birdId:bird.id,code:2,timing:"pink",
+    event:{type:"layEggs",actor:1,count:0}
+  }));
+  assert.ok(!powerAvailable(s,{
+    owner:0,birdId:bird.id,code:2,timing:"pink",
+    event:{type:"drawBirds",actor:1}
+  }));
+});
+test("optional card draws defer their mandatory hand discard until the other brown powers",()=>{
+  let s=prepared(458);
+  pending(s,21);
+  const after21=s.pending[0];
+  const other=place(s,66,{owner:0});
+  s.pending.push({...after21,index:other.index,habitat:other.habitat,
+    birdId:other.bird.id,code:66});
+  s=applyAction(s,{type:"power",choice:firstChoice(s)});
+  assert.equal(s.pending[0].code,66);
+  assert.equal(s.pending[1].code,1000);
+  s=applyAction(s,{type:"power",choice:firstChoice(s)});
+  assert.equal(s.pending[0].code,1000);
+  assert.ok(!powerChoices(s).some(x=>x.type==="skip"));
+  s=applyAction(s,{type:"power",choice:firstChoice(s)});
+  assertValid(s);
+});
