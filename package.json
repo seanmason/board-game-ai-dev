@@ -7,7 +7,8 @@
     "check": "node --check src/azul.js && node --check src/mcts.js && node --check src/ai-worker.js && node --check src/app.js",
     "verify:gameplay": "node scripts/verify-gameplay.mjs",
     "benchmark:ai": "node scripts/benchmark-ai.mjs",
-    "benchmark:search": "node scripts/benchmark-search.mjs"
+    "benchmark:search": "node scripts/benchmark-search.mjs",
+    "benchmark:reuse": "node scripts/benchmark-tree-reuse.mjs"
   },
   "engines": {
     "node": ">=20"

@@ -1,0 +1,59 @@
+name: Diverse opponent research
+
+# Research-only before promoting the validated feature to Pages.
+on:
+  push:
+    branches: [feat/mcts-tree-reuse]
+    paths:
+      - .github/workflows/opponents.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tournament:
+    name: ${{ matrix.variant }} · ${{ matrix.opponent }} · ${{ matrix.players }}p
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [guided-informed, baseline]
+        opponent: [informed, stochastic, denial, mixed, legacy-uct]
+        players: [2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Play complete deterministic opponent games
+        shell: bash
+        run: |
+          set -euo pipefail
+          games=24
+          playouts=128
+          opponent_playouts=64
+          if [ "${{ matrix.opponent }}" = "legacy-uct" ]; then
+            games=12
+            playouts=64
+          fi
+          node scripts/benchmark-ai.mjs \
+            --variant=${{ matrix.variant }} \
+            --opponent=${{ matrix.opponent }} \
+            --opponent-playouts="$opponent_playouts" \
+            --players=${{ matrix.players }} \
+            --games="$games" --playouts="$playouts" \
+            --seed=74331 | tee benchmark.json
+          {
+            echo '### Diverse Azul opponents'
+            echo
+            echo 'Research baselines with fixed seed 74331; not a human-strength certification.'
+            echo '```json'
+            cat benchmark.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: diverse-${{ matrix.variant }}-${{ matrix.opponent }}-${{ matrix.players }}p
+          path: benchmark.json
