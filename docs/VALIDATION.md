@@ -73,3 +73,28 @@ sufficient games, and uncertainty estimates.
 A developer-branch Pages preview is permitted when unit tests, 10,000-game
 oracle comparison, syntax checks and selected web assets pass. It is a
 preview, **not a final public game release**.
+
+## First controlled strength baseline (2026-10-17)
+
+Run: https://github.com/seanmason/board-game-ai-dev/actions/runs/39003517053
+
+The MCTS agent searched **256 playouts per decision** against independent
+greedy heuristic opponents. Each player count used **24 seeded games** with
+the MCTS seat and starting player independently rotated.
+
+| Players | MCTS win share | Approximate 95% Wilson interval | Mean score margin vs opponents |
+| --- | ---: | ---: | ---: |
+| 2 | 62.5% | 42.7–78.8% | −1.00 |
+| 3 | 6.3% | 1.5–23.1% | −18.06 |
+| 4 | 0% | 0–13.8% | −20.47 |
+
+The 3-player result includes a shared win; Wilson bounds on fractional
+win shares are approximations. Samples are too small to certify strength.
+These results suggest serious multiplayer weakness against the baseline
+and justify future changes to rollout/opponent modeling and search
+allocation. The stronger two-player result does not establish
+master-level performance.
+
+An earlier 64-playout experiment unintentionally correlated the AI seat
+with the round starter; its results should not be treated as a fair
+controlled comparison with these later figures.

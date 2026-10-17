@@ -174,3 +174,20 @@ test("partial factory setups are allowed when bag and lid are exhausted", () => 
   assert.equal(result.factories[1].length,0);
   assert.deepEqual(result.bag,[0,0,0,0,0]);
 });
+
+test("bag reaching exactly zero does not recycle the lid early",()=>{
+  const s=newGame();
+  s.bag=[4,4,4,4,4];
+  s.discard=[16,16,16,16,16];
+  const factories=[
+    [0,1,2,3],[4,0,1,2],[3,4,0,1],[2,3,4,0],[1,2,3,4]
+  ];
+  const actual=recordFactories(s,factories);
+  assert.deepEqual(actual.bag,[0,0,0,0,0]);
+  assert.deepEqual(actual.discard,[16,16,16,16,16]);
+  assertValid(actual);
+  // Recycled colors cannot be observed prematurely while old bag is sufficient.
+  const bad=factories.map(f=>[...f]);
+  bad[0][0]=4;
+  assert.throws(()=>recordFactories(s,bad),/White/);
+});
