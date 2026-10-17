@@ -7,7 +7,7 @@ import {
 } from "../src/azul.js";
 
 test("setup and observed factory validation preserve tile counts", () => {
-  const s = recordFactories(newGame({players: 2}), [[0, 0, 1, 2], [3, 3, 3, 3], [4], [], []]);
+  const s = recordFactories(newGame({players: 2}), [[0, 0, 1, 2], [3, 3, 3, 3], [4, 4, 4, 4], [0, 1, 2, 3], [0, 1, 2, 3]]);
   assert.equal(s.phase, "draft");
   assert.deepEqual(tileCounts(s), [20, 20, 20, 20, 20]);
   assertValid(s);
@@ -107,4 +107,70 @@ test("seeded random game, legal actions, and all 100 tiles remain conserved", ()
   }
   assert.ok(moves < 1000, "Game should terminate under a random legal policy");
   assert.equal(outcomes(s).reduce((a, b) => a + b, 0), 1);
+});
+
+
+// The printed rulebook permits refilling the bag from the box lid partway
+// through factory setup. Factory contents have no significant tile order.
+test("physical refill correctly recycles bag and lid regardless of entry order", () => {
+  const s = newGame();
+  s.round = 4;
+  s.bag = [1, 1, 0, 0, 0];
+  s.discard = [19, 19, 20, 20, 20];
+  assertValid(s);
+  // Recycled colors may be entered BEFORE the old-bag colors in the interface.
+  const displays = [
+    [2,2,2,2],
+    [3,3,3,3],
+    [4,4,4,4],
+    [0,1,2,3],
+    [0,1,4,3]
+  ];
+  const resulting = recordFactories(s, displays);
+  assert.equal(resulting.phase, "draft");
+  assert.equal(resulting.bag.reduce((a,b)=>a+b), 80);
+  assert.deepEqual(resulting.discard, [0,0,0,0,0]);
+  assert.deepEqual(resulting.factories, displays);
+  assertValid(resulting);
+  // Same multiset in a different factory order is legal and has same bag.
+  const reordered = recordFactories(s, [...displays].reverse());
+  assert.deepEqual(reordered.bag, resulting.bag);
+  assertValid(reordered);
+  assert.deepEqual(s.bag, [1,1,0,0,0], "Observation must not mutate source state");
+});
+
+test("physical refill rejects impossible observed mixtures atomically", () => {
+  const s = newGame();
+  s.bag = [1,1,0,0,0];
+  s.discard = [19,19,20,20,20];
+  const wrong = [
+    [2,2,2,2], [3,3,3,3], [4,4,4,4], [0,2,2,3], [0,2,4,3]
+  ]; // Old bag yellow tile is missing: cannot recycle yet.
+  assert.throws(() => recordFactories(s, wrong), /Yellow/);
+  assert.deepEqual(s.bag, [1,1,0,0,0]);
+  const short = [[0,1],[2,2,2,2],[3,3,3,3],[4,4,4,4],[0,1,2,3]];
+  assert.throws(() => recordFactories(s, short), /Factory 1/);
+});
+
+test("partial factory setups are allowed when bag and lid are exhausted", () => {
+  const s = newGame({players:4,starter:3});
+  s.bag = [1,1,0,0,0];
+  s.discard = [0,0,0,0,0];
+  // Set aside the other 98 tiles as wall placements, preserving conservation.
+  let rest = [19,19,20,20,20];
+  for (const p of s.players) {
+    for (let r=0;r<5;r++) for (let c=0;c<5;c++) {
+      const color=(c-r+5)%5;
+      if (rest[color] > 0) { p.wall[r][c]=true; rest[color]--; }
+    }
+  }
+  // Inventory leftover tiles need to be represented somewhere; assign these
+  // to the discard pool for an invariant-valid synthetic short-refill case.
+  // A complete legal game often cannot reach this extreme, so test the refill
+  // protocol independently of global tile accounting.
+  const result = recordFactories(s, [[0,1],[],[],[],[],[],[],[],[]]);
+  assert.equal(result.currentPlayer,3);
+  assert.equal(result.factories[0].length,2);
+  assert.equal(result.factories[1].length,0);
+  assert.deepEqual(result.bag,[0,0,0,0,0]);
 });
