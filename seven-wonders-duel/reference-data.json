@@ -1,0 +1,1477 @@
+{
+  "source": "koenheltzel/bga-sevenwondersduel",
+  "commit": "f023693fa764eedbfea5f858749a09253e6064f3",
+  "path": "modules/php/Material.php",
+  "sourceSha256": "9a1feb4f0ecae6ebb65f9af10895033b019b2e5463aa1e1c35c62d00f0dc9fa4",
+  "cards": {
+    "c1": {
+      "id": "c1",
+      "name": "Lumber Yard",
+      "age": 1,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "produce": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "c2": {
+      "id": "c2",
+      "name": "Stone Pit",
+      "age": 1,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 1,
+      "points": 0,
+      "produce": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "c3": {
+      "id": "c3",
+      "name": "Clay Pool",
+      "age": 1,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "produce": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "c4": {
+      "id": "c4",
+      "name": "Logging Camp",
+      "age": 1,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 1,
+      "points": 0,
+      "produce": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "c5": {
+      "id": "c5",
+      "name": "Quarry",
+      "age": 1,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "produce": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "c6": {
+      "id": "c6",
+      "name": "Clay Pit",
+      "age": 1,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 1,
+      "points": 0,
+      "produce": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "c7": {
+      "id": "c7",
+      "name": "Glassworks",
+      "age": 1,
+      "color": "grey",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 1,
+      "points": 0,
+      "produce": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    "c8": {
+      "id": "c8",
+      "name": "Press",
+      "age": 1,
+      "color": "grey",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 1,
+      "points": 0,
+      "produce": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "c9": {
+      "id": "c9",
+      "name": "Stable",
+      "age": 1,
+      "color": "red",
+      "cost": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 1
+    },
+    "c10": {
+      "id": "c10",
+      "name": "Garrison",
+      "age": 1,
+      "color": "red",
+      "cost": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 1
+    },
+    "c11": {
+      "id": "c11",
+      "name": "Palisade",
+      "age": 1,
+      "color": "red",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 2,
+      "points": 0,
+      "shields": 1
+    },
+    "c12": {
+      "id": "c12",
+      "name": "Guard Tower",
+      "age": 1,
+      "color": "red",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 1
+    },
+    "c13": {
+      "id": "c13",
+      "name": "Scriptorium",
+      "age": 1,
+      "color": "green",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 2,
+      "points": 0,
+      "science": 6
+    },
+    "c14": {
+      "id": "c14",
+      "name": "Workshop",
+      "age": 1,
+      "color": "green",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 1,
+      "science": 5
+    },
+    "c15": {
+      "id": "c15",
+      "name": "Pharmacist",
+      "age": 1,
+      "color": "green",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 2,
+      "points": 0,
+      "science": 4
+    },
+    "c16": {
+      "id": "c16",
+      "name": "Apothecary",
+      "age": 1,
+      "color": "green",
+      "cost": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 1,
+      "science": 7
+    },
+    "c17": {
+      "id": "c17",
+      "name": "Tavern",
+      "age": 1,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "gain": 4
+    },
+    "c18": {
+      "id": "c18",
+      "name": "Stone Reserve",
+      "age": 1,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 3,
+      "points": 0,
+      "discount": [
+        2
+      ]
+    },
+    "c19": {
+      "id": "c19",
+      "name": "Clay Reserve",
+      "age": 1,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 3,
+      "points": 0,
+      "discount": [
+        1
+      ]
+    },
+    "c20": {
+      "id": "c20",
+      "name": "Wood Reserve",
+      "age": 1,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 3,
+      "points": 0,
+      "discount": [
+        0
+      ]
+    },
+    "c21": {
+      "id": "c21",
+      "name": "Theater",
+      "age": 1,
+      "color": "blue",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 3
+    },
+    "c22": {
+      "id": "c22",
+      "name": "Altar",
+      "age": 1,
+      "color": "blue",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 3
+    },
+    "c23": {
+      "id": "c23",
+      "name": "Baths",
+      "age": 1,
+      "color": "blue",
+      "cost": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 3
+    },
+    "c24": {
+      "id": "c24",
+      "name": "Sawmill",
+      "age": 2,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 2,
+      "points": 0,
+      "produce": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "c25": {
+      "id": "c25",
+      "name": "Shelf Quarry",
+      "age": 2,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 2,
+      "points": 0,
+      "produce": [
+        0,
+        0,
+        2,
+        0,
+        0
+      ]
+    },
+    "c26": {
+      "id": "c26",
+      "name": "Brickyard",
+      "age": 2,
+      "color": "brown",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 2,
+      "points": 0,
+      "produce": [
+        0,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    "c27": {
+      "id": "c27",
+      "name": "Glass-Blower",
+      "age": 2,
+      "color": "grey",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "produce": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    "c28": {
+      "id": "c28",
+      "name": "Drying Room",
+      "age": 2,
+      "color": "grey",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "produce": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "c29": {
+      "id": "c29",
+      "name": "Horse Breeders",
+      "age": 2,
+      "color": "red",
+      "cost": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 1,
+      "chain": "c9"
+    },
+    "c30": {
+      "id": "c30",
+      "name": "Barracks",
+      "age": 2,
+      "color": "red",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 3,
+      "points": 0,
+      "shields": 1,
+      "chain": "c10"
+    },
+    "c31": {
+      "id": "c31",
+      "name": "Walls",
+      "age": 2,
+      "color": "red",
+      "cost": [
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 2
+    },
+    "c32": {
+      "id": "c32",
+      "name": "Archery Range",
+      "age": 2,
+      "color": "red",
+      "cost": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 2
+    },
+    "c33": {
+      "id": "c33",
+      "name": "Parade Ground",
+      "age": 2,
+      "color": "red",
+      "cost": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 2
+    },
+    "c34": {
+      "id": "c34",
+      "name": "School",
+      "age": 2,
+      "color": "green",
+      "cost": [
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coins": 0,
+      "points": 1,
+      "science": 7
+    },
+    "c35": {
+      "id": "c35",
+      "name": "Laboratory",
+      "age": 2,
+      "color": "green",
+      "cost": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ],
+      "coins": 0,
+      "points": 1,
+      "science": 5
+    },
+    "c36": {
+      "id": "c36",
+      "name": "Dispensary",
+      "age": 2,
+      "color": "green",
+      "cost": [
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 2,
+      "science": 4,
+      "chain": "c15"
+    },
+    "c37": {
+      "id": "c37",
+      "name": "Library",
+      "age": 2,
+      "color": "green",
+      "cost": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 2,
+      "science": 6,
+      "chain": "c13"
+    },
+    "c38": {
+      "id": "c38",
+      "name": "Brewery",
+      "age": 2,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "gain": 6
+    },
+    "c39": {
+      "id": "c39",
+      "name": "Forum",
+      "age": 2,
+      "color": "yellow",
+      "cost": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "coins": 3,
+      "points": 0,
+      "choice": [
+        3,
+        4
+      ]
+    },
+    "c40": {
+      "id": "c40",
+      "name": "Caravansery",
+      "age": 2,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coins": 2,
+      "points": 0,
+      "choice": [
+        0,
+        1,
+        2
+      ]
+    },
+    "c41": {
+      "id": "c41",
+      "name": "Customs House",
+      "age": 2,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 4,
+      "points": 0,
+      "discount": [
+        3,
+        4
+      ]
+    },
+    "c42": {
+      "id": "c42",
+      "name": "Temple",
+      "age": 2,
+      "color": "blue",
+      "cost": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 4,
+      "chain": "c22"
+    },
+    "c43": {
+      "id": "c43",
+      "name": "Statue",
+      "age": 2,
+      "color": "blue",
+      "cost": [
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 4,
+      "chain": "c21"
+    },
+    "c44": {
+      "id": "c44",
+      "name": "Courthouse",
+      "age": 2,
+      "color": "blue",
+      "cost": [
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 5
+    },
+    "c45": {
+      "id": "c45",
+      "name": "Aqueduct",
+      "age": 2,
+      "color": "blue",
+      "cost": [
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 5,
+      "chain": "c23"
+    },
+    "c46": {
+      "id": "c46",
+      "name": "Rostrum",
+      "age": 2,
+      "color": "blue",
+      "cost": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 4
+    },
+    "c47": {
+      "id": "c47",
+      "name": "Circus",
+      "age": 3,
+      "color": "red",
+      "cost": [
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 2,
+      "chain": "c33"
+    },
+    "c48": {
+      "id": "c48",
+      "name": "Arsenal",
+      "age": 3,
+      "color": "red",
+      "cost": [
+        2,
+        3,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 3
+    },
+    "c49": {
+      "id": "c49",
+      "name": "Siege Workshop",
+      "age": 3,
+      "color": "red",
+      "cost": [
+        3,
+        0,
+        0,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 2,
+      "chain": "c32"
+    },
+    "c50": {
+      "id": "c50",
+      "name": "Fortifications",
+      "age": 3,
+      "color": "red",
+      "cost": [
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 0,
+      "shields": 2,
+      "chain": "c11"
+    },
+    "c51": {
+      "id": "c51",
+      "name": "Pretorium",
+      "age": 3,
+      "color": "red",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coins": 8,
+      "points": 0,
+      "shields": 3
+    },
+    "c52": {
+      "id": "c52",
+      "name": "Academy",
+      "age": 3,
+      "color": "green",
+      "cost": [
+        1,
+        0,
+        1,
+        2,
+        0
+      ],
+      "coins": 0,
+      "points": 3,
+      "science": 3
+    },
+    "c53": {
+      "id": "c53",
+      "name": "University",
+      "age": 3,
+      "color": "green",
+      "cost": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 2,
+      "science": 1,
+      "chain": "c34"
+    },
+    "c54": {
+      "id": "c54",
+      "name": "Study",
+      "age": 3,
+      "color": "green",
+      "cost": [
+        2,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 3,
+      "science": 3
+    },
+    "c55": {
+      "id": "c55",
+      "name": "Observatory",
+      "age": 3,
+      "color": "green",
+      "cost": [
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coins": 0,
+      "points": 2,
+      "science": 1,
+      "chain": "c35"
+    },
+    "c56": {
+      "id": "c56",
+      "name": "Arena",
+      "age": 3,
+      "color": "yellow",
+      "cost": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 3,
+      "chain": "c38",
+      "per": "wonders",
+      "rate": 2
+    },
+    "c57": {
+      "id": "c57",
+      "name": "Chamber Of Commerce",
+      "age": 3,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "coins": 0,
+      "points": 3,
+      "per": "grey",
+      "rate": 3
+    },
+    "c58": {
+      "id": "c58",
+      "name": "Port",
+      "age": 3,
+      "color": "yellow",
+      "cost": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 3,
+      "per": "brown",
+      "rate": 2
+    },
+    "c59": {
+      "id": "c59",
+      "name": "Lighthouse",
+      "age": 3,
+      "color": "yellow",
+      "cost": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 3,
+      "chain": "c17",
+      "per": "yellow",
+      "rate": 1
+    },
+    "c60": {
+      "id": "c60",
+      "name": "Armory",
+      "age": 3,
+      "color": "yellow",
+      "cost": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 3,
+      "per": "red",
+      "rate": 1
+    },
+    "c61": {
+      "id": "c61",
+      "name": "Palace",
+      "age": 3,
+      "color": "blue",
+      "cost": [
+        1,
+        1,
+        1,
+        2,
+        0
+      ],
+      "coins": 0,
+      "points": 7
+    },
+    "c62": {
+      "id": "c62",
+      "name": "Gardens",
+      "age": 3,
+      "color": "blue",
+      "cost": [
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 6,
+      "chain": "c43"
+    },
+    "c63": {
+      "id": "c63",
+      "name": "Pantheon",
+      "age": 3,
+      "color": "blue",
+      "cost": [
+        1,
+        1,
+        0,
+        0,
+        2
+      ],
+      "coins": 0,
+      "points": 6,
+      "chain": "c42"
+    },
+    "c64": {
+      "id": "c64",
+      "name": "Town Hall",
+      "age": 3,
+      "color": "blue",
+      "cost": [
+        2,
+        0,
+        3,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 7
+    },
+    "c65": {
+      "id": "c65",
+      "name": "Senate",
+      "age": 3,
+      "color": "blue",
+      "cost": [
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 5,
+      "chain": "c46"
+    },
+    "c66": {
+      "id": "c66",
+      "name": "Obelisk",
+      "age": 3,
+      "color": "blue",
+      "cost": [
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 5
+    },
+    "c67": {
+      "id": "c67",
+      "name": "Merchants Guild",
+      "age": 4,
+      "color": "purple",
+      "cost": [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 0,
+      "guild": [
+        "yellow"
+      ]
+    },
+    "c68": {
+      "id": "c68",
+      "name": "Shipowners Guild",
+      "age": 4,
+      "color": "purple",
+      "cost": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 0,
+      "guild": [
+        "brown",
+        "grey"
+      ]
+    },
+    "c69": {
+      "id": "c69",
+      "name": "Builders Guild",
+      "age": 4,
+      "color": "purple",
+      "cost": [
+        1,
+        1,
+        2,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "guild": [
+        "wonders"
+      ],
+      "rate": 2
+    },
+    "c70": {
+      "id": "c70",
+      "name": "Magistrates Guild",
+      "age": 4,
+      "color": "purple",
+      "cost": [
+        2,
+        1,
+        0,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 0,
+      "guild": [
+        "blue"
+      ]
+    },
+    "c71": {
+      "id": "c71",
+      "name": "Scientists Guild",
+      "age": 4,
+      "color": "purple",
+      "cost": [
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "guild": [
+        "green"
+      ]
+    },
+    "c72": {
+      "id": "c72",
+      "name": "Moneylenders Guild",
+      "age": 4,
+      "color": "purple",
+      "cost": [
+        2,
+        0,
+        2,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 0,
+      "guild": [
+        "treasury"
+      ]
+    },
+    "c73": {
+      "id": "c73",
+      "name": "Tacticians Guild",
+      "age": 4,
+      "color": "purple",
+      "cost": [
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 0,
+      "guild": [
+        "red"
+      ]
+    }
+  },
+  "wonders": {
+    "w1": {
+      "id": "w1",
+      "name": "The Pyramids",
+      "cost": [
+        0,
+        0,
+        3,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 9
+    },
+    "w2": {
+      "id": "w2",
+      "name": "The Colossus",
+      "cost": [
+        0,
+        3,
+        0,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 3,
+      "shields": 2
+    },
+    "w3": {
+      "id": "w3",
+      "name": "The Great Lighthouse",
+      "cost": [
+        1,
+        0,
+        1,
+        0,
+        2
+      ],
+      "coins": 0,
+      "points": 4,
+      "choice": [
+        0,
+        1,
+        2
+      ]
+    },
+    "w4": {
+      "id": "w4",
+      "name": "The Temple of Artemis",
+      "cost": [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 0,
+      "gain": 12,
+      "replay": true
+    },
+    "w5": {
+      "id": "w5",
+      "name": "The Mausoleum",
+      "cost": [
+        0,
+        2,
+        0,
+        2,
+        1
+      ],
+      "coins": 0,
+      "points": 2,
+      "recover": true
+    },
+    "w6": {
+      "id": "w6",
+      "name": "The Great Library",
+      "cost": [
+        3,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 4,
+      "library": true
+    },
+    "w7": {
+      "id": "w7",
+      "name": "Piraeus",
+      "cost": [
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "coins": 0,
+      "points": 2,
+      "choice": [
+        3,
+        4
+      ],
+      "replay": true
+    },
+    "w8": {
+      "id": "w8",
+      "name": "The Hanging Gardens",
+      "cost": [
+        2,
+        0,
+        0,
+        1,
+        1
+      ],
+      "coins": 0,
+      "points": 3,
+      "gain": 6,
+      "replay": true
+    },
+    "w9": {
+      "id": "w9",
+      "name": "The Statue of Zeus",
+      "cost": [
+        1,
+        1,
+        1,
+        0,
+        2
+      ],
+      "coins": 0,
+      "points": 3,
+      "shields": 1,
+      "destroy": "brown"
+    },
+    "w10": {
+      "id": "w10",
+      "name": "The Sphinx",
+      "cost": [
+        0,
+        1,
+        1,
+        2,
+        0
+      ],
+      "coins": 0,
+      "points": 6,
+      "replay": true
+    },
+    "w11": {
+      "id": "w11",
+      "name": "The Appian Way",
+      "cost": [
+        0,
+        2,
+        2,
+        0,
+        1
+      ],
+      "coins": 0,
+      "points": 3,
+      "gain": 3,
+      "loot": 3,
+      "replay": true
+    },
+    "w12": {
+      "id": "w12",
+      "name": "Circus Maximus",
+      "cost": [
+        1,
+        0,
+        2,
+        1,
+        0
+      ],
+      "coins": 0,
+      "points": 3,
+      "shields": 1,
+      "destroy": "grey"
+    }
+  }
+}

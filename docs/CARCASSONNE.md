@@ -28,7 +28,7 @@ two fields separated by the road ending at the city. Road/city walls divide farm
 monasteries and decorative buildings do not. Each rotation transforms ports, while
 feature IDs remain stable for session history.
 
-`audit-carcassonne-catalog.mjs --fetch` downloads both pinned evidence PDFs, checks
+`audit-carcassonne-catalog.mjs --fetch` downloads all three pinned evidence PDFs, checks
 their hashes, extracts p22 using `pdftotext`, and checks every printed multiplicity.
 Offline auditing checks all counts, boundary coverage and field-city references.
 This is a manual topology transcription plus automated structural checks, not an
@@ -65,7 +65,9 @@ not provenance or legality of every historical transition.
 The SVG landscape supports mouse/touch pan, wheel/pinch zoom, fit-to-board,
 coordinates, orientation-aware placements, and explicit feature selection including
 farmers. Draw identification offers all available types, diagrams and name filters.
-Moves are recorded manually. Candidate hovering previews a placement; a separate
+Moves are recorded manually. Candidate hovering previews a placement and pins the displayed action while analysis
+continues. Buttons carry their own action payload, so reranking cannot change a
+recorded action between display and click; a separate
 button records it. Scores explain feature type, tile/shield or city count and winners.
 Undo/redo, timeline, local autosave and JSON import/export use shared session rules.
 

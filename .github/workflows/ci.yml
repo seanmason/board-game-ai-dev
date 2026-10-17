@@ -16,6 +16,13 @@ jobs:
         run: |
           npm run audit:splendor
           npm run verify:splendor
+      - name: New game source audits and independent rules comparisons
+        run: |
+          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
+            for script in "scripts/audit-$game.mjs" "scripts/audit-$game-catalog.mjs" "scripts/verify-$game.mjs"; do
+              if [ -f "$script" ]; then node "$script"; fi
+            done
+          done
       - name: Benchmark baseline vs guided search on the same runner
         run: npm run benchmark:search
       - name: Verify conditional MCTS reuse metrics

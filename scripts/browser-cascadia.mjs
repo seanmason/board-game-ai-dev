@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';import {createRequire} from 'node:module';
+const {chromium}=createRequire(import.meta.url)('playwright');
+const base=process.env.CASCADIA_BROWSER_BASE??'http://127.0.0.1:8080';
+const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+const page=await browser.newPage({viewport:{width:1200,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+const state=()=>page.evaluate(()=>{const d=JSON.parse(localStorage.getItem('cascadia-session-v1'));return d.history[d.index].state;});
+try{
+ await page.goto(base+'/cascadia/',{waitUntil:'networkidle'});await page.evaluate(()=>localStorage.clear());await page.reload();
+ assert.equal((await state()).phase,'setup');assert.equal((await state()).marketTiles.filter(Boolean).length,0);
+ await page.locator('[data-starter="0,0"]').click();await page.locator('[data-starter="1,1"]').click();await page.locator('#begin').click();
+ for(let i=0;i<4;i++){await page.locator(`[data-draw-tile="${i}"]`).selectOption('t'+i);await page.locator(`[data-draw-token="${i}"]`).selectOption(['B','E','S','H'][i]);}
+ await page.locator('#observe').click();await page.waitForFunction(()=>document.querySelector('#analysis-status').textContent.includes('sampled continuations'));
+ assert.equal((await state()).turn,0,'Analysis cannot autoplay');await page.screenshot({path:'/tmp/cascadia-desktop.png',fullPage:true});
+ await page.locator('[data-draft]').first().click();assert.equal((await state()).phase,'tile');
+ await page.locator('#board .frontier').first().click();const before=await state();await page.locator('#rotate').click();assert.deepEqual(await state(),before,'Placement previews are read only');await page.locator('#commit-placement').click();assert.equal((await state()).phase,'wildlife');
+ await page.locator('#board .eligible').first().click();await page.locator('#commit-placement').click();assert.equal((await state()).phase,'observe');assert.equal((await state()).turn,1);
+ await page.reload();assert.equal((await state()).phase,'observe');await page.locator('#undo').click();assert.equal((await state()).phase,'wildlife');await page.locator('#redo').click();assert.equal((await state()).turn,1);
+ const draw=await state();for(const slot of draw.draw.tiles)await page.locator(`[data-draw-tile="${slot}"]`).selectOption('t4');for(const slot of draw.draw.tokens)await page.locator(`[data-draw-token="${slot}"]`).selectOption('F');await page.locator('#observe').click();
+ await page.waitForFunction(()=>document.querySelector('#analysis-status').textContent.includes('sampled continuations'));await page.locator('#pause').click();await page.waitForFunction(()=>document.querySelector('#analysis-status').textContent.startsWith('Paused'));
+ const paused=await page.locator('#analysis-status').innerText();await page.waitForTimeout(500);assert.equal(await page.locator('#analysis-status').innerText(),paused);await page.locator('#pause').click();await page.waitForFunction(old=>document.querySelector('#analysis-status').textContent!==old,paused);
+ await page.locator('[data-candidate]').first().click();const selected=await page.locator('.advice-review').innerText();await page.waitForTimeout(600);assert.equal(await page.locator('.advice-review').innerText(),selected,'Advice selection is pinned across live reranking');assert.equal((await state()).phase,'draft');await page.locator('#advice-confirm').click();
+ const valid=await state(),bad=structuredClone(valid);bad.players[0].nature=999;await page.locator('#import').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,format:'cascadia-session',history:[{state:bad,label:'bad'}],index:0}))});await page.waitForFunction(()=>document.querySelector('#notice').textContent.includes('Import rejected'));assert.deepEqual(await state(),valid);
+ await page.setViewportSize({width:390,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+3),'Phone horizontal overflow');await page.screenshot({path:'/tmp/cascadia-phone.png',fullPage:true});
+ const standalone=await browser.newPage();standalone.on('pageerror',e=>errors.push(e.message));await standalone.goto(base+'/standalone-cascadia/',{waitUntil:'networkidle'});await standalone.locator('#mode').selectOption('digital');await standalone.locator('#new').click();await standalone.waitForFunction(()=>document.querySelector('#analysis-status').textContent.includes('sampled continuations'));assert.equal(await standalone.locator('.candidate').count()>0,true);await standalone.close();assert.deepEqual(errors,[]);
+ console.log('Cascadia browser passed: actual observations, previews, no autoplay, replacements, persistence, undo/redo, pause/resume, pinned advice, invalid import rejection, phone and standalone worker.');
+}finally{await page.screenshot({path:'/tmp/cascadia-last.png',fullPage:true}).catch(()=>{});await browser.close();}

@@ -1,0 +1,915 @@
+{
+  "game": "patchwork",
+  "opponent": "tuned",
+  "budget": {
+    "nodes": 16
+  },
+  "games": 2,
+  "seed": 73001,
+  "wins": 1,
+  "winRate": 0.5,
+  "wilson95": [
+    0.09452865480086614,
+    0.9054713451991339
+  ],
+  "meanScoreDifference": 9.5,
+  "totalSearchMs": 179.89466900000005,
+  "totalNodes": 608,
+  "notes": "Paired seeded rings with seats reversed. Search width2 versus tuned heuristic or width1 adversarial search. Finite sample and shared placement/evaluation biases; not human Elo. Timed budgets include candidate generation and may overshoot by one node.",
+  "results": [
+    {
+      "seed": 73001,
+      "seat": 0,
+      "edition": "corrected",
+      "scores": [
+        3,
+        16
+      ],
+      "win": false,
+      "difference": -13,
+      "trace": [
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 13,
+            "orientation": 0,
+            "x": 0,
+            "y": 0
+          },
+          "nodes": 16,
+          "ms": 11.913376999999997
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 5,
+            "orientation": 0,
+            "x": 0,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 0.39761000000000024
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.009703999999999269
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 13.226056999999997
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 9,
+            "orientation": 2,
+            "x": 0,
+            "y": 1
+          },
+          "nodes": 0,
+          "ms": 1.2779280000000028
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 11,
+            "orientation": 2,
+            "x": 0,
+            "y": 1
+          },
+          "nodes": 16,
+          "ms": 5.662329
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.013379999999997949
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 2,
+            "orientation": 0,
+            "x": 0,
+            "y": 2
+          },
+          "nodes": 16,
+          "ms": 9.218383000000003
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 33,
+            "orientation": 1,
+            "x": 2,
+            "y": 1
+          },
+          "nodes": 16,
+          "ms": 6.719464000000002
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 14,
+            "orientation": 5,
+            "x": 0,
+            "y": 3
+          },
+          "nodes": 0,
+          "ms": 4.323279999999997
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 27,
+            "orientation": 2,
+            "x": 1,
+            "y": 1
+          },
+          "nodes": 0,
+          "ms": 0.40054400000001067
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 31,
+            "orientation": 1,
+            "x": 4,
+            "y": 1
+          },
+          "nodes": 16,
+          "ms": 2.473470000000006
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 3.7447770000000133
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 24,
+            "orientation": 1,
+            "x": 1,
+            "y": 3
+          },
+          "nodes": 0,
+          "ms": 0.47736000000000445
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 3.6338699999999733
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 22,
+            "orientation": 3,
+            "x": 3,
+            "y": 3
+          },
+          "nodes": 0,
+          "ms": 0.812624999999997
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 3,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 0.07392199999998184
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 18,
+            "orientation": 5,
+            "x": 0,
+            "y": 4
+          },
+          "nodes": 16,
+          "ms": 8.184213
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 29,
+            "orientation": 3,
+            "x": 5,
+            "y": 2
+          },
+          "nodes": 0,
+          "ms": 1.6067830000000072
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 28,
+            "orientation": 0,
+            "x": 2,
+            "y": 6
+          },
+          "nodes": 0,
+          "ms": 4.545736000000005
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 6,
+            "orientation": 0,
+            "x": 3,
+            "y": 5
+          },
+          "nodes": 16,
+          "ms": 8.054478000000017
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 12,
+            "orientation": 6,
+            "x": 6,
+            "y": 0
+          },
+          "nodes": 16,
+          "ms": 7.031183999999996
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 1,
+            "orientation": 0,
+            "x": 1,
+            "y": 6
+          },
+          "nodes": 0,
+          "ms": 0.9514149999999972
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 4,
+            "orientation": 3,
+            "x": 5,
+            "y": 6
+          },
+          "nodes": 0,
+          "ms": 0.2833269999999857
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 5,
+            "y": 3
+          },
+          "nodes": 0,
+          "ms": 0.09697600000001216
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 15,
+            "orientation": 1,
+            "x": 6,
+            "y": 2
+          },
+          "nodes": 16,
+          "ms": 3.496212000000014
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 30,
+            "orientation": 2,
+            "x": 2,
+            "y": 6
+          },
+          "nodes": 16,
+          "ms": 3.7650879999999916
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 32,
+            "orientation": 2,
+            "x": 4,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 1.0393770000000018
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 7,
+            "y": 2
+          },
+          "nodes": 0,
+          "ms": 0.10396699999998305
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 3,
+            "orientation": 2,
+            "x": 6,
+            "y": 6
+          },
+          "nodes": 16,
+          "ms": 3.9754450000000077
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 4.2707209999999804
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 8,
+            "orientation": 0,
+            "x": 5,
+            "y": 7
+          },
+          "nodes": 0,
+          "ms": 3.2703920000000153
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 2,
+            "y": 8
+          },
+          "nodes": 0,
+          "ms": 0.08660000000000423
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 2.9130130000000065
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 19,
+            "orientation": 3,
+            "x": 7,
+            "y": 3
+          },
+          "nodes": 0,
+          "ms": 0.5425080000000264
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 16,
+            "orientation": 5,
+            "x": 1,
+            "y": 4
+          },
+          "nodes": 16,
+          "ms": 2.098454000000004
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 4,
+            "y": 2
+          },
+          "nodes": 16,
+          "ms": 3.9824370000000044
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.648869000000019
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 10,
+            "orientation": 0,
+            "x": 6,
+            "y": 7
+          },
+          "nodes": 16,
+          "ms": 14.186755000000005
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.6240310000000022
+        }
+      ]
+    },
+    {
+      "seed": 73001,
+      "seat": 1,
+      "edition": "corrected",
+      "scores": [
+        -11,
+        21
+      ],
+      "win": true,
+      "difference": 32,
+      "trace": [
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 13,
+            "orientation": 0,
+            "x": 0,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 0.34718300000000113
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 5,
+            "orientation": 0,
+            "x": 0,
+            "y": 0
+          },
+          "nodes": 16,
+          "ms": 1.1657979999999952
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 5.512903999999992
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.00873299999997812
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 9,
+            "orientation": 2,
+            "x": 0,
+            "y": 1
+          },
+          "nodes": 16,
+          "ms": 8.325696000000022
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 11,
+            "orientation": 2,
+            "x": 0,
+            "y": 1
+          },
+          "nodes": 0,
+          "ms": 2.509364000000005
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 8.30450399999998
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 2,
+            "orientation": 0,
+            "x": 0,
+            "y": 2
+          },
+          "nodes": 0,
+          "ms": 0.3070329999999899
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 33,
+            "orientation": 1,
+            "x": 2,
+            "y": 1
+          },
+          "nodes": 0,
+          "ms": 0.5229489999999828
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 14,
+            "orientation": 5,
+            "x": 0,
+            "y": 3
+          },
+          "nodes": 16,
+          "ms": 3.145454000000001
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 27,
+            "orientation": 2,
+            "x": 1,
+            "y": 1
+          },
+          "nodes": 16,
+          "ms": 2.050512999999995
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 31,
+            "orientation": 3,
+            "x": 1,
+            "y": 4
+          },
+          "nodes": 0,
+          "ms": 0.3096969999999999
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.0037959999999941374
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 24,
+            "orientation": 1,
+            "x": 1,
+            "y": 3
+          },
+          "nodes": 16,
+          "ms": 1.2760650000000169
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.002674000000013166
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 22,
+            "orientation": 3,
+            "x": 3,
+            "y": 3
+          },
+          "nodes": 16,
+          "ms": 1.906045000000006
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 3,
+            "y": 0
+          },
+          "nodes": 16,
+          "ms": 2.3420519999999954
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 19,
+            "orientation": 1,
+            "x": 0,
+            "y": 4
+          },
+          "nodes": 0,
+          "ms": 0.9855169999999873
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 16,
+            "orientation": 3,
+            "x": 4,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 0.5687469999999735
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 28,
+            "orientation": 1,
+            "x": 5,
+            "y": 2
+          },
+          "nodes": 16,
+          "ms": 3.564986000000033
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 6,
+            "orientation": 1,
+            "x": 5,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 0.5565690000000245
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 12,
+            "orientation": 2,
+            "x": 4,
+            "y": 4
+          },
+          "nodes": 0,
+          "ms": 0.8023099999999772
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 23,
+            "orientation": 7,
+            "x": 0,
+            "y": 6
+          },
+          "nodes": 16,
+          "ms": 2.1646539999999845
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 5,
+            "y": 2
+          },
+          "nodes": 16,
+          "ms": 0.8521450000000073
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 4,
+            "orientation": 3,
+            "x": 3,
+            "y": 6
+          },
+          "nodes": 0,
+          "ms": 0.15228899999999612
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 15,
+            "orientation": 0,
+            "x": 2,
+            "y": 6
+          },
+          "nodes": 16,
+          "ms": 4.115877999999952
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 5,
+            "y": 6
+          },
+          "nodes": 16,
+          "ms": 0.45100000000002183
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.0026340000000004693
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 16,
+          "ms": 4.1794439999999895
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 20,
+            "orientation": 1,
+            "x": 8,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 0.8531069999999659
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 30,
+            "orientation": 2,
+            "x": 5,
+            "y": 5
+          },
+          "nodes": 0,
+          "ms": 0.4002439999999865
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 32,
+            "orientation": 3,
+            "x": 7,
+            "y": 2
+          },
+          "nodes": 16,
+          "ms": 4.152778000000012
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 4,
+            "y": 1
+          },
+          "nodes": 16,
+          "ms": 1.1016710000000103
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "advance"
+          },
+          "nodes": 0,
+          "ms": 0.1882439999999974
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 3,
+            "orientation": 2,
+            "x": 6,
+            "y": 6
+          },
+          "nodes": 16,
+          "ms": 2.906173000000024
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "buy",
+            "id": 8,
+            "orientation": 3,
+            "x": 6,
+            "y": 0
+          },
+          "nodes": 0,
+          "ms": 0.3290560000000369
+        },
+        {
+          "player": 0,
+          "action": {
+            "type": "leather",
+            "id": 0,
+            "orientation": 0,
+            "x": 6,
+            "y": 3
+          },
+          "nodes": 0,
+          "ms": 0.04863299999999526
+        },
+        {
+          "player": 1,
+          "action": {
+            "type": "buy",
+            "id": 18,
+            "orientation": 0,
+            "x": 5,
+            "y": 0
+          },
+          "nodes": 16,
+          "ms": 3.8271819999999934
+        }
+      ]
+    }
+  ]
+}
