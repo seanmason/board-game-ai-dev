@@ -1,85 +1,85 @@
 {
   "schema": 1,
   "study": "ai-comparison-2026-10-18",
-  "revision": "a2ff13f73358b0c972ef1ca806c0bfc93c7288ae",
-  "updatedAt": "2026-10-18T19:23:30.121Z",
-  "startedAt": "2026-10-18T19:16:26.220Z",
+  "revision": "d33aa8c56f0851b7115177f9e1cc60bb7817a291",
+  "updatedAt": "2026-10-18T19:25:31.050Z",
+  "startedAt": "2026-10-18T19:25:12.572Z",
   "status": "running",
   "workers": 12,
   "planned": 1720,
-  "finished": 148,
+  "finished": 186,
   "active": [
     {
-      "id": "ticket-to-ride-3p-production-default-5208522-1",
+      "id": "ticket-to-ride-3p-production-default-5218492-0",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:30.118Z"
+      "startedAt": "2026-10-18T19:25:29.666Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5204534-1",
+      "id": "ticket-to-ride-3p-production-default-5218492-2",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:27.816Z"
+      "startedAt": "2026-10-18T19:25:29.941Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5207525-0",
+      "id": "ticket-to-ride-3p-production-default-5219489-2",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:29.126Z"
+      "startedAt": "2026-10-18T19:25:30.412Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5206528-0",
+      "id": "ticket-to-ride-3p-production-default-5218492-1",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:28.676Z"
+      "startedAt": "2026-10-18T19:25:29.680Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5206528-2",
+      "id": "ticket-to-ride-3p-production-default-5219489-1",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:28.855Z"
+      "startedAt": "2026-10-18T19:25:30.094Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5207525-1",
+      "id": "ticket-to-ride-3p-production-default-5220486-0",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:29.310Z"
+      "startedAt": "2026-10-18T19:25:30.601Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5207525-2",
+      "id": "ticket-to-ride-3p-production-default-5220486-2",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:29.481Z"
+      "startedAt": "2026-10-18T19:25:30.831Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5208522-0",
+      "id": "ticket-to-ride-3p-production-default-5220486-1",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:29.941Z"
+      "startedAt": "2026-10-18T19:25:30.712Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5205531-2",
+      "id": "ticket-to-ride-3p-production-default-5216498-2",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:28.369Z"
+      "startedAt": "2026-10-18T19:25:28.299Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5204534-2",
+      "id": "ticket-to-ride-3p-production-default-5221483-0",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:27.849Z"
+      "startedAt": "2026-10-18T19:25:31.047Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5205531-0",
+      "id": "ticket-to-ride-3p-production-default-5217495-2",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:27.906Z"
+      "startedAt": "2026-10-18T19:25:29.199Z"
     },
     {
-      "id": "ticket-to-ride-3p-production-default-5206528-1",
+      "id": "ticket-to-ride-3p-production-default-5219489-0",
       "game": "ticket-to-ride",
       "players": 3,
-      "startedAt": "2026-10-18T19:23:28.803Z"
+      "startedAt": "2026-10-18T19:25:30.057Z"
     }
   ],
   "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against heuristic opponents. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
@@ -143,32 +143,32 @@
       "policyId": "ttr-production-network-v1",
       "opponentPolicyId": "ttr-independent-ticket-plan-v1",
       "planned": 120,
-      "finished": 68,
+      "finished": 106,
       "counts": {
-        "complete": 61,
+        "complete": 97,
         "capped": 0,
-        "unresolved": 7,
+        "unresolved": 9,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 15,
+      "completeSeedGroups": 25,
       "winShare": {
-        "mean": 0.26666666666666666,
-        "low": 0.141846033451679,
-        "high": 0.3914872998816543,
-        "n": 15
+        "mean": 0.22666666666666666,
+        "low": 0.13166618105387273,
+        "high": 0.3216671522794606,
+        "n": 25
       },
       "margin": {
-        "mean": -13.044444444444443,
-        "low": -20.44305082007947,
-        "high": -5.645838068809414,
-        "n": 15
+        "mean": -16.119999999999997,
+        "low": -21.55039058101717,
+        "high": -10.689609418982826,
+        "n": 25
       },
       "chance": 0.3333333333333333,
-      "meanDecisionMs": 32.789360256145414,
+      "meanDecisionMs": 31.873606837493355,
       "maxDecisionMs": 173.862000000001,
-      "elapsedMs": 191267.3966000001,
+      "elapsedMs": 290043.2587000001,
       "limitations": [
         "Original 30-ticket catalog second visual audit remains open.",
         "Sampled network heuristic, not calibrated win probability.",
