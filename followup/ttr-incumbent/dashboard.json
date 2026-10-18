@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "study": "ttr-planning-screen",
+  "revision": "028b6e2ba7ea8cec79918f3c397f5923a24999ff",
+  "updatedAt": "2026-10-18T20:54:49.001Z",
+  "startedAt": "2026-10-18T20:49:27.182Z",
+  "status": "finished",
+  "workers": 12,
+  "planned": 280,
+  "finished": 280,
+  "active": [],
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
+  "rows": [
+    {
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "policy": "planning-v2",
+      "scope": "match",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "policyId": "ttr-deterministic-joint-planning-v2",
+      "opponentPolicyId": "ttr-production-network-v1",
+      "planned": 120,
+      "finished": 120,
+      "counts": {
+        "complete": 113,
+        "capped": 0,
+        "unresolved": 7,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 33,
+      "winShare": {
+        "mean": 0.6060606060606062,
+        "low": 0.4937152739055727,
+        "high": 0.7184059382156397,
+        "n": 33
+      },
+      "margin": {
+        "mean": 11.232323232323234,
+        "low": 3.4878546904367402,
+        "high": 18.976791774209726,
+        "n": 33
+      },
+      "chance": 0.3333333333333333,
+      "meanDecisionMs": 0.8570625355450552,
+      "maxDecisionMs": 15.81620000000001,
+      "elapsedMs": 592384.7078000002,
+      "limitations": [
+        "Original 30-ticket catalog second visual audit remains open.",
+        "Incumbent uses sampled network evaluation; explicit planning-v2 is deterministic joint-ticket collection. Neither is calibrated win probability.",
+        "Incumbent root sweeps can exceed requested samples; planning-v2 evaluates each root once and samples no worlds.",
+        "Fixed sample budgets are not equal-time comparisons of these policies.",
+        "Exhausted supply and caps stay unresolved; no promotion conclusion."
+      ]
+    },
+    {
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "policy": "planning-v2",
+      "scope": "match",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "policyId": "ttr-deterministic-joint-planning-v2",
+      "opponentPolicyId": "ttr-production-network-v1",
+      "planned": 160,
+      "finished": 160,
+      "counts": {
+        "complete": 150,
+        "capped": 0,
+        "unresolved": 10,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 30,
+      "winShare": {
+        "mean": 0.7,
+        "low": 0.6379875800352457,
+        "high": 0.7620124199647542,
+        "n": 30
+      },
+      "margin": {
+        "mean": 15.575,
+        "low": 9.737913692035146,
+        "high": 21.412086307964852,
+        "n": 30
+      },
+      "chance": 0.25,
+      "meanDecisionMs": 0.7816005563662521,
+      "maxDecisionMs": 8.951800000009825,
+      "elapsedMs": 1043473.9355000005,
+      "limitations": [
+        "Original 30-ticket catalog second visual audit remains open.",
+        "Incumbent uses sampled network evaluation; explicit planning-v2 is deterministic joint-ticket collection. Neither is calibrated win probability.",
+        "Incumbent root sweeps can exceed requested samples; planning-v2 evaluates each root once and samples no worlds.",
+        "Fixed sample budgets are not equal-time comparisons of these policies.",
+        "Exhausted supply and caps stay unresolved; no promotion conclusion."
+      ]
+    }
+  ]
+}

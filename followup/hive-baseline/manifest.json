@@ -1,0 +1,1424 @@
+{
+  "study": "hive-tactical-baseline-screen",
+  "revision": "028b6e2ba7ea8cec79918f3c397f5923a24999ff",
+  "startedAt": "2026-10-18T20:49:27.094Z",
+  "workers": 12,
+  "pairs": 40,
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 9 5950X 16-Core Processor            ",
+    "logicalCPUs": 32,
+    "priority": 10
+  },
+  "metadata": {
+    "hive": {
+      "game": "hive",
+      "supportedPlayers": [
+        2
+      ],
+      "defaultBudget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 0
+      },
+      "scope": "match",
+      "policyId": "hive-tactical-guard-v2",
+      "incumbentPolicyId": "hive-production-alphabeta-v1",
+      "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+      "limitations": [
+        "Classic Hive publisher diagram certification remains open.",
+        "Candidate requires the tactical gate and completed depth-one floor; incumbent requires the original depth-one floor. Both use a soft100ms budget and report actual overruns.",
+        "Independent baseline remains available separately from frozen incumbent comparison.",
+        "Explicit openingPlies:6 enables full matches from seeded legal nonterminal openings, identical across seat rotations; default0 retains the original empty setup. Opening signatures identify duplicate setups.",
+        "Repeated positions and caps are unresolved, not automatic draws.",
+        "A paused browser search with an unfinished tactical gate withholds advice and can be resumed."
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "id": "hive-2p-tactical-v2-6282600-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6282600,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6282600-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6282600,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6283597-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6283597,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6283597-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6283597,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6284594-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6284594,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6284594-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6284594,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6285591-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6285591,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6285591-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6285591,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6286588-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6286588,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6286588-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6286588,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6287585-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6287585,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6287585-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6287585,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6288582-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6288582,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6288582-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6288582,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6289579-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6289579,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6289579-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6289579,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6290576-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6290576,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6290576-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6290576,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6291573-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6291573,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6291573-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6291573,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6292570-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6292570,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6292570-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6292570,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6293567-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6293567,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6293567-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6293567,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6294564-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6294564,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6294564-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6294564,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6295561-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6295561,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6295561-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6295561,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6296558-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6296558,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6296558-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6296558,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6297555-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6297555,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6297555-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6297555,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6298552-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6298552,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6298552-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6298552,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6299549-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6299549,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6299549-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6299549,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6300546-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6300546,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6300546-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6300546,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6301543-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6301543,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6301543-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6301543,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6302540-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6302540,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6302540-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6302540,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6303537-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6303537,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6303537-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6303537,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6304534-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6304534,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6304534-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6304534,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6305531-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6305531,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6305531-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6305531,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6306528-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6306528,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6306528-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6306528,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6307525-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6307525,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6307525-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6307525,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6308522-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6308522,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6308522-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6308522,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6309519-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6309519,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6309519-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6309519,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6310516-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6310516,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6310516-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6310516,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6311513-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6311513,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6311513-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6311513,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6312510-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6312510,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6312510-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6312510,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6313507-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6313507,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6313507-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6313507,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6314504-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6314504,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6314504-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6314504,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6315501-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6315501,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6315501-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6315501,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6316498-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6316498,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6316498-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6316498,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6317495-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6317495,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6317495-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6317495,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6318492-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6318492,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6318492-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6318492,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6319489-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6319489,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6319489-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6319489,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6320486-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6320486,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6320486-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6320486,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6321483-0",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6321483,
+      "seat": 0,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    },
+    {
+      "id": "hive-2p-tactical-v2-6321483-1",
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "seed": 6321483,
+      "seat": 1,
+      "policy": "tactical-v2",
+      "opponent": "simple-v1",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6
+      },
+      "scope": "match"
+    }
+  ],
+  "hashes": {
+    "hive/actions.js": "cdcf110a0be8481142a492c20c5a80c5e1a9b589771a0a3bdc207fcdd2795094",
+    "hive/ai.js": "8a93cf6a2e61896dbb26b34777e25eebd823403d25eed5a833917c4dee7a6cf4",
+    "hive/app.js": "f2a98276b5ff410b8eae8b9f5e5a3966ee79ce1ba4de27e9bfbd954bde903a4d",
+    "hive/catalog.js": "51e81db56efa7dec24b4ba1dd9a3835fc9bdb9230ab3ba3a2ce55bdc86db6cac",
+    "hive/core.js": "6f1d48c219e5d30067d20998fcffb575d3dcb5cab698754048d190fa9ed8eb8e",
+    "hive/geometry.js": "db2f1127c00fe19b575757a75ebf11f1bd8baa0e71c300c813c59c95c596b4e8",
+    "hive/observations.js": "cc7e8ff43cce132af35a6d71fb8740c30e9e71def44fe523ff217c6775ab8d07",
+    "hive/worker.js": "b8c5b4d08c7d388a09417301cf9128dbba5583ddade286a4305a693835fd0c98",
+    "scripts/benchmark-adapters/hive-incumbent.mjs": "7d52bbda4975b505bcc6fe8f2a432b6351c43e0c95d6531fbb0d568ae8aff439",
+    "scripts/benchmark-adapters/hive.mjs": "3176a9653d702e85edce45443720e8bc4c8f7fcfede421e0a78877e260787a6a",
+    "scripts/benchmark-adapters/jaipur.mjs": "90781f9cdc3e47d1e70a8fc1056f14143cf042c6d288602ffdc255e7d6b8575a",
+    "scripts/benchmark-adapters/lost-cities.mjs": "b2af9c7803ea08c7f1292f40a8aa381d7d27c9e27096fa127ba44e666a6960c2",
+    "scripts/benchmark-adapters/love-letter.mjs": "31f8936c8fe15987c64d86a2096261b1b8844c5c9606da0059d71f75ac842ef3",
+    "scripts/benchmark-adapters/sushi-go.mjs": "b4e5222c8a88a5beddc83a687d066708f0fdde54d4a52a85facbc5b043072a33",
+    "scripts/benchmark-adapters/ticket-to-ride.mjs": "5f01441fe1b48bce60b210bff15be1a9f853c61c9b706f5899453b25c006d515",
+    "scripts/benchmark-comparison.mjs": "64df3e3c5f92faebdf66debe8aac69c874e7a13e71ff4089e88b24d40c251e2a",
+    "scripts/benchmark-comparison-summary.mjs": "b30b4ddb4ee012e3f54d9e4fe0bfc7c4054318b981e36ca28bed256d2d2497c6",
+    "scripts/benchmark-comparison-plan.mjs": "bfc658af5ef69fb0c2481002cc84fc972ed85d6be7d28c4c8300fdd10bf0b06c"
+  },
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim."
+}

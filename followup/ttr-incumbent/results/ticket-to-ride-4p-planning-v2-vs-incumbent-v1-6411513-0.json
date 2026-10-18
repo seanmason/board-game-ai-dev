@@ -1,0 +1,84 @@
+{
+  "game": "ticket-to-ride",
+  "seed": 6411513,
+  "seat": 0,
+  "players": 4,
+  "policyId": "ttr-deterministic-joint-planning-v2",
+  "opponentPolicyId": "ttr-production-network-v1",
+  "budget": {
+    "samples": 128,
+    "maxTurns": 600
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    0,
+    0,
+    1,
+    0
+  ],
+  "winners": [
+    2
+  ],
+  "scores": [
+    57,
+    50,
+    92,
+    76
+  ],
+  "margin": -35,
+  "turns": 277,
+  "elapsedMs": 6122.314299999998,
+  "latency": {
+    "count": 63,
+    "totalMs": 39.49790000003122,
+    "maxMs": 3.959499999997206,
+    "p50Ms": 0.48589999999967404,
+    "p95Ms": 1.3351000000111526
+  },
+  "diagnostics": {
+    "illegalActions": 0,
+    "capped": false,
+    "unresolved": false,
+    "error": null,
+    "phase": "terminal",
+    "reason": null,
+    "startingPlayer": 1,
+    "baselineLatency": {
+      "count": 214,
+      "totalMs": 5769.031299999915,
+      "maxMs": 110.68120000000636,
+      "p50Ms": 26.9429999999993,
+      "p95Ms": 73.78059999999823
+    },
+    "allLatency": {
+      "count": 277,
+      "totalMs": 5808.529199999946,
+      "maxMs": 110.68120000000636,
+      "p50Ms": 20.323099999994156,
+      "p95Ms": 64.14809999999125
+    },
+    "candidateSamples": 0,
+    "minimumRootCoverage": 1,
+    "candidateEvaluations": 1453,
+    "candidateDeterministic": true,
+    "opponentSamples": 27491,
+    "actualSamplesCanExceedBudget": false,
+    "equalTimeComparison": false,
+    "catalogGates": {
+      "boardTranscribed": true,
+      "boardReconciled": true,
+      "ticketsTranscribed": true,
+      "ticketsIndependentlyReconciled": false
+    },
+    "promotion": false
+  },
+  "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6411513-0",
+  "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+  "policy": "planning-v2",
+  "opponent": "incumbent-v1",
+  "requestedBudget": {
+    "samples": 128,
+    "maxTurns": 600
+  }
+}

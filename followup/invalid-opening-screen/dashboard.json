@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "study": "hive-tactical-screen",
+  "revision": "1c6658873befa4afa69190f9a2bd82f6a2f28e44",
+  "updatedAt": "2026-10-18T20:47:41.601Z",
+  "startedAt": "2026-10-18T20:46:14.139Z",
+  "status": "interrupted",
+  "workers": 12,
+  "planned": 80,
+  "finished": 49,
+  "active": [],
+  "method": "INVALIDATED for insufficient opening diversity. Preserved as plumbing evidence only. 40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
+  "rows": [
+    {
+      "matchup": "hive-2p-tactical-v2-vs-incumbent-v1",
+      "game": "hive",
+      "players": 2,
+      "policy": "tactical-v2",
+      "scope": "match",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4
+      },
+      "policyId": "hive-tactical-guard-v2",
+      "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+      "planned": 80,
+      "finished": 49,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 49,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 300.94358192090397,
+      "maxDecisionMs": 777.8816000000006,
+      "elapsedMs": 798128.8951999998,
+      "limitations": [
+        "Classic Hive publisher diagram certification remains open.",
+        "Candidate requires the tactical gate and completed depth-one floor; incumbent requires the original depth-one floor. Both use a soft100ms budget and report actual overruns.",
+        "Independent baseline remains available separately from frozen incumbent comparison.",
+        "Repeated positions and caps are unresolved, not automatic draws.",
+        "A paused browser search with an unfinished tactical gate withholds advice and can be resumed."
+      ]
+    }
+  ]
+}

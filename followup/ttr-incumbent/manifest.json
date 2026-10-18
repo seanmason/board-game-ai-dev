@@ -1,0 +1,4268 @@
+{
+  "study": "ttr-planning-screen",
+  "revision": "028b6e2ba7ea8cec79918f3c397f5923a24999ff",
+  "startedAt": "2026-10-18T20:49:27.182Z",
+  "workers": 12,
+  "pairs": 40,
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 9 5950X 16-Core Processor            ",
+    "logicalCPUs": 32,
+    "priority": 10
+  },
+  "metadata": {
+    "ticket-to-ride": {
+      "game": "ticket-to-ride",
+      "supportedPlayers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "defaultBudget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match",
+      "policyId": "ttr-production-network-v1",
+      "opponentPolicyId": "ttr-independent-ticket-plan-v1",
+      "candidatePolicyId": "ttr-deterministic-joint-planning-v2",
+      "incumbentPolicyId": "ttr-production-network-v1",
+      "candidatePolicy": "planning-v2",
+      "limitations": [
+        "Original 30-ticket catalog second visual audit remains open.",
+        "Incumbent uses sampled network evaluation; explicit planning-v2 is deterministic joint-ticket collection. Neither is calibrated win probability.",
+        "Incumbent root sweeps can exceed requested samples; planning-v2 evaluates each root once and samples no worlds.",
+        "Fixed sample budgets are not equal-time comparisons of these policies.",
+        "Exhausted supply and caps stay unresolved; no promotion conclusion."
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6382600-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6382600,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6382600-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6382600,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6382600-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6382600,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6383597-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6383597,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6383597-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6383597,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6383597-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6383597,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6384594-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6384594,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6384594-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6384594,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6384594-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6384594,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6385591-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6385591,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6385591-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6385591,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6385591-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6385591,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6386588-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6386588,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6386588-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6386588,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6386588-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6386588,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6387585-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6387585,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6387585-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6387585,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6387585-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6387585,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6388582-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6388582,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6388582-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6388582,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6388582-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6388582,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6389579-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6389579,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6389579-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6389579,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6389579-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6389579,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6390576-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6390576,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6390576-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6390576,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6390576-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6390576,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6391573-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6391573,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6391573-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6391573,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6391573-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6391573,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6392570-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6392570,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6392570-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6392570,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6392570-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6392570,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6393567-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6393567,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6393567-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6393567,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6393567-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6393567,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6394564-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6394564,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6394564-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6394564,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6394564-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6394564,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6395561-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6395561,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6395561-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6395561,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6395561-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6395561,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6396558-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6396558,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6396558-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6396558,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6396558-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6396558,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6397555-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6397555,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6397555-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6397555,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6397555-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6397555,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6398552-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6398552,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6398552-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6398552,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6398552-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6398552,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6399549-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6399549,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6399549-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6399549,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6399549-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6399549,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6400546-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6400546,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6400546-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6400546,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6400546-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6400546,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6401543-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6401543,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6401543-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6401543,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6401543-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6401543,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6402540-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6402540,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6402540-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6402540,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6402540-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6402540,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6403537-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6403537,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6403537-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6403537,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6403537-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6403537,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6404534-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6404534,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6404534-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6404534,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6404534-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6404534,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6405531-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6405531,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6405531-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6405531,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6405531-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6405531,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6406528-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6406528,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6406528-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6406528,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6406528-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6406528,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6407525-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6407525,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6407525-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6407525,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6407525-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6407525,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6408522-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6408522,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6408522-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6408522,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6408522-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6408522,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6409519-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6409519,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6409519-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6409519,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6409519-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6409519,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6410516-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6410516,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6410516-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6410516,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6410516-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6410516,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6411513-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6411513,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6411513-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6411513,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6411513-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6411513,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6412510-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6412510,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6412510-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6412510,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6412510-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6412510,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6413507-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6413507,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6413507-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6413507,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6413507-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6413507,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6414504-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6414504,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6414504-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6414504,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6414504-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6414504,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6415501-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6415501,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6415501-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6415501,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6415501-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6415501,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6416498-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6416498,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6416498-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6416498,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6416498-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6416498,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6417495-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6417495,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6417495-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6417495,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6417495-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6417495,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6418492-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6418492,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6418492-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6418492,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6418492-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6418492,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6419489-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6419489,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6419489-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6419489,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6419489-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6419489,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6420486-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6420486,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6420486-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6420486,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6420486-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6420486,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6421483-0",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6421483,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6421483-1",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6421483,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1-6421483-2",
+      "matchup": "ticket-to-ride-3p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 3,
+      "seed": 6421483,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6382600-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6382600,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6382600-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6382600,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6382600-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6382600,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6382600-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6382600,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6383597-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6383597,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6383597-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6383597,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6383597-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6383597,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6383597-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6383597,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6384594-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6384594,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6384594-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6384594,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6384594-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6384594,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6384594-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6384594,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6385591-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6385591,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6385591-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6385591,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6385591-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6385591,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6385591-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6385591,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6386588-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6386588,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6386588-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6386588,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6386588-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6386588,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6386588-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6386588,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6387585-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6387585,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6387585-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6387585,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6387585-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6387585,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6387585-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6387585,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6388582-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6388582,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6388582-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6388582,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6388582-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6388582,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6388582-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6388582,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6389579-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6389579,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6389579-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6389579,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6389579-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6389579,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6389579-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6389579,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6390576-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6390576,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6390576-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6390576,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6390576-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6390576,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6390576-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6390576,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6391573-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6391573,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6391573-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6391573,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6391573-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6391573,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6391573-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6391573,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6392570-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6392570,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6392570-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6392570,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6392570-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6392570,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6392570-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6392570,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6393567-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6393567,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6393567-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6393567,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6393567-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6393567,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6393567-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6393567,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6394564-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6394564,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6394564-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6394564,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6394564-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6394564,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6394564-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6394564,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6395561-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6395561,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6395561-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6395561,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6395561-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6395561,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6395561-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6395561,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6396558-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6396558,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6396558-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6396558,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6396558-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6396558,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6396558-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6396558,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6397555-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6397555,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6397555-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6397555,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6397555-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6397555,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6397555-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6397555,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6398552-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6398552,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6398552-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6398552,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6398552-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6398552,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6398552-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6398552,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6399549-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6399549,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6399549-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6399549,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6399549-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6399549,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6399549-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6399549,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6400546-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6400546,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6400546-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6400546,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6400546-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6400546,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6400546-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6400546,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6401543-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6401543,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6401543-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6401543,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6401543-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6401543,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6401543-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6401543,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6402540-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6402540,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6402540-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6402540,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6402540-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6402540,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6402540-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6402540,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6403537-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6403537,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6403537-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6403537,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6403537-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6403537,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6403537-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6403537,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6404534-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6404534,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6404534-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6404534,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6404534-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6404534,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6404534-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6404534,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6405531-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6405531,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6405531-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6405531,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6405531-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6405531,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6405531-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6405531,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6406528-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6406528,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6406528-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6406528,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6406528-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6406528,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6406528-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6406528,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6407525-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6407525,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6407525-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6407525,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6407525-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6407525,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6407525-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6407525,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6408522-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6408522,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6408522-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6408522,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6408522-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6408522,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6408522-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6408522,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6409519-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6409519,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6409519-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6409519,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6409519-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6409519,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6409519-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6409519,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6410516-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6410516,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6410516-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6410516,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6410516-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6410516,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6410516-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6410516,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6411513-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6411513,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6411513-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6411513,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6411513-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6411513,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6411513-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6411513,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6412510-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6412510,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6412510-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6412510,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6412510-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6412510,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6412510-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6412510,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6413507-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6413507,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6413507-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6413507,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6413507-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6413507,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6413507-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6413507,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6414504-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6414504,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6414504-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6414504,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6414504-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6414504,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6414504-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6414504,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6415501-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6415501,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6415501-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6415501,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6415501-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6415501,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6415501-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6415501,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6416498-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6416498,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6416498-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6416498,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6416498-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6416498,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6416498-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6416498,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6417495-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6417495,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6417495-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6417495,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6417495-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6417495,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6417495-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6417495,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6418492-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6418492,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6418492-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6418492,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6418492-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6418492,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6418492-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6418492,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6419489-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6419489,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6419489-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6419489,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6419489-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6419489,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6419489-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6419489,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6420486-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6420486,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6420486-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6420486,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6420486-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6420486,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6420486-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6420486,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6421483-0",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6421483,
+      "seat": 0,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6421483-1",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6421483,
+      "seat": 1,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6421483-2",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6421483,
+      "seat": 2,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    },
+    {
+      "id": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1-6421483-3",
+      "matchup": "ticket-to-ride-4p-planning-v2-vs-incumbent-v1",
+      "game": "ticket-to-ride",
+      "players": 4,
+      "seed": 6421483,
+      "seat": 3,
+      "policy": "planning-v2",
+      "opponent": "incumbent-v1",
+      "budget": {
+        "samples": 128,
+        "maxTurns": 600
+      },
+      "scope": "match"
+    }
+  ],
+  "hashes": {
+    "ticket-to-ride/actions.js": "ea3f27c12bbeb0b5d00b61d923f6ba35a4e9fbdc26fbd8c647a3f92486ac67b0",
+    "ticket-to-ride/ai.js": "398104e1590341064d37f1f57b7a86cffa02c4995621d52e025753fd18651e19",
+    "ticket-to-ride/app.js": "17a5bc1bffff833801a7f4edff8357a8eee4c106c69aab12d48e1c7f2b0e9b76",
+    "ticket-to-ride/belief.js": "805a9bbe2d53bc23b8cec2d01879676b8cecff433ce3ac3773104b2c1ef9b710",
+    "ticket-to-ride/catalog.js": "223ff3f753b6c20a12b7e77310e5363c82bb0398de218bf23a49c882e19b8845",
+    "ticket-to-ride/core.js": "19e6d22e5d5e5b023b2a848110a7332232b795b0c10576d901f78dca33589733",
+    "ticket-to-ride/observations.js": "090ea17ed7d035de6e54f1535ad5656963e3a4c517c32d3a9b45f82bb41326e5",
+    "ticket-to-ride/scoring.js": "636534aa4c80c3403cf6e67fb20f1c415aba157873a01e3d238540fd4343ef16",
+    "ticket-to-ride/source-ledger.json": "b762e6a893da65abee9418ce8083983e86d4ca4470e3a89b93face589effc1ad",
+    "ticket-to-ride/worker.js": "b8c5b4d08c7d388a09417301cf9128dbba5583ddade286a4305a693835fd0c98",
+    "scripts/benchmark-adapters/hive-incumbent.mjs": "7d52bbda4975b505bcc6fe8f2a432b6351c43e0c95d6531fbb0d568ae8aff439",
+    "scripts/benchmark-adapters/hive.mjs": "3176a9653d702e85edce45443720e8bc4c8f7fcfede421e0a78877e260787a6a",
+    "scripts/benchmark-adapters/jaipur.mjs": "90781f9cdc3e47d1e70a8fc1056f14143cf042c6d288602ffdc255e7d6b8575a",
+    "scripts/benchmark-adapters/lost-cities.mjs": "b2af9c7803ea08c7f1292f40a8aa381d7d27c9e27096fa127ba44e666a6960c2",
+    "scripts/benchmark-adapters/love-letter.mjs": "31f8936c8fe15987c64d86a2096261b1b8844c5c9606da0059d71f75ac842ef3",
+    "scripts/benchmark-adapters/sushi-go.mjs": "b4e5222c8a88a5beddc83a687d066708f0fdde54d4a52a85facbc5b043072a33",
+    "scripts/benchmark-adapters/ticket-to-ride.mjs": "5f01441fe1b48bce60b210bff15be1a9f853c61c9b706f5899453b25c006d515",
+    "scripts/benchmark-comparison.mjs": "64df3e3c5f92faebdf66debe8aac69c874e7a13e71ff4089e88b24d40c251e2a",
+    "scripts/benchmark-comparison-summary.mjs": "b30b4ddb4ee012e3f54d9e4fe0bfc7c4054318b981e36ca28bed256d2d2497c6",
+    "scripts/benchmark-comparison-plan.mjs": "bfc658af5ef69fb0c2481002cc84fc972ed85d6be7d28c4c8300fdd10bf0b06c"
+  },
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim."
+}
