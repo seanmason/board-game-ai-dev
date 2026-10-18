@@ -25,5 +25,7 @@ below remain development companions; packaging does not imply release approval.
 
 - [Jaipur](jaipur/README.md): 2019 two-player physical companion; actual token entry and explicit unresolved-source limits.
 
+- [Lost Cities](lost-cities/README.md): original five-expedition game; private observations, complete turns and explicit next-round starter agreement.
+
 Game-specific rules/AI sections stay in the overview until splitting them makes
 retrieval easier. Existing uppercase reports remain linked evidence during migration.

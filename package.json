@@ -3,6 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "audit:lost-cities": "node scripts/audit-lost-cities.mjs",
+    "verify:lost-cities": "node scripts/verify-lost-cities.mjs",
+    "benchmark:lost-cities": "node scripts/benchmark-lost-cities.mjs",
+    "browser:lost-cities": "node scripts/browser-lost-cities.mjs",
+
     "audit:jaipur": "node scripts/audit-jaipur.mjs",
     "verify:jaipur": "node scripts/verify-jaipur.mjs",
     "benchmark:jaipur": "node scripts/benchmark-jaipur.mjs",

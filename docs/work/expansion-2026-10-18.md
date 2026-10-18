@@ -79,3 +79,8 @@ Love Letter and Sushi Go deployed at `375db17` through successful [Pages run
 including full validation. Jaipur physical recording is integrated and locally
 validated; exact digital token generation remains source-gated in its overview.
 Lost Cities, Hive and Ticket to Ride continue in isolated worktrees.
+
+Lost Cities is integrated with 21 passing game tests, three packaging tests and
+staged-browser acceptance, including private views, correction preview, explicit
+round starter agreement and match completion. Practical ranking is the default;
+the small sampled-policy smoke was unfavorable, so sampling remains opt-in.

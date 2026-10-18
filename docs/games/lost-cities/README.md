@@ -3,8 +3,7 @@
 Implements the original 60-card expedition card game for exactly two players,
 publisher item 691820, English booklet revision `691820-02-121114`.
 The 72-card sixth expedition, Board Game, Rivals and Roll & Write are excluded.
-Development starts on `codex/lost-cities` from `664d239`; integration and browser
-acceptance are coordinator-owned gates.
+Integrated into the development suite; full cloud validation gates deployment.
 
 ## Edition and source evidence
 
@@ -186,7 +185,7 @@ recording and round/cumulative separation, not an automatic starter interpretati
 or comparative AI strength. Parity uses two production pathways; the score/rule
 fixtures provide separate semantic expectations.
 
-Browser execution and visual acceptance remain separate gates:
+Coordinator staged-browser acceptance passed on 2026-10-18 using installed Chrome:
 
 ```
 node scripts/browser-lost-cities.mjs
@@ -198,18 +197,12 @@ The script covers physical phases/pending reload/cancel, hand privacy and public
 export, actual worker pause/preview, explicit starter agreement, last-card match
 end, import/history and touch layouts. Images write
 `test-artifacts/lost-cities-{desktop,tablet,phone,landscape,last}.png`.
-Browser execution/screenshots have not been claimed by the headless checks.
+The tablet screenshot was visually reviewed. This is automated Chrome viewport
+coverage, not real iPad Safari acceptance.
 
-Coordinator integration:
-
-1. Register `lost-cities` as an optional/static/standalone game, allowlisting
-   `lost-cities/{index.html,styles.css,catalog.js,scoring.js,actions.js,core.js,observations.js,belief.js,ai.js,worker.js,app.js}`.
-2. Include shared `session.js` and `search-worker.js` in standalone closure.
-3. Add suite/menu entry, game-directory link and npm audit/verify/benchmark/browser
-   commands. The game page already has one Games link marked `data-suite-nav`.
-4. Add audits/transcripts and packaged browser checks to CI, upload screenshots,
-   then run full shared/static closure regressions before promotion.
+Suite navigation, static/standalone packaging, npm scripts and CI are integrated.
+All 21 game tests and three packaging regressions passed locally after integration.
 
 Remaining evidence: fresh original PDF download/page/hash verification, independent
-physical-table acceptance, staged browser execution and visual review, and a
+physical-table and real iPad Safari acceptance, and a
 publisher clarification before claiming automatic edition-exact match starters.
