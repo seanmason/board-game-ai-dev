@@ -2,86 +2,13 @@
   "schema": 1,
   "study": "ai-comparison-2026-10-18",
   "revision": "d33aa8c56f0851b7115177f9e1cc60bb7817a291",
-  "updatedAt": "2026-10-18T19:34:46.399Z",
+  "updatedAt": "2026-10-18T19:35:29.573Z",
   "startedAt": "2026-10-18T19:25:12.572Z",
-  "status": "running",
+  "status": "finished",
   "workers": 12,
   "planned": 1720,
-  "finished": 1663,
-  "active": [
-    {
-      "id": "hive-2p-production-default-5192570-0",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:38.113Z"
-    },
-    {
-      "id": "hive-2p-production-default-5197555-1",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:44.584Z"
-    },
-    {
-      "id": "hive-2p-production-default-5198552-1",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:46.199Z"
-    },
-    {
-      "id": "hive-2p-production-default-5190576-1",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:36.744Z"
-    },
-    {
-      "id": "hive-2p-production-default-5198552-0",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:45.035Z"
-    },
-    {
-      "id": "hive-2p-production-default-5196558-0",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:43.005Z"
-    },
-    {
-      "id": "hive-2p-production-default-5196558-1",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:43.093Z"
-    },
-    {
-      "id": "hive-2p-production-default-5199549-0",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:46.394Z"
-    },
-    {
-      "id": "hive-2p-production-default-5193567-1",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:40.532Z"
-    },
-    {
-      "id": "hive-2p-production-default-5195561-0",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:41.224Z"
-    },
-    {
-      "id": "hive-2p-production-default-5197555-0",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:44.421Z"
-    },
-    {
-      "id": "hive-2p-production-default-5195561-1",
-      "game": "hive",
-      "players": 2,
-      "startedAt": "2026-10-18T19:34:42.727Z"
-    }
-  ],
+  "finished": 1720,
+  "active": [],
   "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against heuristic opponents. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
   "rows": [
     {
@@ -679,21 +606,21 @@
       "policyId": "hive-production-alphabeta-v1",
       "opponentPolicyId": "hive-independent-tactical-liberties-v1",
       "planned": 80,
-      "finished": 23,
+      "finished": 80,
       "counts": {
-        "complete": 16,
+        "complete": 50,
         "capped": 0,
-        "unresolved": 7,
+        "unresolved": 30,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 5,
+      "completeSeedGroups": 16,
       "winShare": {
-        "mean": 0.05,
-        "low": 0,
-        "high": 0.18880000000000002,
-        "n": 5
+        "mean": 0.109375,
+        "low": 0.012489294358340508,
+        "high": 0.2062607056416595,
+        "n": 16
       },
       "margin": {
         "mean": null,
@@ -702,9 +629,9 @@
         "n": 0
       },
       "chance": 0.5,
-      "meanDecisionMs": 117.1444923232326,
-      "maxDecisionMs": 304.10450000001583,
-      "elapsedMs": 131491.81720000017,
+      "meanDecisionMs": 123.90992266204921,
+      "maxDecisionMs": 407.55200000002515,
+      "elapsedMs": 624409.3338999999,
       "limitations": [
         "Classic Hive publisher diagram certification remains open.",
         "Candidate uses completed iterative alpha-beta depths with a full depth-one floor; 100ms is a soft budget.",
