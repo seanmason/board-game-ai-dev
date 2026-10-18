@@ -64,10 +64,12 @@ test('Prince discards Princess without replacement and uses reserve on last draw
 });
 test('voluntary Princess is legal and immediately loses the round',()=>{const s=play(fixture([[8,2],[4]]),8);assert.deepEqual(s.roundWinners,[1]);assert.deepEqual(s.affection,[0,1]);});
 test('showdown rank then discarded totals; complete ties award all and priority chooses starter',()=>{
- const s=fixture([[1,4],[4]],{deck:[]});s.discards=[[],[]];const pool=[1,1,1,1,2,2,3,3,5,5,6,7,8];
- // Separate directly hand-computed equal-total piles: [1,2] and [3].
- s.discards[0]=[{rank:1,kind:'played',turn:0},{rank:2,kind:'played',turn:0}];s.discards[1]=[{rank:3,kind:'played',turn:0}];
- s.hands=[[4],[4]];s.priority=[1,0];s.affection=[6,6];s.phase='awaitDraw';finishTurn(s);assert.deepEqual(s.roundWinners,[0,1]);assert.deepEqual(s.affection,[7,7]);assert.deepEqual(outcome(s),[.5,.5]);
+ const s=newGame({mode:'digital',priority:[1,0]});
+ s.phase='choosePlay';s.current=0;s.hands=[[1,4],[4]];s.deck=[];s.drawCount=0;s.reserve=8;s.exclusions=[1,1,2];
+ // Sixteen-card conserving piles: 7+6+3+played1 = 5+5+3+2+1+1 = 17.
+ s.discards=[[7,6,3],[5,5,3,2,1,1]].map(pile=>pile.map(rank=>({rank,kind:'played',turn:0})));
+ s.affection=[6,6];assertValid(s);const won=play(s,1,1,2);assert.deepEqual(won.roundWinners,[0,1]);assert.deepEqual(won.affection,[7,7]);assert.deepEqual(outcome(won),[.5,.5]);
+ s.affection=[0,0];const tied=play(s,1,1,2),next=applyAction(tied,{type:'nextRound'});assert.equal(next.current,1,'Date/age priority chooses among tied winners');assert.deepEqual(next.affection,[1,1]);
  const t=fixture([[1,4],[4]],{deck:[]});t.hands[0].shift();t.discards[0].push({rank:1,kind:'played',turn:0});t.phase='awaitDraw';finishTurn(t);assert.deepEqual(t.roundWinners,[1]);
  const u=fixture([[1,8],[4]],{deck:[]});const result=play(u,1,1,2);assert.deepEqual(result.roundWinners,[0]);
 });
@@ -101,6 +103,10 @@ test('physical Priest records private actual knowledge only for actor; outsider 
 test('physical correction, King exchange and Prince replacement preserve unknown slots',()=>{
  let s=recordObservation(newGame({players:3}),{type:'setup'});s=recordObservation(s,{type:'hand',player:0,ranks:[2]});s=recordPhysicalAction(s,{type:'draw'});s=recordObservation(s,{type:'hand',player:0,ranks:[2,6]});s=recordPhysicalAction(s,{type:'play',cardRank:6,target:1});s=recordObservation(s,{type:'effect',received:5,given:2});assert.deepEqual(s.hands,[[5],[2],[null]]);assert.equal(publicObservation(s,2).memories[0].known,null);
  s=recordObservation(s,{type:'hand',player:0,ranks:[4]});assert.equal(s.memories[1][0].known,null);assert.equal(s.events.at(-1).type,'correction');
+});
+test('physical Princess exposes the other card; contradictory actual evidence leaves pending unchanged',()=>{
+ let s=recordObservation(newGame({players:3}),{type:'setup'});s=recordPhysicalAction(s,{type:'draw'});s=recordPhysicalAction(s,{type:'play',cardRank:8});const before=JSON.stringify(s);assert.throws(()=>recordObservation(s,{type:'effect'}),/public card/);assert.equal(JSON.stringify(s),before);
+ s=recordObservation(s,{type:'effect',loserRank:4});assert.equal(s.alive[0],false);assert.deepEqual(s.discards[0].map(c=>c.rank),[8,4]);assert.equal(s.current,1);
 });
 test('malformed imports, wrong counts, phase hands and pending actions rejected atomically',()=>{
  const s=newGame({mode:'digital'});for(const mutate of [a=>a.deck.push(1),a=>a.players=5,a=>a.phase='choosePlay',a=>a.affection[0]=NaN,a=>a.priority=[0,0],a=>a.reserveCount=2,a=>a.phase='gameover']){const a=structuredClone(s);mutate(a);assert.throws(()=>assertValid(a));}
