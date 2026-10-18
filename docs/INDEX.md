@@ -8,6 +8,7 @@ This index routes work; game overviews own current game status.
 | --- | --- |
 | Locate a game, its code, limitations or evidence | [Game directory](games/INDEX.md) |
 | Fix a rule/card | Game overview → linked rules/source evidence → implementation and regression tests |
+| Plan the next six games | [Popularity selection and implementation handoffs](plans/next-games-2026-10-18/README.md) |
 | Improve AI | Game overview → current method and relevant experiment; inspect the benchmark harness before designing a run |
 | Change physical observations, undo or recovery | Game overview and [shared contracts](platform/README.md) |
 | Change workers or shared code | [Shared contracts and regression map](platform/README.md) |
