@@ -3,6 +3,19 @@ import {chromium} from "playwright";
 
 const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
 const page=await browser.newPage({viewport:{width:1190,height:880}});
+// Observe the real browser-to-worker contract without replacing worker execution.
+await page.addInitScript(()=>{
+  window.wingspanWorkerStarts=[];
+  const NativeWorker=window.Worker;
+  window.Worker=class extends NativeWorker{
+    postMessage(message,...args){
+      if(message?.type==='start')window.wingspanWorkerStarts.push({
+        method:message.method,horizon:message.horizon,leafEvaluator:message.leafEvaluator
+      });
+      return super.postMessage(message,...args);
+    }
+  };
+});
 const errors=[];
 page.on("pageerror",e=>errors.push(e.message));
 page.on("console",e=>{
@@ -28,6 +41,11 @@ try {
 
   // Explicit human setup with food-for-bird exchange and one bonus choice.
   await page.locator('input[data-action="keep-card"]').first().check();
+  await page.locator('button[data-action="confirm-setup"]').click();
+  await page.getByRole('alert').filter({hasText:'Discard exactly one food per kept bird'}).waitFor();
+  assert.match(await page.locator('.banner strong').first().innerText(),/Player 1/i,
+    'Invalid setup must keep the same player in setup');
+  assert.equal(await page.locator('input[data-action="keep-card"]').count(),5);
   await page.locator('input[data-action="discard-food"]').first().check();
   await page.locator('button[data-action="confirm-setup"]').click();
   assert.match(await page.locator(".banner strong").first().innerText(),/Player 2/i);
@@ -73,6 +91,12 @@ try {
 
   // Both analysis methods must be independently usable in the browser.
   await awaitSamples();
+  const starts=await page.evaluate(()=>window.wingspanWorkerStarts);
+  assert.ok(starts.length>0,'Analysis must start actual workers');
+  for(const start of starts){
+    assert.equal(start.horizon,4,'Browser analysis preserves the approved depth');
+    assert.equal(start.leafEvaluator,'opening-plan','Browser analysis preserves the approved evaluator');
+  }
   assert.equal(await page.locator("#search-method").inputValue(),"belief-rollout");
   const unchanged=await page.locator(".banner strong").first().innerText();
   await page.locator("#search-method").selectOption("heuristic");
@@ -193,6 +217,8 @@ try {
   // A new physical session supports observed cards without inventing IDs.
   await page.locator("#mode").selectOption("physical");
   await page.locator('button[data-action="new-game"]').click();
+  assert.match(await page.locator('#analysis-status').innerText(),/Needs observations/i,
+    'Unknown physical setup must block speculative analysis');
   assert.ok(await page.getByText("Record the real table", {exact:false}).count());
   assert.equal(await page.locator('button[data-action="record-best"]').count(),0,
     "Speculative physical suggestions must not be directly committed");
@@ -259,6 +285,30 @@ try {
   }));
   assert.ok(measure.scroll<=measure.width+4,"iPad should not scroll sideways");
   await tablet.close();
+
+  const phone=await browser.newPage({
+    viewport:{width:390,height:844},deviceScaleFactor:2,hasTouch:true,isMobile:true
+  });
+  phone.on('pageerror',e=>errors.push('phone: '+e.message));
+  await phone.goto('http://127.0.0.1:8080/wingspan/',{waitUntil:'networkidle'});
+  assert.ok(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+4),
+    'Starting choices should fit a touch phone');
+  await phone.locator('input[data-action="keep-card"]').first().tap();
+  await phone.locator('input[data-action="discard-food"]').first().tap();
+  await phone.locator('button[data-action="confirm-setup"]').tap();
+  assert.match(await phone.locator('.banner strong').first().innerText(),/Player 2/i);
+  await phone.locator('button[data-action="confirm-setup"]').tap();
+  await phone.locator('.action-group').filter({hasText:'Food'}).locator(
+    'button[data-action="choose-option"]').first().tap();
+  const phoneTurn=await phone.evaluate(()=>{
+    const d=JSON.parse(localStorage.getItem('board-game-ai-wingspan-v1'));
+    return d.history[d.index].state;
+  });
+  assert.equal(phoneTurn.remaining[0],7,'Touch action records exactly one turn');
+  assert.equal(phoneTurn.currentPlayer,1);
+  assert.ok(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+4),
+    'Action controls should fit a touch phone');
+  await phone.close();
   assert.equal(errors.length,0,"Browser errors: "+errors.join("; "));
   console.log("Wingspan browser smoke passed: setup, actions, food, undo/redo, "+
     "Monte Carlo workers, pause/resume, explicit AI, physical observation and iPad viewport.");

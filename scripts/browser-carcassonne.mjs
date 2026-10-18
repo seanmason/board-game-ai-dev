@@ -13,11 +13,24 @@ try{
  await page.waitForFunction(()=>Number(document.querySelector('#samples')?.textContent)>0);
  assert.equal((await state()).turn,0,'No autoplay');
  await page.waitForFunction(()=>document.querySelector('#samples')?.textContent==='30'&&document.querySelector('#samples')?.dataset.paused==='true');
- assert.equal(await page.locator('[data-action=pause]').isDisabled(),true);
- await page.locator('[data-action=longer]').click();
- await page.waitForFunction(()=>Number(document.querySelector('#samples')?.textContent)>30);
- await page.locator('[data-action=pause]').click();await page.locator('#samples[data-paused="true"]').waitFor();
- const samples=Number(await page.locator('#samples').innerText());assert.ok(samples>30&&samples<100);
+ assert.equal(await page.locator('[data-action=pause]').count(),0,
+   'The completed 30-sample analysis hides Pause');
+ assert.equal(await page.getByRole('button',{name:'Think longer',exact:true}).count(),1);
+ // Pause on the worker's immediate resumed report, before browser-driver
+ // round trips can let a fast runner finish all 100 samples.
+ await page.evaluate(()=>new Promise((resolve,reject)=>{
+   const timer=setTimeout(()=>{observer.disconnect();reject(Error('No resumed analysis report'));},10000);
+   const observer=new MutationObserver(()=>{
+     const samples=document.querySelector('#samples');
+     if(samples?.dataset.paused!=='false')return;
+     observer.disconnect();clearTimeout(timer);
+     document.querySelector('[data-action=pause]').click();resolve();
+   });
+   observer.observe(document.querySelector('#analysis'),{childList:true,subtree:true});
+   document.querySelector('[data-action=longer]').click();
+ }));
+ await page.locator('#samples[data-paused="true"]').waitFor();
+ const samples=Number(await page.locator('#samples').innerText());assert.ok(samples>=30&&samples<100);
  await page.waitForTimeout(300);assert.equal(Number(await page.locator('#samples').innerText()),samples);
  await page.locator('[data-action=pause]').click();
  await page.waitForFunction(()=>document.querySelector('#samples')?.textContent==='100'&&document.querySelector('#samples')?.dataset.paused==='true');
