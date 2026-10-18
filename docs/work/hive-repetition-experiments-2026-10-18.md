@@ -54,3 +54,15 @@ Use `node scripts/benchmark-comparison.mjs --games=hive --players=2 --opponent=s
 `--policy=tactical-v2` or `--policy=history-v1`, and JSON budget
 `{"ms":100,"maxDepth":5,"openingPlies":6,"maxTurns":160,"repetitionLimit":4}`
 (replace ms with 500 for compute). Frozen manifests preserve exact tasks and hashes.
+
+
+## Completed outcome
+
+All 240 records are preserved: 143 complete, 93 unresolved repetitions, four caps,
+zero illegal actions/errors. History completed 55/80 versus control 45/80
+(+12.5 percentage points, paired 95% interval +5.5 to +19.5); ten gains and no
+lost control completions. It meets the exploratory follow-up gate and remains
+research-only pending separately planned fresh confirmation. The 500 ms arm
+completed 43/80 at more than twice control's measured decision cost and does not
+qualify. No further tournament ran. See the
+[report and raw evidence](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/hive-repetition/REPORT.md).

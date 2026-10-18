@@ -106,3 +106,12 @@ mean candidate decision time was about 292 ms versus 144 ms, with a worst case
 around 7.28 seconds under concurrent desktop load. The budget is soft; worker
 pause/resume remains available and incomplete tactical checks withhold advice.
 No larger confirmation or evaluator promotion followed.
+
+
+The [matched history/compute screen](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/hive-repetition/REPORT.md)
+completed 240 records. A benchmark-only public-history tie-break completed
+55/80 games versus 45/80 for control, qualifying for future fresh confirmation;
+21 repetitions and four caps remain. Raising the soft budget to 500 ms completed
+43/80 games with more than twice the measured decision cost. The history policy
+remains research-only, and neither the browser default nor repetition handling
+changed. These exploratory completion results do not establish general strength.
