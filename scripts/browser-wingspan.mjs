@@ -24,7 +24,9 @@ await page.addInitScript(()=>{
 const errors=[];
 page.on("pageerror",e=>errors.push(e.message));
 page.on("console",e=>{
-  if(e.type()==="error"&&!e.text().includes("favicon.ico"))errors.push(e.text());
+  const url=e.location().url;
+  if(e.type()==="error"&&!e.text().includes("favicon.ico")&&!url.endsWith('/favicon.ico'))
+    errors.push(e.text()+(url?' ['+url+']':''));
 });
 const samples=async()=>Number((await page.locator(".stat .value").first().innerText()).replaceAll(",",""));
 const awaitSamples=async(amount=0)=>page.waitForFunction(n=>{

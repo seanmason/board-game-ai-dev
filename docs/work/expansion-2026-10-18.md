@@ -32,3 +32,27 @@ Implementation follows the [six-game package](../plans/next-games-2026-10-18/REA
 and its source/adjudication gates. Independent agents use isolated game branches;
 the coordinator owns suite integration, asset packaging and CI. No strength
 tournaments are required for stabilization or documentation cleanup.
+
+## Stabilization verification
+
+Full [Validation run 39147861993](https://github.com/seanmason/board-game-ai-dev/actions/runs/39147861993)
+passed at `bbe379e`: unit tests, syntax/docs, independent rules comparisons,
+bounded CI smoke benchmarks, packaging, and all eleven browser scripts. The
+preceding aggregate run exposed the additional Carcassonne stale assertion:
+Pause is hidden when its 30-sample budget completes, with Think longer available.
+The corrected test also verifies pause/resume without depending on driver latency.
+
+Local `node --test --test-concurrency=8`: 706 passed, zero failures.
+`node scripts/check-syntax.mjs`: 211 modules passed. Documentation check: 48
+files and nine packaged game entries. No new strength study was performed.
+
+On 2026-10-18 the extended Wingspan browser script passed against the public
+Pages preview using installed Chrome (`PLAYWRIGHT_CHANNEL=chrome`,
+`BASE_URL=https://seanmason.github.io/board-game-ai-dev/`). It checked actual
+worker messages for depth 4 and opening-plan, invalid setup, physical observation
+blocking, recovery, and touch actions. The optional favicon 404 is excluded by
+its exact resource URL; other console errors remain failures. Desktop, tablet,
+phone and physical-phone screenshots are saved under `test-artifacts/wingspan-*`;
+CI now uploads the same evidence. Tablet screenshot review showed 24 opening
+candidates and no horizontal overflow. This is automated Chrome touch emulation,
+not a real iPad Safari or complete real-table acceptance test.
