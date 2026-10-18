@@ -3,6 +3,23 @@
 Target: English 2019 Space Cowboys / Vincent Dutrait base edition. Promos,
 campaigns, digital app variants and earlier art editions are excluded.
 
+## Current assumption decision
+
+On 2026-10-18, following modest additional research, the user explicitly
+authorized implementing the best-supported token inventory despite the remaining
+photographic audit gap. The vectors below now drive seeded digital play under
+`assumed-inventory-2026-10-18-v1`; they are an attributed assumption, not promoted
+to independently certified publisher transcription. Physical entered values
+remain authoritative and are never overwritten by this digital profile.
+
+The additional search reconfirmed the Home of Mark breakdown for an English
+2019 Dutrait copy: 3-card bonuses two1/three2/two3, 4-card bonuses two each4/5/6,
+5+-card bonuses two8/one9/two10. The 2017 university report independently
+corroborates goods vectors and class counts but predates the target art edition.
+Publisher totals/ranges and the coordinator's partial physical-photo inspection
+agree. No conflicting authoritative distribution was found. This supports the
+assumption without resolving the complete 3/4 bonus-back photo audit.
+
 ## Primary evidence
 
 1. [Publisher product/download page](https://www.spacecowboys-games.com/game/jaipur/),
@@ -45,9 +62,10 @@ draft below (some leather tokens overlap). The bonus photograph exposes the
 5+-sale value row `10,10,9,8,8`, but the 3/4-sale rows show their card-count
 faces rather than values. This is partial physical-photo corroboration; it does
 not certify the complete bonus inventory. No downloaded image/hash was supplied
-to this game-owner branch. The production generated-data gate remains closed.
+to this game-owner branch. This originally blocked generation; the later explicit
+assumption decision above now enables the named digital profile.
 
-## Draft vectors, intentionally absent from production generated data
+## Adopted assumed vectors for digital play
 
 | Class | Secondary draft values |
 | --- | --- |
@@ -62,10 +80,9 @@ to this game-owner branch. The production generated-data gate remains closed.
 | 5+-card bonus | 8,8,9,10,10 |
 
 The [original game plan](../../plans/next-games-2026-10-18/jaipur.md) records
-the secondary calculator/university corroboration. Tests contain explicit
-synthetic fixtures with these familiar values; this does not promote them to a
-verified catalog or independent component oracle. Production setup requires
-actual table values and actual bonus-class counts.
+the secondary calculator/university corroboration. Tests and the digital catalog
+now share this explicit profile; catalog copies are not independent data oracles.
+Physical setup still requires actual table values and actual bonus-class counts.
 
 ## Remaining authority gates
 
@@ -80,5 +97,7 @@ round tie or exhaustion of a bonus class. Searches included publisher site and
 the official Asmodee digital help center; the latter concerns app support and
 does not supply those tabletop rulings. The implementation explicitly uses
 agreed full-tie adjudication and named `finite-supply-no-bonus` policy. Neither
-is claimed to be an official publisher clarification. Faithful automatic official
-match simulation and strength benchmarking remain blocked.
+is claimed to be an official publisher clarification. The digital compatibility
+profile now uses finite supply and a full-tie redeal without a seal, alternating
+the prior round's starter. Simulation and benchmarking are enabled under that
+named assumed profile; they do not certify an unambiguous official ruling.

@@ -1,5 +1,9 @@
 export const EDITION='space-cowboys-2019-en';
 export const AUDIT='physical-entered-v1';
+export const DIGITAL_AUDIT='assumed-inventory-2026-10-18-v1';
+export const GOODS_TOKENS=Object.freeze([[7,7,5,5,5],[6,6,5,5,5],[5,5,5,5,5],[5,3,3,2,2,1,1],[5,3,3,2,2,1,1],[4,3,2,1,1,1,1,1,1]].map(Object.freeze));
+export const BONUS_TOKENS=Object.freeze([[1,1,2,2,2,3,3],[4,4,5,5,6,6],[8,8,9,10,10]].map(Object.freeze));
+export const INVENTORY_ASSUMPTION={id:DIGITAL_AUDIT,status:'user-authorized-best-supported-assumption',date:'2026-10-18',secondarySources:['https://homeofmark.com/jaipur-card-game-review/','https://tablegameshub.com/jaipur-goods-token-calculator/','https://info.bb-ai.net/student_projects/project_reports/Games/Jordan-OBrien-Jaipur-project-report.pdf'],primaryCoverage:'Publisher totals/ranges; partial physical goods and 5+ bonus photo corroboration. Complete 3/4 bonus-back audit remains unavailable.'};
 export const GOODS=['diamonds','gold','silver','cloth','spice','leather'];
 export const CARDS=[...GOODS,'camels'];
 export const CARD_TOTALS=[6,6,6,8,8,10,11];

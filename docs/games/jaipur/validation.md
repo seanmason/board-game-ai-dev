@@ -1,5 +1,9 @@
 # Jaipur validation evidence — 2026-10-18
 
+Historical evidence for the initial physical-only implementation. The later
+[assumed digital extension](digital-validation.md) supersedes the generation and
+benchmark blocking status recorded below; retain these original outcomes.
+
 Development branch `codex/jaipur`, based on stabilized `bbe379e`.
 Game-owner changes only; coordinator integration and release are separate.
 

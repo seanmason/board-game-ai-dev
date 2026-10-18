@@ -1,11 +1,21 @@
-# Jaipur physical companion
+# Jaipur companion
 
 Scope: Space Cowboys Vincent Dutrait English edition, copyright 2019; two
 players. [Play/record](../../../jaipur/index.html). The implementation is a
-physical recorder with conservative tactical advice. Generated digital games and
-hidden bonus sampling are blocked by the [source audit](sources.md), which has
-not certified exact token multiplicities. This is not a complete official digital
-edition, an AI strength result, or a released game.
+physical recorder and seeded digital game with conservative tactical advice.
+The user explicitly authorized the best-supported token inventory as an assumption
+after further research. Digital profile `assumed-inventory-2026-10-18-v1` is
+attributed in the [source audit](sources.md); it does not claim complete independent
+photographic certification or a publisher ruling for unprinted edge cases.
+
+Digital setup shuffles all 55 cards (three reserved market camels), deals five
+to each player, completes the market and separately shuffles the three bonus
+classes with a deterministic seed. Refill and bonus chance results resolve
+atomically. Card identities, private bonus values, future stack order and RNG
+state stay in true state. A normal digital round awards a seal and the loser
+starts next. A complete published-comparison tie uses the disclosed simulation
+policy: no seal, redeal, alternate the previous round's starting seat. Empty bonus
+classes award no unavailable token. These policies are not publisher rulings.
 
 ## Physical recording and rules
 
@@ -51,10 +61,22 @@ The worker ranks every canonical legal action with a deterministic heuristic:
 immediate goods return, the minimum possible bonus in the published range, hand
 space, set-building and payment cost. It reports ranked/unvisited root counts and
 supports shared pause/resume/generation handling. Evaluations are not calibrated
-win probabilities. There is no hidden-information rollout, generated bonus
-distribution, neural training or strength tournament. `belief.js` exposes only a
-conservative residual-card pool and refuses exact bonus sampling; it does not
-claim to sample full history-conditioned opponent beliefs.
+win probabilities. The existing tactical formula remains the production default;
+no implementation smoke result promotes a replacement. There is no
+hidden-information rollout or neural training. `belief.js` exposes a conservative
+residual-card pool and samples bonus marginals only under the assumed digital
+profile, removing legitimately known earned values. It does not claim to sample
+full history-conditioned opponent beliefs. Physical mode continues to require
+actual observations rather than substitute assumed bonus values.
+
+The [benchmark adapter](../../../scripts/benchmark-adapters/jaipur.mjs) exports
+quiet `metadata`, `runGame` and `simulateMatch` interfaces. Production tactical
+ranking is compared with an independent procedural set collector (`simple-v1`),
+which collects bundles and improves set potential rather than reuse the production
+formula. Policies receive only their acting-seat observation and legal actions;
+each simulated opponent is rerooted at its own view. Match scores/margins are sums
+of per-round rupee totals, separately from seal wins. Capped or illegal games have
+no invented winner. The coordinator owns batch studies and the dashboard.
 
 ## Implementation and verification
 
@@ -67,8 +89,10 @@ claim to sample full history-conditioned opponent beliefs.
 - [Regression tests](../../../test/jaipur.test.js) and
   [browser check](../../../scripts/browser-jaipur.mjs).
 - [Validation evidence](validation.md), including commands and remaining gates.
+- [Assumed digital extension evidence](digital-validation.md).
 
-Integrated into suite navigation, static and standalone packaging, npm commands
-and CI. Coordinator checks passed all 18 rules tests and three static-asset
-regressions, plus the staged browser suite. Full cloud validation gates preview
-deployment. This remains a physical companion with the source limits above.
+The existing physical companion was integrated into navigation, static/standalone
+packaging and CI with coordinator browser acceptance. The digital extension adds
+23 passing rules/privacy/simulation tests and an expanded browser regression;
+its fresh packaging/browser/publish checks belong to coordinator integration.
+Source limitations remain explicit above.
