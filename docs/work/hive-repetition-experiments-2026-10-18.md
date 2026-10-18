@@ -14,7 +14,10 @@ seeded legal openings, maxTurns 160, repetitionLimit 4 and maxDepth 5.
 2. History: research-only `history-v1`, soft 100 ms. Among exactly equal root
    evaluations prefer fewer previous occurrences of the resulting position in
    public game history, then retain lexical ordering. Keep all legal roots,
-   immediate-win priority and mandatory reply safety. No repetition rule changes.
+   immediate-win priority and mandatory reply safety. Tie comparisons use root
+   heuristic/completed-minimax scores before the shared all-losing fallback
+   substitutes proven-loss display values; that fallback ordering is unchanged
+   to isolate this experiment. No repetition rule changes.
 3. Compute: `tactical-v2`, soft 500 ms.
 
 The independent heuristic has no changed budget or policy. Run arms sequentially
