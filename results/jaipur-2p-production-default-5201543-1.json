@@ -1,0 +1,76 @@
+{
+  "game": "jaipur",
+  "seed": 5201543,
+  "seat": 1,
+  "players": 2,
+  "policyId": "production-default",
+  "opponentPolicyId": "simple-v1",
+  "budget": {
+    "maxActions": 1200
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    0,
+    1
+  ],
+  "winners": [
+    1
+  ],
+  "scores": [
+    104,
+    164
+  ],
+  "margin": 60,
+  "turns": 94,
+  "elapsedMs": 29.067699999999604,
+  "latency": {
+    "count": 47,
+    "totalMs": 0.3862000000081025,
+    "maxMs": 0.04349999999976717,
+    "p50Ms": 0.006099999998696148,
+    "p95Ms": 0.01789999999164138
+  },
+  "diagnostics": {
+    "profile": {
+      "inventory": "assumed-inventory-2026-10-18-v1",
+      "emptyBonus": "finite-supply-no-bonus",
+      "fullTie": "tie-redeal-no-seal-alternate-starter"
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "totals": [
+          47,
+          80
+        ],
+        "winner": 1,
+        "tie": false
+      },
+      {
+        "round": 2,
+        "totals": [
+          57,
+          84
+        ],
+        "winner": 1,
+        "tie": false
+      }
+    ],
+    "ties": 0,
+    "seals": [
+      0,
+      2
+    ],
+    "error": null,
+    "method": "All-root deterministic tactical baseline versus independent procedural set collector",
+    "rootPruning": false
+  },
+  "id": "jaipur-2p-production-default-5201543-1",
+  "matchup": "jaipur-2p-production-default",
+  "policy": "production-default",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "maxActions": 1200
+  }
+}

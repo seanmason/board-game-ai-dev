@@ -1,0 +1,85 @@
+{
+  "game": "jaipur",
+  "seed": 5218492,
+  "seat": 0,
+  "players": 2,
+  "policyId": "production-default",
+  "opponentPolicyId": "simple-v1",
+  "budget": {
+    "maxActions": 1200
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    0,
+    1
+  ],
+  "winners": [
+    1
+  ],
+  "scores": [
+    201,
+    200
+  ],
+  "margin": 1,
+  "turns": 130,
+  "elapsedMs": 60.50089999999909,
+  "latency": {
+    "count": 65,
+    "totalMs": 1.1641000000527129,
+    "maxMs": 0.09350000000267755,
+    "p50Ms": 0.010600000008707866,
+    "p95Ms": 0.06160000000090804
+  },
+  "diagnostics": {
+    "profile": {
+      "inventory": "assumed-inventory-2026-10-18-v1",
+      "emptyBonus": "finite-supply-no-bonus",
+      "fullTie": "tie-redeal-no-seal-alternate-starter"
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "totals": [
+          71,
+          66
+        ],
+        "winner": 0,
+        "tie": false
+      },
+      {
+        "round": 2,
+        "totals": [
+          65,
+          66
+        ],
+        "winner": 1,
+        "tie": false
+      },
+      {
+        "round": 3,
+        "totals": [
+          65,
+          68
+        ],
+        "winner": 1,
+        "tie": false
+      }
+    ],
+    "ties": 0,
+    "seals": [
+      1,
+      2
+    ],
+    "error": null,
+    "method": "All-root deterministic tactical baseline versus independent procedural set collector",
+    "rootPruning": false
+  },
+  "id": "jaipur-2p-production-default-5218492-0",
+  "matchup": "jaipur-2p-production-default",
+  "policy": "production-default",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "maxActions": 1200
+  }
+}

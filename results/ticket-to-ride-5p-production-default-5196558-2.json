@@ -1,0 +1,68 @@
+{
+  "game": "ticket-to-ride",
+  "seed": 5196558,
+  "seat": 2,
+  "players": 5,
+  "policyId": "ttr-production-network-v1",
+  "opponentPolicyId": "ttr-independent-ticket-plan-v1",
+  "budget": {
+    "samples": 128,
+    "maxTurns": 600
+  },
+  "scope": "match",
+  "status": "unresolved",
+  "shares": null,
+  "winners": null,
+  "scores": null,
+  "margin": null,
+  "turns": 367,
+  "elapsedMs": 2409.7702999999965,
+  "latency": {
+    "count": 68,
+    "totalMs": 1664.0281999999788,
+    "maxMs": 50.44080000000395,
+    "p50Ms": 28.277200000004086,
+    "p95Ms": 47.20539999999892
+  },
+  "diagnostics": {
+    "illegalActions": 0,
+    "capped": false,
+    "unresolved": true,
+    "error": null,
+    "phase": "supplyAdjudication",
+    "reason": "Market cannot be resolved under pinned rules",
+    "startingPlayer": 3,
+    "baselineLatency": {
+      "count": 299,
+      "totalMs": 309.39919999996346,
+      "maxMs": 10.824300000000221,
+      "p50Ms": 0.8786999999938416,
+      "p95Ms": 2.8588999999992666
+    },
+    "allLatency": {
+      "count": 367,
+      "totalMs": 1973.4273999999423,
+      "maxMs": 50.44080000000395,
+      "p50Ms": 1.1504000000059023,
+      "p95Ms": 36.88040000000183
+    },
+    "candidateSamples": 8704,
+    "minimumRootCoverage": 1,
+    "actualSamplesCanExceedBudget": true,
+    "catalogGates": {
+      "boardTranscribed": true,
+      "boardReconciled": true,
+      "ticketsTranscribed": true,
+      "ticketsIndependentlyReconciled": false
+    },
+    "promotion": false
+  },
+  "id": "ticket-to-ride-5p-production-default-5196558-2",
+  "matchup": "ticket-to-ride-5p-production-default",
+  "policy": "production-default",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "samples": 128,
+    "maxTurns": 600
+  }
+}

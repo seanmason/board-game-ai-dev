@@ -1,0 +1,90 @@
+{
+  "game": "hive",
+  "seed": 5188582,
+  "seat": 1,
+  "players": 2,
+  "policyId": "hive-production-alphabeta-v1",
+  "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+  "budget": {
+    "ms": 100,
+    "maxTurns": 160,
+    "repetitionLimit": 4
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    1,
+    0
+  ],
+  "winners": [
+    0
+  ],
+  "scores": null,
+  "margin": null,
+  "turns": 39,
+  "elapsedMs": 6582.905600000056,
+  "latency": {
+    "count": 19,
+    "totalMs": 2205.175299999886,
+    "maxMs": 212.0814000000246,
+    "p50Ms": 101.55460000003222,
+    "p95Ms": 212.0814000000246
+  },
+  "diagnostics": {
+    "illegalActions": 0,
+    "capped": false,
+    "unresolved": false,
+    "error": null,
+    "reason": "queen-surrounded",
+    "phase": "gameover",
+    "startingPlayer": 0,
+    "baselineLatency": {
+      "count": 20,
+      "totalMs": 4315.471699999645,
+      "maxMs": 2010.7955000000075,
+      "p50Ms": 105.22539999999572,
+      "p95Ms": 2010.7955000000075
+    },
+    "allLatency": {
+      "count": 39,
+      "totalMs": 6520.6469999995315,
+      "maxMs": 2010.7955000000075,
+      "p50Ms": 101.65489999996498,
+      "p95Ms": 329.6554999999935
+    },
+    "baselineReplyNodes": 2728,
+    "candidateNodes": 3227,
+    "completedDepths": [
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fallbackDecisions": 0,
+    "promotion": false
+  },
+  "id": "hive-2p-production-default-5188582-1",
+  "matchup": "hive-2p-production-default",
+  "policy": "production-default",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "ms": 100,
+    "maxTurns": 160,
+    "repetitionLimit": 4
+  }
+}

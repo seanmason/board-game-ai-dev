@@ -1,0 +1,68 @@
+{
+  "game": "sushi-go",
+  "seed": 5192570,
+  "seat": 0,
+  "players": 5,
+  "policyId": "sushi-go-browser-sampled-v1",
+  "opponentPolicyId": "sushi-go-local-set-greedy-v1",
+  "budget": {
+    "iterations": 64,
+    "rootCoverageFloor": true
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    0,
+    0,
+    1,
+    0,
+    0
+  ],
+  "winners": [
+    2
+  ],
+  "scores": [
+    26,
+    24,
+    30,
+    22,
+    14
+  ],
+  "margin": 3.5,
+  "turns": 21,
+  "elapsedMs": 10502.837400000019,
+  "latency": {
+    "count": 21,
+    "totalMs": 10453.120000000112,
+    "maxMs": 1020.8180000000284,
+    "p50Ms": 465.3462999999756,
+    "p95Ms": 969.8570000000182
+  },
+  "opponentLatency": {
+    "count": 84,
+    "totalMs": 0.4744000000064261,
+    "maxMs": 0.018899999966379255,
+    "p50Ms": 0.004599999985657632,
+    "p95Ms": 0.011400000017601997
+  },
+  "diagnostics": {
+    "rounds": 3,
+    "iterations": 1344,
+    "roots": 80,
+    "coveredRoots": 80,
+    "illegal": 0,
+    "capped": 0,
+    "unresolved": 0,
+    "error": null,
+    "transcriptHash": "03a2424f7b6bb4ebdadc9cb8a8d7213da77cdb4d8acc003089c921fe143d68a6",
+    "browserSearchSeed": 611,
+    "marginMeaning": "Controlled seat minus mean opponent score; full match includes pudding."
+  },
+  "id": "sushi-go-5p-production-default-5192570-0",
+  "matchup": "sushi-go-5p-production-default",
+  "policy": "production-default",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "iterations": 64
+  }
+}

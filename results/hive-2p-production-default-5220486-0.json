@@ -1,0 +1,112 @@
+{
+  "game": "hive",
+  "seed": 5220486,
+  "seat": 0,
+  "players": 2,
+  "policyId": "hive-production-alphabeta-v1",
+  "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+  "budget": {
+    "ms": 100,
+    "maxTurns": 160,
+    "repetitionLimit": 4
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    0,
+    1
+  ],
+  "winners": [
+    1
+  ],
+  "scores": null,
+  "margin": null,
+  "turns": 82,
+  "elapsedMs": 11240.413499999908,
+  "latency": {
+    "count": 41,
+    "totalMs": 4156.710399999283,
+    "maxMs": 102.94799999997485,
+    "p50Ms": 101.39029999997001,
+    "p95Ms": 102.70319999998901
+  },
+  "diagnostics": {
+    "illegalActions": 0,
+    "capped": false,
+    "unresolved": false,
+    "error": null,
+    "reason": "queen-surrounded",
+    "phase": "gameover",
+    "startingPlayer": 0,
+    "baselineLatency": {
+      "count": 41,
+      "totalMs": 6928.761300000362,
+      "maxMs": 309.63670000003185,
+      "p50Ms": 191.41330000001471,
+      "p95Ms": 260.34719999996014
+    },
+    "allLatency": {
+      "count": 82,
+      "totalMs": 11085.471699999645,
+      "maxMs": 309.63670000003185,
+      "p50Ms": 102.08279999997467,
+      "p95Ms": 249.37739999999758
+    },
+    "baselineReplyNodes": 1267,
+    "candidateNodes": 4523,
+    "completedDepths": [
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fallbackDecisions": 0,
+    "promotion": false
+  },
+  "id": "hive-2p-production-default-5220486-0",
+  "matchup": "hive-2p-production-default",
+  "policy": "production-default",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "ms": 100,
+    "maxTurns": 160,
+    "repetitionLimit": 4
+  }
+}
