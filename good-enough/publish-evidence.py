@@ -37,6 +37,20 @@ with zipfile.ZipFile(pub/'execution-source.zip','w',compression=zipfile.ZIP_DEFL
         archive.writestr(path,raw)
 (pub/'source-verification.json').write_text(json.dumps({'revision':analysis['revision'],'verifiedSourcePaths':len(source_hashes),'hashes':source_hashes,'gitBlobHashes':git_blob_hashes,'verification':source_modes,'rawSourceArchive':'execution-source.zip','archiveSha256':hashlib.sha256((pub/'execution-source.zip').read_bytes()).hexdigest()},indent=2),encoding='utf-8')
 (pub/'result-sha256.json').write_text(json.dumps(hashes,indent=2),encoding='utf-8')
+# Preserve exact runtime bytes independently of Git's text newline normalization.
+with zipfile.ZipFile(pub/'execution-results.zip','w',compression=zipfile.ZIP_DEFLATED) as archive:
+    for path,digest in hashes.items():
+        raw=(root/path).read_bytes()
+        assert hashlib.sha256(raw).hexdigest()==digest,path
+        archive.writestr(path,raw)
+normalized_hashes={path:hashlib.sha256((root/path).read_bytes().replace(b'\r\n',b'\n')).hexdigest() for path in hashes}
+(pub/'published-json-sha256.json').write_text(json.dumps(normalized_hashes,indent=2),encoding='utf-8')
+verification=json.loads((pub/'source-verification.json').read_text(encoding='utf-8'))
+verification['rawResultsArchive']='execution-results.zip'
+verification['rawResultsArchiveSha256']=hashlib.sha256((pub/'execution-results.zip').read_bytes()).hexdigest()
+verification['gitNormalizedJsonFiles']=sum((root/path).read_bytes()!=(root/path).read_bytes().replace(b'\r\n',b'\n') for path in hashes)
+(pub/'source-verification.json').write_text(json.dumps(verification,indent=2),encoding='utf-8')
+
 for name in ['analysis.json','execution-receipt.json']:shutil.copy2(root/name,pub/name)
 shutil.copy2('docs/work/good-enough-experiments-2026-10-18.md',pub/'PROTOCOL.md')
 shutil.copy2('local-run/run-good-enough.py',pub/'run-experiments.py')
@@ -126,6 +140,11 @@ iteration choices are deterministic for the pinned inputs; timed Hive searches
 can vary with load. The control ran alongside both other families, while the history arm ran mostly alongside Sushi Go. Hive meets its predeclared completion criterion under this execution schedule; the entire difference cannot be attributed to history alone. These are not equal-time cross-policy strength comparisons. Both Hive arms finished only depth one on about 98.5% of decisions, and maximum decisions took 11.36 seconds for control and 8.59 seconds for history. The soft 100 ms target does not establish responsive worst-case latency.
 
 ## Provenance and reproduction
+
+Git normalizes CRLF in readable JSON. result-sha256.json verifies exact bytes
+in execution-results.zip; published-json-sha256.json verifies normalized Git
+blobs. Archive hashes are recorded in source-verification.json.
+
 ''')
 lines.append('Frozen execution revision: `'+analysis['revision']+'`. All six manifests agree on shared source hashes. [Source verification](source-verification.json) checks retained raw bytes against the execution hashes, then checks equality with the frozen Git contents after CRLF-to-LF normalization. Exact execution bytes are preserved in [execution-source.zip](execution-source.zip); mixed line endings and both hashes are recorded explicitly.')
 lines.append('')

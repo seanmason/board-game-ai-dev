@@ -135,6 +135,11 @@ Integrated at `7b9f9ea`. Local verification passed: `node --test
 `node scripts/browser-dashboard.mjs` using installed headless Chrome. The real
 bundled dataset renders eight cards and 1,200/1,200 records at a 390 px touch
 viewport with no horizontal overflow. These automated checks are not a real
-iPad Safari acceptance test. Full validation-gated Pages deployment is pending.
+iPad Safari acceptance test. [Full validation and Pages deployment passed](https://github.com/seanmason/board-game-ai-dev/actions/runs/39177083833)
+for `7b9f9ea`. The public dashboard was then checked in headless Chrome at
+390 px with touch enabled: eight cards, 1,200/1,200 records, correct report link,
+no horizontal overflow and no browser errors. Exact committed evidence bytes
+were verified against all 1,212 published JSON hashes, 1,212 archived runtime
+JSON hashes and 35 archived source hashes.
 
 
