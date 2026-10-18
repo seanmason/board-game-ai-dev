@@ -2,84 +2,84 @@
   "schema": 1,
   "study": "ai-comparison-2026-10-18",
   "revision": "d33aa8c56f0851b7115177f9e1cc60bb7817a291",
-  "updatedAt": "2026-10-18T19:27:33.901Z",
+  "updatedAt": "2026-10-18T19:28:38.326Z",
   "startedAt": "2026-10-18T19:25:12.572Z",
   "status": "running",
   "workers": 12,
   "planned": 1720,
-  "finished": 1048,
+  "finished": 1142,
   "active": [
     {
-      "id": "sushi-go-2p-production-default-5206528-0",
+      "id": "sushi-go-3p-production-default-5203537-1",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:31.828Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:34.516Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5210516-0",
+      "id": "sushi-go-3p-production-default-5204534-1",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:33.144Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:35.188Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5206528-1",
+      "id": "sushi-go-3p-production-default-5203537-2",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:32.198Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:34.752Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5209519-1",
+      "id": "sushi-go-3p-production-default-5206528-0",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:33.061Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:38.242Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5207525-0",
+      "id": "sushi-go-3p-production-default-5205531-1",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:32.701Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:35.998Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5209519-0",
+      "id": "sushi-go-3p-production-default-5205531-0",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:32.972Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:35.921Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5210516-1",
+      "id": "sushi-go-3p-production-default-5206528-1",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:33.500Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:38.325Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5207525-1",
+      "id": "sushi-go-3p-production-default-5205531-2",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:32.790Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:36.080Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5208522-0",
+      "id": "sushi-go-3p-production-default-5204534-0",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:32.798Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:34.868Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5208522-1",
+      "id": "sushi-go-3p-production-default-5204534-2",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:32.938Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:35.609Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5211513-1",
+      "id": "sushi-go-3p-production-default-5202540-2",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:33.898Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:31.560Z"
     },
     {
-      "id": "sushi-go-2p-production-default-5211513-0",
+      "id": "sushi-go-3p-production-default-5203537-0",
       "game": "sushi-go",
-      "players": 2,
-      "startedAt": "2026-10-18T19:27:33.745Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:28:31.577Z"
     }
   ],
   "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against heuristic opponents. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
@@ -452,32 +452,32 @@
       "policyId": "sushi-go-browser-sampled-v1",
       "opponentPolicyId": "sushi-go-local-set-greedy-v1",
       "planned": 80,
-      "finished": 48,
+      "finished": 80,
       "counts": {
-        "complete": 48,
+        "complete": 80,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 24,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": 0.9791666666666666,
-        "low": 0.9360624999999999,
+        "mean": 0.9875,
+        "low": 0.9622125,
         "high": 1,
-        "n": 24
+        "n": 40
       },
       "margin": {
-        "mean": 14.166666666666666,
-        "low": 12.113028800536098,
-        "high": 16.220304532797236,
-        "n": 24
+        "mean": 14.85,
+        "low": 12.910350309367232,
+        "high": 16.789649690632768,
+        "n": 40
       },
       "chance": 0.5,
-      "meanDecisionMs": 216.18942125000024,
+      "meanDecisionMs": 218.63930700000017,
       "maxDecisionMs": 585.2927999999956,
-      "elapsedMs": 312351.7393000001,
+      "elapsedMs": 526456.7425,
       "limitations": [
         "Explicit benchmark budget below browser256 sample ceiling by default.",
         "Production rollouts finish the current round only.",
@@ -497,32 +497,32 @@
       "policyId": "sushi-go-browser-sampled-v1",
       "opponentPolicyId": "sushi-go-local-set-greedy-v1",
       "planned": 120,
-      "finished": 0,
+      "finished": 62,
       "counts": {
-        "complete": 0,
+        "complete": 62,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 20,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.9166666666666666,
+        "low": 0.8308463529717723,
+        "high": 1,
+        "n": 20
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 12.350000000000001,
+        "low": 10.513731260665926,
+        "high": 14.186268739334077,
+        "n": 20
       },
       "chance": 0.3333333333333333,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 317.1012720430108,
+      "maxDecisionMs": 720.3177999999898,
+      "elapsedMs": 532740.7553000001,
       "limitations": [
         "Explicit benchmark budget below browser256 sample ceiling by default.",
         "Production rollouts finish the current round only.",
