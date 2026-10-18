@@ -1,0 +1,67 @@
+{
+  "game": "love-letter",
+  "seed": 9200546,
+  "seat": 3,
+  "players": 4,
+  "policyId": "love-letter-browser-sampled-v1",
+  "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+  "budget": {
+    "iterations": 64,
+    "rootCoverageFloor": true
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "winners": [
+    3
+  ],
+  "scores": [
+    3,
+    2,
+    2,
+    4
+  ],
+  "margin": null,
+  "turns": 226,
+  "elapsedMs": 1890.9085000000014,
+  "latency": {
+    "count": 33,
+    "totalMs": 1866.94690000001,
+    "maxMs": 122.7487000000001,
+    "p50Ms": 48.2374000000018,
+    "p95Ms": 119.99620000000141
+  },
+  "opponentLatency": {
+    "count": 75,
+    "totalMs": 1.6486000000077183,
+    "maxMs": 0.15980000000126893,
+    "p50Ms": 0.012899999997898703,
+    "p95Ms": 0.08079999999972642
+  },
+  "diagnostics": {
+    "starter": 0,
+    "rounds": 11,
+    "iterations": 2112,
+    "roots": 305,
+    "coveredRoots": 305,
+    "illegal": 0,
+    "capped": 0,
+    "unresolved": 0,
+    "error": null,
+    "transcriptHash": "365c5e85c42c3660d164a1be1f50c92fa1a87d2c7cd2168d2325af36305af1df",
+    "browserSearchSeed": 173,
+    "scoreMeaning": "Affection tokens; no card-rank margin substitutes for match outcome."
+  },
+  "id": "love-letter-4p-production-default-9200546-3",
+  "matchup": "love-letter-4p-production-default",
+  "policy": "production-default",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "iterations": 64
+  }
+}

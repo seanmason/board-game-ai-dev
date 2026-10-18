@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "study": "good-enough-love-low",
+  "revision": "b7336fac301169c1ced2d87d710d63031418270f",
+  "updatedAt": "2026-10-18T23:08:06.989Z",
+  "startedAt": "2026-10-18T23:07:23.848Z",
+  "status": "finished",
+  "workers": 6,
+  "planned": 240,
+  "finished": 240,
+  "active": [],
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
+  "rows": [
+    {
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 64
+      },
+      "policyId": "love-letter-browser-sampled-v1",
+      "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.575,
+        "low": 0.4754841947387507,
+        "high": 0.6745158052612492,
+        "n": 40
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 29.44148650057938,
+      "maxDecisionMs": 86.09420000000046,
+      "elapsedMs": 51588.725699999995,
+      "limitations": [
+        "Explicit benchmark budget below browser512 sample ceiling by default.",
+        "Production optimizes round share, not match share.",
+        "Comparator retains high ranks and exploits public copies/own private memory without rollouts."
+      ]
+    },
+    {
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 64
+      },
+      "policyId": "love-letter-browser-sampled-v1",
+      "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+      "planned": 160,
+      "finished": 160,
+      "counts": {
+        "complete": 160,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.5,
+        "low": 0.42986509393977257,
+        "high": 0.5701349060602274,
+        "n": 40
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.25,
+      "meanDecisionMs": 63.327963063063116,
+      "maxDecisionMs": 199.2468000000008,
+      "elapsedMs": 199592.63000000006,
+      "limitations": [
+        "Explicit benchmark budget below browser512 sample ceiling by default.",
+        "Production optimizes round share, not match share.",
+        "Comparator retains high ranks and exploits public copies/own private memory without rollouts."
+      ]
+    }
+  ]
+}

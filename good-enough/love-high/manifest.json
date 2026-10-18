@@ -1,0 +1,3420 @@
+{
+  "study": "good-enough-love-high",
+  "revision": "b7336fac301169c1ced2d87d710d63031418270f",
+  "startedAt": "2026-10-18T23:07:23.939Z",
+  "workers": 6,
+  "pairs": 40,
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 9 5950X 16-Core Processor            ",
+    "logicalCPUs": 32,
+    "priority": 10
+  },
+  "metadata": {
+    "love-letter": {
+      "game": "love-letter",
+      "supportedPlayers": [
+        2,
+        3,
+        4
+      ],
+      "defaultBudget": {
+        "iterations": 64
+      },
+      "scope": "match",
+      "policyId": "love-letter-browser-sampled-v1",
+      "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+      "browserIterationLimit": 512,
+      "limitations": [
+        "Explicit benchmark budget below browser512 sample ceiling by default.",
+        "Production optimizes round share, not match share.",
+        "Comparator retains high ranks and exploits public copies/own private memory without rollouts."
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "id": "love-letter-2p-production-default-9182600-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9182600,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9182600-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9182600,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9183597-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9183597,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9183597-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9183597,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9184594-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9184594,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9184594-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9184594,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9185591-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9185591,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9185591-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9185591,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9186588-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9186588,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9186588-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9186588,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9187585-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9187585,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9187585-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9187585,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9188582-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9188582,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9188582-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9188582,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9189579-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9189579,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9189579-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9189579,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9190576-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9190576,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9190576-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9190576,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9191573-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9191573,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9191573-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9191573,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9192570-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9192570,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9192570-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9192570,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9193567-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9193567,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9193567-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9193567,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9194564-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9194564,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9194564-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9194564,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9195561-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9195561,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9195561-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9195561,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9196558-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9196558,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9196558-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9196558,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9197555-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9197555,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9197555-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9197555,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9198552-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9198552,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9198552-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9198552,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9199549-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9199549,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9199549-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9199549,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9200546-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9200546,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9200546-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9200546,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9201543-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9201543,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9201543-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9201543,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9202540-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9202540,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9202540-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9202540,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9203537-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9203537,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9203537-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9203537,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9204534-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9204534,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9204534-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9204534,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9205531-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9205531,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9205531-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9205531,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9206528-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9206528,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9206528-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9206528,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9207525-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9207525,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9207525-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9207525,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9208522-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9208522,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9208522-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9208522,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9209519-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9209519,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9209519-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9209519,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9210516-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9210516,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9210516-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9210516,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9211513-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9211513,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9211513-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9211513,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9212510-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9212510,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9212510-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9212510,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9213507-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9213507,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9213507-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9213507,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9214504-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9214504,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9214504-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9214504,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9215501-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9215501,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9215501-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9215501,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9216498-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9216498,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9216498-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9216498,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9217495-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9217495,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9217495-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9217495,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9218492-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9218492,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9218492-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9218492,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9219489-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9219489,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9219489-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9219489,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9220486-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9220486,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9220486-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9220486,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9221483-0",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9221483,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-2p-production-default-9221483-1",
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "seed": 9221483,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9182600-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9182600,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9182600-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9182600,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9182600-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9182600,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9182600-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9182600,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9183597-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9183597,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9183597-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9183597,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9183597-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9183597,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9183597-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9183597,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9184594-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9184594,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9184594-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9184594,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9184594-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9184594,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9184594-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9184594,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9185591-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9185591,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9185591-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9185591,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9185591-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9185591,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9185591-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9185591,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9186588-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9186588,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9186588-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9186588,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9186588-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9186588,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9186588-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9186588,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9187585-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9187585,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9187585-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9187585,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9187585-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9187585,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9187585-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9187585,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9188582-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9188582,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9188582-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9188582,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9188582-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9188582,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9188582-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9188582,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9189579-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9189579,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9189579-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9189579,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9189579-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9189579,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9189579-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9189579,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9190576-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9190576,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9190576-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9190576,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9190576-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9190576,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9190576-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9190576,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9191573-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9191573,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9191573-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9191573,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9191573-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9191573,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9191573-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9191573,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9192570-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9192570,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9192570-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9192570,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9192570-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9192570,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9192570-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9192570,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9193567-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9193567,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9193567-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9193567,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9193567-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9193567,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9193567-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9193567,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9194564-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9194564,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9194564-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9194564,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9194564-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9194564,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9194564-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9194564,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9195561-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9195561,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9195561-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9195561,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9195561-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9195561,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9195561-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9195561,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9196558-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9196558,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9196558-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9196558,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9196558-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9196558,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9196558-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9196558,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9197555-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9197555,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9197555-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9197555,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9197555-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9197555,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9197555-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9197555,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9198552-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9198552,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9198552-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9198552,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9198552-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9198552,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9198552-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9198552,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9199549-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9199549,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9199549-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9199549,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9199549-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9199549,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9199549-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9199549,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9200546-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9200546,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9200546-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9200546,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9200546-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9200546,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9200546-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9200546,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9201543-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9201543,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9201543-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9201543,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9201543-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9201543,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9201543-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9201543,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9202540-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9202540,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9202540-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9202540,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9202540-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9202540,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9202540-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9202540,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9203537-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9203537,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9203537-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9203537,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9203537-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9203537,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9203537-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9203537,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9204534-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9204534,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9204534-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9204534,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9204534-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9204534,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9204534-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9204534,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9205531-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9205531,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9205531-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9205531,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9205531-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9205531,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9205531-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9205531,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9206528-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9206528,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9206528-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9206528,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9206528-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9206528,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9206528-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9206528,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9207525-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9207525,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9207525-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9207525,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9207525-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9207525,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9207525-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9207525,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9208522-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9208522,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9208522-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9208522,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9208522-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9208522,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9208522-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9208522,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9209519-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9209519,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9209519-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9209519,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9209519-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9209519,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9209519-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9209519,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9210516-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9210516,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9210516-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9210516,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9210516-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9210516,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9210516-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9210516,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9211513-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9211513,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9211513-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9211513,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9211513-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9211513,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9211513-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9211513,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9212510-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9212510,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9212510-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9212510,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9212510-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9212510,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9212510-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9212510,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9213507-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9213507,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9213507-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9213507,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9213507-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9213507,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9213507-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9213507,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9214504-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9214504,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9214504-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9214504,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9214504-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9214504,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9214504-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9214504,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9215501-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9215501,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9215501-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9215501,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9215501-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9215501,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9215501-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9215501,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9216498-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9216498,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9216498-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9216498,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9216498-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9216498,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9216498-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9216498,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9217495-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9217495,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9217495-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9217495,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9217495-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9217495,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9217495-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9217495,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9218492-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9218492,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9218492-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9218492,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9218492-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9218492,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9218492-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9218492,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9219489-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9219489,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9219489-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9219489,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9219489-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9219489,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9219489-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9219489,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9220486-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9220486,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9220486-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9220486,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9220486-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9220486,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9220486-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9220486,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9221483-0",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9221483,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9221483-1",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9221483,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9221483-2",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9221483,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    },
+    {
+      "id": "love-letter-4p-production-default-9221483-3",
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "seed": 9221483,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 512
+      },
+      "scope": "match"
+    }
+  ],
+  "hashes": {
+    "love-letter/ai.js": "1d9e34fefa86839fdfb93f7a579a3366888b34a2aded043776a0f642a2760566",
+    "love-letter/app.js": "5e7798d925f69bbd3199f59800ab1db864328864b9dee083e208443bc9178576",
+    "love-letter/belief.js": "cc162189e591a36be9b8e576725637e9d54b92601a4da56d51317e5f7839eaee",
+    "love-letter/catalog.js": "bba0b04158103b6a57d0df497d760f31f99e35bcfef90edf4e0fce9889382722",
+    "love-letter/core.js": "a24384591d1468c1a31fc2936f61097402b3281ed197839523c98e61b6e426fc",
+    "love-letter/observations.js": "ba0f8f41627205c0f01a7ab377286181fb5164d89b74dedbf612c4c7ea6441c4",
+    "love-letter/worker.js": "12f5f580e021adf2bce79854faf00c8b4099e5f049343eb12032acd3614866b3",
+    "scripts/benchmark-adapters/hive-history.mjs": "d57ae31731c1c124c7aa88b4110a3e68d1ffd468abed1986c60370be250e0b88",
+    "scripts/benchmark-adapters/hive-incumbent.mjs": "7d52bbda4975b505bcc6fe8f2a432b6351c43e0c95d6531fbb0d568ae8aff439",
+    "scripts/benchmark-adapters/hive.mjs": "7e25048b5ab16088376701fed32c87b11663e7e426241f42f691bb75a23f53f3",
+    "scripts/benchmark-adapters/jaipur.mjs": "90781f9cdc3e47d1e70a8fc1056f14143cf042c6d288602ffdc255e7d6b8575a",
+    "scripts/benchmark-adapters/lost-cities.mjs": "b2af9c7803ea08c7f1292f40a8aa381d7d27c9e27096fa127ba44e666a6960c2",
+    "scripts/benchmark-adapters/love-letter.mjs": "31f8936c8fe15987c64d86a2096261b1b8844c5c9606da0059d71f75ac842ef3",
+    "scripts/benchmark-adapters/sushi-go.mjs": "b4e5222c8a88a5beddc83a687d066708f0fdde54d4a52a85facbc5b043072a33",
+    "scripts/benchmark-adapters/ticket-to-ride.mjs": "5f01441fe1b48bce60b210bff15be1a9f853c61c9b706f5899453b25c006d515",
+    "scripts/benchmark-comparison.mjs": "64df3e3c5f92faebdf66debe8aac69c874e7a13e71ff4089e88b24d40c251e2a",
+    "scripts/benchmark-comparison-summary.mjs": "b30b4ddb4ee012e3f54d9e4fe0bfc7c4054318b981e36ca28bed256d2d2497c6",
+    "scripts/benchmark-comparison-plan.mjs": "bfc658af5ef69fb0c2481002cc84fc972ed85d6be7d28c4c8300fdd10bf0b06c"
+  },
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim."
+}

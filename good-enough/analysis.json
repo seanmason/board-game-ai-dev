@@ -1,0 +1,2978 @@
+{
+  "schema": 1,
+  "revision": "b7336fac301169c1ced2d87d710d63031418270f",
+  "method": {
+    "unit": "Independent setup seed; seats averaged within each setup; deltas are candidate minus control.",
+    "intervals": "Approximate paired Student-t 95% intervals. For n>41, critical value approximated as 1.96 + 2.372/(n-1); at n=100 this approximates t(99, .975). The same lower endpoint is a one-sided 97.5% lower bound. No clipping of paired delta intervals.",
+    "missing": "Missing scheduled records are an error. Recorded capped/unresolved/illegal/error outcomes remain in completion and observed-win bounds; only fully complete paired setups enter win-share/margin analysis.",
+    "latency": "Decision-weighted means include all available recorded decisions; paired game means are averaged across seats then independent setup seeds. Setups with any zero-decision game are excluded only from the paired latency estimate.",
+    "multiplicity": "Hive has one prespecified primary completion test. Love Letter 2p/4p and Sushi Go 4p are three descriptive exploratory scaling strata; no promotions."
+  },
+  "strata": [
+    {
+      "game": "love-letter",
+      "players": 2,
+      "control": "love-low",
+      "candidate": "love-high",
+      "setupGroups": 40,
+      "completePairedGroups": 40,
+      "metrics": {
+        "control": {
+          "games": 80,
+          "counts": {
+            "complete": 80,
+            "capped": 0,
+            "unresolved": 0,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.575,
+            "low": 0.4754841947387507,
+            "high": 0.6745158052612492,
+            "n": 40
+          },
+          "conditionalMargin": {
+            "mean": null,
+            "low": null,
+            "high": null,
+            "n": 0
+          },
+          "completion": 1,
+          "observedWinLowerBound": 0.575,
+          "observedWinUpperBound": 0.575,
+          "decisions": 1726,
+          "totalDecisionMs": 50816.00570000001,
+          "decisionWeightedLatencyMs": 29.44148650057938,
+          "maxDecisionMs": 86.09420000000046,
+          "hiveSearch": null,
+          "iterations": 110464,
+          "iterationsPerDecision": 64,
+          "roots": 8128,
+          "coveredRoots": 8128,
+          "rootCoverage": 1,
+          "note": null
+        },
+        "candidate": {
+          "games": 80,
+          "counts": {
+            "complete": 80,
+            "capped": 0,
+            "unresolved": 0,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.725,
+            "low": 0.6295203126884961,
+            "high": 0.8204796873115039,
+            "n": 40
+          },
+          "conditionalMargin": {
+            "mean": null,
+            "low": null,
+            "high": null,
+            "n": 0
+          },
+          "completion": 1,
+          "observedWinLowerBound": 0.725,
+          "observedWinUpperBound": 0.725,
+          "decisions": 1747,
+          "totalDecisionMs": 330365.2939000001,
+          "decisionWeightedLatencyMs": 189.1043468231254,
+          "maxDecisionMs": 525.9796,
+          "hiveSearch": null,
+          "iterations": 894464,
+          "iterationsPerDecision": 512,
+          "roots": 8312,
+          "coveredRoots": 8312,
+          "rootCoverage": 1,
+          "note": null
+        }
+      },
+      "winShareDelta": {
+        "mean": 0.15,
+        "low": 0.02879302931105923,
+        "high": 0.27120697068894073,
+        "n": 40
+      },
+      "completionDelta": {
+        "mean": 0,
+        "low": 0,
+        "high": 0,
+        "n": 40
+      },
+      "observedWinLowerBoundDelta": {
+        "mean": 0.15,
+        "low": 0.02879302931105923,
+        "high": 0.27120697068894073,
+        "n": 40
+      },
+      "openingIdentity": null,
+      "conditional": false,
+      "sensitivityWinShareDelta": {
+        "low": 0.15,
+        "high": 0.15,
+        "note": "Identification bounds with each incomplete game assigned any win share in [0,1]; not confidence intervals."
+      },
+      "marginDelta": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "pairedGameMeanLatencyDeltaMs": {
+        "mean": 159.84379832193093,
+        "low": 156.24176559012656,
+        "high": 163.4458310537353,
+        "n": 40
+      },
+      "gate": {
+        "type": "exploratory-compute-scaling",
+        "positiveDescriptiveSupport": true,
+        "minimumWinShareGain": 0.05,
+        "allGamesValidAndComplete": true,
+        "promotion": false,
+        "note": "Three exploratory strata; descriptive 95% intervals are not multiplicity adjusted and do not establish confirmation or promotion."
+      },
+      "groups": [
+        {
+          "seed": 9182600,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 192.88756999999998
+        },
+        {
+          "seed": 9183597,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 176.71101767676765
+        },
+        {
+          "seed": 9184594,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 150.73749200155282
+        },
+        {
+          "seed": 9185591,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 170.67324711764707
+        },
+        {
+          "seed": 9186588,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 150.3463143760684
+        },
+        {
+          "seed": 9187585,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 156.59566671802838
+        },
+        {
+          "seed": 9188582,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 167.64796376357563
+        },
+        {
+          "seed": 9189579,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 162.29362075000012
+        },
+        {
+          "seed": 9190576,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 154.6602884259259
+        },
+        {
+          "seed": 9191573,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 149.97757697981388
+        },
+        {
+          "seed": 9192570,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 175.50861966931205
+        },
+        {
+          "seed": 9193567,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 157.58957800925907
+        },
+        {
+          "seed": 9194564,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 150.93957357910898
+        },
+        {
+          "seed": 9195561,
+          "completePaired": true,
+          "winShareDelta": 1,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 1,
+          "sensitivityDeltaLow": 1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 151.1806895478079
+        },
+        {
+          "seed": 9196558,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 152.14883720366151
+        },
+        {
+          "seed": 9197555,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 146.85181517214852
+        },
+        {
+          "seed": 9198552,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 149.39276170200367
+        },
+        {
+          "seed": 9199549,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 167.06638666666674
+        },
+        {
+          "seed": 9200546,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 165.53006600699274
+        },
+        {
+          "seed": 9201543,
+          "completePaired": true,
+          "winShareDelta": 1,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 1,
+          "sensitivityDeltaLow": 1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 165.10183918650796
+        },
+        {
+          "seed": 9202540,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 159.87073602941194
+        },
+        {
+          "seed": 9203537,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 171.36220127211465
+        },
+        {
+          "seed": 9204534,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 149.93998911136532
+        },
+        {
+          "seed": 9205531,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 147.84894384024585
+        },
+        {
+          "seed": 9206528,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 159.2511462735033
+        },
+        {
+          "seed": 9207525,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 158.9034791632933
+        },
+        {
+          "seed": 9208522,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 171.0008745707555
+        },
+        {
+          "seed": 9209519,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 149.56050348524093
+        },
+        {
+          "seed": 9210516,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 175.47523777492847
+        },
+        {
+          "seed": 9211513,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 165.981053060641
+        },
+        {
+          "seed": 9212510,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 133.05922468136708
+        },
+        {
+          "seed": 9213507,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 154.29253186274542
+        },
+        {
+          "seed": 9214504,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 166.4253386111116
+        },
+        {
+          "seed": 9215501,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 169.02850257756776
+        },
+        {
+          "seed": 9216498,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 170.7008021148455
+        },
+        {
+          "seed": 9217495,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 164.84499906189097
+        },
+        {
+          "seed": 9218492,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 158.77333249999938
+        },
+        {
+          "seed": 9219489,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 148.63719261695866
+        },
+        {
+          "seed": 9220486,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 146.11730923913015
+        },
+        {
+          "seed": 9221483,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 158.83761047727285
+        }
+      ]
+    },
+    {
+      "game": "love-letter",
+      "players": 4,
+      "control": "love-low",
+      "candidate": "love-high",
+      "setupGroups": 40,
+      "completePairedGroups": 40,
+      "metrics": {
+        "control": {
+          "games": 160,
+          "counts": {
+            "complete": 160,
+            "capped": 0,
+            "unresolved": 0,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.5,
+            "low": 0.42986509393977257,
+            "high": 0.5701349060602274,
+            "n": 40
+          },
+          "conditionalMargin": {
+            "mean": null,
+            "low": null,
+            "high": null,
+            "n": 0
+          },
+          "completion": 1,
+          "observedWinLowerBound": 0.5,
+          "observedWinUpperBound": 0.5,
+          "decisions": 3108,
+          "totalDecisionMs": 196823.30920000016,
+          "decisionWeightedLatencyMs": 63.327963063063116,
+          "maxDecisionMs": 199.2468000000008,
+          "hiveSearch": null,
+          "iterations": 198912,
+          "iterationsPerDecision": 64,
+          "roots": 27632,
+          "coveredRoots": 27632,
+          "rootCoverage": 1,
+          "note": null
+        },
+        "candidate": {
+          "games": 160,
+          "counts": {
+            "complete": 160,
+            "capped": 0,
+            "unresolved": 0,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.525,
+            "low": 0.453019123021173,
+            "high": 0.5969808769788271,
+            "n": 40
+          },
+          "conditionalMargin": {
+            "mean": null,
+            "low": null,
+            "high": null,
+            "n": 0
+          },
+          "completion": 1,
+          "observedWinLowerBound": 0.525,
+          "observedWinUpperBound": 0.525,
+          "decisions": 3002,
+          "totalDecisionMs": 1420373.8290999986,
+          "decisionWeightedLatencyMs": 473.14251469020604,
+          "maxDecisionMs": 1598.2665000000125,
+          "hiveSearch": null,
+          "iterations": 1537024,
+          "iterationsPerDecision": 512,
+          "roots": 26692,
+          "coveredRoots": 26692,
+          "rootCoverage": 1,
+          "note": null
+        }
+      },
+      "winShareDelta": {
+        "mean": 0.025,
+        "low": -0.08028025792299967,
+        "high": 0.1302802579229997,
+        "n": 40
+      },
+      "completionDelta": {
+        "mean": 0,
+        "low": 0,
+        "high": 0,
+        "n": 40
+      },
+      "observedWinLowerBoundDelta": {
+        "mean": 0.025,
+        "low": -0.08028025792299967,
+        "high": 0.1302802579229997,
+        "n": 40
+      },
+      "openingIdentity": null,
+      "conditional": false,
+      "sensitivityWinShareDelta": {
+        "low": 0.025,
+        "high": 0.025,
+        "note": "Identification bounds with each incomplete game assigned any win share in [0,1]; not confidence intervals."
+      },
+      "marginDelta": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "pairedGameMeanLatencyDeltaMs": {
+        "mean": 419.8053527036579,
+        "low": 408.63506783736955,
+        "high": 430.97563756994623,
+        "n": 40
+      },
+      "gate": {
+        "type": "exploratory-compute-scaling",
+        "positiveDescriptiveSupport": false,
+        "minimumWinShareGain": 0.05,
+        "allGamesValidAndComplete": true,
+        "promotion": false,
+        "note": "Three exploratory strata; descriptive 95% intervals are not multiplicity adjusted and do not establish confirmation or promotion."
+      },
+      "groups": [
+        {
+          "seed": 9182600,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 443.9573814872098
+        },
+        {
+          "seed": 9183597,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 510.1481979986192
+        },
+        {
+          "seed": 9184594,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 471.59851188606785
+        },
+        {
+          "seed": 9185591,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 445.8595217337461
+        },
+        {
+          "seed": 9186588,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 460.1433307387851
+        },
+        {
+          "seed": 9187585,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 452.7669130193738
+        },
+        {
+          "seed": 9188582,
+          "completePaired": true,
+          "winShareDelta": 0.75,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.75,
+          "sensitivityDeltaLow": 0.75,
+          "sensitivityDeltaHigh": 0.75,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 435.37595183439794
+        },
+        {
+          "seed": 9189579,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 486.6811414932302
+        },
+        {
+          "seed": 9190576,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 508.32098089513613
+        },
+        {
+          "seed": 9191573,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 423.6883712889196
+        },
+        {
+          "seed": 9192570,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 422.7425913253756
+        },
+        {
+          "seed": 9193567,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 423.4413462872423
+        },
+        {
+          "seed": 9194564,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 432.03505824882865
+        },
+        {
+          "seed": 9195561,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 404.0011244312507
+        },
+        {
+          "seed": 9196558,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 417.268609197922
+        },
+        {
+          "seed": 9197555,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 386.3252068469101
+        },
+        {
+          "seed": 9198552,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 462.3276146962278
+        },
+        {
+          "seed": 9199549,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 384.3644537961145
+        },
+        {
+          "seed": 9200546,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 421.30090157742666
+        },
+        {
+          "seed": 9201543,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 399.3518948935773
+        },
+        {
+          "seed": 9202540,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 389.2472549282281
+        },
+        {
+          "seed": 9203537,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 398.66893266308443
+        },
+        {
+          "seed": 9204534,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 355.9284584582607
+        },
+        {
+          "seed": 9205531,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 397.73116235066607
+        },
+        {
+          "seed": 9206528,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 410.4065215769168
+        },
+        {
+          "seed": 9207525,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 395.14244420366174
+        },
+        {
+          "seed": 9208522,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 378.67730025507325
+        },
+        {
+          "seed": 9209519,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 433.731900240024
+        },
+        {
+          "seed": 9210516,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 388.19175945719803
+        },
+        {
+          "seed": 9211513,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 424.2295168229916
+        },
+        {
+          "seed": 9212510,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 437.17631017796566
+        },
+        {
+          "seed": 9213507,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 405.9365271427271
+        },
+        {
+          "seed": 9214504,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 386.08557549148037
+        },
+        {
+          "seed": 9215501,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 384.06958126782297
+        },
+        {
+          "seed": 9216498,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 401.9221067322047
+        },
+        {
+          "seed": 9217495,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 391.4926504002656
+        },
+        {
+          "seed": 9218492,
+          "completePaired": true,
+          "winShareDelta": 0.75,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.75,
+          "sensitivityDeltaLow": 0.75,
+          "sensitivityDeltaHigh": 0.75,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 405.7425454924176
+        },
+        {
+          "seed": 9219489,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 397.28576722205503
+        },
+        {
+          "seed": 9220486,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 427.37772523396137
+        },
+        {
+          "seed": 9221483,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 391.4709643529511
+        }
+      ]
+    },
+    {
+      "game": "sushi-go",
+      "players": 4,
+      "control": "sushi-low",
+      "candidate": "sushi-high",
+      "setupGroups": 40,
+      "completePairedGroups": 40,
+      "metrics": {
+        "control": {
+          "games": 160,
+          "counts": {
+            "complete": 160,
+            "capped": 0,
+            "unresolved": 0,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.83125,
+            "low": 0.767514642840857,
+            "high": 0.8949853571591431,
+            "n": 40
+          },
+          "conditionalMargin": {
+            "mean": 10.07916666666667,
+            "low": 8.89407736191217,
+            "high": 11.264255971421168,
+            "n": 40
+          },
+          "completion": 1,
+          "observedWinLowerBound": 0.83125,
+          "observedWinUpperBound": 0.83125,
+          "decisions": 3840,
+          "totalDecisionMs": 2494477.649999999,
+          "decisionWeightedLatencyMs": 649.6035546874997,
+          "maxDecisionMs": 2092.6508,
+          "hiveSearch": null,
+          "iterations": 245760,
+          "iterationsPerDecision": 64,
+          "roots": 15553,
+          "coveredRoots": 15553,
+          "rootCoverage": 1,
+          "note": null
+        },
+        "candidate": {
+          "games": 160,
+          "counts": {
+            "complete": 160,
+            "capped": 0,
+            "unresolved": 0,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.90625,
+            "low": 0.8560410482369983,
+            "high": 0.9564589517630017,
+            "n": 40
+          },
+          "conditionalMargin": {
+            "mean": 12.602083333333335,
+            "low": 11.39520297391539,
+            "high": 13.808963692751279,
+            "n": 40
+          },
+          "completion": 1,
+          "observedWinLowerBound": 0.90625,
+          "observedWinUpperBound": 0.90625,
+          "decisions": 3840,
+          "totalDecisionMs": 6423628.326100001,
+          "decisionWeightedLatencyMs": 1672.819876588542,
+          "maxDecisionMs": 4507.582,
+          "hiveSearch": null,
+          "iterations": 983040,
+          "iterationsPerDecision": 256,
+          "roots": 15424,
+          "coveredRoots": 15424,
+          "rootCoverage": 1,
+          "note": null
+        }
+      },
+      "winShareDelta": {
+        "mean": 0.075,
+        "low": -0.010322795729827389,
+        "high": 0.16032279572982738,
+        "n": 40
+      },
+      "completionDelta": {
+        "mean": 0,
+        "low": 0,
+        "high": 0,
+        "n": 40
+      },
+      "observedWinLowerBoundDelta": {
+        "mean": 0.075,
+        "low": -0.010322795729827389,
+        "high": 0.16032279572982738,
+        "n": 40
+      },
+      "openingIdentity": null,
+      "conditional": false,
+      "sensitivityWinShareDelta": {
+        "low": 0.075,
+        "high": 0.075,
+        "note": "Identification bounds with each incomplete game assigned any win share in [0,1]; not confidence intervals."
+      },
+      "marginDelta": {
+        "mean": 2.5229166666666663,
+        "low": 1.4518946305920728,
+        "high": 3.5939387027412595,
+        "n": 40
+      },
+      "pairedGameMeanLatencyDeltaMs": {
+        "mean": 1023.2163219010414,
+        "low": 951.077780501868,
+        "high": 1095.3548633002147,
+        "n": 40
+      },
+      "gate": {
+        "type": "exploratory-compute-scaling",
+        "positiveDescriptiveSupport": false,
+        "minimumWinShareGain": 0.05,
+        "allGamesValidAndComplete": true,
+        "promotion": false,
+        "note": "Three exploratory strata; descriptive 95% intervals are not multiplicity adjusted and do not establish confirmation or promotion."
+      },
+      "groups": [
+        {
+          "seed": 9282600,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 2.583333333333334,
+          "pairedGameMeanLatencyDeltaMs": 1097.4293135416672
+        },
+        {
+          "seed": 9283597,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 1.5833333333333321,
+          "pairedGameMeanLatencyDeltaMs": 1238.46065
+        },
+        {
+          "seed": 9284594,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 3.083333333333332,
+          "pairedGameMeanLatencyDeltaMs": 1321.0576333333324
+        },
+        {
+          "seed": 9285591,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 3.583333333333332,
+          "pairedGameMeanLatencyDeltaMs": 1320.7619343750016
+        },
+        {
+          "seed": 9286588,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 4.583333333333334,
+          "pairedGameMeanLatencyDeltaMs": 1288.1581322916666
+        },
+        {
+          "seed": 9287585,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 7.5,
+          "pairedGameMeanLatencyDeltaMs": 1298.388301041667
+        },
+        {
+          "seed": 9288582,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 4.583333333333332,
+          "pairedGameMeanLatencyDeltaMs": 1309.026790625
+        },
+        {
+          "seed": 9289579,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": -3.5833333333333357,
+          "pairedGameMeanLatencyDeltaMs": 1293.5538718750017
+        },
+        {
+          "seed": 9290576,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": -0.6666666666666643,
+          "pairedGameMeanLatencyDeltaMs": 1292.84962083333
+        },
+        {
+          "seed": 9291573,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": 7.7500000000000036,
+          "pairedGameMeanLatencyDeltaMs": 1218.5232239583288
+        },
+        {
+          "seed": 9292570,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 4.250000000000001,
+          "pairedGameMeanLatencyDeltaMs": 1201.2456177083322
+        },
+        {
+          "seed": 9293567,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": -3.0833333333333357,
+          "pairedGameMeanLatencyDeltaMs": 1219.9977322916684
+        },
+        {
+          "seed": 9294564,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 6.6666666666666705,
+          "pairedGameMeanLatencyDeltaMs": 1205.2689770833308
+        },
+        {
+          "seed": 9295561,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": -1.083333333333334,
+          "pairedGameMeanLatencyDeltaMs": 1275.052563541664
+        },
+        {
+          "seed": 9296558,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 0.4166666666666643,
+          "pairedGameMeanLatencyDeltaMs": 1341.118546875001
+        },
+        {
+          "seed": 9297555,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 1.9999999999999964,
+          "pairedGameMeanLatencyDeltaMs": 1291.218322916669
+        },
+        {
+          "seed": 9298552,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": 5.833333333333334,
+          "pairedGameMeanLatencyDeltaMs": 1276.6401375000005
+        },
+        {
+          "seed": 9299549,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": 3.916666666666668,
+          "pairedGameMeanLatencyDeltaMs": 1154.5946760416664
+        },
+        {
+          "seed": 9300546,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 12.25,
+          "pairedGameMeanLatencyDeltaMs": 807.6120666666658
+        },
+        {
+          "seed": 9301543,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 2.6666666666666643,
+          "pairedGameMeanLatencyDeltaMs": 783.9585104166654
+        },
+        {
+          "seed": 9302540,
+          "completePaired": true,
+          "winShareDelta": 0.75,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.75,
+          "sensitivityDeltaLow": 0.75,
+          "sensitivityDeltaHigh": 0.75,
+          "marginDelta": 3.416666666666665,
+          "pairedGameMeanLatencyDeltaMs": 753.9760854166692
+        },
+        {
+          "seed": 9303537,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": 4,
+          "pairedGameMeanLatencyDeltaMs": 773.2049958333357
+        },
+        {
+          "seed": 9304534,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 1.333333333333334,
+          "pairedGameMeanLatencyDeltaMs": 756.5113916666724
+        },
+        {
+          "seed": 9305531,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 4,
+          "pairedGameMeanLatencyDeltaMs": 745.997741666667
+        },
+        {
+          "seed": 9306528,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 3.583333333333332,
+          "pairedGameMeanLatencyDeltaMs": 753.4178729166671
+        },
+        {
+          "seed": 9307525,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": 2.333333333333333,
+          "pairedGameMeanLatencyDeltaMs": 752.4381458333386
+        },
+        {
+          "seed": 9308522,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 2.333333333333335,
+          "pairedGameMeanLatencyDeltaMs": 761.3105718749994
+        },
+        {
+          "seed": 9309519,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 4,
+          "pairedGameMeanLatencyDeltaMs": 782.050748958336
+        },
+        {
+          "seed": 9310516,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 2,
+          "pairedGameMeanLatencyDeltaMs": 763.5457041666596
+        },
+        {
+          "seed": 9311513,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": -4.083333333333334,
+          "pairedGameMeanLatencyDeltaMs": 782.2687145833357
+        },
+        {
+          "seed": 9312510,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 0.08333333333333215,
+          "pairedGameMeanLatencyDeltaMs": 879.215206250007
+        },
+        {
+          "seed": 9313507,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 5.916666666666664,
+          "pairedGameMeanLatencyDeltaMs": 912.6751020833325
+        },
+        {
+          "seed": 9314504,
+          "completePaired": true,
+          "winShareDelta": -0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": -0.25,
+          "marginDelta": 2.499999999999999,
+          "pairedGameMeanLatencyDeltaMs": 903.0893552083284
+        },
+        {
+          "seed": 9315501,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": -2,
+          "pairedGameMeanLatencyDeltaMs": 922.7317520833367
+        },
+        {
+          "seed": 9316498,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": 3.5,
+          "pairedGameMeanLatencyDeltaMs": 905.9555249999983
+        },
+        {
+          "seed": 9317495,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 0.75,
+          "pairedGameMeanLatencyDeltaMs": 905.7298624999912
+        },
+        {
+          "seed": 9318492,
+          "completePaired": true,
+          "winShareDelta": -0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": -0.5,
+          "marginDelta": -4.25,
+          "pairedGameMeanLatencyDeltaMs": 914.8215624999987
+        },
+        {
+          "seed": 9319489,
+          "completePaired": true,
+          "winShareDelta": 0.25,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": 0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": -0.08333333333333393,
+          "pairedGameMeanLatencyDeltaMs": 919.3172052083373
+        },
+        {
+          "seed": 9320486,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": 3.4999999999999964,
+          "pairedGameMeanLatencyDeltaMs": 906.4719312499948
+        },
+        {
+          "seed": 9321483,
+          "completePaired": true,
+          "winShareDelta": 0.5,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": 3.250000000000001,
+          "pairedGameMeanLatencyDeltaMs": 899.0067781249891
+        }
+      ]
+    },
+    {
+      "game": "hive",
+      "players": 2,
+      "control": "hive-control",
+      "candidate": "hive-history",
+      "setupGroups": 100,
+      "completePairedGroups": 27,
+      "metrics": {
+        "control": {
+          "games": 200,
+          "counts": {
+            "complete": 107,
+            "capped": 1,
+            "unresolved": 92,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.5178571428571429,
+            "low": 0.4159087015062446,
+            "high": 0.6198055842080412,
+            "n": 28
+          },
+          "conditionalMargin": {
+            "mean": null,
+            "low": null,
+            "high": null,
+            "n": 0
+          },
+          "completion": 0.535,
+          "observedWinLowerBound": 0.255,
+          "observedWinUpperBound": 0.72,
+          "decisions": 5601,
+          "totalDecisionMs": 1472448.5134,
+          "decisionWeightedLatencyMs": 262.8902898410998,
+          "maxDecisionMs": 11362.964699999982,
+          "hiveSearch": {
+            "recordedDepthDecisions": 5601,
+            "completedDepthHistogram": {
+              "1": 5515,
+              "2": 83,
+              "3": 3
+            },
+            "tacticalReadyDecisions": 5601,
+            "fallbackDecisions": 0,
+            "maxFloorOverrunMs": 11262.184299999994,
+            "note": "Available recorded diagnostics, including incomplete games. Error/illegal records can have missing or partial search diagnostics and fail the decision gate."
+          },
+          "iterations": null,
+          "iterationsPerDecision": null,
+          "roots": null,
+          "coveredRoots": null,
+          "rootCoverage": null,
+          "note": "Actual iteration/root coverage totals are not recorded by this adapter."
+        },
+        "candidate": {
+          "games": 200,
+          "counts": {
+            "complete": 130,
+            "capped": 21,
+            "unresolved": 49,
+            "illegal": 0,
+            "error": 0
+          },
+          "conditionalWinShare": {
+            "mean": 0.5340909090909091,
+            "low": 0.4449896728333622,
+            "high": 0.6231921453484559,
+            "n": 44
+          },
+          "conditionalMargin": {
+            "mean": null,
+            "low": null,
+            "high": null,
+            "n": 0
+          },
+          "completion": 0.65,
+          "observedWinLowerBound": 0.3325,
+          "observedWinUpperBound": 0.6825,
+          "decisions": 7107,
+          "totalDecisionMs": 1681684.9316999975,
+          "decisionWeightedLatencyMs": 236.62374162093676,
+          "maxDecisionMs": 8588.2788,
+          "hiveSearch": {
+            "recordedDepthDecisions": 7107,
+            "completedDepthHistogram": {
+              "1": 7003,
+              "2": 101,
+              "3": 3
+            },
+            "tacticalReadyDecisions": 7107,
+            "fallbackDecisions": 0,
+            "maxFloorOverrunMs": 8487.56269999998,
+            "note": "Available recorded diagnostics, including incomplete games. Error/illegal records can have missing or partial search diagnostics and fail the decision gate."
+          },
+          "iterations": null,
+          "iterationsPerDecision": null,
+          "roots": null,
+          "coveredRoots": null,
+          "rootCoverage": null,
+          "note": "Actual iteration/root coverage totals are not recorded by this adapter."
+        }
+      },
+      "winShareDelta": {
+        "mean": 0,
+        "low": 0,
+        "high": 0,
+        "n": 27
+      },
+      "completionDelta": {
+        "mean": 0.115,
+        "low": 0.06065788261067409,
+        "high": 0.16934211738932592,
+        "n": 100
+      },
+      "observedWinLowerBoundDelta": {
+        "mean": 0.0775,
+        "low": 0.03143630823132187,
+        "high": 0.12356369176867812,
+        "n": 100
+      },
+      "openingIdentity": {
+        "recordedSetupSignatures": 100,
+        "uniqueSignatures": 100,
+        "repeatedSignatures": 0,
+        "note": "Seed is the analysis unit. Repeated opening signatures, if any, limit the independence interpretation."
+      },
+      "conditional": true,
+      "sensitivityWinShareDelta": {
+        "low": -0.3875,
+        "high": 0.4275,
+        "note": "Identification bounds with each incomplete game assigned any win share in [0,1]; not confidence intervals."
+      },
+      "marginDelta": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "pairedGameMeanLatencyDeltaMs": {
+        "mean": -32.91518787537237,
+        "low": -48.39450858960116,
+        "high": -17.435867161143573,
+        "n": 100
+      },
+      "gate": {
+        "type": "prespecified-primary-completion",
+        "passed": true,
+        "completionOneSided975Lower": 0.06065788261067409,
+        "minimumCompletionGain": 0.1,
+        "observedWinLowerBoundNoWorse": true,
+        "zeroIllegalErrors": true,
+        "promotion": false,
+        "note": "Completion improvement only; incomplete Hive outcomes remain unadjudicated. No claim of overall game strength or automatic promotion."
+      },
+      "groups": [
+        {
+          "seed": 9382600,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -82.22032439335901
+        },
+        {
+          "seed": 9383597,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 1,
+          "observedWinLowerBoundDelta": 1,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -131.67786926985332
+        },
+        {
+          "seed": 9384594,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -82.29080691071422
+        },
+        {
+          "seed": 9385591,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -47.85372714285716
+        },
+        {
+          "seed": 9386588,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -37.446997222223075
+        },
+        {
+          "seed": 9387585,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -67.91043694444458
+        },
+        {
+          "seed": 9388582,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -60.21853691644884
+        },
+        {
+          "seed": 9389579,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -36.06410624374388
+        },
+        {
+          "seed": 9390576,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -56.29421858974334
+        },
+        {
+          "seed": 9391573,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -109.69719515884596
+        },
+        {
+          "seed": 9392570,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -147.11769759259232
+        },
+        {
+          "seed": 9393567,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -64.31595141176403
+        },
+        {
+          "seed": 9394564,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -116.7225163690484
+        },
+        {
+          "seed": 9395561,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -66.96207684058047
+        },
+        {
+          "seed": 9396558,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -66.71128000000044
+        },
+        {
+          "seed": 9397555,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -79.06791495098301
+        },
+        {
+          "seed": 9398552,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -42.77762614393751
+        },
+        {
+          "seed": 9399549,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -28.17135579638834
+        },
+        {
+          "seed": 9400546,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -35.908418693010915
+        },
+        {
+          "seed": 9401543,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 104.62155729166646
+        },
+        {
+          "seed": 9402540,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -27.404040694448625
+        },
+        {
+          "seed": 9403537,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -25.28974132447604
+        },
+        {
+          "seed": 9404534,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -48.59368458333374
+        },
+        {
+          "seed": 9405531,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -82.15009756592404
+        },
+        {
+          "seed": 9406528,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -91.27884625668588
+        },
+        {
+          "seed": 9407525,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -75.8580815915287
+        },
+        {
+          "seed": 9408522,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -50.499868749998484
+        },
+        {
+          "seed": 9409519,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -68.38874999999803
+        },
+        {
+          "seed": 9410516,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -56.49110114259936
+        },
+        {
+          "seed": 9411513,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -56.46861270908249
+        },
+        {
+          "seed": 9412510,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -130.97418632538387
+        },
+        {
+          "seed": 9413507,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -135.35757205882175
+        },
+        {
+          "seed": 9414504,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": 0.75,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -73.78152653093849
+        },
+        {
+          "seed": 9415501,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.25,
+          "sensitivityDeltaLow": -0.25,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -51.85274871794995
+        },
+        {
+          "seed": 9416498,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -21.621053400539893
+        },
+        {
+          "seed": 9417495,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -81.69673904762118
+        },
+        {
+          "seed": 9418492,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -48.7087197916663
+        },
+        {
+          "seed": 9419489,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -192.38616125478865
+        },
+        {
+          "seed": 9420486,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -61.04484433106529
+        },
+        {
+          "seed": 9421483,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -48.23829277777591
+        },
+        {
+          "seed": 9422480,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -42.36446778712126
+        },
+        {
+          "seed": 9423477,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 1,
+          "observedWinLowerBoundDelta": 1,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -43.75590344266425
+        },
+        {
+          "seed": 9424474,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -86.967605555554
+        },
+        {
+          "seed": 9425471,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -85.63866195945872
+        },
+        {
+          "seed": 9426468,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 1,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -22.025343469886593
+        },
+        {
+          "seed": 9427465,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 5.479377289377339
+        },
+        {
+          "seed": 9428462,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -59.07993005453744
+        },
+        {
+          "seed": 9429459,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -80.92040918803607
+        },
+        {
+          "seed": 9430456,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": -0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -270.147452615692
+        },
+        {
+          "seed": 9431453,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -1.9240894033380442
+        },
+        {
+          "seed": 9432450,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -44.75906111110575
+        },
+        {
+          "seed": 9433447,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -37.04080038094611
+        },
+        {
+          "seed": 9434444,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -86.87318463235776
+        },
+        {
+          "seed": 9435441,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -8.3987662393221
+        },
+        {
+          "seed": 9436438,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -315.52704400316827
+        },
+        {
+          "seed": 9437435,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -25.245280815013388
+        },
+        {
+          "seed": 9438432,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 72.63320684265956
+        },
+        {
+          "seed": 9439429,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -47.43637564815256
+        },
+        {
+          "seed": 9440426,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -36.126984591447005
+        },
+        {
+          "seed": 9441423,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -68.7897222527447
+        },
+        {
+          "seed": 9442420,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -33.684309903386335
+        },
+        {
+          "seed": 9443417,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -51.16649964788071
+        },
+        {
+          "seed": 9444414,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -58.48169692788554
+        },
+        {
+          "seed": 9445411,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": -0.25,
+          "sensitivityDeltaLow": -0.75,
+          "sensitivityDeltaHigh": 0.25,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 21.625295050173364
+        },
+        {
+          "seed": 9446408,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -43.64650122548923
+        },
+        {
+          "seed": 9447405,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 114.08263237762013
+        },
+        {
+          "seed": 9448402,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -90.45062142857792
+        },
+        {
+          "seed": 9449399,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 15.42911527146336
+        },
+        {
+          "seed": 9450396,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 84.97782320431772
+        },
+        {
+          "seed": 9451393,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 24.35196109374283
+        },
+        {
+          "seed": 9452390,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -11.800053661339717
+        },
+        {
+          "seed": 9453387,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -13.004518449202756
+        },
+        {
+          "seed": 9454384,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 14.524013352804445
+        },
+        {
+          "seed": 9455381,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 8.614616396104651
+        },
+        {
+          "seed": 9456378,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -85.13289162539304
+        },
+        {
+          "seed": 9457375,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -26.749231766281937
+        },
+        {
+          "seed": 9458372,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 2.160316666669388
+        },
+        {
+          "seed": 9459369,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -1.4331749966221707
+        },
+        {
+          "seed": 9460366,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 57.3394872685121
+        },
+        {
+          "seed": 9461363,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -0.353134731935576
+        },
+        {
+          "seed": 9462360,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 44.11787115763116
+        },
+        {
+          "seed": 9463357,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -0.3248452272716378
+        },
+        {
+          "seed": 9464354,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -2.193225416670444
+        },
+        {
+          "seed": 9465351,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 7.289356792314749
+        },
+        {
+          "seed": 9466348,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": -0.5,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 224.09612060713982
+        },
+        {
+          "seed": 9467345,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 6.360526190474047
+        },
+        {
+          "seed": 9468342,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -1.1354115217375664
+        },
+        {
+          "seed": 9469339,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 53.915909543909606
+        },
+        {
+          "seed": 9470336,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -1,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 47.58444214673948
+        },
+        {
+          "seed": 9471333,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": -0.5,
+          "observedWinLowerBoundDelta": -0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 19.353177554313092
+        },
+        {
+          "seed": 9472330,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 12.801660641740824
+        },
+        {
+          "seed": 9473327,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 9.994405502381454
+        },
+        {
+          "seed": 9474324,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -7.502737962973626
+        },
+        {
+          "seed": 9475321,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 333.7201723160241
+        },
+        {
+          "seed": 9476318,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -13.781999047624971
+        },
+        {
+          "seed": 9477315,
+          "completePaired": true,
+          "winShareDelta": 0,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": 0,
+          "sensitivityDeltaHigh": 0,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 1.0582112440269071
+        },
+        {
+          "seed": 9478312,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": -15.730777082074738
+        },
+        {
+          "seed": 9479309,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0.5,
+          "observedWinLowerBoundDelta": 0.5,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 1,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 15.710430611910311
+        },
+        {
+          "seed": 9480306,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 11.710979374995446
+        },
+        {
+          "seed": 9481303,
+          "completePaired": false,
+          "winShareDelta": null,
+          "completionDelta": 0,
+          "observedWinLowerBoundDelta": 0,
+          "sensitivityDeltaLow": -0.5,
+          "sensitivityDeltaHigh": 0.5,
+          "marginDelta": null,
+          "pairedGameMeanLatencyDeltaMs": 2.034985892109077
+        }
+      ]
+    }
+  ]
+}

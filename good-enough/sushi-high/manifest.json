@@ -1,0 +1,2304 @@
+{
+  "study": "good-enough-sushi-high",
+  "revision": "b7336fac301169c1ced2d87d710d63031418270f",
+  "startedAt": "2026-10-18T23:07:24.131Z",
+  "workers": 6,
+  "pairs": 40,
+  "runtime": {
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 9 5950X 16-Core Processor            ",
+    "logicalCPUs": 32,
+    "priority": 10
+  },
+  "metadata": {
+    "sushi-go": {
+      "game": "sushi-go",
+      "supportedPlayers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "defaultBudget": {
+        "iterations": 64
+      },
+      "scope": "match",
+      "policyId": "sushi-go-browser-sampled-v1",
+      "opponentPolicyId": "sushi-go-local-set-greedy-v1",
+      "browserIterationLimit": 256,
+      "limitations": [
+        "Explicit benchmark budget below browser256 sample ceiling by default.",
+        "Production rollouts finish the current round only.",
+        "Comparator uses immediate sets, ordered nigiri and fixed future-card bonuses, without packet inference or opponent modeling.",
+        "Full matches include all3rounds, pudding and pudding-count tiebreaks."
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "id": "sushi-go-4p-production-default-9282600-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9282600,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9282600-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9282600,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9282600-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9282600,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9282600-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9282600,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9283597-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9283597,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9283597-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9283597,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9283597-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9283597,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9283597-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9283597,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9284594-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9284594,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9284594-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9284594,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9284594-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9284594,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9284594-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9284594,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9285591-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9285591,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9285591-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9285591,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9285591-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9285591,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9285591-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9285591,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9286588-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9286588,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9286588-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9286588,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9286588-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9286588,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9286588-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9286588,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9287585-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9287585,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9287585-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9287585,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9287585-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9287585,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9287585-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9287585,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9288582-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9288582,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9288582-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9288582,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9288582-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9288582,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9288582-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9288582,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9289579-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9289579,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9289579-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9289579,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9289579-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9289579,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9289579-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9289579,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9290576-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9290576,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9290576-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9290576,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9290576-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9290576,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9290576-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9290576,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9291573-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9291573,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9291573-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9291573,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9291573-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9291573,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9291573-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9291573,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9292570-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9292570,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9292570-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9292570,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9292570-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9292570,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9292570-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9292570,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9293567-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9293567,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9293567-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9293567,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9293567-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9293567,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9293567-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9293567,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9294564-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9294564,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9294564-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9294564,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9294564-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9294564,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9294564-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9294564,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9295561-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9295561,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9295561-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9295561,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9295561-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9295561,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9295561-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9295561,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9296558-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9296558,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9296558-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9296558,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9296558-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9296558,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9296558-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9296558,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9297555-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9297555,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9297555-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9297555,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9297555-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9297555,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9297555-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9297555,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9298552-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9298552,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9298552-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9298552,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9298552-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9298552,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9298552-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9298552,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9299549-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9299549,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9299549-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9299549,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9299549-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9299549,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9299549-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9299549,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9300546-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9300546,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9300546-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9300546,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9300546-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9300546,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9300546-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9300546,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9301543-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9301543,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9301543-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9301543,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9301543-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9301543,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9301543-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9301543,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9302540-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9302540,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9302540-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9302540,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9302540-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9302540,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9302540-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9302540,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9303537-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9303537,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9303537-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9303537,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9303537-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9303537,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9303537-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9303537,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9304534-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9304534,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9304534-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9304534,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9304534-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9304534,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9304534-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9304534,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9305531-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9305531,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9305531-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9305531,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9305531-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9305531,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9305531-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9305531,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9306528-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9306528,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9306528-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9306528,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9306528-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9306528,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9306528-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9306528,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9307525-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9307525,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9307525-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9307525,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9307525-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9307525,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9307525-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9307525,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9308522-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9308522,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9308522-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9308522,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9308522-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9308522,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9308522-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9308522,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9309519-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9309519,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9309519-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9309519,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9309519-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9309519,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9309519-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9309519,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9310516-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9310516,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9310516-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9310516,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9310516-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9310516,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9310516-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9310516,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9311513-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9311513,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9311513-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9311513,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9311513-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9311513,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9311513-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9311513,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9312510-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9312510,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9312510-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9312510,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9312510-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9312510,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9312510-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9312510,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9313507-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9313507,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9313507-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9313507,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9313507-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9313507,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9313507-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9313507,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9314504-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9314504,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9314504-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9314504,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9314504-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9314504,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9314504-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9314504,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9315501-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9315501,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9315501-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9315501,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9315501-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9315501,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9315501-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9315501,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9316498-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9316498,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9316498-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9316498,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9316498-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9316498,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9316498-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9316498,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9317495-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9317495,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9317495-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9317495,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9317495-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9317495,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9317495-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9317495,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9318492-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9318492,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9318492-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9318492,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9318492-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9318492,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9318492-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9318492,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9319489-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9319489,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9319489-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9319489,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9319489-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9319489,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9319489-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9319489,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9320486-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9320486,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9320486-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9320486,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9320486-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9320486,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9320486-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9320486,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9321483-0",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9321483,
+      "seat": 0,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9321483-1",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9321483,
+      "seat": 1,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9321483-2",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9321483,
+      "seat": 2,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    },
+    {
+      "id": "sushi-go-4p-production-default-9321483-3",
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "seed": 9321483,
+      "seat": 3,
+      "policy": "production-default",
+      "opponent": "simple-v1",
+      "budget": {
+        "iterations": 256
+      },
+      "scope": "match"
+    }
+  ],
+  "hashes": {
+    "sushi-go/actions.js": "9cf273dc887b49d80ab6281e1485f9e355f6099f4c58db68c2534e9e41d46e47",
+    "sushi-go/ai.js": "54f8ff35423d7a98b381d016ba2883f69ac48c18c859cf7c5bc7b86d01715409",
+    "sushi-go/app.js": "2a3b882ec34719c63e128da35b134a30f7f322731bf3473214c731b29233596a",
+    "sushi-go/belief.js": "c70834b96811f51f9302dba1b7bbaac15b06c002f4eb973f997c689d321d4cbf",
+    "sushi-go/catalog.js": "ebcfa41c0b984bfd4cc9f152e80854a83f69ffe8014cda9781405b875898d650",
+    "sushi-go/core.js": "509f8c96add6986ea0ebd2ae5732427e5be5238cc05a97fff380501e369382f9",
+    "sushi-go/observations.js": "93f19dcb93c023d06d0b8367b726b100ac484c3bd8ef60f958f9debaddf0bb18",
+    "sushi-go/scoring.js": "10819f6912db3121a027737c7f2c8a125570664d2ba072dacd98731c05d32fb1",
+    "sushi-go/worker.js": "12f5f580e021adf2bce79854faf00c8b4099e5f049343eb12032acd3614866b3",
+    "scripts/benchmark-adapters/hive-history.mjs": "d57ae31731c1c124c7aa88b4110a3e68d1ffd468abed1986c60370be250e0b88",
+    "scripts/benchmark-adapters/hive-incumbent.mjs": "7d52bbda4975b505bcc6fe8f2a432b6351c43e0c95d6531fbb0d568ae8aff439",
+    "scripts/benchmark-adapters/hive.mjs": "7e25048b5ab16088376701fed32c87b11663e7e426241f42f691bb75a23f53f3",
+    "scripts/benchmark-adapters/jaipur.mjs": "90781f9cdc3e47d1e70a8fc1056f14143cf042c6d288602ffdc255e7d6b8575a",
+    "scripts/benchmark-adapters/lost-cities.mjs": "b2af9c7803ea08c7f1292f40a8aa381d7d27c9e27096fa127ba44e666a6960c2",
+    "scripts/benchmark-adapters/love-letter.mjs": "31f8936c8fe15987c64d86a2096261b1b8844c5c9606da0059d71f75ac842ef3",
+    "scripts/benchmark-adapters/sushi-go.mjs": "b4e5222c8a88a5beddc83a687d066708f0fdde54d4a52a85facbc5b043072a33",
+    "scripts/benchmark-adapters/ticket-to-ride.mjs": "5f01441fe1b48bce60b210bff15be1a9f853c61c9b706f5899453b25c006d515",
+    "scripts/benchmark-comparison.mjs": "64df3e3c5f92faebdf66debe8aac69c874e7a13e71ff4089e88b24d40c251e2a",
+    "scripts/benchmark-comparison-summary.mjs": "b30b4ddb4ee012e3f54d9e4fe0bfc7c4054318b981e36ca28bed256d2d2497c6",
+    "scripts/benchmark-comparison-plan.mjs": "bfc658af5ef69fb0c2481002cc84fc972ed85d6be7d28c4c8300fdd10bf0b06c"
+  },
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim."
+}

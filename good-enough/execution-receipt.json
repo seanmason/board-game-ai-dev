@@ -1,0 +1,158 @@
+{
+  "maxTotalWorkers": 18,
+  "workersPerFamily": 6,
+  "families": [
+    [
+      "love-low",
+      "love-high"
+    ],
+    [
+      "sushi-low",
+      "sushi-high"
+    ],
+    [
+      "hive-control",
+      "hive-history"
+    ]
+  ],
+  "runs": [
+    {
+      "arm": "love-low",
+      "command": [
+        "node",
+        "scripts/benchmark-comparison.mjs",
+        "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\good-enough-20261018\\love-low",
+        "--games=love-letter",
+        "--policy=production-default",
+        "--opponent=simple-v1",
+        "--players=2,4",
+        "--seed-base=9182600",
+        "--study=good-enough-love-low",
+        "--workers=6",
+        "--pairs=40",
+        "--budget={\"iterations\": 64}"
+      ],
+      "startedAt": "2026-10-18T23:07:24.345788+00:00",
+      "workers": 6,
+      "pid": 80544,
+      "completedAt": "2026-10-18T23:08:08.492075+00:00",
+      "exitCode": 0,
+      "status": "finished"
+    },
+    {
+      "arm": "sushi-low",
+      "command": [
+        "node",
+        "scripts/benchmark-comparison.mjs",
+        "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\good-enough-20261018\\sushi-low",
+        "--games=sushi-go",
+        "--policy=production-default",
+        "--opponent=simple-v1",
+        "--players=4",
+        "--seed-base=9282600",
+        "--study=good-enough-sushi-low",
+        "--workers=6",
+        "--pairs=40",
+        "--budget={\"iterations\": 64}"
+      ],
+      "startedAt": "2026-10-18T23:07:24.346019+00:00",
+      "workers": 6,
+      "pid": 84600,
+      "completedAt": "2026-10-18T23:14:27.018456+00:00",
+      "exitCode": 0,
+      "status": "finished"
+    },
+    {
+      "arm": "hive-control",
+      "command": [
+        "node",
+        "scripts/benchmark-comparison.mjs",
+        "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\good-enough-20261018\\hive-control",
+        "--games=hive",
+        "--policy=tactical-v2",
+        "--opponent=simple-v1",
+        "--players=2",
+        "--seed-base=9382600",
+        "--study=good-enough-hive-control",
+        "--workers=6",
+        "--pairs=100",
+        "--budget={\"ms\": 100, \"maxDepth\": 5, \"openingPlies\": 6, \"maxTurns\": 160, \"repetitionLimit\": 4}"
+      ],
+      "startedAt": "2026-10-18T23:07:24.346164+00:00",
+      "workers": 6,
+      "pid": 82796,
+      "completedAt": "2026-10-18T23:15:15.101656+00:00",
+      "exitCode": 0,
+      "status": "finished"
+    },
+    {
+      "arm": "love-high",
+      "command": [
+        "node",
+        "scripts/benchmark-comparison.mjs",
+        "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\good-enough-20261018\\love-high",
+        "--games=love-letter",
+        "--policy=production-default",
+        "--opponent=simple-v1",
+        "--players=2,4",
+        "--seed-base=9182600",
+        "--study=good-enough-love-high",
+        "--workers=6",
+        "--pairs=40",
+        "--budget={\"iterations\": 512}"
+      ],
+      "startedAt": "2026-10-18T23:08:08.536376+00:00",
+      "workers": 6,
+      "pid": 78224,
+      "completedAt": "2026-10-18T23:13:07.199478+00:00",
+      "exitCode": 0,
+      "status": "finished"
+    },
+    {
+      "arm": "sushi-high",
+      "command": [
+        "node",
+        "scripts/benchmark-comparison.mjs",
+        "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\good-enough-20261018\\sushi-high",
+        "--games=sushi-go",
+        "--policy=production-default",
+        "--opponent=simple-v1",
+        "--players=4",
+        "--seed-base=9282600",
+        "--study=good-enough-sushi-high",
+        "--workers=6",
+        "--pairs=40",
+        "--budget={\"iterations\": 256}"
+      ],
+      "startedAt": "2026-10-18T23:14:27.042479+00:00",
+      "workers": 6,
+      "pid": 84612,
+      "completedAt": "2026-10-18T23:32:34.118848+00:00",
+      "exitCode": 0,
+      "status": "finished"
+    },
+    {
+      "arm": "hive-history",
+      "command": [
+        "node",
+        "scripts/benchmark-comparison.mjs",
+        "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\good-enough-20261018\\hive-history",
+        "--games=hive",
+        "--policy=history-v1",
+        "--opponent=simple-v1",
+        "--players=2",
+        "--seed-base=9382600",
+        "--study=good-enough-hive-history",
+        "--workers=6",
+        "--pairs=100",
+        "--budget={\"ms\": 100, \"maxDepth\": 5, \"openingPlies\": 6, \"maxTurns\": 160, \"repetitionLimit\": 4}"
+      ],
+      "startedAt": "2026-10-18T23:15:15.130030+00:00",
+      "workers": 6,
+      "pid": 86276,
+      "completedAt": "2026-10-18T23:24:13.959061+00:00",
+      "exitCode": 0,
+      "status": "finished"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "study": "good-enough-sushi-low",
+  "revision": "b7336fac301169c1ced2d87d710d63031418270f",
+  "updatedAt": "2026-10-18T23:14:25.417Z",
+  "startedAt": "2026-10-18T23:07:24.041Z",
+  "status": "finished",
+  "workers": 6,
+  "planned": 160,
+  "finished": 160,
+  "active": [],
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
+  "rows": [
+    {
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 64
+      },
+      "policyId": "sushi-go-browser-sampled-v1",
+      "opponentPolicyId": "sushi-go-local-set-greedy-v1",
+      "planned": 160,
+      "finished": 160,
+      "counts": {
+        "complete": 160,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.83125,
+        "low": 0.767514642840857,
+        "high": 0.8949853571591431,
+        "n": 40
+      },
+      "margin": {
+        "mean": 10.07916666666667,
+        "low": 8.89407736191217,
+        "high": 11.264255971421168,
+        "n": 40
+      },
+      "chance": 0.25,
+      "meanDecisionMs": 649.6035546874997,
+      "maxDecisionMs": 2092.6508,
+      "elapsedMs": 2504374.445100001,
+      "limitations": [
+        "Explicit benchmark budget below browser256 sample ceiling by default.",
+        "Production rollouts finish the current round only.",
+        "Comparator uses immediate sets, ordered nigiri and fixed future-card bonuses, without packet inference or opponent modeling.",
+        "Full matches include all3rounds, pudding and pudding-count tiebreaks."
+      ]
+    }
+  ]
+}

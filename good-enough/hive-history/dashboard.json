@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "study": "good-enough-hive-history",
+  "revision": "b7336fac301169c1ced2d87d710d63031418270f",
+  "updatedAt": "2026-10-18T23:24:13.575Z",
+  "startedAt": "2026-10-18T23:07:24.321Z",
+  "status": "finished",
+  "workers": 6,
+  "planned": 200,
+  "finished": 200,
+  "active": [],
+  "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against the named opponent policy. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
+  "rows": [
+    {
+      "matchup": "hive-2p-history-v1",
+      "game": "hive",
+      "players": 2,
+      "policy": "history-v1",
+      "scope": "match",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6,
+        "maxDepth": 5
+      },
+      "policyId": "hive-public-history-tiebreak-v1",
+      "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+      "planned": 200,
+      "finished": 200,
+      "counts": {
+        "complete": 130,
+        "capped": 21,
+        "unresolved": 49,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 100,
+      "completeSeedGroups": 44,
+      "winShare": {
+        "mean": 0.5340909090909091,
+        "low": 0.4449896728333622,
+        "high": 0.6231921453484559,
+        "n": 44
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 236.62374162093676,
+      "maxDecisionMs": 8588.2788,
+      "elapsedMs": 3131441.601500001,
+      "limitations": [
+        "Classic Hive publisher diagram certification remains open.",
+        "Candidate requires the tactical gate and completed depth-one floor; incumbent requires the original depth-one floor. Search policies use the configured soft time budget and report actual overruns.",
+        "Independent baseline remains available separately from frozen incumbent comparison.",
+        "Explicit openingPlies:6 enables full matches from seeded legal nonterminal openings, identical across seat rotations; default0 retains the original empty setup. Opening signatures identify duplicate setups.",
+        "Repeated positions and caps are unresolved, not automatic draws.",
+        "A paused browser search with an unfinished tactical gate withholds advice and can be resumed."
+      ]
+    }
+  ]
+}
