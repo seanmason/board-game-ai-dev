@@ -7,9 +7,8 @@ complete two-player classic Hive match, with the production candidate at `seat`.
 
 Default budget is `{ms:100,maxTurns:160,repetitionLimit:4}`. The candidate uses
 production iterative-deepening alpha-beta, retains the last completed depth, and
-records actual nodes, completed depths and fallback decisions. If no complete
-depth finishes, a deterministic independent one-ply estimate supplies a legal
-fallback; partially searched deeper roots never masquerade as a completed depth.
+records actual nodes and completed depths. A full depth-one sweep is required;
+partially searched deeper roots never masquerade as a completed depth.
 One synchronous generator step can exceed the requested time, so actual latency
 is recorded rather than claiming a hard time limit. Wall-time search can choose
 different completed depths on different hardware despite identical seeds.
