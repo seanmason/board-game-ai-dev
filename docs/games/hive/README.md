@@ -95,3 +95,14 @@ integrated. Coordinator acceptance passed all 22 rules tests, three packaging
 regressions and the browser suite including the standalone package. Tablet
 overflow found during browser review was fixed; desktop and actual touch-context
 tablet screenshots were reviewed. Real iPad Safari acceptance remains open.
+
+## Follow-up evidence
+
+The [targeted screen](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/followup/REPORT.md) used varied, replayable six-ply openings.
+The safeguard ships for verified immediate tactical protection. Its conditional
+win-share estimates do not establish a general strength gain: repeated positions
+left many groups incomplete, failing the confirmation gate. Against the incumbent,
+mean candidate decision time was about 292 ms versus 144 ms, with a worst case
+around 7.28 seconds under concurrent desktop load. The budget is soft; worker
+pause/resume remains available and incomplete tactical checks withhold advice.
+No larger confirmation or evaluator promotion followed.

@@ -57,3 +57,24 @@ confirmation instead use the same seeded six-ply legal prefix for each seat
 rotation, recording exact actions and position hashes. Budget openingPlies=6
 is explicit; the original six-game study/default adapter remain unchanged.
 Ticket to Ride already has seeded shuffled setups and needs no opening change.
+
+## Completed outcome
+
+The four valid screens recorded 720 games: 616 complete and 104 unresolved, with
+zero illegal actions, adapter errors or caps. Neither candidate qualifies for
+confirmation under the predeclared completeness gate. Hive tactical safeguards
+ship as correctness protection; Ticket to Ride planning-v2 stays research-only
+and its browser incumbent remains unchanged. The primary-rule supply correction
+ships; unsupported adjudications remain explicit.
+
+The [report, raw records and execution receipt](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/followup/REPORT.md)
+preserve every outcome, including the separately invalidated 49-record opening
+run. Studies executed sequentially with twelve BelowNormal workers; manifest
+startedAt values describe plan preparation. No further tournament was launched.
+
+Final local verification: 892/892 tests, syntax for 315 modules, and 70 maintained
+documentation files passed. Relevant Hive, Ticket to Ride and dashboard browser
+checks passed, including standalone packages and touch/phone layouts. Validation
+on the frozen study revision 028b6e2 also passed in GitHub. The final published
+revision still requires its own gated workflow result; no real-device acceptance
+is claimed.

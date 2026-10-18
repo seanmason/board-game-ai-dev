@@ -62,9 +62,22 @@ history/reload, invalid import rejection, all-seat final ticket revelation, a
 review found and fixed phone grid overflow; map padding was extended so Boston's
 label is visible. Screenshots are retained under `test-artifacts/ticket-to-ride-*`.
 Suite navigation, static/standalone packaging, npm commands and CI are integrated.
-No real iPad Safari test or strength tournament has run.
+Real iPad Safari acceptance remains open. The initial six-game screen and the
+[focused follow-up](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/followup/REPORT.md) provide bounded strength evidence, not release certification.
 
 Open acceptance: fresh independent ticket-face review; publisher-quality board
 corroboration and visual overlay audit; attributable exhausted-supply rulings or
 continued explicit administrative adjudication; complete real tabletop transcript;
 real iPad Safari acceptance. See [original handoff](../../plans/next-games-2026-10-18/ticket-to-ride.md).
+
+## Current follow-up decision
+
+The [empty-supply correction](supply-resolution.md) follows the primary USA
+rulebook: no train-card draw is legal when both deck and discard are empty.
+Impossible market resets and mid-turn one-card shortages remain explicit
+adjudications; no digital convention was silently adopted.
+
+The [planning-v2 candidate](AI-PLANNING.md) is available through the search API
+and benchmark adapter, but the browser retains the original evaluator. It beat
+both tested opponents in complete three- and four-player setup groups; unresolved
+outcomes failed the predeclared promotion gate. No larger confirmation was run.
