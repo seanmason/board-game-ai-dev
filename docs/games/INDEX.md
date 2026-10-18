@@ -20,6 +20,7 @@ below remain development companions; packaging does not imply release approval.
 | [Jaipur](jaipur/README.md) | 2019 two-player physical companion; actual token entry and explicit unresolved-source limits. |
 | [Lost Cities](lost-cities/README.md) | Original five-expedition game; private observations, complete turns and explicit next-round starter agreement. |
 | [Hive](hive/README.md) | Classic eleven pieces per side; Queen opening permitted, with movement-evidence limits documented. |
+| [Ticket to Ride](ticket-to-ride/README.md) | Original USA, 2–5 players; 30-ticket catalog review and rare supply rulings remain open. |
 
 ## Wingspan integration
 

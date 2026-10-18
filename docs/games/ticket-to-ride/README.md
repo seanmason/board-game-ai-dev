@@ -2,7 +2,7 @@
 
 Original USA, 2–5 players, 30 original small tickets. Excludes Europe, USA 1910,
 anniversary additions and the 33-ticket refresh. This is an implementation candidate
-with open source, ruling and browser gates, not a certified faithful release.
+with open source and ruling gates, not a certified faithful release.
 
 ## Physical and digital workflow
 
@@ -54,11 +54,17 @@ At starting revision bbe379e plus this draft:
 - `node scripts/verify-ticket-to-ride.mjs`: complete deterministic 2, 3, 4, 5 player
   transcripts in 132, 207, 269, 342 actions; conservation/completion, not strength evidence.
 
-Browser test exists but has not run: sandbox Chrome launch returned EPERM; escalated
-retry awaited approval and was aborted. Coordinator owns browser execution and
-screenshots. No real iPad Safari test or strength tournament has run.
+Coordinator browser acceptance passed against staged suite and standalone assets
+using installed Chrome. It covers physical setup and partial draws, concealed
+worker advice, full payment access, immutable previews, correction confirmation,
+history/reload, invalid import rejection, all-seat final ticket revelation, a
+390-pixel phone viewport and an actual touch-enabled tablet context. Browser
+review found and fixed phone grid overflow; map padding was extended so Boston's
+label is visible. Screenshots are retained under `test-artifacts/ticket-to-ride-*`.
+Suite navigation, static/standalone packaging, npm commands and CI are integrated.
+No real iPad Safari test or strength tournament has run.
 
 Open acceptance: fresh independent ticket-face review; publisher-quality board
 corroboration and visual overlay audit; attributable exhausted-supply rulings or
 continued explicit administrative adjudication; complete real tabletop transcript;
-browser/tablet acceptance. See [original handoff](../../plans/next-games-2026-10-18/ticket-to-ride.md).
+real iPad Safari acceptance. See [original handoff](../../plans/next-games-2026-10-18/ticket-to-ride.md).

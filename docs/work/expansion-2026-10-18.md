@@ -97,3 +97,16 @@ Hive is integrated after 22 rules tests, three packaging checks and staged
 browser/standalone acceptance. Independent review confirmed the three import
 validation fixes. Browser review caught and fixed tablet grid overflow. Primary
 publisher movement-diagram certification remains explicitly open.
+
+Ticket to Ride is integrated after 34 rules tests, independent review fixes and
+staged suite/standalone browser acceptance. Unknown opponent observations remain
+unknown, concealed advice clears immediately, locomotive flushes preserve the
+draw continuation, and corrections require preview/confirmation. Phone overflow
+and a clipped map label were corrected. Independent ticket-face certification,
+board corroboration, exhausted-supply rulings and real tabletop acceptance remain
+open in its source ledger. All six companions are implemented; Jaipur remains
+physical-only pending its exact token source gate.
+
+Local full regression with all six integrations: 841 passed, zero failures.
+Documentation check: 59 files and 15 standalone game entries. No speculative AI
+candidate was promoted and no new strength tournament was run for cleanup.

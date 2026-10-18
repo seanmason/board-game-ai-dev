@@ -1,6 +1,8 @@
 // Explicit allowlist: development previews never copy research, tests or source references.
 export const sharedAssets = ['shared/session.js', 'shared/search-worker.js'];
 export const games = {
+  'ticket-to-ride': ['ticket-to-ride/index.html','ticket-to-ride/styles.css',
+    ...['catalog','actions','scoring','core','observations','belief','ai','worker','app'].map(n=>`ticket-to-ride/${n}.js`)],
   hive: ['hive/index.html','hive/styles.css',
     ...['catalog','geometry','actions','core','observations','ai','worker','app'].map(n=>`hive/${n}.js`)],
   'lost-cities': ['lost-cities/index.html','lost-cities/styles.css',
@@ -30,6 +32,6 @@ export const games = {
     ...['birds','bonuses','goal-tiles','power-index'].map(n => `wingspan/data/${n}.json`)]
 };
 
-export const optionalGames = ['hive','lost-cities','jaipur','sushi-go','love-letter','wingspan','splendor','seven-wonders-duel','carcassonne','cascadia','patchwork','kingdomino'];
+export const optionalGames = ['ticket-to-ride','hive','lost-cities','jaipur','sushi-go','love-letter','wingspan','splendor','seven-wonders-duel','carcassonne','cascadia','patchwork','kingdomino'];
 export const standaloneGames = Object.keys(games).filter(game => game !== 'wingspan');
 export const suiteAssets = ['index.html', 'games.html'];

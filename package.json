@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "audit:ticket-to-ride": "node scripts/audit-ticket-to-ride.mjs",
+    "verify:ticket-to-ride": "node scripts/verify-ticket-to-ride.mjs",
+    "benchmark:ticket-to-ride": "node scripts/benchmark-ticket-to-ride.mjs",
+    "browser:ticket-to-ride": "node scripts/browser-ticket-to-ride.mjs",
     "audit:hive": "node scripts/audit-hive.mjs",
     "verify:hive": "node scripts/verify-hive.mjs",
     "benchmark:hive": "node scripts/benchmark-hive.mjs",
