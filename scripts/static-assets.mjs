@@ -1,6 +1,8 @@
 // Explicit allowlist: development previews never copy research, tests or source references.
 export const sharedAssets = ['shared/session.js', 'shared/search-worker.js'];
 export const games = {
+  'love-letter': ['love-letter/index.html','love-letter/styles.css',
+    ...['catalog','core','observations','belief','ai','worker','app'].map(n=>`love-letter/${n}.js`)],
   azul: ['azul.html', 'styles.css', ...['azul','mcts','ai-worker','app'].map(n => `src/${n}.js`)],
   pentago: ['pentago/index.html', 'pentago/styles.css', ...['core','ai','worker','app'].map(n => `pentago/${n}.js`)],
   boop: ['boop/index.html','boop/styles.css',...['core','ai','worker','app'].map(n=>`boop/${n}.js`)],
@@ -20,6 +22,6 @@ export const games = {
     ...['birds','bonuses','goal-tiles','power-index'].map(n => `wingspan/data/${n}.json`)]
 };
 
-export const optionalGames = ['wingspan','splendor','seven-wonders-duel','carcassonne','cascadia','patchwork','kingdomino'];
+export const optionalGames = ['love-letter','wingspan','splendor','seven-wonders-duel','carcassonne','cascadia','patchwork','kingdomino'];
 export const standaloneGames = Object.keys(games).filter(game => game !== 'wingspan');
 export const suiteAssets = ['index.html', 'games.html'];

@@ -6,6 +6,7 @@ below remain development companions; packaging does not imply release approval.
 
 | Game | Supported scope |
 | --- | --- |
+| [Love Letter](love-letter/README.md) | Classic sixteen-card AEG/Tempest game, 2–4 players; affection targets 7/5/4. |
 | [Azul](azul/README.md) | Original colored-wall base game, 2–4 players; gray wall excluded. |
 | [Pentago](pentago/README.md) | Original 6×6 rotating-board game, 2 players; printed neutral-quadrant skip and placement-win rules. |
 | [Boop](boop/README.md) | Original base game, 2 players; no holiday expansions or younger-player variant. |

@@ -3,8 +3,7 @@
 Implements AEG / Tempest English classic, copyright 2012: 2–4 players,
 sixteen cards, affection targets 7 / 5 / 4. The 2019 twenty-one-card edition,
 Spy, Chancellor, Premium additional roles, themed editions and 5–8-player
-play are excluded. This implementation is on `codex/love-letter`; suite
-integration and browser acceptance remain the coordinator's gates.
+play are excluded. Integrated into the development suite; full cloud validation gates deployment.
 
 ## Rules and provenance
 
@@ -100,13 +99,13 @@ node scripts/check-syntax.mjs
 node scripts/check-docs.mjs
 ```
 
-The game suite currently has 21 tests, including 60 complete seeded random
+The game suite currently has 22 tests, including 60 complete seeded random
 matches with every generated legal branch validated. Physical transcripts cover
 12 complete matches for each player count: 555 / 946 / 1,046 recorded turns and
 119 / 112 / 99 round transitions, with pending JSON roundtrips at every effect.
 Privacy tests include hostile hidden getters, identical observations under
 different true hands, identical seeded advice, and opponent memory separation.
-Browser execution/screenshots are pending; the script is supplied for that gate:
+Coordinator browser acceptance passed on 2026-10-18 with installed headless Chrome, including desktop and simulated touch layouts. Screenshot review caught and corrected private-panel control contrast. The browser regression also covers shielded physical declaration choices and non-active digital viewers:
 
 ```
 node scripts/browser-love-letter.mjs
@@ -118,18 +117,9 @@ It checks desktop, 820px tablet, 390px phone and 844px landscape; physical pendi
 reload/cancel, private handoff, preview, undo/redo, atomic import and worker pause.
 Screenshots write `test-artifacts/love-letter-*.png`.
 
-Coordinator-owned integration required:
+Suite navigation, static and standalone packaging, npm scripts, CI checks and
+screenshot upload are integrated. Local integration tests passed all 25 game and
+static-asset cases; catalog audit and full transcript verification also passed.
 
-1. Add `love-letter` to static/optional/standalone game registries. Allowlist
-   `index.html`, `styles.css`, `catalog.js`, `core.js`, `observations.js`, `belief.js`,
-   `ai.js`, `worker.js`, `app.js` under `love-letter/`.
-2. Include shared `session.js` and `search-worker.js` in standalone import closure.
-3. Add suite entry/menu card and game-directory overview link; one game-page Games
-   link already uses `data-suite-nav` and `../index.html`.
-4. Add audit/verify/benchmark/browser npm commands and CI game validation/browser
-   commands; package to `preview/standalone-love-letter` and upload browser images.
-5. Run full-suite/shared integration checks and browser acceptance before promotion.
-
-Remaining evidence gates: fresh browser execution and visual screenshot review,
-direct Premium p6 visual/binary hash provenance, independent full physical-table
+Remaining evidence gates: real iPad Safari acceptance, direct Premium p6 visual/binary hash provenance, independent full physical-table
 acceptance, and any AI strength claim beyond the bounded smoke above.

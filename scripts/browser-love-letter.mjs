@@ -10,16 +10,23 @@ const click=action=>page.locator(`[data-action="${action}"]`).click();
 const chooseGuard=async()=>{const option=await page.locator('#action-choice option').evaluateAll(options=>options.find(o=>o.textContent.includes('guess 8')).value);await page.locator('#action-choice').selectOption(option);await click('preview');};
 try{
  await page.goto(url,{waitUntil:'networkidle'});assert.equal(await page.locator('h1').innerText(),'Love Letter');assert.equal(await page.locator('a[data-suite-nav][href="../index.html"]').innerText(),'Games');
+ assert.notEqual(await page.locator('[data-action=shield]').evaluate(el=>getComputedStyle(el).color),'rgb(255, 255, 255)','Private controls remain legible on white backgrounds');
  await page.locator('#exclusion-0').selectOption('1');await page.locator('#exclusion-1').selectOption('1');await page.locator('#exclusion-2').selectOption('2');await click('setup');
  await click('shield');await page.getByText('Enter or correct my actual hand',{exact:true}).click();await page.locator('#hand-ranks').fill('4');await click('hand');await click('draw');
  await page.getByText('Enter or correct my actual hand',{exact:true}).click();await page.locator('#hand-ranks').fill('4,1');await click('hand');
  await page.waitForFunction(()=>Number(document.querySelector('#samples')?.textContent)>0);
+ const privateChoices=await page.locator('#action-choice option').allTextContents();
+ await click('shield');const publicChoices=await page.locator('#action-choice option').allTextContents();assert.ok(publicChoices.length>privateChoices.length,'Shielded physical recording does not disclose known hand through choices');
+ await page.locator('#viewer').selectOption('1');await click('shield');assert.deepEqual(await page.locator('#action-choice option').allTextContents(),publicChoices,'Another viewer gets the same public declaration choices');
+ await page.locator('#viewer').selectOption('0');await click('shield');
  const before=await state();await chooseGuard();assert.deepEqual(await state(),before,'Preview cannot mutate the table');await click('confirm');assert.equal((await state()).phase,'resolve');
  await page.reload({waitUntil:'networkidle'});assert.equal((await state()).phase,'resolve');assert.equal(await page.locator('.playing-card').count(),0,'Reload shields private view');
  await click('cancel');assert.equal((await state()).phase,'choosePlay');await click('undo');assert.equal((await state()).phase,'resolve');await click('redo');assert.equal((await state()).phase,'choosePlay');
  await chooseGuard();await click('confirm');await page.locator('#hit').selectOption('false');await click('effect');assert.equal((await state()).current,1);assert.equal(await page.locator('.playing-card').count(),0,'Handoff shields the previous actor');
  const preserved=await state();await page.locator('#import-file').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({format:'board-game-ai-love-letter',version:1,history:[{state:preserved,label:'Bad index'}],index:.5}))});await page.getByRole('alert').filter({hasText:'Invalid session history position'}).waitFor();assert.deepEqual(await state(),preserved);
- await page.getByText('New match · classic sixteen-card rules',{exact:true}).click();await page.locator('#mode').selectOption('digital');await click('new');await click('draw');await page.evaluate(()=>{document.querySelector('[data-action="shield"]').click();document.querySelector('[data-action="pause"]').click();});
+ await page.getByText('New match · classic sixteen-card rules',{exact:true}).click();await page.locator('#mode').selectOption('digital');await click('new');await click('draw');
+ await page.locator('#viewer').selectOption('1');await click('shield');assert.equal(await page.locator('#action-choice').count(),0,'Revealing another digital viewer must not reveal actor action cards');assert.equal(await page.locator('[data-action="candidate"]').count(),0);
+ await page.locator('#viewer').selectOption('0');await page.evaluate(()=>{document.querySelector('[data-action="shield"]').click();document.querySelector('[data-action="pause"]').click();});
  await page.waitForTimeout(500);const paused=await page.locator('#samples').innerText();await page.waitForTimeout(350);assert.equal(await page.locator('#samples').innerText(),paused);await click('pause');await page.waitForFunction(n=>Number(document.querySelector('#samples')?.textContent)>n,Number(paused));
  const unchanged=await state();await page.locator('[data-action="candidate"]').first().click();assert.deepEqual(await state(),unchanged);await page.screenshot({path:'test-artifacts/love-letter-desktop.png',fullPage:true});await click('confirm');assert.notDeepEqual(await state(),unchanged);
  const ending=await page.evaluate(async()=>{

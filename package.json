@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "audit:love-letter": "node scripts/audit-love-letter.mjs",
+    "verify:love-letter": "node scripts/verify-love-letter.mjs",
+    "benchmark:love-letter": "node scripts/benchmark-love-letter.mjs",
+    "browser:love-letter": "node scripts/browser-love-letter.mjs",
     "test": "node --test",
     "check": "node scripts/check-syntax.mjs",
     "verify:gameplay": "node scripts/verify-gameplay.mjs",
