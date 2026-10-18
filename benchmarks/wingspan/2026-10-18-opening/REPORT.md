@@ -143,3 +143,33 @@ source hashes, no fresh-seed overlap); all six pilot result assertions passed.
 The coordinator's full suite passed704 tests, syntax211files and documentation38
 files before these final report observations were added. No full opening
 tournament was launched by this diagnostic task.
+
+## Completed results and adoption
+
+All 640 games completed without failures or recorded rollout safety caps.
+Screen: setup-only 53.75%, +0.1625 points (not selected); eval-only 56.875%,
++0.6125; both 56.25%, +0.675. Fresh confirmation: eval-only 106–94 (53%),
++0.285 points, paired lower win-share bound 47.05%; both 117–83 (58.5%),
++1.47 points, paired lower bound 52.51%. Only both passed the fixed gate.
+The paired 95% margin interval for both is [-0.072,3.012], so the stronger
+confirmation evidence is win share, not a resolved positive mean-score interval.
+
+In confirmation, both placed its first bird on action one in 49.5% of games
+versus 37.5% for the reference; mean first actions 1.87 vs 1.995, second actions
+5.915 vs 6.27. Mean starting hand 2.405 vs 2.575. Round-one scores were similar
+(14.885 vs 14.860). These are descriptive mechanism indicators, not causal proof.
+Generation plus search time averaged 51.484 vs 42.123 seconds per player/game,
+about 22% higher at equal 300 samples under desktop contention. Equal-time
+strength and human playing strength remain untested.
+
+User authorized repository adoption after reviewing results. Browser setup now
+uses the expanded shortlist after physical-observation guards; browser workers
+use opening-plan at depth 4. Research candidateActions and explicit evaluator
+overrides remain unchanged. The correction expires after round one. The exact
+runtime manifest, checkpoint, selection and decision remain under
+C:/Users/mason/.codex/benchmark-runs/wingspan-opening-20261018.
+
+Adoption validation: 706 tests passed; syntax checked 211 modules; documentation
+gate passed; 93 static assets staged. Browser preview confirmed 24 setup candidates,
+1,760 completed analysis samples and working pause. [Completed summary](completed-summary.json)
+preserves runtime revision, checkpoint hash and frozen selection/decision.

@@ -1,0 +1,71 @@
+{
+  "revision": "88bc93b7f456fe48c343fd63dc8fe451331b6151",
+  "stage": "complete",
+  "finished": 640,
+  "complete": 640,
+  "planned": 640,
+  "updatedAt": "2026-10-18T06:53:40.057Z",
+  "checkpointSha256": "ff5e97f1207de3ed2db2cb95c3c6ee6fc5a0cc324368af5e907fdea941a0cb79",
+  "selection": {
+    "rule": "All 80 valid; win share >= 55%; mean margin > 0; top two by win share then margin",
+    "selected": [
+      "eval-only",
+      "both"
+    ],
+    "summaries": [
+      {
+        "evaluator": "setup-only",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.5375,
+        "meanMargin": 0.1625
+      },
+      {
+        "evaluator": "eval-only",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.56875,
+        "meanMargin": 0.6125
+      },
+      {
+        "evaluator": "both",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.5625,
+        "meanMargin": 0.675
+      }
+    ]
+  },
+  "decision": {
+    "baseline": "practical-combined",
+    "choice": "both",
+    "promote": true,
+    "rule": "Independent fresh confirmation: approximate one-sided 97.5% paired t lower bound > 0.5 (100 seed pairs; t99=1.9842169515), positive mean margin, all 200 valid and no complete-game caps/errors; Bonferroni across at most two finalists gives approximate 5% family error",
+    "summaries": [
+      {
+        "evaluator": "eval-only",
+        "valid": true,
+        "games": 200,
+        "pairs": 100,
+        "winShare": 0.53,
+        "meanMargin": 0.285,
+        "lowerBound": 0.47047349145500006,
+        "standardError": 0.029999999999999985,
+        "alpha": 0.025,
+        "promote": false
+      },
+      {
+        "evaluator": "both",
+        "valid": true,
+        "games": 200,
+        "pairs": 100,
+        "winShare": 0.585,
+        "meanMargin": 1.47,
+        "lowerBound": 0.5250822761836239,
+        "standardError": 0.030197163556676752,
+        "alpha": 0.025,
+        "promote": true
+      }
+    ]
+  }
+}

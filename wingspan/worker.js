@@ -49,7 +49,7 @@ self.onmessage=event=>{
       search=createSearch(data.observation,data.actions,{
         rng:seededRandom(data.seed),exploration:data.exploration,
         method:data.method??"heuristic",horizon:data.horizon??4,
-        leafEvaluator:data.leafEvaluator??"practical-combined"
+        leafEvaluator:data.leafEvaluator??"opening-plan"
       });
     }catch(error){
       search=null;

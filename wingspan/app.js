@@ -517,7 +517,7 @@ function startAnalysis(){
     workers.push(w);
     w.postMessage({type:"start",generation:token,observation:obs,
       actions:options,seed:(Math.random()*0x100000000)>>>0,
-      method:searchMethod,horizon:4,leafEvaluator:"practical-combined",
+      method:searchMethod,horizon:4,leafEvaluator:"opening-plan",
       running:analysisEnabled,chunk:searchMethod==="belief-rollout"?1:24});
   }
   refreshAnalysis();

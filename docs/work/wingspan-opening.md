@@ -1,7 +1,7 @@
 # Wingspan opening experiment
 
-Pre-launch validation record: prior final selection completed 640 games with no
-qualifier; practical-combined remains the reference and browser default.
+Status: complete, 640/640 games. The combined strategy passed fresh confirmation
+and was approved for browser adoption; practical-combined remains the reference.
 [Results, rationale and protocol](../../benchmarks/wingspan/2026-10-18-opening/REPORT.md)
 incorporate earlier evaluator evidence and the diagnostic replay.
 
@@ -24,7 +24,7 @@ All actual setup candidate generation, metrics and full-game results are saved;
 selection.json and decision.json preserve the selection and recommendation.
 Setup expansion is limited to the candidate's actual setup decisions; simulated
 rollout setup choices remain the old generator. The new opening evaluator is
-opt-in, expires after round one, and does not alter deployed defaults.
+opt-in, expires after round one, and is now the approved browser default alongside expanded setup choices.
 
 Validation: node --test passed 704 tests. Browser dashboard verification and
 syntax/documentation checks are performed before launch. Evidence concerns this

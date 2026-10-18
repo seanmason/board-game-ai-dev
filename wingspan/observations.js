@@ -1,3 +1,4 @@
+import {openingSetupActions} from './opening-strategy.js';
 /**
  * Physical-board observation reconciliation.
  *
@@ -117,7 +118,7 @@ export function knownChoiceState(s){
   return copy;
 }
 export function observedCandidates(s){
-  if(s.mode!=='physical')return candidateActions(s);
+  if(s.mode!=='physical')return openingSetupActions(s,candidateActions(s));
   if(s.pendingObservation||missingPublic(s).length)return [];
   if(s.phase==='setup'&&analysisBlocker(s))return [];
   const owner=s.phase==='power'?s.pending[0].owner:s.currentPlayer;
@@ -126,7 +127,7 @@ export function observedCandidates(s){
     ...p.bonusOffer.map((id,i)=>[id,true,'private bonus '+(i+1)]),
     ...(s.pending[0]?.event?.cards??[]).map((id,i)=>[id,s.pending[0].code===1013,'offer slot '+(i+1)])]
     .filter(([id,bonus])=>!knownCard(s,id,bonus));
-  return candidateActions(s).filter(({action:a})=>
+  return openingSetupActions(s,candidateActions(s)).filter(({action:a})=>
     (a.type!=='playBird'||knownCard(s,a.birdId))&&
     (a.choice?.birdId===undefined||knownCard(s,a.choice.birdId)))
     .map(o=>({...o,label:names.reduce((label,[id,bonus,slot])=>
