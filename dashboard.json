@@ -2,84 +2,84 @@
   "schema": 1,
   "study": "ai-comparison-2026-10-18",
   "revision": "d33aa8c56f0851b7115177f9e1cc60bb7817a291",
-  "updatedAt": "2026-10-18T19:32:44.666Z",
+  "updatedAt": "2026-10-18T19:33:48.177Z",
   "startedAt": "2026-10-18T19:25:12.572Z",
   "status": "running",
   "workers": 12,
   "planned": 1720,
-  "finished": 1436,
+  "finished": 1506,
   "active": [
     {
-      "id": "sushi-go-5p-production-default-5198552-2",
+      "id": "sushi-go-5p-production-default-5212510-4",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:42.914Z"
+      "startedAt": "2026-10-18T19:33:46.523Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5197555-4",
+      "id": "sushi-go-5p-production-default-5212510-0",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:37.567Z"
+      "startedAt": "2026-10-18T19:33:41.292Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5198552-4",
+      "id": "sushi-go-5p-production-default-5213507-1",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:43.983Z"
+      "startedAt": "2026-10-18T19:33:47.714Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5198552-0",
+      "id": "sushi-go-5p-production-default-5212510-2",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:39.155Z"
+      "startedAt": "2026-10-18T19:33:42.535Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5197555-2",
+      "id": "sushi-go-5p-production-default-5211513-4",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:36.936Z"
+      "startedAt": "2026-10-18T19:33:40.599Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5199549-1",
+      "id": "sushi-go-5p-production-default-5211513-1",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:44.598Z"
+      "startedAt": "2026-10-18T19:33:38.001Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5198552-1",
+      "id": "sushi-go-5p-production-default-5212510-3",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:39.898Z"
+      "startedAt": "2026-10-18T19:33:43.183Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5197555-1",
+      "id": "sushi-go-5p-production-default-5211513-3",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:36.432Z"
+      "startedAt": "2026-10-18T19:33:40.343Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5198552-3",
+      "id": "sushi-go-5p-production-default-5213507-0",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:43.651Z"
+      "startedAt": "2026-10-18T19:33:46.697Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5199549-2",
+      "id": "sushi-go-5p-production-default-5213507-2",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:44.664Z"
+      "startedAt": "2026-10-18T19:33:48.175Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5199549-0",
+      "id": "sushi-go-5p-production-default-5211513-2",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:44.341Z"
+      "startedAt": "2026-10-18T19:33:38.036Z"
     },
     {
-      "id": "sushi-go-5p-production-default-5197555-3",
+      "id": "sushi-go-5p-production-default-5212510-1",
       "game": "sushi-go",
       "players": 5,
-      "startedAt": "2026-10-18T19:32:37.529Z"
+      "startedAt": "2026-10-18T19:33:42.279Z"
     }
   ],
   "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against heuristic opponents. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
@@ -587,32 +587,32 @@
       "policyId": "sushi-go-browser-sampled-v1",
       "opponentPolicyId": "sushi-go-local-set-greedy-v1",
       "planned": 200,
-      "finished": 76,
+      "finished": 146,
       "counts": {
-        "complete": 76,
+        "complete": 146,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 15,
+      "completeSeedGroups": 29,
       "winShare": {
-        "mean": 0.7266666666666668,
-        "low": 0.5779584528479847,
-        "high": 0.8753748804853488,
-        "n": 15
+        "mean": 0.6758620689655173,
+        "low": 0.5892257075455273,
+        "high": 0.7624984303855072,
+        "n": 29
       },
       "margin": {
-        "mean": 9.44,
-        "low": 7.156180504458751,
-        "high": 11.723819495541248,
-        "n": 15
+        "mean": 8.658620689655173,
+        "low": 7.243168430822632,
+        "high": 10.074072948487714,
+        "n": 29
       },
       "chance": 0.2,
-      "meanDecisionMs": 506.9254633458636,
+      "meanDecisionMs": 505.286382517938,
       "maxDecisionMs": 1195.4699000000255,
-      "elapsedMs": 812781.0015000002,
+      "elapsedMs": 1556306.9582999998,
       "limitations": [
         "Explicit benchmark budget below browser256 sample ceiling by default.",
         "Production rollouts finish the current round only.",
