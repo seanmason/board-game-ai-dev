@@ -78,5 +78,11 @@ form widths were corrected and the entire script then passed. Desktop and
 touch-tablet screenshots were visually inspected. This is automated Chrome
 touch emulation, not real iPad Safari acceptance. Full CI gates deployment.
 
+The first integrated CI run exposed an asynchronous test race: the script read
+the rejection message before `File.text()` completed. The browser check now waits
+for the actual rejection or imported history label before asserting results.
+The focused suite and standalone browser rerun passed after that change. This
+changes test synchronization, not the import validator or game rules.
+
 Primary movement-diagram pixel inspection/hash remains unresolved; see the
 [source gate](sources.md). No finished-release publication is claimed.
