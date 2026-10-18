@@ -21,7 +21,7 @@ jobs:
           npm run verify:splendor
       - name: New game source audits and independent rules comparisons
         run: |
-          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
+          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino ticket-to-ride love-letter jaipur sushi-go lost-cities hive; do
             for script in "scripts/audit-$game.mjs" "scripts/audit-$game-catalog.mjs" "scripts/verify-$game.mjs"; do
               if [ -f "$script" ]; then node "$script"; fi
             done
@@ -52,7 +52,7 @@ jobs:
         run: |
           npm run stage:preview
           npm run package:game -- splendor preview/standalone-splendor
-          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
+          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino ticket-to-ride love-letter jaipur sushi-go lost-cities hive; do
             if [ -f "$game/index.html" ]; then
               npm run package:game -- "$game" "preview/standalone-$game"
             fi
@@ -63,7 +63,7 @@ jobs:
           for script in smoke pentago wingspan sessions boop splendor; do
             node "scripts/browser-$script.mjs" || failed=1
           done
-          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
+          for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino ticket-to-ride love-letter jaipur sushi-go lost-cities hive; do
             if [ -f "scripts/browser-$game.mjs" ]; then
               STANDALONE_URL="http://127.0.0.1:8080/standalone-$game/" node "scripts/browser-$game.mjs" || failed=1
             fi
@@ -101,4 +101,17 @@ jobs:
             /tmp/cascadia-*.png
             /tmp/patchwork-*.png
             /tmp/kingdomino-*.png
+          if-no-files-found: ignore
+      - name: Save six-game expansion browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: expansion-browser-review
+          path: |
+            test-artifacts/ticket-to-ride-*.png
+            test-artifacts/love-letter-*.png
+            test-artifacts/jaipur-*.png
+            test-artifacts/sushi-go-*.png
+            test-artifacts/lost-cities-*.png
+            test-artifacts/hive-*.png
           if-no-files-found: ignore

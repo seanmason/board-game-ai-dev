@@ -51,10 +51,13 @@ test('each standalone package contains a complete local dependency graph and no 
 });
 
 // Suite navigation must survive staging while being omitted from standalone games.
-test('suite home lists all ten games and preserves a separate Azul entry',()=>{
+test('suite home lists each registered game exactly once and preserves a separate Azul entry',()=>{
   const home=readFileSync('index.html','utf8');
   const links=[...home.matchAll(/class="card" href="([^"]+)"/g)].map(m=>m[1]);
-  assert.equal(links.length,10);
+  const expected=Object.values(games).filter(paths=>existsSync(paths[0])).map(paths=>paths[0]);
+  const entries=links.map(href=>href.endsWith('/')?href+'index.html':href);
+  assert.deepEqual(entries.slice().sort(),expected.slice().sort());
+  assert.equal(new Set(entries).size,entries.length,'No duplicate game cards');
   assert.ok(links.includes('azul.html'));
   for(const href of links)assert.ok(existsSync(href.endsWith('/')?href+'index.html':href),href);
   assert.match(readFileSync('azul.html','utf8'),/src=".\/src\/app.js"/);
