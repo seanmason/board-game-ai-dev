@@ -1,0 +1,116 @@
+{
+  "game": "hive",
+  "seed": 8205531,
+  "seat": 0,
+  "players": 2,
+  "policyId": "hive-tactical-guard-v2",
+  "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+  "budget": {
+    "ms": 500,
+    "maxTurns": 160,
+    "repetitionLimit": 4,
+    "openingPlies": 6,
+    "maxDepth": 5
+  },
+  "scope": "match",
+  "status": "complete",
+  "shares": [
+    1,
+    0
+  ],
+  "winners": [
+    0
+  ],
+  "scores": null,
+  "margin": null,
+  "turns": 26,
+  "elapsedMs": 11481.1832,
+  "latency": {
+    "count": 13,
+    "totalMs": 6104.140400000018,
+    "maxMs": 502.6820000000007,
+    "p50Ms": 501.3945999999996,
+    "p95Ms": 502.6820000000007
+  },
+  "diagnostics": {
+    "illegalActions": 0,
+    "capped": false,
+    "unresolved": false,
+    "error": null,
+    "reason": "queen-surrounded",
+    "phase": "gameover",
+    "startingPlayer": 1,
+    "opening": {
+      "generator": "seeded-uniform-legal-prefix-v1",
+      "seed": 8205531,
+      "plies": 6,
+      "attempt": 0,
+      "actionKeys": [
+        "place:BG1::0,0",
+        "place:WB1::-1,0",
+        "place:BS1::1,-1",
+        "place:WB2::-2,1",
+        "place:BS2::1,0",
+        "place:WG1::-3,1"
+      ],
+      "positionKey": "1|AAAGGQSS|AAABBGGQ|3,3|0,2:0G;1,2:0B;2,1:0B;3,1:1G;4,0:1S;4,1:1S",
+      "canonicalSignature": "1|AAAGGQSS|AAABBGGQ|3,3|0,0:0G;0,1:0B;1,1:0B;1,2:1G;1,3:1S;2,2:1S",
+      "sha256": "0bce2b2a4cf08e5148228ba4e97432e7e7190d81a3945582c74a174cadb5fde1",
+      "scope": "full-match-from-generated-opening"
+    },
+    "totalPlies": 32,
+    "baselineLatency": {
+      "count": 13,
+      "totalMs": 5326.0908999999665,
+      "maxMs": 3656.035699999993,
+      "p50Ms": 148.20190000000002,
+      "p95Ms": 3656.035699999993
+    },
+    "allLatency": {
+      "count": 26,
+      "totalMs": 11430.231299999985,
+      "maxMs": 3656.035699999993,
+      "p50Ms": 287.46639999999024,
+      "p95Ms": 502.6820000000007
+    },
+    "baselineReplyNodes": 3691,
+    "candidateNodes": 5608,
+    "completedDepths": [
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "fallbackDecisions": 0,
+    "tacticalReplyNodes": 690,
+    "maxFloorOverrunMs": 0,
+    "tacticalReadyDecisions": 13,
+    "historyDecisions": 0,
+    "historySelectedRepeatedDecisions": 0,
+    "historySelectedPreviousOccurrences": [],
+    "opponentNodes": 0,
+    "opponentCompletedDepths": [],
+    "opponentMaxFloorOverrunMs": 0,
+    "promotion": false
+  },
+  "id": "hive-2p-tactical-v2-8205531-0",
+  "matchup": "hive-2p-tactical-v2",
+  "policy": "tactical-v2",
+  "opponent": "simple-v1",
+  "requestedBudget": {
+    "ms": 500,
+    "maxTurns": 160,
+    "repetitionLimit": 4,
+    "openingPlies": 6,
+    "maxDepth": 5
+  }
+}

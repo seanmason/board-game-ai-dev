@@ -1,0 +1,68 @@
+[
+  {
+    "arm": "control",
+    "command": [
+      "node",
+      "scripts/benchmark-comparison.mjs",
+      "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\hive-repetition-20261018\\control",
+      "--games=hive",
+      "--policy=tactical-v2",
+      "--opponent=simple-v1",
+      "--players=2",
+      "--seed-base=8182600",
+      "--study=hive-repetition-control",
+      "--workers=12",
+      "--pairs=40",
+      "--budget={\"ms\": 100, \"maxDepth\": 5, \"openingPlies\": 6, \"maxTurns\": 160, \"repetitionLimit\": 4}"
+    ],
+    "startedAt": "2026-10-18T21:33:22Z",
+    "workers": 12,
+    "pid": 83508,
+    "completedAt": "2026-10-18T21:35:04Z",
+    "exitCode": 0
+  },
+  {
+    "arm": "history",
+    "command": [
+      "node",
+      "scripts/benchmark-comparison.mjs",
+      "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\hive-repetition-20261018\\history",
+      "--games=hive",
+      "--policy=history-v1",
+      "--opponent=simple-v1",
+      "--players=2",
+      "--seed-base=8182600",
+      "--study=hive-repetition-history",
+      "--workers=12",
+      "--pairs=40",
+      "--budget={\"ms\": 100, \"maxDepth\": 5, \"openingPlies\": 6, \"maxTurns\": 160, \"repetitionLimit\": 4}"
+    ],
+    "startedAt": "2026-10-18T21:35:04Z",
+    "workers": 12,
+    "pid": 84020,
+    "completedAt": "2026-10-18T21:37:23Z",
+    "exitCode": 0
+  },
+  {
+    "arm": "compute",
+    "command": [
+      "node",
+      "scripts/benchmark-comparison.mjs",
+      "--out=C:\\Users\\mason\\.codex\\benchmark-runs\\hive-repetition-20261018\\compute",
+      "--games=hive",
+      "--policy=tactical-v2",
+      "--opponent=simple-v1",
+      "--players=2",
+      "--seed-base=8182600",
+      "--study=hive-repetition-compute",
+      "--workers=12",
+      "--pairs=40",
+      "--budget={\"ms\": 500, \"maxDepth\": 5, \"openingPlies\": 6, \"maxTurns\": 160, \"repetitionLimit\": 4}"
+    ],
+    "startedAt": "2026-10-18T21:37:23Z",
+    "workers": 12,
+    "pid": 91824,
+    "completedAt": "2026-10-18T21:39:49Z",
+    "exitCode": 0
+  }
+]

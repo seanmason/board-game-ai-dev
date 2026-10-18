@@ -1,0 +1,330 @@
+{
+  "metrics": {
+    "control": {
+      "complete": 45,
+      "unresolved": 35,
+      "capped": 0,
+      "lowerShare": 0.3375,
+      "upperShare": 0.775,
+      "completeGroups": 13,
+      "conditionalShare": {
+        "mean": 0.5769230769230769,
+        "low": 0.40930769230769226,
+        "high": 0.7445384615384615,
+        "n": 13
+      },
+      "pooledDecisionMs": 229.02824655737692,
+      "maxDecisionMs": 6164.4773000000005,
+      "medianGameMeanDecisionMs": 200.71555052473798,
+      "depthCounts": {
+        "1": 2105,
+        "2": 30
+      },
+      "distinctOpenings": 40,
+      "reasons": {
+        "benchmark-repetition-limit": 35
+      },
+      "historyDecisions": 0,
+      "historySelectedRepeatedDecisions": 0
+    },
+    "history": {
+      "complete": 55,
+      "unresolved": 21,
+      "capped": 4,
+      "lowerShare": 0.43125,
+      "upperShare": 0.74375,
+      "completeGroups": 20,
+      "conditionalShare": {
+        "mean": 0.6375,
+        "low": 0.5089095300108151,
+        "high": 0.7660904699891848,
+        "n": 20
+      },
+      "pooledDecisionMs": 258.0872174875907,
+      "maxDecisionMs": 10086.034099999997,
+      "medianGameMeanDecisionMs": 202.3426971659921,
+      "depthCounts": {
+        "1": 2589,
+        "2": 30
+      },
+      "distinctOpenings": 40,
+      "reasons": {
+        "benchmark-repetition-limit": 21,
+        "capped": 4
+      },
+      "historyDecisions": 2619,
+      "historySelectedRepeatedDecisions": 141
+    },
+    "compute": {
+      "complete": 43,
+      "unresolved": 37,
+      "capped": 0,
+      "lowerShare": 0.3,
+      "upperShare": 0.7625,
+      "completeGroups": 14,
+      "conditionalShare": {
+        "mean": 0.5535714285714286,
+        "low": 0.39168449785758197,
+        "high": 0.7154583592852752,
+        "n": 14
+      },
+      "pooledDecisionMs": 522.36523635927,
+      "maxDecisionMs": 5271.184600000008,
+      "medianGameMeanDecisionMs": 502.2279445495494,
+      "depthCounts": {
+        "1": 1914,
+        "2": 150,
+        "3": 18
+      },
+      "distinctOpenings": 40,
+      "reasons": {
+        "benchmark-repetition-limit": 37
+      },
+      "historyDecisions": 0,
+      "historySelectedRepeatedDecisions": 0
+    }
+  },
+  "comparisons": {
+    "history": {
+      "completionDifference": {
+        "mean": 0.125,
+        "low": 0.0548650939397726,
+        "high": 0.1951349060602274,
+        "n": 40
+      },
+      "observedWinLowerBoundDifference": {
+        "mean": 0.09375,
+        "low": 0.029247489559203477,
+        "high": 0.15825251044079652,
+        "n": 40
+      },
+      "unresolvedToComplete": 10,
+      "completeToUnresolved": 0,
+      "allScheduledTrueShareDifferenceBounds": [
+        -0.34375,
+        0.40625
+      ],
+      "meetsExploratoryFollowupGate": true,
+      "changedGames": [
+        {
+          "seed": 8182600,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8184594,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8186588,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8191573,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8193567,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8200546,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8204534,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8209519,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8215501,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8218492,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        }
+      ],
+      "gameMeanLatencyDifferenceMs": {
+        "mean": 13.782188116729788,
+        "low": -0.17374535078073627,
+        "high": 27.73812158424031,
+        "n": 40
+      },
+      "gameMeanCompletedDepthDifference": {
+        "mean": -0.000820905986831752,
+        "low": -0.003850663678497941,
+        "high": 0.002208851704834437,
+        "n": 40
+      },
+      "pairedCostWeighting": "Equal games within each opening, then equal openings; each game metric averages its candidate decisions."
+    },
+    "compute": {
+      "completionDifference": {
+        "mean": -0.025,
+        "low": -0.13335029632974518,
+        "high": 0.08335029632974517,
+        "n": 40
+      },
+      "observedWinLowerBoundDifference": {
+        "mean": -0.0375,
+        "low": -0.11959080287014728,
+        "high": 0.04459080287014729,
+        "n": 40
+      },
+      "unresolvedToComplete": 8,
+      "completeToUnresolved": 10,
+      "allScheduledTrueShareDifferenceBounds": [
+        -0.47500000000000003,
+        0.42499999999999993
+      ],
+      "meetsExploratoryFollowupGate": false,
+      "changedGames": [
+        {
+          "seed": 8186588,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8188582,
+          "seat": 1,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8189579,
+          "seat": 0,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8193567,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8194564,
+          "seat": 0,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8195561,
+          "seat": 0,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8199549,
+          "seat": 0,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8200546,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8202540,
+          "seat": 0,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8204534,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8207525,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8208522,
+          "seat": 0,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8211513,
+          "seat": 0,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8213507,
+          "seat": 1,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8215501,
+          "seat": 1,
+          "control": "complete",
+          "arm": "unresolved"
+        },
+        {
+          "seed": 8216498,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8218492,
+          "seat": 0,
+          "control": "unresolved",
+          "arm": "complete"
+        },
+        {
+          "seed": 8220486,
+          "seat": 1,
+          "control": "unresolved",
+          "arm": "complete"
+        }
+      ],
+      "gameMeanLatencyDifferenceMs": {
+        "mean": 297.40996698398635,
+        "low": 271.45495419739063,
+        "high": 323.36497977058207,
+        "n": 40
+      },
+      "gameMeanCompletedDepthDifference": {
+        "mean": 0.0938823030708231,
+        "low": 0.06605065293117099,
+        "high": 0.1217139532104752,
+        "n": 40
+      },
+      "pairedCostWeighting": "Equal games within each opening, then equal openings; each game metric averages its candidate decisions."
+    }
+  },
+  "note": "Forty opening clusters; approximate t(39) descriptive intervals; two comparisons, no multiplicity adjustment. Bounds include unresolved/capped without assigning outcomes. Timed policies and sequential arms can vary with load."
+}
