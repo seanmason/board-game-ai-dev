@@ -84,6 +84,14 @@ can vary with load. The control ran alongside both other families, while the his
 
 ## Provenance and reproduction
 
+Git normalizes CRLF line endings in the readable JSON files. The original
+[result hashes](result-sha256.json) apply to exact bytes retained in
+[execution-results.zip](execution-results.zip); the separate
+[published JSON hashes](published-json-sha256.json) apply to Git blob bytes.
+Every readable JSON file was checked equal to its original after newline
+normalization. Archive hashes are in source-verification.json.
+
+
 Frozen execution revision: `b7336fac301169c1ced2d87d710d63031418270f`. All six manifests agree on shared source hashes. [Source verification](source-verification.json) checks retained raw bytes against the execution hashes, then checks equality with the frozen Git contents after CRLF-to-LF normalization. Exact execution bytes are preserved in [execution-source.zip](execution-source.zip); mixed line endings and both hashes are recorded explicitly.
 
 - [love-low manifest and tasks](love-low/manifest.json); raw records are in its games directory.
