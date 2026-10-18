@@ -115,3 +115,18 @@ completed 240 records. A benchmark-only public-history tie-break completed
 43/80 games with more than twice the measured decision cost. The history policy
 remains research-only, and neither the browser default nor repetition handling
 changed. These exploratory completion results do not establish general strength.
+
+
+The [fresh 100-setup confirmation](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/good-enough/REPORT.md)
+completed 130/200 games with history versus 107/200 for control: +11.5 percentage
+points (paired 95% interval +6.1 to +16.9), meeting the predeclared completion
+criterion under this execution schedule. History had 49 repetitions and 21 caps;
+control had 92 repetitions and one cap. This is a net gain of 23 completions,
+not evidence that every avoided repetition becomes a finish. Overall winner-share
+differences remain unidentified because of the incomplete games.
+Both arms completed only depth one on about 98.5% of decisions. Their different
+concurrent load limits attribution in this timed-search comparison. Maximum
+single decisions took 11.36 seconds for control and 8.59 seconds for history;
+the nominal 100 ms budget does not guarantee responsiveness. The history policy
+remains research-only. Reliable completion and bounded practical latency remain
+higher priorities than another broad strength tournament.

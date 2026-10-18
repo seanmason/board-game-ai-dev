@@ -1,0 +1,383 @@
+{
+  "schema": 1,
+  "study": "good-enough-2026-10-18",
+  "revision": "b7336fac301169c1ced2d87d710d63031418270f",
+  "updatedAt": "2026-10-18T23:32:58.257657+00:00",
+  "startedAt": "2026-10-18T23:07:23.848Z",
+  "status": "finished",
+  "workers": 18,
+  "planned": 1200,
+  "finished": 1200,
+  "active": [],
+  "method": "Three families, at most 18 BelowNormal workers (six each). Love Letter 2/4-player and Sushi Go 4-player: matched 40-setup low/high sample screens; Hive: fresh 100-setup completion confirmation. Each setup rotates all candidate seats against the unchanged heuristic. Compare paired budget differences in the report, not overlapping per-arm intervals. Missing Hive outcomes remain unadjudicated; card winner shares condition on complete groups. No browser policy promotion. More samples reduce Monte Carlo noise under the same rollout model; they do not deepen these searches.",
+  "rows": [
+    {
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 64
+      },
+      "policyId": "love-letter-browser-sampled-v1 (64 samples)",
+      "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.575,
+        "low": 0.4754841947387507,
+        "high": 0.6745158052612492,
+        "n": 40
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 29.44148650057938,
+      "maxDecisionMs": 86.09420000000046,
+      "elapsedMs": 51588.725699999995,
+      "limitations": [
+        "Explicit benchmark budget below browser512 sample ceiling by default.",
+        "Production optimizes round share, not match share.",
+        "Comparator retains high ranks and exploits public copies/own private memory without rollouts."
+      ]
+    },
+    {
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 64
+      },
+      "policyId": "love-letter-browser-sampled-v1 (64 samples)",
+      "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+      "planned": 160,
+      "finished": 160,
+      "counts": {
+        "complete": 160,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.5,
+        "low": 0.42986509393977257,
+        "high": 0.5701349060602274,
+        "n": 40
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.25,
+      "meanDecisionMs": 63.327963063063116,
+      "maxDecisionMs": 199.2468000000008,
+      "elapsedMs": 199592.63000000006,
+      "limitations": [
+        "Explicit benchmark budget below browser512 sample ceiling by default.",
+        "Production optimizes round share, not match share.",
+        "Comparator retains high ranks and exploits public copies/own private memory without rollouts."
+      ]
+    },
+    {
+      "matchup": "love-letter-2p-production-default",
+      "game": "love-letter",
+      "players": 2,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 512
+      },
+      "policyId": "love-letter-browser-sampled-v1 (512 samples)",
+      "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.725,
+        "low": 0.6295203126884961,
+        "high": 0.8204796873115039,
+        "n": 40
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 189.1043468231254,
+      "maxDecisionMs": 525.9796,
+      "elapsedMs": 331045.2836,
+      "limitations": [
+        "Explicit benchmark budget below browser512 sample ceiling by default.",
+        "Production optimizes round share, not match share.",
+        "Comparator retains high ranks and exploits public copies/own private memory without rollouts."
+      ]
+    },
+    {
+      "matchup": "love-letter-4p-production-default",
+      "game": "love-letter",
+      "players": 4,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 512
+      },
+      "policyId": "love-letter-browser-sampled-v1 (512 samples)",
+      "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
+      "planned": 160,
+      "finished": 160,
+      "counts": {
+        "complete": 160,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.525,
+        "low": 0.453019123021173,
+        "high": 0.5969808769788271,
+        "n": 40
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.25,
+      "meanDecisionMs": 473.14251469020604,
+      "maxDecisionMs": 1598.2665000000125,
+      "elapsedMs": 1422971.8128000002,
+      "limitations": [
+        "Explicit benchmark budget below browser512 sample ceiling by default.",
+        "Production optimizes round share, not match share.",
+        "Comparator retains high ranks and exploits public copies/own private memory without rollouts."
+      ]
+    },
+    {
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 64
+      },
+      "policyId": "sushi-go-browser-sampled-v1 (64 samples)",
+      "opponentPolicyId": "sushi-go-local-set-greedy-v1",
+      "planned": 160,
+      "finished": 160,
+      "counts": {
+        "complete": 160,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.83125,
+        "low": 0.767514642840857,
+        "high": 0.8949853571591431,
+        "n": 40
+      },
+      "margin": {
+        "mean": 10.07916666666667,
+        "low": 8.89407736191217,
+        "high": 11.264255971421168,
+        "n": 40
+      },
+      "chance": 0.25,
+      "meanDecisionMs": 649.6035546874997,
+      "maxDecisionMs": 2092.6508,
+      "elapsedMs": 2504374.445100001,
+      "limitations": [
+        "Explicit benchmark budget below browser256 sample ceiling by default.",
+        "Production rollouts finish the current round only.",
+        "Comparator uses immediate sets, ordered nigiri and fixed future-card bonuses, without packet inference or opponent modeling.",
+        "Full matches include all3rounds, pudding and pudding-count tiebreaks."
+      ]
+    },
+    {
+      "matchup": "sushi-go-4p-production-default",
+      "game": "sushi-go",
+      "players": 4,
+      "policy": "production-default",
+      "scope": "match",
+      "budget": {
+        "iterations": 256
+      },
+      "policyId": "sushi-go-browser-sampled-v1 (256 samples)",
+      "opponentPolicyId": "sushi-go-local-set-greedy-v1",
+      "planned": 160,
+      "finished": 160,
+      "counts": {
+        "complete": 160,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "mean": 0.90625,
+        "low": 0.8560410482369983,
+        "high": 0.9564589517630017,
+        "n": 40
+      },
+      "margin": {
+        "mean": 12.602083333333335,
+        "low": 11.39520297391539,
+        "high": 13.808963692751279,
+        "n": 40
+      },
+      "chance": 0.25,
+      "meanDecisionMs": 1672.819876588542,
+      "maxDecisionMs": 4507.582,
+      "elapsedMs": 6430065.408299998,
+      "limitations": [
+        "Explicit benchmark budget below browser256 sample ceiling by default.",
+        "Production rollouts finish the current round only.",
+        "Comparator uses immediate sets, ordered nigiri and fixed future-card bonuses, without packet inference or opponent modeling.",
+        "Full matches include all3rounds, pudding and pudding-count tiebreaks."
+      ]
+    },
+    {
+      "matchup": "hive-2p-tactical-v2",
+      "game": "hive",
+      "players": 2,
+      "policy": "tactical-v2",
+      "scope": "match",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6,
+        "maxDepth": 5
+      },
+      "policyId": "hive-tactical-guard-v2 (control, 100 ms)",
+      "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+      "planned": 200,
+      "finished": 200,
+      "counts": {
+        "complete": 107,
+        "capped": 1,
+        "unresolved": 92,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 100,
+      "completeSeedGroups": 28,
+      "winShare": {
+        "mean": 0.5178571428571429,
+        "low": 0.4159087015062446,
+        "high": 0.6198055842080412,
+        "n": 28
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 262.8902898410998,
+      "maxDecisionMs": 11362.964699999982,
+      "elapsedMs": 2763211.644299999,
+      "limitations": [
+        "Classic Hive publisher diagram certification remains open.",
+        "Candidate requires the tactical gate and completed depth-one floor; incumbent requires the original depth-one floor. Search policies use the configured soft time budget and report actual overruns.",
+        "Independent baseline remains available separately from frozen incumbent comparison.",
+        "Explicit openingPlies:6 enables full matches from seeded legal nonterminal openings, identical across seat rotations; default0 retains the original empty setup. Opening signatures identify duplicate setups.",
+        "Repeated positions and caps are unresolved, not automatic draws.",
+        "A paused browser search with an unfinished tactical gate withholds advice and can be resumed."
+      ]
+    },
+    {
+      "matchup": "hive-2p-history-v1",
+      "game": "hive",
+      "players": 2,
+      "policy": "history-v1",
+      "scope": "match",
+      "budget": {
+        "ms": 100,
+        "maxTurns": 160,
+        "repetitionLimit": 4,
+        "openingPlies": 6,
+        "maxDepth": 5
+      },
+      "policyId": "hive-public-history-tiebreak-v1 (history, 100 ms)",
+      "opponentPolicyId": "hive-independent-tactical-liberties-v1",
+      "planned": 200,
+      "finished": 200,
+      "counts": {
+        "complete": 130,
+        "capped": 21,
+        "unresolved": 49,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 100,
+      "completeSeedGroups": 44,
+      "winShare": {
+        "mean": 0.5340909090909091,
+        "low": 0.4449896728333622,
+        "high": 0.6231921453484559,
+        "n": 44
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 236.62374162093676,
+      "maxDecisionMs": 8588.2788,
+      "elapsedMs": 3131441.601500001,
+      "limitations": [
+        "Classic Hive publisher diagram certification remains open.",
+        "Candidate requires the tactical gate and completed depth-one floor; incumbent requires the original depth-one floor. Search policies use the configured soft time budget and report actual overruns.",
+        "Independent baseline remains available separately from frozen incumbent comparison.",
+        "Explicit openingPlies:6 enables full matches from seeded legal nonterminal openings, identical across seat rotations; default0 retains the original empty setup. Opening signatures identify duplicate setups.",
+        "Repeated positions and caps are unresolved, not automatic draws.",
+        "A paused browser search with an unfinished tactical gate withholds advice and can be resumed."
+      ]
+    }
+  ]
+}

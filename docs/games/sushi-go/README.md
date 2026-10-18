@@ -122,12 +122,23 @@ deterministic policy. The 28 one-round assignments completed in approximately
 | 5 | Greedy | 0.600 (5 rounds) | +3.90 |
 
 These small correctness checks are not a strength study, promotion or confidence
-claim. Round standings exclude future rounds and final pudding scoring. No larger
-tournament was run and unfavorable four-player random results are retained.
+claim. Round standings exclude future rounds and final pudding scoring. Those implementation checks predate the complete-match studies below; unfavorable
+four-player random results are retained.
 
 The current [benchmark adapter](BENCHMARK_ADAPTER.md) runs all three rounds and
 final pudding by default, with an independent comparator. Its outcomes are
 separate from the historical round-only smoke above.
+
+The [fresh compute screen](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/good-enough/REPORT.md)
+compared 64 with 256 samples at four players over 40 matched setups, all seats.
+Winner share rose from 83.1% to 90.6% against the independent simple heuristic:
+paired +7.5 points (95% interval −1.0 to +16.0), failing the declared positive
+scaling criterion. Score margin versus the average opponent improved by 2.52
+points (1.45 to 3.59), a secondary result. All 320 matches completed without
+illegal actions or errors. Mean decisions rose from 650 to 1,673 ms under this
+execution schedule. The winning-strength gain remains uncertain, while the low
+budget already performs well against this comparator. More sampling still uses
+the same current-round model; browser defaults remain unchanged.
 
 ## Verification and integration
 
@@ -171,4 +182,4 @@ integrated. Local game and static-asset integration tests passed all 21 cases.
 
 Remaining evidence: real iPad Safari acceptance, direct physical
 deck/table acceptance, PDF binary/page archival if required for permanent source
-records, and any strength claim beyond the bounded smoke.
+records, and strength against stronger or human opponents beyond the named benchmark comparators.

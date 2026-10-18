@@ -34,4 +34,4 @@ export const games = {
 
 export const optionalGames = ['ticket-to-ride','hive','lost-cities','jaipur','sushi-go','love-letter','wingspan','splendor','seven-wonders-duel','carcassonne','cascadia','patchwork','kingdomino'];
 export const standaloneGames = Object.keys(games).filter(game => game !== 'wingspan');
-export const suiteAssets = ['index.html', 'games.html', 'benchmark-dashboard/index.html', 'benchmark-dashboard/styles.css', 'benchmark-dashboard/app.js', 'benchmark-dashboard/snapshot.json', 'benchmark-dashboard/snapshot-followup.json', 'benchmark-dashboard/snapshot-hive-repetition.json'];
+export const suiteAssets = ['index.html', 'games.html', 'benchmark-dashboard/index.html', 'benchmark-dashboard/styles.css', 'benchmark-dashboard/app.js', 'benchmark-dashboard/snapshot.json', 'benchmark-dashboard/snapshot-followup.json', 'benchmark-dashboard/snapshot-hive-repetition.json', 'benchmark-dashboard/snapshot-good-enough.json'];

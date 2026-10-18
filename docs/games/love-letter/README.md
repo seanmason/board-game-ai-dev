@@ -90,6 +90,18 @@ The current [benchmark adapter](BENCHMARK_ADAPTER.md) runs complete matches by
 default and uses an independently coded comparator. Its results are separate from
 the historical round smoke above.
 
+The [fresh compute screen](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/good-enough/REPORT.md)
+compared 64 with 512 samples on 40 matched setups per player count, rotating all
+seats against an independent simple heuristic. At two players, match winner share
+rose from 57.5% to 72.5%: paired +15.0 points (95% interval +2.9 to +27.1).
+At four players it rose from 50.0% to 52.5%: +2.5 points (−8.0 to +13.0).
+All 480 matches completed without illegal actions or errors. Mean decisions rose
+from 29 to 189 ms at two players and 63 to 473 ms at four players under this
+execution schedule. This exploratory evidence supports useful extra sampling at
+two players, not a general scaling claim or human-strength estimate. Browser
+budgets are unchanged; more samples reduce sampling noise without deepening the
+round-only continuation or changing its objective.
+
 ## Verification and integration
 
 Executed in the isolated checkout based on `bbe379e`:
@@ -126,4 +138,4 @@ screenshot upload are integrated. Local integration tests passed all 25 game and
 static-asset cases; catalog audit and full transcript verification also passed.
 
 Remaining evidence gates: real iPad Safari acceptance, direct Premium p6 visual/binary hash provenance, independent full physical-table
-acceptance, and any AI strength claim beyond the bounded smoke above.
+acceptance, and strength against stronger or human opponents beyond the named benchmark comparators.

@@ -84,3 +84,20 @@ changes are needed. Use `--workers=6`, `--opponent=simple-v1`, distinct `--out`
 folders and the table's policy, iteration/time budget, player counts, seed base
 and setup count. Frozen manifests, raw records, execution receipts, analysis and
 commands will be published on the existing development evidence branch.
+
+
+## Closed outcome
+
+All 1,200 scheduled records finished execution at frozen revision
+`b7336fac301169c1ced2d87d710d63031418270f`, with zero illegal actions or errors.
+All 800 Love Letter/Sushi Go matches completed; Hive had 237 complete, 141
+repetition/unresolved and 22 capped records. Two-player Love Letter met the
+exploratory compute criterion; four-player Love Letter and Sushi Go did not.
+Hive met its completion criterion under the recorded concurrent execution
+schedule, with substantial incompleteness and soft-budget latency remaining.
+No browser policy or budget was promoted, and no extra tournament followed.
+
+The [report and raw evidence](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/good-enough/REPORT.md)
+preserve the original pre-run protocol separately from this closure. Current
+interpretation lives in each game's overview; the report includes paired
+intervals, costs, limitations, source-byte archive and result hashes.
