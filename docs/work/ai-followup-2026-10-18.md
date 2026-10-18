@@ -46,3 +46,14 @@ Only one candidate per game is considered. No adjustment based on favorable
 interim results. Adverse/inconclusive evidence stays published. Tactical rules
 fixes may ship independently of a strength claim; speculative planning changes
 remain opt-in unless the stated gate passes.
+
+## Opening-coverage amendment before valid screening
+
+The first Hive incumbent comparison was stopped after 49 recorded repetition
+outcomes: seeds only varied the starting player, so two deterministic policies
+replayed the same initial opening. Those records are retained and excluded from
+strength evidence. No policy tuning followed. Both valid Hive screens and any
+confirmation instead use the same seeded six-ply legal prefix for each seat
+rotation, recording exact actions and position hashes. Budget openingPlies=6
+is explicit; the original six-game study/default adapter remain unchanged.
+Ticket to Ride already has seeded shuffled setups and needs no opening change.

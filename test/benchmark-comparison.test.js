@@ -8,3 +8,9 @@ test('paired uncertainty counts complete seed groups rather than seats and retai
  const row=summarize(manifest,results).rows[0];assert.equal(row.meanDecisionMs,15);assert.equal(row.maxDecisionMs,65);assert.equal(row.completeSeedGroups,2);assert.equal(row.winShare.n,2);assert.equal(row.winShare.mean,.5);assert.equal(row.counts.capped,1);assert.equal(row.finished,6);assert.equal(row.margin.mean,0);
 });
 test('interval handles missing and one group without fabricated certainty',()=>{assert.equal(interval([]).mean,null);assert.equal(interval([.5]).low,null);assert.deepEqual(interval([1,1],true),{mean:1,low:1,high:1,n:2});});
+
+test('unresolved-only matchup retains actual policy identities and measured latency',()=>{
+ const task={id:'one',matchup:'fixture',game:'test',seed:1,seat:0,players:2,budget:{}};const manifest={tasks:[task],metadata:{test:{policyId:'old',opponentPolicyId:'wrong',scope:'match'}},workers:1};
+ const row=summarize(manifest,[{...task,status:'unresolved',shares:null,policyId:'candidate',opponentPolicyId:'incumbent',latency:{count:2,totalMs:40,maxMs:30}}]).rows[0];
+ assert.equal(row.policyId,'candidate');assert.equal(row.opponentPolicyId,'incumbent');assert.equal(row.winShare.mean,null);assert.equal(row.meanDecisionMs,20);
+});
