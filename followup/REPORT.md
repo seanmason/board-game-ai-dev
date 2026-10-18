@@ -67,8 +67,13 @@ Source revision: `028b6e2ba7ea8cec79918f3c397f5923a24999ff`. Twelve BelowNormal 
 - [Ticket to Ride / incumbent](ttr-incumbent/manifest.json)
 - [Ticket to Ride / heuristic](ttr-baseline/manifest.json)
 
-Local integration: 888 tests passed before the opening-only amendment; 19 targeted tests passed after it, including opening replay/diversity and unresolved-only dashboard identity. Syntax 315 modules and maintained-doc checks passed at the first integration. Hive, Ticket to Ride and dashboard browser checks passed, including standalone game packages and touch layouts. Final CI and deployment status must be checked for the eventual published revision. Real iPad Safari acceptance remains unperformed.
+Local integration: 888 tests passed before the opening-only amendment; 19 targeted tests passed after it, including opening replay/diversity and unresolved-only dashboard identity. Syntax 315 modules and maintained-doc checks passed at the first integration. Hive, Ticket to Ride and dashboard browser checks passed, including standalone game packages and touch layouts. Real iPad Safari acceptance remains unperformed.
 
 Manifest `startedAt` values record plan preparation, not simultaneous execution.
 The four studies ran sequentially through blocking `subprocess.run`, with twelve
 workers total at a time. See [execution receipt](execution-receipt.json).
+
+Final local integration verification passed **892 tests**, syntax for **315
+modules**, and maintained documentation checks. Relevant Hive, Ticket to Ride
+and dashboard browser checks passed. Frozen study revision `028b6e2` passed full
+GitHub Validation. Publication `93ee62a` passed [full Validation](https://github.com/seanmason/board-game-ai-dev/actions/runs/39165797285) and [gated Pages deployment](https://github.com/seanmason/board-game-ai-dev/actions/runs/39165797293). The public dashboard loaded all 720 records and six matchup cards. A subsequent narrow phone-text wrapping fix is covered by the dashboard browser check; real iPad Safari acceptance remains open.
