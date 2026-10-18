@@ -1,4 +1,6 @@
-const remote='https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/ai-comparison-2026-10-18/dashboard.json';
+const dataRoot='https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/ai-comparison-2026-10-18/';
+const studies={original:{remote:dataRoot+'dashboard.json',fallback:'snapshot.json',report:'REPORT.md'},followup:{remote:dataRoot+'followup/dashboard.json',fallback:'snapshot-followup.json',report:'followup/REPORT.md'}};
+let selectedStudy=new URLSearchParams(location.search).get('study')==='followup'?'followup':'original',refreshGeneration=0;
 const $=id=>document.getElementById(id),names={'ticket-to-ride':'Ticket to Ride','love-letter':'Love Letter',jaipur:'Jaipur','sushi-go':'Sushi Go!','lost-cities':'Lost Cities',hive:'Hive'};
 let snapshot=null,source='';
 const number=(n,d=1)=>Number.isFinite(n)?n.toFixed(d):'—',percent=n=>Number.isFinite(n)?`${(100*n).toFixed(1)}%`:'—';
@@ -18,10 +20,12 @@ function render(){if(!snapshot)return;const s=snapshot,age=Date.now()-Date.parse
  $('active').replaceChildren(...(s.active?.length?s.active.map(r=>element('li',`${names[r.game]??r.game}, ${r.players} players · ${r.id}`)):[element('li',s.status==='finished'?'No active games.':'No active games reported in this snapshot.')]));
 }
 async function refresh(){
- let lastError;
- for(const [url,kind]of [[`${remote}?snapshot=${Math.floor(Date.now()/60000)}`,'remote'],['snapshot.json','fallback']]){
-  try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Snapshot unavailable');const data=await response.json();if(data.schema!==1||!Array.isArray(data.rows))throw Error('Unsupported snapshot');snapshot=data;source=kind;$('download').href=kind==='remote'?remote:'snapshot.json';render();return;}catch(error){lastError=error;}
+ const generation=++refreshGeneration,config=studies[selectedStudy],remote=config.remote;let lastError;
+ for(const [url,kind]of [[`${remote}?snapshot=${Math.floor(Date.now()/60000)}`,'remote'],[config.fallback,'fallback']]){
+  try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Snapshot unavailable');const data=await response.json();if(data.schema!==1||!Array.isArray(data.rows))throw Error('Unsupported snapshot');if(generation!==refreshGeneration)return;snapshot=data;source=kind;$('download').href=kind==='remote'?remote:config.fallback;$('report').href='https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/'+config.report;render();return;}catch(error){lastError=error;}
  }
+ if(generation!==refreshGeneration)return;
  $('status').textContent=`Cannot refresh: ${lastError.message}. ${snapshot?'Showing the last successfully loaded snapshot.':'Please try again shortly.'}`;
 }
+$('study').value=selectedStudy;$('study').onchange=()=>{selectedStudy=$('study').value;const url=new URL(location.href);url.searchParams.set('study',selectedStudy);history.replaceState(null,'',url);snapshot=null;$('results').replaceChildren();$('status').textContent='Loading selected study…';refresh();};
 $('game').onchange=render;$('refresh').onclick=refresh;refresh();setInterval(refresh,60000);
