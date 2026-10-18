@@ -5,7 +5,7 @@ import {readSession} from '../shared/session.js';
 const $=id=>document.getElementById(id),KEY='board-game-ai-ticket-to-ride-v1',FORMAT='board-game-ai-ticket-to-ride';
 const colors={purple:'#a15e9f',blue:'#377ba1',orange:'#ca7b3a',white:'#faf8ed',green:'#53875f',yellow:'#d6b843',black:'#303e43',red:'#bd5146',gray:'#a5aaa4',locomotive:'#8a668e'};
 const seatColors=['#367eaa','#bf534a','#538561','#c29b40','#735f8e'];
-let history=[],index=0,state,selected=null,revealed=false,generation=0,worker;
+let history=[],index=0,state,selected=null,administrativePreview=null,revealed=false,generation=0,worker;
 const escape=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ticketName=id=>{const t=TICKET_BY_ID[id];return t?`${CITY_BY_ID[t.a].name} → ${CITY_BY_ID[t.b].name} · ${t.value}`:'Unknown ticket';};
 function label(a){if(a.type==='claim'){const r=ROUTE_BY_ID[a.route];return `${CITY_BY_ID[r.a].name} – ${CITY_BY_ID[r.b].name}: ${r.length} ${r.color}; pay ${a.payment.count} ${a.payment.color} + ${a.payment.locomotive} locomotive`;}if(a.type==='keepTickets')return `Keep ${a.keep.map(i=>ticketName(state.offer[i])).join('; ')}`;if(a.type==='drawTrain')return a.source==='blind'?'Draw a blind train card':`Draw ${state.market[a.index]} from market slot ${a.index+1}`;return 'Draw destination tickets';}
@@ -18,8 +18,9 @@ function safe(fn){try{fn();}catch(e){message(e.message);}}
 function options(values,current=null){return values.map(([value,name])=>`<option value="${escape(value)}" ${value===current?'selected':''}>${escape(name)}</option>`).join('');}
 function colorSelect(id,value=null){return `<select id="${id}" aria-label="${id}">${options([['','Unknown'],...TRAIN_COLORS.map(c=>[c,c])],value??'')}</select>`;}
 function ticketSelect(id,value=null){return `<select id="${id}" aria-label="${id}">${options([['','Unknown'],...TICKETS.map(t=>[t.id,ticketName(t.id)])],value??'')}</select>`;}
-function choose(a){selected=a;$('action-preview').textContent=`Preview: ${label(a)}. No move has been recorded.`;$('confirm').disabled=false;drawMap();}
+function choose(a){administrativePreview=null;selected=a;$('confirm').textContent='Confirm action';$('action-preview').textContent=`Preview: ${label(a)}. No move has been recorded.`;$('confirm').disabled=false;drawMap();}
 function selectRoute(id){
+ administrativePreview=null;$('confirm').textContent='Confirm action';
  if(!revealed){selected=null;$('confirm').disabled=true;$('action-preview').textContent='Reveal the active seat before inspecting its possible payments.';return;}
  const r=ROUTE_BY_ID[id],payments=legalActions(state).filter(a=>a.type==='claim'&&a.route===id);
  $('action-preview').innerHTML=`<p>${escape(CITY_BY_ID[r.a].name)} ↔ ${escape(CITY_BY_ID[r.b].name)} · ${r.length} ${r.color}</p>`;
@@ -33,11 +34,11 @@ function drawMap(){
  const nodes=ROUTES.map(r=>{const a=CITY_BY_ID[r.a],b=CITY_BY_ID[r.b],dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),mate=ROUTES.filter(x=>x.parallelGroup&&x.parallelGroup===r.parallelGroup),offset=mate.length?(mate.indexOf(r)?5:-5):0,nx=-dy/len*offset,ny=dx/len*offset;
   const owner=state.claimed[r.id],claimed=Object.hasOwn(state.claimed,r.id),stroke=claimed?seatColors[owner]:colors[r.color];
   return `<g><line class="route" tabindex="0" role="button" aria-label="${escape(`${CITY_BY_ID[r.a].name} to ${CITY_BY_ID[r.b].name}, ${r.length} ${r.color}${claimed?`, claimed by seat ${owner+1}`:''}`)}" data-route="${r.id}" x1="${a.x+nx}" y1="${a.y+ny}" x2="${b.x+nx}" y2="${b.y+ny}" stroke="#a39780" stroke-width="9"/><line pointer-events="none" x1="${a.x+nx}" y1="${a.y+ny}" x2="${b.x+nx}" y2="${b.y+ny}" stroke="${stroke}" stroke-width="6" stroke-dasharray="${Math.max(2,(len-8)/r.length-4)} 4"/><title>${r.length} ${r.color}</title></g>`;}).join('');
- $('map').innerHTML=`<svg viewBox="45 55 920 510" role="img" aria-label="Schematic original USA route map"><path d="M95 100L220 70 420 80 560 125 700 110 870 65 945 125 900 280 870 400 915 540 850 500 770 450 650 500 550 500 400 485 260 470 135 450 70 350Z" fill="#e3dfc6" stroke="#c5bea4"/>${nodes}${CITIES.map(c=>`<circle cx="${c.x}" cy="${c.y}" r="5" fill="#fffdf4" stroke="#625440" stroke-width="2"/><text class="city-label" x="${c.x+7}" y="${c.y-8}">${escape(c.name)}</text>`).join('')}</svg>`;
+ $('map').innerHTML=`<svg viewBox="45 55 955 510" role="img" aria-label="Schematic original USA route map"><path d="M95 100L220 70 420 80 560 125 700 110 870 65 945 125 900 280 870 400 915 540 850 500 770 450 650 500 550 500 400 485 260 470 135 450 70 350Z" fill="#e3dfc6" stroke="#c5bea4"/>${nodes}${CITIES.map(c=>`<circle cx="${c.x}" cy="${c.y}" r="5" fill="#fffdf4" stroke="#625440" stroke-width="2"/><text class="city-label" x="${c.x+7}" y="${c.y-8}">${escape(c.name)}</text>`).join('')}</svg>`;
  document.querySelectorAll('[data-route]').forEach(el=>{el.onclick=()=>selectRoute(el.dataset.route);el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectRoute(el.dataset.route);}};});
 }
 function renderActions(){
- const container=$('actions');container.replaceChildren();$('confirm').disabled=true;$('action-preview').textContent='Select an action to preview.';
+ const container=$('actions');container.replaceChildren();administrativePreview=null;selected=null;$('confirm').disabled=true;$('confirm').textContent='Confirm action';$('action-preview').textContent='Select an action to preview.';
  if(state.mode==='physical'&&index!==history.length-1){container.textContent='Viewing history. Return to Latest before recording tabletop changes.';return;}
  if(state.phase==='setup'){
   container.innerHTML='<p>Enter the five actual face-up train cards. Opponent hands stay unknown.</p>'+Array.from({length:5},(_,i)=>`<label>Market ${i+1}${colorSelect('setup-market-'+i)}</label>`).join('')+state.players.map((_,i)=>`<label>Seat ${i+1}: initial tickets kept<select id="kept-${i}"><option>2</option><option>3</option></select></label>`).join('')+'<button id="record-setup">Record table setup</button>';
@@ -86,13 +87,31 @@ function render(){
 $('new-toggle').onclick=()=>{$('setup-panel').hidden=!$('setup-panel').hidden;};
 $('new-form').onsubmit=e=>{e.preventDefault();safe(()=>{const s=newGame({players:Number($('players').value),mode:$('mode').value,firstPlayer:Number($('first-seat').value),seed:Number($('seed').value)});load({format:FORMAT,version:1,history:[{state:s,label:'Started original USA journey'}],index:0});message('New journey ready.');});};
 $('reveal').onclick=()=>{revealed=!revealed;if(!revealed){stop();$('analysis-status').textContent='Private advice concealed.';}renderPrivate();renderActions();};
-$('confirm').onclick=()=>safe(()=>{if(!selected)throw Error('Select an action');commit(applyAction(state,selected),selected.type==='keepTickets'?`Seat ${state.turn+1} kept ${selected.keep.length} destination tickets`:label(selected));message('Action recorded.');});
-$('cancel-preview').onclick=()=>{selected=null;$('confirm').disabled=true;$('action-preview').textContent='Preview cancelled. Record unchanged.';};
+$('confirm').onclick=()=>safe(()=>{if(administrativePreview){const preview=administrativePreview;commit(preview.next,preview.label);message('Reviewed replacement recorded.');return;}if(!selected)throw Error('Select an action');commit(applyAction(state,selected),selected.type==='keepTickets'?`Seat ${state.turn+1} kept ${selected.keep.length} destination tickets`:label(selected));message('Action recorded.');});
+$('cancel-preview').onclick=()=>{selected=null;administrativePreview=null;$('confirm').disabled=true;$('confirm').textContent='Confirm action';$('action-preview').textContent='Preview cancelled. Record unchanged.';};
 for(const [id,delta]of [['undo',-1],['redo',1]])$(id).onclick=()=>{index=Math.max(0,Math.min(history.length-1,index+delta));state=history[index].state;revealed=false;selected=null;stop();save();render();};
 $('live').onclick=()=>{index=history.length-1;state=history[index].state;revealed=false;stop();save();render();};
 $('export').onclick=()=>{const blob=new Blob([JSON.stringify({format:FORMAT,version:1,history,index,seats:state.players.map(()=> 'human')},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ticket-to-ride-session.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
 $('import').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());load(data);message('Session imported. Private cards concealed.');}catch(error){message(`Import rejected: ${error.message}`);}e.target.value='';};
-for(const [id,type]of [['correct','correction'],['adjudicate','recordAdjudication']])$(id).onclick=()=>safe(()=>commit(recordObservation(state,{type,state:JSON.parse($('corrected-state').value),reason:$('correction-reason').value,evidence:$('correction-reason').value,policyId:$('policy-id').value}),type==='correction'?'Recorded physical correction':'Recorded table adjudication'));
+for(const [id,type]of [['correct','correction'],['adjudicate','recordAdjudication']]){
+ $(id).textContent=type==='correction'?'Preview correction':'Preview adjudication';
+ $(id).onclick=()=>safe(()=>{
+  if(state.mode==='physical'&&index!==history.length-1)throw Error('Return to Latest before reviewing a replacement');
+  const next=recordObservation(state,{type,state:JSON.parse($('corrected-state').value),reason:$('correction-reason').value,evidence:$('correction-reason').value,policyId:$('policy-id').value});
+  const changes=[`Phase: ${state.phase} → ${next.phase}. Active seat: ${state.turn+1} → ${next.turn+1}.`,
+   `Market: ${state.market.join(', ')} → ${next.market.join(', ')}.`,
+   `Train deck: ${state.trainDeck.length} → ${next.trainDeck.length}; discards: ${state.discard.length} → ${next.discard.length}; destination deck: ${state.ticketDeck.length} → ${next.ticketDeck.length}.`,
+   `Final countdown: ${JSON.stringify(state.finalRound)} → ${JSON.stringify(next.finalRound)}.`,
+   ...(JSON.stringify(state.trainDeck)!==JSON.stringify(next.trainDeck)||JSON.stringify(state.ticketDeck)!==JSON.stringify(next.ticketDeck)?['Hidden supply identity/order changed (concealed).']:[]),
+   ...next.players.map((p,seat)=>`Seat ${seat+1}: trains ${state.players[seat].trains} → ${p.trains}; train-card count ${state.players[seat].hand.length} → ${p.hand.length}; tickets ${state.players[seat].tickets.length} → ${p.tickets.length}${JSON.stringify(p.hand)!==JSON.stringify(state.players[seat].hand)||JSON.stringify(p.tickets)!==JSON.stringify(state.players[seat].tickets)?'; private identities changed (concealed)':''}.`),
+   ...ROUTES.filter(r=>state.claimed[r.id]!==next.claimed[r.id]).map(r=>`${CITY_BY_ID[r.a].name} – ${CITY_BY_ID[r.b].name}, ${r.color}: ${Object.hasOwn(state.claimed,r.id)?'seat '+(state.claimed[r.id]+1):'open'} → ${Object.hasOwn(next.claimed,r.id)?'seat '+(next.claimed[r.id]+1):'open'}.`),
+   `Reason / evidence: ${$('correction-reason').value}.`,...(type==='recordAdjudication'?[`Policy: ${$('policy-id').value}.`]:[]),
+   'Validated preview only. Confirm the reviewed replacement or cancel; no record has changed.'];
+  selected=null;administrativePreview={next,label:type==='correction'?'Recorded physical correction':'Recorded table adjudication'};
+  $('action-preview').textContent=changes.join('\n');$('confirm').disabled=false;$('confirm').textContent=type==='correction'?'Confirm correction':'Confirm adjudication';
+ });
+}
+for(const id of ['corrected-state','correction-reason','policy-id'])$(id).addEventListener('input',()=>{if(administrativePreview){administrativePreview=null;$('confirm').disabled=true;$('action-preview').textContent='Replacement changed. Preview and validate it again before confirming.';}});
 $('analyze').onclick=()=>safe(()=>{
  if(!revealed)throw Error('Reveal the active seat before requesting private advice');const blocker=analysisBlocker(state);if(blocker)throw Error(blocker);
  stop();if(!worker){worker=new Worker(new URL('./worker.js',import.meta.url),{type:'module'});worker.onmessage=({data})=>{if(data.generation!==generation||!revealed)return;if(data.type==='error'){message(data.message);return;}
