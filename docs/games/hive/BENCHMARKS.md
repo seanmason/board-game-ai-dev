@@ -14,6 +14,24 @@ explicit reverse comparisons. The [frozen module](../../../scripts/benchmark-ada
 copies the starting revision's search implementation with only import paths
 changed; it is benchmark-only and is never loaded by the browser.
 
+After canonical `1c66588`, amended comparisons must explicitly set
+`budget.openingPlies:6`. A benchmark-only seeded PRNG samples a six-ply legal
+prefix before either measured policy acts. Both candidate seat rotations use
+exactly the same prefix for a seed. Every transition is validated; a terminal or
+review prefix is rejected and regenerated using a deterministic attempt seed,
+with an explicit 128-attempt limit. This measures full matches from generated
+openings, not independent repetitions of the empty board. The default remains
+`openingPlies:0`, preserving the original study's setup behavior.
+
+Diagnostics retain all opening action keys, starting position key, generation
+attempt, and a SHA-256 of a canonical position signature over translations and
+the twelve hex-grid rotations/reflections. This allows duplicate setup detection,
+exact replay and seat-pair reconciliation. The continuation action count excludes
+the generated prefix; `totalPlies` includes it. The move cap applies to the
+continuation. Setup diversification is a methodology correction, not evidence of
+improved results; prior repeated-opening records must not be treated as
+independent setup strength evidence.
+
 Default budget is `{ms:100,maxTurns:160,repetitionLimit:4}`. The candidate uses
 iterative-deepening alpha-beta, retains the last completed depth, and records
 actual nodes and completed depths. Both candidate and incumbent require a full
