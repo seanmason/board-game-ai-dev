@@ -52,9 +52,21 @@ function validateArm(name, arm, spec) {
       const metadata=m.metadata[spec.game], policyId=spec.policy==='history-v1'?metadata.historyPolicyId:metadata.policyId;
       if (!policyId || r.policyId!==policyId || r.opponentPolicyId!==metadata.opponentPolicyId) fail(`${name}: mismatched policy identity ${r.id}`);
       if (!r.latency || !Number.isInteger(r.latency.count) || r.latency.count<0 || !finite(r.latency.totalMs) || !finite(r.latency.maxMs) || (!r.latency.count && r.latency.totalMs!==0)) fail(`${name}: invalid latency ${r.id}`);
-      if (spec.game!=='hive') for (const field of ['iterations','roots','coveredRoots']) if (!finite(r.diagnostics?.[field])) fail(`${name}: missing search diagnostic ${field} ${r.id}`);
-      if (spec.game!=='hive' && r.diagnostics.coveredRoots>r.diagnostics.roots) fail(`${name}: covered roots exceed legal roots ${r.id}`);
+      if (spec.game!=='hive') {
+        for (const field of ['iterations','roots','coveredRoots']) if (!Number.isInteger(r.diagnostics?.[field]) || r.diagnostics[field]<0) fail(`${name}: invalid integer search diagnostic ${field} ${r.id}`);
+        const {iterations,roots,coveredRoots}=r.diagnostics;
+        if (coveredRoots!==roots) fail(`${name}: incomplete root coverage ${r.id}`);
+        if (iterations<Math.max(t.budget.iterations*r.latency.count,roots)) fail(`${name}: iterations below requested/root coverage floor ${r.id}`);
+      }
       if (spec.game==='hive' && (!r.diagnostics?.opening?.sha256 || !/^[0-9a-f]{64}$/.test(r.diagnostics.opening.sha256))) fail(`${name}: missing opening identity ${r.id}`);
+      // An illegal selection can add a latency sample without a successful search.
+      // Preserve those failed records; the decision gate rejects them separately.
+      if (spec.game==='hive' && r.status!=='illegal') {
+        const d=r.diagnostics;
+        if (!Array.isArray(d.completedDepths) || d.completedDepths.length!==r.latency.count || d.completedDepths.some(depth=>!Number.isInteger(depth)||depth<1)) fail(`${name}: missing completed depth-one floor ${r.id}`);
+        if (d.tacticalReadyDecisions!==r.latency.count || d.fallbackDecisions!==0) fail(`${name}: incomplete tactical safety or fallback ${r.id}`);
+        if (!finite(d.maxFloorOverrunMs)) fail(`${name}: invalid floor overrun ${r.id}`);
+      }
     }
     ids.add(r.id); byKey.set(key(r),r);
   }
@@ -68,12 +80,18 @@ function armMetrics(records) {
   const iterations=sum('iterations'), roots=sum('roots'), coveredRoots=sum('coveredRoots');
   const setupRecords=[...new Set(records.map(r=>r.seed))].map(seed=>records.filter(r=>r.seed===seed));
   const completeGroups=setupRecords.filter(rs=>rs.every(r=>r.status==='complete'));
+  const hiveRecords=records.filter(r=>r.game==='hive'), depths=hiveRecords.flatMap(r=>Array.isArray(r.diagnostics?.completedDepths)?r.diagnostics.completedDepths:[]).filter(d=>Number.isInteger(d)&&d>=1);
+  const diagnosticSum=field=>hiveRecords.reduce((n,r)=>n+(finite(r.diagnostics?.[field])?r.diagnostics[field]:0),0);
   return {games:records.length, counts:Object.fromEntries(statuses.map(s=>[s,records.filter(r=>r.status===s).length])),
     conditionalWinShare:interval(completeGroups.map(rs=>mean(rs.map(r=>r.shares[r.seat]))),true),
     conditionalMargin:interval(completeGroups.filter(rs=>rs.every(r=>Number.isFinite(r.margin))).map(rs=>mean(rs.map(r=>r.margin)))),
     completion:mean(records.map(r=>+(r.status==='complete'))), observedWinLowerBound:mean(records.map(r=>r.status==='complete'?r.shares[r.seat]:0)),
     observedWinUpperBound:mean(records.map(r=>r.status==='complete'?r.shares[r.seat]:1)),
-    decisions,totalDecisionMs:totalMs,decisionWeightedLatencyMs:decisions?totalMs/decisions:null,
+    decisions,totalDecisionMs:totalMs,decisionWeightedLatencyMs:decisions?totalMs/decisions:null,maxDecisionMs:Math.max(0,...records.map(r=>r.latency?.maxMs??0)),
+    hiveSearch:hiveRecords.length?{recordedDepthDecisions:depths.length,completedDepthHistogram:Object.fromEntries([...new Set(depths)].sort((a,b)=>a-b).map(d=>[d,depths.filter(x=>x===d).length])),
+      tacticalReadyDecisions:diagnosticSum('tacticalReadyDecisions'),fallbackDecisions:diagnosticSum('fallbackDecisions'),
+      maxFloorOverrunMs:Math.max(0,...hiveRecords.map(r=>finite(r.diagnostics?.maxFloorOverrunMs)?r.diagnostics.maxFloorOverrunMs:0)),
+      note:'Available recorded diagnostics, including incomplete games. Error/illegal records can have missing or partial search diagnostics and fail the decision gate.'}:null,
     iterations,iterationsPerDecision:iterations!==null&&decisions?iterations/decisions:null,roots,coveredRoots,rootCoverage:roots?coveredRoots/roots:null,
     note:iterations===null?'Actual iteration/root coverage totals are not recorded by this adapter.':null};
 }

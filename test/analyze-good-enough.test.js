@@ -13,7 +13,7 @@ function fixture() {
     const tasks=buildTasks(metadata,{...spec,opponent:'simple-v1'});
     const manifest={revision:'85cee8d',pairs:spec.pairs,metadata,tasks,hashes:{'shared.js':'a'.repeat(64),[`${spec.game}/core.js`]:'b'.repeat(64)}};
     const records=tasks.map(t=>({...t,budget:spec.game==='hive'?t.budget:{...t.budget,rootCoverageFloor:true},requestedBudget:t.budget,status:'complete',shares:Array(t.players).fill(1/t.players),policyId:spec.policy==='history-v1'?'history-id':'control-id',opponentPolicyId:'simple-id',margin:spec.game==='sushi-go'?1:null,
-      latency:{count:2,totalMs:10,maxMs:6},diagnostics:spec.game==='hive'?{illegalActions:0,opening:{sha256:t.seed.toString(16).padStart(64,'0')}}:{iterations:t.budget.iterations*2,roots:8,coveredRoots:8}}));
+      latency:{count:2,totalMs:10,maxMs:6},diagnostics:spec.game==='hive'?{illegalActions:0,opening:{sha256:t.seed.toString(16).padStart(64,'0')},completedDepths:[1,2],tacticalReadyDecisions:2,fallbackDecisions:0,maxFloorOverrunMs:1}:{iterations:t.budget.iterations*2,roots:8,coveredRoots:8}}));
     return [name,{manifest,records}];
   }));
 }
@@ -28,6 +28,11 @@ test('all scheduled seat games aggregate to independent setup groups and preserv
   assert.equal(love.metrics.candidate.iterationsPerDecision,512);assert.equal(love.metrics.candidate.rootCoverage,1);
   assert.equal(love.metrics.candidate.conditionalWinShare.mean,1);assert.equal(love.metrics.candidate.conditionalWinShare.n,40);
   assert.equal(result.strata[2].marginDelta.mean,0);assert.equal(result.strata[3].completionDelta.n,100);
+  assert.deepEqual(result.strata[3].metrics.candidate.hiveSearch.completedDepthHistogram,{'1':200,'2':200});
+  assert.equal(result.strata[3].metrics.candidate.hiveSearch.tacticalReadyDecisions,400);
+  assert.equal(result.strata[3].metrics.candidate.hiveSearch.fallbackDecisions,0);
+  assert.equal(result.strata[3].metrics.candidate.hiveSearch.maxFloorOverrunMs,1);
+  assert.equal(result.strata[3].metrics.candidate.maxDecisionMs,6);
   assert.match(result.method.intervals,/n=100/);assert.match(result.method.multiplicity,/three descriptive exploratory/);
 });
 
@@ -66,10 +71,47 @@ test('Hive completion threshold and illegal/error guards cannot be bypassed',()=
 test('latency separates decision weighting from paired per-game means and includes incomplete games',()=>{
   const arms=fixture(),r=arms['love-high'].records.find(r=>r.players===2);
   incomplete(r);r.latency={count:10,totalMs:100,maxMs:10};
+  r.diagnostics.iterations=512*10;
   const row=analyze(arms).strata[0];
   assert.equal(row.metrics.candidate.decisionWeightedLatencyMs,(79*10+100)/(79*2+10));
   assert.equal(row.pairedGameMeanLatencyDeltaMs.mean,2.5/40);assert.equal(row.pairedGameMeanLatencyDeltaMs.n,40);
   r.latency={count:0,totalMs:0,maxMs:0};assert.equal(analyze(arms).strata[0].pairedGameMeanLatencyDeltaMs.n,39);
+});
+
+test('sampled search rejects fractional counts, uncovered roots, and iteration floor violations',()=>{
+  const mutations=[
+    r=>r.diagnostics.iterations=128.5,
+    r=>r.diagnostics.roots=8.5,
+    r=>r.diagnostics.coveredRoots=7.5,
+    r=>r.diagnostics.coveredRoots=7,
+    r=>r.diagnostics.iterations=127,
+    r=>{r.diagnostics.roots=129;r.diagnostics.coveredRoots=129;}
+  ];
+  for(const name of ['love-low','sushi-low']) for(const mutate of mutations) {
+    const arms=fixture();mutate(arms[name].records[0]);assert.throws(()=>analyze(arms),/diagnostic|coverage|floor/);
+  }
+});
+
+test('healthy Hive records require complete depth and tactical safety, while failed records retain partial diagnostics',()=>{
+  const mutations=[
+    d=>delete d.completedDepths,
+    d=>d.completedDepths=[1],
+    d=>d.completedDepths=[0,1],
+    d=>d.completedDepths=[1,1.5],
+    d=>d.tacticalReadyDecisions=1,
+    d=>d.fallbackDecisions=1,
+    d=>d.maxFloorOverrunMs=-1,
+    d=>delete d.maxFloorOverrunMs
+  ];
+  for(const status of ['complete','capped','unresolved']) for(const mutate of mutations) {
+    const arms=fixture(),r=arms['hive-control'].records[0];if(status!=='complete')incomplete(r,status);
+    mutate(r.diagnostics);assert.throws(()=>analyze(arms),/depth|tactical|overrun/);
+  }
+  const arms=fixture(),r=arms['hive-control'].records[0];incomplete(r,'illegal');
+  Object.assign(r.diagnostics,{completedDepths:[0],tacticalReadyDecisions:0,fallbackDecisions:1});
+  const row=analyze(arms).strata[3];assert.equal(row.gate.zeroIllegalErrors,false);
+  assert.equal(row.metrics.control.hiveSearch.fallbackDecisions,1);
+  assert.equal(row.metrics.control.hiveSearch.recordedDepthDecisions,398);
 });
 
 test('strict keys, task budgets, seeds, records, statuses and source identity fail closed',()=>{
