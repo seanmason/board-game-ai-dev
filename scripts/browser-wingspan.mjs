@@ -1,7 +1,12 @@
 import assert from "node:assert/strict";
+import {mkdirSync} from "node:fs";
 import {chromium} from "playwright";
 
-const browser=await chromium.launch({headless:true,args:["--no-sandbox"]});
+const base=(process.env.BASE_URL??'http://127.0.0.1:8080').replace(/\/$/,'')+'/';
+const wingspanURL=new URL('wingspan/',base).href;
+mkdirSync('test-artifacts',{recursive:true});
+const browser=await chromium.launch({headless:true,args:["--no-sandbox"],
+  ...(process.env.PLAYWRIGHT_CHANNEL?{channel:process.env.PLAYWRIGHT_CHANNEL}:{})});
 const page=await browser.newPage({viewport:{width:1190,height:880}});
 // Observe the real browser-to-worker contract without replacing worker execution.
 await page.addInitScript(()=>{
@@ -28,7 +33,7 @@ const awaitSamples=async(amount=0)=>page.waitForFunction(n=>{
 },amount,{timeout:20000});
 
 try {
-  await page.goto("http://127.0.0.1:8080/wingspan/",{waitUntil:"networkidle"});
+  await page.goto(wingspanURL,{waitUntil:"networkidle"});
   assert.match(await page.locator("h1").innerText(),/Wingspan/);
   assert.equal(await page.locator(".tray .bird").count(),3);
   assert.equal(await page.locator(".die").count(),5);
@@ -174,7 +179,7 @@ try {
 
   // A white second-bird power accepts a human-selected payment and egg source.
   const secondBird=await page.evaluate(async()=>{
-    const {newGame,applyAction}=await import('/wingspan/core.js');
+    const {newGame,applyAction}=await import('./core.js');
     let s=newGame({seed:12});
     while(s.phase==='setup')s=applyAction(s,{type:'setup',keep:[],foodDiscard:[],bonusId:s.players[s.currentPlayer].bonusOffer[0]});
     for(const id of [68,105,107]){
@@ -242,6 +247,7 @@ try {
   });
   assert.equal(reread.players[0].hand[0],wanted,"Physical observations should persist");
   assert.equal(reread.mode,"physical");
+  await page.screenshot({path:'test-artifacts/wingspan-desktop.png',fullPage:true});
 
   // Enter public setup through the UI, keeping starting private cards unknown.
   const physical=reread;
@@ -274,23 +280,25 @@ try {
   await page.setViewportSize({width:390,height:844});
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+4),
     'Physical tracking should fit a phone');
+  await page.screenshot({path:'test-artifacts/wingspan-physical-phone.png',fullPage:true});
 
   const tablet=await browser.newPage({
     viewport:{width:820,height:1110},deviceScaleFactor:2,hasTouch:true,isMobile:true
   });
   tablet.on("pageerror",e=>errors.push("tablet: "+e.message));
-  await tablet.goto("http://127.0.0.1:8080/wingspan/",{waitUntil:"networkidle"});
+  await tablet.goto(wingspanURL,{waitUntil:"networkidle"});
   const measure=await tablet.evaluate(()=>({
     scroll:document.documentElement.scrollWidth,width:window.innerWidth
   }));
   assert.ok(measure.scroll<=measure.width+4,"iPad should not scroll sideways");
+  await tablet.screenshot({path:'test-artifacts/wingspan-tablet.png',fullPage:true});
   await tablet.close();
 
   const phone=await browser.newPage({
     viewport:{width:390,height:844},deviceScaleFactor:2,hasTouch:true,isMobile:true
   });
   phone.on('pageerror',e=>errors.push('phone: '+e.message));
-  await phone.goto('http://127.0.0.1:8080/wingspan/',{waitUntil:'networkidle'});
+  await phone.goto(wingspanURL,{waitUntil:'networkidle'});
   assert.ok(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+4),
     'Starting choices should fit a touch phone');
   await phone.locator('input[data-action="keep-card"]').first().tap();
@@ -308,6 +316,7 @@ try {
   assert.equal(phoneTurn.currentPlayer,1);
   assert.ok(await phone.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+4),
     'Action controls should fit a touch phone');
+  await phone.screenshot({path:'test-artifacts/wingspan-phone.png',fullPage:true});
   await phone.close();
   assert.equal(errors.length,0,"Browser errors: "+errors.join("; "));
   console.log("Wingspan browser smoke passed: setup, actions, food, undo/redo, "+

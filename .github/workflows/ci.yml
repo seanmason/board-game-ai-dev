@@ -76,6 +76,13 @@ jobs:
           name: boop-browser-evidence
           path: test-artifacts/boop-*
           if-no-files-found: ignore
+      - name: Save Wingspan desktop and touch review images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wingspan-browser-review
+          path: test-artifacts/wingspan-*.png
+          if-no-files-found: ignore
       - name: Save Splendor browser review images
         if: always()
         uses: actions/upload-artifact@v4
