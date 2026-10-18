@@ -7,7 +7,7 @@ import {createHash} from 'node:crypto';
 import os from 'node:os';
 import {summarize} from './benchmark-comparison-summary.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
-const atomic=(path,value)=>{writeFileSync(path+'.tmp',JSON.stringify(value,null,2));renameSync(path+'.tmp',path);};
+const atomic=(path,value)=>{writeFileSync(path+'.tmp',JSON.stringify(value,null,2));for(let attempt=0;;attempt++){try{renameSync(path+'.tmp',path);return;}catch(error){if(!['EPERM','EACCES','EBUSY'].includes(error.code)||attempt>=100)throw error;Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,50);}}};
 const adapter=game=>import(new URL(`./benchmark-adapters/${game}.mjs`,import.meta.url));
 if(!isMainThread){
   parentPort.on('message',async task=>{const start=performance.now();try{const {runGame}=await adapter(task.game);const result=await runGame(task);if(!['complete','capped','unresolved','illegal'].includes(result.status))throw Error('Invalid adapter result status');if(result.status==='complete'&&(!Array.isArray(result.shares)||result.shares.length!==task.players||result.shares.some(x=>!Number.isFinite(x)||x<0||x>1)||Math.abs(result.shares.reduce((a,b)=>a+b,0)-1)>1e-8))throw Error('Invalid complete winner shares');parentPort.postMessage({...result,...task,budget:result.budget,requestedBudget:task.budget,status:result.status});}catch(error){parentPort.postMessage({...task,status:'error',shares:null,margin:null,elapsedMs:performance.now()-start,error:String(error.stack??error)});}});
