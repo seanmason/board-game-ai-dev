@@ -1,0 +1,65 @@
+{
+  "edition": "original-usa-30-tickets",
+  "reviewDate": "2026-10-18",
+  "startingRevision": "bbe379e672a3348f01a483620cea0b03d83e64df",
+  "gate": "blocked-source-acquisition",
+  "catalogTranscribed": false,
+  "independentReconciliationComplete": false,
+  "sources": [
+    {
+      "id": "original-rules-2015",
+      "url": "https://ncdn0.daysofwonder.com/tickettoride/en/img/tt_rules_2015_en.pdf",
+      "authority": "publisher",
+      "inspection": "web PDF text inspected; no local bytes retained",
+      "sha256": null,
+      "coverage": "Original rules family; 30 tickets and train-card inventory; not a complete lane or ticket enumeration"
+    },
+    {
+      "id": "publisher-legacy-board-setup",
+      "url": "https://cdn.svc.asmodee.net/production-asmodeeit/uploads/2022/09/Ticket-to-Ride-USA_setup.png",
+      "authority": "publisher CDN",
+      "inspection": "Image-search candidate only; direct web fetch cache miss; shell download blocked; escalated request aborted before success",
+      "sha256": null,
+      "coverage": "Potential original-USA board reference; actual pixels, dimensions, edition and readability remain unverified"
+    },
+    {
+      "id": "retailer-flat-board",
+      "url": "https://cdn.verk.net/images/40/2_678595-2237x1492.jpg",
+      "contextUrl": "https://www.verkkokauppa.com/fi/product/678595/Ticket-To-Ride-USA-strategiapeli",
+      "authority": "retailer-hosted component image candidate",
+      "inspection": "Image search identifies original design; direct web fetch redirected to static.verkcdn.com and failed",
+      "sha256": null,
+      "coverage": "Potential 2237 by 1492 flat board; every lane remains uninspected"
+    },
+    {
+      "id": "all-30-small-ticket-photo",
+      "url": "https://i.ebayimg.com/images/g/kMgAAOSwmY9fcYSU/s-l1600.jpg",
+      "contextUrl": "https://www.ebay.com/itm/254777813480",
+      "authority": "seller photograph candidate, not publisher certification",
+      "inspection": "Listing read; title claims all 30 destination cards; direct web image fetch cache miss; shell download blocked; escalated request aborted before success",
+      "sha256": null,
+      "coverage": "Potential complete original small-card grid; no individual face inspected or transcribed"
+    },
+    {
+      "id": "community-ticket-cross-check",
+      "url": "https://boardgames.stackexchange.com/questions/8637/where-can-i-find-an-exhaustive-inventory-of-cards-in-ticket-to-ride/8640",
+      "authority": "community transcription",
+      "inspection": "Web text inspected; linked BGG photograph fetch failed",
+      "sha256": null,
+      "coverage": "30-entry text cross-check only; cannot certify a catalog without component inspection"
+    }
+  ],
+  "unresolvedRulings": [
+    "Market cannot stabilize below three face-up locomotives with remaining supply",
+    "Only one drawable train card remains",
+    "No destination tickets remain",
+    "No ordinary legal action remains"
+  ],
+  "requiredEvidence": [
+    "Retrieve and inspect an edition-locked original-USA board; retain external image bytes and SHA-256 without committing publisher art",
+    "Retrieve and inspect every original small destination-ticket face; retain external image bytes and SHA-256",
+    "Two independent lane and ticket transcriptions reconciled against the same inspected components",
+    "Lane counts, endpoint validity, parallel colors, connectedness and visual overlay audit",
+    "Publisher clarification for unresolved supply transitions, or visibly recorded administrative adjudication without claiming an official ruling"
+  ]
+}
