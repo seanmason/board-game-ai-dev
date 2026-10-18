@@ -10,7 +10,7 @@ User-authorized Pages promotion on 2026-10-18: hidden-world rollouts now use
 practical-combined at depth4. Fresh-seed confirmation supports this choice over
 the original evaluator; later candidates have not established a better replacement.
 The browser continues sampling while analysis runs. Explicit benchmark evaluator
-settings and the running desktop study remain unchanged in their frozen checkout.
+settings remain explicit and each desktop study retains its frozen manifest.
 Historical reports below retain the defaults and decisions at their execution time.
 
 ## Scope and capabilities
@@ -60,11 +60,11 @@ The follow-up [depth/budget matrix](../../work/wingspan-depth-budget.md) tests
 119 games preserved. The completed [leaf evaluator screen](../../../benchmarks/wingspan/2026-10-18-evaluators/REPORT.md)
 tested eight alternatives at depth 4 and 100 samples in 320 games. None showed
 clear superiority. Practical-combined went 20–20 with +2.35 mean margin; points-only
-went 11–1–28. Retain current scoring pending targeted diagnostics or confirmation.
+went 11–1–28. This exploratory screen was followed by independent confirmation.
 The completed [fresh-seed confirmation](../../../benchmarks/wingspan/2026-10-18-confirmation/REPORT.md)
 found combined beat current 28–12 at 100 samples and 24–16 at 300; combined 300
 beat combined 100 by 27–13. All 160 games passed, depth fixed at 4. This is a
-promising improvement with seed/opponent uncertainty; defaults remain unchanged.
+promising improvement with seed/opponent uncertainty; practical-combined was subsequently promoted to the browser.
 Browser/device: automated browser coverage does not establish real iPad Safari
 performance. Release: final rights/provenance and release review remain open.
 
@@ -82,4 +82,4 @@ base-game/release claim. Do not restart the already implemented observation work
 
 [Game directory](../INDEX.md)
 
-The [refinement screen](../../../benchmarks/wingspan/2026-10-18-refinements/REPORT.md) found no qualifying improvement in 120 games. The [specialist experiment](../../../benchmarks/wingspan/2026-10-18-specialists/REPORT.md) also found no qualifying improvement in 120 games. The [diverse study](../../../benchmarks/wingspan/2026-10-18-diverse/REPORT.md) completed656 games: row-unlocks won its screen but did not beat practical-combined in fresh confirmation (18-1-21). The [24-evaluator expansion](../../work/wingspan-expansion.md) tests development and scoring mechanics while retaining practical-combined as reference.
+The [refinement screen](../../../benchmarks/wingspan/2026-10-18-refinements/REPORT.md) found no qualifying improvement in 120 games. The [specialist experiment](../../../benchmarks/wingspan/2026-10-18-specialists/REPORT.md) also found no qualifying improvement in 120 games. The [diverse study](../../../benchmarks/wingspan/2026-10-18-diverse/REPORT.md) completed656 games: row-unlocks won its screen but did not beat practical-combined in fresh confirmation (18-1-21). The completed expansion (1,512 games) and realizable-value (1,392 games) studies did not establish a stronger replacement. See the [all-study synthesis and final selection protocol](../../../benchmarks/wingspan/2026-10-18-final-selection/REPORT.md). A final tournament tests six bounded combinations plus slot-scarcity and robust-value at 300 samples and depth 4, followed by fresh-seed confirmation. Practical-combined remains the default unless a finalist passes the predeclared confirmation gate.

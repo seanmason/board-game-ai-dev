@@ -1,6 +1,6 @@
 # Wingspan 24-evaluator expansion
 
-Status: ready to launch after prior confirmation completed656/656.
+Status: complete, 1,512/1,512 valid games. Final results are included in the [all-study synthesis](../../benchmarks/wingspan/2026-10-18-final-selection/REPORT.md). The following plan records the original pre-launch rationale.
 User explicitly requests at least24 new evaluators, consideration of all prior
 trials and rules, and execution of the next batch. Defaults remain unchanged.
 

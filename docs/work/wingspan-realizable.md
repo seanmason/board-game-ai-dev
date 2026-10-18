@@ -1,6 +1,6 @@
 # Wingspan realizable-value experiment
 
-Status: preparing and queueing behind the previous expansion confirmation.
+Status: complete, 1,392/1,392 valid games. See the [subsequent all-study synthesis](../../benchmarks/wingspan/2026-10-18-final-selection/REPORT.md) for final results. The following protocol and rationale record the plan before execution.
 User requested24 new evaluators reflecting all previous evidence and actual rules.
 The active predecessor checkout is not edited and its games are not interrupted.
 The deployed browser remains practical-combined at depth4.

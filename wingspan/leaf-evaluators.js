@@ -1,3 +1,4 @@
+import {FINAL_EVALUATORS,finalAdjustments} from './final-evaluators.js';
 /** Fast deterministic leaf estimates in projected score points; see methods note. */
 import {PLANNING_EVALUATORS,planningAdjustments} from './planning-evaluators.js';
 import {EFFICIENCY_EVALUATORS,efficiencyAdjustments} from './efficiency-evaluators.js';
@@ -16,7 +17,7 @@ export const LEAF_EVALUATORS=Object.freeze([
   'practical-combined','usable-resources','conservative','habitat-productivity',
   'action-budget-planner','bottleneck-engine','phase-calibrated',
   'habitat-specialist','investment-payback','specialist-payback',...DIVERSE_EVALUATORS,
-  ...DEVELOPMENT_EVALUATORS,...MECHANICS_EVALUATORS,...PLANNING_EVALUATORS,...EFFICIENCY_EVALUATORS
+  ...DEVELOPMENT_EVALUATORS,...MECHANICS_EVALUATORS,...PLANNING_EVALUATORS,...EFFICIENCY_EVALUATORS,...FINAL_EVALUATORS
 ]);
 const sum=a=>a.reduce((n,x)=>n+x,0);
 const progression={forest:[1,1,2,2,3,3],grassland:[2,2,3,3,4,4],wetland:[1,1,2,2,3,3]};
@@ -355,6 +356,7 @@ export function evaluateLeaf(state,player,method='practical-combined'){
     'practical-combined':resources*.7+f.engine*.65+f.productive*.4+goals,
     'conservative':resources*.35+f.engine*.3+f.productive*.2+goals*.5
   };
+  if(FINAL_EVALUATORS.includes(method))return printed+values['practical-combined']+finalAdjustments(state,player)[method];
   if(PLANNING_EVALUATORS.includes(method))return printed+values['practical-combined']+planningAdjustments(state,player)[method];
   if(EFFICIENCY_EVALUATORS.includes(method))return printed+values['practical-combined']+efficiencyAdjustments(state,player)[method];
   if(DEVELOPMENT_EVALUATORS.includes(method))return printed+values['practical-combined']+developmentAdjustments(state,player)[method];
