@@ -1,3 +1,4 @@
+import {openingAdjustment} from './opening-strategy.js';
 import {FINAL_EVALUATORS,finalAdjustments} from './final-evaluators.js';
 /** Fast deterministic leaf estimates in projected score points; see methods note. */
 import {PLANNING_EVALUATORS,planningAdjustments} from './planning-evaluators.js';
@@ -13,7 +14,7 @@ export const DIVERSE_EVALUATORS=Object.freeze([
   'power-synergy','endgame-cashout','opponent-tempo','strategic-blend'
 ]);
 export const LEAF_EVALUATORS=Object.freeze([
-  'points-only','remaining-turns','engine-income','goal-aware',
+  'opening-plan','points-only','remaining-turns','engine-income','goal-aware',
   'practical-combined','usable-resources','conservative','habitat-productivity',
   'action-budget-planner','bottleneck-engine','phase-calibrated',
   'habitat-specialist','investment-payback','specialist-payback',...DIVERSE_EVALUATORS,
@@ -356,6 +357,7 @@ export function evaluateLeaf(state,player,method='practical-combined'){
     'practical-combined':resources*.7+f.engine*.65+f.productive*.4+goals,
     'conservative':resources*.35+f.engine*.3+f.productive*.2+goals*.5
   };
+  if(method==='opening-plan')return printed+values['practical-combined']+openingAdjustment(state,player);
   if(FINAL_EVALUATORS.includes(method))return printed+values['practical-combined']+finalAdjustments(state,player)[method];
   if(PLANNING_EVALUATORS.includes(method))return printed+values['practical-combined']+planningAdjustments(state,player)[method];
   if(EFFICIENCY_EVALUATORS.includes(method))return printed+values['practical-combined']+efficiencyAdjustments(state,player)[method];

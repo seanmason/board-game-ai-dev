@@ -1,0 +1,1528 @@
+{
+  "source": "C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-final-20261018",
+  "revision": "6be345e9353457b1c238117ef80ed4fd481e7aba",
+  "updatedAt": "2026-10-18T05:25:18.367Z",
+  "stage": "complete",
+  "planned": 640,
+  "finished": 640,
+  "complete": 640,
+  "checkpointSha256": "5b2f83444738a0709b8f6bfbde0c7ddfaa1fd7b15ee6699fb5e13af47fbdfd48",
+  "canonicalResultsSha256": "8f087f2fa1f00c2b54dbbcc760a1b1852b149fd23efd802016a6df834e997d75",
+  "perGameFiles": 640,
+  "perGameManifestSha256": "a4c9491aac5ef7ea8084c23ab460fe7dc5c9ac1c234ee145e37321608957d8a6",
+  "selection": {
+    "rule": "All 80 valid; win share >= 55%; mean margin > 0; top two by win share then margin",
+    "selected": [],
+    "summaries": [
+      {
+        "evaluator": "slot-scarcity",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.51875,
+        "meanMargin": 0.45
+      },
+      {
+        "evaluator": "robust-value",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.54375,
+        "meanMargin": -0.7375
+      },
+      {
+        "evaluator": "final-space-robust",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.475,
+        "meanMargin": -0.3625
+      },
+      {
+        "evaluator": "final-space-saturation",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.54375,
+        "meanMargin": 0.6875
+      },
+      {
+        "evaluator": "final-robust-saturation",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.4625,
+        "meanMargin": -1.575
+      },
+      {
+        "evaluator": "final-space-robust-saturation",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.3625,
+        "meanMargin": -3.625
+      },
+      {
+        "evaluator": "final-development-options",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.5,
+        "meanMargin": 0.15
+      },
+      {
+        "evaluator": "final-cautious-portfolio",
+        "games": 80,
+        "complete": 80,
+        "winShare": 0.5375,
+        "meanMargin": 0.4
+      }
+    ]
+  },
+  "decision": {
+    "baseline": "practical-combined",
+    "choice": "practical-combined",
+    "promote": false,
+    "rule": "Independent fresh confirmation: approximate one-sided 97.5% paired t lower bound > 0.5 (100 seed pairs; t99=1.9842169515), positive mean margin, all 200 valid and no complete-game caps/errors; Bonferroni across at most two finalists gives approximate 5% family error",
+    "summaries": []
+  },
+  "pairedUncertainty": "95% t39 intervals over40 seat-pair means, critical2.02269; descriptive unadjusted screen intervals, not heldout inference",
+  "summaries": [
+    {
+      "evaluator": "final-cautious-portfolio",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 43,
+      "draws": 0,
+      "losses": 37,
+      "winShare": 0.5375,
+      "meanMargin": 0.4,
+      "pairedWinShareCI95": [
+        0.43262588790787415,
+        0.6423741120921258
+      ],
+      "pairedMarginCI95": [
+        -2.0254445250589432,
+        2.825444525058943
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    },
+    {
+      "evaluator": "final-development-options",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 40,
+      "draws": 0,
+      "losses": 40,
+      "winShare": 0.5,
+      "meanMargin": 0.15,
+      "pairedWinShareCI95": [
+        0.374558091346877,
+        0.625441908653123
+      ],
+      "pairedMarginCI95": [
+        -2.8396695822182902,
+        3.13966958221829
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    },
+    {
+      "evaluator": "final-robust-saturation",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 36,
+      "draws": 2,
+      "losses": 42,
+      "winShare": 0.4625,
+      "meanMargin": -1.575,
+      "pairedWinShareCI95": [
+        0.3530374086044898,
+        0.5719625913955102
+      ],
+      "pairedMarginCI95": [
+        -4.194441620844266,
+        1.044441620844266
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    },
+    {
+      "evaluator": "final-space-robust",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 38,
+      "draws": 0,
+      "losses": 42,
+      "winShare": 0.475,
+      "meanMargin": -0.3625,
+      "pairedWinShareCI95": [
+        0.3795349437824489,
+        0.5704650562175511
+      ],
+      "pairedMarginCI95": [
+        -2.77188486660185,
+        2.04688486660185
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    },
+    {
+      "evaluator": "final-space-robust-saturation",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 29,
+      "draws": 0,
+      "losses": 51,
+      "winShare": 0.3625,
+      "meanMargin": -3.625,
+      "pairedWinShareCI95": [
+        0.26677774065027704,
+        0.45822225934972294
+      ],
+      "pairedMarginCI95": [
+        -5.628719356454997,
+        -1.6212806435450031
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    },
+    {
+      "evaluator": "final-space-saturation",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 43,
+      "draws": 1,
+      "losses": 36,
+      "winShare": 0.54375,
+      "meanMargin": 0.6875,
+      "pairedWinShareCI95": [
+        0.4415073092324163,
+        0.6459926907675836
+      ],
+      "pairedMarginCI95": [
+        -1.963078797969001,
+        3.338078797969001
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    },
+    {
+      "evaluator": "robust-value",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 43,
+      "draws": 1,
+      "losses": 36,
+      "winShare": 0.54375,
+      "meanMargin": -0.7375,
+      "pairedWinShareCI95": [
+        0.44476558306081726,
+        0.6427344169391827
+      ],
+      "pairedMarginCI95": [
+        -2.9360126021554356,
+        1.4610126021554357
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    },
+    {
+      "evaluator": "slot-scarcity",
+      "games": 80,
+      "seedPairs": 40,
+      "wins": 41,
+      "draws": 1,
+      "losses": 38,
+      "winShare": 0.51875,
+      "meanMargin": 0.45,
+      "pairedWinShareCI95": [
+        0.41570883798186686,
+        0.6217911620181332
+      ],
+      "pairedMarginCI95": [
+        -1.91345117514911,
+        2.81345117514911
+      ],
+      "statuses": {
+        "complete": 80
+      },
+      "safetyCaps": 0
+    }
+  ],
+  "diagnosticReplaySelection": [
+    {
+      "role": "weak-reference",
+      "seed": 2730334,
+      "historicalMeanBaselineMargin": -4.375
+    },
+    {
+      "role": "typical-reference",
+      "seed": 2728340,
+      "historicalMeanBaselineMargin": 0.625
+    },
+    {
+      "role": "strong-reference",
+      "seed": 2724352,
+      "historicalMeanBaselineMargin": 6.375
+    }
+  ],
+  "freshOpeningSeedAudit": {
+    "historicalUniqueSeeds": 328,
+    "newUniqueSeeds": 140,
+    "overlap": [],
+    "screen": "2928400+997*i,i0..39",
+    "confirmation": "3038400+997*i,i0..99"
+  },
+  "diagnosticReplay": {
+    "runtime": "C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-opening-diagnostics-v2-20261018",
+    "completed": 6,
+    "reproducedPriorScores": 6,
+    "maxConcurrentGames": 2,
+    "manifestSha256": "1c717965fa5f4324ad5bf6caa46687381dea9d84383a767373af445c1451ecca",
+    "resultsSha256": "7e8d2e364defe4d791f4896b7d0d5f99bf6b2ccdfca2e36b112f2e3ac3fdc9fb",
+    "manifest": {
+      "purpose": "Six actual slot-scarcity vs practical-combined task replays selected by priorfinal baseline-margin strata, not a comparison trial",
+      "maxConcurrentGames": 2,
+      "tasks": [
+        {
+          "id": "reference-weak-reference-2730334-0",
+          "matchup": "screen-slot-scarcity-v-practical-combined",
+          "stage": "screen",
+          "seed": 2730334,
+          "seat": 0,
+          "evaluator": "slot-scarcity",
+          "opponentEvaluator": "practical-combined",
+          "budget": 300,
+          "opponentBudget": 300,
+          "opponent": "belief-rollout",
+          "horizon": 4,
+          "opponentHorizon": 4,
+          "rolloutStepLimit": 48,
+          "originalTaskId": "screen-slot-scarcity-v-practical-combined-2730334-0",
+          "role": "weak-reference",
+          "method": "reference",
+          "baselinePlayer": 1,
+          "expectedScores": [
+            69,
+            61
+          ],
+          "expectedMargin": 8
+        },
+        {
+          "id": "reference-weak-reference-2730334-1",
+          "matchup": "screen-slot-scarcity-v-practical-combined",
+          "stage": "screen",
+          "seed": 2730334,
+          "seat": 1,
+          "evaluator": "slot-scarcity",
+          "opponentEvaluator": "practical-combined",
+          "budget": 300,
+          "opponentBudget": 300,
+          "opponent": "belief-rollout",
+          "horizon": 4,
+          "opponentHorizon": 4,
+          "rolloutStepLimit": 48,
+          "originalTaskId": "screen-slot-scarcity-v-practical-combined-2730334-1",
+          "role": "weak-reference",
+          "method": "reference",
+          "baselinePlayer": 0,
+          "expectedScores": [
+            68,
+            79
+          ],
+          "expectedMargin": 11
+        },
+        {
+          "id": "reference-typical-reference-2728340-0",
+          "matchup": "screen-slot-scarcity-v-practical-combined",
+          "stage": "screen",
+          "seed": 2728340,
+          "seat": 0,
+          "evaluator": "slot-scarcity",
+          "opponentEvaluator": "practical-combined",
+          "budget": 300,
+          "opponentBudget": 300,
+          "opponent": "belief-rollout",
+          "horizon": 4,
+          "opponentHorizon": 4,
+          "rolloutStepLimit": 48,
+          "originalTaskId": "screen-slot-scarcity-v-practical-combined-2728340-0",
+          "role": "typical-reference",
+          "method": "reference",
+          "baselinePlayer": 1,
+          "expectedScores": [
+            71,
+            77
+          ],
+          "expectedMargin": -6
+        },
+        {
+          "id": "reference-typical-reference-2728340-1",
+          "matchup": "screen-slot-scarcity-v-practical-combined",
+          "stage": "screen",
+          "seed": 2728340,
+          "seat": 1,
+          "evaluator": "slot-scarcity",
+          "opponentEvaluator": "practical-combined",
+          "budget": 300,
+          "opponentBudget": 300,
+          "opponent": "belief-rollout",
+          "horizon": 4,
+          "opponentHorizon": 4,
+          "rolloutStepLimit": 48,
+          "originalTaskId": "screen-slot-scarcity-v-practical-combined-2728340-1",
+          "role": "typical-reference",
+          "method": "reference",
+          "baselinePlayer": 0,
+          "expectedScores": [
+            67,
+            73
+          ],
+          "expectedMargin": 6
+        },
+        {
+          "id": "reference-strong-reference-2724352-0",
+          "matchup": "screen-slot-scarcity-v-practical-combined",
+          "stage": "screen",
+          "seed": 2724352,
+          "seat": 0,
+          "evaluator": "slot-scarcity",
+          "opponentEvaluator": "practical-combined",
+          "budget": 300,
+          "opponentBudget": 300,
+          "opponent": "belief-rollout",
+          "horizon": 4,
+          "opponentHorizon": 4,
+          "rolloutStepLimit": 48,
+          "originalTaskId": "screen-slot-scarcity-v-practical-combined-2724352-0",
+          "role": "strong-reference",
+          "method": "reference",
+          "baselinePlayer": 1,
+          "expectedScores": [
+            64,
+            67
+          ],
+          "expectedMargin": -3
+        },
+        {
+          "id": "reference-strong-reference-2724352-1",
+          "matchup": "screen-slot-scarcity-v-practical-combined",
+          "stage": "screen",
+          "seed": 2724352,
+          "seat": 1,
+          "evaluator": "slot-scarcity",
+          "opponentEvaluator": "practical-combined",
+          "budget": 300,
+          "opponentBudget": 300,
+          "opponent": "belief-rollout",
+          "horizon": 4,
+          "opponentHorizon": 4,
+          "rolloutStepLimit": 48,
+          "originalTaskId": "screen-slot-scarcity-v-practical-combined-2724352-1",
+          "role": "strong-reference",
+          "method": "reference",
+          "baselinePlayer": 0,
+          "expectedScores": [
+            103,
+            70
+          ],
+          "expectedMargin": -33
+        }
+      ],
+      "sourceHashes": {
+        "scripts/benchmark-wingspan-opening-diagnostics.mjs": "5b23aef085b751030575896f90e9001da38f8bd6a79db944ff79c05ecb16cc33",
+        "scripts/benchmark-wingspan-opening-game.mjs": "b93f133c1bb241677e02dd54e59a5f8560c0988a2183619e574f17b38ae3a3ce",
+        "wingspan/opening-strategy.js": "68f4240f27052637a1f833f07da74dd2ade380879ada3345ad92b7b8790a0803"
+      }
+    },
+    "results": [
+      {
+        "id": "reference-weak-reference-2730334-0",
+        "originalTaskId": "screen-slot-scarcity-v-practical-combined-2730334-0",
+        "role": "weak-reference",
+        "seed": 2730334,
+        "seat": 0,
+        "baselinePlayer": 1,
+        "scores": [
+          69,
+          61
+        ],
+        "expectedScores": [
+          69,
+          61
+        ],
+        "reproducedPriorScores": true,
+        "openingMetrics": [
+          {
+            "setup": {
+              "keep": [
+                59,
+                3,
+                127
+              ],
+              "foodDiscard": [
+                "fruit",
+                "rodent",
+                "invertebrate"
+              ],
+              "bonusId": 15,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 1,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 4,
+            "firstBird": {
+              "mainAction": 1,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 3,
+              "habitat": "wetland"
+            },
+            "secondBird": {
+              "mainAction": 8,
+              "foodActionsBefore": 2,
+              "round": 1,
+              "birdId": 59,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 9,
+                "bonuses": 4,
+                "goals": 0,
+                "eggs": 1,
+                "cached": 0,
+                "tucked": 3,
+                "total": 17
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 0,
+                "fruit": 1,
+                "rodent": 0
+              },
+              "eggs": 1,
+              "rows": {
+                "forest": 0,
+                "grassland": 0,
+                "wetland": 2
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 2
+              },
+              "scoreBeforeRoundGoal": 17
+            },
+            "candidateGenerationMs": 4.471800000000599,
+            "searchMs": 17284.399999999998,
+            "alternatives": 826,
+            "unvisited": 0
+          },
+          {
+            "setup": {
+              "keep": [
+                29,
+                90,
+                84
+              ],
+              "foodDiscard": [
+                "fish",
+                "fruit",
+                "rodent"
+              ],
+              "bonusId": 23,
+              "foodKept": {
+                "invertebrate": 1,
+                "seed": 1,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 6,
+            "firstBird": {
+              "mainAction": 1,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 90,
+              "habitat": "grassland"
+            },
+            "secondBird": {
+              "mainAction": 5,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 112,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 10,
+                "bonuses": 0,
+                "goals": 0,
+                "eggs": 3,
+                "cached": 0,
+                "tucked": 0,
+                "total": 13
+              },
+              "food": {
+                "invertebrate": 1,
+                "seed": 0,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 3,
+              "rows": {
+                "forest": 0,
+                "grassland": 1,
+                "wetland": 1
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 1
+              },
+              "scoreBeforeRoundGoal": 13
+            },
+            "candidateGenerationMs": 1.7462999999974613,
+            "searchMs": 14475.081800000004,
+            "alternatives": 335,
+            "unvisited": 0
+          }
+        ],
+        "rolloutDiagnostics": {
+          "candidate": {
+            "rolloutCount": 13500,
+            "actionTurns": 50100,
+            "horizonReached": 12000,
+            "terminalReached": 1503,
+            "safetyCapCount": 0
+          },
+          "opponent": {
+            "rolloutCount": 13500,
+            "actionTurns": 48600,
+            "horizonReached": 11400,
+            "terminalReached": 2100,
+            "safetyCapCount": 0
+          }
+        },
+        "elapsedMs": 31787.6994
+      },
+      {
+        "id": "reference-weak-reference-2730334-1",
+        "originalTaskId": "screen-slot-scarcity-v-practical-combined-2730334-1",
+        "role": "weak-reference",
+        "seed": 2730334,
+        "seat": 1,
+        "baselinePlayer": 0,
+        "scores": [
+          68,
+          79
+        ],
+        "expectedScores": [
+          68,
+          79
+        ],
+        "reproducedPriorScores": true,
+        "openingMetrics": [
+          {
+            "setup": {
+              "keep": [
+                59,
+                3,
+                127
+              ],
+              "foodDiscard": [
+                "fruit",
+                "rodent",
+                "invertebrate"
+              ],
+              "bonusId": 15,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 1,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 10,
+            "firstBird": {
+              "mainAction": 1,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 3,
+              "habitat": "wetland"
+            },
+            "secondBird": {
+              "mainAction": 8,
+              "foodActionsBefore": 3,
+              "round": 1,
+              "birdId": 59,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 9,
+                "bonuses": 4,
+                "goals": 0,
+                "eggs": 1,
+                "cached": 0,
+                "tucked": 2,
+                "total": 16
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 1,
+                "fruit": 2,
+                "rodent": 0
+              },
+              "eggs": 1,
+              "rows": {
+                "forest": 0,
+                "grassland": 0,
+                "wetland": 2
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 2
+              },
+              "scoreBeforeRoundGoal": 16
+            },
+            "candidateGenerationMs": 3.8174000000019817,
+            "searchMs": 15602.771100000002,
+            "alternatives": 339,
+            "unvisited": 0
+          },
+          {
+            "setup": {
+              "keep": [
+                29,
+                90,
+                84
+              ],
+              "foodDiscard": [
+                "fish",
+                "fruit",
+                "rodent"
+              ],
+              "bonusId": 5,
+              "foodKept": {
+                "invertebrate": 1,
+                "seed": 1,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 3,
+            "firstBird": {
+              "mainAction": 1,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 90,
+              "habitat": "grassland"
+            },
+            "secondBird": {
+              "mainAction": 5,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 112,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 10,
+                "bonuses": 0,
+                "goals": 0,
+                "eggs": 2,
+                "cached": 0,
+                "tucked": 0,
+                "total": 12
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 2,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 2,
+              "rows": {
+                "forest": 0,
+                "grassland": 1,
+                "wetland": 1
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 1
+              },
+              "scoreBeforeRoundGoal": 12
+            },
+            "candidateGenerationMs": 2.908700000012516,
+            "searchMs": 22357.246099999986,
+            "alternatives": 922,
+            "unvisited": 0
+          }
+        ],
+        "rolloutDiagnostics": {
+          "candidate": {
+            "rolloutCount": 15300,
+            "actionTurns": 57600,
+            "horizonReached": 13500,
+            "terminalReached": 1800,
+            "safetyCapCount": 0
+          },
+          "opponent": {
+            "rolloutCount": 13500,
+            "actionTurns": 48000,
+            "horizonReached": 11400,
+            "terminalReached": 2202,
+            "safetyCapCount": 0
+          }
+        },
+        "elapsedMs": 37989.4048
+      },
+      {
+        "id": "reference-typical-reference-2728340-0",
+        "originalTaskId": "screen-slot-scarcity-v-practical-combined-2728340-0",
+        "role": "typical-reference",
+        "seed": 2728340,
+        "seat": 0,
+        "baselinePlayer": 1,
+        "scores": [
+          71,
+          77
+        ],
+        "expectedScores": [
+          71,
+          77
+        ],
+        "reproducedPriorScores": true,
+        "openingMetrics": [
+          {
+            "setup": {
+              "keep": [
+                150,
+                131,
+                162
+              ],
+              "foodDiscard": [
+                "fish",
+                "fruit",
+                "rodent"
+              ],
+              "bonusId": 20,
+              "foodKept": {
+                "invertebrate": 1,
+                "seed": 1,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 8,
+            "firstBird": {
+              "mainAction": 1,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 131,
+              "habitat": "wetland"
+            },
+            "secondBird": {
+              "mainAction": 5,
+              "foodActionsBefore": 2,
+              "round": 1,
+              "birdId": 162,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 17,
+                "bonuses": 0,
+                "goals": 2,
+                "eggs": 3,
+                "cached": 0,
+                "tucked": 1,
+                "total": 23
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 3,
+              "rows": {
+                "forest": 0,
+                "grassland": 1,
+                "wetland": 2
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 2
+              },
+              "scoreBeforeRoundGoal": 21
+            },
+            "candidateGenerationMs": 2.1748000000225147,
+            "searchMs": 23871.9592,
+            "alternatives": 367,
+            "unvisited": 0
+          },
+          {
+            "setup": {
+              "keep": [
+                12,
+                164,
+                94
+              ],
+              "foodDiscard": [
+                "invertebrate",
+                "seed",
+                "fish"
+              ],
+              "bonusId": 3,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 0,
+                "fruit": 1,
+                "rodent": 1
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 2,
+            "firstBird": {
+              "mainAction": 2,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 12,
+              "habitat": "wetland"
+            },
+            "secondBird": {
+              "mainAction": 7,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 109,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 7,
+                "bonuses": 0,
+                "goals": 2,
+                "eggs": 3,
+                "cached": 0,
+                "tucked": 0,
+                "total": 12
+              },
+              "food": {
+                "invertebrate": 1,
+                "seed": 0,
+                "fish": 0,
+                "fruit": 1,
+                "rodent": 1
+              },
+              "eggs": 3,
+              "rows": {
+                "forest": 0,
+                "grassland": 0,
+                "wetland": 2
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 2
+              },
+              "scoreBeforeRoundGoal": 10
+            },
+            "candidateGenerationMs": 4.542500000028667,
+            "searchMs": 26136.715200000017,
+            "alternatives": 626,
+            "unvisited": 0
+          }
+        ],
+        "rolloutDiagnostics": {
+          "candidate": {
+            "rolloutCount": 15300,
+            "actionTurns": 56400,
+            "horizonReached": 13500,
+            "terminalReached": 1812,
+            "safetyCapCount": 0
+          },
+          "opponent": {
+            "rolloutCount": 18900,
+            "actionTurns": 69900,
+            "horizonReached": 16200,
+            "terminalReached": 2700,
+            "safetyCapCount": 0
+          }
+        },
+        "elapsedMs": 50040.750499999995
+      },
+      {
+        "id": "reference-typical-reference-2728340-1",
+        "originalTaskId": "screen-slot-scarcity-v-practical-combined-2728340-1",
+        "role": "typical-reference",
+        "seed": 2728340,
+        "seat": 1,
+        "baselinePlayer": 0,
+        "scores": [
+          67,
+          73
+        ],
+        "expectedScores": [
+          67,
+          73
+        ],
+        "reproducedPriorScores": true,
+        "openingMetrics": [
+          {
+            "setup": {
+              "keep": [
+                150,
+                131,
+                162
+              ],
+              "foodDiscard": [
+                "fish",
+                "fruit",
+                "rodent"
+              ],
+              "bonusId": 20,
+              "foodKept": {
+                "invertebrate": 1,
+                "seed": 1,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 7,
+            "firstBird": {
+              "mainAction": 2,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 162,
+              "habitat": "wetland"
+            },
+            "secondBird": {
+              "mainAction": 4,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 131,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 9,
+                "bonuses": 0,
+                "goals": 0,
+                "eggs": 1,
+                "cached": 0,
+                "tucked": 1,
+                "total": 11
+              },
+              "food": {
+                "invertebrate": 1,
+                "seed": 1,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 1,
+              "rows": {
+                "forest": 0,
+                "grassland": 0,
+                "wetland": 2
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 2
+              },
+              "scoreBeforeRoundGoal": 11
+            },
+            "candidateGenerationMs": 4.715000000018335,
+            "searchMs": 19919.7584000001,
+            "alternatives": 386,
+            "unvisited": 0
+          },
+          {
+            "setup": {
+              "keep": [
+                12,
+                164,
+                94
+              ],
+              "foodDiscard": [
+                "invertebrate",
+                "seed",
+                "fish"
+              ],
+              "bonusId": 3,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 0,
+                "fruit": 1,
+                "rodent": 1
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 5,
+            "firstBird": {
+              "mainAction": 2,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 12,
+              "habitat": "wetland"
+            },
+            "secondBird": {
+              "mainAction": 8,
+              "foodActionsBefore": 3,
+              "round": 1,
+              "birdId": 129,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 9,
+                "bonuses": 0,
+                "goals": 4,
+                "eggs": 1,
+                "cached": 0,
+                "tucked": 0,
+                "total": 14
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 2,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 1,
+              "rows": {
+                "forest": 0,
+                "grassland": 0,
+                "wetland": 2
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 2
+              },
+              "scoreBeforeRoundGoal": 10
+            },
+            "candidateGenerationMs": 2.551000000006752,
+            "searchMs": 25519.605000000025,
+            "alternatives": 394,
+            "unvisited": 0
+          }
+        ],
+        "rolloutDiagnostics": {
+          "candidate": {
+            "rolloutCount": 15900,
+            "actionTurns": 61200,
+            "horizonReached": 14100,
+            "terminalReached": 1800,
+            "safetyCapCount": 0
+          },
+          "opponent": {
+            "rolloutCount": 13200,
+            "actionTurns": 48000,
+            "horizonReached": 11700,
+            "terminalReached": 1538,
+            "safetyCapCount": 0
+          }
+        },
+        "elapsedMs": 45468.41359999999
+      },
+      {
+        "id": "reference-strong-reference-2724352-0",
+        "originalTaskId": "screen-slot-scarcity-v-practical-combined-2724352-0",
+        "role": "strong-reference",
+        "seed": 2724352,
+        "seat": 0,
+        "baselinePlayer": 1,
+        "scores": [
+          64,
+          67
+        ],
+        "expectedScores": [
+          64,
+          67
+        ],
+        "reproducedPriorScores": true,
+        "openingMetrics": [
+          {
+            "setup": {
+              "keep": [
+                62,
+                73
+              ],
+              "foodDiscard": [
+                "invertebrate",
+                "seed"
+              ],
+              "bonusId": 22,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 1,
+                "fruit": 1,
+                "rodent": 1
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 5,
+            "firstBird": {
+              "mainAction": 1,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 73,
+              "habitat": "grassland"
+            },
+            "secondBird": {
+              "mainAction": 7,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 156,
+              "habitat": "forest"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 8,
+                "bonuses": 0,
+                "goals": 2,
+                "eggs": 4,
+                "cached": 1,
+                "tucked": 0,
+                "total": 15
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 4,
+              "rows": {
+                "forest": 1,
+                "grassland": 1,
+                "wetland": 0
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 1
+              },
+              "scoreBeforeRoundGoal": 13
+            },
+            "candidateGenerationMs": 2.654499999989639,
+            "searchMs": 17608.408800000063,
+            "alternatives": 323,
+            "unvisited": 0
+          },
+          {
+            "setup": {
+              "keep": [
+                59,
+                168,
+                40
+              ],
+              "foodDiscard": [
+                "fruit",
+                "rodent",
+                "invertebrate"
+              ],
+              "bonusId": 8,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 1,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 7,
+            "firstBird": {
+              "mainAction": 1,
+              "foodActionsBefore": 0,
+              "round": 1,
+              "birdId": 40,
+              "habitat": "grassland"
+            },
+            "secondBird": {
+              "mainAction": 5,
+              "foodActionsBefore": 2,
+              "round": 1,
+              "birdId": 18,
+              "habitat": "forest"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 8,
+                "bonuses": 2,
+                "goals": 2,
+                "eggs": 4,
+                "cached": 0,
+                "tucked": 0,
+                "total": 16
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 1
+              },
+              "eggs": 4,
+              "rows": {
+                "forest": 1,
+                "grassland": 1,
+                "wetland": 0
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 1
+              },
+              "scoreBeforeRoundGoal": 14
+            },
+            "candidateGenerationMs": 1.496500000008382,
+            "searchMs": 13624.333500000066,
+            "alternatives": 340,
+            "unvisited": 0
+          }
+        ],
+        "rolloutDiagnostics": {
+          "candidate": {
+            "rolloutCount": 13800,
+            "actionTurns": 51600,
+            "horizonReached": 12600,
+            "terminalReached": 1215,
+            "safetyCapCount": 0
+          },
+          "opponent": {
+            "rolloutCount": 14700,
+            "actionTurns": 53100,
+            "horizonReached": 12600,
+            "terminalReached": 2100,
+            "safetyCapCount": 0
+          }
+        },
+        "elapsedMs": 31256.936499999996
+      },
+      {
+        "id": "reference-strong-reference-2724352-1",
+        "originalTaskId": "screen-slot-scarcity-v-practical-combined-2724352-1",
+        "role": "strong-reference",
+        "seed": 2724352,
+        "seat": 1,
+        "baselinePlayer": 0,
+        "scores": [
+          103,
+          70
+        ],
+        "expectedScores": [
+          103,
+          70
+        ],
+        "reproducedPriorScores": true,
+        "openingMetrics": [
+          {
+            "setup": {
+              "keep": [
+                62,
+                73,
+                106
+              ],
+              "foodDiscard": [
+                "invertebrate",
+                "fish",
+                "fruit"
+              ],
+              "bonusId": 13,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 1,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 1
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 3,
+            "firstBird": {
+              "mainAction": 3,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 156,
+              "habitat": "forest"
+            },
+            "secondBird": {
+              "mainAction": 5,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 73,
+              "habitat": "grassland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 13,
+                "bonuses": 0,
+                "goals": 4,
+                "eggs": 1,
+                "cached": 2,
+                "tucked": 0,
+                "total": 20
+              },
+              "food": {
+                "invertebrate": 0,
+                "seed": 0,
+                "fish": 0,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 1,
+              "rows": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 0
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 3,
+                "wetland": 1
+              },
+              "scoreBeforeRoundGoal": 16
+            },
+            "candidateGenerationMs": 6.276800000006915,
+            "searchMs": 27775.518500000064,
+            "alternatives": 851,
+            "unvisited": 0
+          },
+          {
+            "setup": {
+              "keep": [
+                59,
+                168,
+                40
+              ],
+              "foodDiscard": [
+                "fruit",
+                "rodent",
+                "invertebrate"
+              ],
+              "bonusId": 19,
+              "foodKept": {
+                "invertebrate": 0,
+                "seed": 1,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              }
+            },
+            "mainActions": 26,
+            "foodActions": 2,
+            "firstBird": {
+              "mainAction": 2,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 40,
+              "habitat": "grassland"
+            },
+            "secondBird": {
+              "mainAction": 5,
+              "foodActionsBefore": 1,
+              "round": 1,
+              "birdId": 112,
+              "habitat": "wetland"
+            },
+            "endRound1": {
+              "score": {
+                "birds": 8,
+                "bonuses": 0,
+                "goals": 1,
+                "eggs": 2,
+                "cached": 0,
+                "tucked": 0,
+                "total": 11
+              },
+              "food": {
+                "invertebrate": 1,
+                "seed": 1,
+                "fish": 1,
+                "fruit": 0,
+                "rodent": 0
+              },
+              "eggs": 2,
+              "rows": {
+                "forest": 0,
+                "grassland": 1,
+                "wetland": 1
+              },
+              "basicProduction": {
+                "forest": 1,
+                "grassland": 2,
+                "wetland": 1
+              },
+              "scoreBeforeRoundGoal": 10
+            },
+            "candidateGenerationMs": 5.960600000020349,
+            "searchMs": 39783.515599999955,
+            "alternatives": 402,
+            "unvisited": 0
+          }
+        ],
+        "rolloutDiagnostics": {
+          "candidate": {
+            "rolloutCount": 19500,
+            "actionTurns": 74700,
+            "horizonReached": 18300,
+            "terminalReached": 1270,
+            "safetyCapCount": 0
+          },
+          "opponent": {
+            "rolloutCount": 16200,
+            "actionTurns": 57000,
+            "horizonReached": 13800,
+            "terminalReached": 2580,
+            "safetyCapCount": 0
+          }
+        },
+        "elapsedMs": 67596.64490000001
+      }
+    ]
+  }
+}
