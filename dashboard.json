@@ -2,84 +2,84 @@
   "schema": 1,
   "study": "ai-comparison-2026-10-18",
   "revision": "a2ff13f73358b0c972ef1ca806c0bfc93c7288ae",
-  "updatedAt": "2026-10-18T19:23:00.477Z",
+  "updatedAt": "2026-10-18T19:23:30.121Z",
   "startedAt": "2026-10-18T19:16:26.220Z",
   "status": "running",
   "workers": 12,
   "planned": 1720,
-  "finished": 36,
+  "finished": 148,
   "active": [
     {
-      "id": "ticket-to-ride-2p-production-default-5205531-1",
+      "id": "ticket-to-ride-3p-production-default-5208522-1",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:23:00.475Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:30.118Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5200546-0",
+      "id": "ticket-to-ride-3p-production-default-5204534-1",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:57.485Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:27.816Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5205531-0",
+      "id": "ticket-to-ride-3p-production-default-5207525-0",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:23:00.197Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:29.126Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5203537-0",
+      "id": "ticket-to-ride-3p-production-default-5206528-0",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:59.720Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:28.676Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5204534-1",
+      "id": "ticket-to-ride-3p-production-default-5206528-2",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:23:00.091Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:28.855Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5202540-0",
+      "id": "ticket-to-ride-3p-production-default-5207525-1",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:59.432Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:29.310Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5204534-0",
+      "id": "ticket-to-ride-3p-production-default-5207525-2",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:59.930Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:29.481Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5196558-1",
+      "id": "ticket-to-ride-3p-production-default-5208522-0",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:56.095Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:29.941Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5203537-1",
+      "id": "ticket-to-ride-3p-production-default-5205531-2",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:59.772Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:28.369Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5201543-0",
+      "id": "ticket-to-ride-3p-production-default-5204534-2",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:58.015Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:27.849Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5202540-1",
+      "id": "ticket-to-ride-3p-production-default-5205531-0",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:59.526Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:27.906Z"
     },
     {
-      "id": "ticket-to-ride-2p-production-default-5200546-1",
+      "id": "ticket-to-ride-3p-production-default-5206528-1",
       "game": "ticket-to-ride",
-      "players": 2,
-      "startedAt": "2026-10-18T19:22:57.962Z"
+      "players": 3,
+      "startedAt": "2026-10-18T19:23:28.803Z"
     }
   ],
   "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against heuristic opponents. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
@@ -97,32 +97,32 @@
       "policyId": "ttr-production-network-v1",
       "opponentPolicyId": "ttr-independent-ticket-plan-v1",
       "planned": 80,
-      "finished": 36,
+      "finished": 80,
       "counts": {
-        "complete": 34,
+        "complete": 64,
         "capped": 0,
-        "unresolved": 2,
+        "unresolved": 16,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 15,
+      "completeSeedGroups": 25,
       "winShare": {
-        "mean": 0.6333333333333333,
-        "low": 0.4384571821867287,
-        "high": 0.8282094844799379,
-        "n": 15
+        "mean": 0.62,
+        "low": 0.483089728654129,
+        "high": 0.756910271345871,
+        "n": 25
       },
       "margin": {
-        "mean": 14.3,
-        "low": 0.10798971880908681,
-        "high": 28.492010281190915,
-        "n": 15
+        "mean": 14.06,
+        "low": 3.3319442793393357,
+        "high": 24.788055720660665,
+        "n": 25
       },
       "chance": 0.5,
-      "meanDecisionMs": 35.67122713797035,
-      "maxDecisionMs": 212.39330000000064,
-      "elapsedMs": 106220.08769999997,
+      "meanDecisionMs": 38.140806874107014,
+      "maxDecisionMs": 284.3775999999998,
+      "elapsedMs": 272054.4048000002,
       "limitations": [
         "Original 30-ticket catalog second visual audit remains open.",
         "Sampled network heuristic, not calibrated win probability.",
@@ -143,32 +143,32 @@
       "policyId": "ttr-production-network-v1",
       "opponentPolicyId": "ttr-independent-ticket-plan-v1",
       "planned": 120,
-      "finished": 0,
+      "finished": 68,
       "counts": {
-        "complete": 0,
+        "complete": 61,
         "capped": 0,
-        "unresolved": 0,
+        "unresolved": 7,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 15,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.26666666666666666,
+        "low": 0.141846033451679,
+        "high": 0.3914872998816543,
+        "n": 15
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": -13.044444444444443,
+        "low": -20.44305082007947,
+        "high": -5.645838068809414,
+        "n": 15
       },
       "chance": 0.3333333333333333,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 32.789360256145414,
+      "maxDecisionMs": 173.862000000001,
+      "elapsedMs": 191267.3966000001,
       "limitations": [
         "Original 30-ticket catalog second visual audit remains open.",
         "Sampled network heuristic, not calibrated win probability.",
