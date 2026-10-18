@@ -102,8 +102,14 @@ rounds, optimize calibrated match win probability or model human choice likeliho
 This current-round continuation is a deliberate bounded implementation scope.
 When all singleton packets are known, their reveal and round scoring are exact;
 an earlier-round dessert estimate remains heuristic. No general imperfect-information
-exact-solver claim is made. The UI caps at 256 action samples and retains search
-on pause/resume; a single synchronous iteration can overrun a time slice.
+exact-solver claim is made. The UI recommends 64 samples and offers 256 through Analysis effort. Every
+complete legal root receives a sample, so a large Chopsticks menu can raise the
+effective limit above 64. Changing effort restarts advice without altering picks,
+commitments or history, and a manually paused analysis stays paused. The setting
+lasts for the open page; reloading restores the recommendation. Pause/resume
+retains the current search until its budget is complete; a single synchronous
+iteration can overrun a time slice. Explicit digital AI-seat preparation still
+uses the deterministic policy; the sampled advice settings do not change it.
 
 Historical bounded implementation smoke (runner at `7869a4f`): seed13, every candidate seat, at least 24 action
 samples (one per root choice when coverage needs more), versus random and the
@@ -138,7 +144,10 @@ points (1.45 to 3.59), a secondary result. All 320 matches completed without
 illegal actions or errors. Mean decisions rose from 650 to 1,673 ms under this
 execution schedule. The winning-strength gain remains uncertain, while the low
 budget already performs well against this comparator. More sampling still uses
-the same current-round model; browser defaults remain unchanged.
+the same current-round model. The browser now favors 64 samples for practical
+response time and leaves 256 selectable. Only four players were measured in this
+scaling screen; the same lower-cost default at other counts is an explicit
+practical choice, not a demonstrated scaling result.
 
 ## Verification and integration
 
@@ -153,7 +162,7 @@ node scripts/check-syntax.mjs
 node scripts/check-docs.mjs
 ```
 
-The 18 tests include an independent short-menu score oracle, independently
+The 19 tests include an independent short-menu score oracle, independently
 enumerated ordered choices, wasabi/chopsticks order fixtures, maki/pudding
 boundaries, simultaneous privacy, packet memory, correction/import atomicity,
 known singleton scoring, and 48 seeded complete matches. Physical transcripts
@@ -183,3 +192,11 @@ integrated. Local game and static-asset integration tests passed all 21 cases.
 Remaining evidence: real iPad Safari acceptance, direct physical
 deck/table acceptance, PDF binary/page archival if required for permanent source
 records, and strength against stronger or human opponents beyond the named benchmark comparators.
+
+
+The practical advice-budget update passed all 909 repository tests, 319-module
+syntax checks and 72-document link checks locally. A legal 81-choice Chopsticks
+fixture verifies full coverage through the actual worker lifecycle. The expanded
+browser check covers effort choices, paused restarts, unchanged recorded picks,
+real standalone worker execution, desktop and simulated touch layouts. No new
+strength tournament was run.

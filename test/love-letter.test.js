@@ -4,7 +4,7 @@ import {CARDS,RANKS,EDITION} from '../love-letter/catalog.js';
 import {newGame,assertValid,legalActions,applyAction,finishTurn,random,domainPlay,remember,outcome} from '../love-letter/core.js';
 import {recordObservation,recordPhysicalAction,publicObservation,analysisBlocker} from '../love-letter/observations.js';
 import {allocations,sampleWorld} from '../love-letter/belief.js';
-import {createSearch,runSearch,summary} from '../love-letter/ai.js';
+import {createSearch,runSearch,summary,analysisBudget} from '../love-letter/ai.js';
 import {readSession} from '../shared/session.js';
 // Hand-transcribed classic pp9–23. Fixtures redistribute all remaining cards;
 // they do not call production setup to decide an effect's expected result.
@@ -114,4 +114,14 @@ test('malformed imports, wrong counts, phase hands and pending actions rejected 
 });
 test('seeded random full matches conserve sixteen cards and terminate for every player count',()=>{
  for(const players of [2,3,4])for(let seed=0;seed<20;seed++){const rng=random(seed);let s=newGame({players,mode:'digital',seed}),steps=0;while(s.phase!=='gameover'&&steps++<1000){const actions=legalActions(s);for(const action of actions)assertValid(applyAction(s,action));s=applyAction(s,actions[Math.floor(rng()*actions.length)]);}assert.equal(s.phase,'gameover');assert.ok(steps<1000);assert.equal(outcome(s).reduce((a,b)=>a+b),1);}
+});
+
+
+test('practical advice budgets keep two-player sampling and cover all roots at every effort',()=>{
+ assert.equal(analysisBudget(2,12),512);
+ for(const players of [3,4])assert.equal(analysisBudget(players,25),64);
+ assert.equal(analysisBudget(4,25,'512'),512);
+ assert.equal(analysisBudget(2,25,'64'),64);
+ assert.equal(analysisBudget(4,80,'64'),80);
+ assert.throws(()=>analysisBudget(2,12,'bogus'));
 });

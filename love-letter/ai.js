@@ -2,6 +2,12 @@ import {legalActions,applyAction,random} from './core.js';
 import {publicObservation} from './observations.js';
 import {allocations,sampleWorld} from './belief.js';
 import {CARDS,cardName} from './catalog.js';
+/** Practical advice budgets; every legal root still receives a sample. */
+export function analysisBudget(players,rootCount,choice='auto'){
+ const requested=choice==='auto'?(players===2?512:64):Number(choice);
+ if(![64,512].includes(requested))throw Error('Invalid analysis budget');
+ return Math.max(requested,rootCount);
+}
 export function label(a){return a.type==='draw'?'Draw a card':a.type==='nextRound'?'Start next round':`Play ${cardName(a.cardRank)}${a.target===undefined?'':` → Player ${a.target+1}`}${a.guess?` · guess ${a.guess}`:''}`;}
 export function baselineValue(obs,a){
  if(a.type!=='play')return 0;

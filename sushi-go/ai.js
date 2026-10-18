@@ -4,6 +4,12 @@ import {choices} from './actions.js';
 import {publicObservation} from './observations.js';
 import {sampleWorld} from './belief.js';
 import {localScore,makiScore,puddingScore} from './scoring.js';
+/** Low-cost advice by default, with a complete legal-root coverage floor. */
+export function analysisBudget(rootCount,choice='auto'){
+ const requested=choice==='auto'?64:Number(choice);
+ if(![64,256].includes(requested))throw Error('Invalid analysis budget');
+ return Math.max(requested,rootCount);
+}
 export const actionLabel=a=>a.cards.map(t=>TYPES[t].name).join(' → ')+(a.returnId?' · return one old Chopsticks':'');
 export function previewTableau(table,a){
  const result=clone(table),used=new Set(result.map(e=>e.id));

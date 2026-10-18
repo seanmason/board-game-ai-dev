@@ -69,7 +69,12 @@ samples unseen deck/reserve order, and compares every root action through a
 short complete-round continuation using a deterministic public-count policy.
 Opponent continuation policies use their own cards and newly acquired knowledge;
 they do not inherit the root viewer's Priest memory. No root actions are pruned.
-The browser caps at 512 action samples; pause/resume retains the search.
+The browser recommends 512 samples at two players and 64 at three or four.
+The Analysis effort control offers 64 or 512 samples, always with at least one
+sample per complete legal root. Changing effort restarts advice without changing
+the recorded table; a manually paused analysis stays paused. The setting lasts
+for the open page; reloading restores the player-count recommendation.
+Pause/resume retains the current search until its budget is complete.
 
 When zero draw-pile cards remain, every compatible last-turn hand allocation is
 evaluated with multiplicity weights. This is an exact last-turn round share
@@ -99,8 +104,11 @@ All 480 matches completed without illegal actions or errors. Mean decisions rose
 from 29 to 189 ms at two players and 63 to 473 ms at four players under this
 execution schedule. This exploratory evidence supports useful extra sampling at
 two players, not a general scaling claim or human-strength estimate. Browser
-budgets are unchanged; more samples reduce sampling noise without deepening the
-round-only continuation or changing its objective.
+recommendations now retain 512 samples at two players and favor 64 at four
+players on cost grounds. Three players also use 64 as a practical cost choice;
+that player count was not in this scaling screen. The 512-sample option remains
+available for every count. More samples reduce sampling noise without deepening
+the round-only continuation or changing its objective.
 
 ## Verification and integration
 
@@ -115,7 +123,7 @@ node scripts/check-syntax.mjs
 node scripts/check-docs.mjs
 ```
 
-The game suite currently has 22 tests, including 60 complete seeded random
+The game suite currently has 23 tests, including 60 complete seeded random
 matches with every generated legal branch validated. Physical transcripts cover
 12 complete matches for each player count: 555 / 946 / 1,046 recorded turns and
 119 / 112 / 99 round transitions, with pending JSON roundtrips at every effect.
@@ -139,3 +147,10 @@ static-asset cases; catalog audit and full transcript verification also passed.
 
 Remaining evidence gates: real iPad Safari acceptance, direct Premium p6 visual/binary hash provenance, independent full physical-table
 acceptance, and strength against stronger or human opponents beyond the named benchmark comparators.
+
+
+The practical advice-budget update passed all 909 repository tests, 319-module
+syntax checks and 72-document link checks locally. The expanded browser check
+verified automatic budgets at every supported count, explicit effort choices,
+paused restarts, unchanged table state and real standalone worker execution,
+plus desktop and simulated touch layouts. No new strength tournament was run.

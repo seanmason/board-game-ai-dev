@@ -6,7 +6,8 @@ import {choices,choiceKey} from '../sushi-go/actions.js';
 import {localScore,makiScore,puddingScore,winnersFor,roundScore} from '../sushi-go/scoring.js';
 import {recordPhysicalAction,recordObservation,publicObservation,analysisBlocker} from '../sushi-go/observations.js';
 import {sampleWorld} from '../sushi-go/belief.js';
-import {createSearch,runSearch,summary,previewTableau} from '../sushi-go/ai.js';
+import {createSearch,runSearch,summary,previewTableau,analysisBudget} from '../sushi-go/ai.js';
+import {installSearchWorker} from '../shared/search-worker.js';
 import {readSession} from '../shared/session.js';
 const entries=types=>{const used={};return types.map(t=>({id:`${t}-${used[t]=(used[t]??-1)+1}`,pick:1}));};
 function ordered(types){return previewTableau([],{cards:types,returnId:null});}
@@ -104,4 +105,22 @@ test('full seeded games keep108 copies, hand sizes synchronized, exact scores an
   }
   assert.equal(turns,3*handSize(players));assert.equal(s.roundScores.length,3);assert.equal(s.deckCount,108-3*players*handSize(players));assert.equal(s.winners.length>=1,true);
  }
+});
+
+
+test('practical worker budget covers a legal Chopsticks menu larger than 64 roots',()=>{
+ let s=reshuffleHands(newGame({players:2,mode:'digital'}),[['chopsticks'],['chopsticks']]);
+ s=joint(s,s.hands.map((h,actor)=>({type:'commit',actor,cards:['chopsticks'],returnId:null})));
+ s=reshuffleHands(s,[['tempura','sashimi','dumpling','maki1','maki2','maki3','egg','salmon','squid']]);
+ const before=structuredClone(s),actions=legalActions(s,0),observation=publicObservation(s,0);
+ assert.ok(actions.length>64,'Fixture must exercise the coverage floor');
+ assert.equal(analysisBudget(0),64);assert.equal(analysisBudget(actions.length,'256'),256);
+ assert.throws(()=>analysisBudget(actions.length,'bogus'));
+ const queue=[],messages=[],scope={postMessage:m=>messages.push(m)};
+ const runtime=installSearchWorker({create:()=>createSearch(observation,{actions,seed:611}),run:runSearch,summarize:summary,batchSize:()=>1},{scope,schedule:fn=>queue.push(fn),cancel:()=>{},now:()=>0});
+ scope.onmessage({data:{type:'start',generation:1,iterationLimit:analysisBudget(actions.length)}});
+ for(let n=0;queue.length&&n<1000;n++)queue.shift()();
+ const last=messages.at(-1);assert.equal(last.iterations,actions.length);assert.equal(last.paused,true);
+ assert.ok(last.candidates.every(c=>c.visits===1),'Every legal ordered choice receives its sample');
+ assert.equal(queue.length,0);assert.deepEqual(s,before);runtime.dispose();
 });
