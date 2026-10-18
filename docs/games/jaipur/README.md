@@ -68,7 +68,7 @@ claim to sample full history-conditioned opponent beliefs.
   [browser check](../../../scripts/browser-jaipur.mjs).
 - [Validation evidence](validation.md), including commands and remaining gates.
 
-No shared registry, allowlist, suite links, CI or package scripts are modified by
-the game owner. The coordinator must integrate the exact asset list and run
-standalone packaging/static import closure before release. No publishing is
-authorized by this implementation.
+Integrated into suite navigation, static and standalone packaging, npm commands
+and CI. Coordinator checks passed all 18 rules tests and three static-asset
+regressions, plus the staged browser suite. Full cloud validation gates preview
+deployment. This remains a physical companion with the source limits above.

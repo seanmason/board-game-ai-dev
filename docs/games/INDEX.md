@@ -23,5 +23,7 @@ below remain development companions; packaging does not imply release approval.
 
 - [Sushi Go!](sushi-go/README.md): original 108-card game, 2–5 players; private simultaneous picks and packet-aware advice.
 
+- [Jaipur](jaipur/README.md): 2019 two-player physical companion; actual token entry and explicit unresolved-source limits.
+
 Game-specific rules/AI sections stay in the overview until splitting them makes
 retrieval easier. Existing uppercase reports remain linked evidence during migration.

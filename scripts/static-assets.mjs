@@ -1,6 +1,8 @@
 // Explicit allowlist: development previews never copy research, tests or source references.
 export const sharedAssets = ['shared/session.js', 'shared/search-worker.js'];
 export const games = {
+  jaipur: ['jaipur/index.html','jaipur/styles.css',
+    ...['catalog','scoring','actions','core','observations','belief','ai','worker','app'].map(n=>`jaipur/${n}.js`)],
   'sushi-go': ['sushi-go/index.html','sushi-go/styles.css',
     ...['catalog','scoring','actions','core','observations','belief','ai','worker','app'].map(n=>`sushi-go/${n}.js`)],
   'love-letter': ['love-letter/index.html','love-letter/styles.css',
@@ -24,6 +26,6 @@ export const games = {
     ...['birds','bonuses','goal-tiles','power-index'].map(n => `wingspan/data/${n}.json`)]
 };
 
-export const optionalGames = ['sushi-go','love-letter','wingspan','splendor','seven-wonders-duel','carcassonne','cascadia','patchwork','kingdomino'];
+export const optionalGames = ['jaipur','sushi-go','love-letter','wingspan','splendor','seven-wonders-duel','carcassonne','cascadia','patchwork','kingdomino'];
 export const standaloneGames = Object.keys(games).filter(game => game !== 'wingspan');
 export const suiteAssets = ['index.html', 'games.html'];

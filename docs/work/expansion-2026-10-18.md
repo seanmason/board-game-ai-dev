@@ -15,6 +15,9 @@ copy of that entire benchmark directory is retained under
 `benchmarks/preserved-root-2026-10-18/kingdomino-budget.zip`, with SHA-256 inventory
 alongside it. This is preserved evidence, not a new validated benchmark or a
 promotion recommendation. Do not run its historical test/runner as current code.
+The extracted local copy is outside the canonical checkout at workspace-relative
+`local-run/preserved-root-2026-10-18-extracted`; all nine hashes were rechecked
+after relocation so Node test discovery cannot mistake it for current tests.
 
 The old Carcassonne replay test has identical content after newline normalization.
 The current evaluator contains the old replay fix plus subsequent improvements;
@@ -67,3 +70,12 @@ navigation and comprehensive CI. Local acceptance passed 22 Love Letter and
 suites passed, with screenshots reviewed at phone size. Love Letter review fixed
 private card leakage through action choices and both games received private-panel
 contrast fixes. Real iPad Safari and physical-table acceptance remain open.
+
+After both integrations, local full regression passed 746 tests with no failures;
+syntax checked 237 modules and documentation checked 50 files/11 game entries.
+
+Love Letter and Sushi Go deployed at `375db17` through successful [Pages run
+39151203269](https://github.com/seanmason/board-game-ai-dev/actions/runs/39151203269),
+including full validation. Jaipur physical recording is integrated and locally
+validated; exact digital token generation remains source-gated in its overview.
+Lost Cities, Hive and Ticket to Ride continue in isolated worktrees.

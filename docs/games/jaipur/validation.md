@@ -58,3 +58,13 @@ is uncertified. No tournament win rate or rollout calibration is claimed.
 Remaining validation gates include matching-edition component certification,
 publisher edge-case rulings, independent real-table match transcript, coordinator static
 import closure/standalone packaging and any release decision.
+
+## Coordinator integration, 2026-10-18
+
+All 18 rules tests, three static packaging tests and the verification wrapper
+passed after integration. The browser script now accepts `BASE_URL`, optional
+`STANDALONE_URL`, and `PLAYWRIGHT_CHANNEL`; its default uses Playwright Chromium.
+It tests staged assets and saves `test-artifacts/jaipur-desktop.png` and
+`jaipur-tablet.png` for CI upload. The staged installed-Chrome run passed all
+recording, privacy, correction and match-end checks; tablet screenshot reviewed.
+This is automated viewport coverage, not real iPad Safari acceptance.

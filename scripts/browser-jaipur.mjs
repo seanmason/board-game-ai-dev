@@ -1,17 +1,13 @@
 import assert from 'node:assert/strict';
-import {createServer} from 'node:http';
 import {readFile,mkdir} from 'node:fs/promises';
-import {resolve,extname,dirname} from 'node:path';
+import {resolve} from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
-import {tmpdir} from 'node:os';
 const root=fileURLToPath(new URL('../',import.meta.url));
 const runtime=process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES??'C:/Users/mason/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 const {chromium}=await import('playwright').catch(()=>import(pathToFileURL(`${runtime}/playwright/index.mjs`).href));
-const server=createServer(async(req,res)=>{try{let name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);if(name.endsWith('/'))name+='index.html';const path=resolve(root,'.'+name);if(!path.startsWith(root))throw Error('Path');res.setHeader('Content-Type',({'.js':'text/javascript','.html':'text/html','.css':'text/css'})[extname(path)]??'application/octet-stream');res.end(await readFile(path));}catch{res.statusCode=404;res.end('Not found');}});
-await new Promise(done=>server.listen(0,'127.0.0.1',done));
-const base=process.env.JAIPUR_URL??`http://127.0.0.1:${server.address().port}/jaipur/`;
-const out=process.env.JAIPUR_SCREENSHOTS??resolve(tmpdir(),'jaipur-browser-evidence');await mkdir(out,{recursive:true});
-const browser=await chromium.launch({channel:process.env.PLAYWRIGHT_CHANNEL??'chrome',headless:true,args:['--no-sandbox']});
+const base=process.env.JAIPUR_URL??new URL('jaipur/',(process.env.BASE_URL??'http://127.0.0.1:8080').replace(/\/$/,'')+'/').href;
+const out=process.env.JAIPUR_SCREENSHOTS??resolve(root,'test-artifacts');await mkdir(out,{recursive:true});
+const browser=await chromium.launch({headless:true,args:['--no-sandbox'],...(process.env.PLAYWRIGHT_CHANNEL?{channel:process.env.PLAYWRIGHT_CHANNEL}:{})});
 const page=await browser.newPage({viewport:{width:1360,height:1000},acceptDownloads:true}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 const stored=()=>page.evaluate(()=>{const d=JSON.parse(localStorage.getItem('board-game-ai-jaipur-v1'));return d?.history[d.index].state;});
 const click=action=>page.locator(`[data-do="${action}"]`).click();
@@ -23,7 +19,7 @@ try{await page.goto(base,{waitUntil:'networkidle'});assert.equal(await page.loca
  await page.locator('[data-do="take"][data-slot="3"]').click();await click('confirm');assert.equal((await stored()).phase,'pending');await page.locator('#refill-input').fill('leather');await click('refill');assert.equal((await stored()).phase,'turn');assert.equal((await stored()).currentPlayer,0);
  const current=await stored();const invalid={format:'board-game-ai-jaipur',edition:current.edition,audit:current.audit,version:1,index:0,history:[{label:'bad',state:{...current,deckCount:-1}}]};await page.locator('#import').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(invalid))});assert.deepEqual(await stored(),current);assert.match(await page.locator('#error').innerText(),/Invalid/);
  const dl=page.waitForEvent('download');await click('export');const download=await dl;const saved=JSON.parse(await readFile(await download.path(),'utf8'));saved.history[saved.index].label='<img src=x onerror="window.pwned=true">';await page.locator('#import').setInputFiles({name:'saved.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(saved))});assert.equal(await page.evaluate(()=>window.pwned),undefined);assert.deepEqual(await stored(),current);
- saved.history[saved.index].label='Actual table refill entered';await page.locator('#import').setInputFiles({name:'clean.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(saved))});await click('show');await page.waitForFunction(()=>document.querySelector('#candidates')?.children.length>0);await page.screenshot({path:resolve(out,'desktop.png'),fullPage:true});await page.setViewportSize({width:820,height:1180});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));await page.screenshot({path:resolve(out,'tablet.png'),fullPage:true});await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));
+ saved.history[saved.index].label='Actual table refill entered';await page.locator('#import').setInputFiles({name:'clean.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(saved))});await click('show');await page.waitForFunction(()=>document.querySelector('#candidates')?.children.length>0);await page.screenshot({path:resolve(out,'jaipur-desktop.png'),fullPage:true});await page.setViewportSize({width:820,height:1180});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));await page.screenshot({path:resolve(out,'jaipur-tablet.png'),fullPage:true});await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));
  // Real keyboard controls and exchange validation: no mouse-only drag action.
  await page.locator('[data-do="camels"]').focus();await page.keyboard.press('Enter');assert.equal(await page.locator('[data-do="confirm"]').count(),1);await click('cancel-preview');
  const imported=await page.evaluate(async piles=>{const c=await import(new URL('./core.js',location.href));return c.setupGame(c.newGame(),{market:[3,3,4,6,6],players:[{hand:[1,1,0,0,0,1],herd:2},{hand:null,handSize:5,herd:0}],goodsPiles:piles,bonusSupply:[7,6,5],deckCount:40});},tokenPiles);
@@ -32,5 +28,6 @@ try{await page.goto(base,{waitUntil:'networkidle'});assert.equal(await page.loca
  await page.locator('summary').filter({hasText:'Correct position / private observation archive'}).click();const replacement=await stored();await page.locator('#correction-reason').fill('Reconciled with actual table');await page.locator('#correction-json').fill(JSON.stringify(replacement));await click('correct');assert.equal((await stored()).events.at(-1).kind,'correction');
  const end=await page.evaluate(async piles=>{const c=await import(new URL('./core.js',location.href));let s=c.setupGame(c.newGame(),{market:[6,6,6,1,4],players:[{hand:[0,0,3,0,0,0],herd:0},{hand:null,handSize:5,herd:0}],goodsPiles:piles,bonusSupply:[7,6,5],deckCount:42});for(const g of [0,1])s.players[1].goods.push(...s.goodsPiles[g].splice(0));s.players[1].goods.push(...s.goodsPiles[2].splice(0,3));s.seals[1]=1;s=c.applyAction(s,{type:'sell',good:2,count:3});return c.recordObservation(s,{type:'bonus',player:0,index:0,value:1});},tokenPiles);
  await install(end);assert.equal((await stored()).phase,'round-score');await click('award');assert.equal((await stored()).phase,'gameover');assert.match(await page.locator('main').innerText(),/Player 2 wins the match/);
+ if(process.env.STANDALONE_URL){const standalone=await browser.newPage();await standalone.goto(process.env.STANDALONE_URL,{waitUntil:'networkidle'});assert.equal(await standalone.locator('h1').innerText(),'Jaipur');await standalone.close();}
  assert.deepEqual(errors,[]);console.log(JSON.stringify({status:'passed',checks:['explicit actual setup','pure sale preview/cancel/confirm','private value prompt','public unknown-opponent action/refill','undo/redo/reload','atomic import rejection','escaped history','private export roundtrip','worker advice','keyboard action','desktop/tablet/phone overflow','complete exchange payment editor','validated correction','round scoring and match end'],screenshots:out},null,2));
-}finally{await browser.close();await new Promise(done=>server.close(done));}
+}finally{await browser.close();}

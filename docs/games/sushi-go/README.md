@@ -3,9 +3,7 @@
 Implements the original 108-card game for 2–5 players, using the Gamewright
 English booklet, copyright 2014, and original author rules, copyright 2012.
 The game's publication year is 2013. Sushi Go Party!, Sushi Roll, promos,
-dummy players and alternating passing are excluded. This implementation starts
-on `codex/sushi-go` from `664d239`; suite integration and browser acceptance
-are coordinator-owned gates.
+dummy players and alternating passing are excluded. Integrated into the development suite; full cloud validation gates deployment.
 
 ## Source evidence
 
