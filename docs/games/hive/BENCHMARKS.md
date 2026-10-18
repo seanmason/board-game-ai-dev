@@ -43,3 +43,7 @@ Local checks on 2026-10-18 after merging canonical `c3f0cf9`:
   decisions, approximately 101 ms maximum candidate latency.
 
 This is adapter verification only. No 40-setup tournament or promotion has run.
+
+The comparison adapter requires a complete depth-one sweep before honoring its
+soft 100 ms budget. It uses the shipped evaluator throughout, with no independent
+heuristic fallback. Actual latency includes any depth-one overrun.

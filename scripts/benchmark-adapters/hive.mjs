@@ -8,7 +8,7 @@ import {publicObservation} from '../../hive/observations.js';
 
 export const metadata={game:'hive',supportedPlayers:[2],defaultBudget:{ms:100,maxTurns:160,repetitionLimit:4},scope:'match',
  policyId:'hive-production-alphabeta-v1',opponentPolicyId:'hive-independent-tactical-liberties-v1',
- limitations:['Classic Hive publisher diagram certification remains open.','Candidate uses completed iterative alpha-beta depths, with one-ply fallback if no depth completes.','Independent baseline scans immediate wins and one-reply losses before queen-liberty ranking.','Repeated positions and caps are unresolved, not automatic draws.','Time budgets can overrun one synchronous generator step; latency records actual time.']};
+ limitations:['Classic Hive publisher diagram certification remains open.','Candidate uses completed iterative alpha-beta depths with a full depth-one floor; 100ms is a soft budget.','Independent baseline scans immediate wins and one-reply losses before queen-liberty ranking.','Repeated positions and caps are unresolved, not automatic draws.','Time budgets can overrun one synchronous generator step; latency records actual time.']};
 const latency=values=>{const v=[...values].sort((a,b)=>a-b);return {count:v.length,totalMs:v.reduce((a,b)=>a+b,0),maxMs:v.at(-1)??0,p50Ms:v.length?v[Math.floor((v.length-1)*.5)]:0,p95Ms:v.length?v[Math.ceil((v.length-1)*.95)]:0};};
 const hash=(seed,key)=>{let n=seed>>>0;for(const c of key)n=Math.imul(n^c.charCodeAt(0),16777619)>>>0;return n;};
 function liberties(s,seat){const q=locate(s.board,queenId(seat));return q?neighbors(q.at).filter(p=>height(s.board,p)===0).length:6;}
@@ -32,10 +32,10 @@ export function chooseBaseline(state,{seed=1,replyChecks=true}={}){
 }
 export function chooseCandidate(observation,{ms=100,maxDepth=5}={}){
  const search=createSearch({observation,maxDepth}),start=performance.now();let iterations=0;
- while(!search.done&&performance.now()-start<ms){runSearch(search,1);iterations++;}
- const summary=summarizeSearch(search);const fallback=summary.completedDepth===0;
+ while(!search.done&&(search.completedDepth===0||performance.now()-start<ms)){runSearch(search,1);iterations++;}
+ const summary=summarizeSearch(search);const fallback=false;
  // Unvisited/partially evaluated deeper roots never replace a completed result.
- const chosen=fallback?chooseBaseline(observation,{replyChecks:false}).action:summary.candidates[0]?.action;
+ const chosen=summary.candidates[0]?.action;
  return {action:chosen??null,diagnostics:{nodes:summary.nodes,iterations,completedDepth:summary.completedDepth,searchedRoots:summary.searchedRoots,legalRoots:summary.legalRoots,fallback}};
 }
 export async function runGame({seed=1,seat=0,players=2,budget={},policy='production-default',opponent='simple-v1',scope='match'}={}){

@@ -34,3 +34,7 @@ Preview deployment does not modify the finished-game repository or establish a
 release gate. See [packaging and release](platform/release.md) for the separate
 reviewed release procedure. Inspect CI/browser evidence for the exact source
 revision rather than inferring readiness from a successful static deployment.
+
+The AI comparison dashboard is an explicitly allowlisted aggregate view. Its public
+results branch supplies timestamped snapshots; it cannot deploy Pages. Full raw
+research outputs remain outside the runtime asset allowlist.

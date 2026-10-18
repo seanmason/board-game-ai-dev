@@ -1,6 +1,8 @@
 name: Validation
 on:
   push:
+    branches-ignore:
+      - benchmarks/ai-comparison-2026-10-18
   pull_request:
   workflow_call:
 jobs:
@@ -60,7 +62,7 @@ jobs:
           python3 -m http.server 8080 --directory preview --bind 127.0.0.1 >/tmp/tabletop-server.log 2>&1 &
           sleep 1
           failed=0
-          for script in smoke pentago wingspan sessions boop splendor; do
+          for script in smoke pentago wingspan sessions boop splendor dashboard; do
             node "scripts/browser-$script.mjs" || failed=1
           done
           for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino ticket-to-ride love-letter jaipur sushi-go lost-cities hive; do
@@ -114,4 +116,5 @@ jobs:
             test-artifacts/sushi-go-*.png
             test-artifacts/lost-cities-*.png
             test-artifacts/hive-*.png
+            test-artifacts/benchmark-dashboard-*.png
           if-no-files-found: ignore
