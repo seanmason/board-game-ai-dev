@@ -17,10 +17,10 @@ below remain development companions; packaging does not imply release approval.
 | [Patchwork](patchwork/README.md) | Original 33 patches, 2 players; explicit original/corrected first-leather time tracks. |
 | [Kingdomino](kingdomino/README.md) | Original 2016 default or explicit US second edition, 5×5, 2–4 players; edition affects 3-player draws and ties. |
 | [Sushi Go!](sushi-go/README.md) | Original 108-card game, 2–5 players; private simultaneous picks and packet-aware advice. |
-| [Jaipur](jaipur/README.md) | 2019 two-player physical companion; actual token entry and explicit unresolved-source limits. |
+| [Jaipur](jaipur/README.md) | 2019 two-player companion; physical token entry and digital play under an attributed inventory assumption. |
 | [Lost Cities](lost-cities/README.md) | Original five-expedition game; private observations, complete turns and explicit next-round starter agreement. |
 | [Hive](hive/README.md) | Classic eleven pieces per side; Queen opening permitted, with movement-evidence limits documented. |
-| [Ticket to Ride](ticket-to-ride/README.md) | Original USA, 2–5 players; 30-ticket catalog review and rare supply rulings remain open. |
+| [Ticket to Ride](ticket-to-ride/README.md) | Original USA, 2–5 players; 30-ticket catalog review and exhausted-supply rulings remain open. |
 
 ## Wingspan integration
 
