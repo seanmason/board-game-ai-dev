@@ -16,16 +16,14 @@ below remain development companions; packaging does not imply release approval.
 | [Cascadia](cascadia/README.md) | Standard base game, 1–4 players, all A–D wildlife cards; see report for solo details. |
 | [Patchwork](patchwork/README.md) | Original 33 patches, 2 players; explicit original/corrected first-leather time tracks. |
 | [Kingdomino](kingdomino/README.md) | Original 2016 default or explicit US second edition, 5×5, 2–4 players; edition affects 3-player draws and ties. |
+| [Sushi Go!](sushi-go/README.md) | Original 108-card game, 2–5 players; private simultaneous picks and packet-aware advice. |
+| [Jaipur](jaipur/README.md) | 2019 two-player physical companion; actual token entry and explicit unresolved-source limits. |
+| [Lost Cities](lost-cities/README.md) | Original five-expedition game; private observations, complete turns and explicit next-round starter agreement. |
+| [Hive](hive/README.md) | Classic eleven pieces per side; Queen opening permitted, with movement-evidence limits documented. |
 
-## Experimental integration
+## Wingspan integration
 
 - [Wingspan](wingspan/README.md): original base game, 2–5 players; integrated from the newer observation/integration work. Remaining validation and release limits are explicit in its overview.
-
-- [Sushi Go!](sushi-go/README.md): original 108-card game, 2–5 players; private simultaneous picks and packet-aware advice.
-
-- [Jaipur](jaipur/README.md): 2019 two-player physical companion; actual token entry and explicit unresolved-source limits.
-
-- [Lost Cities](lost-cities/README.md): original five-expedition game; private observations, complete turns and explicit next-round starter agreement.
 
 Game-specific rules/AI sections stay in the overview until splitting them makes
 retrieval easier. Existing uppercase reports remain linked evidence during migration.

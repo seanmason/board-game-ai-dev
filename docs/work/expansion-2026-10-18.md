@@ -78,9 +78,22 @@ Love Letter and Sushi Go deployed at `375db17` through successful [Pages run
 39151203269](https://github.com/seanmason/board-game-ai-dev/actions/runs/39151203269),
 including full validation. Jaipur physical recording is integrated and locally
 validated; exact digital token generation remains source-gated in its overview.
-Lost Cities, Hive and Ticket to Ride continue in isolated worktrees.
+Hive and Ticket to Ride continue in isolated worktrees.
 
 Lost Cities is integrated with 21 passing game tests, three packaging tests and
 staged-browser acceptance, including private views, correction preview, explicit
 round starter agreement and match completion. Practical ranking is the default;
 the small sampled-policy smoke was unfavorable, so sampling remains opt-in.
+
+The four integrated games deployed at `e53f211` through successful [Pages run
+39153065800](https://github.com/seanmason/board-game-ai-dev/actions/runs/39153065800),
+including full same-revision validation. Local full regression passed 785 tests;
+syntax checked 265 modules and documentation checked 54 files/13 packaged game
+entries. The Lost Cities browser suite also passed against the public Pages URL
+using installed Chrome. This remains automated browser evidence, not real iPad
+Safari or physical-table acceptance.
+
+Hive is integrated after 22 rules tests, three packaging checks and staged
+browser/standalone acceptance. Independent review confirmed the three import
+validation fixes. Browser review caught and fixed tablet grid overflow. Primary
+publisher movement-diagram certification remains explicitly open.

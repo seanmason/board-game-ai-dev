@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "audit:hive": "node scripts/audit-hive.mjs",
+    "verify:hive": "node scripts/verify-hive.mjs",
+    "benchmark:hive": "node scripts/benchmark-hive.mjs",
+    "browser:hive": "node scripts/browser-hive.mjs",
     "audit:lost-cities": "node scripts/audit-lost-cities.mjs",
     "verify:lost-cities": "node scripts/verify-lost-cities.mjs",
     "benchmark:lost-cities": "node scripts/benchmark-lost-cities.mjs",

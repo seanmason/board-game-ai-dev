@@ -73,6 +73,8 @@ also no independent real-copy physical match transcript yet.
 - [App](../../../hive/app.js), [tests](../../../test/hive.test.js),
   [browser check](../../../scripts/browser-hive.mjs).
 
-Shared registry, suite menus, allowlist, npm scripts, CI and documentation indexes
-remain coordinator-owned. Standalone packaging and release verification follow
-integration; this implementation does not authorize publishing.
+Suite navigation, static and standalone packaging, npm scripts and CI are
+integrated. Coordinator acceptance passed all 22 rules tests, three packaging
+regressions and the browser suite including the standalone package. Tablet
+overflow found during browser review was fixed; desktop and actual touch-context
+tablet screenshots were reviewed. Real iPad Safari acceptance remains open.

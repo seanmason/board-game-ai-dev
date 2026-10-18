@@ -70,6 +70,13 @@ confirmation/cancel. Final browser execution and screenshot inspection are
 coordinator-owned pending integration. No browser pass or screenshot artifact is
 claimed by this owner branch yet.
 
+Coordinator integration subsequently passed 22 rules tests and three static
+asset/standalone regressions. The staged browser suite passed using installed
+Chrome with `BASE_URL=http://127.0.0.1:52818` and a separate `STANDALONE_URL`.
+The first browser run exposed tablet grid overflow; flexible grid minimums and
+form widths were corrected and the entire script then passed. Desktop and
+touch-tablet screenshots were visually inspected. This is automated Chrome
+touch emulation, not real iPad Safari acceptance. Full CI gates deployment.
+
 Primary movement-diagram pixel inspection/hash remains unresolved; see the
-[source gate](sources.md). Coordinator static import closure, standalone
-packaging, broader CI and any release remain outstanding.
+[source gate](sources.md). No finished-release publication is claimed.
