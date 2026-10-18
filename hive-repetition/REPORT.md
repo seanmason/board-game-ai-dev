@@ -88,7 +88,14 @@ Dashboard/publication edits are not game inputs.
 
 Research code passed 42 relevant Hive tests including six history-specific
 fixtures. Independent review checked public-history semantics, safety guards
-and grouped analysis. Final integration validation is recorded after publication.
+and grouped analysis. Local integration passed all **898 tests**, syntax for **317 modules**, and
+**71 maintained documentation files**. Dashboard phone/tablet checks passed.
+The first publication run exposed an asynchronous Ticket to Ride import-test
+race; the test now waits for the rejection before asserting unchanged state,
+and its full browser check passed locally. Final revision `85cee8d` passed [full validation and gated Pages deployment](https://github.com/seanmason/board-game-ai-dev/actions/runs/39169379044).
+The public dashboard shows all 240 records and three arms, with no horizontal
+overflow at 390 pixels. This is automated browser verification, not real iPad
+Safari acceptance.
 
 The generic frozen adapter limitation text mentions 100 ms; exact task budgets
 are authoritative (100/100/500 ms). Published display wording was corrected
