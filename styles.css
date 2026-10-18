@@ -161,3 +161,10 @@ details summary { cursor:pointer; font-weight:710; }
   opacity: 1;
 }
 .moves tr.ai-hover-candidate td { background: #3b536b; }
+
+/* Method help also opens with keyboard or touch. */
+.method-help { max-width: 36rem; font-size: .875rem; }
+.method-help summary { cursor: pointer; padding: .4rem; }
+.method-help summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.method-help[open] { flex-basis: 100%; }
+.method-help p { line-height: 1.5; }

@@ -140,7 +140,7 @@ function showAnalysisPanel() {
     '<select id="search-variant" data-action="search-variant" title="Changing the method starts a new search">' +
     '<option value="guided-informed"' + (searchVariant==="guided-informed"?' selected':'') + '>Guided MCTS</option>' +
     '<option value="baseline"' + (searchVariant==="baseline"?' selected':'') + '>UCT baseline</option>' +
-    '</select><label for="worker-count">Workers</label>' +
+    '</select><details class="method-help"><summary title="Guided MCTS ranks moves with a heuristic, expands promising moves gradually and uses informed simulations. UCT baseline uses the comparison search policy. Results depend on simulated play and are not calibrated win probabilities.">About these methods</summary><p>Guided MCTS ranks moves with a heuristic, expands promising moves gradually and uses informed simulations. UCT baseline uses the comparison search policy. Results depend on simulated play and are not calibrated win probabilities.</p></details><label for="worker-count">Workers</label>' +
     '<select id="worker-count" data-action="worker-count">' +
     Array.from({length:MAX_WORKERS}, (_,i) =>
       '<option value="' + (i+1) + '"' + (workerCount === i+1 ? " selected" : "") + '>' +
@@ -205,8 +205,7 @@ function render() {
   })() : "";
   root.innerHTML = '<div class="shell">' +
     '<header class="mast"><div class="brand"><h1>Azul</h1></div>' +
-    '<div class="mast-tools"><a href="./pentago/" title="Open Pentago">Pentago ↗</a> <a href="./games.html" data-suite-nav>All games ↗</a>' +
-    '<a href="./wingspan/" title="Open Wingspan">Wingspan ↗</a>' +
+    '<div class="mast-tools"><a href="./index.html" data-suite-nav>Games</a> ' +
     '<select id="players" aria-label="Player count">' +
     [2,3,4].map(n => '<option value="'+n+'"'+(n===game.players.length?' selected':'')+'>'+n+' players</option>').join("") +
     '</select><select id="mode" aria-label="Session mode">' +

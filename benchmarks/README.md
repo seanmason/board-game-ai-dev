@@ -19,6 +19,10 @@ assets merely to make an experiment self-contained.
 
 ## Existing evidence locations
 
+- [Practical Kingdomino and Carcassonne study](practical-ai-2026-10-17/REPORT.md):
+  48 paired-seat confirmation games, archived traces, reproducible runners and
+  the rationale for simple recommendation defaults.
+
 Existing paths remain stable. Consult each [game overview](../docs/games/INDEX.md)
 for current interpretation; no historic run was repeated during documentation work.
 

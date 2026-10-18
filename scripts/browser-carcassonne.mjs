@@ -12,8 +12,15 @@ try{
  assert.equal((await state()).drawn,'E');assert.equal((await state()).phase,'place');
  await page.waitForFunction(()=>Number(document.querySelector('#samples')?.textContent)>0);
  assert.equal((await state()).turn,0,'No autoplay');
- await page.locator('[data-action=pause]').click();await page.locator('#samples[data-paused="true"]').waitFor();const samples=Number(await page.locator('#samples').innerText());await page.waitForTimeout(500);assert.equal(Number(await page.locator('#samples').innerText()),samples);
- await page.locator('[data-action=pause]').click();await page.waitForFunction(n=>Number(document.querySelector('#samples')?.textContent)>n,samples);
+ await page.waitForFunction(()=>document.querySelector('#samples')?.textContent==='30'&&document.querySelector('#samples')?.dataset.paused==='true');
+ assert.equal(await page.locator('[data-action=pause]').isDisabled(),true);
+ await page.locator('[data-action=longer]').click();
+ await page.waitForFunction(()=>Number(document.querySelector('#samples')?.textContent)>30);
+ await page.locator('[data-action=pause]').click();await page.locator('#samples[data-paused="true"]').waitFor();
+ const samples=Number(await page.locator('#samples').innerText());assert.ok(samples>30&&samples<100);
+ await page.waitForTimeout(300);assert.equal(Number(await page.locator('#samples').innerText()),samples);
+ await page.locator('[data-action=pause]').click();
+ await page.waitForFunction(()=>document.querySelector('#samples')?.textContent==='100'&&document.querySelector('#samples')?.dataset.paused==='true');
  await page.locator('[data-action=rotate]').click();await page.locator('[data-action=rotate]').click();
  await page.locator('.cell[data-x="0"][data-y="-1"]').click();assert.equal((await state()).phase,'meeple');
  await page.locator('[data-action=meeple][data-feature="0"]').click();assert.equal((await state()).players[0].score,4);assert.equal((await state()).phase,'draw');

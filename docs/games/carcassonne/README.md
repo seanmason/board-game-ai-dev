@@ -25,9 +25,11 @@ is the command inventory, not proof a new revision passed. Packaging:
 
 ## Current AI and findings
 
-Progressively widened root UCB with field-aware ordering and sampled three-turn continuations. All legal combined placement/meeple alternatives remain eligible. Public remaining counts drive sampling; actual RNG state is excluded. Projected point utility is not win probability. Edits restart search.
+The interface automatically pauses at 30 samples. Think longer resumes the same in-memory search to 100 samples; manual pause/resume retains its samples and random stream. A changed position starts a new search. Projected relative points are not win probabilities. More samples do not guarantee a better move.
 
 Four-game pilots showed no advantage over tuned heuristic or shorter search. Synchronous iterations overshot nominal budgets; results do not establish matched-compute superiority or bounded pause latency. See [evaluation evidence](../../CARCASSONNE.md).
+
+[Practical-budget evaluation and limitations](../../../benchmarks/practical-ai-2026-10-17/REPORT.md) records the follow-up evidence behind the interface defaults.
 
 ## Evidence and remaining gates
 

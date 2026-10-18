@@ -10,6 +10,7 @@
 import {BIRDS} from "./catalog.js";
 import {FOOD,HABITATS} from "./scoring.js";
 import {evaluateBeliefRollout} from "./rollout.js";
+import {LEAF_EVALUATORS} from "./leaf-evaluators.js";
 
 const median=arr=>arr.slice().sort((a,b)=>a-b)[Math.floor(arr.length/2)]??0;
 const allBirds=p=>HABITATS.flatMap(h=>p.habitats[h]);
@@ -135,19 +136,24 @@ function chooseIndex(search) {
   return best;
 }
 export function createSearch(observation,choices,{
-  rng=Math.random,exploration=null,method="heuristic",horizon=6
+  rng=Math.random,exploration=null,method="heuristic",horizon=6,rolloutStepLimit=48,diagnostics=false,leafEvaluator="current"
 }={}) {
   if(observation.publicComplete===false)throw Error("Record public observations before analysis");
   if(!choices.length)throw Error("No candidate actions to analyze");
   if(!["heuristic","belief-rollout"].includes(method))
     throw Error("Unknown Wingspan analysis method");
-  if(!Number.isInteger(horizon)||horizon<1||horizon>16)
+  if(!Number.isInteger(horizon)||horizon<1||horizon>20)
     throw Error("Invalid Wingspan rollout horizon");
+  if(!Number.isInteger(rolloutStepLimit)||rolloutStepLimit<1||rolloutStepLimit>512)
+    throw Error("Invalid Wingspan rollout step limit");
+  if(leafEvaluator!=="current"&&!LEAF_EVALUATORS.includes(leafEvaluator))throw Error("Unknown Wingspan leaf evaluator");
   const unknown=availableUnknownCards(observation);
   return {
     observation,unknown,rng,
     exploration:exploration??(method==="belief-rollout"?3.5:1.8),
-    method,horizon,actor:observation.phase==="power"?
+    method,horizon,rolloutStepLimit,leafEvaluator,
+    ...(diagnostics?{diagnostics:{rolloutCount:0,actionTurns:0,horizonReached:0,terminalReached:0,safetyCapCount:0}}:{}),
+    actor:observation.phase==="power"?
       observation.pending[0]?.owner:observation.currentPlayer,
     arms:choices.map(x=>({...x,visits:0,sum:0,squared:0})),
     iterations:0
@@ -158,7 +164,7 @@ export function runSearch(s,iterations=1){
     const arm=s.arms[chooseIndex(s)];
     const reward=s.method==="belief-rollout"?
       evaluateBeliefRollout(s.observation,arm.action,s.rng,{
-        horizon:s.horizon
+        horizon:s.horizon,maxSteps:s.rolloutStepLimit,diagnostics:s.diagnostics,leafEvaluator:s.leafEvaluator
       }):
       evaluateSample(s.observation,arm.action,s.unknown,s.rng);
     arm.visits++;arm.sum+=reward;arm.squared+=reward*reward;
@@ -175,6 +181,7 @@ export function searchSummary(s){
     (a.visits?a.sum/a.visits:-Infinity));
   return {
     iterations:s.iterations,actor:s.actor,alternatives:s.arms.length,
-    method:s.method,horizon:s.horizon,candidates:arms
+    method:s.method,horizon:s.horizon,candidates:arms,
+    ...(s.diagnostics?{diagnostics:{...s.diagnostics}}:{})
   };
 }

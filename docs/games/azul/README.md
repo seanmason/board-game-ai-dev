@@ -12,6 +12,7 @@ state must not leak into advice. All remain development capabilities, not releas
 
 ## Implementation and verification commands
 
+- [Open the companion](../../../azul.html). The suite home lists all games; standalone Azul packages use `index.html`.
 - [Rules/state](../../../src/azul.js); [Search/ranking](../../../src/mcts.js); [Worker adapter](../../../src/ai-worker.js); [Interface](../../../src/app.js).
 - [Rules tests](../../../test/azul.test.js); [In-project reference implementation](../../../validation/reference-azul.js); [Browser checks](../../../scripts/browser-smoke.mjs).
 

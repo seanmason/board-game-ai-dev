@@ -116,8 +116,7 @@ function boardHtml(){
 function setupHtml(){
   return '<header class="mast"><div><h1>Pentago</h1>'+
     '<div class="tagline">Two players · Place and rotate · Five in a row</div></div>'+
-    '<div class="mast-controls"><a href="../" title="Open Azul">Azul ↗</a>'+
-    '<a href="../wingspan/" title="Open Wingspan">Wingspan ↗</a>'+
+    '<div class="mast-controls"><a href="../index.html" data-suite-nav>Games</a>'+
     '<select id="mode" aria-label="Game mode">'+
     '<option value="physical"'+(game.mode==="physical"?" selected":"")+
       '>Physical board</option><option value="digital"'+(game.mode==="digital"?" selected":"")+
@@ -155,6 +154,7 @@ function analysisControls(){
     '<option value="heuristic"'+(selectionPolicy==="heuristic"?" selected":"")+'>Tactical heuristic</option>'+
     '<option value="mcts"'+(selectionPolicy==="mcts"?" selected":"")+'>MCTS visits</option>'+
     '</select>'+
+    '<details class="method-help"><summary title="Tactical heuristic promotes the tactical recommendation. MCTS visits promotes the move explored most often by tree search. Both use the same analysis; changing this choice changes the ranking.">About these methods</summary><p>Tactical heuristic promotes the tactical recommendation. MCTS visits promotes the move explored most often by tree search. Both use the same analysis; changing this choice changes the ranking.</p></details>'+
     '<label for="workers">Workers</label><select id="workers" data-action="workers">'+
     Array.from({length:MAX_WORKERS},(_,i)=>'<option value="'+(i+1)+'"'+
       (workerCount===i+1?" selected":"")+'>'+(i+1)+'</option>').join("")+

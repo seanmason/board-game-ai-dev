@@ -18,6 +18,18 @@ exceed the target slice; do not promise hard pause latency. Pause retains in-mem
 search; reload does not persist trees. Conditional subtree reuse is game-specific,
 not a guarantee of the shared scheduler. Exceptions discard a failed search.
 
+An optional `iterationLimit` on start/resume pauses a worker when its reported
+iteration count reaches the limit. Carcassonne uses 30, with an explicit extension
+to 100 that retains the same search and random stream. Other games keep their
+existing uncapped scheduling unless they opt in. Kingdomino's default worker
+returns heuristic or exact-final-row recommendations without running a loop.
+
+The suite opens on `index.html`, listing all ten games. Azul uses `azul.html`;
+`games.html` remains a directory alias. Each game links back to Games rather than
+listing other games. Standalone packages omit suite navigation and place the
+selected game's entry at `index.html`. Method help supports hover descriptions
+and native expandable details for touch and keyboard users.
+
 Session validation checks snapshots, not proof that every historical transition
 was legal or that a position is reachable. Game validators can add tighter
 constraints. Exports can contain entered private facts or digital hidden state;

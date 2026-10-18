@@ -164,3 +164,10 @@ select{border:1px solid var(--border);background:#26384b;color:var(--ink);
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important}
 }
+
+/* Method help also opens with keyboard or touch. */
+.method-help { max-width: 36rem; font-size: .875rem; }
+.method-help summary { cursor: pointer; padding: .4rem; }
+.method-help summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.method-help[open] { flex-basis: 100%; }
+.method-help p { line-height: 1.5; }

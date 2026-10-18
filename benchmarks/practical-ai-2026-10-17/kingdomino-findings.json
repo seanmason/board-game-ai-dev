@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-10-17T21:17:47.532Z",
+  "workspace": "local-run/investigation-kingdomino",
+  "productionChanged": false,
+  "candidate": "Use the existing tuned heuristic on ordinary turns and the existing exact final solver after all tiles are known and the offer is empty.",
+  "confirmation": {
+    "freshSeedBase": 48319271,
+    "seedStride": 104729,
+    "pairedSetupSeeds": 6,
+    "gamesPerMatchup": 12,
+    "matchups": [
+      {
+        "id": "heuristic",
+        "wins": 6,
+        "draws": 0,
+        "losses": 6,
+        "winShare": 0.5,
+        "meanMargin": 0,
+        "pairedMeanMargin": 0,
+        "pairedMarginSE": 0,
+        "opponentSearch": null
+      },
+      {
+        "id": "current-search30",
+        "wins": 9,
+        "draws": 0,
+        "losses": 3,
+        "winShare": 0.75,
+        "meanMargin": 12.75,
+        "pairedMeanMargin": 12.75,
+        "pairedMarginSE": 3.073407446684109,
+        "opponentSearch": {
+          "horizon": 6,
+          "beam": 12
+        }
+      }
+    ]
+  },
+  "recentQuickScreen": {
+    "source": "local-run/parallel/status-quick.json completed slot outputs, retained as quick-screen-losses.json",
+    "winLossMargins": {
+      "30-vs-tuned": -50,
+      "300-vs-tuned": -60,
+      "300-vs-30": -51
+    },
+    "observedRolloutTerminals": "For selected worst losses, rollout terminal counts occurred only at seen=24; earlier sampled decisions had zero. Exact final rows were accounted separately.",
+    "positionProbe": {
+      "placeStates": 9,
+      "horizonTwoSixSameTopAt30": 3,
+      "commonPriorOffsetChangesAtHorizon6": 0
+    }
+  },
+  "olderLossProbe": {
+    "positions": 18,
+    "horizonTwoSixSameTopAt30": 6,
+    "commonPriorOffsetChangesAt30": {
+      "2": {
+        "changed": 4,
+        "total": 18
+      },
+      "6": {
+        "changed": 7,
+        "total": 18
+      }
+    },
+    "note": "Subtracting a common prior offset is counterfactual. It can change recommendations when arms have different visit counts; this was not tested as a playing-policy change."
+  },
+  "validation": {
+    "games": 24,
+    "actions": 1152,
+    "legalActionChecks": 1152,
+    "transitionChecks": 1152,
+    "scoreChecks": 2304,
+    "winnerChecks": 24
+  },
+  "latency": {
+    "method": "Single-process replay; 12 repeated evaluations per candidate state, reported as per-call average to reduce timer quantization. Includes heuristic scoring or exact-final root evaluation.",
+    "policy": {
+      "decisions": 528,
+      "wallMs": {
+        "median": 0.6278999999999542,
+        "p95": 3.2937499999999886,
+        "max": 4.826266666666622
+      },
+      "cpuMs": {
+        "median": 0,
+        "p95": 2.5833333333333335,
+        "max": 3.9166666666666665
+      }
+    },
+    "exactFinal": {
+      "decisions": 48,
+      "wallMs": {
+        "median": 1.3613333333333155,
+        "p95": 5.1721,
+        "max": 7.943883333333342
+      },
+      "cpuMs": {
+        "median": 0,
+        "p95": 2.5833333333333335,
+        "max": 3.9166666666666665
+      }
+    },
+    "policyByPhase": {
+      "draft": {
+        "decisions": 288,
+        "wallMedianMs": 1.1822583333333416,
+        "wallP95Ms": 3.4793500000000015,
+        "cpuMedianMs": 0,
+        "cpuP95Ms": 2.6666666666666665
+      },
+      "place": {
+        "decisions": 240,
+        "wallMedianMs": 0.4342333333333954,
+        "wallP95Ms": 0.7351583333333261,
+        "cpuMedianMs": 0,
+        "cpuP95Ms": 1.3333333333333333
+      }
+    }
+  },
+  "limitations": [
+    "Only six independent setup seeds per confirmation matchup; results are small synthetic-opponent samples.",
+    "The heuristic-plus-exact candidate matched the heuristic on paired score margin, so the final solver has no demonstrated incremental benefit over that baseline.",
+    "The mean-prior offset probe is diagnostic only and does not establish a better ranking rule.",
+    "No production AI or existing benchmark result was changed."
+  ]
+}

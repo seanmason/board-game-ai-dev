@@ -13,6 +13,7 @@ import {FOOD,HABITATS,scorePlayer} from "./scoring.js";
 import {determinize} from "./belief.js";
 import {applyAction} from "./core.js";
 import {candidateActions} from "./actions.js";
+import {evaluateLeaf} from "./leaf-evaluators.js";
 
 const sum=array=>array.reduce((n,x)=>n+x,0);
 const allBirds=p=>HABITATS.flatMap(h=>p.habitats[h]);
@@ -36,10 +37,11 @@ export function projectedScore(state,player){
   },0);
   return printed+handValue+foodValue+engines;
 }
-export function relativeScore(state,owner){
-  const score=projectedScore(state,owner);
+export function relativeScore(state,owner,leafEvaluator="current"){
+  const evaluate=leafEvaluator==="current"?projectedScore:(s,p)=>evaluateLeaf(s,p,leafEvaluator);
+  const score=evaluate(state,owner);
   const enemy=Math.max(...state.players.map((_,i)=>
-    i===owner?-Infinity:projectedScore(state,i)));
+    i===owner?-Infinity:evaluate(state,i)));
   return score-enemy;
 }
 export function policyGrade(state,action,owner=activeSeat(state)){
@@ -96,17 +98,24 @@ function samplePolicy(actions,state,rng,strategy){
 function advanceOne(s,option){
   return applyAction(s,option.action);
 }
-/** Score an action by sampling a consistent hidden world and several turns. */
+/**
+ * Score an action in a sampled hidden world. Horizon counts subsequent play
+ * actions across all seats, excluding the root and setup/power decisions.
+ * maxSteps bounds all subsequent decisions; diagnostics consume no randomness.
+ */
 export function evaluateBeliefRollout(observation,action,rng=Math.random,{
-  horizon=6,strategy="mixed"
+  horizon=6,strategy="mixed",maxSteps=48,diagnostics,leafEvaluator="current"
 }={}){
+  if(!Number.isInteger(maxSteps)||maxSteps<1||maxSteps>512)
+    throw Error("Invalid Wingspan rollout step limit");
   const initial=determinize(observation,rng);
   const actor=activeSeat(initial);
-  const before=relativeScore(initial,actor);
+  const before=relativeScore(initial,actor,leafEvaluator);
   const prior=policyGrade(initial,action,actor);
   let s=applyAction(initial,action);
   let actionTurns=0,steps=0;
-  while(s.phase!=="gameover"&&steps++<48&&actionTurns<horizon){
+  while(s.phase!=="gameover"&&steps<maxSteps&&actionTurns<horizon){
+    steps++;
     const options=candidateActions(s);
     if(!options.length)break;
     const target=activeSeat(s);
@@ -131,7 +140,15 @@ export function evaluateBeliefRollout(observation,action,rng=Math.random,{
     if(s.phase==="play")actionTurns++;
     s=next;
   }
-  const delta=relativeScore(s,actor)-before;
+  if(diagnostics){
+    const add=(key,value)=>diagnostics[key]=(diagnostics[key]??0)+value;
+    add("rolloutCount",1);
+    add("actionTurns",actionTurns);
+    add("horizonReached",Number(actionTurns>=horizon));
+    add("terminalReached",Number(s.phase==="gameover"));
+    add("safetyCapCount",Number(steps>=maxSteps&&actionTurns<horizon&&s.phase!=="gameover"));
+  }
+  const delta=relativeScore(s,actor,leafEvaluator)-before;
   // Prior only stabilizes small budgets; the majority of the reward comes
   // from actual rules-engine transitions in sampled hidden worlds.
   return 0.82*delta+0.18*prior;

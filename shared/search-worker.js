@@ -9,7 +9,9 @@ export function installSearchWorker(adapter, {
 } = {}) {
   let generation = 0, search = null, running = false, timer = null;
   let activeFrom = 0, activeMs = 0, reportedAt = 0, batch = 1;
-  let metadata = {};
+  let metadata = {}, iterationLimit = Infinity;
+  const setLimit = data => { if (Number.isFinite(data.iterationLimit)) iterationLimit = Math.max(0, Math.floor(data.iterationLimit)); };
+  const atLimit = () => Number.isFinite(iterationLimit) && Number(adapter.summarize(search).iterations) >= iterationLimit;
   const elapsed = () => activeMs + (running ? now() - activeFrom : 0);
   function halt() {
     if (running) activeMs += now() - activeFrom;
@@ -40,7 +42,9 @@ export function installSearchWorker(adapter, {
         // Yield between iterations so slow games do not multiply pause latency
         // by an entire batch. A single engine iteration is still synchronous.
         for (let i = 0; i < batch; i++) {
+          if (atLimit()) { halt(); report(); return; }
           adapter.run(search, 1);
+          if (atLimit()) { halt(); report(); return; }
           if (now() - started >= sliceMs) break;
         }
         if (now() - reportedAt >= reportEveryMs) {
@@ -53,6 +57,7 @@ export function installSearchWorker(adapter, {
   }
   function resume() {
     if (!search || running) return;
+    if (atLimit()) { report(); return; }
     running = true;
     activeFrom = now();
     reportedAt = now();
@@ -68,6 +73,7 @@ export function installSearchWorker(adapter, {
         generation = data.generation;
         activeMs = 0;
         metadata = {};
+        iterationLimit = Infinity; setLimit(data);
         const requested = adapter.batchSize?.(data) ?? 1;
         batch = Number.isFinite(requested) ? Math.max(1, Math.min(250, Math.floor(requested))) : 1;
         search = adapter.create(data);
@@ -83,7 +89,7 @@ export function installSearchWorker(adapter, {
         if (data.running) resume(); else report();
       } else if (data.generation === generation) {
         if (data.type === 'pause') { halt(); report(); }
-        else if (data.type === 'resume') resume();
+        else if (data.type === 'resume') { setLimit(data); resume(); }
         else if (data.type === 'stop') { halt(); search = null; }
         else if (data.type === 'snapshot') report();
       }

@@ -185,3 +185,10 @@ select{border:1px solid var(--border);background:#26384b;color:var(--ink);
 .moves{white-space:normal}.moves td:first-child{min-width:145px}.candidate-note{font-size:10px;color:#a7e1c7}.error{overflow-wrap:anywhere}
 @media(max-width:520px){.quilt{gap:4px;padding:8px;border-width:5px}.quilt .cell small{font-size:8px}.cat.adult{font-size:12px}.cat{font-size:9px}.pools{gap:6px}.pool{padding:9px}.preview-board{max-width:270px}}
 .choice-list button[aria-pressed="true"],.toolbar button[aria-pressed="true"]{outline:2px solid #93e5c1;background:#3c565b}
+
+/* Method help also opens with keyboard or touch. */
+.method-help { max-width: 36rem; font-size: .875rem; }
+.method-help summary { cursor: pointer; padding: .4rem; }
+.method-help summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.method-help[open] { flex-basis: 100%; }
+.method-help p { line-height: 1.5; }

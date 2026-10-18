@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {TILES} from '../kingdomino/catalog.js';
 import {newGame,observeRow,applyAction,legalActions,assertValid,placements,canPlace,score,territories,winners,currentKing,currentPlayer,observation,determinize,rng} from '../kingdomino/core.js';
 import {referenceActions,referenceStep,referenceScores} from './kingdomino-reference.js';
-import {createSearch,runSearch,summary} from '../kingdomino/ai.js';
+import {createSearch,runSearch,summary,recommendations,grade} from '../kingdomino/ai.js';
 const keys=as=>as.map(a=>JSON.stringify(a)).sort();
 test('48 functional dominoes, canonical terrain and crown totals',()=>{assert.equal(TILES.length,48);assert.deepEqual(TILES.map(t=>t.id),Array.from({length:48},(_,i)=>i+1));const counts={},crowns={};for(const t of TILES)for(const h of t.halves){counts[h.terrain]=(counts[h.terrain]??0)+1;crowns[h.terrain]=(crowns[h.terrain]??0)+h.crowns;}assert.deepEqual(counts,{wheat:26,forest:22,water:18,grass:14,swamp:10,mine:6});assert.deepEqual(crowns,{wheat:5,forest:6,water:6,grass:6,swamp:6,mine:10});});
 test('physical setup never invents a row, observation is atomic and sorted',()=>{const s=newGame({players:3});assert.equal(s.phase,'draw');assert.equal(s.deck,undefined);assert.deepEqual(legalActions(s),[]);assert.throws(()=>observeRow(s,[1,2,2]));assert.equal(s.seen.length,0);const next=observeRow(s,[48,4,15]);assert.deepEqual(next.offer.map(t=>t.id),[4,15,48]);assertValid(next);assert.deepEqual(s.seen,[]);assert.throws(()=>newGame({initialOrder:[0,0,2,3]}));});
@@ -16,3 +16,14 @@ test('independent exhaustive immediate-action/transition/score oracle across com
 test('snapshot rejects domino touching only a nonmatching terrain',()=>{let s=observeRow(newGame(),[1,3,7,10]);for(const id of [1,3,7,10])s=applyAction(s,{type:'pick',id});s=observeRow(s,[2,4,8,11]);s=applyAction(s,{type:'place',x:1,y:0,rotation:0});s=applyAction(s,{type:'pick',id:2});s=applyAction(s,{type:'place',x:0,y:-1,rotation:0});assertValid(s);const bad=structuredClone(s);bad.players[0].board.filter(c=>c.id===3).forEach((c,i)=>{c.x=3+i;c.y=0;});assert.throws(()=>assertValid(bad),/unmatched domino connection/);});
 test('exact final-row evaluator agrees with independent continuation enumeration',async()=>{const {exactFinalValue}=await import('../kingdomino/ai.js');let s=newGame({mode:'digital',seed:9}),random=rng(881);while(!(s.phase==='place'&&s.offer.length===0)){const acts=legalActions(s);s=applyAction(s,acts[Math.floor(random()*acts.length)]);}function solve(board,ids){if(!ids.length){const r=referenceScores(board);return r.score+r.largest*.001+r.crowns*.000001;}const fake={...s,players:[{board},{board:[{x:0,y:0,id:0,half:0}]}],current:[{id:ids[0],king:0}],cursor:0,phase:'place'};return Math.max(...referenceActions(fake).map(a=>{if(a.type==='discard')return solve(board,ids.slice(1));const ds=[[1,0],[0,1],[-1,0],[0,-1]],d=ds[a.rotation];return solve([...board,{x:a.x,y:a.y,id:ids[0],half:0},{x:a.x+d[0],y:a.y+d[1],id:ids[0],half:1}],ids.slice(1));}));}for(let who=0;who<2;who++){const ids=s.current.filter(t=>Math.floor(t.king/2)===who).map(t=>t.id);assert.equal(exactFinalValue(s,who),solve(s.players[who].board,ids));}const q=createSearch(observation(s));const initial=q.iterations;assert.equal(q.solved,true);runSearch(q,100);assert.equal(q.iterations,initial);assert.ok(legalActions(s).some(a=>JSON.stringify(a)===JSON.stringify(summary(q).candidates[0].action)));});
 test('last draft has no phantom next-row initiative in the 24-domino game',async()=>{const {grade}=await import('../kingdomino/ai.js');let s=newGame({mode:'digital',seed:31});while(!(s.phase==='draft'&&s.seen.length===24))s=applyAction(s,legalActions(s)[0]);const a=legalActions(s)[0],reversed={...s,offer:[...s.offer].reverse()};assert.equal(grade(s,a),grade(reversed,a));});
+
+test('recommendations rank all legal tuned choices without sampling and retain exact final solving',()=>{
+ let s=newGame({mode:'digital',seed:9});
+ const r=recommendations(s);assert.equal(r.method,'heuristic');assert.equal(r.iterations,0);
+ assert.deepEqual(keys(r.candidates.map(c=>c.action)),keys(legalActions(s)));
+ for(const c of r.candidates)assert.equal(c.utility,grade(observation(s),c.action));
+ const hidden=structuredClone(s);hidden.deck.reverse();assert.deepEqual(recommendations(hidden),r);
+ while(!(s.phase==='place'&&s.offer.length===0))s=applyAction(s,legalActions(s)[0]);
+ const exact=recommendations(s);assert.equal(exact.method,'exact');assert.equal(exact.solved,true);
+ assert.deepEqual(exact.candidates,summary(createSearch(observation(s))).candidates);
+});

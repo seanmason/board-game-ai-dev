@@ -1,0 +1,26 @@
+{
+  "confirmationSeeds": "seedBase + pairIndex*seedStride; each setup seed used twice with candidate seat 0 then 1",
+  "developmentSeeds": [
+    920023,
+    910019,
+    67450291
+  ],
+  "seedBase": 48319271,
+  "pairedSeatGamesPerMatchup": 12,
+  "matchups": [
+    {
+      "opponentLabel": "heuristic",
+      "opponent": "tuned"
+    },
+    {
+      "opponentHorizon": 6,
+      "opponentIterations": 30,
+      "opponentLabel": "current search30",
+      "opponent": "search",
+      "opponentBeam": 12
+    }
+  ],
+  "seedStride": 104729,
+  "candidate": "tuned-exact",
+  "frozenAt": "2026-10-17T21:13:53.8723051Z"
+}

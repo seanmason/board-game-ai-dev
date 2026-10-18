@@ -37,6 +37,7 @@ test('each standalone package contains a complete local dependency graph and no 
       for(const path of paths){
         const content=readFileSync(join(target,path),'utf8');
         assert.doesNotMatch(content,/title="Open (Azul|Pentago|Boop)"/);
+        assert.doesNotMatch(content,/data-suite-nav/);
         for(const pattern of [/(?:from\s*|import\s*)["'](\.[^"']+)["']/g,
           /new URL\(\s*["'](\.[^"']+)["']/g,/(?:src|href)=["']([^"']+\.(?:js|css))["']/g]){
           for(const match of content.matchAll(pattern)){
@@ -47,4 +48,15 @@ test('each standalone package contains a complete local dependency graph and no 
       }
     }
   }finally{rmSync(temp,{recursive:true,force:true});}
+});
+
+// Suite navigation must survive staging while being omitted from standalone games.
+test('suite home lists all ten games and preserves a separate Azul entry',()=>{
+  const home=readFileSync('index.html','utf8');
+  const links=[...home.matchAll(/class="card" href="([^"]+)"/g)].map(m=>m[1]);
+  assert.equal(links.length,10);
+  assert.ok(links.includes('azul.html'));
+  for(const href of links)assert.ok(existsSync(href.endsWith('/')?href+'index.html':href),href);
+  assert.match(readFileSync('azul.html','utf8'),/src=".\/src\/app.js"/);
+  assert.doesNotMatch(home,/Development preview|Experimental base game/);
 });

@@ -3,7 +3,7 @@ import {chromium} from 'playwright';
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 try {
   for(const {path,key,format,status} of [
-    {path:'/',key:'tabletop-observatory-azul-v1',format:'tabletop-observatory-game',status:'.banner'},
+    {path:'/azul.html',key:'tabletop-observatory-azul-v1',format:'tabletop-observatory-game',status:'.banner'},
     {path:'/pentago/',key:'board-game-ai-pentago-v1',format:'board-game-ai-pentago',status:'#turn-status'}
   ]) {
     const page=await browser.newPage();

@@ -4,6 +4,15 @@ Integrated on 2026-10-17 from `feat/wingspan-integration` (`3b0e0d0`),
 including the newer physical-observation work beyond the original draft PR.
 User authorized integration into main; this is not finished-release approval.
 
+## Current browser AI
+
+User-authorized Pages promotion on 2026-10-18: hidden-world rollouts now use
+practical-combined at depth4. Fresh-seed confirmation supports this choice over
+the original evaluator; later candidates have not established a better replacement.
+The browser continues sampling while analysis runs. Explicit benchmark evaluator
+settings and the running desktop study remain unchanged in their frozen checkout.
+Historical reports below retain the defaults and decisions at their execution time.
+
 ## Scope and capabilities
 
 Original 170 birds (excluding ten Swift-Start birds), 26 bonuses, 16 goal faces;
@@ -31,6 +40,31 @@ Physical workflow: implemented/browser-tested per report; real-table
 acceptance remains open. AI: representative quick-action generator and sampled
 utility, not exhaustive legal search or calibrated wins. The recorded 19/24 timed
 result is against an internal baseline, not independent human-strength evidence.
+The completed [bounded 30/100-iteration screen](2026-10-17-budget-screen.md)
+records 32 valid internal games: 9/12 and 11/12 wins against the heuristic,
+and 5/8 for 100 against 30. Budget superiority remains inconclusive with these
+small paired samples and strong seat effects; no default policy was changed.
+The subsequent [30/100/300/1,000 scaling study](../../../benchmarks/wingspan/2026-10-17-scaling/REPORT.md)
+completed 168 games with balanced starting seats and no failures. Direct results
+were 15–9 for 100 vs 30, 11–1–12 for 300 vs 100, and 12–12 for 1,000 vs 300.
+All direct paired-margin intervals include zero; higher default budgets are not
+justified by this screen. Production defaults remain unchanged.
+A user-requested [20-game 10,000-vs-300 follow-up](../../work/wingspan-high-budget.md)
+was halted by the user after 19 games (8 wins, 11 losses for 10,000; one unfinished).
+The completed [paired depth study](../../../benchmarks/wingspan/2026-10-17-depth/REPORT.md)
+compared depths 4, 8, 12 and 16 at 100 samples in 72 games, with no failures.
+Depth 12 had the best observed record (21/36), but all direct paired-margin
+intervals include zero. Depth 16 did not show a clear benefit. Defaults unchanged.
+The follow-up [depth/budget matrix](../../work/wingspan-depth-budget.md) tests
+500, 1,000 and 3,000 samples at depths 12, 16 and 20 was halted by the user with
+119 games preserved. The completed [leaf evaluator screen](../../../benchmarks/wingspan/2026-10-18-evaluators/REPORT.md)
+tested eight alternatives at depth 4 and 100 samples in 320 games. None showed
+clear superiority. Practical-combined went 20–20 with +2.35 mean margin; points-only
+went 11–1–28. Retain current scoring pending targeted diagnostics or confirmation.
+The completed [fresh-seed confirmation](../../../benchmarks/wingspan/2026-10-18-confirmation/REPORT.md)
+found combined beat current 28–12 at 100 samples and 24–16 at 300; combined 300
+beat combined 100 by 27–13. All 160 games passed, depth fixed at 4. This is a
+promising improvement with seed/opponent uncertainty; defaults remain unchanged.
 Browser/device: automated browser coverage does not establish real iPad Safari
 performance. Release: final rights/provenance and release review remain open.
 
@@ -47,3 +81,5 @@ interaction/transcript coverage and practical device acceptance before a complet
 base-game/release claim. Do not restart the already implemented observation work.
 
 [Game directory](../INDEX.md)
+
+The [refinement screen](../../../benchmarks/wingspan/2026-10-18-refinements/REPORT.md) found no qualifying improvement in 120 games. The [specialist experiment](../../../benchmarks/wingspan/2026-10-18-specialists/REPORT.md) also found no qualifying improvement in 120 games. The [diverse study](../../../benchmarks/wingspan/2026-10-18-diverse/REPORT.md) completed656 games: row-unlocks won its screen but did not beat practical-combined in fresh confirmation (18-1-21). The [24-evaluator expansion](../../work/wingspan-expansion.md) tests development and scoring mechanics while retaining practical-combined as reference.

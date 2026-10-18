@@ -62,8 +62,8 @@ function titleForState(){
 }
 function setupHeader(){
   return '<header class="mast"><div><h1>Wingspan</h1>'+
-    '<div class="meta">Original base game · 170 bird cards · no expansions</div></div>'+
-    '<div class="mast-tools"><a href="../">Azul ↗</a><a href="../pentago/">Pentago ↗</a>'+
+    '<details><summary>Rules &amp; scope</summary><p>Original Wingspan, 170 birds, no expansions. Further rules and device validation remain. Analysis is advisory and has not been validated as expert play.</p></details></div>'+
+    '<div class="mast-tools"><a href="../index.html" data-suite-nav>Games</a>'+
     '<select id="players" aria-label="Number of players">'+
     [2,3,4,5].map(n=>'<option value="'+n+'"'+
       (game.players.length===n?" selected":"")+'>'+n+' players</option>').join("")+
@@ -258,7 +258,7 @@ function actionPanel(){
     groups.push(html);
   }
   return '<section class="card"><div class="card-head"><div><h2>Take an action</h2>'+
-    '<p>All four base-game action rows are available; play costs are validated.</p>'+
+    '<p>Choose an action below. Play costs are checked.</p>'+
     '</div><span class="eyebrow">Turn '+game.turn+'</span></div>'+
     '<div class="action-grid">'+groups.join("")+'</div>'+
     '<p class="meta" style="margin-top:10px">Each action is committed when selected. '+
@@ -319,7 +319,7 @@ function historyPanel(){
     }).reverse().join("")+'</ol></section>';
 }
 function rulesPanel(){
-  return '<section class="card"><details><summary>How to play · Base-game rules</summary>'+
+  return '<section class="card"><details><summary>How to play</summary>'+
     '<p>Players build three rows of birds over four rounds. Each turn spends one '+
     'action cube to play a bird, gain food, lay eggs, or draw bird cards.</p>'+
     '<ul class="rule-list"><li>Initial bird cards kept cost one starting food each.</li>'+
@@ -390,6 +390,7 @@ function analysisPanel(){
       '>Heuristic samples</option>'+
     '<option value="belief-rollout"'+(searchMethod==="belief-rollout"?" selected":"")+
       '>Hidden-world rollouts</option></select>'+
+    '<details class="method-help"><summary title="Heuristic samples estimate action value using scoring features and sampled unseen outcomes. Hidden-world rollouts simulate short continuations in plausible hidden worlds, then assess points, useful resources, engines, and goals. Neither sees opponents hands or the hidden deck order; estimates are policy dependent.">About these methods</summary><p>Heuristic samples estimate action value using scoring features and sampled unseen outcomes. Hidden-world rollouts simulate short continuations in plausible hidden worlds, then assess points, useful resources, engines, and goals. Neither sees opponents hands or the hidden deck order; estimates are policy dependent.</p></details>'+
     '<label class="meta" for="worker-count">Workers</label>'+
     '<select id="worker-count">'+Array.from({length:MAX_WORKERS},(_,i)=>
       '<option value="'+(i+1)+'"'+(workerCount===i+1?" selected":"")+
@@ -516,7 +517,7 @@ function startAnalysis(){
     workers.push(w);
     w.postMessage({type:"start",generation:token,observation:obs,
       actions:options,seed:(Math.random()*0x100000000)>>>0,
-      method:searchMethod,horizon:6,
+      method:searchMethod,horizon:4,leafEvaluator:"practical-combined",
       running:analysisEnabled,chunk:searchMethod==="belief-rollout"?1:24});
   }
   refreshAnalysis();

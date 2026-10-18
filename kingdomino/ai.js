@@ -86,3 +86,12 @@ export function summary(s){return {iterations:s.iterations,solved:s.solved,legal
  // A small prior blend stabilizes undersampled large placement spaces. This is an evaluation, not a probability.
  ranking:a.exact!==undefined?a.exact:a.visits?(a.sum+3*a.prior)/(a.visits+3):a.prior-1000})).sort((a,b)=>b.ranking-a.ranking||b.prior-a.prior)};}
 export function choose(s,{iterations=24,seed=1,horizon=6,beam=12}={}){const search=createSearch(s,{seed,horizon,beam});runSearch(search,iterations);return summary(search).candidates[0].action;}
+
+/** Immediate tuned evaluation, with the existing exact final-row solver. */
+export function recommendations(o) {
+ if(analysisBlocker(o))throw Error(analysisBlocker(o));
+ const s=observation(o);
+ if(isFinal(s))return {...summary(createSearch(s)),method:'exact'};
+ const candidates=legalActions(s).map(action=>({action,utility:grade(s,action),visits:0})).sort((a,b)=>b.utility-a.utility);
+ return {method:'heuristic',solved:false,iterations:0,legalCount:candidates.length,considered:candidates.length,candidates};
+}

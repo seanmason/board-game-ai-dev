@@ -16,7 +16,7 @@ No runtime dependencies or build step. Serve native modules and Web Workers over
 python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080/games.html` for the game directory. Do not open HTML files
+Open `http://localhost:8080/` for the game directory. Azul is at `azul.html`. Do not open HTML files
 directly with `file://`.
 
 ## Games and documentation
@@ -24,7 +24,7 @@ directly with `file://`.
 [Current game overviews](docs/games/INDEX.md) cover Azul, Pentago, Splendor, Boop,
 7 Wonders Duel, Carcassonne, Cascadia, Patchwork and Kingdomino. Each links its
 edition scope, implementation, verification evidence, AI limits and next priorities.
-[Wingspan](docs/games/wingspan/README.md) is integrated as an experimental base-game companion.
+[Wingspan](docs/games/wingspan/README.md) is also available; its overview records supported play and remaining verification.
 
 Physical companions require explicit recording of moves and observed setup/refills.
 Analysis previews do not commit moves. Use undo/redo and session export/import to

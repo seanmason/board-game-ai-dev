@@ -1,0 +1,5523 @@
+{
+  "manifest": {
+    "plan": {
+      "version": 1,
+      "budgets": [
+        30,
+        100,
+        300,
+        1000
+      ],
+      "pairs": 12,
+      "horizon": 4,
+      "stepCap": 600,
+      "baselineSeeds": [
+        928400,
+        929397,
+        930394,
+        931391,
+        932388,
+        933385,
+        934382,
+        935379,
+        936376,
+        937373,
+        938370,
+        939367
+      ],
+      "headSeeds": [
+        941600,
+        942597,
+        943594,
+        944591,
+        945588,
+        946585,
+        947582,
+        948579,
+        949576,
+        950573,
+        951570,
+        952567
+      ]
+    },
+    "revision": "7c79d48a6af1572c19643f012c30a16ffef846f7",
+    "hashes": {
+      "scripts/benchmark-wingspan-scaling.mjs": "352d5c6217ff8446fca673f1048b3b4e8015b412bed903b30093c10f83fb4fca",
+      "scripts/benchmark-wingspan-screen.mjs": "7dc264994d0a9d59be96f2ec22b76feb7f4bcaa1f7847fa7b47643dcc00644b2",
+      "wingspan/actions.js": "108d5640c3386cba3f0ae06d570c15d4ec715b58cef7be91ea214b4733b387d3",
+      "wingspan/analysis.js": "682663b89d6470f393160fd6edcbe840de0408817e2d9b43db4ec4040ba3e5e3",
+      "wingspan/app.js": "3f940cd437053c0584a177b8b6eaab8abac9a0a81e5ac8852d2b6f6f7792092c",
+      "wingspan/belief.js": "0fde8f487071c1c6f26f207b27b63b67ae5f9f31b281e409066653d02bcbd63f",
+      "wingspan/catalog.js": "185c438363ee794c6ae543ea6100ee871ee9f3ee4d524b07fd6ec28c59fba2a1",
+      "wingspan/core.js": "12d2fbdb7de586c0eaed87302cd2c7064934d1613d1d1b53569863fc9df4c900",
+      "wingspan/data/birds.json": "de9889d5c8849a871b425272587e4db3df5d7f127c378714ac8ec439b6e09188",
+      "wingspan/data/bonuses.json": "f18724196b0d5b7b41b759d2d447aee34f892b8b048e6f873e9876d0b0adbd5f",
+      "wingspan/data/goal-tiles.json": "7bd5e7213b350944deafcf5b0cd47db53566c47f0153b8018156c244b109d4a5",
+      "wingspan/data/power-index.json": "97dca3ec15464cb90247c7d4d831e8830a3c2628483fa6d221e4fc8d549742d8",
+      "wingspan/move-editor.js": "b100cf1891968412477f0121f5292d0b6cf82b23df389de9017fe61224410b7e",
+      "wingspan/observation-io.js": "11b5bce8afc9e5405061ead0ea973bb9e9ffc501b7e5128ffb755a052a203b26",
+      "wingspan/observations.js": "120afd7518beb2714c23d047373f06c429e081f14ca1a9a00002e3361e29efca",
+      "wingspan/physical-ui.js": "bd388fd31b044e52a9b4fb5649689b8429770448d8b1f811f65852d658ed55fd",
+      "wingspan/powers.js": "ae2546b9cac5ddc70f1b9b1e8dc00f9cd246371cc9ab6d3db5dd1a582e4877f8",
+      "wingspan/rollout.js": "08deb8b6644b8af36e8fbcc949d28116c6d3249e4ce4f5808931a6945d1ca58b",
+      "wingspan/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
+      "wingspan/worker.js": "745fdfd540891dd08c71e84576d1aa04157cbd71910cab8a952c9f2e348596c0"
+    },
+    "tasks": [
+      {
+        "id": "b30-928400-0",
+        "seed": 928400,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-928400-1",
+        "seed": 928400,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-929397-0",
+        "seed": 929397,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-929397-1",
+        "seed": 929397,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-930394-0",
+        "seed": 930394,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-930394-1",
+        "seed": 930394,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-931391-0",
+        "seed": 931391,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-931391-1",
+        "seed": 931391,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-932388-0",
+        "seed": 932388,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-932388-1",
+        "seed": 932388,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-933385-0",
+        "seed": 933385,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-933385-1",
+        "seed": 933385,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-934382-0",
+        "seed": 934382,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-934382-1",
+        "seed": 934382,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-935379-0",
+        "seed": 935379,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-935379-1",
+        "seed": 935379,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-936376-0",
+        "seed": 936376,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-936376-1",
+        "seed": 936376,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-937373-0",
+        "seed": 937373,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-937373-1",
+        "seed": 937373,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-938370-0",
+        "seed": 938370,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-938370-1",
+        "seed": 938370,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-939367-0",
+        "seed": 939367,
+        "seat": 0,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b30-939367-1",
+        "seed": 939367,
+        "seat": 1,
+        "budget": 30,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-928400-0",
+        "seed": 928400,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-928400-1",
+        "seed": 928400,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-929397-0",
+        "seed": 929397,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-929397-1",
+        "seed": 929397,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-930394-0",
+        "seed": 930394,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-930394-1",
+        "seed": 930394,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-931391-0",
+        "seed": 931391,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-931391-1",
+        "seed": 931391,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-932388-0",
+        "seed": 932388,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-932388-1",
+        "seed": 932388,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-933385-0",
+        "seed": 933385,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-933385-1",
+        "seed": 933385,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-934382-0",
+        "seed": 934382,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-934382-1",
+        "seed": 934382,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-935379-0",
+        "seed": 935379,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-935379-1",
+        "seed": 935379,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-936376-0",
+        "seed": 936376,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-936376-1",
+        "seed": 936376,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-937373-0",
+        "seed": 937373,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-937373-1",
+        "seed": 937373,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-938370-0",
+        "seed": 938370,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-938370-1",
+        "seed": 938370,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-939367-0",
+        "seed": 939367,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b100-939367-1",
+        "seed": 939367,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-928400-0",
+        "seed": 928400,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-928400-1",
+        "seed": 928400,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-929397-0",
+        "seed": 929397,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-929397-1",
+        "seed": 929397,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-930394-0",
+        "seed": 930394,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-930394-1",
+        "seed": 930394,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-931391-0",
+        "seed": 931391,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-931391-1",
+        "seed": 931391,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-932388-0",
+        "seed": 932388,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-932388-1",
+        "seed": 932388,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-933385-0",
+        "seed": 933385,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-933385-1",
+        "seed": 933385,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-934382-0",
+        "seed": 934382,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-934382-1",
+        "seed": 934382,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-935379-0",
+        "seed": 935379,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-935379-1",
+        "seed": 935379,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-936376-0",
+        "seed": 936376,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-936376-1",
+        "seed": 936376,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-937373-0",
+        "seed": 937373,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-937373-1",
+        "seed": 937373,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-938370-0",
+        "seed": 938370,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-938370-1",
+        "seed": 938370,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-939367-0",
+        "seed": 939367,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b300-939367-1",
+        "seed": 939367,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-928400-0",
+        "seed": 928400,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-928400-1",
+        "seed": 928400,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-929397-0",
+        "seed": 929397,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-929397-1",
+        "seed": 929397,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-930394-0",
+        "seed": 930394,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-930394-1",
+        "seed": 930394,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-931391-0",
+        "seed": 931391,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-931391-1",
+        "seed": 931391,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-932388-0",
+        "seed": 932388,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-932388-1",
+        "seed": 932388,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-933385-0",
+        "seed": 933385,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-933385-1",
+        "seed": 933385,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-934382-0",
+        "seed": 934382,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-934382-1",
+        "seed": 934382,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-935379-0",
+        "seed": 935379,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-935379-1",
+        "seed": 935379,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-936376-0",
+        "seed": 936376,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-936376-1",
+        "seed": 936376,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-937373-0",
+        "seed": 937373,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-937373-1",
+        "seed": 937373,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-938370-0",
+        "seed": 938370,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-938370-1",
+        "seed": 938370,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-939367-0",
+        "seed": 939367,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "b1000-939367-1",
+        "seed": 939367,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "heuristic",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h100-941600-0",
+        "seed": 941600,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-941600-1",
+        "seed": 941600,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-942597-0",
+        "seed": 942597,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-942597-1",
+        "seed": 942597,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-943594-0",
+        "seed": 943594,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-943594-1",
+        "seed": 943594,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-944591-0",
+        "seed": 944591,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-944591-1",
+        "seed": 944591,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-945588-0",
+        "seed": 945588,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-945588-1",
+        "seed": 945588,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-946585-0",
+        "seed": 946585,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-946585-1",
+        "seed": 946585,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-947582-0",
+        "seed": 947582,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-947582-1",
+        "seed": 947582,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-948579-0",
+        "seed": 948579,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-948579-1",
+        "seed": 948579,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-949576-0",
+        "seed": 949576,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-949576-1",
+        "seed": 949576,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-950573-0",
+        "seed": 950573,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-950573-1",
+        "seed": 950573,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-951570-0",
+        "seed": 951570,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-951570-1",
+        "seed": 951570,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-952567-0",
+        "seed": 952567,
+        "seat": 0,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h100-952567-1",
+        "seed": 952567,
+        "seat": 1,
+        "budget": 100,
+        "opponent": "belief-rollout",
+        "opponentBudget": 30
+      },
+      {
+        "id": "h300-941600-0",
+        "seed": 941600,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-941600-1",
+        "seed": 941600,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-942597-0",
+        "seed": 942597,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-942597-1",
+        "seed": 942597,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-943594-0",
+        "seed": 943594,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-943594-1",
+        "seed": 943594,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-944591-0",
+        "seed": 944591,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-944591-1",
+        "seed": 944591,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-945588-0",
+        "seed": 945588,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-945588-1",
+        "seed": 945588,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-946585-0",
+        "seed": 946585,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-946585-1",
+        "seed": 946585,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-947582-0",
+        "seed": 947582,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-947582-1",
+        "seed": 947582,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-948579-0",
+        "seed": 948579,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-948579-1",
+        "seed": 948579,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-949576-0",
+        "seed": 949576,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-949576-1",
+        "seed": 949576,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-950573-0",
+        "seed": 950573,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-950573-1",
+        "seed": 950573,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-951570-0",
+        "seed": 951570,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-951570-1",
+        "seed": 951570,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-952567-0",
+        "seed": 952567,
+        "seat": 0,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h300-952567-1",
+        "seed": 952567,
+        "seat": 1,
+        "budget": 300,
+        "opponent": "belief-rollout",
+        "opponentBudget": 100
+      },
+      {
+        "id": "h1000-941600-0",
+        "seed": 941600,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-941600-1",
+        "seed": 941600,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-942597-0",
+        "seed": 942597,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-942597-1",
+        "seed": 942597,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-943594-0",
+        "seed": 943594,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-943594-1",
+        "seed": 943594,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-944591-0",
+        "seed": 944591,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-944591-1",
+        "seed": 944591,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-945588-0",
+        "seed": 945588,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-945588-1",
+        "seed": 945588,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-946585-0",
+        "seed": 946585,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-946585-1",
+        "seed": 946585,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-947582-0",
+        "seed": 947582,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-947582-1",
+        "seed": 947582,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-948579-0",
+        "seed": 948579,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-948579-1",
+        "seed": 948579,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-949576-0",
+        "seed": 949576,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-949576-1",
+        "seed": 949576,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-950573-0",
+        "seed": 950573,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-950573-1",
+        "seed": 950573,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-951570-0",
+        "seed": 951570,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-951570-1",
+        "seed": 951570,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-952567-0",
+        "seed": 952567,
+        "seat": 0,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      },
+      {
+        "id": "h1000-952567-1",
+        "seed": 952567,
+        "seat": 1,
+        "budget": 1000,
+        "opponent": "belief-rollout",
+        "opponentBudget": 300
+      }
+    ]
+  },
+  "startedAt": "2026-10-17T22:22:07.218Z",
+  "finishedAt": "2026-10-17T22:35:10.734Z",
+  "wallSeconds": 783.516,
+  "workers": 8,
+  "groups": [
+    {
+      "key": "100/heuristic/100",
+      "games": 24,
+      "complete": 24,
+      "failed": 0,
+      "capped": 0,
+      "wins": 20,
+      "draws": 0,
+      "losses": 4,
+      "meanMargin": 16.916666666666668,
+      "pairedMarginCI95": [
+        12.030942913314902,
+        21.802390420018433
+      ],
+      "meanGameSeconds": 6.140515045833333,
+      "maxGameSeconds": 15.137469600000001,
+      "unvisitedFraction": 0,
+      "candidateStarterWinShare": 0.75,
+      "candidateNonstarterWinShare": 0.9166666666666666,
+      "pairs": [
+        {
+          "seed": 928400,
+          "margin": 21.5,
+          "winShare": 1
+        },
+        {
+          "seed": 929397,
+          "margin": 21.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 930394,
+          "margin": 14,
+          "winShare": 1
+        },
+        {
+          "seed": 931391,
+          "margin": 7,
+          "winShare": 0.5
+        },
+        {
+          "seed": 932388,
+          "margin": 19,
+          "winShare": 1
+        },
+        {
+          "seed": 933385,
+          "margin": 12.5,
+          "winShare": 1
+        },
+        {
+          "seed": 934382,
+          "margin": 10,
+          "winShare": 1
+        },
+        {
+          "seed": 935379,
+          "margin": 26.5,
+          "winShare": 1
+        },
+        {
+          "seed": 936376,
+          "margin": 31,
+          "winShare": 1
+        },
+        {
+          "seed": 937373,
+          "margin": 8.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 938370,
+          "margin": 10,
+          "winShare": 0.5
+        },
+        {
+          "seed": 939367,
+          "margin": 21.5,
+          "winShare": 1
+        }
+      ]
+    },
+    {
+      "key": "1000/heuristic/100",
+      "games": 24,
+      "complete": 24,
+      "failed": 0,
+      "capped": 0,
+      "wins": 21,
+      "draws": 0,
+      "losses": 3,
+      "meanMargin": 16.625,
+      "pairedMarginCI95": [
+        12.989852619528858,
+        20.260147380471142
+      ],
+      "meanGameSeconds": 90.87058652083338,
+      "maxGameSeconds": 438.9485506,
+      "unvisitedFraction": 0,
+      "candidateStarterWinShare": 0.8333333333333334,
+      "candidateNonstarterWinShare": 0.9166666666666666,
+      "pairs": [
+        {
+          "seed": 928400,
+          "margin": 23,
+          "winShare": 1
+        },
+        {
+          "seed": 929397,
+          "margin": 20,
+          "winShare": 1
+        },
+        {
+          "seed": 930394,
+          "margin": 15,
+          "winShare": 1
+        },
+        {
+          "seed": 931391,
+          "margin": 26.5,
+          "winShare": 1
+        },
+        {
+          "seed": 932388,
+          "margin": 10,
+          "winShare": 0.5
+        },
+        {
+          "seed": 933385,
+          "margin": 14,
+          "winShare": 1
+        },
+        {
+          "seed": 934382,
+          "margin": 6.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 935379,
+          "margin": 19,
+          "winShare": 1
+        },
+        {
+          "seed": 936376,
+          "margin": 22,
+          "winShare": 1
+        },
+        {
+          "seed": 937373,
+          "margin": 16,
+          "winShare": 1
+        },
+        {
+          "seed": 938370,
+          "margin": 12.5,
+          "winShare": 1
+        },
+        {
+          "seed": 939367,
+          "margin": 15,
+          "winShare": 0.5
+        }
+      ]
+    },
+    {
+      "key": "30/heuristic/100",
+      "games": 24,
+      "complete": 24,
+      "failed": 0,
+      "capped": 0,
+      "wins": 20,
+      "draws": 0,
+      "losses": 4,
+      "meanMargin": 8.125,
+      "pairedMarginCI95": [
+        5.408569387376008,
+        10.841430612623991
+      ],
+      "meanGameSeconds": 2.0682125666666664,
+      "maxGameSeconds": 7.406365399999999,
+      "unvisitedFraction": 0.000267022696929239,
+      "candidateStarterWinShare": 0.6666666666666666,
+      "candidateNonstarterWinShare": 1,
+      "pairs": [
+        {
+          "seed": 928400,
+          "margin": 15,
+          "winShare": 1
+        },
+        {
+          "seed": 929397,
+          "margin": 9,
+          "winShare": 1
+        },
+        {
+          "seed": 930394,
+          "margin": 3,
+          "winShare": 0.5
+        },
+        {
+          "seed": 931391,
+          "margin": 6.5,
+          "winShare": 1
+        },
+        {
+          "seed": 932388,
+          "margin": 8,
+          "winShare": 0.5
+        },
+        {
+          "seed": 933385,
+          "margin": 4.5,
+          "winShare": 1
+        },
+        {
+          "seed": 934382,
+          "margin": 9.5,
+          "winShare": 1
+        },
+        {
+          "seed": 935379,
+          "margin": 3.5,
+          "winShare": 1
+        },
+        {
+          "seed": 936376,
+          "margin": 4,
+          "winShare": 0.5
+        },
+        {
+          "seed": 937373,
+          "margin": 7,
+          "winShare": 0.5
+        },
+        {
+          "seed": 938370,
+          "margin": 15.5,
+          "winShare": 1
+        },
+        {
+          "seed": 939367,
+          "margin": 12,
+          "winShare": 1
+        }
+      ]
+    },
+    {
+      "key": "300/heuristic/100",
+      "games": 24,
+      "complete": 24,
+      "failed": 0,
+      "capped": 0,
+      "wins": 23,
+      "draws": 0,
+      "losses": 1,
+      "meanMargin": 19.958333333333332,
+      "pairedMarginCI95": [
+        13.59815890436618,
+        26.318507762300484
+      ],
+      "meanGameSeconds": 29.492305954166664,
+      "maxGameSeconds": 269.8167557,
+      "unvisitedFraction": 0,
+      "candidateStarterWinShare": 1,
+      "candidateNonstarterWinShare": 0.9166666666666666,
+      "pairs": [
+        {
+          "seed": 928400,
+          "margin": 18,
+          "winShare": 1
+        },
+        {
+          "seed": 929397,
+          "margin": 37,
+          "winShare": 1
+        },
+        {
+          "seed": 930394,
+          "margin": 7,
+          "winShare": 1
+        },
+        {
+          "seed": 931391,
+          "margin": 26.5,
+          "winShare": 1
+        },
+        {
+          "seed": 932388,
+          "margin": 19,
+          "winShare": 1
+        },
+        {
+          "seed": 933385,
+          "margin": 13.5,
+          "winShare": 1
+        },
+        {
+          "seed": 934382,
+          "margin": 21,
+          "winShare": 1
+        },
+        {
+          "seed": 935379,
+          "margin": 34.5,
+          "winShare": 1
+        },
+        {
+          "seed": 936376,
+          "margin": 24,
+          "winShare": 1
+        },
+        {
+          "seed": 937373,
+          "margin": 22.5,
+          "winShare": 1
+        },
+        {
+          "seed": 938370,
+          "margin": 3.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 939367,
+          "margin": 13,
+          "winShare": 1
+        }
+      ]
+    },
+    {
+      "key": "100/belief-rollout/30",
+      "games": 24,
+      "complete": 24,
+      "failed": 0,
+      "capped": 0,
+      "wins": 15,
+      "draws": 0,
+      "losses": 9,
+      "meanMargin": 1.9166666666666667,
+      "pairedMarginCI95": [
+        -1.8734513568181488,
+        5.7067846901514825
+      ],
+      "meanGameSeconds": 8.106171574999994,
+      "maxGameSeconds": 15.851179499999969,
+      "unvisitedFraction": 0.0108941913714148,
+      "candidateStarterWinShare": 0.8333333333333334,
+      "candidateNonstarterWinShare": 0.4166666666666667,
+      "pairs": [
+        {
+          "seed": 941600,
+          "margin": -6.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 942597,
+          "margin": 3,
+          "winShare": 0.5
+        },
+        {
+          "seed": 943594,
+          "margin": 7,
+          "winShare": 0.5
+        },
+        {
+          "seed": 944591,
+          "margin": 9,
+          "winShare": 1
+        },
+        {
+          "seed": 945588,
+          "margin": -4,
+          "winShare": 0.5
+        },
+        {
+          "seed": 946585,
+          "margin": -2,
+          "winShare": 0.5
+        },
+        {
+          "seed": 947582,
+          "margin": 13,
+          "winShare": 1
+        },
+        {
+          "seed": 948579,
+          "margin": 0.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 949576,
+          "margin": 5.5,
+          "winShare": 1
+        },
+        {
+          "seed": 950573,
+          "margin": -4.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 951570,
+          "margin": 3.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 952567,
+          "margin": -1.5,
+          "winShare": 0.5
+        }
+      ]
+    },
+    {
+      "key": "1000/belief-rollout/300",
+      "games": 24,
+      "complete": 24,
+      "failed": 0,
+      "capped": 0,
+      "wins": 12,
+      "draws": 0,
+      "losses": 12,
+      "meanMargin": 0.875,
+      "pairedMarginCI95": [
+        -2.9206615660459425,
+        4.6706615660459425
+      ],
+      "meanGameSeconds": 78.44142078333334,
+      "maxGameSeconds": 131.57484770000005,
+      "unvisitedFraction": 0,
+      "candidateStarterWinShare": 0.4166666666666667,
+      "candidateNonstarterWinShare": 0.5833333333333334,
+      "pairs": [
+        {
+          "seed": 941600,
+          "margin": 11.5,
+          "winShare": 1
+        },
+        {
+          "seed": 942597,
+          "margin": -5.5,
+          "winShare": 0
+        },
+        {
+          "seed": 943594,
+          "margin": -0.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 944591,
+          "margin": 3,
+          "winShare": 0.5
+        },
+        {
+          "seed": 945588,
+          "margin": 1.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 946585,
+          "margin": -7,
+          "winShare": 0
+        },
+        {
+          "seed": 947582,
+          "margin": -3.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 948579,
+          "margin": -3,
+          "winShare": 0.5
+        },
+        {
+          "seed": 949576,
+          "margin": 8,
+          "winShare": 1
+        },
+        {
+          "seed": 950573,
+          "margin": 9,
+          "winShare": 0.5
+        },
+        {
+          "seed": 951570,
+          "margin": -3.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 952567,
+          "margin": 0.5,
+          "winShare": 0.5
+        }
+      ]
+    },
+    {
+      "key": "300/belief-rollout/100",
+      "games": 24,
+      "complete": 24,
+      "failed": 0,
+      "capped": 0,
+      "wins": 11,
+      "draws": 1,
+      "losses": 12,
+      "meanMargin": 0.7083333333333334,
+      "pairedMarginCI95": [
+        -3.5268011532161023,
+        4.943467819882769
+      ],
+      "meanGameSeconds": 29.879287470833336,
+      "maxGameSeconds": 72.98901510000002,
+      "unvisitedFraction": 0,
+      "candidateStarterWinShare": 0.4583333333333333,
+      "candidateNonstarterWinShare": 0.5,
+      "pairs": [
+        {
+          "seed": 941600,
+          "margin": 4.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 942597,
+          "margin": 4,
+          "winShare": 0.75
+        },
+        {
+          "seed": 943594,
+          "margin": 1.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 944591,
+          "margin": -3.5,
+          "winShare": 0.5
+        },
+        {
+          "seed": 945588,
+          "margin": 6,
+          "winShare": 1
+        },
+        {
+          "seed": 946585,
+          "margin": 16,
+          "winShare": 0.5
+        },
+        {
+          "seed": 947582,
+          "margin": -8.5,
+          "winShare": 0
+        },
+        {
+          "seed": 948579,
+          "margin": -4.5,
+          "winShare": 0
+        },
+        {
+          "seed": 949576,
+          "margin": 3,
+          "winShare": 1
+        },
+        {
+          "seed": 950573,
+          "margin": -5.5,
+          "winShare": 0
+        },
+        {
+          "seed": 951570,
+          "margin": 0,
+          "winShare": 0.5
+        },
+        {
+          "seed": 952567,
+          "margin": -4.5,
+          "winShare": 0.5
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "b100-928400-0",
+      "seed": 928400,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 92,
+      "iterations": 9200,
+      "searchMs": 6012.826300000003,
+      "alternatives": 761,
+      "unvisited": 0,
+      "elapsedMs": 6039.7336000000005,
+      "scores": [
+        70,
+        44
+      ],
+      "margin": 26,
+      "winShare": 1
+    },
+    {
+      "id": "b100-928400-1",
+      "seed": 928400,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 99,
+      "iterations": 9900,
+      "searchMs": 4543.720199999999,
+      "alternatives": 891,
+      "unvisited": 0,
+      "elapsedMs": 4563.850599999999,
+      "scores": [
+        63,
+        80
+      ],
+      "margin": 17,
+      "winShare": 1
+    },
+    {
+      "id": "b100-929397-0",
+      "seed": 929397,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 121,
+      "iterations": 12100,
+      "searchMs": 10655.055600000002,
+      "alternatives": 779,
+      "unvisited": 0,
+      "elapsedMs": 10676.821799999998,
+      "scores": [
+        74,
+        26
+      ],
+      "margin": 48,
+      "winShare": 1
+    },
+    {
+      "id": "b100-929397-1",
+      "seed": 929397,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 104,
+      "iterations": 10400,
+      "searchMs": 9787.400500000005,
+      "alternatives": 691,
+      "unvisited": 0,
+      "elapsedMs": 9813.6182,
+      "scores": [
+        68,
+        63
+      ],
+      "margin": -5,
+      "winShare": 0
+    },
+    {
+      "id": "b100-930394-0",
+      "seed": 930394,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 88,
+      "iterations": 8800,
+      "searchMs": 6145.144199999996,
+      "alternatives": 714,
+      "unvisited": 0,
+      "elapsedMs": 6172.3147,
+      "scores": [
+        67,
+        53
+      ],
+      "margin": 14,
+      "winShare": 1
+    },
+    {
+      "id": "b100-930394-1",
+      "seed": 930394,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 97,
+      "iterations": 9700,
+      "searchMs": 4464.311999999995,
+      "alternatives": 686,
+      "unvisited": 0,
+      "elapsedMs": 4483.477199999999,
+      "scores": [
+        61,
+        75
+      ],
+      "margin": 14,
+      "winShare": 1
+    },
+    {
+      "id": "b100-931391-0",
+      "seed": 931391,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 120,
+      "iterations": 12000,
+      "searchMs": 15083.833700000005,
+      "alternatives": 886,
+      "unvisited": 0,
+      "elapsedMs": 15137.4696,
+      "scores": [
+        68,
+        72
+      ],
+      "margin": -4,
+      "winShare": 0
+    },
+    {
+      "id": "b100-931391-1",
+      "seed": 931391,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 9600,
+      "searchMs": 5223.295300000006,
+      "alternatives": 756,
+      "unvisited": 0,
+      "elapsedMs": 5244.205099999999,
+      "scores": [
+        57,
+        75
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "b100-932388-0",
+      "seed": 932388,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 91,
+      "iterations": 9100,
+      "searchMs": 3388.6108000000004,
+      "alternatives": 807,
+      "unvisited": 0,
+      "elapsedMs": 3406.807999999999,
+      "scores": [
+        64,
+        61
+      ],
+      "margin": 3,
+      "winShare": 1
+    },
+    {
+      "id": "b100-932388-1",
+      "seed": 932388,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 75,
+      "iterations": 7500,
+      "searchMs": 3527.0294000000104,
+      "alternatives": 609,
+      "unvisited": 0,
+      "elapsedMs": 3540.481599999999,
+      "scores": [
+        33,
+        68
+      ],
+      "margin": 35,
+      "winShare": 1
+    },
+    {
+      "id": "b100-933385-0",
+      "seed": 933385,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 109,
+      "iterations": 10900,
+      "searchMs": 7978.758499999993,
+      "alternatives": 1341,
+      "unvisited": 0,
+      "elapsedMs": 8002.2453000000005,
+      "scores": [
+        70,
+        47
+      ],
+      "margin": 23,
+      "winShare": 1
+    },
+    {
+      "id": "b100-933385-1",
+      "seed": 933385,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 106,
+      "iterations": 10600,
+      "searchMs": 5935.988600000004,
+      "alternatives": 816,
+      "unvisited": 0,
+      "elapsedMs": 5958.4072,
+      "scores": [
+        58,
+        60
+      ],
+      "margin": 2,
+      "winShare": 1
+    },
+    {
+      "id": "b100-934382-0",
+      "seed": 934382,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 85,
+      "iterations": 8500,
+      "searchMs": 3087.9278000000177,
+      "alternatives": 636,
+      "unvisited": 0,
+      "elapsedMs": 3103.518,
+      "scores": [
+        64,
+        44
+      ],
+      "margin": 20,
+      "winShare": 1
+    },
+    {
+      "id": "b100-934382-1",
+      "seed": 934382,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 92,
+      "iterations": 9200,
+      "searchMs": 3440.859600000009,
+      "alternatives": 653,
+      "unvisited": 0,
+      "elapsedMs": 3456.721599999999,
+      "scores": [
+        55,
+        55
+      ],
+      "margin": 0,
+      "winShare": 1
+    },
+    {
+      "id": "b100-935379-0",
+      "seed": 935379,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 103,
+      "iterations": 10300,
+      "searchMs": 6086.998000000007,
+      "alternatives": 816,
+      "unvisited": 0,
+      "elapsedMs": 6107.2706,
+      "scores": [
+        65,
+        46
+      ],
+      "margin": 19,
+      "winShare": 1
+    },
+    {
+      "id": "b100-935379-1",
+      "seed": 935379,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 104,
+      "iterations": 10400,
+      "searchMs": 6579.949599999991,
+      "alternatives": 770,
+      "unvisited": 0,
+      "elapsedMs": 6608.795899999999,
+      "scores": [
+        34,
+        68
+      ],
+      "margin": 34,
+      "winShare": 1
+    },
+    {
+      "id": "b100-936376-0",
+      "seed": 936376,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 9600,
+      "searchMs": 5250.487199999987,
+      "alternatives": 949,
+      "unvisited": 0,
+      "elapsedMs": 5275.1792000000005,
+      "scores": [
+        85,
+        51
+      ],
+      "margin": 34,
+      "winShare": 1
+    },
+    {
+      "id": "b100-936376-1",
+      "seed": 936376,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 98,
+      "iterations": 9800,
+      "searchMs": 6336.9713999999985,
+      "alternatives": 667,
+      "unvisited": 0,
+      "elapsedMs": 6360.3253,
+      "scores": [
+        54,
+        82
+      ],
+      "margin": 28,
+      "winShare": 1
+    },
+    {
+      "id": "b100-937373-0",
+      "seed": 937373,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 100,
+      "iterations": 10000,
+      "searchMs": 6166.2681000000375,
+      "alternatives": 725,
+      "unvisited": 0,
+      "elapsedMs": 6186.542300000001,
+      "scores": [
+        73,
+        56
+      ],
+      "margin": 17,
+      "winShare": 1
+    },
+    {
+      "id": "b100-937373-1",
+      "seed": 937373,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 100,
+      "iterations": 10000,
+      "searchMs": 9181.238499999974,
+      "alternatives": 810,
+      "unvisited": 0,
+      "elapsedMs": 9202.751,
+      "scores": [
+        63,
+        63
+      ],
+      "margin": 0,
+      "winShare": 0
+    },
+    {
+      "id": "b100-938370-0",
+      "seed": 938370,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 93,
+      "iterations": 9300,
+      "searchMs": 3587.5433000000085,
+      "alternatives": 714,
+      "unvisited": 0,
+      "elapsedMs": 3605.8623000000007,
+      "scores": [
+        65,
+        71
+      ],
+      "margin": -6,
+      "winShare": 0
+    },
+    {
+      "id": "b100-938370-1",
+      "seed": 938370,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 88,
+      "iterations": 8800,
+      "searchMs": 5505.792200000014,
+      "alternatives": 709,
+      "unvisited": 0,
+      "elapsedMs": 5527.5942,
+      "scores": [
+        48,
+        74
+      ],
+      "margin": 26,
+      "winShare": 1
+    },
+    {
+      "id": "b100-939367-0",
+      "seed": 939367,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 91,
+      "iterations": 9100,
+      "searchMs": 3620.0844000000106,
+      "alternatives": 671,
+      "unvisited": 0,
+      "elapsedMs": 3636.6193999999996,
+      "scores": [
+        73,
+        50
+      ],
+      "margin": 23,
+      "winShare": 1
+    },
+    {
+      "id": "b100-939367-1",
+      "seed": 939367,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 103,
+      "iterations": 10300,
+      "searchMs": 5237.157300000024,
+      "alternatives": 833,
+      "unvisited": 0,
+      "elapsedMs": 5261.7484,
+      "scores": [
+        48,
+        68
+      ],
+      "margin": 20,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-928400-0",
+      "seed": 928400,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 114,
+      "iterations": 60900,
+      "searchMs": 438888.0214999998,
+      "alternatives": 725,
+      "unvisited": 0,
+      "elapsedMs": 438948.55059999996,
+      "scores": [
+        60,
+        29
+      ],
+      "margin": 31,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-928400-1",
+      "seed": 928400,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 99,
+      "iterations": 52200,
+      "searchMs": 54598.81019999999,
+      "alternatives": 867,
+      "unvisited": 0,
+      "elapsedMs": 54619.6802,
+      "scores": [
+        57,
+        72
+      ],
+      "margin": 15,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-929397-0",
+      "seed": 929397,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 109,
+      "iterations": 58600,
+      "searchMs": 59983.06769999984,
+      "alternatives": 1003,
+      "unvisited": 0,
+      "elapsedMs": 60004.414000000004,
+      "scores": [
+        75,
+        53
+      ],
+      "margin": 22,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-929397-1",
+      "seed": 929397,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 110,
+      "iterations": 54200,
+      "searchMs": 405011.9581999997,
+      "alternatives": 649,
+      "unvisited": 0,
+      "elapsedMs": 405036.5348,
+      "scores": [
+        58,
+        76
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-930394-0",
+      "seed": 930394,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 107,
+      "iterations": 61100,
+      "searchMs": 159651.3646,
+      "alternatives": 1200,
+      "unvisited": 0,
+      "elapsedMs": 159716.60609999998,
+      "scores": [
+        75,
+        57
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-930394-1",
+      "seed": 930394,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 97,
+      "iterations": 43000,
+      "searchMs": 34197.59709999994,
+      "alternatives": 668,
+      "unvisited": 0,
+      "elapsedMs": 34215.93459999999,
+      "scores": [
+        53,
+        65
+      ],
+      "margin": 12,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-931391-0",
+      "seed": 931391,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 97,
+      "iterations": 56500,
+      "searchMs": 174865.8035,
+      "alternatives": 818,
+      "unvisited": 0,
+      "elapsedMs": 174930.5741,
+      "scores": [
+        77,
+        56
+      ],
+      "margin": 21,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-931391-1",
+      "seed": 931391,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 106,
+      "iterations": 65500,
+      "searchMs": 71118.25419999992,
+      "alternatives": 885,
+      "unvisited": 0,
+      "elapsedMs": 71139.2642,
+      "scores": [
+        53,
+        85
+      ],
+      "margin": 32,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-932388-0",
+      "seed": 932388,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 85,
+      "iterations": 43600,
+      "searchMs": 44579.60560000001,
+      "alternatives": 681,
+      "unvisited": 0,
+      "elapsedMs": 44597.09710000001,
+      "scores": [
+        55,
+        58
+      ],
+      "margin": -3,
+      "winShare": 0
+    },
+    {
+      "id": "b1000-932388-1",
+      "seed": 932388,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 78,
+      "iterations": 50100,
+      "searchMs": 45635.633100000035,
+      "alternatives": 591,
+      "unvisited": 0,
+      "elapsedMs": 45649.633899999986,
+      "scores": [
+        38,
+        61
+      ],
+      "margin": 23,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-933385-0",
+      "seed": 933385,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 107,
+      "iterations": 62000,
+      "searchMs": 60752.4016000001,
+      "alternatives": 984,
+      "unvisited": 0,
+      "elapsedMs": 60773.577500000014,
+      "scores": [
+        70,
+        53
+      ],
+      "margin": 17,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-933385-1",
+      "seed": 933385,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 114,
+      "iterations": 63600,
+      "searchMs": 54629.0144000001,
+      "alternatives": 735,
+      "unvisited": 0,
+      "elapsedMs": 54649.85200000001,
+      "scores": [
+        54,
+        65
+      ],
+      "margin": 11,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-934382-0",
+      "seed": 934382,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 42000,
+      "searchMs": 38086.85629999987,
+      "alternatives": 731,
+      "unvisited": 0,
+      "elapsedMs": 38106.76560000001,
+      "scores": [
+        59,
+        45
+      ],
+      "margin": 14,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-934382-1",
+      "seed": 934382,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 49100,
+      "searchMs": 34294.37179999999,
+      "alternatives": 812,
+      "unvisited": 0,
+      "elapsedMs": 34313.34329999998,
+      "scores": [
+        61,
+        60
+      ],
+      "margin": -1,
+      "winShare": 0
+    },
+    {
+      "id": "b1000-935379-0",
+      "seed": 935379,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 105,
+      "iterations": 60900,
+      "searchMs": 55967.505199999985,
+      "alternatives": 795,
+      "unvisited": 0,
+      "elapsedMs": 55988.07070000004,
+      "scores": [
+        68,
+        55
+      ],
+      "margin": 13,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-935379-1",
+      "seed": 935379,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 128,
+      "iterations": 68600,
+      "searchMs": 73590.76539999992,
+      "alternatives": 1033,
+      "unvisited": 0,
+      "elapsedMs": 73617.42320000002,
+      "scores": [
+        50,
+        75
+      ],
+      "margin": 25,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-936376-0",
+      "seed": 936376,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 99,
+      "iterations": 56700,
+      "searchMs": 50390.96559999982,
+      "alternatives": 726,
+      "unvisited": 0,
+      "elapsedMs": 50412.225800000015,
+      "scores": [
+        77,
+        59
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-936376-1",
+      "seed": 936376,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 81,
+      "iterations": 41400,
+      "searchMs": 30999.377699999604,
+      "alternatives": 631,
+      "unvisited": 0,
+      "elapsedMs": 31015.867599999998,
+      "scores": [
+        50,
+        76
+      ],
+      "margin": 26,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-937373-0",
+      "seed": 937373,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 91,
+      "iterations": 48700,
+      "searchMs": 40507.38349999965,
+      "alternatives": 743,
+      "unvisited": 0,
+      "elapsedMs": 40525.87839999999,
+      "scores": [
+        69,
+        50
+      ],
+      "margin": 19,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-937373-1",
+      "seed": 937373,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 107,
+      "iterations": 56600,
+      "searchMs": 75037.46720000001,
+      "alternatives": 763,
+      "unvisited": 0,
+      "elapsedMs": 75060.72080000001,
+      "scores": [
+        56,
+        69
+      ],
+      "margin": 13,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-938370-0",
+      "seed": 938370,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 44700,
+      "searchMs": 29282.454500000284,
+      "alternatives": 642,
+      "unvisited": 0,
+      "elapsedMs": 29299.645300000033,
+      "scores": [
+        66,
+        49
+      ],
+      "margin": 17,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-938370-1",
+      "seed": 938370,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 83,
+      "iterations": 47900,
+      "searchMs": 34718.435899999924,
+      "alternatives": 628,
+      "unvisited": 0,
+      "elapsedMs": 34734.9963,
+      "scores": [
+        51,
+        59
+      ],
+      "margin": 8,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-939367-0",
+      "seed": 939367,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 54500,
+      "searchMs": 65668.6770000002,
+      "alternatives": 747,
+      "unvisited": 0,
+      "elapsedMs": 65691.43650000001,
+      "scores": [
+        84,
+        54
+      ],
+      "margin": 30,
+      "winShare": 1
+    },
+    {
+      "id": "b1000-939367-1",
+      "seed": 939367,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 87,
+      "iterations": 46500,
+      "searchMs": 47821.618599999696,
+      "alternatives": 780,
+      "unvisited": 0,
+      "elapsedMs": 47845.98389999999,
+      "scores": [
+        62,
+        62
+      ],
+      "margin": 0,
+      "winShare": 0
+    },
+    {
+      "id": "b30-928400-0",
+      "seed": 928400,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 112,
+      "iterations": 7490,
+      "searchMs": 2044.4224000000006,
+      "alternatives": 751,
+      "unvisited": 0,
+      "elapsedMs": 2067.8948,
+      "scores": [
+        52,
+        45
+      ],
+      "margin": 7,
+      "winShare": 1
+    },
+    {
+      "id": "b30-928400-1",
+      "seed": 928400,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 106,
+      "iterations": 7030,
+      "searchMs": 2752.5306999999984,
+      "alternatives": 996,
+      "unvisited": 1,
+      "elapsedMs": 2783.3228,
+      "scores": [
+        53,
+        76
+      ],
+      "margin": 23,
+      "winShare": 1
+    },
+    {
+      "id": "b30-929397-0",
+      "seed": 929397,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 119,
+      "iterations": 8610,
+      "searchMs": 2359.5978999999993,
+      "alternatives": 771,
+      "unvisited": 0,
+      "elapsedMs": 2388.9703999999997,
+      "scores": [
+        59,
+        56
+      ],
+      "margin": 3,
+      "winShare": 1
+    },
+    {
+      "id": "b30-929397-1",
+      "seed": 929397,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 113,
+      "iterations": 7870,
+      "searchMs": 7366.4031,
+      "alternatives": 827,
+      "unvisited": 0,
+      "elapsedMs": 7406.3654,
+      "scores": [
+        53,
+        68
+      ],
+      "margin": 15,
+      "winShare": 1
+    },
+    {
+      "id": "b30-930394-0",
+      "seed": 930394,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 89,
+      "iterations": 5820,
+      "searchMs": 3175.761299999999,
+      "alternatives": 887,
+      "unvisited": 0,
+      "elapsedMs": 3226.3182,
+      "scores": [
+        50,
+        53
+      ],
+      "margin": -3,
+      "winShare": 0
+    },
+    {
+      "id": "b30-930394-1",
+      "seed": 930394,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 87,
+      "iterations": 5900,
+      "searchMs": 1058.1026,
+      "alternatives": 683,
+      "unvisited": 0,
+      "elapsedMs": 1079.4489,
+      "scores": [
+        50,
+        59
+      ],
+      "margin": 9,
+      "winShare": 1
+    },
+    {
+      "id": "b30-931391-0",
+      "seed": 931391,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 107,
+      "iterations": 6710,
+      "searchMs": 2404.1066,
+      "alternatives": 875,
+      "unvisited": 0,
+      "elapsedMs": 2435.3073999999997,
+      "scores": [
+        63,
+        62
+      ],
+      "margin": 1,
+      "winShare": 1
+    },
+    {
+      "id": "b30-931391-1",
+      "seed": 931391,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 90,
+      "iterations": 5780,
+      "searchMs": 1476.0348000000004,
+      "alternatives": 656,
+      "unvisited": 0,
+      "elapsedMs": 1497.3585,
+      "scores": [
+        52,
+        64
+      ],
+      "margin": 12,
+      "winShare": 1
+    },
+    {
+      "id": "b30-932388-0",
+      "seed": 932388,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 78,
+      "iterations": 5420,
+      "searchMs": 987.7175999999993,
+      "alternatives": 727,
+      "unvisited": 0,
+      "elapsedMs": 1005.6547000000003,
+      "scores": [
+        49,
+        58
+      ],
+      "margin": -9,
+      "winShare": 0
+    },
+    {
+      "id": "b30-932388-1",
+      "seed": 932388,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 88,
+      "iterations": 5440,
+      "searchMs": 1107.5517000000004,
+      "alternatives": 652,
+      "unvisited": 0,
+      "elapsedMs": 1125.7662,
+      "scores": [
+        37,
+        62
+      ],
+      "margin": 25,
+      "winShare": 1
+    },
+    {
+      "id": "b30-933385-0",
+      "seed": 933385,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 105,
+      "iterations": 6440,
+      "searchMs": 1965.7124,
+      "alternatives": 946,
+      "unvisited": 2,
+      "elapsedMs": 1988.5495000000005,
+      "scores": [
+        72,
+        65
+      ],
+      "margin": 7,
+      "winShare": 1
+    },
+    {
+      "id": "b30-933385-1",
+      "seed": 933385,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 107,
+      "iterations": 7340,
+      "searchMs": 1527.2251,
+      "alternatives": 787,
+      "unvisited": 0,
+      "elapsedMs": 1547.4744,
+      "scores": [
+        65,
+        67
+      ],
+      "margin": 2,
+      "winShare": 1
+    },
+    {
+      "id": "b30-934382-0",
+      "seed": 934382,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 93,
+      "iterations": 6710,
+      "searchMs": 1969.9309999999964,
+      "alternatives": 676,
+      "unvisited": 0,
+      "elapsedMs": 1989.5439999999999,
+      "scores": [
+        55,
+        43
+      ],
+      "margin": 12,
+      "winShare": 1
+    },
+    {
+      "id": "b30-934382-1",
+      "seed": 934382,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 74,
+      "iterations": 4460,
+      "searchMs": 1244.6458000000011,
+      "alternatives": 648,
+      "unvisited": 0,
+      "elapsedMs": 1261.9050000000002,
+      "scores": [
+        43,
+        50
+      ],
+      "margin": 7,
+      "winShare": 1
+    },
+    {
+      "id": "b30-935379-0",
+      "seed": 935379,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 106,
+      "iterations": 6330,
+      "searchMs": 2140.3345000000036,
+      "alternatives": 922,
+      "unvisited": 0,
+      "elapsedMs": 2162.0579,
+      "scores": [
+        55,
+        52
+      ],
+      "margin": 3,
+      "winShare": 1
+    },
+    {
+      "id": "b30-935379-1",
+      "seed": 935379,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 93,
+      "iterations": 6290,
+      "searchMs": 1452.759799999999,
+      "alternatives": 779,
+      "unvisited": 0,
+      "elapsedMs": 1473.9810999999995,
+      "scores": [
+        46,
+        50
+      ],
+      "margin": 4,
+      "winShare": 1
+    },
+    {
+      "id": "b30-936376-0",
+      "seed": 936376,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 92,
+      "iterations": 5910,
+      "searchMs": 1844.1409000000012,
+      "alternatives": 886,
+      "unvisited": 0,
+      "elapsedMs": 1870.9971999999998,
+      "scores": [
+        56,
+        68
+      ],
+      "margin": -12,
+      "winShare": 0
+    },
+    {
+      "id": "b30-936376-1",
+      "seed": 936376,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 6210,
+      "searchMs": 1948.628999999999,
+      "alternatives": 831,
+      "unvisited": 2,
+      "elapsedMs": 1973.833,
+      "scores": [
+        50,
+        70
+      ],
+      "margin": 20,
+      "winShare": 1
+    },
+    {
+      "id": "b30-937373-0",
+      "seed": 937373,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 87,
+      "iterations": 5760,
+      "searchMs": 1110.014900000002,
+      "alternatives": 727,
+      "unvisited": 0,
+      "elapsedMs": 1127.2512000000002,
+      "scores": [
+        62,
+        44
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "b30-937373-1",
+      "seed": 937373,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 105,
+      "iterations": 7560,
+      "searchMs": 3079.2611000000015,
+      "alternatives": 692,
+      "unvisited": 0,
+      "elapsedMs": 3101.4791999999998,
+      "scores": [
+        63,
+        59
+      ],
+      "margin": -4,
+      "winShare": 0
+    },
+    {
+      "id": "b30-938370-0",
+      "seed": 938370,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 74,
+      "iterations": 4880,
+      "searchMs": 1001.4950999999992,
+      "alternatives": 644,
+      "unvisited": 0,
+      "elapsedMs": 1018.2834999999995,
+      "scores": [
+        63,
+        50
+      ],
+      "margin": 13,
+      "winShare": 1
+    },
+    {
+      "id": "b30-938370-1",
+      "seed": 938370,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 5860,
+      "searchMs": 1586.4983999999986,
+      "alternatives": 672,
+      "unvisited": 0,
+      "elapsedMs": 1605.5824999999995,
+      "scores": [
+        49,
+        67
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "b30-939367-0",
+      "seed": 939367,
+      "seat": 0,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 94,
+      "iterations": 5970,
+      "searchMs": 2058.6291999999985,
+      "alternatives": 772,
+      "unvisited": 0,
+      "elapsedMs": 2081.1727,
+      "scores": [
+        60,
+        50
+      ],
+      "margin": 10,
+      "winShare": 1
+    },
+    {
+      "id": "b30-939367-1",
+      "seed": 939367,
+      "seat": 1,
+      "budget": 30,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 99,
+      "iterations": 6750,
+      "searchMs": 1398.8067999999967,
+      "alternatives": 918,
+      "unvisited": 0,
+      "elapsedMs": 1418.5830999999998,
+      "scores": [
+        52,
+        66
+      ],
+      "margin": 14,
+      "winShare": 1
+    },
+    {
+      "id": "b300-928400-0",
+      "seed": 928400,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 109,
+      "iterations": 20700,
+      "searchMs": 58190.76309999996,
+      "alternatives": 684,
+      "unvisited": 0,
+      "elapsedMs": 58245.2724,
+      "scores": [
+        62,
+        29
+      ],
+      "margin": 33,
+      "winShare": 1
+    },
+    {
+      "id": "b300-928400-1",
+      "seed": 928400,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 99,
+      "iterations": 19300,
+      "searchMs": 16008.111200000014,
+      "alternatives": 803,
+      "unvisited": 0,
+      "elapsedMs": 16026.7712,
+      "scores": [
+        63,
+        66
+      ],
+      "margin": 3,
+      "winShare": 1
+    },
+    {
+      "id": "b300-929397-0",
+      "seed": 929397,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 130,
+      "iterations": 24400,
+      "searchMs": 29161.07120000002,
+      "alternatives": 771,
+      "unvisited": 0,
+      "elapsedMs": 29182.928300000003,
+      "scores": [
+        79,
+        30
+      ],
+      "margin": 49,
+      "winShare": 1
+    },
+    {
+      "id": "b300-929397-1",
+      "seed": 929397,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 110,
+      "iterations": 22400,
+      "searchMs": 19568.760799999967,
+      "alternatives": 1032,
+      "unvisited": 0,
+      "elapsedMs": 19591.678399999997,
+      "scores": [
+        60,
+        85
+      ],
+      "margin": 25,
+      "winShare": 1
+    },
+    {
+      "id": "b300-930394-0",
+      "seed": 930394,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 90,
+      "iterations": 19000,
+      "searchMs": 18472.811199999996,
+      "alternatives": 639,
+      "unvisited": 0,
+      "elapsedMs": 18493.319600000003,
+      "scores": [
+        65,
+        61
+      ],
+      "margin": 4,
+      "winShare": 1
+    },
+    {
+      "id": "b300-930394-1",
+      "seed": 930394,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 100,
+      "iterations": 18000,
+      "searchMs": 11655.896700000005,
+      "alternatives": 662,
+      "unvisited": 0,
+      "elapsedMs": 11673.670299999998,
+      "scores": [
+        52,
+        62
+      ],
+      "margin": 10,
+      "winShare": 1
+    },
+    {
+      "id": "b300-931391-0",
+      "seed": 931391,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 105,
+      "iterations": 21300,
+      "searchMs": 29822.08030000001,
+      "alternatives": 802,
+      "unvisited": 0,
+      "elapsedMs": 29853.4948,
+      "scores": [
+        77,
+        58
+      ],
+      "margin": 19,
+      "winShare": 1
+    },
+    {
+      "id": "b300-931391-1",
+      "seed": 931391,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 112,
+      "iterations": 23000,
+      "searchMs": 35545.18439999998,
+      "alternatives": 788,
+      "unvisited": 0,
+      "elapsedMs": 35567.7341,
+      "scores": [
+        54,
+        88
+      ],
+      "margin": 34,
+      "winShare": 1
+    },
+    {
+      "id": "b300-932388-0",
+      "seed": 932388,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 88,
+      "iterations": 16800,
+      "searchMs": 10732.908899999951,
+      "alternatives": 750,
+      "unvisited": 0,
+      "elapsedMs": 10750.476200000005,
+      "scores": [
+        69,
+        55
+      ],
+      "margin": 14,
+      "winShare": 1
+    },
+    {
+      "id": "b300-932388-1",
+      "seed": 932388,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 83,
+      "iterations": 18100,
+      "searchMs": 10860.70730000001,
+      "alternatives": 645,
+      "unvisited": 0,
+      "elapsedMs": 10875.032599999999,
+      "scores": [
+        38,
+        62
+      ],
+      "margin": 24,
+      "winShare": 1
+    },
+    {
+      "id": "b300-933385-0",
+      "seed": 933385,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 121,
+      "iterations": 24100,
+      "searchMs": 269562.58719999995,
+      "alternatives": 943,
+      "unvisited": 0,
+      "elapsedMs": 269816.7557,
+      "scores": [
+        72,
+        54
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "b300-933385-1",
+      "seed": 933385,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 114,
+      "iterations": 22800,
+      "searchMs": 14983.88889999999,
+      "alternatives": 702,
+      "unvisited": 0,
+      "elapsedMs": 15004.589399999997,
+      "scores": [
+        54,
+        63
+      ],
+      "margin": 9,
+      "winShare": 1
+    },
+    {
+      "id": "b300-934382-0",
+      "seed": 934382,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 87,
+      "iterations": 15700,
+      "searchMs": 10886.43749999997,
+      "alternatives": 692,
+      "unvisited": 0,
+      "elapsedMs": 10903.3583,
+      "scores": [
+        58,
+        45
+      ],
+      "margin": 13,
+      "winShare": 1
+    },
+    {
+      "id": "b300-934382-1",
+      "seed": 934382,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 20800,
+      "searchMs": 13664.759299999983,
+      "alternatives": 672,
+      "unvisited": 0,
+      "elapsedMs": 13682.8949,
+      "scores": [
+        42,
+        71
+      ],
+      "margin": 29,
+      "winShare": 1
+    },
+    {
+      "id": "b300-935379-0",
+      "seed": 935379,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 105,
+      "iterations": 22100,
+      "searchMs": 17495.119800000022,
+      "alternatives": 734,
+      "unvisited": 0,
+      "elapsedMs": 17513.753599999996,
+      "scores": [
+        78,
+        36
+      ],
+      "margin": 42,
+      "winShare": 1
+    },
+    {
+      "id": "b300-935379-1",
+      "seed": 935379,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 117,
+      "iterations": 22300,
+      "searchMs": 20078.902600000023,
+      "alternatives": 1010,
+      "unvisited": 0,
+      "elapsedMs": 20104.8444,
+      "scores": [
+        46,
+        73
+      ],
+      "margin": 27,
+      "winShare": 1
+    },
+    {
+      "id": "b300-936376-0",
+      "seed": 936376,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 98,
+      "iterations": 20600,
+      "searchMs": 15616.361599999982,
+      "alternatives": 923,
+      "unvisited": 0,
+      "elapsedMs": 15637.297100000003,
+      "scores": [
+        87,
+        72
+      ],
+      "margin": 15,
+      "winShare": 1
+    },
+    {
+      "id": "b300-936376-1",
+      "seed": 936376,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 18900,
+      "searchMs": 13616.274099999973,
+      "alternatives": 690,
+      "unvisited": 0,
+      "elapsedMs": 13638.859400000001,
+      "scores": [
+        47,
+        80
+      ],
+      "margin": 33,
+      "winShare": 1
+    },
+    {
+      "id": "b300-937373-0",
+      "seed": 937373,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 100,
+      "iterations": 21000,
+      "searchMs": 15552.977800000059,
+      "alternatives": 817,
+      "unvisited": 0,
+      "elapsedMs": 15572.542099999999,
+      "scores": [
+        78,
+        43
+      ],
+      "margin": 35,
+      "winShare": 1
+    },
+    {
+      "id": "b300-937373-1",
+      "seed": 937373,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 94,
+      "iterations": 18200,
+      "searchMs": 19797.62180000006,
+      "alternatives": 753,
+      "unvisited": 0,
+      "elapsedMs": 19823.5812,
+      "scores": [
+        56,
+        66
+      ],
+      "margin": 10,
+      "winShare": 1
+    },
+    {
+      "id": "b300-938370-0",
+      "seed": 938370,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 85,
+      "iterations": 16500,
+      "searchMs": 9620.141000000076,
+      "alternatives": 643,
+      "unvisited": 0,
+      "elapsedMs": 9636.044999999998,
+      "scores": [
+        64,
+        55
+      ],
+      "margin": 9,
+      "winShare": 1
+    },
+    {
+      "id": "b300-938370-1",
+      "seed": 938370,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 101,
+      "iterations": 21100,
+      "searchMs": 18757.62869999993,
+      "alternatives": 805,
+      "unvisited": 0,
+      "elapsedMs": 18777.527199999997,
+      "scores": [
+        65,
+        63
+      ],
+      "margin": -2,
+      "winShare": 0
+    },
+    {
+      "id": "b300-939367-0",
+      "seed": 939367,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 19500,
+      "searchMs": 15232.034700000004,
+      "alternatives": 682,
+      "unvisited": 0,
+      "elapsedMs": 15250.779899999994,
+      "scores": [
+        79,
+        58
+      ],
+      "margin": 21,
+      "winShare": 1
+    },
+    {
+      "id": "b300-939367-1",
+      "seed": 939367,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "heuristic",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 17700,
+      "searchMs": 12173.605299999981,
+      "alternatives": 829,
+      "unvisited": 0,
+      "elapsedMs": 12192.136800000007,
+      "scores": [
+        59,
+        64
+      ],
+      "margin": 5,
+      "winShare": 1
+    },
+    {
+      "id": "h100-941600-0",
+      "seed": 941600,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 124,
+      "iterations": 7920,
+      "searchMs": 9662.67550000007,
+      "alternatives": 1104,
+      "unvisited": 0,
+      "elapsedMs": 9688.513899999962,
+      "scores": [
+        67,
+        62
+      ],
+      "margin": 5,
+      "winShare": 1
+    },
+    {
+      "id": "h100-941600-1",
+      "seed": 941600,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 109,
+      "iterations": 6770,
+      "searchMs": 6439.515200000431,
+      "alternatives": 859,
+      "unvisited": 0,
+      "elapsedMs": 6461.621199999994,
+      "scores": [
+        73,
+        55
+      ],
+      "margin": -18,
+      "winShare": 0
+    },
+    {
+      "id": "h100-942597-0",
+      "seed": 942597,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 104,
+      "iterations": 6900,
+      "searchMs": 6218.905600000173,
+      "alternatives": 687,
+      "unvisited": 0,
+      "elapsedMs": 6238.472599999979,
+      "scores": [
+        56,
+        60
+      ],
+      "margin": -4,
+      "winShare": 0
+    },
+    {
+      "id": "h100-942597-1",
+      "seed": 942597,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 87,
+      "iterations": 5620,
+      "searchMs": 6117.312700000068,
+      "alternatives": 667,
+      "unvisited": 0,
+      "elapsedMs": 6136.267399999953,
+      "scores": [
+        55,
+        65
+      ],
+      "margin": 10,
+      "winShare": 1
+    },
+    {
+      "id": "h100-943594-0",
+      "seed": 943594,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 81,
+      "iterations": 5020,
+      "searchMs": 4138.0880999997025,
+      "alternatives": 675,
+      "unvisited": 0,
+      "elapsedMs": 4154.619700000039,
+      "scores": [
+        52,
+        59
+      ],
+      "margin": -7,
+      "winShare": 0
+    },
+    {
+      "id": "h100-943594-1",
+      "seed": 943594,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 82,
+      "iterations": 5470,
+      "searchMs": 4896.700399999914,
+      "alternatives": 656,
+      "unvisited": 0,
+      "elapsedMs": 4914.450100000016,
+      "scores": [
+        41,
+        62
+      ],
+      "margin": 21,
+      "winShare": 1
+    },
+    {
+      "id": "h100-944591-0",
+      "seed": 944591,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 98,
+      "iterations": 6510,
+      "searchMs": 6357.002800000075,
+      "alternatives": 1077,
+      "unvisited": 0,
+      "elapsedMs": 6376.873199999973,
+      "scores": [
+        61,
+        59
+      ],
+      "margin": 2,
+      "winShare": 1
+    },
+    {
+      "id": "h100-944591-1",
+      "seed": 944591,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 103,
+      "iterations": 6450,
+      "searchMs": 6697.615000000107,
+      "alternatives": 789,
+      "unvisited": 0,
+      "elapsedMs": 6718.690500000026,
+      "scores": [
+        54,
+        70
+      ],
+      "margin": 16,
+      "winShare": 1
+    },
+    {
+      "id": "h100-945588-0",
+      "seed": 945588,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 144,
+      "iterations": 9220,
+      "searchMs": 10895.960000000196,
+      "alternatives": 979,
+      "unvisited": 0,
+      "elapsedMs": 10924.220199999982,
+      "scores": [
+        69,
+        68
+      ],
+      "margin": 1,
+      "winShare": 1
+    },
+    {
+      "id": "h100-945588-1",
+      "seed": 945588,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 126,
+      "iterations": 8330,
+      "searchMs": 15064.115899999859,
+      "alternatives": 1024,
+      "unvisited": 0,
+      "elapsedMs": 15095.281900000002,
+      "scores": [
+        77,
+        68
+      ],
+      "margin": -9,
+      "winShare": 0
+    },
+    {
+      "id": "h100-946585-0",
+      "seed": 946585,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 105,
+      "iterations": 7000,
+      "searchMs": 8658.088500000478,
+      "alternatives": 881,
+      "unvisited": 77,
+      "elapsedMs": 8681.623699999996,
+      "scores": [
+        62,
+        76
+      ],
+      "margin": -14,
+      "winShare": 0
+    },
+    {
+      "id": "h100-946585-1",
+      "seed": 946585,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 92,
+      "iterations": 6050,
+      "searchMs": 5282.086500000383,
+      "alternatives": 677,
+      "unvisited": 0,
+      "elapsedMs": 5300.588500000013,
+      "scores": [
+        49,
+        59
+      ],
+      "margin": 10,
+      "winShare": 1
+    },
+    {
+      "id": "h100-947582-0",
+      "seed": 947582,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 123,
+      "iterations": 8450,
+      "searchMs": 15819.737599999877,
+      "alternatives": 926,
+      "unvisited": 0,
+      "elapsedMs": 15851.17949999997,
+      "scores": [
+        86,
+        74
+      ],
+      "margin": 12,
+      "winShare": 1
+    },
+    {
+      "id": "h100-947582-1",
+      "seed": 947582,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 97,
+      "iterations": 6690,
+      "searchMs": 12355.960399999865,
+      "alternatives": 852,
+      "unvisited": 0,
+      "elapsedMs": 12379.27039999998,
+      "scores": [
+        65,
+        79
+      ],
+      "margin": 14,
+      "winShare": 1
+    },
+    {
+      "id": "h100-948579-0",
+      "seed": 948579,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 90,
+      "iterations": 6270,
+      "searchMs": 6949.198600000003,
+      "alternatives": 790,
+      "unvisited": 0,
+      "elapsedMs": 6969.171699999948,
+      "scores": [
+        56,
+        58
+      ],
+      "margin": -2,
+      "winShare": 0
+    },
+    {
+      "id": "h100-948579-1",
+      "seed": 948579,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 113,
+      "iterations": 7310,
+      "searchMs": 10264.95620000019,
+      "alternatives": 876,
+      "unvisited": 0,
+      "elapsedMs": 10288.585699999996,
+      "scores": [
+        69,
+        72
+      ],
+      "margin": 3,
+      "winShare": 1
+    },
+    {
+      "id": "h100-949576-0",
+      "seed": 949576,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 100,
+      "iterations": 6500,
+      "searchMs": 5314.356600000116,
+      "alternatives": 827,
+      "unvisited": 0,
+      "elapsedMs": 5333.631400000013,
+      "scores": [
+        58,
+        47
+      ],
+      "margin": 11,
+      "winShare": 1
+    },
+    {
+      "id": "h100-949576-1",
+      "seed": 949576,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 109,
+      "iterations": 7260,
+      "searchMs": 6916.837699999916,
+      "alternatives": 995,
+      "unvisited": 0,
+      "elapsedMs": 6939.048499999975,
+      "scores": [
+        58,
+        58
+      ],
+      "margin": 0,
+      "winShare": 1
+    },
+    {
+      "id": "h100-950573-0",
+      "seed": 950573,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 102,
+      "iterations": 6210,
+      "searchMs": 6675.834799999895,
+      "alternatives": 724,
+      "unvisited": 0,
+      "elapsedMs": 6695.505100000009,
+      "scores": [
+        51,
+        64
+      ],
+      "margin": -13,
+      "winShare": 0
+    },
+    {
+      "id": "h100-950573-1",
+      "seed": 950573,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 6310,
+      "searchMs": 7982.7853000002215,
+      "alternatives": 742,
+      "unvisited": 0,
+      "elapsedMs": 8003.812600000005,
+      "scores": [
+        64,
+        68
+      ],
+      "margin": 4,
+      "winShare": 1
+    },
+    {
+      "id": "h100-951570-0",
+      "seed": 951570,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 118,
+      "iterations": 7810,
+      "searchMs": 11248.644300000218,
+      "alternatives": 1111,
+      "unvisited": 124,
+      "elapsedMs": 11276.620600000024,
+      "scores": [
+        77,
+        68
+      ],
+      "margin": 9,
+      "winShare": 1
+    },
+    {
+      "id": "h100-951570-1",
+      "seed": 951570,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 6450,
+      "searchMs": 6654.295400000003,
+      "alternatives": 1216,
+      "unvisited": 0,
+      "elapsedMs": 6673.942299999995,
+      "scores": [
+        67,
+        65
+      ],
+      "margin": -2,
+      "winShare": 0
+    },
+    {
+      "id": "h100-952567-0",
+      "seed": 952567,
+      "seat": 0,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 89,
+      "iterations": 6030,
+      "searchMs": 7881.179799999867,
+      "alternatives": 692,
+      "unvisited": 0,
+      "elapsedMs": 7901.955099999963,
+      "scores": [
+        70,
+        53
+      ],
+      "margin": 17,
+      "winShare": 1
+    },
+    {
+      "id": "h100-952567-1",
+      "seed": 952567,
+      "seat": 1,
+      "budget": 100,
+      "opponent": "belief-rollout",
+      "opponentBudget": 30,
+      "status": "complete",
+      "steps": 97,
+      "iterations": 5360,
+      "searchMs": 5520.680700000317,
+      "alternatives": 919,
+      "unvisited": 25,
+      "elapsedMs": 5544.1720000000205,
+      "scores": [
+        74,
+        54
+      ],
+      "margin": -20,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-941600-0",
+      "seed": 941600,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 104,
+      "iterations": 64100,
+      "searchMs": 61043.13959999918,
+      "alternatives": 900,
+      "unvisited": 0,
+      "elapsedMs": 61064.58720000007,
+      "scores": [
+        69,
+        58
+      ],
+      "margin": 11,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-941600-1",
+      "seed": 941600,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 111,
+      "iterations": 76000,
+      "searchMs": 97252.88409999956,
+      "alternatives": 874,
+      "unvisited": 0,
+      "elapsedMs": 97278.26119999995,
+      "scores": [
+        71,
+        83
+      ],
+      "margin": 12,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-942597-0",
+      "seed": 942597,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 106,
+      "iterations": 66100,
+      "searchMs": 66056.13549999968,
+      "alternatives": 798,
+      "unvisited": 0,
+      "elapsedMs": 66078.82390000002,
+      "scores": [
+        66,
+        75
+      ],
+      "margin": -9,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-942597-1",
+      "seed": 942597,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 62800,
+      "searchMs": 52345.57420000038,
+      "alternatives": 713,
+      "unvisited": 0,
+      "elapsedMs": 52364.82859999995,
+      "scores": [
+        62,
+        60
+      ],
+      "margin": -2,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-943594-0",
+      "seed": 943594,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 90,
+      "iterations": 59200,
+      "searchMs": 44115.17690000014,
+      "alternatives": 674,
+      "unvisited": 0,
+      "elapsedMs": 44133.17569999996,
+      "scores": [
+        48,
+        62
+      ],
+      "margin": -14,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-943594-1",
+      "seed": 943594,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 63800,
+      "searchMs": 48989.80600000004,
+      "alternatives": 790,
+      "unvisited": 0,
+      "elapsedMs": 49008.513400000054,
+      "scores": [
+        60,
+        73
+      ],
+      "margin": 13,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-944591-0",
+      "seed": 944591,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 109,
+      "iterations": 64900,
+      "searchMs": 100141.15499999985,
+      "alternatives": 705,
+      "unvisited": 0,
+      "elapsedMs": 100165.57289999997,
+      "scores": [
+        67,
+        76
+      ],
+      "margin": -9,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-944591-1",
+      "seed": 944591,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 108,
+      "iterations": 71600,
+      "searchMs": 115167.05150000064,
+      "alternatives": 728,
+      "unvisited": 0,
+      "elapsedMs": 115192.80959999998,
+      "scores": [
+        67,
+        82
+      ],
+      "margin": 15,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-945588-0",
+      "seed": 945588,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 144,
+      "iterations": 92200,
+      "searchMs": 120788.49699999997,
+      "alternatives": 1173,
+      "unvisited": 0,
+      "elapsedMs": 120819.33460000006,
+      "scores": [
+        80,
+        76
+      ],
+      "margin": 4,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-945588-1",
+      "seed": 945588,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 148,
+      "iterations": 98300,
+      "searchMs": 131543.33169999975,
+      "alternatives": 978,
+      "unvisited": 0,
+      "elapsedMs": 131574.84770000004,
+      "scores": [
+        90,
+        89
+      ],
+      "margin": -1,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-946585-0",
+      "seed": 946585,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 116,
+      "iterations": 77500,
+      "searchMs": 79476.41220000014,
+      "alternatives": 1381,
+      "unvisited": 0,
+      "elapsedMs": 79503.09140000003,
+      "scores": [
+        85,
+        93
+      ],
+      "margin": -8,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-946585-1",
+      "seed": 946585,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 102,
+      "iterations": 64200,
+      "searchMs": 91531.75630000024,
+      "alternatives": 1501,
+      "unvisited": 0,
+      "elapsedMs": 91555.70740000007,
+      "scores": [
+        78,
+        72
+      ],
+      "margin": -6,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-947582-0",
+      "seed": 947582,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 117,
+      "iterations": 76400,
+      "searchMs": 121856.24860000086,
+      "alternatives": 848,
+      "unvisited": 0,
+      "elapsedMs": 121882.77610000002,
+      "scores": [
+        78,
+        88
+      ],
+      "margin": -10,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-947582-1",
+      "seed": 947582,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 111,
+      "iterations": 69700,
+      "searchMs": 96105.72340000083,
+      "alternatives": 837,
+      "unvisited": 0,
+      "elapsedMs": 96130.53269999998,
+      "scores": [
+        78,
+        81
+      ],
+      "margin": 3,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-948579-0",
+      "seed": 948579,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 92,
+      "iterations": 62600,
+      "searchMs": 57437.30879999965,
+      "alternatives": 763,
+      "unvisited": 0,
+      "elapsedMs": 57456.4791,
+      "scores": [
+        64,
+        58
+      ],
+      "margin": 6,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-948579-1",
+      "seed": 948579,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 85,
+      "iterations": 52800,
+      "searchMs": 49116.830999999656,
+      "alternatives": 865,
+      "unvisited": 0,
+      "elapsedMs": 49134.50359999994,
+      "scores": [
+        63,
+        51
+      ],
+      "margin": -12,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-949576-0",
+      "seed": 949576,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 94,
+      "iterations": 61100,
+      "searchMs": 57871.73869999894,
+      "alternatives": 636,
+      "unvisited": 0,
+      "elapsedMs": 57890.85610000009,
+      "scores": [
+        58,
+        51
+      ],
+      "margin": 7,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-949576-1",
+      "seed": 949576,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 61400,
+      "searchMs": 47355.023099999526,
+      "alternatives": 628,
+      "unvisited": 0,
+      "elapsedMs": 47373.29000000004,
+      "scores": [
+        49,
+        58
+      ],
+      "margin": 9,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-950573-0",
+      "seed": 950573,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 63800,
+      "searchMs": 58732.27530000056,
+      "alternatives": 706,
+      "unvisited": 0,
+      "elapsedMs": 58752.0294,
+      "scores": [
+        85,
+        64
+      ],
+      "margin": 21,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-950573-1",
+      "seed": 950573,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 95,
+      "iterations": 62100,
+      "searchMs": 57191.70860000048,
+      "alternatives": 768,
+      "unvisited": 0,
+      "elapsedMs": 57210.767300000065,
+      "scores": [
+        69,
+        66
+      ],
+      "margin": -3,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-951570-0",
+      "seed": 951570,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 110,
+      "iterations": 72200,
+      "searchMs": 79454.790199999,
+      "alternatives": 807,
+      "unvisited": 0,
+      "elapsedMs": 79476.9719,
+      "scores": [
+        82,
+        70
+      ],
+      "margin": 12,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-951570-1",
+      "seed": 951570,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 116,
+      "iterations": 76100,
+      "searchMs": 105143.05669999996,
+      "alternatives": 957,
+      "unvisited": 0,
+      "elapsedMs": 105167.79350000003,
+      "scores": [
+        87,
+        68
+      ],
+      "margin": -19,
+      "winShare": 0
+    },
+    {
+      "id": "h1000-952567-0",
+      "seed": 952567,
+      "seat": 0,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 101,
+      "iterations": 75100,
+      "searchMs": 80489.33859999897,
+      "alternatives": 832,
+      "unvisited": 0,
+      "elapsedMs": 80509.38679999998,
+      "scores": [
+        85,
+        54
+      ],
+      "margin": 31,
+      "winShare": 1
+    },
+    {
+      "id": "h1000-952567-1",
+      "seed": 952567,
+      "seat": 1,
+      "budget": 1000,
+      "opponent": "belief-rollout",
+      "opponentBudget": 300,
+      "status": "complete",
+      "steps": 97,
+      "iterations": 57800,
+      "searchMs": 62847.866900000605,
+      "alternatives": 733,
+      "unvisited": 0,
+      "elapsedMs": 62869.15869999991,
+      "scores": [
+        87,
+        57
+      ],
+      "margin": -30,
+      "winShare": 0
+    },
+    {
+      "id": "h300-941600-0",
+      "seed": 941600,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 106,
+      "iterations": 20400,
+      "searchMs": 21432.1518000004,
+      "alternatives": 793,
+      "unvisited": 0,
+      "elapsedMs": 21453.90730000002,
+      "scores": [
+        77,
+        57
+      ],
+      "margin": 20,
+      "winShare": 1
+    },
+    {
+      "id": "h300-941600-1",
+      "seed": 941600,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 115,
+      "iterations": 22100,
+      "searchMs": 27473.44040000002,
+      "alternatives": 787,
+      "unvisited": 0,
+      "elapsedMs": 27497.407799999986,
+      "scores": [
+        74,
+        63
+      ],
+      "margin": -11,
+      "winShare": 0
+    },
+    {
+      "id": "h300-942597-0",
+      "seed": 942597,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 100,
+      "iterations": 20200,
+      "searchMs": 19624.560199999833,
+      "alternatives": 775,
+      "unvisited": 0,
+      "elapsedMs": 19646.26370000001,
+      "scores": [
+        70,
+        62
+      ],
+      "margin": 8,
+      "winShare": 1
+    },
+    {
+      "id": "h300-942597-1",
+      "seed": 942597,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 107,
+      "iterations": 20700,
+      "searchMs": 20075.100200000044,
+      "alternatives": 836,
+      "unvisited": 0,
+      "elapsedMs": 20097.430999999982,
+      "scores": [
+        61,
+        61
+      ],
+      "margin": 0,
+      "winShare": 0.5
+    },
+    {
+      "id": "h300-943594-0",
+      "seed": 943594,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 87,
+      "iterations": 18100,
+      "searchMs": 14681.107699999702,
+      "alternatives": 650,
+      "unvisited": 0,
+      "elapsedMs": 14698.84600000002,
+      "scores": [
+        57,
+        63
+      ],
+      "margin": -6,
+      "winShare": 0
+    },
+    {
+      "id": "h300-943594-1",
+      "seed": 943594,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 78,
+      "iterations": 15600,
+      "searchMs": 13215.22929999989,
+      "alternatives": 663,
+      "unvisited": 0,
+      "elapsedMs": 13231.322999999975,
+      "scores": [
+        50,
+        59
+      ],
+      "margin": 9,
+      "winShare": 1
+    },
+    {
+      "id": "h300-944591-0",
+      "seed": 944591,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 98,
+      "iterations": 20000,
+      "searchMs": 20564.077099999588,
+      "alternatives": 643,
+      "unvisited": 0,
+      "elapsedMs": 20582.859800000035,
+      "scores": [
+        65,
+        75
+      ],
+      "margin": -10,
+      "winShare": 0
+    },
+    {
+      "id": "h300-944591-1",
+      "seed": 944591,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 117,
+      "iterations": 24100,
+      "searchMs": 47897.18670000014,
+      "alternatives": 1103,
+      "unvisited": 0,
+      "elapsedMs": 47946.71909999999,
+      "scores": [
+        64,
+        67
+      ],
+      "margin": 3,
+      "winShare": 1
+    },
+    {
+      "id": "h300-945588-0",
+      "seed": 945588,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 140,
+      "iterations": 26200,
+      "searchMs": 36595.650800000294,
+      "alternatives": 1181,
+      "unvisited": 0,
+      "elapsedMs": 36626.5331,
+      "scores": [
+        88,
+        84
+      ],
+      "margin": 4,
+      "winShare": 1
+    },
+    {
+      "id": "h300-945588-1",
+      "seed": 945588,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 147,
+      "iterations": 29500,
+      "searchMs": 35168.163800000155,
+      "alternatives": 896,
+      "unvisited": 0,
+      "elapsedMs": 35197.40110000002,
+      "scores": [
+        77,
+        85
+      ],
+      "margin": 8,
+      "winShare": 1
+    },
+    {
+      "id": "h300-946585-0",
+      "seed": 946585,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 121,
+      "iterations": 25900,
+      "searchMs": 46414.778300000005,
+      "alternatives": 1605,
+      "unvisited": 0,
+      "elapsedMs": 46444.93570000003,
+      "scores": [
+        101,
+        68
+      ],
+      "margin": 33,
+      "winShare": 1
+    },
+    {
+      "id": "h300-946585-1",
+      "seed": 946585,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 102,
+      "iterations": 19600,
+      "searchMs": 23423.92289999983,
+      "alternatives": 1239,
+      "unvisited": 0,
+      "elapsedMs": 23445.94299999997,
+      "scores": [
+        74,
+        73
+      ],
+      "margin": -1,
+      "winShare": 0
+    },
+    {
+      "id": "h300-947582-0",
+      "seed": 947582,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 103,
+      "iterations": 20500,
+      "searchMs": 40522.45969999983,
+      "alternatives": 1220,
+      "unvisited": 0,
+      "elapsedMs": 40552.3137,
+      "scores": [
+        70,
+        76
+      ],
+      "margin": -6,
+      "winShare": 0
+    },
+    {
+      "id": "h300-947582-1",
+      "seed": 947582,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 122,
+      "iterations": 25600,
+      "searchMs": 72935.26679999975,
+      "alternatives": 916,
+      "unvisited": 0,
+      "elapsedMs": 72989.01510000002,
+      "scores": [
+        81,
+        70
+      ],
+      "margin": -11,
+      "winShare": 0
+    },
+    {
+      "id": "h300-948579-0",
+      "seed": 948579,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 104,
+      "iterations": 21000,
+      "searchMs": 29819.468799999624,
+      "alternatives": 907,
+      "unvisited": 0,
+      "elapsedMs": 29842.7978,
+      "scores": [
+        64,
+        68
+      ],
+      "margin": -4,
+      "winShare": 0
+    },
+    {
+      "id": "h300-948579-1",
+      "seed": 948579,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 19000,
+      "searchMs": 22327.57740000036,
+      "alternatives": 882,
+      "unvisited": 0,
+      "elapsedMs": 22347.1446,
+      "scores": [
+        59,
+        54
+      ],
+      "margin": -5,
+      "winShare": 0
+    },
+    {
+      "id": "h300-949576-0",
+      "seed": 949576,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 105,
+      "iterations": 20900,
+      "searchMs": 17224.821600000258,
+      "alternatives": 802,
+      "unvisited": 0,
+      "elapsedMs": 17245.623900000006,
+      "scores": [
+        53,
+        51
+      ],
+      "margin": 2,
+      "winShare": 1
+    },
+    {
+      "id": "h300-949576-1",
+      "seed": 949576,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 112,
+      "iterations": 22000,
+      "searchMs": 31071.595800000418,
+      "alternatives": 688,
+      "unvisited": 0,
+      "elapsedMs": 31098.678000000014,
+      "scores": [
+        54,
+        58
+      ],
+      "margin": 4,
+      "winShare": 1
+    },
+    {
+      "id": "h300-950573-0",
+      "seed": 950573,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 19400,
+      "searchMs": 32818.39419999998,
+      "alternatives": 650,
+      "unvisited": 0,
+      "elapsedMs": 32840.05410000001,
+      "scores": [
+        73,
+        78
+      ],
+      "margin": -5,
+      "winShare": 0
+    },
+    {
+      "id": "h300-950573-1",
+      "seed": 950573,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 102,
+      "iterations": 21400,
+      "searchMs": 49890.534100000456,
+      "alternatives": 649,
+      "unvisited": 0,
+      "elapsedMs": 49915.2806,
+      "scores": [
+        74,
+        68
+      ],
+      "margin": -6,
+      "winShare": 0
+    },
+    {
+      "id": "h300-951570-0",
+      "seed": 951570,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 111,
+      "iterations": 22100,
+      "searchMs": 28746.653800000087,
+      "alternatives": 775,
+      "unvisited": 0,
+      "elapsedMs": 28770.05229999998,
+      "scores": [
+        72,
+        54
+      ],
+      "margin": 18,
+      "winShare": 1
+    },
+    {
+      "id": "h300-951570-1",
+      "seed": 951570,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 128,
+      "iterations": 23600,
+      "searchMs": 25636.139800000354,
+      "alternatives": 919,
+      "unvisited": 0,
+      "elapsedMs": 25662.275599999994,
+      "scores": [
+        87,
+        69
+      ],
+      "margin": -18,
+      "winShare": 0
+    },
+    {
+      "id": "h300-952567-0",
+      "seed": 952567,
+      "seat": 0,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 84,
+      "iterations": 17800,
+      "searchMs": 14829.508199999691,
+      "alternatives": 621,
+      "unvisited": 0,
+      "elapsedMs": 14846.637199999997,
+      "scores": [
+        65,
+        60
+      ],
+      "margin": 5,
+      "winShare": 1
+    },
+    {
+      "id": "h300-952567-1",
+      "seed": 952567,
+      "seat": 1,
+      "budget": 300,
+      "opponent": "belief-rollout",
+      "opponentBudget": 100,
+      "status": "complete",
+      "steps": 96,
+      "iterations": 19400,
+      "searchMs": 24101.968900000094,
+      "alternatives": 672,
+      "unvisited": 0,
+      "elapsedMs": 24123.455799999996,
+      "scores": [
+        68,
+        54
+      ],
+      "margin": -14,
+      "winShare": 0
+    }
+  ]
+}

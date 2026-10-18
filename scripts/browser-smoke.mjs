@@ -9,7 +9,7 @@ page.on("console", message=>{if(message.type()==="error")errors.push(message.tex
 const simulations = async () => Number(
   (await page.locator(".stat .value").first().innerText()).replaceAll(",",""));
 try {
-  await page.goto("http://127.0.0.1:8080/", {waitUntil:"networkidle"});
+  await page.goto("http://127.0.0.1:8080/azul.html", {waitUntil:"networkidle"});
   assert.match(await page.locator("h1").innerText(), /Azul/);
   assert.equal(await page.locator("#search-variant").inputValue(), "guided-informed");
   assert.equal(await page.locator("footer").count(),0,"Do not show promotional footer");

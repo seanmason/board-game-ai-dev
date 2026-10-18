@@ -25,9 +25,11 @@ is the command inventory, not proof a new revision passed. Packaging:
 
 ## Current AI and findings
 
-UCB/progressive widening with sampled hidden worlds and finite-horizon tuned continuations; all immediate legal choices remain eligible. Exact final-row continuation search stops once solved. Reported utility is heuristic score margin; exact endgame results do not imply whole-game solved play.
+Normal-turn recommendations now rank every legal choice with the tuned immediate heuristic. The final row retains the existing exhaustive continuation solver, including edition-specific ties. The interface does not start continuous sampled search; `createSearch`/`runSearch` remain available for experiments. Evaluations are score estimates, not win probabilities.
 
 Four-game paired pilots gave 2/4 versus shallower search and 1/4 versus heuristic, with negative mean margins. No deeper-search improvement is established. See [evaluation evidence](../../KINGDOMINO.md).
+
+[Practical-budget evaluation and limitations](../../../benchmarks/practical-ai-2026-10-17/REPORT.md) records the follow-up evidence behind the interface defaults.
 
 ## Evidence and remaining gates
 

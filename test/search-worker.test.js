@@ -74,3 +74,17 @@ for(const hook of ['create','run','summarize','advance']) {
     assert.equal(f.last().type,'progress');assert.equal(f.last().iterations,0);
   });
 }
+
+test('automatic 30 sample pause extends the same search to 100 without restarting',()=>{
+ let creates=0;
+ const f=fixture({create:data=>{creates++;return {visits:0,seed:data.seed};}});
+ f.send({type:'start',generation:1,seed:847,iterationLimit:30});
+ while(f.queue.size)f.step();
+ assert.equal(f.last().iterations,30);assert.equal(f.last().paused,true);
+ f.send({type:'resume',generation:1,iterationLimit:100});
+ assert.equal(f.last().iterations,30);
+ while(f.queue.size)f.step();
+ assert.equal(f.last().iterations,100);assert.equal(f.last().paused,true);
+ assert.equal(f.last().seed,847);assert.equal(creates,1);
+ f.send({type:'resume',generation:1});assert.equal(f.queue.size,0);
+});

@@ -15,7 +15,7 @@ const files=[...games[game],...sharedAssets];
 await Promise.all(files.map(file=>access(resolve(root,file))));
 for(const file of files){
   let content=await readFile(resolve(root,file),'utf8');
-  const relative=game!=='azul'?file.replace(new RegExp('^'+game+'/'),''):file;
+  const relative=game!=='azul'?file.replace(new RegExp('^'+game+'/'),''):(file==='azul.html'?'index.html':file);
   if(game!=='azul'&&file.startsWith(game+'/')){
     content=content.replaceAll('../shared/','./shared/');
     // Suite-only navigation is omitted from a standalone game.
