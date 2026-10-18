@@ -143,3 +143,36 @@ were verified against all 1,212 published JSON hashes, 1,212 archived runtime
 JSON hashes and 35 archived source hashes.
 
 
+
+
+## Subsequent practical settings
+
+After this batch closed, the user authorized applying the results. Development
+commit `66444d1` keeps the sampled policies and updates browser advice settings:
+
+- Love Letter recommends 512 samples for two players and 64 for three or four;
+  64 and 512 are manually selectable at every count.
+- Sushi Go recommends 64 samples, with 256 manually selectable. Every legal root
+  receives a sample, even when a Chopsticks menu exceeds the selected target.
+- Three-player Love Letter and non-four-player Sushi Go use the cheaper settings
+  as practical cost choices; these player counts were not in this scaling screen.
+- Hive history remains research-only because substantial incompleteness, latency
+  and the execution-schedule limitation remain unresolved.
+
+Effort changes restart advice with a fresh generation, preserve manual pause,
+and never change recorded moves, private picks or history. Reloading restores
+recommendations. The explicit digital Sushi Go AI-seat button continues to use
+its deterministic policy; this update concerns sampled advice. No search model,
+game rule or benchmark record was changed, and no new strength trial was run.
+The frozen protocol, source archive and earlier conclusions above remain the
+record of the experiment at its original execution revision.
+
+Local verification passed all 909 tests, syntax checks for 319 modules and
+72-document link checks. Both game browser checks cover effort selection,
+paused restarts, privacy, phone/tablet layouts and actual standalone workers.
+[Full validation and Pages deployment passed](https://github.com/seanmason/board-game-ai-dev/actions/runs/39177990485)
+for `66444d1868c364e11712253d73542d50b9cb0705`. Public headless Chrome checks
+at 390 px with touch enabled verified Love Letter's two-/four-player automatic
+budgets, manual efforts in both games, actual completed worker sample counts,
+unchanged saved table state and no horizontal overflow or browser errors. This
+is automated browser evidence, not a real iPad Safari acceptance test.
