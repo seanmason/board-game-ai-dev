@@ -45,3 +45,13 @@ Run `node scripts/benchmark-comparison.mjs --out=local-run/ai-comparison-2026-10
 Use `--plan-only` to write the frozen task manifest without playing games.
 `--games=...` supports focused plumbing checks, which are not study evidence.
 The final manifest and raw results will be preserved in the development repository.
+
+## Completed screen
+
+All 1,720 scheduled games were recorded: 1,598 complete, 122 unresolved, no caps,
+illegal moves or adapter errors. The [report and raw evidence](https://github.com/seanmason/board-game-ai-dev/blob/benchmarks/ai-comparison-2026-10-18/REPORT.md)
+include all records, hashes, exact budgets and the infrastructure-only continuation
+after a Windows file-lock interruption. No game or AI policy changed mid-study.
+TTR and Hive estimates are conditional on complete groups. Lost Cities won all
+80 matches against its limited comparator; its degenerate t interval is not
+certainty about future wins. No promotion or additional tournament followed.

@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "study": "ai-comparison-2026-10-18",
-  "revision": "e244b2eb31bf0da055067fdb74606e10129d02c4",
-  "updatedAt": "2026-10-18T19:09:58.276Z",
-  "startedAt": "2026-10-18T19:09:58.222Z",
-  "status": "planned",
+  "revision": "d33aa8c56f0851b7115177f9e1cc60bb7817a291",
+  "updatedAt": "2026-10-18T19:35:29.573Z",
+  "startedAt": "2026-10-18T19:25:12.572Z",
+  "status": "finished",
   "workers": 12,
   "planned": 1720,
-  "finished": 0,
+  "finished": 1720,
   "active": [],
   "method": "40 independent setup seeds per matchup by default, every candidate seat rotated against heuristic opponents. Approximate 95% paired Student-t intervals use complete seed-group means, not independent seat games. Incomplete groups excluded from estimates and reported. Fixed modest policy-specific budgets; latency is measured, not equal-time strength. No promotion or confirmation claim.",
   "rows": [
@@ -24,32 +24,32 @@
       "policyId": "ttr-production-network-v1",
       "opponentPolicyId": "ttr-independent-ticket-plan-v1",
       "planned": 80,
-      "finished": 0,
+      "finished": 80,
       "counts": {
-        "complete": 0,
+        "complete": 64,
         "capped": 0,
-        "unresolved": 0,
+        "unresolved": 16,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 25,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.62,
+        "low": 0.483089728654129,
+        "high": 0.756910271345871,
+        "n": 25
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 14.06,
+        "low": 3.3319442793393357,
+        "high": 24.788055720660665,
+        "n": 25
       },
       "chance": 0.5,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 38.140806874107014,
+      "maxDecisionMs": 284.3775999999998,
+      "elapsedMs": 272054.4048000002,
       "limitations": [
         "Original 30-ticket catalog second visual audit remains open.",
         "Sampled network heuristic, not calibrated win probability.",
@@ -70,32 +70,32 @@
       "policyId": "ttr-production-network-v1",
       "opponentPolicyId": "ttr-independent-ticket-plan-v1",
       "planned": 120,
-      "finished": 0,
+      "finished": 120,
       "counts": {
-        "complete": 0,
+        "complete": 109,
         "capped": 0,
-        "unresolved": 0,
+        "unresolved": 11,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 29,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.2183908045977011,
+        "low": 0.1335152987109166,
+        "high": 0.3032663104844856,
+        "n": 29
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": -17.19540229885057,
+        "low": -22.42048118024554,
+        "high": -11.9703234174556,
+        "n": 29
       },
       "chance": 0.3333333333333333,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 31.6141843125803,
+      "maxDecisionMs": 173.862000000001,
+      "elapsedMs": 327120.2643000001,
       "limitations": [
         "Original 30-ticket catalog second visual audit remains open.",
         "Sampled network heuristic, not calibrated win probability.",
@@ -116,32 +116,32 @@
       "policyId": "ttr-production-network-v1",
       "opponentPolicyId": "ttr-independent-ticket-plan-v1",
       "planned": 160,
-      "finished": 0,
+      "finished": 160,
       "counts": {
-        "complete": 0,
+        "complete": 153,
         "capped": 0,
-        "unresolved": 0,
+        "unresolved": 7,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 33,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.18181818181818182,
+        "low": 0.10417834425851585,
+        "high": 0.2594580193778478,
+        "n": 33
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": -21.598484848484848,
+        "low": -25.35973728168463,
+        "high": -17.837232415285065,
+        "n": 33
       },
       "chance": 0.25,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 27.888463158376826,
+      "maxDecisionMs": 168.9304000000011,
+      "elapsedMs": 393680.05700000003,
       "limitations": [
         "Original 30-ticket catalog second visual audit remains open.",
         "Sampled network heuristic, not calibrated win probability.",
@@ -162,32 +162,32 @@
       "policyId": "ttr-production-network-v1",
       "opponentPolicyId": "ttr-independent-ticket-plan-v1",
       "planned": 200,
-      "finished": 0,
+      "finished": 200,
       "counts": {
-        "complete": 0,
+        "complete": 142,
         "capped": 0,
-        "unresolved": 0,
+        "unresolved": 58,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 9,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.044444444444444446,
+        "low": 0,
+        "high": 0.11223447248127719,
+        "n": 9
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": -34.84444444444444,
+        "low": -40.803360328610616,
+        "high": -28.88552856027827,
+        "n": 9
       },
       "chance": 0.2,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 25.797381374689476,
+      "maxDecisionMs": 144.97560000000522,
+      "elapsedMs": 476859.0208000001,
       "limitations": [
         "Original 30-ticket catalog second visual audit remains open.",
         "Sampled network heuristic, not calibrated win probability.",
@@ -207,21 +207,21 @@
       "policyId": "love-letter-browser-sampled-v1",
       "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
       "planned": 80,
-      "finished": 0,
+      "finished": 80,
       "counts": {
-        "complete": 0,
+        "complete": 80,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.6375,
+        "low": 0.5351414744517885,
+        "high": 0.7398585255482114,
+        "n": 40
       },
       "margin": {
         "mean": null,
@@ -230,9 +230,9 @@
         "n": 0
       },
       "chance": 0.5,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 18.573373887399452,
+      "maxDecisionMs": 58.40230000000156,
+      "elapsedMs": 35163.27039999995,
       "limitations": [
         "Explicit benchmark budget below browser512 sample ceiling by default.",
         "Production optimizes round share, not match share.",
@@ -251,21 +251,21 @@
       "policyId": "love-letter-browser-sampled-v1",
       "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
       "planned": 120,
-      "finished": 0,
+      "finished": 120,
       "counts": {
-        "complete": 0,
+        "complete": 120,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.5083333333333331,
+        "low": 0.42473615155285566,
+        "high": 0.5919305151138105,
+        "n": 40
       },
       "margin": {
         "mean": null,
@@ -274,9 +274,9 @@
         "n": 0
       },
       "chance": 0.3333333333333333,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 30.249796923633667,
+      "maxDecisionMs": 80.19800000000396,
+      "elapsedMs": 84646.91510000003,
       "limitations": [
         "Explicit benchmark budget below browser512 sample ceiling by default.",
         "Production optimizes round share, not match share.",
@@ -295,21 +295,21 @@
       "policyId": "love-letter-browser-sampled-v1",
       "opponentPolicyId": "love-letter-high-card-public-knowledge-v1",
       "planned": 160,
-      "finished": 0,
+      "finished": 160,
       "counts": {
-        "complete": 0,
+        "complete": 160,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.53125,
+        "low": 0.44988645547787676,
+        "high": 0.6126135445221232,
+        "n": 40
       },
       "margin": {
         "mean": null,
@@ -318,9 +318,9 @@
         "n": 0
       },
       "chance": 0.25,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 41.1933811669368,
+      "maxDecisionMs": 117.1362999999983,
+      "elapsedMs": 128824.4363,
       "limitations": [
         "Explicit benchmark budget below browser512 sample ceiling by default.",
         "Production optimizes round share, not match share.",
@@ -339,32 +339,32 @@
       "policyId": "production-default",
       "opponentPolicyId": "simple-v1",
       "planned": 80,
-      "finished": 0,
+      "finished": 80,
       "counts": {
-        "complete": 0,
+        "complete": 80,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.95,
+        "low": 0.9014091117278462,
+        "high": 0.9985908882721537,
+        "n": 40
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 42.625,
+        "low": 37.753139106564724,
+        "high": 47.496860893435276,
+        "n": 40
       },
       "chance": 0.5,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 0.025791766766772483,
+      "maxDecisionMs": 10.786200000002282,
+      "elapsedMs": 3634.074800000002,
       "limitations": "User-authorized assumed token inventory. Full ties redeal without a seal and alternate starter. Finite unavailable bonuses award none. Deterministic tactical ranking remains production default; no strength promotion from implementation smoke."
     },
     {
@@ -379,32 +379,32 @@
       "policyId": "sushi-go-browser-sampled-v1",
       "opponentPolicyId": "sushi-go-local-set-greedy-v1",
       "planned": 80,
-      "finished": 0,
+      "finished": 80,
       "counts": {
-        "complete": 0,
+        "complete": 80,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.9875,
+        "low": 0.9622125,
+        "high": 1,
+        "n": 40
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 14.85,
+        "low": 12.910350309367232,
+        "high": 16.789649690632768,
+        "n": 40
       },
       "chance": 0.5,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 218.63930700000017,
+      "maxDecisionMs": 585.2927999999956,
+      "elapsedMs": 526456.7425,
       "limitations": [
         "Explicit benchmark budget below browser256 sample ceiling by default.",
         "Production rollouts finish the current round only.",
@@ -424,32 +424,32 @@
       "policyId": "sushi-go-browser-sampled-v1",
       "opponentPolicyId": "sushi-go-local-set-greedy-v1",
       "planned": 120,
-      "finished": 0,
+      "finished": 120,
       "counts": {
-        "complete": 0,
+        "complete": 120,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.9041666666666666,
+        "low": 0.85032885147143,
+        "high": 0.9580044818619031,
+        "n": 40
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 11.483333333333336,
+        "low": 10.192546163469684,
+        "high": 12.774120503196988,
+        "n": 40
       },
       "chance": 0.3333333333333333,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 318.7852827777778,
+      "maxDecisionMs": 720.3177999999898,
+      "elapsedMs": 1036578.6540999999,
       "limitations": [
         "Explicit benchmark budget below browser256 sample ceiling by default.",
         "Production rollouts finish the current round only.",
@@ -469,32 +469,32 @@
       "policyId": "sushi-go-browser-sampled-v1",
       "opponentPolicyId": "sushi-go-local-set-greedy-v1",
       "planned": 160,
-      "finished": 0,
+      "finished": 160,
       "counts": {
-        "complete": 0,
+        "complete": 160,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.7375,
+        "low": 0.658669696748413,
+        "high": 0.8163303032515871,
+        "n": 40
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 9.039583333333335,
+        "low": 7.878895370795654,
+        "high": 10.200271295871016,
+        "n": 40
       },
       "chance": 0.25,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 423.23253377604135,
+      "maxDecisionMs": 965.2595999999903,
+      "elapsedMs": 1631684.6108999995,
       "limitations": [
         "Explicit benchmark budget below browser256 sample ceiling by default.",
         "Production rollouts finish the current round only.",
@@ -514,32 +514,32 @@
       "policyId": "sushi-go-browser-sampled-v1",
       "opponentPolicyId": "sushi-go-local-set-greedy-v1",
       "planned": 200,
-      "finished": 0,
+      "finished": 200,
       "counts": {
-        "complete": 0,
+        "complete": 200,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.6950000000000002,
+        "low": 0.6187021614926254,
+        "high": 0.771297838507375,
+        "n": 40
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 8.709999999999999,
+        "low": 7.582080680682175,
+        "high": 9.837919319317823,
+        "n": 40
       },
       "chance": 0.2,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 505.1772225952377,
+      "maxDecisionMs": 1319.6969999999274,
+      "elapsedMs": 2131471.299,
       "limitations": [
         "Explicit benchmark budget below browser256 sample ceiling by default.",
         "Production rollouts finish the current round only.",
@@ -559,32 +559,32 @@
       "policyId": "lost-cities-browser-practical-v1",
       "opponentPolicyId": "lost-cities-immediate-expedition-v1",
       "planned": 80,
-      "finished": 0,
+      "finished": 80,
       "counts": {
-        "complete": 0,
+        "complete": 80,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 40,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 1,
+        "low": 1,
+        "high": 1,
+        "n": 40
       },
       "margin": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 72.1,
+        "low": 66.42606731620329,
+        "high": 77.7739326837967,
+        "n": 40
       },
       "chance": 0.5,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 0.3604869906540425,
+      "maxDecisionMs": 7.680399999953806,
+      "elapsedMs": 9477.477999999654,
       "limitations": [
         "Default deterministic practical ranking runs no samples.",
         "Optional sampled policy is separate, never substituted for default.",
@@ -606,21 +606,21 @@
       "policyId": "hive-production-alphabeta-v1",
       "opponentPolicyId": "hive-independent-tactical-liberties-v1",
       "planned": 80,
-      "finished": 0,
+      "finished": 80,
       "counts": {
-        "complete": 0,
+        "complete": 50,
         "capped": 0,
-        "unresolved": 0,
+        "unresolved": 30,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 40,
-      "completeSeedGroups": 0,
+      "completeSeedGroups": 16,
       "winShare": {
-        "mean": null,
-        "low": null,
-        "high": null,
-        "n": 0
+        "mean": 0.109375,
+        "low": 0.012489294358340508,
+        "high": 0.2062607056416595,
+        "n": 16
       },
       "margin": {
         "mean": null,
@@ -629,12 +629,12 @@
         "n": 0
       },
       "chance": 0.5,
-      "meanDecisionMs": null,
-      "maxDecisionMs": 0,
-      "elapsedMs": 0,
+      "meanDecisionMs": 123.90992266204921,
+      "maxDecisionMs": 407.55200000002515,
+      "elapsedMs": 624409.3338999999,
       "limitations": [
         "Classic Hive publisher diagram certification remains open.",
-        "Candidate uses completed iterative alpha-beta depths, with one-ply fallback if no depth completes.",
+        "Candidate uses completed iterative alpha-beta depths with a full depth-one floor; 100ms is a soft budget.",
         "Independent baseline scans immediate wins and one-reply losses before queen-liberty ranking.",
         "Repeated positions and caps are unresolved, not automatic draws.",
         "Time budgets can overrun one synchronous generator step; latency records actual time."
