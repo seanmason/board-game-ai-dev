@@ -7,9 +7,10 @@ import {PIECES,queenId} from '../../hive/catalog.js';
 import {neighbors,height,coordinate,lift,connected,rotate,reflect} from '../../hive/geometry.js';
 import {publicObservation} from '../../hive/observations.js';
 import * as incumbent from './hive-incumbent.mjs';
+import * as history from './hive-history.mjs';
 
 export const metadata={game:'hive',supportedPlayers:[2],defaultBudget:{ms:100,maxTurns:160,repetitionLimit:4,openingPlies:0},scope:'match',
- policyId:'hive-tactical-guard-v2',incumbentPolicyId:'hive-production-alphabeta-v1',opponentPolicyId:'hive-independent-tactical-liberties-v1',
+ historyPolicyId:'hive-public-history-tiebreak-v1',policyId:'hive-tactical-guard-v2',incumbentPolicyId:'hive-production-alphabeta-v1',opponentPolicyId:'hive-independent-tactical-liberties-v1',
  limitations:['Classic Hive publisher diagram certification remains open.','Candidate requires the tactical gate and completed depth-one floor; incumbent requires the original depth-one floor. Both use a soft100ms budget and report actual overruns.','Independent baseline remains available separately from frozen incumbent comparison.','Explicit openingPlies:6 enables full matches from seeded legal nonterminal openings, identical across seat rotations; default0 retains the original empty setup. Opening signatures identify duplicate setups.','Repeated positions and caps are unresolved, not automatic draws.','A paused browser search with an unfinished tactical gate withholds advice and can be resumed.']};
 const latency=values=>{const v=[...values].sort((a,b)=>a-b);return {count:v.length,totalMs:v.reduce((a,b)=>a+b,0),maxMs:v.at(-1)??0,p50Ms:v.length?v[Math.floor((v.length-1)*.5)]:0,p95Ms:v.length?v[Math.ceil((v.length-1)*.95)]:0};};
 const hash=(seed,key)=>{let n=seed>>>0;for(const c of key)n=Math.imul(n^c.charCodeAt(0),16777619)>>>0;return n;};
@@ -56,19 +57,19 @@ export function chooseBaseline(state,{seed=1,replyChecks=true}={}){
  return {action:rows[0]?.action??null,replyNodes};
 }
 export function chooseCandidate(observation,{ms=100,maxDepth=5,policy='tactical-v2'}={}){
- const api=policy==='incumbent-v1'?incumbent:{createSearch,runSearch,summarizeSearch};
+ const api=policy==='incumbent-v1'?incumbent:policy==='history-v1'?history:{createSearch,runSearch,summarizeSearch};
  const search=api.createSearch({observation,maxDepth}),start=performance.now();let iterations=0,floorElapsedMs=null;
  while(!search.done&&(search.completedDepth===0||performance.now()-start<ms)){api.runSearch(search,1);iterations++;if(floorElapsedMs===null&&search.completedDepth>0)floorElapsedMs=performance.now()-start;}
  const summary=api.summarizeSearch(search);const fallback=false;
  // Unvisited/partially evaluated deeper roots never replace a completed result.
  const chosen=summary.candidates[0]?.action;
  return {action:chosen??null,diagnostics:{nodes:summary.nodes,iterations,completedDepth:summary.completedDepth,searchedRoots:summary.searchedRoots,legalRoots:summary.legalRoots,fallback,
-  floorElapsedMs,floorOverrunMs:Math.max(0,(floorElapsedMs??0)-ms),tacticalReady:summary.tacticalReady??null,tacticalCounts:summary.tacticalCounts??null,tacticalReplyNodes:summary.tacticalReplyNodes??0}};
+  floorElapsedMs,floorOverrunMs:Math.max(0,(floorElapsedMs??0)-ms),tacticalReady:summary.tacticalReady??null,tacticalCounts:summary.tacticalCounts??null,tacticalReplyNodes:summary.tacticalReplyNodes??0,historyPolicy:summary.historyPolicy??null,selectedPreviousOccurrences:summary.selectedPreviousOccurrences??null,selectedRepeatedState:summary.selectedRepeatedState??null}};
 }
 export async function runGame({seed=1,seat=0,players=2,budget={},policy='production-default',opponent='simple-v1',scope='match'}={}){
  if(players!==2||![0,1].includes(seat))throw Error('Hive benchmark supports two players and seats0/1');
- const candidateKey=['production-default','tactical-v2',metadata.policyId].includes(policy)?'tactical-v2':policy==='incumbent-v1'?'incumbent-v1':null;
- const opponentKey=['simple-v1',metadata.opponentPolicyId].includes(opponent)?'simple-v1':['incumbent-v1',metadata.incumbentPolicyId].includes(opponent)?'incumbent-v1':opponent==='tactical-v2'?'tactical-v2':null;
+ const candidateKey=['production-default','tactical-v2',metadata.policyId].includes(policy)?'tactical-v2':policy==='incumbent-v1'?'incumbent-v1':['history-v1',metadata.historyPolicyId].includes(policy)?'history-v1':null;
+ const opponentKey=['simple-v1',metadata.opponentPolicyId].includes(opponent)?'simple-v1':['incumbent-v1',metadata.incumbentPolicyId].includes(opponent)?'incumbent-v1':opponent==='tactical-v2'?'tactical-v2':['history-v1',metadata.historyPolicyId].includes(opponent)?'history-v1':null;
  if(!candidateKey||!opponentKey||scope!=='match')throw Error('Unsupported Hive benchmark policy/scope');
  const b={...metadata.defaultBudget,...budget};if(!Number.isFinite(b.ms)||b.ms<=0||!Number.isInteger(b.maxTurns)||b.maxTurns<1||!Number.isInteger(b.repetitionLimit)||b.repetitionLimit<2)throw Error('Invalid Hive benchmark budget');
  const start=performance.now(),candidateTimes=[],baselineTimes=[],searches=[],opponentSearches=[],positions=new Map(),opening=generateOpening({seed,openingPlies:b.openingPlies});let state=opening.state,turns=0,status='capped',error=null,illegalActions=0,replyNodes=0,reason=null;
@@ -83,11 +84,12 @@ export async function runGame({seed=1,seat=0,players=2,budget={},policy='product
  }
  if(state.phase==='gameover')status='complete';else if(state.phase==='stalemate-review'){status='unresolved';reason='two-forced-passes';}
  const result=status==='complete'?outcome(state):null,complete=status==='complete';
- return {game:metadata.game,seed,seat,players,policyId:candidateKey==='incumbent-v1'?metadata.incumbentPolicyId:metadata.policyId,opponentPolicyId:opponentKey==='simple-v1'?metadata.opponentPolicyId:opponentKey==='incumbent-v1'?metadata.incumbentPolicyId:metadata.policyId,budget:b,scope,status,
+ return {game:metadata.game,seed,seat,players,policyId:candidateKey==='incumbent-v1'?metadata.incumbentPolicyId:candidateKey==='history-v1'?metadata.historyPolicyId:metadata.policyId,opponentPolicyId:opponentKey==='simple-v1'?metadata.opponentPolicyId:opponentKey==='incumbent-v1'?metadata.incumbentPolicyId:opponentKey==='history-v1'?metadata.historyPolicyId:metadata.policyId,budget:b,scope,status,
   shares:complete?result.shares:null,winners:complete?(result.winner===null?[0,1]:[result.winner]):null,scores:null,margin:null,
   turns,elapsedMs:performance.now()-start,latency:latency(candidateTimes),diagnostics:{illegalActions,capped:status==='capped',unresolved:status==='unresolved',error,reason:reason??result?.reason??null,
    phase:state.phase,startingPlayer:state.startingPlayer,opening:opening.diagnostics,totalPlies:state.ply,baselineLatency:latency(baselineTimes),allLatency:latency([...candidateTimes,...baselineTimes]),baselineReplyNodes:replyNodes,
    candidateNodes:searches.reduce((n,s)=>n+s.nodes,0),completedDepths:searches.map(s=>s.completedDepth),fallbackDecisions:searches.filter(s=>s.fallback).length,
    tacticalReplyNodes:searches.reduce((n,s)=>n+s.tacticalReplyNodes,0),maxFloorOverrunMs:Math.max(0,...searches.map(s=>s.floorOverrunMs)),tacticalReadyDecisions:searches.filter(s=>s.tacticalReady).length,
+   historyDecisions:searches.filter(s=>s.historyPolicy).length,historySelectedRepeatedDecisions:searches.filter(s=>s.selectedRepeatedState===true).length,historySelectedPreviousOccurrences:searches.filter(s=>s.historyPolicy).map(s=>s.selectedPreviousOccurrences),
    opponentNodes:opponentSearches.reduce((n,s)=>n+s.nodes,0),opponentCompletedDepths:opponentSearches.map(s=>s.completedDepth),opponentMaxFloorOverrunMs:Math.max(0,...opponentSearches.map(s=>s.floorOverrunMs)),promotion:false}};
 }
