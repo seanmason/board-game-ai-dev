@@ -11,9 +11,53 @@ function* minimax(s,depth,alpha,beta,viewer,ancestors,search,ply){search.nodes++
  for(const a of actions){const child=applyAction(s,a),v=yield* minimax(child,depth-1,alpha,beta,viewer,nextAncestors,search,ply+1);best=maximizing?Math.max(best,v):Math.min(best,v);if(maximizing)alpha=Math.max(alpha,best);else beta=Math.min(beta,best);if(alpha>=beta){cut=true;break;}}
  // Ancestor-sensitive cycle estimates must not be cached as general exact values.
  if(!cut&&search.cycleEstimates===0)search.table.set(cacheKey,best);return best;}
-function* iterative(search){const s=search.state,viewer=s.currentPlayer;for(let depth=1;depth<=search.maxDepth;depth++){const rows=[];for(const a of search.roots){const child=applyAction(s,a),value=yield* minimax(child,depth-1,-Infinity,Infinity,viewer,new Set([positionKey(s)]),search,1);rows.push({action:a,label:describe(a),evaluation:value,terminal:child.phase==='gameover'});search.depthRoots=rows.length;}
- rows.sort((a,b)=>b.evaluation-a.evaluation||actionKey(a.action).localeCompare(actionKey(b.action)));search.completedDepth=depth;search.candidates=rows;search.roots=rows.map(r=>r.action);search.order=new Map(rows.map(r=>[actionKey(r.action),r.evaluation]));search.depthRoots=0;yield;}}
-export function createSearch({state,observation,maxDepth=5}={}){const s=structuredClone(state??observation);if(s.phase!=='play')throw Error('Recorded position is not awaiting a move');const roots=legalActions(s);const search={state:s,roots,completedDepth:0,depthRoots:0,nodes:0,iterations:0,tableHits:0,cycleEstimates:0,table:new Map(),order:new Map(),maxDepth:Math.max(1,Math.min(8,Number(maxDepth)||5)),candidates:roots.map(a=>({action:a,label:describe(a),evaluation:null})),done:false};search.generator=iterative(search);return search;}
+const rank=rows=>rows.sort((a,b)=>b.evaluation-a.evaluation||actionKey(a.action).localeCompare(actionKey(b.action)));
+/** Check one opponent reply per cooperative step. A known winning reply is a
+ * sufficient loss witness; safe requires exhausting every legal reply. */
+function* verifyRoot(search,row){
+ const info=search.tactics.get(actionKey(row.action));if(info.status!=='unverified')return info.status;
+ search.stage='reply-scan';const viewer=search.state.currentPlayer;
+ for(const reply of legalActions(info.child)){
+  yield;const next=applyAction(info.child,reply);search.nodes++;search.tacticalReplyNodes++;info.repliesChecked++;
+  if((next.result??boardResult(next))?.winner===1-viewer){info.status='losing';info.witness=reply;return info.status;}
+ }
+ info.status='safe';return info.status;
+}
+function* guardedRanking(search,rows){
+ for(const row of rows){const status=yield* verifyRoot(search,row);if(status==='safe'||status==='winning'){
+  // Withhold unverified suggestions, rather than imply that shallow scores
+  // prove safety. The complete human action surface is unchanged.
+  return rows.filter(r=>['safe','winning'].includes(search.tactics.get(actionKey(r.action)).status));
+ }}
+ // Every legal root has a demonstrated immediate losing reply. Report the
+ // proven two-ply loss rather than leave an attractive heuristic on display.
+ return rows.map(row=>({...row,evaluation:search.tactics.get(actionKey(row.action)).child.phase==='gameover'?-WIN+1:-WIN+2}));
+}
+function* iterative(search){
+ const s=search.state,viewer=s.currentPlayer,first=[];search.stage='root-scan';
+ // First inspect every root for an immediate win, before generic evaluation can
+ // choose a superficially attractive but losing alternative.
+ for(const action of search.roots){yield;const child=applyAction(s,action),result=child.result??boardResult(child);search.nodes++;search.rootScanCount++;
+  const status=result?(result.winner===viewer?'winning':result.winner===null?'safe':'losing'):'unverified';
+  search.tactics.set(actionKey(action),{child,status,repliesChecked:0,witness:null});
+  first.push({action,label:describe(action),evaluation:terminalValue(child,viewer,1)??evaluate(child,viewer),terminal:child.phase==='gameover'});search.depthRoots=first.length;
+ }
+ rank(first);const wins=first.filter(r=>search.tactics.get(actionKey(r.action)).status==='winning');
+ search.candidates=wins.length?wins:yield* guardedRanking(search,first);search.tacticalReady=true;search.completedDepth=1;search.depthRoots=0;
+ if(wins.length){search.stage='complete';return;}
+ search.roots=first.map(r=>r.action);search.order=new Map(first.map(r=>[actionKey(r.action),r.evaluation]));yield;
+ for(let depth=2;depth<=search.maxDepth;depth++){
+  search.stage='deepening';const rows=[];for(const action of search.roots){const child=search.tactics.get(actionKey(action)).child,value=yield* minimax(child,depth-1,-Infinity,Infinity,viewer,new Set([positionKey(s)]),search,1);
+   rows.push({action,label:describe(action),evaluation:value,terminal:child.phase==='gameover'});search.depthRoots=rows.length;}
+  rank(rows);const guarded=yield* guardedRanking(search,rows);search.candidates=guarded;search.completedDepth=depth;search.roots=rows.map(r=>r.action);search.order=new Map(rows.map(r=>[actionKey(r.action),r.evaluation]));search.depthRoots=0;yield;
+ }
+ search.stage='complete';
+}
+export function createSearch({state,observation,maxDepth=5}={}){const s=structuredClone(state??observation);if(s.phase!=='play')throw Error('Recorded position is not awaiting a move');const roots=legalActions(s);const search={state:s,roots,completedDepth:0,depthRoots:0,nodes:0,iterations:0,tableHits:0,cycleEstimates:0,table:new Map(),order:new Map(),tactics:new Map(),rootScanCount:0,tacticalReplyNodes:0,tacticalReady:false,stage:'root-scan',maxDepth:Math.max(1,Math.min(8,Number(maxDepth)||5)),candidates:[],done:false};search.generator=iterative(search);return search;}
 export function runSearch(s,iterations=1){for(let i=0;i<iterations;i++){if(s.done){s.iterations++;continue;}const next=s.generator.next();s.iterations++;if(next.done)s.done=true;}}
-export function summarizeSearch(s){return {iterations:s.iterations,nodes:s.nodes,completedDepth:s.completedDepth,depthRoots:s.depthRoots,legalRoots:s.roots.length,searchedRoots:s.completedDepth?s.roots.length:s.depthRoots,unvisitedRoots:s.completedDepth?0:s.roots.length-s.depthRoots,candidates:s.candidates.slice(0,12),tableHits:s.tableHits,cycleEstimates:s.cycleEstimates,selective:false,done:s.done,method:'Iterative deepening alpha-beta',meaning:'Heuristic evaluation; terminal surrounds dominate. Ancestor cycles are draw-like analysis estimates, never recorded draws. All legal roots searched at each completed depth.'};}
+export function summarizeSearch(s){const counts={winning:0,safe:0,losing:0,unverified:s.roots.length-s.tactics.size};for(const info of s.tactics.values())counts[info.status]++;
+ return {iterations:s.iterations,nodes:s.nodes,completedDepth:s.completedDepth,depthRoots:s.depthRoots,legalRoots:s.roots.length,searchedRoots:s.completedDepth?s.roots.length:s.depthRoots,unvisitedRoots:s.completedDepth?0:s.roots.length-s.depthRoots,
+ candidates:s.candidates.slice(0,12).map(row=>({...row,tacticalStatus:s.tactics.get(actionKey(row.action))?.status})),tableHits:s.tableHits,cycleEstimates:s.cycleEstimates,selective:false,done:s.done,
+ tacticalReady:s.tacticalReady,stage:s.stage,rootScanCount:s.rootScanCount,tacticalReplyNodes:s.tacticalReplyNodes,tacticalRootsChecked:counts.safe+counts.losing+counts.winning,tacticalCounts:counts,withheldRecommendations:s.roots.length-s.candidates.length,
+ method:'Tactical safeguards and iterative deepening alpha-beta',meaning:'Every root is checked for immediate victory. Recommended nonwinning moves are verified against every immediate opponent reply; if all moves lose, the loss is reported. Unverified advice is withheld, while every legal human action remains available. Deeper searches evaluate all roots. Ancestor cycles remain estimates, never recorded draws.'};}
 export function tacticalBaseline(s){const roots=legalActions(s),viewer=s.currentPlayer;return roots.map(action=>{const child=applyAction(s,action);return {action,evaluation:evaluate(child,viewer)};}).sort((a,b)=>b.evaluation-a.evaluation||actionKey(a.action).localeCompare(actionKey(b.action)))[0]?.action??null;}

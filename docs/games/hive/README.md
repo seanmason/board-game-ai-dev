@@ -33,21 +33,38 @@ arbitrary table origin; later physical positions can be translated freely.
 
 ## Search
 
-The worker uses deterministic iterative-deepening alpha-beta with a transposition
-table whose keys include ancestor context. Terminal surrounds dominate a small
-Queen-liberty, connected-top mobility and Beetle-pin heuristic. It searches every
-legal root at each depth; the UI reports completed depth, nodes, elapsed time,
-root count and partial progress at the next depth. A paused deeper iteration
-retains the last completed-depth ranking. No selective root pruning occurs.
+The worker first checks every legal root for an immediate winning surround. If
+none wins, it verifies the preferred move against every immediate opponent reply,
+trying alternatives when a losing reply is found. This tactical gate yields
+between root/reply checks. Advice is withheld until a safe move is verified; if
+every legal move allows an immediate loss, that fact and its loss value are
+reported. Unverified alternatives are withheld from advice, never from human
+legal actions. The UI distinguishes root evaluation from tactical reply coverage.
+
+Deterministic iterative-deepening alpha-beta then searches every legal root at
+each depth, using a transposition table whose keys include ancestor context.
+Queen liberties, connected-top mobility and Beetle pins remain the small generic
+evaluation. A newly preferred root must pass the same tactical gate before its
+deeper ranking replaces the previous verified recommendation. Pausing retains
+the last completed and verified ranking. No selective search-root pruning occurs.
 Ancestor cycles receive a draw-like search estimate; they never adjudicate the
 recorded game. Recorded cyclic stalemate requires explicit player agreement.
 
 The initial budget is 150 ms, with 100/500 ms options and pause/resume for longer
 analysis. A single engine step can overrun the nominal budget; this is not a
 hard real-time guarantee. Evaluations are not calibrated win probabilities.
+If the initial budget expires before the tactical gate finishes, the UI offers no
+unverified recommendation; resume continues the same gate and search state.
 Opening diagnostics and two modest baseline/random smoke games are described
 in [validation evidence](validation.md); they do not establish human strength or
 benchmark promotion.
+
+The tactical follow-up has independent immediate-win, mandatory-defense and
+unavoidable-loss fixtures plus cooperative worker pause/resume tests. It does
+not establish stronger full-game play. The old search is frozen in a
+[benchmark-only module](../../../scripts/benchmark-adapters/hive-incumbent.mjs),
+which is not imported by the browser. See the [comparison protocol](BENCHMARKS.md)
+for the separate candidate/incumbent keys and soft-budget diagnostics.
 
 ## Evidence and limitations
 
