@@ -53,7 +53,10 @@ is displayed as a proposed reading. The booklet does not clearly distinguish it
 from cumulative higher score and gives no tied-round starter rule. The control
 shows both score sets and records the operator's adjudication. Neither a seed nor
 a silent seat preference chooses the next round. Automatic edition-exact match
-starter handling is not claimed; unattended benchmarks stop after one round.
+starter handling is not claimed. The original unattended smoke stopped after one
+round. The new [benchmark adapter](BENCHMARK_ADAPTER.md) can run three rounds with
+an explicitly predeclared seed/round starter schedule, recorded as benchmark
+administration rather than a publisher ruling.
 
 Discard cycling is legal and can continue indefinitely. The rules engine never
 forces a deck draw or manufactures a terminal draw from repeated states or a
@@ -135,7 +138,7 @@ cycle cutoffs are separate counters. A repeated sampled state is a bounded leaf,
 never an exact win or draw. No general exact minimax or calibrated win-probability
 claim is made. A synchronous iteration may exceed a nominal worker time slice.
 
-Bounded correctness smoke used seed79, both candidate seats, at least 16 action
+Historical bounded correctness smoke (runner at `46308e7`) used seed79, both candidate seats, at least 16 action
 samples (full root coverage first) and a four-turn horizon against mixed and greedy
 policies. All four single rounds completed with zero illegal/capped games. Latest
 results after fixing optimistic discard-pickup valuation:
@@ -159,7 +162,7 @@ Executed in this checkout:
 node --test --test-concurrency=4 test/lost-cities.test.js
 node scripts/audit-lost-cities.mjs
 node scripts/verify-lost-cities.mjs
-node scripts/benchmark-lost-cities.mjs
+node scripts/benchmark-lost-cities.mjs # historical runner at 46308e7; see current adapter link above
 node scripts/check-syntax.mjs
 node scripts/check-docs.mjs
 ```

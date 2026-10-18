@@ -1,0 +1,61 @@
+{
+  "purpose": "One predeclared seed17 full-match adapter smoke; not strength evidence. No policy tuning.",
+  "result": {
+    "game": "sushi-go",
+    "seed": 17,
+    "seat": 0,
+    "players": 2,
+    "policyId": "sushi-go-browser-sampled-v1",
+    "opponentPolicyId": "sushi-go-local-set-greedy-v1",
+    "budget": {
+      "iterations": 64,
+      "rootCoverageFloor": true
+    },
+    "scope": "match",
+    "status": "complete",
+    "shares": [
+      1,
+      0
+    ],
+    "winners": [
+      0
+    ],
+    "scores": [
+      59,
+      38
+    ],
+    "margin": 21,
+    "turns": 30,
+    "elapsedMs": 5131.210300000001,
+    "latency": {
+      "count": 30,
+      "totalMs": 5113.202100000002,
+      "maxMs": 379.78129999999965,
+      "p50Ms": 148.45730000000003,
+      "p95Ms": 372.7653
+    },
+    "opponentLatency": {
+      "count": 30,
+      "totalMs": 0.5671000000013464,
+      "maxMs": 0.16190000000005966,
+      "p50Ms": 0.011499999999614374,
+      "p95Ms": 0.05510000000003856
+    },
+    "diagnostics": {
+      "rounds": 3,
+      "iterations": 1920,
+      "roots": 116,
+      "coveredRoots": 116,
+      "illegal": 0,
+      "capped": 0,
+      "unresolved": 0,
+      "error": null,
+      "transcriptHash": "3666c01c2a6a6ce76990f62621360a7ca68d6f01532633e049357f05ebcc4e77",
+      "browserSearchSeed": 611,
+      "marginMeaning": "Controlled seat minus mean opponent score; full match includes pudding."
+    }
+  },
+  "sourceBaseRevision": "c3f0cf9",
+  "adapterSha256": "c3933bac46638dec77aaf362bf8e80dcfbd50fd4f4db22726990727ecd118e89",
+  "adapterHashFormat": "SHA-256 of UTF-8 source normalized to LF newlines"
+}

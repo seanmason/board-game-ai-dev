@@ -79,12 +79,16 @@ the search does not optimize match win probability or model strategic human
 bluffing. Constraints conservatively discard certainty after ambiguous changes;
 they do not learn a behavioral likelihood model from a player's card choice.
 
-Bounded implementation smoke: seeds 1–3, every candidate seat, 64 action samples
+Historical bounded implementation smoke (runner at `0454c5e`): seeds 1–3, every candidate seat, 64 action samples
 (at least one per legal root action), one round per assignment. Against random /
 deterministic baseline respectively: 2p 4/6 and 3/6 round-share equivalents;
 3p 5/9 and 3/9; 4p 6/12 and 5/12. Total 60 rounds, zero illegal or capped
 games; approximately four seconds on this host. These small implementation checks
 do not establish improved strength. No promotion tournament was run.
+
+The current [benchmark adapter](BENCHMARK_ADAPTER.md) runs complete matches by
+default and uses an independently coded comparator. Its results are separate from
+the historical round smoke above.
 
 ## Verification and integration
 

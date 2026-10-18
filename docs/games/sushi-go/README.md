@@ -105,7 +105,7 @@ an earlier-round dessert estimate remains heuristic. No general imperfect-inform
 exact-solver claim is made. The UI caps at 256 action samples and retains search
 on pause/resume; a single synchronous iteration can overrun a time slice.
 
-Bounded implementation smoke: seed13, every candidate seat, at least 24 action
+Historical bounded implementation smoke (runner at `7869a4f`): seed13, every candidate seat, at least 24 action
 samples (one per root choice when coverage needs more), versus random and the
 deterministic policy. The 28 one-round assignments completed in approximately
 25 seconds with no illegal or capped games. Results are kept separate:
@@ -124,6 +124,10 @@ deterministic policy. The 28 one-round assignments completed in approximately
 These small correctness checks are not a strength study, promotion or confidence
 claim. Round standings exclude future rounds and final pudding scoring. No larger
 tournament was run and unfavorable four-player random results are retained.
+
+The current [benchmark adapter](BENCHMARK_ADAPTER.md) runs all three rounds and
+final pudding by default, with an independent comparator. Its outcomes are
+separate from the historical round-only smoke above.
 
 ## Verification and integration
 
