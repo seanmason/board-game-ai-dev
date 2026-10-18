@@ -38,6 +38,9 @@ export function analysisBlocker(s,seat=s.turn) {
  if(s.offer.includes(null))return 'Enter the destination ticket offer';return null;
 }
 function sources(s,second=false){
+ // USA 2015 p3, Train Car Cards: an empty deck AND discard prohibit
+ // the entire train-card draw action, including still-visible face-up cards.
+ if(!s.trainDeck.length&&!s.discard.length)return [];
  const a=[];s.market.forEach((c,index)=>{if(c!==null&&(!second||c!=='locomotive'))a.push({type:'drawTrain',source:'market',index});});
  if(s.trainDeck.length||s.discard.length)a.push({type:'drawTrain',source:'blind'});return a;
 }
