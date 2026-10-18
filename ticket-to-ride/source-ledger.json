@@ -2,8 +2,8 @@
   "edition": "original-usa-30-tickets",
   "reviewDate": "2026-10-18",
   "startingRevision": "bbe379e672a3348f01a483620cea0b03d83e64df",
-  "gate": "blocked-source-acquisition",
-  "catalogTranscribed": false,
+  "gate": "ticket-independent-review-and-rulings-open",
+  "catalogTranscribed": true,
   "independentReconciliationComplete": false,
   "sources": [
     {
@@ -56,10 +56,43 @@
     "No ordinary legal action remains"
   ],
   "requiredEvidence": [
-    "Retrieve and inspect an edition-locked original-USA board; retain external image bytes and SHA-256 without committing publisher art",
-    "Retrieve and inspect every original small destination-ticket face; retain external image bytes and SHA-256",
-    "Two independent lane and ticket transcriptions reconciled against the same inspected components",
-    "Lane counts, endpoint validity, parallel colors, connectedness and visual overlay audit",
-    "Publisher clarification for unresolved supply transitions, or visibly recorded administrative adjudication without claiming an official ruling"
-  ]
+    "Fresh independent ticket-face review and permissible source-byte hash",
+    "Publisher-quality board corroboration and visual overlay audit",
+    "Attributable exhausted-supply rulings or continued explicit administrative adjudication",
+    "Physical full-game transcript, browser and actual iPad Safari acceptance"
+  ],
+  "board": {
+    "source": "https://mgfernan.com/posts/ticket-to-ride-graph-analysis/Ticket_to_ride_USA.png",
+    "externalLocalPath": "C:/Users/mason/Downloads/Ticket_to_ride_USA.png",
+    "sha256": "9E99FA22B54AB47B57566420EA4523B8A7ABDBEB89730EE6F87045AD40C6FFDD",
+    "authority": "Actual original component photograph via secondary host",
+    "independentReconciliation": true,
+    "cities": 36,
+    "lanes": 100,
+    "pairs": 78,
+    "parallelGroups": 22,
+    "corrections": [
+      "New York-Washington black second lane added",
+      "Calgary-Winnipeg corrected gray to white"
+    ],
+    "open": [
+      "Publisher image corroboration",
+      "Visual overlay audit"
+    ],
+    "id": "board-9e99fa22"
+  },
+  "tickets": {
+    "source": "https://i.ebayimg.com/images/g/kMgAAOSwmY9fcYSU/s-l1600.jpg",
+    "sha256": null,
+    "count": 30,
+    "authority": "Seller photograph: coordinator single visual transcription",
+    "independentReconciliation": false,
+    "ownerReadCoordinatorRows": true,
+    "downloadStatus": "Browser download denied; no workaround attempted",
+    "open": [
+      "Fresh independent card-by-card visual review",
+      "Source-byte hash when permitted"
+    ],
+    "id": "coordinator-ticket-photo-transcription"
+  }
 }
