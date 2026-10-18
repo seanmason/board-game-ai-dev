@@ -18,6 +18,7 @@ const files = ['AGENTS.md', 'README.md', 'docs/INDEX.md', 'docs/DOCUMENTATION.md
   'docs/ARCHITECTURE.md', 'docs/PREVIEW_DEPLOYMENT.md', 'benchmarks/README.md',
   ...await markdownFiles('docs/games'), ...await markdownFiles('docs/platform'),
   ...await markdownFiles('docs/decisions'), ...await markdownFiles('docs/work'),
+  ...await markdownFiles('docs/plans'),
   'docs/templates/README.md'];
 for (const file of files) {
   const source = (await readFile(resolve(root, file), 'utf8')).replace(/^(```|~~~)[\s\S]*?^\1[^\n]*$/gm, '');

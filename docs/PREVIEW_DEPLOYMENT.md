@@ -12,6 +12,12 @@ triggers, environment and validation. At documentation review it targets `main`
 and `feat/wingspan-base-game`, plus manual dispatch. GitHub Pages uses GitHub
 Actions as its build source. Inspect the actual deployment run for live state.
 
+Packaging depends on the complete reusable [Validation workflow](../.github/workflows/ci.yml),
+including every browser smoke test, for the same checkout revision. Failed or
+cancelled validation prevents both packaging and deployment, including manual
+dispatches. The push/PR validation remains available independently; the Pages
+run deliberately calls the same checks rather than maintaining a smaller copy.
+
 The workflow runs `npm run stage:preview`. The [asset allowlist](../scripts/static-assets.mjs)
 and [stager](../scripts/stage-preview.mjs) define the suite navigation, available
 game directories and shared runtime assets. Optional games depend on the checkout;

@@ -1,6 +1,6 @@
 # Wingspan final selection tournament
 
-Status: complete, 640/640 valid screen games; no candidate qualified for confirmation. Practical-combined retained. See [results and next opening experiment](../../benchmarks/wingspan/2026-10-18-opening/REPORT.md).
+Status: complete, 640/640 valid screen games; no candidate qualified for confirmation. Practical-combined retained. See [completed opening experiment and adopted strategy](../../benchmarks/wingspan/2026-10-18-opening/REPORT.md).
 
 [Evidence synthesis](../../benchmarks/wingspan/2026-10-18-final-selection/REPORT.md)
 consolidates prior completed, incomplete and unstarted experiments. The runner

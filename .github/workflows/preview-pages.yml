@@ -17,8 +17,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validation:
+    name: Full validation
+    uses: ./.github/workflows/ci.yml
+
   build:
-    name: Validate and package browser preview
+    name: Package validated browser preview
+    needs: validation
     permissions:
       contents: read
       pages: read
@@ -30,13 +35,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify rules and MCTS
-        run: |
-          npm test
-          npm run check
-          npm run verify:gameplay
-          if [ -f pentago/index.html ]; then npm run verify:pentago; fi
-          if [ -f wingspan/index.html ]; then npm run verify:wingspan; fi
       - name: Stage only the public-facing website
         run: npm run stage:preview
       - name: Setup Pages

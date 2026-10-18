@@ -20,7 +20,10 @@ try{
   assert.equal(await page.locator(".rules details").count(),1);
   assert.equal(await page.locator(".rules details").evaluate(el=>el.open),false,
     "Rules should be collapsed by default");
-  assert.equal(await page.locator('a[href="../"]').count(),1,"Link to other game");
+  const gamesLink=page.locator('a[data-suite-nav]');
+  assert.equal(await gamesLink.count(),1,"One suite navigation link");
+  assert.equal(await gamesLink.getAttribute('href'),'../index.html');
+  assert.equal(await gamesLink.innerText(),'Games');
 
   // Normal physical move requires both a placement and a 90° quadrant twist.
   await page.locator('button[data-action="cell"][data-cell="0"]').click();

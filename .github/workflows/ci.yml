@@ -2,6 +2,7 @@ name: Validation
 on:
   push:
   pull_request:
+  workflow_call:
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -58,13 +59,10 @@ jobs:
           done
           python3 -m http.server 8080 --directory preview --bind 127.0.0.1 >/tmp/tabletop-server.log 2>&1 &
           sleep 1
-          node scripts/browser-smoke.mjs
-          node scripts/browser-pentago.mjs
-          node scripts/browser-wingspan.mjs
-          node scripts/browser-sessions.mjs
-          node scripts/browser-boop.mjs
-          node scripts/browser-splendor.mjs
           failed=0
+          for script in smoke pentago wingspan sessions boop splendor; do
+            node "scripts/browser-$script.mjs" || failed=1
+          done
           for game in seven-wonders-duel carcassonne cascadia patchwork kingdomino; do
             if [ -f "scripts/browser-$game.mjs" ]; then
               STANDALONE_URL="http://127.0.0.1:8080/standalone-$game/" node "scripts/browser-$game.mjs" || failed=1
