@@ -15,6 +15,7 @@ for arm in ['control','history','compute']:
     arms[arm]={(r['seed'],r['seat']):r for r in results}
     assert set(arms[arm])=={(8182600+997*i,seat) for i in range(40) for seat in range(2)}
     snapshot=json.loads((root/arm/'dashboard.json').read_text(encoding='utf-8'));row=snapshot['rows'][0]
+    row['limitations']=[x.replace('Both use a soft100ms budget and report actual overruns.', 'Search policies use the configured soft time budget and report actual overruns.') for x in row['limitations']]
     row['policyId']+=' ('+arm+', '+str(row['budget']['ms'])+' ms)';rows.append(row)
     depths=[x for r in results for x in r['diagnostics']['completedDepths']]
     reasons={}

@@ -89,3 +89,7 @@ Dashboard/publication edits are not game inputs.
 Research code passed 42 relevant Hive tests including six history-specific
 fixtures. Independent review checked public-history semantics, safety guards
 and grouped analysis. Final integration validation is recorded after publication.
+
+The generic frozen adapter limitation text mentions 100 ms; exact task budgets
+are authoritative (100/100/500 ms). Published display wording was corrected
+to say configured soft budget without modifying any frozen record or hash.
