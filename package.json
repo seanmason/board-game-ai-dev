@@ -3,6 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "audit:sushi-go": "node scripts/audit-sushi-go.mjs",
+    "verify:sushi-go": "node scripts/verify-sushi-go.mjs",
+    "benchmark:sushi-go": "node scripts/benchmark-sushi-go.mjs",
+    "browser:sushi-go": "node scripts/browser-sushi-go.mjs",
+
     "audit:love-letter": "node scripts/audit-love-letter.mjs",
     "verify:love-letter": "node scripts/verify-love-letter.mjs",
     "benchmark:love-letter": "node scripts/benchmark-love-letter.mjs",

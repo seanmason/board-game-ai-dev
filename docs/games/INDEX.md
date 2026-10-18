@@ -21,5 +21,7 @@ below remain development companions; packaging does not imply release approval.
 
 - [Wingspan](wingspan/README.md): original base game, 2–5 players; integrated from the newer observation/integration work. Remaining validation and release limits are explicit in its overview.
 
+- [Sushi Go!](sushi-go/README.md): original 108-card game, 2–5 players; private simultaneous picks and packet-aware advice.
+
 Game-specific rules/AI sections stay in the overview until splitting them makes
 retrieval easier. Existing uppercase reports remain linked evidence during migration.

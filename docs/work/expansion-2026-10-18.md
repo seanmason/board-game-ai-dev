@@ -56,3 +56,14 @@ phone and physical-phone screenshots are saved under `test-artifacts/wingspan-*`
 CI now uploads the same evidence. Tablet screenshot review showed 24 opening
 candidates and no horizontal overflow. This is automated Chrome touch emulation,
 not a real iPad Safari or complete real-table acceptance test.
+
+## First integrations
+
+Stabilization deployed successfully at `664d239` through [gated Pages run
+39148524389](https://github.com/seanmason/board-game-ai-dev/actions/runs/39148524389).
+Love Letter and Sushi Go are now integrated into static/standalone packaging,
+navigation and comprehensive CI. Local acceptance passed 22 Love Letter and
+18 Sushi Go tests plus packaging regressions. Both installed-Chrome browser
+suites passed, with screenshots reviewed at phone size. Love Letter review fixed
+private card leakage through action choices and both games received private-panel
+contrast fixes. Real iPad Safari and physical-table acceptance remain open.

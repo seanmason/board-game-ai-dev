@@ -150,7 +150,7 @@ hands; opponents can stay unknown. Every partial commitment is serialized and
 validated before joint reveal. Transcript parity compares production recording
 and digital transitions; it is not an independent complete rules oracle.
 
-The supplied browser script remains an execution/visual acceptance gate:
+Coordinator browser acceptance passed on 2026-10-18 using installed headless Chrome, including desktop and simulated touch layouts:
 
 ```
 node scripts/browser-sushi-go.mjs
@@ -162,19 +162,11 @@ Optional `STANDALONE_URL` checks a packaged game. Images write to
 `test-artifacts/sushi-go-{desktop,tablet,phone,landscape,last}.png`.
 Checks cover private pending reload/cancel, handoff, immutable preview, joint
 reveal, atomic import, real worker pause/resume, explicit AI preparation,
-game end/export/history and touch layouts. Browser execution and image review
-have not been claimed by the headless test results above.
+game end/export/history and touch layouts. Screenshot review also confirmed readable private controls after correcting inherited text color. This is not a real iPad Safari test.
 
-Coordinator integration:
+Suite navigation, static and standalone packaging, npm scripts and CI checks are
+integrated. Local game and static-asset integration tests passed all 21 cases.
 
-1. Add `sushi-go` to optional/static/standalone registries. Allowlist
-   `sushi-go/{index.html,styles.css,catalog.js,scoring.js,actions.js,core.js,observations.js,belief.js,ai.js,worker.js,app.js}`.
-2. Include shared `session.js` and `search-worker.js` in standalone import closure.
-3. Add the suite/menu card, game-directory link and npm audit/verify/benchmark/browser
-   commands. The game page already has one Games link marked `data-suite-nav`.
-4. Add game checks and packaged browser validation to CI, save screenshot artifacts,
-   and run full shared/static import-closure regressions before promotion.
-
-Remaining evidence: fresh browser execution and screenshot review, direct physical
+Remaining evidence: real iPad Safari acceptance, direct physical
 deck/table acceptance, PDF binary/page archival if required for permanent source
 records, and any strength claim beyond the bounded smoke.
