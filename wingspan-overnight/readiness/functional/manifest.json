@@ -1,0 +1,145 @@
+{
+  "purpose": "Functional full-game smoke only, NOT playing-strength evidence; not eligible for campaign, canary admission, candidate selection or seed replacement.",
+  "eligibleForCampaign": false,
+  "startedAt": "2026-10-19T03:23:11.564Z",
+  "deadline": "2026-10-19T03:25:11.564Z",
+  "maxConcurrentWorkers": 4,
+  "requestedTimeMs": 1,
+  "tasks": [
+    {
+      "id": "functional-smoke/power-aware/810001",
+      "stage": "canary",
+      "profile": "canary",
+      "matchup": "power-aware",
+      "seed": 810001,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "policy": "power-aware",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "opponent": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "functional-smoke/noprior/810002",
+      "stage": "canary",
+      "profile": "canary",
+      "matchup": "noprior",
+      "seed": 810002,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "opponent": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "functional-smoke/both/810003",
+      "stage": "canary",
+      "profile": "canary",
+      "matchup": "both",
+      "seed": 810003,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "policy": "power-aware",
+        "priorWeight": 0,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "opponent": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "functional-smoke/lean-es/810004",
+      "stage": "canary",
+      "profile": "canary",
+      "matchup": "lean-es",
+      "seed": 810004,
+      "seat": 0,
+      "candidate": {
+        "method": "lean-es",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "opponent": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "functional-smoke/deployed/810005",
+      "stage": "canary",
+      "profile": "canary",
+      "matchup": "deployed-functional",
+      "seed": 810005,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "opponent": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "deployed",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1
+      },
+      "rolloutStepLimit": 192
+    }
+  ]
+}

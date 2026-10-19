@@ -1,0 +1,4205 @@
+{
+  "purpose": "Mechanism and search ranking diagnostics only; no strength claims or game outcomes.",
+  "candidateCoverage": "Representative root counts and supplied-root visit coverage only; no comparison against complete legal human actions and no candidate-omission audit.",
+  "status": "time-limited",
+  "complete": false,
+  "createdAt": "2026-10-19T03:20:17.266Z",
+  "elapsedMs": 2010.1694000000002,
+  "maxMs": 2000,
+  "maxDecisions": null,
+  "positions": [
+    {
+      "id": "raven-alone",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "raven-supported",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "raven-early",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "raven-late",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 4,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "raven-saturated",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "raven-full",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "gull-no-egg",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "gull-egg",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "killdeer-demand",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "gull-saturated",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "draw-tuck-forward",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "draw-tuck-reverse",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "draw-tuck-forest",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "draw-tuck-three",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 3,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "food-tuck-forward",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "food-tuck-reverse",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "repeat-food",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "repeat-no-target",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "predator-repeat",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 2,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "repeat-raven",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "investment-stock",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "investment-no-stock",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 1,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "late-control",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 4,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "capacity-control",
+      "source": "fixed-mechanism",
+      "seed": null,
+      "round": 3,
+      "turn": 0,
+      "actionsIntoRound": null,
+      "requestedRound": null,
+      "transitions": null,
+      "trace": null
+    },
+    {
+      "id": "ordinary-930001",
+      "source": "independent-ordinary",
+      "seed": 930001,
+      "round": 1,
+      "turn": 2,
+      "actionsIntoRound": 2,
+      "requestedRound": 1,
+      "transitions": 4,
+      "trace": [
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ordinary-930002",
+      "source": "independent-ordinary",
+      "seed": 930002,
+      "round": 1,
+      "turn": 4,
+      "actionsIntoRound": 4,
+      "requestedRound": 1,
+      "transitions": 6,
+      "trace": [
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 109,
+            "habitat": "wetland",
+            "payment": [
+              "invertebrate",
+              "seed"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "layEggs",
+            "targets": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 4,
+                "food": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ordinary-930003",
+      "source": "independent-ordinary",
+      "seed": 930003,
+      "round": 2,
+      "turn": 18,
+      "actionsIntoRound": 2,
+      "requestedRound": 2,
+      "transitions": 23,
+      "trace": [
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 154,
+            "habitat": "grassland",
+            "payment": [
+              "invertebrate",
+              "seed"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "grassland",
+                "index": 0,
+                "count": 3
+              }
+            ],
+            "extra": true,
+            "payment": "fruit"
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "habitat": "grassland",
+              "index": 0
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "fruit"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "reroll": true
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 92,
+            "habitat": "grassland",
+            "payment": [
+              "invertebrate"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ordinary-930004",
+      "source": "independent-ordinary",
+      "seed": 930004,
+      "round": 2,
+      "turn": 20,
+      "actionsIntoRound": 4,
+      "requestedRound": 2,
+      "transitions": 24,
+      "trace": [
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 3,
+                "food": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "reroll": true
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              0
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 2,
+                "food": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 2,
+                "food": "fruit"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 85,
+            "habitat": "grassland",
+            "payment": [
+              "invertebrate",
+              "seed",
+              "seed",
+              "seed"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 38,
+            "habitat": "grassland",
+            "payment": [
+              "invertebrate",
+              "seed"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "reroll": true
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 61,
+            "habitat": "wetland",
+            "payment": [
+              "seed",
+              "fish",
+              "fruit",
+              "fruit"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "seed"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 74,
+            "habitat": "forest",
+            "payment": [
+              "seed",
+              "fruit",
+              "fruit"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "invertebrate"
+              },
+              {
+                "index": 0
+              }
+            ],
+            "extra": true,
+            "discardCard": 47
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              0
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "habitat": "forest"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ordinary-930005",
+      "source": "independent-ordinary",
+      "seed": 930005,
+      "round": 4,
+      "turn": 44,
+      "actionsIntoRound": 2,
+      "requestedRound": 4,
+      "transitions": 65,
+      "trace": [
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "layEggs",
+            "targets": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 145,
+            "habitat": "forest",
+            "payment": [
+              "invertebrate"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "fish"
+              },
+              {
+                "index": 0
+              }
+            ],
+            "extra": true,
+            "discardCard": 114
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "food": "seed"
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 97,
+            "habitat": "wetland",
+            "payment": [
+              "invertebrate",
+              "invertebrate",
+              "seed",
+              "fruit"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {
+              "bonusId": 3
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "reroll": true
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 2,
+                "food": "seed"
+              },
+              {
+                "index": 0
+              }
+            ],
+            "extra": true,
+            "discardCard": 69
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "rodent"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "forest",
+                "index": 0,
+                "count": 2
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "wetland",
+                "index": 0,
+                "count": 2
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "food": "seed"
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "rodent"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 87,
+            "habitat": "forest",
+            "payment": [
+              "seed",
+              "seed",
+              "fruit",
+              "fruit"
+            ],
+            "eggs": [
+              {
+                "habitat": "forest",
+                "index": 0,
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 2,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "rodent"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 78,
+            "habitat": "grassland",
+            "payment": [
+              "seed"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 169,
+            "habitat": "forest",
+            "payment": [
+              "seed"
+            ],
+            "eggs": [
+              {
+                "habitat": "forest",
+                "index": 0,
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck",
+              "deck"
+            ],
+            "extra": true,
+            "eggSource": {
+              "habitat": "wetland",
+              "index": 0,
+              "count": 1
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 71,
+            "habitat": "wetland",
+            "payment": [
+              "seed",
+              "fish"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 77,
+            "habitat": "grassland",
+            "payment": [
+              "rodent",
+              "rodent",
+              "rodent"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "food": "invertebrate"
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 163,
+            "habitat": "wetland",
+            "payment": [
+              "invertebrate",
+              "invertebrate",
+              "seed",
+              "fish",
+              "fish"
+            ],
+            "eggs": [
+              {
+                "habitat": "wetland",
+                "index": 0,
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              0
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1,
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {
+              "cardId": 5
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "grassland",
+                "index": 0,
+                "count": 1
+              },
+              {
+                "habitat": "wetland",
+                "index": 0,
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              0,
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {
+              "cardId": 119
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 4,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck",
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 4,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "power",
+          "round": 4,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {
+              "cardId": 20
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 4,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0
+              },
+              {
+                "index": 0
+              },
+              {
+                "index": 0
+              }
+            ],
+            "extra": true,
+            "discardCard": 136
+          }
+        },
+        {
+          "phase": "power",
+          "round": 4,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "cardId": 135
+            }
+          }
+        },
+        {
+          "phase": "power",
+          "round": 4,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "power",
+          "round": 4,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "food": "seed"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ordinary-930006",
+      "source": "independent-ordinary",
+      "seed": 930006,
+      "round": 4,
+      "turn": 46,
+      "actionsIntoRound": 4,
+      "requestedRound": 4,
+      "transitions": 63,
+      "trace": [
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 3,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "fruit"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 94,
+            "habitat": "grassland",
+            "payment": [
+              "invertebrate",
+              "seed",
+              "fruit"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 18,
+            "habitat": "forest",
+            "payment": [
+              "invertebrate",
+              "seed",
+              "fruit",
+              "fruit"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 2,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 1,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "forest",
+                "index": 0,
+                "count": 2
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              0
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "rodent"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 152,
+            "habitat": "grassland",
+            "payment": [],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 141,
+            "habitat": "wetland",
+            "payment": [
+              "fish"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "grassland",
+                "index": 0,
+                "count": 2
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 153,
+            "habitat": "grassland",
+            "payment": [
+              "invertebrate",
+              "invertebrate"
+            ],
+            "eggs": [
+              {
+                "habitat": "forest",
+                "index": 0,
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "wetland",
+                "index": 0,
+                "count": 2
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 2,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              2
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "forest",
+                "index": 0,
+                "count": 3
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {
+              "cardId": 78
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "rodent"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "reroll": true
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              0
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 1,
+                "food": "fish"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 2,
+                "food": "invertebrate"
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "playBird",
+            "birdId": 100,
+            "habitat": "grassland",
+            "payment": [
+              "invertebrate",
+              "rodent"
+            ],
+            "eggs": [
+              {
+                "habitat": "grassland",
+                "index": 0,
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              1
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "grassland",
+                "index": 1,
+                "count": 3
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 3,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "choice": {
+              "index": 0,
+              "food": "fruit"
+            }
+          }
+        },
+        {
+          "phase": "play",
+          "round": 3,
+          "actor": 1,
+          "action": {
+            "type": "drawBirds",
+            "draws": [
+              "deck"
+            ]
+          }
+        },
+        {
+          "phase": "play",
+          "round": 4,
+          "actor": 1,
+          "action": {
+            "type": "playBird",
+            "birdId": 45,
+            "habitat": "wetland",
+            "payment": [
+              "invertebrate",
+              "fish",
+              "fish",
+              "rodent"
+            ],
+            "eggs": []
+          }
+        },
+        {
+          "phase": "play",
+          "round": 4,
+          "actor": 0,
+          "action": {
+            "type": "layEggs",
+            "targets": [
+              {
+                "habitat": "grassland",
+                "index": 1,
+                "count": 1
+              },
+              {
+                "habitat": "grassland",
+                "index": 0,
+                "count": 2
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 4,
+          "actor": 0,
+          "action": {
+            "type": "power",
+            "skip": true
+          }
+        },
+        {
+          "phase": "play",
+          "round": 4,
+          "actor": 1,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 0,
+                "reroll": true
+              }
+            ]
+          }
+        },
+        {
+          "phase": "power",
+          "round": 4,
+          "actor": 1,
+          "action": {
+            "type": "power",
+            "choice": {}
+          }
+        },
+        {
+          "phase": "play",
+          "round": 4,
+          "actor": 0,
+          "action": {
+            "type": "gainFood",
+            "dice": [
+              {
+                "index": 3,
+                "food": "rodent"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "reference",
+      "method": "reference",
+      "policy": "original",
+      "priorWeight": 0.18
+    },
+    {
+      "id": "lean-es",
+      "method": "lean-es",
+      "policy": "original",
+      "priorWeight": 0.18
+    },
+    {
+      "id": "power-aware",
+      "method": "reference",
+      "policy": "power-aware",
+      "priorWeight": 0.18
+    },
+    {
+      "id": "no-prior",
+      "method": "reference",
+      "policy": "original",
+      "priorWeight": 0
+    }
+  ],
+  "budgets": [
+    100,
+    300,
+    1000
+  ],
+  "repeats": 1,
+  "horizon": 4,
+  "decisions": 3,
+  "rows": [
+    {
+      "id": "raven-alone",
+      "source": "fixed-mechanism",
+      "profile": "reference",
+      "configuration": {
+        "id": "reference",
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "horizon": 4
+      },
+      "repeat": 0,
+      "requested": 100,
+      "target": 100,
+      "iterations": 100,
+      "rootCount": 16,
+      "coverageFloorOverhead": 0,
+      "complete": true,
+      "generationMs": 1.7378999999999678,
+      "elapsedMs": 716.9966999999999,
+      "checkpointElapsedMs": 714.9268000000002,
+      "diagnostics": {
+        "rolloutCount": 100,
+        "actionTurns": 400,
+        "actionTurnsBySeat": [
+          200,
+          200
+        ],
+        "powerSteps": 70,
+        "steps": 470,
+        "settledLeaf": 100,
+        "settledLeaves": 100,
+        "unsettledLeaves": 0,
+        "horizonReached": 100,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 41.52779999999995,
+        "leafRewardSum": 60.56530356770841,
+        "priorGradeSum": 230.71000000000032,
+        "leafDeltaSum": 73.86012630208347,
+        "phaseSteps": {
+          "play": 400,
+          "power": 70
+        }
+      },
+      "rankings": {
+        "roots": [
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                2
+              ]
+            },
+            "label": "Take Burrowing Owl from tray",
+            "category": "Cards",
+            "visits": 32,
+            "sum": 93.42474934375001,
+            "priorRewardSum": 10.944,
+            "leafRewardSum": 82.48074934375,
+            "priorGradeSum": 60.79999999999997,
+            "leafDeltaSum": 100.58627968750005,
+            "variance": 3.227268142218384,
+            "index": 0,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[2]}",
+            "mean": 2.9195234169921878,
+            "priorGradeMean": 1.899999999999999,
+            "leafDeltaMean": 3.1433212402343766,
+            "weightedPriorMean": 0.342,
+            "weightedLeafMean": 2.5775234169921877
+          },
+          {
+            "action": {
+              "type": "layEggs",
+              "targets": [
+                {
+                  "habitat": "grassland",
+                  "index": 0,
+                  "count": 2
+                }
+              ]
+            },
+            "label": "Lay 2 eggs",
+            "category": "Eggs",
+            "visits": 15,
+            "sum": 24.808506458333362,
+            "priorRewardSum": 4.967999999999999,
+            "leafRewardSum": 19.84050645833336,
+            "priorGradeSum": 27.599999999999998,
+            "leafDeltaSum": 24.195739583333367,
+            "variance": 10.606995937337434,
+            "index": 1,
+            "key": "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+            "mean": 1.6539004305555574,
+            "priorGradeMean": 1.8399999999999999,
+            "leafDeltaMean": 1.6130493055555577,
+            "weightedPriorMean": 0.33119999999999994,
+            "weightedLeafMean": 1.3227004305555572
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                "deck"
+              ]
+            },
+            "label": "Draw 1 hidden bird",
+            "category": "Cards",
+            "visits": 8,
+            "sum": 12.280899296874999,
+            "priorRewardSum": 2.736,
+            "leafRewardSum": 9.544899296875004,
+            "priorGradeSum": 15.200000000000001,
+            "leafDeltaSum": 11.640121093750004,
+            "variance": 17.55779493082254,
+            "index": 2,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+            "mean": 1.5351124121093749,
+            "priorGradeMean": 1.9000000000000001,
+            "leafDeltaMean": 1.4550151367187505,
+            "weightedPriorMean": 0.342,
+            "weightedLeafMean": 1.1931124121093755
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 3,
+                  "food": "invertebrate"
+                }
+              ]
+            },
+            "label": "Gain 1 food · invertebrate first",
+            "category": "Food",
+            "visits": 6,
+            "sum": 6.530807930555556,
+            "priorRewardSum": 2.592,
+            "leafRewardSum": 3.938807930555556,
+            "priorGradeSum": 14.400000000000002,
+            "leafDeltaSum": 4.803424305555556,
+            "variance": 9.787079862981752,
+            "index": 3,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+            "mean": 1.088467988425926,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 0.8005707175925926,
+            "weightedPriorMean": 0.432,
+            "weightedLeafMean": 0.656467988425926
+          },
+          {
+            "action": {
+              "type": "layEggs",
+              "targets": [
+                {
+                  "habitat": "grassland",
+                  "index": 0,
+                  "count": 3
+                }
+              ],
+              "extra": true,
+              "payment": "invertebrate"
+            },
+            "label": "Spend invertebrate for an additional egg",
+            "category": "Eggs",
+            "visits": 6,
+            "sum": 3.7593368125000093,
+            "priorRewardSum": 1.7927999999999997,
+            "leafRewardSum": 1.9665368125000078,
+            "priorGradeSum": 9.959999999999999,
+            "leafDeltaSum": 2.3982156250000095,
+            "variance": 9.69791857797668,
+            "index": 4,
+            "key": "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+            "mean": 0.6265561354166682,
+            "priorGradeMean": 1.66,
+            "leafDeltaMean": 0.39970260416666825,
+            "weightedPriorMean": 0.29879999999999995,
+            "weightedLeafMean": 0.327756135416668
+          },
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 3,
+              "habitat": "wetland",
+              "payment": [
+                "invertebrate",
+                "seed"
+              ],
+              "eggs": []
+            },
+            "label": "Play American Coot in wetland",
+            "category": "Bird",
+            "visits": 7,
+            "sum": 3.2037916944444538,
+            "priorRewardSum": 6.363,
+            "leafRewardSum": -3.1592083055555458,
+            "priorGradeSum": 35.35000000000001,
+            "leafDeltaSum": -3.8526930555555445,
+            "variance": 27.670923109650946,
+            "index": 5,
+            "key": "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+            "mean": 0.4576845277777791,
+            "priorGradeMean": 5.050000000000002,
+            "leafDeltaMean": -0.5503847222222207,
+            "weightedPriorMean": 0.909,
+            "weightedLeafMean": -0.45131547222222085
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 0,
+                  "food": "fish"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fish",
+            "category": "Food",
+            "visits": 4,
+            "sum": -1.3154003888888859,
+            "priorRewardSum": 1.7280000000000002,
+            "leafRewardSum": -3.0434003888888856,
+            "priorGradeSum": 9.600000000000001,
+            "leafDeltaSum": -3.7114638888888845,
+            "variance": 25.792506437126548,
+            "index": 6,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+            "mean": -0.32885009722222147,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -0.9278659722222211,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -0.7608500972222214
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 1,
+                  "food": "fruit"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fruit",
+            "category": "Food",
+            "visits": 4,
+            "sum": -2.8955193194444435,
+            "priorRewardSum": 1.7280000000000002,
+            "leafRewardSum": -4.623519319444443,
+            "priorGradeSum": 9.600000000000001,
+            "leafDeltaSum": -5.6384381944444435,
+            "variance": 7.4481107331560645,
+            "index": 7,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+            "mean": -0.7238798298611109,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -1.4096095486111109,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -1.1558798298611108
+          },
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 0,
+              "habitat": "forest",
+              "payment": [
+                "invertebrate",
+                "seed",
+                "fish",
+                "fruit",
+                "rodent"
+              ],
+              "eggs": []
+            },
+            "label": "Play Acorn Woodpecker in forest",
+            "category": "Bird",
+            "visits": 3,
+            "sum": -2.5004648055555476,
+            "priorRewardSum": 1.7820000000000003,
+            "leafRewardSum": -4.2824648055555485,
+            "priorGradeSum": 9.900000000000002,
+            "leafDeltaSum": -5.222518055555547,
+            "variance": 17.76618054935177,
+            "index": 8,
+            "key": "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+            "mean": -0.8334882685185159,
+            "priorGradeMean": 3.3000000000000007,
+            "leafDeltaMean": -1.740839351851849,
+            "weightedPriorMean": 0.5940000000000001,
+            "weightedLeafMean": -1.4274882685185162
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 4,
+                  "food": "seed"
+                }
+              ]
+            },
+            "label": "Gain 1 food · seed",
+            "category": "Food",
+            "visits": 4,
+            "sum": -5.803076031249995,
+            "priorRewardSum": 1.7280000000000002,
+            "leafRewardSum": -7.531076031249995,
+            "priorGradeSum": 9.600000000000001,
+            "leafDeltaSum": -9.184239062499994,
+            "variance": 17.359231056491033,
+            "index": 9,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+            "mean": -1.4507690078124988,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -2.2960597656249986,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -1.8827690078124988
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 2,
+                  "food": "fruit"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fruit",
+            "category": "Food",
+            "visits": 3,
+            "sum": -4.544373694444438,
+            "priorRewardSum": 1.2960000000000003,
+            "leafRewardSum": -5.840373694444439,
+            "priorGradeSum": 7.200000000000001,
+            "leafDeltaSum": -7.122406944444439,
+            "variance": 48.96617089302757,
+            "index": 10,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+            "mean": -1.5147912314814793,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -2.374135648148146,
+            "weightedPriorMean": 0.4320000000000001,
+            "weightedLeafMean": -1.9467912314814797
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 4,
+                  "food": "invertebrate"
+                }
+              ]
+            },
+            "label": "Gain 1 food · invertebrate first",
+            "category": "Food",
+            "visits": 3,
+            "sum": -4.643741749999991,
+            "priorRewardSum": 1.2960000000000003,
+            "leafRewardSum": -5.939741749999991,
+            "priorGradeSum": 7.200000000000001,
+            "leafDeltaSum": -7.24358749999999,
+            "variance": 24.661701337646523,
+            "index": 11,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+            "mean": -1.5479139166666638,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -2.414529166666663,
+            "weightedPriorMean": 0.4320000000000001,
+            "weightedLeafMean": -1.9799139166666635
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                1
+              ]
+            },
+            "label": "Take Black-Necked Stilt from tray",
+            "category": "Cards",
+            "visits": 2,
+            "sum": -6.263904416666662,
+            "priorRewardSum": 0.6839999999999999,
+            "leafRewardSum": -6.9479044166666615,
+            "priorGradeSum": 3.8,
+            "leafDeltaSum": -8.47305416666666,
+            "variance": 29.536248229827535,
+            "index": 12,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[1]}",
+            "mean": -3.131952208333331,
+            "priorGradeMean": 1.9,
+            "leafDeltaMean": -4.23652708333333,
+            "weightedPriorMean": 0.34199999999999997,
+            "weightedLeafMean": -3.4739522083333307
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                0
+              ]
+            },
+            "label": "Take King Rail from tray",
+            "category": "Cards",
+            "visits": 1,
+            "sum": -3.3908689166666677,
+            "priorRewardSum": 0.34199999999999997,
+            "leafRewardSum": -3.7328689166666678,
+            "priorGradeSum": 1.9,
+            "leafDeltaSum": -4.552279166666668,
+            "variance": 0,
+            "index": 13,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[0]}",
+            "mean": -3.3908689166666677,
+            "priorGradeMean": 1.9,
+            "leafDeltaMean": -4.552279166666668,
+            "weightedPriorMean": 0.34199999999999997,
+            "weightedLeafMean": -3.7328689166666678
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 3,
+                  "food": "seed"
+                }
+              ]
+            },
+            "label": "Gain 1 food · seed",
+            "category": "Food",
+            "visits": 1,
+            "sum": -3.6239480624999962,
+            "priorRewardSum": 0.43200000000000005,
+            "leafRewardSum": -4.055948062499996,
+            "priorGradeSum": 2.4000000000000004,
+            "leafDeltaSum": -4.946278124999996,
+            "variance": 0,
+            "index": 14,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+            "mean": -3.6239480624999962,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -4.946278124999996,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -4.055948062499996
+          },
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 2,
+              "habitat": "wetland",
+              "payment": [
+                "invertebrate",
+                "fish",
+                "rodent"
+              ],
+              "eggs": []
+            },
+            "label": "Play American Bittern in wetland",
+            "category": "Bird",
+            "visits": 1,
+            "sum": -6.933690583333334,
+            "priorRewardSum": 1.1159999999999999,
+            "leafRewardSum": -8.049690583333334,
+            "priorGradeSum": 6.199999999999999,
+            "leafDeltaSum": -9.816695833333334,
+            "variance": 0,
+            "index": 15,
+            "key": "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}",
+            "mean": -6.933690583333334,
+            "priorGradeMean": 6.199999999999999,
+            "leafDeltaMean": -9.816695833333334,
+            "weightedPriorMean": 1.1159999999999999,
+            "weightedLeafMean": -8.049690583333334
+          }
+        ],
+        "combined": [
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}"
+        ],
+        "prior": [
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}"
+        ],
+        "leaf": [
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}"
+        ]
+      },
+      "priorLeafTopAgree": false,
+      "priorCombinedTopAgree": false
+    },
+    {
+      "id": "raven-alone",
+      "source": "fixed-mechanism",
+      "profile": "lean-es",
+      "configuration": {
+        "id": "lean-es",
+        "method": "lean-es",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "horizon": 4
+      },
+      "repeat": 0,
+      "requested": 100,
+      "target": 100,
+      "iterations": 100,
+      "rootCount": 16,
+      "coverageFloorOverhead": 0,
+      "complete": true,
+      "generationMs": 0.8873000000000957,
+      "elapsedMs": 839.281,
+      "checkpointElapsedMs": 838.3542,
+      "diagnostics": {
+        "rolloutCount": 100,
+        "actionTurns": 400,
+        "actionTurnsBySeat": [
+          200,
+          200
+        ],
+        "powerSteps": 80,
+        "steps": 480,
+        "settledLeaf": 100,
+        "settledLeaves": 100,
+        "unsettledLeaves": 0,
+        "horizonReached": 100,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 53.15939999999996,
+        "leafRewardSum": 262.4173960152779,
+        "priorGradeSum": 295.3300000000003,
+        "leafDeltaSum": 320.02121465277787,
+        "phaseSteps": {
+          "play": 400,
+          "power": 80
+        }
+      },
+      "rankings": {
+        "roots": [
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 3,
+              "habitat": "wetland",
+              "payment": [
+                "invertebrate",
+                "seed"
+              ],
+              "eggs": []
+            },
+            "label": "Play American Coot in wetland",
+            "category": "Bird",
+            "visits": 27,
+            "sum": 126.71036073611116,
+            "priorRewardSum": 24.542999999999996,
+            "leafRewardSum": 102.16736073611119,
+            "priorGradeSum": 136.34999999999997,
+            "leafDeltaSum": 124.59434236111125,
+            "variance": 6.276656113550105,
+            "index": 0,
+            "key": "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+            "mean": 4.692976323559672,
+            "priorGradeMean": 5.049999999999999,
+            "leafDeltaMean": 4.614605272633749,
+            "weightedPriorMean": 0.9089999999999998,
+            "weightedLeafMean": 3.7839763235596737
+          },
+          {
+            "action": {
+              "type": "layEggs",
+              "targets": [
+                {
+                  "habitat": "grassland",
+                  "index": 0,
+                  "count": 2
+                }
+              ]
+            },
+            "label": "Lay 2 eggs",
+            "category": "Eggs",
+            "visits": 20,
+            "sum": 91.64468382638891,
+            "priorRewardSum": 6.623999999999999,
+            "leafRewardSum": 85.02068382638892,
+            "priorGradeSum": 36.8,
+            "leafDeltaSum": 103.68376076388891,
+            "variance": 11.769010288227683,
+            "index": 1,
+            "key": "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+            "mean": 4.582234191319445,
+            "priorGradeMean": 1.8399999999999999,
+            "leafDeltaMean": 5.184188038194446,
+            "weightedPriorMean": 0.33119999999999994,
+            "weightedLeafMean": 4.251034191319446
+          },
+          {
+            "action": {
+              "type": "layEggs",
+              "targets": [
+                {
+                  "habitat": "grassland",
+                  "index": 0,
+                  "count": 3
+                }
+              ],
+              "extra": true,
+              "payment": "invertebrate"
+            },
+            "label": "Spend invertebrate for an additional egg",
+            "category": "Eggs",
+            "visits": 8,
+            "sum": 28.660261097222232,
+            "priorRewardSum": 2.3903999999999996,
+            "leafRewardSum": 26.269861097222233,
+            "priorGradeSum": 13.28,
+            "leafDeltaSum": 32.03641597222224,
+            "variance": 4.2423145991140405,
+            "index": 2,
+            "key": "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+            "mean": 3.582532637152779,
+            "priorGradeMean": 1.66,
+            "leafDeltaMean": 4.00455199652778,
+            "weightedPriorMean": 0.29879999999999995,
+            "weightedLeafMean": 3.283732637152779
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 4,
+                  "food": "invertebrate"
+                }
+              ]
+            },
+            "label": "Gain 1 food · invertebrate first",
+            "category": "Food",
+            "visits": 6,
+            "sum": 18.831470336805566,
+            "priorRewardSum": 2.592,
+            "leafRewardSum": 16.239470336805567,
+            "priorGradeSum": 14.400000000000002,
+            "leafDeltaSum": 19.80423211805557,
+            "variance": 2.327917927446687,
+            "index": 3,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+            "mean": 3.1385783894675945,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 3.3007053530092616,
+            "weightedPriorMean": 0.432,
+            "weightedLeafMean": 2.7065783894675945
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 2,
+                  "food": "fruit"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fruit",
+            "category": "Food",
+            "visits": 6,
+            "sum": 18.379872135416683,
+            "priorRewardSum": 2.592,
+            "leafRewardSum": 15.787872135416679,
+            "priorGradeSum": 14.400000000000002,
+            "leafDeltaSum": 19.253502604166684,
+            "variance": 1.4568942355188015,
+            "index": 4,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+            "mean": 3.063312022569447,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 3.2089171006944475,
+            "weightedPriorMean": 0.432,
+            "weightedLeafMean": 2.6313120225694466
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 3,
+                  "food": "invertebrate"
+                }
+              ]
+            },
+            "label": "Gain 1 food · invertebrate first",
+            "category": "Food",
+            "visits": 4,
+            "sum": 10.20135326388889,
+            "priorRewardSum": 1.7280000000000002,
+            "leafRewardSum": 8.47335326388889,
+            "priorGradeSum": 9.600000000000001,
+            "leafDeltaSum": 10.333357638888891,
+            "variance": 0.18844622866601787,
+            "index": 5,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+            "mean": 2.5503383159722226,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 2.583339409722223,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": 2.1183383159722227
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                2
+              ]
+            },
+            "label": "Take Burrowing Owl from tray",
+            "category": "Cards",
+            "visits": 7,
+            "sum": 16.771611791666675,
+            "priorRewardSum": 2.394,
+            "leafRewardSum": 14.377611791666679,
+            "priorGradeSum": 13.3,
+            "leafDeltaSum": 17.533672916666678,
+            "variance": 6.3463894293521035,
+            "index": 6,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[2]}",
+            "mean": 2.395944541666668,
+            "priorGradeMean": 1.9000000000000001,
+            "leafDeltaMean": 2.5048104166666683,
+            "weightedPriorMean": 0.342,
+            "weightedLeafMean": 2.0539445416666684
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                1
+              ]
+            },
+            "label": "Take Black-Necked Stilt from tray",
+            "category": "Cards",
+            "visits": 3,
+            "sum": 5.8827147916666735,
+            "priorRewardSum": 1.0259999999999998,
+            "leafRewardSum": 4.856714791666674,
+            "priorGradeSum": 5.699999999999999,
+            "leafDeltaSum": 5.922822916666675,
+            "variance": 0.05990176594546259,
+            "index": 7,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[1]}",
+            "mean": 1.960904930555558,
+            "priorGradeMean": 1.8999999999999997,
+            "leafDeltaMean": 1.9742743055555583,
+            "weightedPriorMean": 0.3419999999999999,
+            "weightedLeafMean": 1.6189049305555578
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 4,
+                  "food": "seed"
+                }
+              ]
+            },
+            "label": "Gain 1 food · seed",
+            "category": "Food",
+            "visits": 4,
+            "sum": 7.827515675000001,
+            "priorRewardSum": 1.7280000000000002,
+            "leafRewardSum": 6.099515675000001,
+            "priorGradeSum": 9.600000000000001,
+            "leafDeltaSum": 7.4384337500000015,
+            "variance": 1.083991276627516,
+            "index": 8,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+            "mean": 1.9568789187500002,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 1.8596084375000004,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": 1.5248789187500003
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 0,
+                  "food": "fish"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fish",
+            "category": "Food",
+            "visits": 5,
+            "sum": 6.04216329861112,
+            "priorRewardSum": 2.16,
+            "leafRewardSum": 3.88216329861112,
+            "priorGradeSum": 12.000000000000002,
+            "leafDeltaSum": 4.7343454861111205,
+            "variance": 29.785670647625423,
+            "index": 9,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+            "mean": 1.2084326597222241,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 0.9468690972222241,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": 0.776432659722224
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                "deck"
+              ]
+            },
+            "label": "Draw 1 hidden bird",
+            "category": "Cards",
+            "visits": 2,
+            "sum": 1.817559458333335,
+            "priorRewardSum": 0.6839999999999999,
+            "leafRewardSum": 1.1335594583333348,
+            "priorGradeSum": 3.8,
+            "leafDeltaSum": 1.3823895833333353,
+            "variance": 0.8641383431501914,
+            "index": 10,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+            "mean": 0.9087797291666675,
+            "priorGradeMean": 1.9,
+            "leafDeltaMean": 0.6911947916666676,
+            "weightedPriorMean": 0.34199999999999997,
+            "weightedLeafMean": 0.5667797291666674
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 1,
+                  "food": "fruit"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fruit",
+            "category": "Food",
+            "visits": 1,
+            "sum": -1.2641961944444415,
+            "priorRewardSum": 0.43200000000000005,
+            "leafRewardSum": -1.6961961944444415,
+            "priorGradeSum": 2.4000000000000004,
+            "leafDeltaSum": -2.068531944444441,
+            "variance": 0,
+            "index": 11,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+            "mean": -1.2641961944444415,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -2.068531944444441,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -1.6961961944444415
+          },
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 0,
+              "habitat": "forest",
+              "payment": [
+                "invertebrate",
+                "seed",
+                "fish",
+                "fruit",
+                "rodent"
+              ],
+              "eggs": []
+            },
+            "label": "Play Acorn Woodpecker in forest",
+            "category": "Bird",
+            "visits": 4,
+            "sum": -5.750016638888877,
+            "priorRewardSum": 2.3760000000000003,
+            "leafRewardSum": -8.126016638888878,
+            "priorGradeSum": 13.200000000000003,
+            "leafDeltaSum": -9.909776388888876,
+            "variance": 63.84273015214189,
+            "index": 12,
+            "key": "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+            "mean": -1.4375041597222193,
+            "priorGradeMean": 3.3000000000000007,
+            "leafDeltaMean": -2.477444097222219,
+            "weightedPriorMean": 0.5940000000000001,
+            "weightedLeafMean": -2.0315041597222194
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 3,
+                  "food": "seed"
+                }
+              ]
+            },
+            "label": "Gain 1 food · seed",
+            "category": "Food",
+            "visits": 1,
+            "sum": -2.313998062499996,
+            "priorRewardSum": 0.43200000000000005,
+            "leafRewardSum": -2.745998062499996,
+            "priorGradeSum": 2.4000000000000004,
+            "leafDeltaSum": -3.3487781249999955,
+            "variance": 0,
+            "index": 13,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+            "mean": -2.313998062499996,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -3.3487781249999955,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -2.745998062499996
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                0
+              ]
+            },
+            "label": "Take King Rail from tray",
+            "category": "Cards",
+            "visits": 1,
+            "sum": -2.320768916666668,
+            "priorRewardSum": 0.34199999999999997,
+            "leafRewardSum": -2.662768916666668,
+            "priorGradeSum": 1.9,
+            "leafDeltaSum": -3.2472791666666687,
+            "variance": 0,
+            "index": 14,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[0]}",
+            "mean": -2.320768916666668,
+            "priorGradeMean": 1.9,
+            "leafDeltaMean": -3.2472791666666687,
+            "weightedPriorMean": 0.34199999999999997,
+            "weightedLeafMean": -2.662768916666668
+          },
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 2,
+              "habitat": "wetland",
+              "payment": [
+                "invertebrate",
+                "fish",
+                "rodent"
+              ],
+              "eggs": []
+            },
+            "label": "Play American Bittern in wetland",
+            "category": "Bird",
+            "visits": 1,
+            "sum": -5.543790583333334,
+            "priorRewardSum": 1.1159999999999999,
+            "leafRewardSum": -6.659790583333334,
+            "priorGradeSum": 6.199999999999999,
+            "leafDeltaSum": -8.121695833333334,
+            "variance": 0,
+            "index": 15,
+            "key": "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}",
+            "mean": -5.543790583333334,
+            "priorGradeMean": 6.199999999999999,
+            "leafDeltaMean": -8.121695833333334,
+            "weightedPriorMean": 1.1159999999999999,
+            "weightedLeafMean": -6.659790583333334
+          }
+        ],
+        "combined": [
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}"
+        ],
+        "prior": [
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}"
+        ],
+        "leaf": [
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}"
+        ]
+      },
+      "priorLeafTopAgree": false,
+      "priorCombinedTopAgree": false
+    },
+    {
+      "id": "raven-alone",
+      "source": "fixed-mechanism",
+      "profile": "power-aware",
+      "configuration": {
+        "id": "power-aware",
+        "method": "reference",
+        "policy": "power-aware",
+        "priorWeight": 0.18,
+        "horizon": 4
+      },
+      "repeat": 0,
+      "requested": 100,
+      "target": 100,
+      "iterations": 66,
+      "rootCount": 16,
+      "coverageFloorOverhead": 0,
+      "complete": false,
+      "generationMs": 1.2068000000001575,
+      "elapsedMs": 442.8466000000003,
+      "checkpointElapsedMs": 441.5893000000001,
+      "diagnostics": {
+        "rolloutCount": 66,
+        "actionTurns": 264,
+        "actionTurnsBySeat": [
+          132,
+          132
+        ],
+        "powerSteps": 50,
+        "steps": 314,
+        "settledLeaf": 66,
+        "settledLeaves": 66,
+        "unsettledLeaves": 0,
+        "horizonReached": 66,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 33.352199999999975,
+        "leafRewardSum": 75.08082108020841,
+        "priorGradeSum": 185.29000000000016,
+        "leafDeltaSum": 91.5619769270834,
+        "phaseSteps": {
+          "play": 264,
+          "power": 50
+        }
+      },
+      "rankings": {
+        "roots": [
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 3,
+              "habitat": "wetland",
+              "payment": [
+                "invertebrate",
+                "seed"
+              ],
+              "eggs": []
+            },
+            "label": "Play American Coot in wetland",
+            "category": "Bird",
+            "visits": 13,
+            "sum": 48.209765652777804,
+            "priorRewardSum": 11.817000000000004,
+            "leafRewardSum": 36.3927656527778,
+            "priorGradeSum": 65.64999999999999,
+            "leafDeltaSum": 44.38142152777779,
+            "variance": 3.2283613636664015,
+            "index": 0,
+            "key": "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+            "mean": 3.708443511752139,
+            "priorGradeMean": 5.049999999999999,
+            "leafDeltaMean": 3.413955502136753,
+            "weightedPriorMean": 0.9090000000000003,
+            "weightedLeafMean": 2.799443511752138
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 0,
+                  "food": "fish"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fish",
+            "category": "Food",
+            "visits": 8,
+            "sum": 23.11774339756945,
+            "priorRewardSum": 3.456,
+            "leafRewardSum": 19.66174339756945,
+            "priorGradeSum": 19.200000000000003,
+            "leafDeltaSum": 23.97773585069445,
+            "variance": 1.8437467552921467,
+            "index": 1,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+            "mean": 2.889717924696181,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 2.9972169813368064,
+            "weightedPriorMean": 0.432,
+            "weightedLeafMean": 2.457717924696181
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                "deck"
+              ]
+            },
+            "label": "Draw 1 hidden bird",
+            "category": "Cards",
+            "visits": 6,
+            "sum": 11.99306508541666,
+            "priorRewardSum": 2.052,
+            "leafRewardSum": 9.941065085416662,
+            "priorGradeSum": 11.4,
+            "leafDeltaSum": 12.123250104166662,
+            "variance": 17.71699514927871,
+            "index": 2,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+            "mean": 1.9988441809027766,
+            "priorGradeMean": 1.9000000000000001,
+            "leafDeltaMean": 2.020541684027777,
+            "weightedPriorMean": 0.342,
+            "weightedLeafMean": 1.656844180902777
+          },
+          {
+            "action": {
+              "type": "layEggs",
+              "targets": [
+                {
+                  "habitat": "grassland",
+                  "index": 0,
+                  "count": 2
+                }
+              ]
+            },
+            "label": "Lay 2 eggs",
+            "category": "Eggs",
+            "visits": 6,
+            "sum": 11.891661395833347,
+            "priorRewardSum": 1.9871999999999996,
+            "leafRewardSum": 9.904461395833348,
+            "priorGradeSum": 11.04,
+            "leafDeltaSum": 12.078611458333352,
+            "variance": 7.459650082703453,
+            "index": 3,
+            "key": "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+            "mean": 1.9819435659722247,
+            "priorGradeMean": 1.8399999999999999,
+            "leafDeltaMean": 2.0131019097222254,
+            "weightedPriorMean": 0.33119999999999994,
+            "weightedLeafMean": 1.6507435659722247
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                2
+              ]
+            },
+            "label": "Take Burrowing Owl from tray",
+            "category": "Cards",
+            "visits": 4,
+            "sum": 7.7382793333333355,
+            "priorRewardSum": 1.3679999999999999,
+            "leafRewardSum": 6.370279333333336,
+            "priorGradeSum": 7.6,
+            "leafDeltaSum": 7.768633333333337,
+            "variance": 1.446657088652083,
+            "index": 4,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[2]}",
+            "mean": 1.9345698333333339,
+            "priorGradeMean": 1.9,
+            "leafDeltaMean": 1.9421583333333343,
+            "weightedPriorMean": 0.34199999999999997,
+            "weightedLeafMean": 1.592569833333334
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 2,
+                  "food": "fruit"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fruit",
+            "category": "Food",
+            "visits": 4,
+            "sum": 6.529340305555559,
+            "priorRewardSum": 1.7280000000000002,
+            "leafRewardSum": 4.801340305555558,
+            "priorGradeSum": 9.600000000000001,
+            "leafDeltaSum": 5.85529305555556,
+            "variance": 1.1362188010295189,
+            "index": 5,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+            "mean": 1.6323350763888897,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 1.46382326388889,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": 1.2003350763888896
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 4,
+                  "food": "invertebrate"
+                }
+              ]
+            },
+            "label": "Gain 1 food · invertebrate first",
+            "category": "Food",
+            "visits": 3,
+            "sum": 4.486326166666675,
+            "priorRewardSum": 1.2960000000000003,
+            "leafRewardSum": 3.190326166666676,
+            "priorGradeSum": 7.200000000000001,
+            "leafDeltaSum": 3.890641666666678,
+            "variance": 8.766543481612205,
+            "index": 6,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+            "mean": 1.4954420555555583,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 1.2968805555555594,
+            "weightedPriorMean": 0.4320000000000001,
+            "weightedLeafMean": 1.0634420555555586
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                1
+              ]
+            },
+            "label": "Take Black-Necked Stilt from tray",
+            "category": "Cards",
+            "visits": 3,
+            "sum": 2.8458157500000087,
+            "priorRewardSum": 1.0259999999999998,
+            "leafRewardSum": 1.8198157500000087,
+            "priorGradeSum": 5.699999999999999,
+            "leafDeltaSum": 2.2192875000000107,
+            "variance": 0.4249809716243129,
+            "index": 7,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[1]}",
+            "mean": 0.948605250000003,
+            "priorGradeMean": 1.8999999999999997,
+            "leafDeltaMean": 0.7397625000000035,
+            "weightedPriorMean": 0.3419999999999999,
+            "weightedLeafMean": 0.6066052500000029
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 3,
+                  "food": "invertebrate"
+                }
+              ]
+            },
+            "label": "Gain 1 food · invertebrate first",
+            "category": "Food",
+            "visits": 5,
+            "sum": 3.498577680555557,
+            "priorRewardSum": 2.16,
+            "leafRewardSum": 1.3385776805555558,
+            "priorGradeSum": 12.000000000000002,
+            "leafDeltaSum": 1.6324118055555559,
+            "variance": 11.101063647808823,
+            "index": 8,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+            "mean": 0.6997155361111114,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": 0.3264823611111112,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": 0.26771553611111115
+          },
+          {
+            "action": {
+              "type": "layEggs",
+              "targets": [
+                {
+                  "habitat": "grassland",
+                  "index": 0,
+                  "count": 3
+                }
+              ],
+              "extra": true,
+              "payment": "invertebrate"
+            },
+            "label": "Spend invertebrate for an additional egg",
+            "category": "Eggs",
+            "visits": 5,
+            "sum": 3.3927697916666686,
+            "priorRewardSum": 1.4939999999999998,
+            "leafRewardSum": 1.8987697916666706,
+            "priorGradeSum": 8.299999999999999,
+            "leafDeltaSum": 2.315572916666671,
+            "variance": 17.19798697314682,
+            "index": 9,
+            "key": "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+            "mean": 0.6785539583333338,
+            "priorGradeMean": 1.6599999999999997,
+            "leafDeltaMean": 0.4631145833333342,
+            "weightedPriorMean": 0.29879999999999995,
+            "weightedLeafMean": 0.37975395833333414
+          },
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 0,
+              "habitat": "forest",
+              "payment": [
+                "invertebrate",
+                "seed",
+                "fish",
+                "fruit",
+                "rodent"
+              ],
+              "eggs": []
+            },
+            "label": "Play Acorn Woodpecker in forest",
+            "category": "Bird",
+            "visits": 3,
+            "sum": 0.9714151944444533,
+            "priorRewardSum": 1.7820000000000003,
+            "leafRewardSum": -0.8105848055555467,
+            "priorGradeSum": 9.900000000000002,
+            "leafDeltaSum": -0.9885180555555451,
+            "variance": 9.341599274542508,
+            "index": 10,
+            "key": "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+            "mean": 0.3238050648148178,
+            "priorGradeMean": 3.3000000000000007,
+            "leafDeltaMean": -0.329506018518515,
+            "weightedPriorMean": 0.5940000000000001,
+            "weightedLeafMean": -0.27019493518518223
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 4,
+                  "food": "seed"
+                }
+              ]
+            },
+            "label": "Gain 1 food · seed",
+            "category": "Food",
+            "visits": 2,
+            "sum": 0.36086508333333267,
+            "priorRewardSum": 0.8640000000000001,
+            "leafRewardSum": -0.5031349166666674,
+            "priorGradeSum": 4.800000000000001,
+            "leafDeltaSum": -0.6135791666666677,
+            "variance": 0.06728227729591912,
+            "index": 11,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+            "mean": 0.18043254166666634,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -0.30678958333333384,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -0.2515674583333337
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 1,
+                  "food": "fruit"
+                }
+              ]
+            },
+            "label": "Gain 1 food · fruit",
+            "category": "Food",
+            "visits": 1,
+            "sum": -2.654096194444442,
+            "priorRewardSum": 0.43200000000000005,
+            "leafRewardSum": -3.086096194444442,
+            "priorGradeSum": 2.4000000000000004,
+            "leafDeltaSum": -3.7635319444444413,
+            "variance": 0,
+            "index": 12,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+            "mean": -2.654096194444442,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -3.7635319444444413,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -3.086096194444442
+          },
+          {
+            "action": {
+              "type": "drawBirds",
+              "draws": [
+                0
+              ]
+            },
+            "label": "Take King Rail from tray",
+            "category": "Cards",
+            "visits": 1,
+            "sum": -3.3908689166666677,
+            "priorRewardSum": 0.34199999999999997,
+            "leafRewardSum": -3.7328689166666678,
+            "priorGradeSum": 1.9,
+            "leafDeltaSum": -4.552279166666668,
+            "variance": 0,
+            "index": 13,
+            "key": "{\"type\":\"drawBirds\",\"draws\":[0]}",
+            "mean": -3.3908689166666677,
+            "priorGradeMean": 1.9,
+            "leafDeltaMean": -4.552279166666668,
+            "weightedPriorMean": 0.34199999999999997,
+            "weightedLeafMean": -3.7328689166666678
+          },
+          {
+            "action": {
+              "type": "gainFood",
+              "dice": [
+                {
+                  "index": 3,
+                  "food": "seed"
+                }
+              ]
+            },
+            "label": "Gain 1 food · seed",
+            "category": "Food",
+            "visits": 1,
+            "sum": -3.6239480624999962,
+            "priorRewardSum": 0.43200000000000005,
+            "leafRewardSum": -4.055948062499996,
+            "priorGradeSum": 2.4000000000000004,
+            "leafDeltaSum": -4.946278124999996,
+            "variance": 0,
+            "index": 14,
+            "key": "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+            "mean": -3.6239480624999962,
+            "priorGradeMean": 2.4000000000000004,
+            "leafDeltaMean": -4.946278124999996,
+            "weightedPriorMean": 0.43200000000000005,
+            "weightedLeafMean": -4.055948062499996
+          },
+          {
+            "action": {
+              "type": "playBird",
+              "birdId": 2,
+              "habitat": "wetland",
+              "payment": [
+                "invertebrate",
+                "fish",
+                "rodent"
+              ],
+              "eggs": []
+            },
+            "label": "Play American Bittern in wetland",
+            "category": "Bird",
+            "visits": 1,
+            "sum": -6.933690583333334,
+            "priorRewardSum": 1.1159999999999999,
+            "leafRewardSum": -8.049690583333334,
+            "priorGradeSum": 6.199999999999999,
+            "leafDeltaSum": -9.816695833333334,
+            "variance": 0,
+            "index": 15,
+            "key": "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}",
+            "mean": -6.933690583333334,
+            "priorGradeMean": 6.199999999999999,
+            "leafDeltaMean": -9.816695833333334,
+            "weightedPriorMean": 1.1159999999999999,
+            "weightedLeafMean": -8.049690583333334
+          }
+        ],
+        "combined": [
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}"
+        ],
+        "prior": [
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}"
+        ],
+        "leaf": [
+          "{\"type\":\"playBird\",\"birdId\":3,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"seed\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":0,\"food\":\"fish\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[\"deck\"]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":2}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[2]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":2,\"food\":\"fruit\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[1]}",
+          "{\"type\":\"layEggs\",\"targets\":[{\"habitat\":\"grassland\",\"index\":0,\"count\":3}],\"extra\":true,\"payment\":\"invertebrate\"}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"invertebrate\"}]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":4,\"food\":\"seed\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":0,\"habitat\":\"forest\",\"payment\":[\"invertebrate\",\"seed\",\"fish\",\"fruit\",\"rodent\"],\"eggs\":[]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":1,\"food\":\"fruit\"}]}",
+          "{\"type\":\"drawBirds\",\"draws\":[0]}",
+          "{\"type\":\"gainFood\",\"dice\":[{\"index\":3,\"food\":\"seed\"}]}",
+          "{\"type\":\"playBird\",\"birdId\":2,\"habitat\":\"wetland\",\"payment\":[\"invertebrate\",\"fish\",\"rodent\"],\"eggs\":[]}"
+        ]
+      },
+      "priorLeafTopAgree": false,
+      "priorCombinedTopAgree": false
+    }
+  ],
+  "cpuUsageMicros": {
+    "user": 2234000,
+    "system": 16000
+  },
+  "memory": {
+    "rss": 73056256,
+    "heapTotal": 19128320,
+    "heapUsed": 11903680,
+    "external": 2420350,
+    "arrayBuffers": 143663
+  },
+  "node": "v24.19.0",
+  "pid": 92172,
+  "sourceHashes": {
+    "scripts/wingspan-overnight/rollout.mjs": "ebf25a7cf66bf03c6dbbf806fa881ac9270ea563a24d17c62826780419605fd7",
+    "scripts/wingspan-overnight/search.mjs": "caf3472bf1423670bcbc08471bc0895dbbd3b09b2b83f7c3169a3f2b6521f791",
+    "scripts/wingspan-overnight/game.mjs": "dbbc0455ff35f7470682e21abee943c01abbb95a9750f95e07eb71ae6ffd70f8",
+    "scripts/wingspan-overnight/diagnostics.mjs": "7f9df1d7addc15485cbf9560fefa490b96265172653297a9d08facd3610b683a",
+    "scripts/wingspan-overnight/evaluators.mjs": "3d41db4a4f393f11561173c53eab66786b8fd1db2ac1cd7990a4750d3349a199",
+    "scripts/wingspan-overnight/power-policy.mjs": "601278dab5bbae0cdd0a7caf9282601f5e464bb9ce0dff873742189317d93abf",
+    "scripts/wingspan-study/fixtures.mjs": "01f32e9103f4947839a54d1d69f9648a9ac2e435e7d55fe41bdd478646c5ae3a"
+  }
+}
