@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **screen** · snapshot 2026-10-19T12:59:41.735Z.
-Recorded 560 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **screen** · snapshot 2026-10-19T13:01:15.017Z.
+Recorded 584 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -38,9 +38,9 @@ Offline status: **passed**. Held-out learning gate: `True`. Offline prediction a
 | canary/reference | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 1.50 [—, —] |
 | canary/deployed | 2 / 2 | 1 / 1 | 100.0% [0.0, 100.0]% | 7.50 [—, —] |
 | canary/neural | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 0.50 [—, —] |
-| screen/linear | 8 / 64 | 4 / 32 | 50.0% [0.0, 100.0]% | 4.38 [-15.31, 24.06] |
-| screen/reference | 8 / 64 | 4 / 32 | 68.8% [9.1, 100.0]% | 5.62 [-5.76, 17.01] |
-| screen/deployed | 8 / 64 | 4 / 32 | 62.5% [0.0, 100.0]% | 0.00 [-15.45, 15.45] |
+| screen/linear | 16 / 64 | 8 / 32 | 56.2% [29.5, 83.0]% | 0.06 [-8.73, 8.85] |
+| screen/reference | 16 / 64 | 8 / 32 | 53.1% [24.8, 81.5]% | 2.44 [-3.88, 8.75] |
+| screen/deployed | 16 / 64 | 8 / 32 | 46.9% [14.4, 79.3]% | -1.62 [-7.81, 4.56] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
 
