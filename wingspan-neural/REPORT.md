@@ -65,13 +65,13 @@ Mechanical transport-validation repair: the original validator mistakenly treate
 
 
 
-Diagnostic status: **running**, stage **constant-control-mechanical-resume**, updated 2026-10-19T14:06:37.650518+00:00. Original pilot results above are preserved.
+Diagnostic status: **running**, stage **constant-control-mechanical-resume**, updated 2026-10-19T14:08:11.559365+00:00. Original pilot results above are preserved.
 
 [Diagnostic progress](diagnostics-progress.json) · [Feature inventory](independent-review/train-feature-inventory.json) · [Feature/capacity plan](feature-capacity-probe/plan.json) · [Feature/capacity report](feature-capacity-probe/report.json) · [Constant-output protocol](constant-control/protocol.md) · [Strict repaired control analysis](constant-control/repair-resume-analysis.json)
 
 Feature/capacity cells completed: 4 / 4. Metrics use train/development data only; development scores were also used for within-cell checkpoint selection. Conditional bootstrap intervals are descriptive, not fresh confirmation. Compact inputs remove information as well as dimensions, so this is not a pure feature-count experiment. No new online candidate is selected.
 
-NN versus constant-output same-shape MLP: 27 /64 game records. The control retains the selected network’s hidden layers, normalization and dense work; only the final scalar head is zeroed. The internal linear transport slot is not the trained ridge model.
+NN versus constant-output same-shape MLP: 50 /64 game records. The control retains the selected network’s hidden layers, normalization and dense work; only the final scalar head is zeroed. The internal linear transport slot is not the trained ridge model.
 
 No winner-share statistic is shown while control validation is incomplete or inconsistent. Incomplete records are not invented outcomes.
 
