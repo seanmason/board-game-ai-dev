@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "protocol": "wingspan-compact-selfplay-v1",
-  "status": "prepared",
+  "status": "running",
   "createdAt": 1792421043088,
-  "startedAt": null,
-  "deadlineEpochMs": null,
+  "startedAt": 1792421066907,
+  "deadlineEpochMs": 1792442666907,
   "workers": 24,
   "cycles": 3,
   "generation": 0,
@@ -119,5 +119,60 @@
     "wingspan/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
     "wingspan/worker.js": "1f2b2c10c80914046ff4d23a1425e96f40c2db4c97898116794c3c2fc6c33b23"
   },
-  "stages": {}
+  "stages": {
+    "profile": {
+      "kind": "profile",
+      "status": "complete",
+      "startedAt": 1792421066916,
+      "finishedAt": 1792421071034,
+      "contextHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "result": {
+        "schema": 1,
+        "status": "passed",
+        "passed": true,
+        "hashes": {},
+        "modelHashes": {},
+        "config": {},
+        "history": [],
+        "strata": {},
+        "latency": {
+          "p99Ms": 1001.1134999999999,
+          "maxMs": 1001.1134999999999
+        }
+      }
+    },
+    "preflight": {
+      "kind": "preflight",
+      "status": "complete",
+      "startedAt": 1792421071043,
+      "finishedAt": 1792421073078,
+      "contextHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "result": {
+        "schema": 1,
+        "status": "passed",
+        "passed": true,
+        "inference": null,
+        "hashes": {},
+        "modelHashes": {},
+        "config": {},
+        "history": [],
+        "strata": {},
+        "latency": {}
+      }
+    },
+    "calibration": {
+      "kind": "calibration",
+      "status": "running",
+      "startedAt": 1792421073087,
+      "contextHash": "9a07769cafa94b913d82e6968c6a75badc19c199ee2261cd65ac464e70fe06ca",
+      "result": {
+        "hashes": {},
+        "modelHashes": {},
+        "config": {},
+        "history": [],
+        "strata": {},
+        "latency": {}
+      }
+    }
+  }
 }
