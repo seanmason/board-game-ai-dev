@@ -14956,9 +14956,288 @@
     },
     "train-1": {
       "kind": "train",
-      "status": "running",
+      "status": "complete",
       "startedAt": 1792423224483,
+      "finishedAt": 1792423260398,
       "contextHash": "5657abf281089207219a6103665ed6b3cc8fa74f920fd79acc690508be5127b0",
+      "result": {
+        "schema": 1,
+        "eligible": true,
+        "selectedEpoch": 3,
+        "optimizerReset": true,
+        "normalizationFrozen": true,
+        "parityPassed": true,
+        "device": "cuda",
+        "eligibilityMeaning": "Offline prediction only; playing-strength and runtime gates remain required",
+        "dev": {
+          "huber": 0.37259923179419474,
+          "mae": 7.250734311259345,
+          "saturation": 0.005283900669642856,
+          "correctionMean": -1.5383450959427185,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "epochZero": {},
+        "reference": {
+          "huber": 0.4398439331165145,
+          "mae": 8.016315754016416,
+          "saturation": 0,
+          "correctionMean": 0,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "linear": {
+          "huber": 0.41642693121182234,
+          "mae": 7.734748433348242,
+          "saturation": 0,
+          "correctionMean": -1.6702928006137867,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "hashes": {
+          "model.json": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+          "zero-model.json": "212d855d93126d93a7ab2abb1ae3e53e46fcfa08876790c8e9b3f5574a881f80",
+          "epoch-zero.json": "aa853ff8250a7d502b7b4b60894824afe31431653099f6a731115a63d54ec203",
+          "linear-model.json": "87b7ad1ea92fe25ee3af10f496fdbde72ac9c2dff81c80436e0a927c853ab70b",
+          "parity.json": "8d3d7b97c0a6962413f6268fa6eba1286ccbd3527b57c34069373c6653f00431"
+        },
+        "modelHashes": {
+          "generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+          "generation-1-zero": "212d855d93126d93a7ab2abb1ae3e53e46fcfa08876790c8e9b3f5574a881f80",
+          "generation-1-epoch-zero": "aa853ff8250a7d502b7b4b60894824afe31431653099f6a731115a63d54ec203"
+        },
+        "config": {
+          "seed": 1729,
+          "epochs": 24,
+          "patience": 4,
+          "batchSize": 512,
+          "learningRate": 0.0005,
+          "weightDecay": 0.0001,
+          "auxiliaryWeight": 0.05,
+          "auxiliaryScale": 20,
+          "ridgeAlpha": 10,
+          "cpuThreads": 4,
+          "gpuBytes": 6442450944
+        },
+        "manifestSha256": "01d515988f87b8c0fe73ed6d61d835b8984d61923cc2d94f441b95262335bb72",
+        "trainerSha256": "ba99cb28f37073f0d5c9529f4e7a12359f38f09a390e834c279da80e1d54e07b",
+        "devGroupMaeInterval": {
+          "low": 6.595296960469634,
+          "high": 7.895452989821498,
+          "confidence": 0.95,
+          "replicates": 1000,
+          "seed": 1729,
+          "independentGroups": 128,
+          "method": "setup-group percentile bootstrap within generation; equal generation mass"
+        },
+        "history": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.371069073677063,
+            "dev": {
+              "huber": 0.4398439331165145,
+              "mae": 8.016315754016416,
+              "saturation": 0,
+              "correctionMean": 0,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.32047373056411743,
+            "dev": {
+              "huber": 0.39005623842184367,
+              "mae": 7.435095873305811,
+              "saturation": 0.00027901785714285713,
+              "correctionMean": -2.543786649688601,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.29042771458625793,
+            "dev": {
+              "huber": 0.37551799153814236,
+              "mae": 7.273159664426169,
+              "saturation": 0.003510974702380952,
+              "correctionMean": -1.9240768911309967,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.27483218908309937,
+            "dev": {
+              "huber": 0.37259923179419474,
+              "mae": 7.250734311259345,
+              "saturation": 0.005283900669642856,
+              "correctionMean": -1.5383450959427185,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.26207154989242554,
+            "dev": {
+              "huber": 0.3753316771405697,
+              "mae": 7.295522370894878,
+              "saturation": 0.011229306175595238,
+              "correctionMean": -1.8019677517910708,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.25168487429618835,
+            "dev": {
+              "huber": 0.382053829390151,
+              "mae": 7.380485430688477,
+              "saturation": 0.013910202752976188,
+              "correctionMean": -1.4915976553227894,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          {
+            "epoch": 6,
+            "trainHuber": 0.24182642996311188,
+            "dev": {
+              "huber": 0.3830646716965677,
+              "mae": 7.392414225970555,
+              "saturation": 0.021510532924107144,
+              "correctionMean": -1.4927732124539657,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          {
+            "epoch": 7,
+            "trainHuber": 0.23323699831962585,
+            "dev": {
+              "huber": 0.39152592475934406,
+              "mae": 7.505533053198184,
+              "saturation": 0.02849818638392857,
+              "correctionMean": -1.7283418664434842,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          }
+        ],
+        "strata": {
+          "generation": {
+            "1": {
+              "huber": 0.37259923179419474,
+              "mae": 7.250734311259345,
+              "saturation": 0.005283900669642856,
+              "correctionMean": -1.5383450959427185,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "round": {
+            "1": {
+              "huber": 0.6053553638663149,
+              "mae": 9.997898841335822,
+              "saturation": 0.00439453125,
+              "correctionMean": -0.6811127643907184,
+              "examples": 4096,
+              "games": 128,
+              "setups": 128
+            },
+            "2": {
+              "huber": 0.43936016137435174,
+              "mae": 8.157118756517004,
+              "saturation": 0.012834821428571428,
+              "correctionMean": -1.8902967031268156,
+              "examples": 3584,
+              "games": 128,
+              "setups": 128
+            },
+            "3": {
+              "huber": 0.29681795626990615,
+              "mae": 6.459594318875602,
+              "saturation": 0.0039062499999999996,
+              "correctionMean": -2.0346061333893886,
+              "examples": 3072,
+              "games": 128,
+              "setups": 128
+            },
+            "4": {
+              "huber": 0.14886344566620638,
+              "mae": 4.388325328308957,
+              "saturation": 0,
+              "correctionMean": -1.5473647828639518,
+              "examples": 2560,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "viewer": {
+            "0": {
+              "huber": 0.3727544032614337,
+              "mae": 7.283212610219581,
+              "saturation": 0.005818684895833333,
+              "correctionMean": -1.7253832374660272,
+              "examples": 6656,
+              "games": 128,
+              "setups": 128
+            },
+            "1": {
+              "huber": 0.3724440603269561,
+              "mae": 7.218256012299111,
+              "saturation": 0.00474911644345238,
+              "correctionMean": -1.3513069544194098,
+              "examples": 6656,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "engineActivity": {
+            "absent": {
+              "huber": 0.4463461546413544,
+              "mae": 8.121077787846641,
+              "saturation": 0.006871559972145909,
+              "correctionMean": -1.3784666633726739,
+              "examples": 9861,
+              "games": 128,
+              "setups": 128
+            },
+            "present": {
+              "huber": 0.27709434687279244,
+              "mae": 6.081974626855863,
+              "saturation": 0.004518645357686453,
+              "correctionMean": -1.8334984267528924,
+              "examples": 3451,
+              "games": 73,
+              "setups": 73
+            }
+          }
+        },
+        "latency": {}
+      }
+    },
+    "screen-1": {
+      "kind": "screen",
+      "status": "running",
+      "startedAt": 1792423260439,
+      "contextHash": "ead1fdc1474ead47c563e400f32d74025c2858ebfa8350779e18bc2265f7e590",
       "result": {
         "hashes": {},
         "modelHashes": {},
