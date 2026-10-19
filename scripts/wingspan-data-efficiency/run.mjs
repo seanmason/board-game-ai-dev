@@ -53,11 +53,12 @@ export function createController({out,executeStage,now=Date.now,workers=28,froze
   if(prior?.contextHash&&prior.contextHash!==contextHash)throw Error('Frozen stage task/context mismatch '+key);
   if(prior?.status==='complete')return prior.result;
   if(prior)throw Error('Partial/failed stage retained; refusing rerun '+key);
+  if(kind==='train')verifyCollections();
   const entry={kind,arm:context.arm??null,planned:context.tasks?.length??null,status:'running',startedAt:now(),contextHash,tasksHash:context.tasks?objectHash(context.tasks):null};state.stages[key]=entry;save();
   const reserveMs=['calibration','collect'].includes(kind)?limits.confirmationReserveMs+limits.fitReserveMs+limits.analysisReserveMs:kind==='train'?limits.confirmationReserveMs+limits.analysisReserveMs:limits.analysisReserveMs;
   const stageDeadlineEpochMs=state.deadlineEpochMs-reserveMs;
   if(now()>=stageDeadlineEpochMs)throw Error('Reserved fixed comparisons budget reached');
-  try{const result=await executeStage(kind,{...context,key,out,state,workers,deadlineEpochMs:stageDeadlineEpochMs,modelPaths:{...modelPaths,...Object.assign({},...Object.values(state.stages).map(e=>e.result?.models??{}))},check});check();if(result?.complete===false||result?.status==='failed')throw Error('Incomplete stage '+key);
+  try{const result=await executeStage(kind,{...context,key,out,state,workers,deadlineEpochMs:stageDeadlineEpochMs,modelPaths:{...modelPaths,...Object.assign({},...Object.values(state.stages).map(e=>e.result?.models??{}))},check});check();if(kind==='train')verifyCollections();if(result?.complete===false||result?.status==='failed')throw Error('Incomplete stage '+key);
    // Scores from calibration/collection never enter the controller allocation or dashboard state.
    let stored=result;
    if(['calibration','collect'].includes(kind)){if(!Number.isFinite(result.poolWallMs)||result.poolWallMs<=0||result.gameCount!==context.tasks.length||result.complete!==true)throw Error('Missing whole-batch timing/inventory');stored={complete:true,poolWallMs:result.poolWallMs,processCpuMicros:result.processCpuMicros,priority:result.priority,planned:context.tasks.length,gameCount:result.gameCount,recordReceipts:(result.records??result.results??[]).map(r=>({task:r.task,rawSha256:r.rawSha256,exampleCount:r.exampleCount,collectionDiagnostics:r.collectionDiagnostics})),outcomesClosed:true};if(stored.recordReceipts.length!==context.tasks.length)throw Error('Missing task receipts');}
