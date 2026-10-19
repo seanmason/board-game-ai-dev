@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **screen**. Snapshot 2026-10-19T03:03:28.627Z.
-Recorded 1318 / 1600 scheduled games; 1318 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
+Status: **running**; stage **screen**. Snapshot 2026-10-19T03:05:03.551Z.
+Recorded 1327 / 1600 scheduled games; 1327 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -30,25 +30,25 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 | Stage / matchup | Valid / planned | Complete seat pairs | Winner share | Paired 95% interval | Mean margin | Mean candidate decision |
 | --- | ---: | ---: | ---: | --- | ---: | ---: |
 | screen/reference-n100-h4 | 66 / 80 | 33 / 40 | 40.9% | 28.8% to 53.0% | -3.15 | 345.1 ms |
-| screen/reference-n100-h12 | 66 / 80 | 33 / 40 | 40.9% | 28.8% to 53.0% | -1.71 | 1217.6 ms |
+| screen/reference-n100-h12 | 67 / 80 | 33 / 40 | 40.9% | 28.8% to 53.0% | -1.71 | 1216.8 ms |
 | screen/reference-n300-h4 | 66 / 80 | 33 / 40 | 50.0% | 26.4% to 73.6% | 0.00 | 1013.3 ms |
-| screen/reference-n300-h12 | 65 / 80 | 32 / 40 | 51.6% | 40.8% to 62.3% | 0.58 | 3631.1 ms |
-| screen/exceptional-n100-h4 | 66 / 80 | 33 / 40 | 35.6% | 25.4% to 45.8% | -3.55 | 556.5 ms |
+| screen/reference-n300-h12 | 66 / 80 | 33 / 40 | 51.5% | 41.1% to 61.9% | 0.42 | 3638.7 ms |
+| screen/exceptional-n100-h4 | 67 / 80 | 33 / 40 | 35.6% | 25.4% to 45.8% | -3.55 | 561.0 ms |
 | screen/exceptional-n100-h12 | 66 / 80 | 33 / 40 | 31.8% | 20.5% to 43.2% | -6.03 | 1554.9 ms |
 | screen/exceptional-n300-h4 | 66 / 80 | 33 / 40 | 50.8% | 39.8% to 61.7% | 0.94 | 1685.1 ms |
 | screen/exceptional-n300-h12 | 66 / 80 | 33 / 40 | 52.3% | 41.8% to 62.8% | 0.82 | 4250.9 ms |
-| screen/chains-n100-h4 | 66 / 80 | 33 / 40 | 40.9% | 29.0% to 52.8% | -3.35 | 571.9 ms |
-| screen/chains-n100-h12 | 66 / 80 | 33 / 40 | 37.9% | 27.0% to 48.8% | -2.62 | 1446.7 ms |
+| screen/chains-n100-h4 | 67 / 80 | 33 / 40 | 40.9% | 29.0% to 52.8% | -3.35 | 576.2 ms |
+| screen/chains-n100-h12 | 67 / 80 | 33 / 40 | 37.9% | 27.0% to 48.8% | -2.62 | 1462.3 ms |
 | screen/chains-n300-h4 | 66 / 80 | 33 / 40 | 50.0% | 38.1% to 61.9% | 1.03 | 1635.5 ms |
 | screen/chains-n300-h12 | 66 / 80 | 33 / 40 | 58.3% | 46.5% to 70.2% | 0.71 | 4511.4 ms |
-| screen/investment-n100-h4 | 66 / 80 | 33 / 40 | 39.4% | 28.8% to 50.0% | -2.70 | 677.5 ms |
-| screen/investment-n100-h12 | 66 / 80 | 33 / 40 | 39.4% | 27.9% to 50.9% | -5.35 | 1378.2 ms |
+| screen/investment-n100-h4 | 67 / 80 | 33 / 40 | 39.4% | 28.8% to 50.0% | -2.70 | 677.6 ms |
+| screen/investment-n100-h12 | 67 / 80 | 33 / 40 | 39.4% | 27.9% to 50.9% | -5.35 | 1385.6 ms |
 | screen/investment-n300-h4 | 66 / 80 | 33 / 40 | 45.5% | 34.3% to 56.6% | -0.21 | 1970.8 ms |
-| screen/investment-n300-h12 | 65 / 80 | 32 / 40 | 43.8% | 34.6% to 52.9% | -1.12 | 4179.0 ms |
+| screen/investment-n300-h12 | 66 / 80 | 33 / 40 | 43.9% | 35.1% to 52.8% | -0.80 | 4185.9 ms |
 | screen/blend-n100-h4 | 67 / 80 | 33 / 40 | 53.0% | 41.4% to 64.7% | 0.23 | 1056.8 ms |
 | screen/blend-n100-h12 | 67 / 80 | 33 / 40 | 40.9% | 28.8% to 53.0% | -3.29 | 1789.6 ms |
 | screen/blend-n300-h4 | 66 / 80 | 33 / 40 | 58.3% | 47.8% to 68.9% | 2.73 | 3150.9 ms |
-| screen/blend-n300-h12 | 64 / 80 | 31 / 40 | 43.5% | 32.2% to 54.9% | -0.95 | 5368.1 ms |
+| screen/blend-n300-h12 | 65 / 80 | 32 / 40 | 43.8% | 32.8% to 54.7% | -1.27 | 5369.6 ms |
 
 These partial summaries are descriptive. Do not select a winner, claim compute scaling, or change defaults from the live screen. Fixed seed groups are the pairing unit; ties use exact final-outcome share. Invalid/capped records remain in raw evidence and are excluded from valid paired summaries. The runner halts on an invalid result.
 
