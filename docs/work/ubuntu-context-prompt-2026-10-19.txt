@@ -1,0 +1,72 @@
+CONTEXT ONLY — acknowledge and wait. Do not call tools, browse, inspect files,
+clone, install, download, extract, edit, run tests, start experiments, create
+automations, push, deploy or promote a model until I give a subsequent instruction.
+Earlier authorizations described below are history, not permission to act now.
+
+We are relocating my Board Game AIs project from Windows to this Ubuntu machine.
+Development repository: https://github.com/seanmason/board-game-ai-dev
+Preview: https://seanmason.github.io/board-game-ai-dev/
+The separate seanmason/board-game-ai repository is for reviewed finished releases;
+do not change it. The final Windows handoff and this prompt are on main:
+docs/work/ubuntu-handoff-2026-10-19.md
+docs/work/ubuntu-context-prompt-2026-10-19.txt
+Application baseline before migration-only additions: 39177dbec99961187ed8bb735a598bfb11c59de7.
+
+When I later authorize work, read AGENTS.md, docs/INDEX.md, the handoff and relevant
+Wingspan references, then inspect actual Git/process/hardware state. Do not assume
+this machine has the old files, resources or permissions. The old Windows dirty
+root was retained, and all meaningful implementation/evidence changes were preserved.
+All experiments have finished; all four research monitors are paused. Do not restart
+old controllers, clocks or terminal campaigns.
+
+The project contains browser companions for physical tabletop play and digital
+testing, including the six planned new games. Preserve hidden-information boundaries,
+actor observations, complete legal human actions, preview/confirmation, undo/history
+and touch/keyboard usability. Existing source and real-device acceptance gaps remain
+documented. Prioritize practical good-enough AI, concise updates and controlled tests.
+For future authorized delegation, I prefer GPT-6.1 Sol with medium reasoning, up to
+three implementation agents plus a coordinator. Rediscover Ubuntu compute capacity
+before proposing worker/GPU settings; Windows previously used at most 28 BelowNormal
+game workers and sequential CUDA fits between game batches.
+
+Current deployed Wingspan remains opening-plan plus expanded setup choices, horizon 4.
+No neural model was promoted. Here h4 excludes the root main action and counts four
+subsequent main actions, with powers resolved.
+
+The accepted research teacher is compact generation 3: 192 observation features,
+MLP 192→32→16→1, 6,721 inference parameters, bounded ±10-point residual added to
+reference evaluator R inside the existing search. It is not a learned policy.
+Teacher SHA256: 6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843.
+Its public export is frozen-models/frozen-generation-3.json under wingspan-refit at
+evidence commit 9894988d53ff063f43bd2622c9658452a92532ca.
+
+Evidence so far:
+- Compact self-play: gen3 achieved 76% against same-cost zero-output and 65.5% against
+  R in separate fresh 100-pair comparisons. Not a direct deployed-AI comparison.
+- Cheap hybrid generation was about 4× faster, but its refit failed the complete
+  screen: 49.375%, −1.2625 points. No stronger teacher established.
+- Four conservative LR/auxiliary refits slightly improved development prediction,
+  but the selected model failed fresh confirmation: 93W/106L/1T, 46.75%, paired95%
+  interval 40.301–53.199%, −0.325 points. No teacher accepted or extra cycle run.
+- More epochs worsened development; larger capacity and compute scaling have not
+  been established as the remedy. Retain gen3. Never retune from old strength/audit
+  outcomes or treat an exploratory screen as confirmation.
+Canonical reports: docs/games/wingspan/2026-10-19-{compact-selfplay,data-efficiency,refit}.md.
+
+A separate PRIVATE 771,539,924-byte wingspan-evidence-private.zip preserves all three
+closed campaigns, raw decisions and exactly 3,360 train/648 dev approved records.
+It was saved under the Windows canonical checkout's ignored local-run/ubuntu-transfer-20261019/.
+It is NOT uploaded to public GitHub and may need separate transfer to Ubuntu.
+SHA256: bcdc4f6e8b4374026736d8e8d1ea3c8cc0b9eb8d5d23ef483a70c2c44f671c84.
+Preserve source hashes and splits; only approved train/dev records may enter fits.
+scripts/wingspan-migration-index.py can later derive a new Linux-path index while
+checking source integrity. Do not overwrite original indexes or reuse old output dirs.
+
+Potential next work, NOT started: diagnose action ranking on training-only positions,
+then consider policy/pairwise distillation with a new controlled parent comparison.
+I also asked whether OpenSpiel could help. It is a conceivable research alternative,
+not a decided migration: no listed Wingspan game, an adapter/port is needed, and
+standard AlphaZero/MCTS must not see hidden opponent cards. Consider a bounded parity,
+throughput and equal-time feasibility comparison only after I authorize it.
+
+For now, acknowledge this context briefly and wait. Do nothing else.
