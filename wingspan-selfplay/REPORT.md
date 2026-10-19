@@ -1,7 +1,7 @@
 # Wingspan compact self-play evidence
 
 Status: **running** (running); stage **collect-1**.
-Snapshot: 2026-10-19T14:49:16.403Z. Actual games completed: 64 / 1056 across displayed stages.
+Snapshot: 2026-10-19T14:50:49.888Z. Actual games completed: 116 / 1056 across displayed stages.
 
 A finished snapshot may reflect an early stop; it does not imply all proposed cycles ran. Collection and offline prediction losses are not playing-strength evidence. Production promotion remains separate.
 
