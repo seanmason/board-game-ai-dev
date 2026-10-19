@@ -3,184 +3,15 @@
   "study": "wingspan-selfplay",
   "revision": "04b01cd84c9cc57b1d55099c7524f484e4eeb56e",
   "startedAt": "2026-10-19T14:44:26.907Z",
-  "updatedAt": "2026-10-19T17:40:03.020Z",
-  "status": "running",
-  "outcomeStatus": "running",
-  "stage": "scaling",
+  "updatedAt": "2026-10-19T17:41:39.220Z",
+  "status": "finished",
+  "outcomeStatus": "complete",
+  "stage": "analysis",
   "stopReason": null,
-  "workers": 24,
-  "active": [
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170014955/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170016949/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170018943/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170018943/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170019940/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170019940/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170020937/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170020937/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170021934/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170021934/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170022931/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170022931/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170023928/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170023928/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170024925/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170024925/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170025922/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170025922/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170026919/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170026919/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170027916/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170027916/1",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170028913/0",
-      "elapsedMs": null
-    },
-    {
-      "game": "wingspan",
-      "players": 2,
-      "stage": "scaling",
-      "id": "scaling/0/reference/170028913/1",
-      "elapsedMs": null
-    }
-  ],
+  "workers": 0,
+  "active": [],
   "planned": 4064,
-  "finished": 4020,
+  "finished": 4064,
   "rows": [
     {
       "game": "wingspan",
@@ -1591,60 +1422,130 @@
     {
       "game": "wingspan",
       "players": 2,
-      "matchup": "scaling",
-      "policy": "scaling",
-      "policyId": "scaling \u00b7 awaiting complete pairs",
-      "opponentPolicyId": "No playing-strength measurement",
+      "matchup": "scaling/candidate",
+      "policy": "scaling/candidate",
+      "policyId": "Exploratory compute scaling \u00b7 candidate",
+      "opponentPolicyId": "generation-3",
       "scope": "Original two-player research experiment",
-      "budget": {},
-      "planned": 160,
-      "finished": 116,
+      "budget": {
+        "timeMs": null,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
       "counts": {
-        "complete": 116,
+        "complete": 80,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
-      "seedGroups": 0,
-      "completeSeedGroups": 0,
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
       "winShare": {
-        "n": 0,
-        "mean": null,
-        "low": null,
-        "high": null
+        "n": 40,
+        "mean": 0.5625,
+        "low": 0.45273828000254196,
+        "high": 0.6722617199974581
       },
       "margin": {
-        "n": 0,
-        "mean": null,
-        "low": null,
-        "high": null
+        "n": 40,
+        "mean": 2.825,
+        "low": 0.11718908661962901,
+        "high": 5.532810913380372
       },
       "chance": 0.5,
-      "meanDecisionMs": null,
-      "maxDecisionMs": null,
+      "meanDecisionMs": 1089.3030595936443,
+      "maxDecisionMs": 5103.638000000268,
       "metricKind": "win-share",
       "limitations": [
-        "Data generation and prediction loss do not establish playing strength."
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
       ],
-      "status": "running",
+      "generation": 0,
+      "status": "complete",
       "latency": {
-        "n": 0,
-        "meanMs": null,
-        "p95Ms": null,
-        "p99Ms": null,
-        "maxMs": null
+        "n": 4331,
+        "meanMs": 1089.3030595936443,
+        "p95Ms": 1940.813199998811,
+        "p99Ms": 2835.781700000167,
+        "maxMs": 5103.638000000268
       },
       "coverage": {
-        "decisions": 0,
-        "roots": 0,
+        "decisions": 4331,
+        "roots": 37433,
         "unvisited": 0,
-        "iterations": 0,
+        "iterations": 1299300,
+        "learnedLeafCount": 564000,
+        "learnedFallbackCount": 735300,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "scaling/reference",
+      "policy": "scaling/reference",
+      "policyId": "Exploratory compute scaling \u00b7 reference",
+      "opponentPolicyId": "reference",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": null,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.6,
+        "low": 0.49016363754577,
+        "high": 0.70983636245423
+      },
+      "margin": {
+        "n": 40,
+        "mean": 2.9125,
+        "low": 0.03281956612098069,
+        "high": 5.79218043387902
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 950.0185791502004,
+      "maxDecisionMs": 5037.698699999601,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 0,
+      "status": "complete",
+      "latency": {
+        "n": 4048,
+        "meanMs": 950.0185791502004,
+        "p95Ms": 1817.148299999535,
+        "p99Ms": 2839.7959000002593,
+        "maxMs": 5037.698699999601
+      },
+      "coverage": {
+        "decisions": 4048,
+        "roots": 33302,
+        "unvisited": 0,
+        "iterations": 1214400,
         "learnedLeafCount": 0,
         "learnedFallbackCount": 0,
         "errors": 0
-      }
+      },
+      "inferenceComplete": true
     }
   ],
   "failures": [],
