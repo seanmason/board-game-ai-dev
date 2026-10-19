@@ -135,9 +135,23 @@
     "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48"
   },
   "allocation": {
-    "counts": {},
-    "ratesMsPerGroup": {},
-    "estimatedPoolMs": {}
+    "counts": {
+      "baseline": 280,
+      "hybrid": 1040
+    },
+    "ratesMsPerGroup": {
+      "baseline": 2040.107142857143,
+      "hybrid": 572.1309523809524
+    },
+    "estimatedPoolMs": {
+      "baseline": 571230,
+      "hybrid": 595016.1904761905
+    },
+    "targetPoolMs": 600000,
+    "reserveMs": 3600000,
+    "workers": 28,
+    "outcomeBlind": true,
+    "frozen": true
   },
   "computeMatch": {},
   "stages": {
@@ -161,9 +175,27 @@
     },
     "calibration-hybrid": {
       "startedAt": 1792434445980,
+      "finishedAt": 1792434531207,
       "planned": 140,
-      "status": "running",
+      "status": "complete",
       "arm": "hybrid",
+      "result": {
+        "poolWallMs": 85210,
+        "gameCount": 140,
+        "planned": 140,
+        "complete": true,
+        "processCpuMicros": {
+          "user": 2032297000,
+          "system": 7203000
+        },
+        "modelHashes": {}
+      }
+    },
+    "collect-baseline": {
+      "startedAt": 1792434531241,
+      "planned": 280,
+      "status": "running",
+      "arm": "baseline",
       "result": {
         "processCpuMicros": {},
         "modelHashes": {}

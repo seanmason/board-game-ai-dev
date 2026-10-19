@@ -3,12 +3,15 @@
   "study": "wingspan-data-efficiency",
   "outcomeStatus": "running",
   "status": "running",
-  "stage": "calibration-hybrid",
-  "updatedAt": "2026-10-19T18:28:49.549Z",
-  "finished": 278,
-  "planned": 280,
-  "workers": 2,
+  "stage": "collect-baseline",
+  "updatedAt": "2026-10-19T18:30:21.863Z",
+  "finished": 308,
+  "planned": 560,
+  "workers": 28,
   "collectionBudget": {
+    "targetPoolMs": 600000,
+    "baselineGroups": 280,
+    "hybridGroups": 1040,
     "equalComputeClaimAllowed": false
   },
   "fitCosts": {},
@@ -69,13 +72,13 @@
       "policy": "calibration-hybrid",
       "opponentPolicyId": "No playing-strength measurement",
       "metricKind": "progress",
-      "status": "running",
+      "status": "complete",
       "planned": 140,
-      "finished": 138,
+      "finished": 140,
       "seedGroups": 140,
-      "completeSeedGroups": 138,
+      "completeSeedGroups": 140,
       "counts": {
-        "complete": 138,
+        "complete": 140,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
@@ -88,6 +91,57 @@
       "budget": {
         "horizon": 4,
         "cheapDecisionProbability": 0.8,
+        "decisionSamples": "80% 100 / 20% 300",
+        "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
+      },
+      "coverage": {
+        "decisions": 0,
+        "iterations": 0,
+        "roots": 0,
+        "unvisited": 0,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {}
+    },
+    {
+      "matchup": "collect-baseline",
+      "policy": "collect-baseline",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "progress",
+      "status": "running",
+      "planned": 280,
+      "finished": 28,
+      "seedGroups": 280,
+      "completeSeedGroups": 28,
+      "counts": {
+        "complete": 28,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 0
+      },
+      "budget": {
+        "horizon": 4,
         "decisionSamples": "80% 100 / 20% 300",
         "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
       },
