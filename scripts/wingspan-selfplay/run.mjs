@@ -2,9 +2,9 @@ import {existsSync,readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {spawn} from 'node:child_process';
-import {atomic,read,hash,objectHash,sourceHashes,guard,ROOT} from './common.mjs';
+import {atomic,read,hash,objectHash,sourceHashes,guard,ROOT,compactRecord,verifyRawRecord} from './common.mjs';
 import {LIMITS,calibrationTasks,collectionTasks,screenTasks,confirmationTasks,scalingTasks,estimateReserve} from './plan.mjs';
-import {runBatch} from './runtime.mjs';
+import {runBatch,ensureBelowNormal} from './runtime.mjs';
 import {summarize} from '../wingspan-study/analyze.mjs';
 const quantile=(xs,q)=>xs.length?[...xs].sort((a,b)=>a-b)[Math.min(xs.length-1,Math.ceil(xs.length*q)-1)]:NaN;
 const mean=xs=>xs.reduce((a,b)=>a+b,0)/xs.length;
@@ -21,15 +21,18 @@ export function comparisonSummary(records,{confirmation=false,gates=DEFAULT_GATE
  }
  return {comparisons,passed:Object.keys(comparisons).length===(confirmation?2:Object.keys(comparisons).length)&&Object.keys(comparisons).length>0&&Object.values(comparisons).every(c=>c.passed),bound:'paired Student t approximate, one-sided alpha .025 per comparison; bounded Hoeffding backup for degenerate samples'};
 }
-export function createController({out,executeStage,now=Date.now,frozenHashes={},workers=24,cycles=3,gates=DEFAULT_GATES,scaling=false}){
+export function verifyStageData(state,out){for(const [key,entry] of Object.entries(state.stages))for(const r of entry.result?.records??[])verifyRawRecord(r,resolve(out,'stages',key,'games',encodeURIComponent(r.task.id)+'.json'));}
+function verifyModels(state){for(const e of Object.values(state.stages))for(const [id,h] of Object.entries(e.result?.modelHashes??{})){const p=e.result.models?.[id];if(!p||hash(readFileSync(p))!==h)throw Error('Frozen model changed '+id);}}
+export function createController({out,executeStage,now=Date.now,frozenHashes={},workers=24,cycles=3,gates=DEFAULT_GATES,scaling=false,testOnlySkipRawValidation=false}){
  if(!Number.isInteger(workers)||workers<1||workers>24||!Number.isInteger(cycles)||cycles<1||cycles>3)throw Error('Invalid campaign bounds');
  const manifestPath=resolve(out,'manifest.json');
  let state=existsSync(manifestPath)?read(manifestPath):{schema:1,protocol:'wingspan-compact-selfplay-v1',status:'prepared',createdAt:now(),startedAt:null,deadlineEpochMs:null,workers,cycles,gates,scaling,frozenHashes,stages:{},champion:'R',history:[],generation:0,stagnation:0,finalist:null,productionPromotion:false};
  if(objectHash(state.frozenHashes)!==objectHash(frozenHashes)||state.workers!==workers||state.cycles!==cycles||objectHash(state.gates)!==objectHash(gates)||state.scaling!==scaling)throw Error('Resume configuration/source mismatch');
  const save=()=>atomic(manifestPath,state);
- const check=()=>{guard(state.frozenHashes);for(const e of Object.values(state.stages))for(const [id,h] of Object.entries(e.result?.modelHashes??{})){const p=e.result.models?.[id];if(!p||hash(readFileSync(p))!==h)throw Error('Frozen model changed '+id);}if(state.deadlineEpochMs!==null&&now()>=state.deadlineEpochMs)throw Error('Original absolute deadline reached');};
- async function stage(key,kind,context={}){check();if(state.stages[key]?.status==='complete')return state.stages[key].result;if(state.stages[key]?.status==='failed')throw Error('Retained failed stage '+key);const entry=state.stages[key]??{kind,startedAt:now(),contextHash:objectHash(context)};if(entry.contextHash!==objectHash(context))throw Error('Frozen stage context mismatch '+key);state.stages[key]={...entry,status:'running'};save();try{const result=await executeStage(kind,{...context,key,out,deadlineEpochMs:state.deadlineEpochMs,workers,state});check();if(result?.status==='failed'||result?.complete===false)throw Error('Stage failed '+key);state.stages[key]={...entry,status:'complete',finishedAt:now(),result};save();return result;}catch(e){state.stages[key]={...entry,status:'failed',finishedAt:now(),error:e.stack};save();throw e;}}
+ const check=()=>{guard(state.frozenHashes);verifyModels(state);if(state.deadlineEpochMs!==null&&now()>=state.deadlineEpochMs)throw Error('Original absolute deadline reached');};
+ async function stage(key,kind,context={}){check();if(state.stages[key]?.status==='complete')return state.stages[key].result;if(state.stages[key]?.status==='failed')throw Error('Retained failed stage '+key);const entry=state.stages[key]??{kind,startedAt:now(),contextHash:objectHash(context)};if(entry.contextHash!==objectHash(context))throw Error('Frozen stage context mismatch '+key);state.stages[key]={...entry,status:'running'};save();try{if(!testOnlySkipRawValidation&&['train','audit'].includes(kind))verifyStageData(state,out);let result=await executeStage(kind,{...context,key,out,deadlineEpochMs:state.deadlineEpochMs,workers,state});check();if(result?.status==='failed'||result?.complete===false)throw Error('Stage failed '+key);if(result.records)result={...result,records:result.records.map(r=>compactRecord(r,r.rawSha256)),planned:context.tasks?.length??result.planned};state.stages[key]={...entry,status:'complete',finishedAt:now(),result};save();return result;}catch(e){state.stages[key]={...entry,status:'failed',finishedAt:now(),error:e.stack};save();throw e;}}
  async function run(){
+  try{guard(state.frozenHashes);verifyModels(state);if(!testOnlySkipRawValidation)verifyStageData(state,out);}catch(e){state.status='failed';state.stopReason=e.message;save();throw e;}
   if(['complete','stopped','failed'].includes(state.status))return state;
   if(state.startedAt===null){state.startedAt=now();state.deadlineEpochMs=state.startedAt+LIMITS.elapsedMs;state.status='running';save();}
   try{
@@ -61,11 +64,11 @@ export function createController({out,executeStage,now=Date.now,frozenHashes={},
  save();return {run,prepare:()=>state,get state(){return state;}};
 }
 
-async function command(executable,args,deadlineEpochMs,out){await new Promise((done,fail)=>{const child=spawn(executable,args,{cwd:ROOT,windowsHide:true,stdio:['ignore','pipe','pipe'],env:{...process.env,OMP_NUM_THREADS:'4',MKL_NUM_THREADS:'4',OPENBLAS_NUM_THREADS:'4'}});let log='';const timer=setTimeout(()=>{child.kill();fail(Error('Subprocess absolute deadline'));},Math.max(1,deadlineEpochMs-Date.now()));child.stdout.on('data',b=>log+=b);child.stderr.on('data',b=>log+=b);child.on('error',e=>{clearTimeout(timer);fail(e);});child.on('exit',code=>{clearTimeout(timer);atomic(resolve(out,'process.json'),{executable,args,code,log});code===0?done():fail(Error('Subprocess failed: '+executable+' '+code));});});}
+async function command(executable,args,deadlineEpochMs,out){ensureBelowNormal();await new Promise((done,fail)=>{const child=spawn(executable,args,{cwd:ROOT,windowsHide:true,stdio:['ignore','pipe','pipe'],env:{...process.env,OMP_NUM_THREADS:'4',MKL_NUM_THREADS:'4',OPENBLAS_NUM_THREADS:'4'}});let log='';const timer=setTimeout(()=>{child.kill();fail(Error('Subprocess absolute deadline'));},Math.max(1,deadlineEpochMs-Date.now()));child.stdout.on('data',b=>log+=b);child.stderr.on('data',b=>log+=b);child.on('error',e=>{clearTimeout(timer);fail(e);});child.on('exit',code=>{clearTimeout(timer);atomic(resolve(out,'process.json'),{executable,args,code,log});code===0?done():fail(Error('Subprocess failed: '+executable+' '+code));});});}
 export function realExecutor({python='python',device='cuda'}={}){return async(kind,ctx)=>{
  const {out,key,deadlineEpochMs,state}=ctx,stageOut=resolve(out,'stages',key),modelPaths={};
  for(const entry of Object.values(state.stages))if(entry.result?.models)Object.assign(modelPaths,entry.result.models);
- if(ctx.tasks){const tasks=ctx.tasks.map(t=>({...t,modelPaths}));const result=await runBatch({tasks,out:stageOut,workers:ctx.workers,deadlineEpochMs,check:()=>guard(state.frozenHashes),onProgress:(records,active)=>atomic(resolve(stageOut,'progress.json'),{completed:records.length,total:tasks.length,active,at:Date.now()})});return {complete:result.complete,records:result.results};}
+ if(ctx.tasks){const tasks=ctx.tasks.map(t=>({...t,modelPaths}));const result=await runBatch({tasks,out:stageOut,workers:ctx.workers,deadlineEpochMs,check:()=>{guard(state.frozenHashes);verifyModels(state);},onProgress:(records,active)=>atomic(resolve(stageOut,'progress.json'),{completed:records.length,total:tasks.length,active,at:Date.now()})});return {complete:result.complete,records:result.results};}
  if(kind==='profile'||kind==='preflight'){await command(process.execPath,[resolve(ROOT,'scripts/wingspan-selfplay',kind+'.mjs'),'--out='+stageOut,...(kind==='preflight'?['--models='+resolve(out,'models')]:[])],deadlineEpochMs,stageOut);return read(resolve(stageOut,kind+'.json'));}
  if(kind==='analysis'){const result={status:'complete',finalFreeze:ctx.finalFreeze,confirmation:ctx.confirmation,audit:state.stages.audit.result,generations:Object.fromEntries(Object.entries(state.stages).filter(([k])=>/^(train|screen)-/.test(k)).map(([k,v])=>[k,{result:v.result,summary:v.summary}])),elapsedMs:Date.now()-state.startedAt,deadlineEpochMs:state.deadlineEpochMs,productionPromotion:false};atomic(resolve(stageOut,'analysis.json'),result);return result;}
  if(kind==='train'||kind==='audit'){
