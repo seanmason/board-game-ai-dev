@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **screen**. Snapshot 2026-10-19T03:14:26.967Z.
-Recorded 1388 / 1600 scheduled games; 1388 valid and 0 invalid records. 24 active games; worker limit 24, BelowNormal priority.
+Status: **running**; stage **screen**. Snapshot 2026-10-19T03:15:57.841Z.
+Recorded 1404 / 1600 scheduled games; 1404 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -29,26 +29,26 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 
 | Stage / matchup | Valid / planned | Complete seat pairs | Winner share | Paired 95% interval | Mean margin | Mean candidate decision |
 | --- | ---: | ---: | ---: | --- | ---: | ---: |
-| screen/reference-n100-h4 | 70 / 80 | 35 / 40 | 42.9% | 31.0% to 54.7% | -2.96 | 348.1 ms |
-| screen/reference-n100-h12 | 70 / 80 | 35 / 40 | 40.0% | 28.4% to 51.6% | -1.84 | 1242.8 ms |
-| screen/reference-n300-h4 | 69 / 80 | 34 / 40 | 50.0% | 26.7% to 73.3% | 0.00 | 1028.3 ms |
-| screen/reference-n300-h12 | 68 / 80 | 33 / 40 | 51.5% | 41.1% to 61.9% | 0.42 | 3653.1 ms |
-| screen/exceptional-n100-h4 | 70 / 80 | 35 / 40 | 35.0% | 25.2% to 44.8% | -3.63 | 567.1 ms |
-| screen/exceptional-n100-h12 | 70 / 80 | 35 / 40 | 32.1% | 21.0% to 43.3% | -5.77 | 1594.5 ms |
+| screen/reference-n100-h4 | 71 / 80 | 35 / 40 | 42.9% | 31.0% to 54.7% | -2.96 | 346.9 ms |
+| screen/reference-n100-h12 | 71 / 80 | 35 / 40 | 40.0% | 28.4% to 51.6% | -1.84 | 1235.9 ms |
+| screen/reference-n300-h4 | 70 / 80 | 35 / 40 | 50.0% | 27.0% to 73.0% | 0.00 | 1027.6 ms |
+| screen/reference-n300-h12 | 69 / 80 | 34 / 40 | 52.9% | 42.5% to 63.4% | 0.75 | 3704.6 ms |
+| screen/exceptional-n100-h4 | 71 / 80 | 35 / 40 | 35.0% | 25.2% to 44.8% | -3.63 | 565.9 ms |
+| screen/exceptional-n100-h12 | 71 / 80 | 35 / 40 | 32.1% | 21.0% to 43.3% | -5.77 | 1586.5 ms |
 | screen/exceptional-n300-h4 | 70 / 80 | 35 / 40 | 50.7% | 40.4% to 61.0% | 0.89 | 1714.0 ms |
-| screen/exceptional-n300-h12 | 68 / 80 | 33 / 40 | 52.3% | 41.8% to 62.8% | 0.82 | 4262.3 ms |
-| screen/chains-n100-h4 | 70 / 80 | 35 / 40 | 44.3% | 32.1% to 56.4% | -2.53 | 580.6 ms |
-| screen/chains-n100-h12 | 70 / 80 | 35 / 40 | 38.6% | 27.5% to 49.7% | -2.26 | 1493.4 ms |
+| screen/exceptional-n300-h12 | 69 / 80 | 34 / 40 | 53.7% | 43.1% to 64.2% | 1.28 | 4247.5 ms |
+| screen/chains-n100-h4 | 71 / 80 | 35 / 40 | 44.3% | 32.1% to 56.4% | -2.53 | 578.7 ms |
+| screen/chains-n100-h12 | 71 / 80 | 35 / 40 | 38.6% | 27.5% to 49.7% | -2.26 | 1485.6 ms |
 | screen/chains-n300-h4 | 70 / 80 | 35 / 40 | 48.6% | 37.0% to 60.2% | 0.79 | 1663.7 ms |
-| screen/chains-n300-h12 | 68 / 80 | 33 / 40 | 58.3% | 46.5% to 70.2% | 0.71 | 4521.8 ms |
+| screen/chains-n300-h12 | 69 / 80 | 34 / 40 | 59.6% | 47.8% to 71.3% | 1.16 | 4521.0 ms |
 | screen/investment-n100-h4 | 70 / 80 | 35 / 40 | 40.0% | 30.0% to 50.0% | -2.69 | 687.0 ms |
-| screen/investment-n100-h12 | 69 / 80 | 34 / 40 | 38.2% | 26.8% to 49.6% | -5.69 | 1382.0 ms |
-| screen/investment-n300-h4 | 69 / 80 | 34 / 40 | 47.1% | 35.7% to 58.4% | -0.10 | 2036.5 ms |
-| screen/investment-n300-h12 | 68 / 80 | 34 / 40 | 44.1% | 35.5% to 52.7% | -0.82 | 4257.3 ms |
-| screen/blend-n100-h4 | 70 / 80 | 35 / 40 | 54.3% | 43.0% to 65.6% | 0.39 | 1068.1 ms |
-| screen/blend-n100-h12 | 70 / 80 | 35 / 40 | 41.4% | 30.0% to 52.8% | -2.93 | 1837.6 ms |
+| screen/investment-n100-h12 | 70 / 80 | 35 / 40 | 40.0% | 28.4% to 51.6% | -5.16 | 1380.7 ms |
+| screen/investment-n300-h4 | 70 / 80 | 35 / 40 | 45.7% | 34.4% to 57.0% | -0.31 | 2035.2 ms |
+| screen/investment-n300-h12 | 69 / 80 | 34 / 40 | 44.1% | 35.5% to 52.7% | -0.82 | 4248.9 ms |
+| screen/blend-n100-h4 | 71 / 80 | 35 / 40 | 54.3% | 43.0% to 65.6% | 0.39 | 1065.2 ms |
+| screen/blend-n100-h12 | 71 / 80 | 35 / 40 | 41.4% | 30.0% to 52.8% | -2.93 | 1826.5 ms |
 | screen/blend-n300-h4 | 70 / 80 | 35 / 40 | 59.3% | 49.1% to 69.5% | 2.70 | 3224.5 ms |
-| screen/blend-n300-h12 | 69 / 80 | 34 / 40 | 41.2% | 30.3% to 52.1% | -1.46 | 5638.6 ms |
+| screen/blend-n300-h12 | 70 / 80 | 35 / 40 | 40.0% | 29.1% to 50.9% | -1.69 | 5630.4 ms |
 
 These partial summaries are descriptive. Do not select a winner, claim compute scaling, or change defaults from the live screen. Fixed seed groups are the pairing unit; ties use exact final-outcome share. Invalid/capped records remain in raw evidence and are excluded from valid paired summaries. The runner halts on an invalid result.
 
