@@ -203,6 +203,71 @@ def strata(rows, predictions, feature_names=None):
             result['engineActivity'] = {'unavailable': 'No named producer/converter/consumer/repeat features in schema'}
     return result
 
+def parity_indices(rows, limit=64):
+    """Outcome-blind coverage of available rounds/viewers and independent games."""
+    cells = {}
+    for i, row in enumerate(rows):
+        cells.setdefault((row['round'], row['viewer']), {}).setdefault((row['setupSeed'], row['gameId']), i)
+    buckets = [list(v for _,v in sorted(groups.items())) for _,groups in sorted(cells.items())]
+    chosen = []
+    for depth in range(max(map(len, buckets))):
+        for cell, bucket in enumerate(buckets):
+            # Rotate the group in the first sweep instead of using one game for all cells.
+            if depth < len(bucket):
+                chosen.append(bucket[(depth+cell) % len(bucket)])
+                if len(chosen) == limit:
+                    return chosen
+    return chosen
+
+def parity_cases(model, net, norm, rows, device='cpu', predictions=None):
+    cases = []
+    for i in parity_indices(rows):
+        e = rows[i]
+        features = e['features']
+        x = (np.asarray(features, dtype=np.float32)-np.asarray(norm['mean'], dtype=np.float32))/np.asarray(norm['scale'], dtype=np.float32)
+        scalar = scalar_predict(model, features)
+        if predictions is None:
+            with torch.no_grad():
+                torch_value = float((10*net(torch.tensor(x[None,:], device=device))[0]).cpu()[0])
+        else:
+            torch_value = float(predictions[i])
+        if abs(scalar-torch_value) > 0.0002:
+            raise ValueError('Scalar/PyTorch export parity failure')
+        cases.append(dict(features=features, expected=scalar, torchExpected=torch_value,
+                          round=e['round'], viewer=e['viewer'], gameId=e['gameId']))
+    return cases
+
+def group_mae_interval(rows, predictions, replicates=1000):
+    """Bootstrap setup groups within generation, preserving equal generation mass."""
+    cells = {}
+    for i, row in enumerate(rows):
+        cells.setdefault(row['generation'], {}).setdefault(row['setupSeed'], []).append(i)
+    by_generation = []
+    for groups in cells.values():
+        values = []
+        for ids in groups.values():
+            values.append(metrics([rows[i] for i in ids], np.asarray(predictions)[ids])['mae'])
+        by_generation.append(np.asarray(values))
+    rng = np.random.default_rng(CONFIG['seed'])
+    samples = np.zeros(replicates)
+    for values in by_generation:
+        samples += values[rng.integers(0, len(values), size=(replicates, len(values)))].mean(axis=1)/len(by_generation)
+    return dict(method='setup-group percentile bootstrap within generation; equal generation mass',
+                confidence=.95, replicates=replicates, seed=CONFIG['seed'],
+                low=float(np.quantile(samples,.025)), high=float(np.quantile(samples,.975)),
+                independentGroups=sum(len(groups) for groups in cells.values()))
+
+def batched_predictions(net, norm, rows, batch_size=2048):
+    """CPU tensor inference avoids Python's scalar multiply loop over the corpus."""
+    result = []
+    mean, scale = np.asarray(norm['mean'],dtype=np.float32), np.asarray(norm['scale'],dtype=np.float32)
+    net.eval()
+    with torch.no_grad():
+        for start in range(0, len(rows), batch_size):
+            x = (np.asarray([r['features'] for r in rows[start:start+batch_size]],dtype=np.float32)-mean)/scale
+            result.extend((10*net(torch.from_numpy(x))[0]).numpy().tolist())
+    return np.asarray(result)
+
 def configure(device):
     torch.set_num_threads(4)
     try:
@@ -256,7 +321,10 @@ def fit(manifest, out, warm_start=None, device='cpu'):
     initial_prediction = predict()
     best_loss = metrics(dev, initial_prediction)['huber']
     best, best_epoch, stale = copy.deepcopy(net.state_dict()), 0, 0
-    history = [dict(epoch=0, dev=metrics(dev, initial_prediction))]
+    def train_huber():
+        with torch.no_grad():
+            return float((torch.nn.functional.huber_loss(net(x)[0], y, reduction='none')*w).sum().cpu())
+    history = [dict(epoch=0, trainHuber=train_huber(), dev=metrics(dev, initial_prediction))]
     optimizer = torch.optim.AdamW(net.parameters(), lr=CONFIG['learningRate'], weight_decay=CONFIG['weightDecay'])
     for epoch in range(1, CONFIG['epochs']+1):
         net.train()
@@ -270,7 +338,7 @@ def fit(manifest, out, warm_start=None, device='cpu'):
             optimizer.zero_grad(); loss.backward(); optimizer.step()
         net.eval()
         dm = metrics(dev, predict())
-        history.append(dict(epoch=epoch, dev=dm))
+        history.append(dict(epoch=epoch, trainHuber=train_huber(), dev=dm))
         if dm['huber'] < best_loss - 1e-8:
             best_loss, best, best_epoch, stale = dm['huber'], copy.deepcopy(net.state_dict()), epoch, 0
         else:
@@ -291,22 +359,14 @@ def fit(manifest, out, warm_start=None, device='cpu'):
     selected_prediction = predict()
     reference = metrics(dev, np.zeros(len(dev)))
     selected = metrics(dev, selected_prediction)
-    cases = []
-    for e in dev[:8]:
-        features = e['features']
-        scalar = scalar_predict(model, features)
-        with torch.no_grad():
-            torch_value = float(10*net(torch.tensor(xs([e]), device=device))[0].cpu()[0])
-        if abs(scalar-torch_value) > 0.0002:
-            raise ValueError('Scalar/PyTorch export parity failure')
-        cases.append(dict(features=features, expected=scalar, torchExpected=torch_value))
+    cases = parity_cases(model, net, norm, dev, device, selected_prediction)
     write(out/'model.json', model); write(out/'zero-model.json', zero); write(out/'epoch-zero.json', epoch_zero)
     write(out/'linear-model.json', dict(featureVersion=VERSION, normalization=norm, coefficients=coefficients.tolist(), residualScale=10, outputActivation='tanh'))
     write(out/'parity.json', dict(schema=1, passed=True, status='passed', scope='Python scalar versus PyTorch; JS verification still required', featureVersion=VERSION, tolerance=0.0002, arithmetic='float32-normalize-product-add; float64 final 10*tanh', cases=cases))
     summary = dict(schema=1, config=CONFIG, device=device, optimizerReset=True, warmStartSha256=digest(warm_start) if warm_start else None,
                    normalizationFrozen=True, selectedEpoch=best_epoch, eligible=best_epoch > 0 and selected['huber'] < reference['huber']-1e-8,
                    eligibilityMeaning='Offline prediction only; playing-strength and runtime gates remain required',
-                   history=history, dev=selected, epochZero=metrics(dev, initial_prediction), reference=reference,
+                   history=history, dev=selected, selectedTrainHuber=train_huber(), devGroupMaeInterval=group_mae_interval(dev,selected_prediction), epochZero=metrics(dev, initial_prediction), reference=reference,
                    linear=metrics(dev, linear_prediction), strata=strata(dev, selected_prediction, index['featureNames']),
                    trainNormalizedDrift=dict(weightedMean=(weights(train) @ tx.astype(np.float64)).tolist(), maxAbsFeature=float(np.abs(tx).max())),
                    readFiles=sources, manifestSha256=digest(manifest), trainerSha256=digest(__file__),
@@ -324,11 +384,26 @@ def audit(manifest, model_path, out):
     frozen = read(Path(model_path).with_name('training-summary.json'))
     if frozen.get('hashes', {}).get('model.json') != model_hash or frozen.get('hashes', {}).get('linear-model.json') != linear_hash:
         raise ValueError('Audit requires unchanged model/control from completed fit')
+    identity = dict(modelSha256=model_hash, linearSha256=linear_hash, manifestSha256=digest(manifest))
+    if receipt.exists():
+        prior = read(receipt)
+        if any(prior.get(key) != value for key,value in identity.items()):
+            raise ValueError('Audit receipt belongs to another frozen model/control/manifest')
+        summary_path = Path(prior.get('summaryPath', out/'audit-summary.json'))
+        if prior.get('status') != 'complete' or not summary_path.is_file() or digest(summary_path) != prior.get('summarySha256'):
+            raise ValueError('Incomplete or invalid audit receipt; sealed records cannot be reopened')
+        cached = read(summary_path)  # Completed replay reads only receipt/artifacts, never sealed records.
+        if (out/'audit-summary.json').resolve() != summary_path.resolve():
+            write(out/'audit-summary.json', cached)
+        return cached
     with receipt.open('x', encoding='utf-8') as handle:
-        json.dump(dict(schema=1, modelSha256=model_hash, linearSha256=linear_hash, manifestSha256=digest(manifest), status='reserved-no-retry'), handle)
+        json.dump(dict(schema=1, **identity, status='reserved-no-retry'), handle)
+    configure('cpu')
     index, rows, sources = load_dataset(manifest, ('audit',))
     model = read(model_path); validate_model(model, index)
-    predictions = [scalar_predict(model, r['features']) for r in rows['audit']]
+    net = Network(); restore(net, model)
+    predictions = batched_predictions(net, model['normalization'], rows['audit'])
+    cases = parity_cases(model, net, model['normalization'], rows['audit'], predictions=predictions)
     # The frozen sibling linear control is produced before audit, never fit here.
     linear = read(linear_path)
     if linear.get('normalization') != model['normalization'] or linear.get('featureVersion') != VERSION or len(linear.get('coefficients', [])) != 193 or not all(finite(v) for v in linear['coefficients']):
@@ -341,9 +416,12 @@ def audit(manifest, model_path, out):
                   eligibilityCriterion='Frozen development-eligible candidate and audit Huber improves zero/reference by more than 1e-8; no checkpoint reselection',
                   selected=metrics(rows['audit'], predictions), reference=metrics(rows['audit'], np.zeros(len(predictions))),
                   zeroHead=metrics(rows['audit'], np.zeros(len(predictions))), linear=metrics(rows['audit'], linear_predictions),
-                  linearSha256=digest(linear_path), strata=strata(rows['audit'], predictions, index['featureNames']), tuningPermitted=False)
+                  linearSha256=digest(linear_path), strata=strata(rows['audit'], predictions, index['featureNames']),
+                  groupMaeInterval=group_mae_interval(rows['audit'],predictions),
+                  parity=dict(passed=True,tolerance=.0002,cases=cases,selection='fixed outcome-blind round/viewer/game coverage'),
+                  inference='batched CPU PyTorch; scalar parity subset', tuningPermitted=False)
     write(out/'audit-summary.json', result)
-    write(receipt, dict(schema=1, modelSha256=model_hash, linearSha256=linear_hash, manifestSha256=digest(manifest), status='complete', summarySha256=digest(out/'audit-summary.json')))
+    write(receipt, dict(schema=1, **identity, status='complete', summaryPath=str((out/'audit-summary.json').resolve()), summarySha256=digest(out/'audit-summary.json')))
     return result
 
 def main():

@@ -1,5 +1,6 @@
 """Synthetic plumbing tests only; no games or strength claims."""
 import copy
+import os
 import importlib.util
 from pathlib import Path
 import tempfile
@@ -71,6 +72,11 @@ class TrainingTests(unittest.TestCase):
         self.assertEqual(zero['layers'][-1]['weights'],[0.]*16)
         self.assertEqual(t.scalar_predict(zero,[1.]*192),0.)
         self.assertEqual(len(summary['history']),3)
+        self.assertTrue(all('trainHuber' in epoch for epoch in summary['history']))
+        cases=t.read(out/'parity.json')['cases']
+        self.assertEqual({c['round'] for c in cases},{1,2,3,4})
+        self.assertEqual({c['viewer'] for c in cases},{0,1})
+        self.assertIn('devGroupMaeInterval',summary)
         self.assertEqual({s['split'] for s in summary['readFiles']},{'train','dev'})
         model['normalization']=dict(mean=[2.]*192,scale=[3.]*192)
         warm=self.root/'warm.json'; t.write(warm,model)
@@ -126,9 +132,39 @@ class TrainingTests(unittest.TestCase):
         self.assertFalse(result['eligible'])
         self.assertIn('linear',result)
         self.assertEqual({s['split'] for s in result['readFiles']},{'audit'})
-        with self.assertRaises(FileExistsError):
-            t.audit(self.manifest,self.root/'fit'/'model.json',self.root/'audit2')
-    @unittest.skipUnless(t.torch.cuda.is_available(),'CUDA unavailable')
+        with patch.object(t,'load_dataset',side_effect=AssertionError('Completed audit reopened sealed records')):
+            replay=t.audit(self.manifest,self.root/'fit'/'model.json',self.root/'audit2')
+        self.assertEqual(replay,result)
+        self.assertTrue((self.root/'audit2'/'audit-summary.json').is_file())
+        summary_path=self.root/'audit'/'audit-summary.json'
+        original=summary_path.read_bytes(); summary_path.write_text('{}',encoding='utf-8')
+        with self.assertRaisesRegex(ValueError,'Incomplete or invalid'):
+            t.audit(self.manifest,self.root/'fit'/'model.json',self.root/'audit')
+        summary_path.write_bytes(original)
+        manifest_bytes=self.manifest.read_bytes()
+        self.manifest.write_bytes(manifest_bytes+b'\n')
+        with self.assertRaisesRegex(ValueError,'another frozen'):
+            t.audit(self.manifest,self.root/'fit'/'model.json',self.root/'audit')
+        self.manifest.write_bytes(manifest_bytes)
+        receipt=self.manifest.with_suffix('.audit-receipt.json')
+        saved=t.read(receipt); saved['status']='reserved-no-retry'; t.write(receipt,saved)
+        with self.assertRaisesRegex(ValueError,'Incomplete or invalid'):
+            t.audit(self.manifest,self.root/'fit'/'model.json',self.root/'audit')
+    def test_parity_coverage_and_group_interval(self):
+        for i in range(4,12):
+            inventory=dict(path=str((self.root/f'extra{i}.json').resolve()),split='dev',gameId=f'extra{i}',generation=1,setupSeed=1000+i)
+            self.index['records'].append(inventory); self.make_record(inventory)
+        t.write(self.manifest,self.index)
+        _,rows,_=t.load_dataset(self.manifest)
+        ids=t.parity_indices(rows['dev'])
+        self.assertEqual(len(ids),64)
+        self.assertGreater(len({rows['dev'][i]['gameId'] for i in ids}),1)
+        self.assertEqual({(rows['dev'][i]['round'],rows['dev'][i]['viewer']) for i in ids},{(r,v) for r in range(1,5) for v in (0,1)})
+        interval=t.group_mae_interval(rows['dev'],t.np.ones(len(rows['dev'])))
+        self.assertAlmostEqual(interval['low'],1.)
+        self.assertAlmostEqual(interval['high'],1.)
+        self.assertEqual(interval['independentGroups'],9)
+    @unittest.skipUnless(not os.environ.get('WINGSPAN_TEST_CPU_ONLY') and t.torch.cuda.is_available(),'CPU-only test run or CUDA unavailable')
     def test_cuda_synthetic_fit(self):
         summary=t.fit(self.manifest,self.root/'cuda',device='cuda')
         self.assertEqual(summary['device'],'cuda')

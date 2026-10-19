@@ -39,6 +39,10 @@ engine activity strata, saturation at absolute correction ≥9.5, and a weighted
 regularized linear control (ridge 10, free intercept). Metrics are prediction
 diagnostics; eligibility requires improvement over epoch zero and zero correction
 and does not establish strength or authorize production promotion.
+Each epoch records balanced training Huber alongside development metrics. Selected
+development and audit MAE have fixed-seed 1,000-replicate 95% percentile bootstrap
+intervals, resampling setup groups within generation with equal generation weight.
+These are group-level prediction uncertainty intervals, not playing-strength bounds.
 
 Four CPU math threads and deterministic PyTorch operations are configured. CUDA
 TF32 is disabled and the allocator is limited to at most 6 GiB. CUDA must be explicitly
@@ -54,6 +58,8 @@ then evaluate `10*Math.tanh(finalScalar)`. `parity.json` provides feature vector
 Python scalar expectations, PyTorch expectations and tolerance .0002. Its `passed`
 flag covers Python scalar versus PyTorch only. JS export
 parity remains a required integration check, owned by the runtime harness.
+Up to 64 outcome-blind cases cover available round/viewer cells and multiple setup
+groups; each case includes round, viewer and gameId for coverage checks.
 
 After the final candidate is frozen, use a separate invocation:
 `python -X utf8 scripts/wingspan-selfplay/train.py --manifest=INDEX.json --out=AUDIT_DIR --audit --model=FIT_DIR/model.json`.
@@ -66,8 +72,12 @@ It compares the candidate, equal-cost zero/reference and frozen linear predictio
 `valid` means structural checks passed; `eligible` requires preexisting development
 eligibility and audit Huber improvement over zero/reference greater than 1e-8.
 That criterion is fixed here before audit; a failure cannot select another candidate.
-An exclusive `INDEX.audit-receipt.json` records the model hash before sealed records
-open; a repeated request fails, including after a partially failed audit. Preserve
+Audit inference uses batched CPU PyTorch, with scalar parity checked on the same
+outcome-blind coverage subset rather than executing Python scalar products for
+every audit snapshot. An exclusive `INDEX.audit-receipt.json` records the model,
+control and manifest hashes before sealed records open. A completed same-hash
+request reuses its hash-verified saved summary without reopening audit records.
+A different identity or incomplete/invalid receipt fails closed. Preserve
 this receipt and the manifest in durable storage: copying the manifest to bypass
 the receipt violates the once-only protocol. Calibration remains unopened. The
 orchestrator must ensure the candidate is final and prevent post-audit tuning.
