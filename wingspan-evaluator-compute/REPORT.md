@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **screen**. Snapshot 2026-10-19T00:51:15.191Z.
-Recorded 144 / 1600 scheduled games; 144 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
+Status: **running**; stage **screen**. Snapshot 2026-10-19T00:52:47.773Z.
+Recorded 150 / 1600 scheduled games; 150 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -29,15 +29,15 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 
 | Stage / matchup | Valid / planned | Complete seat pairs | Winner share | Paired 95% interval | Mean margin | Mean candidate decision |
 | --- | ---: | ---: | ---: | --- | ---: | ---: |
-| screen/reference-n100-h4 | 7 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | -3.50 | 316.4 ms |
-| screen/reference-n100-h12 | 7 / 80 | 3 / 40 | 33.3% | 0.0% to 100.0% | 0.83 | 1007.2 ms |
-| screen/reference-n300-h4 | 7 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | 0.00 | 850.4 ms |
+| screen/reference-n100-h4 | 8 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -5.38 | 350.7 ms |
+| screen/reference-n100-h12 | 8 / 80 | 4 / 40 | 25.0% | 0.0% to 70.9% | -0.75 | 1067.8 ms |
+| screen/reference-n300-h4 | 8 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | 0.00 | 944.0 ms |
 | screen/reference-n300-h12 | 6 / 80 | 2 / 40 | 25.0% | 0.0% to 100.0% | -4.75 | 3150.7 ms |
 | screen/exceptional-n100-h4 | 8 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -4.00 | 488.1 ms |
 | screen/exceptional-n100-h12 | 8 / 80 | 4 / 40 | 12.5% | 0.0% to 52.3% | -8.75 | 1457.7 ms |
 | screen/exceptional-n300-h4 | 8 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | 1.38 | 1350.8 ms |
 | screen/exceptional-n300-h12 | 5 / 80 | 2 / 40 | 50.0% | 0.0% to 100.0% | -4.25 | 3063.0 ms |
-| screen/chains-n100-h4 | 8 / 80 | 4 / 40 | 25.0% | 0.0% to 70.9% | -7.12 | 514.2 ms |
+| screen/chains-n100-h4 | 9 / 80 | 4 / 40 | 25.0% | 0.0% to 70.9% | -7.12 | 514.4 ms |
 | screen/chains-n100-h12 | 8 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -3.12 | 1117.9 ms |
 | screen/chains-n300-h4 | 8 / 80 | 4 / 40 | 75.0% | 29.1% to 100.0% | 4.00 | 1348.2 ms |
 | screen/chains-n300-h12 | 6 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | -2.33 | 3500.7 ms |
@@ -46,8 +46,8 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 | screen/investment-n300-h4 | 6 / 80 | 3 / 40 | 33.3% | 0.0% to 100.0% | -1.50 | 1431.6 ms |
 | screen/investment-n300-h12 | 6 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | -5.50 | 3016.8 ms |
 | screen/blend-n100-h4 | 9 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | -2.12 | 983.4 ms |
-| screen/blend-n100-h12 | 8 / 80 | 4 / 40 | 62.5% | 0.0% to 100.0% | 4.00 | 1553.9 ms |
-| screen/blend-n300-h4 | 7 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | 0.83 | 2468.8 ms |
+| screen/blend-n100-h12 | 9 / 80 | 4 / 40 | 62.5% | 0.0% to 100.0% | 4.00 | 1583.5 ms |
+| screen/blend-n300-h4 | 8 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | -0.88 | 2781.8 ms |
 | screen/blend-n300-h12 | 6 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | 0.33 | 4243.0 ms |
 
 These partial summaries are descriptive. Do not select a winner, claim compute scaling, or change defaults from the live screen. Fixed seed groups are the pairing unit; ties use exact final-outcome share. Invalid/capped records remain in raw evidence and are excluded from valid paired summaries. The runner halts on an invalid result.
