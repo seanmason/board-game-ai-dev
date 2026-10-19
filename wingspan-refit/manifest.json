@@ -424,10 +424,52 @@
     },
     "s0-gentle-value": {
       "startedAt": 1792441061522,
+      "finishedAt": 1792441428461,
       "planned": 80,
       "phase": 0,
       "recipe": "gentle-value",
       "kind": "screen",
+      "status": "complete",
+      "result": {
+        "poolWallMs": 366879,
+        "gameCount": 80,
+        "complete": true,
+        "processCpuMicros": {
+          "user": 7333625000,
+          "system": 22484000
+        },
+        "modelHashes": {}
+      },
+      "comparisonSummary": {
+        "comparisons": {
+          "parent": {
+            "pairs": 40,
+            "outcomesWithheld": false,
+            "winShare": 0.50625,
+            "lowerWinnerShare": 0.4166527960847023,
+            "meanMargin": -1.6125,
+            "valid": true,
+            "latencyValid": true,
+            "passed": false,
+            "latency": {
+              "meanMs": 1002.2146802403524,
+              "p95Ms": 1005.6668999998365,
+              "p99Ms": 1010.1091000000015,
+              "maxMs": 1023.7120000000577,
+              "opponentMeanMs": 1002.2238850200555,
+              "opponentP95Ms": 1005.6938999998383
+            }
+          }
+        },
+        "passed": false
+      }
+    },
+    "c0": {
+      "startedAt": 1792441428595,
+      "planned": 200,
+      "phase": 0,
+      "recipe": "gentle",
+      "kind": "confirmation",
       "status": "running",
       "result": {
         "processCpuMicros": {},

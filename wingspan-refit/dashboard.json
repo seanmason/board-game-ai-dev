@@ -3,13 +3,13 @@
   "study": "wingspan-refit",
   "outcomeStatus": "running",
   "status": "running",
-  "stage": "s0-gentle-value",
-  "updatedAt": "2026-10-19T20:23:38.995Z",
+  "stage": "c0",
+  "updatedAt": "2026-10-19T20:25:12.074Z",
   "revision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
   "method": "Fixed small network teacher refits: two learning rates crossed with auxiliary loss on/off. Development selects at most two distinct candidates; fresh parent comparisons decide research teacher updates. Production is unchanged.",
-  "finished": 159,
-  "planned": 160,
-  "workers": 1,
+  "finished": 161,
+  "planned": 360,
+  "workers": 28,
   "collectionBudget": {},
   "fitCosts": {},
   "rows": [
@@ -557,12 +557,87 @@
       }
     },
     {
-      "matchup": "s0-gentle-value",
-      "policy": "s0-gentle-value",
+      "matchup": "s0-gentle-value/parent",
+      "policy": "s0-gentle-value/parent",
       "policyId": "Exploratory gentle-value screen",
       "opponentPolicyId": "Actual parent teacher",
       "metricKind": "win-share",
       "stage": "s0-gentle-value",
+      "comparison": "parent",
+      "candidateModelId": "refit-f0-gentle-value",
+      "opponentModelId": "frozen-generation-3",
+      "modelHashes": {
+        "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+        "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+        "refit-f0-control": "7439c56ebdc656e3056d7873697abe848509aafc0c9d64fcb1ad3d1dd8095c8c",
+        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb",
+        "refit-f0-gentle": "9fb0bcb74d7246138e44a6524a4a7d42a5d0328b4f358a26255ad84aa7276bd3",
+        "refit-f0-gentle-value": "9554ea9db2f02407dd0aa455361691e2ad7f5f9edee9e26fce865e5a2e1da368"
+      },
+      "game": "wingspan",
+      "players": 2,
+      "scope": "Two-player research; complete fixed pairs required for strength results",
+      "status": "complete",
+      "planned": 80,
+      "finished": 80,
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "meanDecisionMs": 1002.2146802403483,
+      "maxDecisionMs": 1023.7120000000577,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 4327,
+        "meanMs": 1002.2146802403483,
+        "p95Ms": 1005.6668999998365,
+        "p99Ms": 1010.1091000000015,
+        "maxMs": 1023.7120000000577
+      },
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "coverage": {
+        "decisions": 4327,
+        "iterations": 1460670,
+        "roots": 38275,
+        "unvisited": 0,
+        "learnedLeafCount": 454087,
+        "learnedFallbackCount": 1006583,
+        "errors": 0
+      },
+      "inferenceComplete": true,
+      "outcomesWithheld": false,
+      "winShare": {
+        "n": 40,
+        "mean": 0.50625,
+        "low": 0.4166527960847023,
+        "high": 0.5958472039152977
+      },
+      "margin": {
+        "n": 40,
+        "mean": -1.6125,
+        "low": -3.8688541232774885,
+        "high": 0.6438541232774881
+      },
+      "training": {
+        "latestFit": {},
+        "curves": []
+      }
+    },
+    {
+      "matchup": "c0",
+      "policy": "c0",
+      "policyId": "Fresh teacher confirmation",
+      "opponentPolicyId": "Actual parent teacher",
+      "metricKind": "win-share",
+      "stage": "c0",
       "comparison": "parent",
       "modelHashes": {
         "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
@@ -576,12 +651,12 @@
       "players": 2,
       "scope": "Two-player research; complete fixed pairs required for strength results",
       "status": "running",
-      "planned": 80,
-      "finished": 79,
+      "planned": 200,
+      "finished": 1,
       "seedGroups": 0,
       "completeSeedGroups": 0,
       "counts": {
-        "complete": 79,
+        "complete": 1,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
