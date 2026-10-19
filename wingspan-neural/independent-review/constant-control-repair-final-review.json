@@ -1,0 +1,85 @@
+{
+  "reviewType": "independent-read-only",
+  "passed": true,
+  "issues": [],
+  "records": 64,
+  "pairs": 32,
+  "allFrozenSourceModelControlHashesVerified": true,
+  "originalReceiptAndFailureCheckpointAnalysisBytesPreserved": true,
+  "retainedRecordBytesPreserved": [
+    {
+      "name": "constant-attribution%2Freal-vs-zero%2F48006979%2F1.json",
+      "sha256": "37a2b8fae461232cab9637d580904f762daa9db191c88729dd2278078cd380b5"
+    }
+  ],
+  "same64FrozenTasksAndModelIds": true,
+  "originalStartedAt": "2026-10-19T13:56:48.668Z",
+  "originalDeadline": "2026-10-19T14:11:48.668Z",
+  "mechanicalResumeReason": "frozen-task-startedAt transport-only validation bug",
+  "restartInterpretation": "One completed game retained unchanged; unsaved in-flight games requeued after transport-only validation failure. No evidence of outcome-based task changes or restarts; all planned games are included.",
+  "statistics": {
+    "share": {
+      "n": 32,
+      "mean": 0.484375,
+      "sampleVariance": 0.08845766129032258,
+      "ci95IndependentT31": [
+        0.37714425822072106,
+        0.5916057417792789
+      ]
+    },
+    "margin": {
+      "n": 32,
+      "mean": 2.21875,
+      "sampleVariance": 90.96673387096774,
+      "ci95IndependentT31": [
+        -1.2199388836337697,
+        5.65743888363377
+      ]
+    }
+  },
+  "latency": {
+    "candidate": {
+      "n": 3237,
+      "mean": 1002.8140750077235,
+      "p95": 1007.4020000000019,
+      "max": 1357.1913000000059
+    },
+    "opponent": {
+      "n": 3097,
+      "mean": 1002.9069950920247,
+      "p95": 1007.5483999999997,
+      "max": 1440.2339999999967
+    }
+  },
+  "intervalSemantics": "Descriptive ordinary two-sided 95% paired t intervals across 32 independent setup seeds. Report lowerBound fields instead use one-sided alpha .05 and are distinct from ci95 endpoints.",
+  "recommendation": "Do not promote NN. The real model shows no observed win-share advantage over the identical-shape zero-output control, with substantial uncertainty: this is absence of evidence, not equivalence. Positive point-estimate score margin is also inconclusive.",
+  "scopeLimit": "Artifact audit verifies stored IDs/hashes/counters and preserved receipts; it cannot retrospectively prove process behavior beyond the retained audit evidence. No replay, training, or new game was run.",
+  "canonicalValidatorIssues": [],
+  "scoreTieCaveat": {
+    "games": [
+      {
+        "id": "constant-attribution/real-vs-zero/48000997/1",
+        "scores": [
+          77,
+          77
+        ],
+        "winShare": 0
+      },
+      {
+        "id": "constant-attribution/real-vs-zero/48018943/0",
+        "scores": [
+          74,
+          74
+        ],
+        "winShare": 1
+      }
+    ],
+    "reason": "Rules break equal-score ties by leftover food. These two recorded decisive win shares are legal; no final food vector is retained to independently recompute this tiebreak. Paired win share is recomputed from recorded rule-engine outcomes, not score-margin sign."
+  },
+  "completionEvidence": {
+    "lastRecordMtimeUTC": "2026-10-19T14:09:06.190732+00:00",
+    "finalAnalysisMtimeUTC": "2026-10-19T14:09:06.216757+00:00",
+    "beforeOriginalDeadline": true,
+    "caveat": "Filesystem modification timestamps corroborate completion; original deadline is also retained by resume receipt and finished checkpoint."
+  }
+}

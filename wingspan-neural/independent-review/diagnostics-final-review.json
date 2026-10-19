@@ -1,0 +1,632 @@
+{
+  "confirmationAndCapacity": {
+    "outlierAnalysis": {
+      "sourceFile": "C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-neural-20261019\\confirmation\\games\\neural%2Fconfirmation%2Fdeployed%2F46035892%2F0.json",
+      "scannedGames": 600,
+      "bytesRead": 48599350,
+      "scanSeconds": 0.39077920001000166,
+      "deployedComparisonCandidateDecisionCountAboveMs": {
+        "2000": 16,
+        "5000": 8,
+        "10000": 7,
+        "30000": 1
+      },
+      "task": {
+        "id": "neural/confirmation/deployed/46035892/0",
+        "matchup": "deployed",
+        "seed": 46035892,
+        "seat": 0,
+        "candidate": {
+          "method": "neural",
+          "pipeline": "study",
+          "budget": 300,
+          "horizon": 4,
+          "timeMs": 1000
+        },
+        "opponent": {
+          "method": "reference",
+          "pipeline": "deployed",
+          "budget": 300,
+          "horizon": 4,
+          "timeMs": 1000
+        },
+        "status": "complete",
+        "scores": [
+          69,
+          65
+        ],
+        "margin": 4,
+        "winShare": 1,
+        "elapsedMs": 295341.4908
+      },
+      "outlierDecision": {
+        "step": 86,
+        "actor": 0,
+        "role": "candidate",
+        "round": 4,
+        "phase": "power",
+        "actionType": "power",
+        "birdId": null,
+        "habitat": null,
+        "powerCode": 33,
+        "skipped": false,
+        "roots": 61,
+        "iterations": 61,
+        "elapsedMs": 78972.25219999999,
+        "mean": 0.18584933333333523,
+        "variance": 0,
+        "selectedVisits": 1,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 61,
+        "rows": {
+          "forest": 2,
+          "grassland": 3,
+          "wetland": 1
+        },
+        "priorRewardSum": 10.709999999999992,
+        "leafRewardSum": -248.09449866666648
+      },
+      "nearbyDecisions": [
+        {
+          "step": 84,
+          "actor": 0,
+          "role": "candidate",
+          "round": 4,
+          "phase": "play",
+          "actionType": "layEggs",
+          "birdId": null,
+          "habitat": null,
+          "powerCode": null,
+          "skipped": false,
+          "roots": 17,
+          "iterations": 17,
+          "elapsedMs": 15993.551999999967,
+          "mean": 1.525675204874676,
+          "variance": 0,
+          "selectedVisits": 1,
+          "learnedLeafCount": 17,
+          "learnedFallbackCount": 0,
+          "rows": {
+            "forest": 2,
+            "grassland": 3,
+            "wetland": 1
+          },
+          "priorRewardSum": 4.14996923076923,
+          "leafRewardSum": -58.51672978803169
+        },
+        {
+          "step": 85,
+          "actor": 0,
+          "role": "candidate",
+          "round": 4,
+          "phase": "power",
+          "actionType": "power",
+          "birdId": null,
+          "habitat": null,
+          "powerCode": 42,
+          "skipped": false,
+          "roots": 2,
+          "iterations": 2,
+          "elapsedMs": 4400.495800000033,
+          "mean": -0.4608300000000009,
+          "variance": 0,
+          "selectedVisits": 1,
+          "learnedLeafCount": 0,
+          "learnedFallbackCount": 2,
+          "rows": {
+            "forest": 2,
+            "grassland": 3,
+            "wetland": 1
+          },
+          "priorRewardSum": 0.09,
+          "leafRewardSum": -2.1322733333333317
+        },
+        {
+          "step": 86,
+          "actor": 0,
+          "role": "candidate",
+          "round": 4,
+          "phase": "power",
+          "actionType": "power",
+          "birdId": null,
+          "habitat": null,
+          "powerCode": 33,
+          "skipped": false,
+          "roots": 61,
+          "iterations": 61,
+          "elapsedMs": 78972.25219999999,
+          "mean": 0.18584933333333523,
+          "variance": 0,
+          "selectedVisits": 1,
+          "learnedLeafCount": 0,
+          "learnedFallbackCount": 61,
+          "rows": {
+            "forest": 2,
+            "grassland": 3,
+            "wetland": 1
+          },
+          "priorRewardSum": 10.709999999999992,
+          "leafRewardSum": -248.09449866666648
+        },
+        {
+          "step": 87,
+          "actor": 0,
+          "role": "candidate",
+          "round": 4,
+          "phase": "power",
+          "actionType": "power",
+          "birdId": null,
+          "habitat": null,
+          "powerCode": 33,
+          "skipped": false,
+          "roots": 61,
+          "iterations": 61,
+          "elapsedMs": 13344.067500000005,
+          "mean": 2.7046433333333293,
+          "variance": 0,
+          "selectedVisits": 1,
+          "learnedLeafCount": 0,
+          "learnedFallbackCount": 61,
+          "rows": {
+            "forest": 2,
+            "grassland": 3,
+            "wetland": 1
+          },
+          "priorRewardSum": 10.709999999999992,
+          "leafRewardSum": -172.1979317777777
+        },
+        {
+          "step": 88,
+          "actor": 1,
+          "role": "opponent",
+          "round": 4,
+          "phase": "play",
+          "actionType": "gainFood",
+          "birdId": null,
+          "habitat": null,
+          "powerCode": null,
+          "skipped": false,
+          "roots": 12,
+          "iterations": 34,
+          "elapsedMs": 1041.0597999999882,
+          "mean": 3.0881825897435875,
+          "variance": 1.1872823339277758,
+          "selectedVisits": 6,
+          "learnedLeafCount": 0,
+          "learnedFallbackCount": 0,
+          "rows": {
+            "forest": 3,
+            "grassland": 0,
+            "wetland": 3
+          },
+          "priorRewardSum": null,
+          "leafRewardSum": null
+        }
+      ],
+      "candidateDiagnostics": {
+        "decisions": 61,
+        "iterations": 11381,
+        "roots": 1474,
+        "unvisited": 0,
+        "rolloutCount": 11381,
+        "learnedLeafCount": 3242,
+        "learnedFallbackCount": 8139,
+        "safetyCapCount": 0,
+        "unsettledLeaves": 0,
+        "endpointMeasurement": "resolved-boundary",
+        "illegalActions": 0,
+        "errors": 0,
+        "actionTurns": 24616,
+        "powerSteps": 38625,
+        "settledLeaves": 11381,
+        "terminalReached": 5375,
+        "horizonReached": 6055,
+        "steps": 63460,
+        "actionTurnsBySeat": [
+          11194,
+          13422
+        ],
+        "priorRewardSum": 3306.4434000000147,
+        "leafRewardSum": -14902.829431043374,
+        "observationGenerationMs": 764.9371999997238,
+        "searchMs": 241305.6518000001,
+        "requestedTimeOverruns": 61,
+        "coverageFloorOverruns": 20,
+        "mainActions": 26,
+        "powerDecisions": 34
+      },
+      "opponentDiagnostics": {
+        "decisions": 51,
+        "iterations": 8795,
+        "roots": 385,
+        "unvisited": 0,
+        "rolloutCount": 8795,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "safetyCapCount": 0,
+        "unsettledLeaves": null,
+        "endpointMeasurement": "legacy-not-instrumented",
+        "illegalActions": 0,
+        "errors": 0,
+        "actionTurns": 34503,
+        "powerSteps": 0,
+        "settledLeaves": 0,
+        "terminalReached": 303,
+        "horizonReached": 8492,
+        "steps": 0,
+        "actionTurnsBySeat": null,
+        "priorRewardSum": null,
+        "leafRewardSum": null,
+        "observationGenerationMs": 225.1795000002021,
+        "searchMs": 53008.09130000003,
+        "requestedTimeOverruns": 51,
+        "coverageFloorOverruns": 0,
+        "mainActions": 26,
+        "powerDecisions": 24
+      },
+      "candidateDecisionCount": 61,
+      "candidateDecisionTotalMs": 242070.58899999983,
+      "candidateOtherDecisionMaxMs": 17882.59380000003,
+      "placementsBefore": [
+        {
+          "step": 5,
+          "player": 0,
+          "round": 1,
+          "id": 62,
+          "name": "Common Raven",
+          "habitat": "grassland"
+        },
+        {
+          "step": 8,
+          "player": 1,
+          "round": 1,
+          "id": 144,
+          "name": "Spotted Sandpiper",
+          "habitat": "wetland"
+        },
+        {
+          "step": 12,
+          "player": 1,
+          "round": 1,
+          "id": 112,
+          "name": "Osprey",
+          "habitat": "wetland"
+        },
+        {
+          "step": 20,
+          "player": 0,
+          "round": 1,
+          "id": 128,
+          "name": "Red-Shouldered Hawk",
+          "habitat": "forest"
+        },
+        {
+          "step": 29,
+          "player": 1,
+          "round": 2,
+          "id": 25,
+          "name": "Black Skimmer",
+          "habitat": "wetland"
+        },
+        {
+          "step": 30,
+          "player": 0,
+          "round": 2,
+          "id": 53,
+          "name": "Chihuahuan Raven",
+          "habitat": "grassland"
+        },
+        {
+          "step": 40,
+          "player": 0,
+          "round": 2,
+          "id": 77,
+          "name": "Golden Eagle",
+          "habitat": "grassland"
+        },
+        {
+          "step": 45,
+          "player": 0,
+          "round": 2,
+          "id": 88,
+          "name": "Hooded Merganser",
+          "habitat": "wetland"
+        },
+        {
+          "step": 46,
+          "player": 1,
+          "round": 2,
+          "id": 54,
+          "name": "Chimney Swift",
+          "habitat": "forest"
+        },
+        {
+          "step": 62,
+          "player": 1,
+          "round": 3,
+          "id": 105,
+          "name": "Mourning Dove",
+          "habitat": "forest"
+        },
+        {
+          "step": 63,
+          "player": 0,
+          "round": 3,
+          "id": 132,
+          "name": "Rose-Breasted Grosbeak",
+          "habitat": "forest"
+        },
+        {
+          "step": 70,
+          "player": 1,
+          "round": 3,
+          "id": 57,
+          "name": "Clark's Nutcracker",
+          "habitat": "forest"
+        }
+      ],
+      "actorAvailabilityBefore": [
+        {
+          "step": 1,
+          "player": 0,
+          "round": 1,
+          "id": 62,
+          "powerCode": 33
+        },
+        {
+          "step": 1,
+          "player": 0,
+          "round": 1,
+          "id": 157,
+          "powerCode": 20
+        },
+        {
+          "step": 1,
+          "player": 0,
+          "round": 1,
+          "id": 77,
+          "powerCode": 42
+        },
+        {
+          "step": 1,
+          "player": 0,
+          "round": 1,
+          "id": 108,
+          "powerCode": 58
+        },
+        {
+          "step": 1,
+          "player": 0,
+          "round": 1,
+          "id": 132,
+          "powerCode": 64
+        },
+        {
+          "step": 9,
+          "player": 0,
+          "round": 1,
+          "id": 88,
+          "powerCode": 49
+        },
+        {
+          "step": 11,
+          "player": 0,
+          "round": 1,
+          "id": 53,
+          "powerCode": 33
+        },
+        {
+          "step": 13,
+          "player": 0,
+          "round": 1,
+          "id": 128,
+          "powerCode": 17
+        },
+        {
+          "step": 52,
+          "player": 0,
+          "round": 3,
+          "id": 106,
+          "powerCode": 30
+        },
+        {
+          "step": 52,
+          "player": 0,
+          "round": 3,
+          "id": 43,
+          "powerCode": 13
+        },
+        {
+          "step": 84,
+          "player": 0,
+          "round": 4,
+          "id": 130,
+          "powerCode": 27
+        },
+        {
+          "step": 84,
+          "player": 0,
+          "round": 4,
+          "id": 92,
+          "powerCode": 51
+        }
+      ],
+      "scoreComponents": [
+        {
+          "birds": 31,
+          "bonuses": 4,
+          "goals": 12,
+          "eggs": 15,
+          "cached": 0,
+          "tucked": 7,
+          "total": 69
+        },
+        {
+          "birds": 28,
+          "bonuses": 4,
+          "goals": 18,
+          "eggs": 14,
+          "cached": 1,
+          "tucked": 0,
+          "total": 65
+        }
+      ],
+      "powerCounts": {
+        "candidate": {
+          "17": 3,
+          "33": 21,
+          "42": 8,
+          "49": 1,
+          "64": 1
+        },
+        "opponent": {
+          "1": 1,
+          "10": 3,
+          "20": 5,
+          "26": 1,
+          "30": 2,
+          "59": 6,
+          "60": 6
+        }
+      }
+    },
+    "confirmationReview": {
+      "completeValidGames": 600,
+      "alphaOneSidedPerClaim": 0.025,
+      "independentUnits": "setup seed, averaging the two seat games",
+      "versusDeployed": {
+        "pairs": 200,
+        "share": 0.57,
+        "lower": 0.5210541317216713,
+        "margin": 1.7675,
+        "gate": true
+      },
+      "versusCorrectedReference": {
+        "pairs": 100,
+        "share": 0.5,
+        "lower": 0.4338594349471198,
+        "margin": -0.04,
+        "gate": false
+      },
+      "recommendation": "No promotion: both controls were required. Corrected-reference null result is not evidence of equivalence. Mean/p95 latency gates pass but hide material mandatory-root-coverage tail."
+    },
+    "capacityReview": {
+      "testFilesOpened": 0,
+      "devGroups": 64,
+      "fullLarge": {
+        "devHuber": 0.07632496953010559,
+        "devMAE": 9.38353250135137
+      },
+      "fullSmall": {
+        "devHuber": 0.07744238526,
+        "devMAE": 9.23304368927
+      },
+      "compactLarge": {
+        "devHuber": 0.06800977141,
+        "devMAE": 8.83546660706
+      },
+      "compactSmall": {
+        "devHuber": 0.07000633329,
+        "devMAE": 8.93193238195
+      },
+      "interpretation": "Compact inputs improved selected development point estimates, but paired group MAE intervals all overlap zero and this development set also chose checkpoints/seeds. Compact drops useful own-hand identity, confounding a pure dimensionality interpretation. Full-small is clean capacity contrast and worsened primary dev Huber. No independently validated architecture winner."
+    },
+    "recommendations": [
+      "Finish constant-content control without interpreting partial records. It tests package mechanics, not trained content in isolation: constant cancellation applies only where both root and endpoint use the learned blend; terminal/fallback boundaries differ, and scaled leaf reward changes prior/UCB balance.",
+      "Prefer an explicitly residual learned correction to corrected reference, preserving exact known-score arithmetic and making a zero-correction model reproduce that reference. Treat this as a new predefined experiment, not a change to the frozen pilot.",
+      "Compact projection and shared bird encoder are reasonable future hypotheses. Preserve row/habitat order and private-information asymmetry; use fresh holdout and independent strength seeds after model selection.",
+      "Do not reuse the original offline test set for architecture selection or call any reused-test follow-up fresh confirmation. More independent game groups are more valuable than merely fitting more epochs; all original seeds chose epoch one.",
+      "Before a production change, isolate long reference-fallback power decisions with instrumentation of root generation, evaluation CPU/wall time, and GC. Current logs alone do not identify OS scheduling versus combinatorial work."
+    ],
+    "outlierSourceClarification": "At power roots supportedModelObservation returns false; allowModel remains false throughout rollout. All 61 outlier leaves therefore use corrected-reference fallback. Candidate entire-game generation is 764.9372 ms, giving at least 78,207.315 ms search time within the 78,972.2522 ms outlier decision."
+  },
+  "sourceReviewSha256": "4b28c0cd529adf1fa3098290fadb004843b025c67e27d822cd4b90f6a61e15b3",
+  "constantControlIndependentReview": "constant-control-repair-final-review.json",
+  "productionDefaultsChanged": false,
+  "constantControl": {
+    "reviewType": "independent-read-only",
+    "passed": true,
+    "issues": [],
+    "records": 64,
+    "pairs": 32,
+    "allFrozenSourceModelControlHashesVerified": true,
+    "originalReceiptAndFailureCheckpointAnalysisBytesPreserved": true,
+    "retainedRecordBytesPreserved": [
+      {
+        "name": "constant-attribution%2Freal-vs-zero%2F48006979%2F1.json",
+        "sha256": "37a2b8fae461232cab9637d580904f762daa9db191c88729dd2278078cd380b5"
+      }
+    ],
+    "same64FrozenTasksAndModelIds": true,
+    "originalStartedAt": "2026-10-19T13:56:48.668Z",
+    "originalDeadline": "2026-10-19T14:11:48.668Z",
+    "mechanicalResumeReason": "frozen-task-startedAt transport-only validation bug",
+    "restartInterpretation": "One completed game retained unchanged; unsaved in-flight games requeued after transport-only validation failure. No evidence of outcome-based task changes or restarts; all planned games are included.",
+    "statistics": {
+      "share": {
+        "n": 32,
+        "mean": 0.484375,
+        "sampleVariance": 0.08845766129032258,
+        "ci95IndependentT31": [
+          0.37714425822072106,
+          0.5916057417792789
+        ]
+      },
+      "margin": {
+        "n": 32,
+        "mean": 2.21875,
+        "sampleVariance": 90.96673387096774,
+        "ci95IndependentT31": [
+          -1.2199388836337697,
+          5.65743888363377
+        ]
+      }
+    },
+    "latency": {
+      "candidate": {
+        "n": 3237,
+        "mean": 1002.8140750077235,
+        "p95": 1007.4020000000019,
+        "max": 1357.1913000000059
+      },
+      "opponent": {
+        "n": 3097,
+        "mean": 1002.9069950920247,
+        "p95": 1007.5483999999997,
+        "max": 1440.2339999999967
+      }
+    },
+    "intervalSemantics": "Descriptive ordinary two-sided 95% paired t intervals across 32 independent setup seeds. Report lowerBound fields instead use one-sided alpha .05 and are distinct from ci95 endpoints.",
+    "recommendation": "Do not promote NN. The real model shows no observed win-share advantage over the identical-shape zero-output control, with substantial uncertainty: this is absence of evidence, not equivalence. Positive point-estimate score margin is also inconclusive.",
+    "scopeLimit": "Artifact audit verifies stored IDs/hashes/counters and preserved receipts; it cannot retrospectively prove process behavior beyond the retained audit evidence. No replay, training, or new game was run.",
+    "canonicalValidatorIssues": [],
+    "scoreTieCaveat": {
+      "games": [
+        {
+          "id": "constant-attribution/real-vs-zero/48000997/1",
+          "scores": [
+            77,
+            77
+          ],
+          "winShare": 0
+        },
+        {
+          "id": "constant-attribution/real-vs-zero/48018943/0",
+          "scores": [
+            74,
+            74
+          ],
+          "winShare": 1
+        }
+      ],
+      "reason": "Rules break equal-score ties by leftover food. These two recorded decisive win shares are legal; no final food vector is retained to independently recompute this tiebreak. Paired win share is recomputed from recorded rule-engine outcomes, not score-margin sign."
+    },
+    "completionEvidence": {
+      "lastRecordMtimeUTC": "2026-10-19T14:09:06.190732+00:00",
+      "finalAnalysisMtimeUTC": "2026-10-19T14:09:06.216757+00:00",
+      "beforeOriginalDeadline": true,
+      "caveat": "Filesystem modification timestamps corroborate completion; original deadline is also retained by resume receipt and finished checkpoint."
+    }
+  },
+  "constantControlSourceReviewSha256": "900197726edb1b36a26d16fa2254897ea43ec64380c73605c2d59e2fbdf961c0"
+}

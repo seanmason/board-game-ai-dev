@@ -65,7 +65,7 @@ Mechanical transport-validation repair: the original validator mistakenly treate
 
 
 
-Diagnostic status: **finished**, stage **diagnostics-complete-repaired**, updated 2026-10-19T14:09:44.695453+00:00. Original pilot results above are preserved.
+Diagnostic status: **finished**, stage **diagnostics-complete-repaired**, updated 2026-10-19T14:11:17.807979+00:00. Original pilot results above are preserved.
 
 [Diagnostic progress](diagnostics-progress.json) · [Feature inventory](independent-review/train-feature-inventory.json) · [Feature/capacity plan](feature-capacity-probe/plan.json) · [Feature/capacity report](feature-capacity-probe/report.json) · [Constant-output protocol](constant-control/protocol.md) · [Strict repaired control analysis](constant-control/repair-resume-analysis.json)
 
