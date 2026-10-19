@@ -16,8 +16,8 @@ export async function verifyLiveDashboard(browser,base){
   await page.getByText('50 / 100 games recorded',{exact:false}).waitFor();
   assert.equal(lookups,1);assert.match(await page.locator('#download').getAttribute('href'),new RegExp(sha));
   assert.doesNotMatch(await page.locator('#status').innerText(),/stale/);
-  fresh.finished=60;fresh.updatedAt=new Date(Date.now()+1000).toISOString();
-  await page.locator('#refresh').tap();await page.getByText('60 / 100 games recorded',{exact:false}).waitFor();assert.equal(lookups,1);
+  fresh.rows[0]={...row,metricKind:'loss',training:{selectedEpoch:1,dev:{mae:7}}};fresh.finished=60;fresh.updatedAt=new Date(Date.now()+1000).toISOString();
+  await page.locator('#refresh').tap();await page.getByText('60 / 100 games recorded',{exact:false}).waitFor();assert.equal(lookups,1);assert.doesNotMatch(await page.locator('.card').innerText(),/Held-out learning check/);
   // Neither an older branch nor an older immutable response may roll back progress.
   fresh.finished=55;fresh.updatedAt=oldTime;
   await page.locator('#refresh').tap();await page.waitForTimeout(100);assert.match(await page.locator('#totals').innerText(),/60 \/ 100/);

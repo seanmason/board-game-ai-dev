@@ -122,6 +122,9 @@ against the real public reference/immutable feed passed at 15:08 UTC. This is a
 presentation/infrastructure repair only; all 105 frozen experimental source files,
 tasks, data and the original deadline remain unchanged. Deployment of this cache
 repair is pending.
+Training cards also omit the held-out learning verdict until an explicit boolean
+is present; a missing field is not a failed audit. Browser regression covers
+development-only cards alongside the cache recovery checks.
 
 ## Runtime and reproduction
 
