@@ -3,13 +3,13 @@
   "study": "wingspan-refit",
   "outcomeStatus": "running",
   "status": "running",
-  "stage": "s0-gentle",
-  "updatedAt": "2026-10-19T20:17:21.238Z",
+  "stage": "s0-gentle-value",
+  "updatedAt": "2026-10-19T20:18:54.465Z",
   "revision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
   "method": "Fixed small network teacher refits: two learning rates crossed with auxiliary loss on/off. Development selects at most two distinct candidates; fresh parent comparisons decide research teacher updates. Production is unchanged.",
-  "finished": 73,
-  "planned": 80,
-  "workers": 7,
+  "finished": 80,
+  "planned": 160,
+  "workers": 28,
   "collectionBudget": {},
   "fitCosts": {},
   "rows": [
@@ -482,12 +482,87 @@
       }
     },
     {
-      "matchup": "s0-gentle",
-      "policy": "s0-gentle",
+      "matchup": "s0-gentle/parent",
+      "policy": "s0-gentle/parent",
       "policyId": "Exploratory gentle screen",
       "opponentPolicyId": "Actual parent teacher",
       "metricKind": "win-share",
       "stage": "s0-gentle",
+      "comparison": "parent",
+      "candidateModelId": "refit-f0-gentle",
+      "opponentModelId": "frozen-generation-3",
+      "modelHashes": {
+        "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+        "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+        "refit-f0-control": "7439c56ebdc656e3056d7873697abe848509aafc0c9d64fcb1ad3d1dd8095c8c",
+        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb",
+        "refit-f0-gentle": "9fb0bcb74d7246138e44a6524a4a7d42a5d0328b4f358a26255ad84aa7276bd3",
+        "refit-f0-gentle-value": "9554ea9db2f02407dd0aa455361691e2ad7f5f9edee9e26fce865e5a2e1da368"
+      },
+      "game": "wingspan",
+      "players": 2,
+      "scope": "Two-player research; complete fixed pairs required for strength results",
+      "status": "complete",
+      "planned": 80,
+      "finished": 80,
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "meanDecisionMs": 1002.2127748366,
+      "maxDecisionMs": 1030.6846000000369,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 4284,
+        "meanMs": 1002.2127748366,
+        "p95Ms": 1005.8074999998789,
+        "p99Ms": 1010.2291999999434,
+        "maxMs": 1030.6846000000369
+      },
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "coverage": {
+        "decisions": 4284,
+        "iterations": 1497958,
+        "roots": 37963,
+        "unvisited": 0,
+        "learnedLeafCount": 473855,
+        "learnedFallbackCount": 1024103,
+        "errors": 0
+      },
+      "inferenceComplete": true,
+      "outcomesWithheld": false,
+      "winShare": {
+        "n": 40,
+        "mean": 0.55625,
+        "low": 0.45793014957751743,
+        "high": 0.6545698504224826
+      },
+      "margin": {
+        "n": 40,
+        "mean": 0.1875,
+        "low": -2.1234618267729246,
+        "high": 2.4984618267729246
+      },
+      "training": {
+        "latestFit": {},
+        "curves": []
+      }
+    },
+    {
+      "matchup": "s0-gentle-value",
+      "policy": "s0-gentle-value",
+      "policyId": "Exploratory gentle-value screen",
+      "opponentPolicyId": "Actual parent teacher",
+      "metricKind": "win-share",
+      "stage": "s0-gentle-value",
       "comparison": "parent",
       "modelHashes": {
         "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
@@ -502,11 +577,11 @@
       "scope": "Two-player research; complete fixed pairs required for strength results",
       "status": "running",
       "planned": 80,
-      "finished": 73,
+      "finished": 0,
       "seedGroups": 0,
       "completeSeedGroups": 0,
       "counts": {
-        "complete": 73,
+        "complete": 0,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
