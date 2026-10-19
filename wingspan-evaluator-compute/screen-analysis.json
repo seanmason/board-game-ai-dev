@@ -1,0 +1,2482 @@
+{
+  "stage": "screen",
+  "expected": 1600,
+  "received": 1600,
+  "valid": 1600,
+  "complete": true,
+  "missing": [],
+  "issues": [],
+  "alpha": 0.008333333333333333,
+  "groups": {
+    "reference-n100-h4": {
+      "matchup": "reference-n100-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.4375,
+        "variance": 0.13060897435897437,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.3219191088158241,
+          0.5530808911841759
+        ],
+        "lowerBound": 0.2945499098209113
+      },
+      "margin": {
+        "n": 40,
+        "mean": -2.6875,
+        "variance": 78.1113782051282,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -5.5140500472590395,
+          0.13905004725903947
+        ],
+        "lowerBound": -6.1833683914933
+      },
+      "candidateLatency": {
+        "n": 3911,
+        "totalMs": 1344211.914199988,
+        "mean": 343.70031045768036,
+        "p50": 302.5332000000053,
+        "p95": 695.7323000000324,
+        "max": 3415.6543999999994,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4001,
+        "totalMs": 4108352.5000000177,
+        "mean": 1026.831417145718,
+        "p50": 891.5385999996215,
+        "p95": 2108.712999999523,
+        "max": 6738.080300000496,
+        "overrunFrequency": null
+      },
+      "meanRatio": 0.33471931684079526,
+      "p95Ratio": 0.32993219086722075,
+      "latencyGate": true,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "reference-n100-h12": {
+      "matchup": "reference-n100-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.4125,
+        "variance": 0.11394230769230769,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.30454518071080844,
+          0.5204548192891915
+        ],
+        "lowerBound": 0.278981812049136
+      },
+      "margin": {
+        "n": 40,
+        "mean": -1.975,
+        "variance": 47.191666666666656,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -4.172010775744947,
+          0.22201077574494654
+        ],
+        "lowerBound": -4.692256159729004
+      },
+      "candidateLatency": {
+        "n": 4148,
+        "totalMs": 5059336.522900052,
+        "mean": 1219.7050440935516,
+        "p50": 862.5465000001714,
+        "p95": 3408.7152999999234,
+        "max": 10624.212800000008,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3897,
+        "totalMs": 4128361.3443999835,
+        "mean": 1059.3690901719228,
+        "p50": 933.1898999996483,
+        "p95": 2170.6612999998033,
+        "max": 8450.452700000256,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.1513504173466191,
+      "p95Ratio": 1.5703579826112126,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "reference-n300-h4": {
+      "matchup": "reference-n300-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "bounded-Hoeffding-backup",
+        "ci95": [
+          0.2852652958266312,
+          0.7147347041733688
+        ],
+        "lowerBound": 0.25537038857739325
+      },
+      "margin": {
+        "n": 40,
+        "mean": 0,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "unbounded-degenerate",
+        "ci95": null,
+        "lowerBound": null
+      },
+      "candidateLatency": {
+        "n": 4086,
+        "totalMs": 4163109.724399982,
+        "mean": 1018.8716897699418,
+        "p50": 921.7780999997631,
+        "p95": 1985.3333000000566,
+        "max": 5564.756300000008,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4086,
+        "totalMs": 4171331.0948999957,
+        "mean": 1020.8837726138022,
+        "p50": 920.6728999996558,
+        "p95": 1991.7646999999997,
+        "max": 5392.939800000007,
+        "overrunFrequency": null
+      },
+      "meanRatio": 0.9980290774544209,
+      "p95Ratio": 0.9967710041251644,
+      "latencyGate": true,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": true,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "reference-n300-h12": {
+      "matchup": "reference-n300-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.5625,
+        "variance": 0.0921474358974359,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.4654174541096881,
+          0.659582545890312
+        ],
+        "lowerBound": 0.4424286062977197
+      },
+      "margin": {
+        "n": 40,
+        "mean": 1.275,
+        "variance": 66.46089743589745,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -1.332249722527878,
+          3.882249722527878
+        ],
+        "lowerBound": -1.9496384254025476
+      },
+      "candidateLatency": {
+        "n": 4192,
+        "totalMs": 15272504.721499976,
+        "mean": 3643.2501721135436,
+        "p50": 2548.944500000216,
+        "p95": 10187.278099999763,
+        "max": 45380.740699999966,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4084,
+        "totalMs": 4273128.556700015,
+        "mean": 1046.3096368021586,
+        "p50": 927.7409999999218,
+        "p95": 2074.330200000666,
+        "max": 7001.209099999978,
+        "overrunFrequency": null
+      },
+      "meanRatio": 3.4820000160262574,
+      "p95Ratio": 4.911116899323209,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "exceptional-n100-h4": {
+      "matchup": "exceptional-n100-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.38125,
+        "variance": 0.09611378205128208,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.28210008123621405,
+          0.4803999187637859
+        ],
+        "lowerBound": 0.2586216858961804
+      },
+      "margin": {
+        "n": 40,
+        "mean": -2.825,
+        "variance": 53.03269230769231,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -5.154010073568962,
+          -0.4959899264310388
+        ],
+        "lowerBound": -5.705512484664684
+      },
+      "candidateLatency": {
+        "n": 3918,
+        "totalMs": 2194125.7609999944,
+        "mean": 560.0116796835106,
+        "p50": 534.3237000000663,
+        "p95": 974.8495999993756,
+        "max": 1952.4220000000205,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3903,
+        "totalMs": 4061105.7238000007,
+        "mean": 1040.5087685882656,
+        "p50": 928.5396999996156,
+        "p95": 2085.7261999999173,
+        "max": 5475.435700001195,
+        "overrunFrequency": null
+      },
+      "meanRatio": 0.5382094765460933,
+      "p95Ratio": 0.4673909739444297,
+      "latencyGate": true,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "exceptional-n100-h12": {
+      "matchup": "exceptional-n100-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.34375,
+        "variance": 0.10797275641025642,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.23866115388047274,
+          0.4488388461195273
+        ],
+        "lowerBound": 0.21377643883698041
+      },
+      "margin": {
+        "n": 40,
+        "mean": -5.1125,
+        "variance": 75.45496794871795,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -7.890571689423721,
+          -2.334428310576278
+        ],
+        "lowerBound": -8.548410507856202
+      },
+      "candidateLatency": {
+        "n": 3977,
+        "totalMs": 6085944.611300003,
+        "mean": 1530.285293261253,
+        "p50": 1046.2346000000834,
+        "p95": 3836.8041000000667,
+        "max": 51852.014399999985,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3946,
+        "totalMs": 4192985.869600032,
+        "mean": 1062.5914520020356,
+        "p50": 908.1904999995604,
+        "p95": 2167.2996000000276,
+        "max": 10559.067600000184,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.4401445545021394,
+      "p95Ratio": 1.7703155115241187,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "exceptional-n300-h4": {
+      "matchup": "exceptional-n300-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.5,
+        "variance": 0.09935897435897435,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.39919012432558265,
+          0.6008098756744173
+        ],
+        "lowerBound": 0.37531865630247324
+      },
+      "margin": {
+        "n": 40,
+        "mean": 0.6875,
+        "variance": 51.99599358974359,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -1.618633634872333,
+          2.993633634872333
+        ],
+        "lowerBound": -2.1647189757536967
+      },
+      "candidateLatency": {
+        "n": 4067,
+        "totalMs": 6906657.234900037,
+        "mean": 1698.2191381608156,
+        "p50": 1590.5142999999225,
+        "p95": 2831.1463999999687,
+        "max": 13125.111800000072,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4001,
+        "totalMs": 4241967.797799984,
+        "mean": 1060.2268927268142,
+        "p50": 915.4934999998659,
+        "p95": 2079.8270000000484,
+        "max": 23077.90799999982,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.6017506722482195,
+      "p95Ratio": 1.361241295550016,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "exceptional-n300-h12": {
+      "matchup": "exceptional-n300-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.5625,
+        "variance": 0.0953525641025641,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.46374349376331453,
+          0.6612565062366855
+        ],
+        "lowerBound": 0.4403582572978231
+      },
+      "margin": {
+        "n": 40,
+        "mean": 1.5375,
+        "variance": 58.64599358974361,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -0.9116687165560564,
+          3.9866687165560566
+        ],
+        "lowerBound": -1.491624324172233
+      },
+      "candidateLatency": {
+        "n": 4119,
+        "totalMs": 17535928.88239998,
+        "mean": 4257.326749793634,
+        "p50": 3109.8645999999717,
+        "p95": 11008.178000000305,
+        "max": 45483.696600000374,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4003,
+        "totalMs": 4196569.14539998,
+        "mean": 1048.3560193354933,
+        "p50": 927.1864999998361,
+        "p95": 2040.3194999999832,
+        "max": 7280.965800000355,
+        "overrunFrequency": null
+      },
+      "meanRatio": 4.060955125237098,
+      "p95Ratio": 5.395320683844073,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "chains-n100-h4": {
+      "matchup": "chains-n100-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.45,
+        "variance": 0.12243589743589749,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.3380938605450007,
+          0.5619061394549993
+        ],
+        "lowerBound": 0.31159483143978417
+      },
+      "margin": {
+        "n": 40,
+        "mean": -2.2875,
+        "variance": 44.58830128205127,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -4.423051222593726,
+          -0.151948777406274
+        ],
+        "lowerBound": -4.928743173712711
+      },
+      "candidateLatency": {
+        "n": 3945,
+        "totalMs": 2240485.2111000335,
+        "mean": 567.9303450190199,
+        "p50": 525.8630999997258,
+        "p95": 1027.6204000003636,
+        "max": 4341.786399999866,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4055,
+        "totalMs": 4277432.115899924,
+        "mean": 1054.853789371128,
+        "p50": 922.211299999617,
+        "p95": 2163.910099999979,
+        "max": 7265.03240000084,
+        "overrunFrequency": null
+      },
+      "meanRatio": 0.5383972174547553,
+      "p95Ratio": 0.4748905234096248,
+      "latencyGate": true,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "chains-n100-h12": {
+      "matchup": "chains-n100-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.4125,
+        "variance": 0.10112179487179487,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.3107997749381346,
+          0.5142002250618654
+        ],
+        "lowerBound": 0.2867174749227261
+      },
+      "margin": {
+        "n": 40,
+        "mean": -2.175,
+        "variance": 42.468589743589746,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -4.259171481706888,
+          -0.09082851829311211
+        ],
+        "lowerBound": -4.752696868454967
+      },
+      "candidateLatency": {
+        "n": 4070,
+        "totalMs": 5978543.927099981,
+        "mean": 1468.9297118181773,
+        "p50": 1061.811599999899,
+        "p95": 3957.119000000006,
+        "max": 17601.99179999903,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3949,
+        "totalMs": 4178794.6358000347,
+        "mean": 1058.190588959239,
+        "p50": 940.3433999996632,
+        "p95": 2146.4596000001766,
+        "max": 9355.963000001386,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.3881523112607834,
+      "p95Ratio": 1.8435562448972627,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "chains-n300-h4": {
+      "matchup": "chains-n300-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.5125,
+        "variance": 0.12483974358974355,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.39950064534091023,
+          0.6254993546590897
+        ],
+        "lowerBound": 0.37274274624292536
+      },
+      "margin": {
+        "n": 40,
+        "mean": 1.1625,
+        "variance": 45.428044871794874,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -0.9930671290625441,
+          3.3180671290625443
+        ],
+        "lowerBound": -1.5034987851759793
+      },
+      "candidateLatency": {
+        "n": 4115,
+        "totalMs": 6844338.100899983,
+        "mean": 1663.265638128793,
+        "p50": 1553.43889999995,
+        "p95": 2888.8626000001095,
+        "max": 9332.85850000009,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3993,
+        "totalMs": 4084529.1162999477,
+        "mean": 1022.9223932631975,
+        "p50": 890.2458999999799,
+        "p95": 2049.2799999993294,
+        "max": 8716.56289999932,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.6259939650190407,
+      "p95Ratio": 1.4096963811685348,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "chains-n300-h12": {
+      "matchup": "chains-n300-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.60625,
+        "variance": 0.10540865384615386,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.5024164595002747,
+          0.7100835404997252
+        ],
+        "lowerBound": 0.4778289969606849
+      },
+      "margin": {
+        "n": 40,
+        "mean": 1.175,
+        "variance": 74.58397435897433,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -1.5869911977829962,
+          3.936991197782996
+        ],
+        "lowerBound": -2.241022205329595
+      },
+      "candidateLatency": {
+        "n": 4099,
+        "totalMs": 19013740.724300027,
+        "mean": 4638.6291105879545,
+        "p50": 3139.7680999999866,
+        "p95": 12519.234200000763,
+        "max": 96227.17039999925,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3982,
+        "totalMs": 4413951.771300002,
+        "mean": 1108.4760852084385,
+        "p50": 938.5282000000589,
+        "p95": 2101.184200000018,
+        "max": 30526.47159999993,
+        "overrunFrequency": null
+      },
+      "meanRatio": 4.184690290107345,
+      "p95Ratio": 5.958180249023696,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "investment-n100-h4": {
+      "matchup": "investment-n100-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.425,
+        "variance": 0.09679487179487185,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.32549939905977504,
+          0.524500600940225
+        ],
+        "lowerBound": 0.3019379632606084
+      },
+      "margin": {
+        "n": 40,
+        "mean": -2.4,
+        "variance": 55.66923076923076,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -4.786201637469371,
+          -0.01379836253062905
+        ],
+        "lowerBound": -5.351246834722767
+      },
+      "candidateLatency": {
+        "n": 3957,
+        "totalMs": 2687770.1672999915,
+        "mean": 679.2444193328257,
+        "p50": 613.4334000000017,
+        "p95": 1382.978099999993,
+        "max": 4555.038300000131,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4006,
+        "totalMs": 4445031.7589000305,
+        "mean": 1109.5935494009063,
+        "p50": 965.0147000001743,
+        "p95": 2320.9269999992102,
+        "max": 6903.525600000285,
+        "overrunFrequency": null
+      },
+      "meanRatio": 0.612156063541974,
+      "p95Ratio": 0.5958731575790465,
+      "latencyGate": true,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "investment-n100-h12": {
+      "matchup": "investment-n100-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.4125,
+        "variance": 0.11394230769230769,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.30454518071080844,
+          0.5204548192891915
+        ],
+        "lowerBound": 0.278981812049136
+      },
+      "margin": {
+        "n": 40,
+        "mean": -4.8,
+        "variance": 61.12564102564103,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -7.300410088726238,
+          -2.2995899112737614
+        ],
+        "lowerBound": -7.892499495427449
+      },
+      "candidateLatency": {
+        "n": 3933,
+        "totalMs": 5307246.439099971,
+        "mean": 1349.414299288068,
+        "p50": 1092.947899999097,
+        "p95": 3353.1619000006467,
+        "max": 13834.991800000425,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4002,
+        "totalMs": 4060063.8474000064,
+        "mean": 1014.5087074962535,
+        "p50": 887.057999999728,
+        "p95": 2031.0226000002585,
+        "max": 6494.260100000072,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.3301160348030343,
+      "p95Ratio": 1.6509722245337004,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "investment-n300-h4": {
+      "matchup": "investment-n300-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.4625,
+        "variance": 0.10753205128205132,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.3576258402050437,
+          0.5673741597949563
+        ],
+        "lowerBound": 0.33279196222188606
+      },
+      "margin": {
+        "n": 40,
+        "mean": -0.0125,
+        "variance": 49.134455128205126,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -2.254277992604291,
+          2.2292779926042905
+        ],
+        "lowerBound": -2.7851241156388844
+      },
+      "candidateLatency": {
+        "n": 4051,
+        "totalMs": 8216417.155700004,
+        "mean": 2028.244175685017,
+        "p50": 1767.8573000002652,
+        "p95": 4369.299100000411,
+        "max": 19240.28530000057,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4063,
+        "totalMs": 4374484.129600049,
+        "mean": 1076.6635809992738,
+        "p50": 931.4185999995098,
+        "p95": 2238.542600000277,
+        "max": 6956.963100000285,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.8838235187657797,
+      "p95Ratio": 1.951849877683753,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "investment-n300-h12": {
+      "matchup": "investment-n300-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.45,
+        "variance": 0.07756410256410257,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.3609303152454552,
+          0.5390696847545449
+        ],
+        "lowerBound": 0.33983888826747183
+      },
+      "margin": {
+        "n": 40,
+        "mean": -0.675,
+        "variance": 40.135256410256424,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -2.7011078079107733,
+          1.3511078079107735
+        ],
+        "lowerBound": -3.1808838955643406
+      },
+      "candidateLatency": {
+        "n": 4126,
+        "totalMs": 17321921.604200043,
+        "mean": 4198.2359680562395,
+        "p50": 3460.3032999999705,
+        "p95": 10115.028500000015,
+        "max": 38231.347699999984,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3977,
+        "totalMs": 3975454.987699984,
+        "mean": 999.6115131254675,
+        "p50": 881.446600000374,
+        "p95": 1965.7151999999987,
+        "max": 6211.830899998546,
+        "overrunFrequency": null
+      },
+      "meanRatio": 4.199867561478649,
+      "p95Ratio": 5.145724314488702,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "blend-n100-h4": {
+      "matchup": "blend-n100-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.55,
+        "variance": 0.1,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.44886545399816213,
+          0.651134546001838
+        ],
+        "lowerBound": 0.42491710504163993
+      },
+      "margin": {
+        "n": 40,
+        "mean": 0.4375,
+        "variance": 43.361378205128204,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -1.6684646061599224,
+          2.5434646061599224
+        ],
+        "lowerBound": -2.1671505376465396
+      },
+      "candidateLatency": {
+        "n": 4057,
+        "totalMs": 4301844.680799983,
+        "mean": 1060.3511660833087,
+        "p50": 984.0945999994874,
+        "p95": 1906.3900999994949,
+        "max": 5754.307400000282,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3984,
+        "totalMs": 4245537.858299967,
+        "mean": 1065.6470527861363,
+        "p50": 923.4410999994725,
+        "p95": 2134.870600000024,
+        "max": 8131.57620000001,
+        "overrunFrequency": null
+      },
+      "meanRatio": 0.9950303557927725,
+      "p95Ratio": 0.8929768858119427,
+      "latencyGate": true,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": true,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "blend-n100-h12": {
+      "matchup": "blend-n100-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.4125,
+        "variance": 0.1011217948717949,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.3107997749381346,
+          0.5142002250618654
+        ],
+        "lowerBound": 0.28671747492272603
+      },
+      "margin": {
+        "n": 40,
+        "mean": -2.725,
+        "variance": 67.74294871794872,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -5.357276930460488,
+          -0.09272306953951182
+        ],
+        "lowerBound": -5.980591999079329
+      },
+      "candidateLatency": {
+        "n": 3999,
+        "totalMs": 7227030.5425,
+        "mean": 1807.2094379844962,
+        "p50": 1503.1921000005677,
+        "p95": 4113.458999999799,
+        "max": 17989.80090000108,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3939,
+        "totalMs": 4271689.193999989,
+        "mean": 1084.4603183549095,
+        "p50": 919.0899000000209,
+        "p95": 2265.248399999924,
+        "max": 24233.710500000045,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.6664597195460071,
+      "p95Ratio": 1.8158975413027272,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "blend-n300-h4": {
+      "matchup": "blend-n300-h4",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.575,
+        "variance": 0.0807692307692308,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.4841086607546903,
+          0.6658913392453096
+        ],
+        "lowerBound": 0.46258587160475173
+      },
+      "margin": {
+        "n": 40,
+        "mean": 2.5,
+        "variance": 65.3076923076923,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -0.08453071761039199,
+          5.0845307176103915
+        ],
+        "lowerBound": -0.6965396301046409
+      },
+      "candidateLatency": {
+        "n": 3986,
+        "totalMs": 12663293.541100014,
+        "mean": 3176.942684671353,
+        "p50": 2994.0205999999307,
+        "p95": 5759.041600000113,
+        "max": 16920.54879999906,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 3998,
+        "totalMs": 4333321.803500012,
+        "mean": 1083.8723870685371,
+        "p50": 946.2039999999106,
+        "p95": 2141.757099999988,
+        "max": 10011.373200001195,
+        "overrunFrequency": null
+      },
+      "meanRatio": 2.9311039957976748,
+      "p95Ratio": 2.688933119446713,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "blend-n300-h12": {
+      "matchup": "blend-n300-h12",
+      "expected": 80,
+      "valid": 80,
+      "pairs": 40,
+      "complete": true,
+      "winShare": {
+        "n": 40,
+        "mean": 0.4125,
+        "variance": 0.10112179487179487,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.3107997749381346,
+          0.5142002250618654
+        ],
+        "lowerBound": 0.2867174749227261
+      },
+      "margin": {
+        "n": 40,
+        "mean": -0.9875,
+        "variance": 55.37804487179488,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -3.3674527703711323,
+          1.392452770371132
+        ],
+        "lowerBound": -3.9310182551447905
+      },
+      "candidateLatency": {
+        "n": 4119,
+        "totalMs": 22463725.133399986,
+        "mean": 5453.684179024031,
+        "p50": 4396.824000000022,
+        "p95": 12569.057500000112,
+        "max": 79920.93149999995,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 4040,
+        "totalMs": 4141835.456999997,
+        "mean": 1025.206796287128,
+        "p50": 917.5437000002712,
+        "p95": 2035.4897000000346,
+        "max": 5407.608899999876,
+        "overrunFrequency": null
+      },
+      "meanRatio": 5.31959425042343,
+      "p95Ratio": 6.174955098028694,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    }
+  },
+  "contrasts": {
+    "reference": {
+      "samplesH4": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0625,
+          "variance": 0.13060897435897437,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.053080891184175916,
+            0.17808089118417592
+          ],
+          "lowerBound": -0.08045009017908872
+        },
+        "margin": {
+          "n": 40,
+          "mean": 2.6875,
+          "variance": 78.1113782051282,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.13905004725903947,
+            5.5140500472590395
+          ],
+          "lowerBound": -0.8083683914932998
+        }
+      },
+      "samplesH4MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "bounded-Hoeffding-backup",
+          "ci95": [
+            -0.8589388166934752,
+            0.8589388166934752
+          ],
+          "lowerBound": -0.978518445690427
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "unbounded-degenerate",
+          "ci95": null,
+          "lowerBound": null
+        }
+      },
+      "samplesH12": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.15,
+          "variance": 0.14358974358974358,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.028811547672920407,
+            0.27118845232707955
+          ],
+          "lowerBound": 0.00011449547300235174
+        },
+        "margin": {
+          "n": 40,
+          "mean": 3.25,
+          "variance": 63.08974358974359,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.7097356674039697,
+            5.79026433259603
+          ],
+          "lowerBound": 0.10820889852213611
+        }
+      },
+      "samplesH12MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "bounded-Hoeffding-backup",
+          "ci95": [
+            -0.8589388166934752,
+            0.8589388166934752
+          ],
+          "lowerBound": -0.978518445690427
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "unbounded-degenerate",
+          "ci95": null,
+          "lowerBound": null
+        }
+      },
+      "depthN100": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.025,
+          "variance": 0.2942307692307693,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.19847766695294256,
+            0.14847766695294257
+          ],
+          "lowerBound": -0.23955664410360786
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.7125,
+          "variance": 135.9857371794872,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.0169621955321646,
+            4.441962195532165
+          ],
+          "lowerBound": -3.9000873551303354
+        }
+      },
+      "depthN100MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "bounded-Hoeffding-backup",
+          "ci95": [
+            -0.8589388166934752,
+            0.8589388166934752
+          ],
+          "lowerBound": -0.978518445690427
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "unbounded-degenerate",
+          "ci95": null,
+          "lowerBound": null
+        }
+      },
+      "depthN300": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0625,
+          "variance": 0.0921474358974359,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.0345825458903119,
+            0.1595825458903119
+          ],
+          "lowerBound": -0.0575713937022803
+        },
+        "margin": {
+          "n": 40,
+          "mean": 1.275,
+          "variance": 66.46089743589745,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -1.332249722527878,
+            3.882249722527878
+          ],
+          "lowerBound": -1.9496384254025476
+        }
+      },
+      "depthN300MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "bounded-Hoeffding-backup",
+          "ci95": [
+            -0.8589388166934752,
+            0.8589388166934752
+          ],
+          "lowerBound": -0.978518445690427
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "unbounded-degenerate",
+          "ci95": null,
+          "lowerBound": null
+        }
+      },
+      "interaction": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0875,
+          "variance": 0.34471153846153846,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.1002705332315611,
+            0.2752705332315611
+          ],
+          "lowerBound": -0.14473401708899544
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.5625,
+          "variance": 169.84855769230768,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.605526398049861,
+            4.730526398049861
+          ],
+          "lowerBound": -4.592502209842999
+        }
+      },
+      "interactionMinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "bounded-Hoeffding-backup",
+          "ci95": [
+            -1.7178776333869503,
+            1.7178776333869503
+          ],
+          "lowerBound": -1.957036891380854
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0,
+          "degenerate": true,
+          "intervalMethod": "unbounded-degenerate",
+          "ci95": null,
+          "lowerBound": null
+        }
+      }
+    },
+    "exceptional": {
+      "samplesH4": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.11875,
+          "variance": 0.14419070512820506,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.002691790598809446,
+            0.24019179059880943
+          ],
+          "lowerBound": -0.03144883252108527
+        },
+        "margin": {
+          "n": 40,
+          "mean": 3.5125,
+          "variance": 79.68573717948716,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.6576070602350454,
+            6.3673929397649545
+          ],
+          "lowerBound": -0.018422793636649004
+        }
+      },
+      "samplesH4MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.05625,
+          "variance": 0.27720352564102557,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.11213325634225746,
+            0.22463325634225745
+          ],
+          "lowerBound": -0.15200589275322854
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.825,
+          "variance": 149.3275641025641,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.0831346609701926,
+            4.733134660970192
+          ],
+          "lowerBound": -4.008568909998145
+        }
+      },
+      "samplesH12": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.21875,
+          "variance": 0.1736778846153846,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.0854679114316581,
+            0.3520320885683419
+          ],
+          "lowerBound": 0.05390712342326834
+        },
+        "margin": {
+          "n": 40,
+          "mean": 6.65,
+          "variance": 90.68205128205129,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            3.604488827776051,
+            9.695511172223949
+          ],
+          "lowerBound": 2.883321163641971
+        }
+      },
+      "samplesH12MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.06875,
+          "variance": 0.3012419871794872,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.10678239607808088,
+            0.2442823960780809
+          ],
+          "lowerBound": -0.14834792675615358
+        },
+        "margin": {
+          "n": 40,
+          "mean": 3.4,
+          "variance": 177.20769230769233,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.8573643015690249,
+            7.657364301569025
+          ],
+          "lowerBound": -1.8654950537173804
+        }
+      },
+      "depthN100": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0375,
+          "variance": 0.1459935897435897,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.1596986541786849,
+            0.08469865417868491
+          ],
+          "lowerBound": -0.18863491906521876
+        },
+        "margin": {
+          "n": 40,
+          "mean": -2.2875,
+          "variance": 96.8959935897436,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -5.4356284159391475,
+            0.8606284159391469
+          ],
+          "lowerBound": -6.181095527280943
+        }
+      },
+      "depthN100MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0125,
+          "variance": 0.36522435897435895,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.20577665331919806,
+            0.18077665331919804
+          ],
+          "lowerBound": -0.2515439694522314
+        },
+        "margin": {
+          "n": 40,
+          "mean": -3,
+          "variance": 193.51282051282053,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -7.448917995597471,
+            1.448917995597471
+          ],
+          "lowerBound": -8.502408072426245
+        }
+      },
+      "depthN300": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0625,
+          "variance": 0.2075320512820513,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.0831941515219328,
+            0.2081941515219328
+          ],
+          "lowerBound": -0.1176940778033862
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.85,
+          "variance": 72.1948717948718,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -1.8673945746424851,
+            3.5673945746424853
+          ],
+          "lowerBound": -2.510865239205668
+        }
+      },
+      "depthN300MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0.21153846153846154,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.14709374322897248,
+            0.14709374322897248
+          ],
+          "lowerBound": -0.18192508851532488
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.425,
+          "variance": 111.63525641025637,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.804093557701602,
+            2.9540935577016025
+          ],
+          "lowerBound": -4.604252503143484
+        }
+      },
+      "interaction": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.1,
+          "variance": 0.3198717948717949,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.08087873117559155,
+            0.2808787311755916
+          ],
+          "lowerBound": -0.12371025753580597
+        },
+        "margin": {
+          "n": 40,
+          "mean": 3.1375,
+          "variance": 151.47419871794867,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.7986248116162602,
+            7.073624811616261
+          ],
+          "lowerBound": -1.730687042095827
+        }
+      },
+      "interactionMinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0125,
+          "variance": 0.6568910256410256,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.2467066824055274,
+            0.2717066824055274
+          ],
+          "lowerBound": -0.308086026334131
+        },
+        "margin": {
+          "n": 40,
+          "mean": 2.575,
+          "variance": 335.3403846153846,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.281558130011412,
+            8.431558130011412
+          ],
+          "lowerBound": -4.668373054548884
+        }
+      }
+    },
+    "chains": {
+      "samplesH4": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0625,
+          "variance": 0.2588141025641026,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.10020222711508173,
+            0.22520222711508173
+          ],
+          "lowerBound": -0.13872961330500436
+        },
+        "margin": {
+          "n": 40,
+          "mean": 3.45,
+          "variance": 77.15128205128202,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.6408747536886388,
+            6.259125246311362
+          ],
+          "lowerBound": -0.024317451356888675
+        }
+      },
+      "samplesH4MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0.27564102564102566,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.1679080267520006,
+            0.1679080267520006
+          ],
+          "lowerBound": -0.2076681302599048
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.7625,
+          "variance": 110.83317307692307,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -2.6044325228040437,
+            4.129432522804043
+          ],
+          "lowerBound": -3.4017117726432575
+        }
+      },
+      "samplesH12": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.19375,
+          "variance": 0.17463942307692304,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.06009947371821192,
+            0.32740052628178806
+          ],
+          "lowerBound": 0.028451440794220406
+        },
+        "margin": {
+          "n": 40,
+          "mean": 3.35,
+          "variance": 80.72051282051281,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.4766304480050807,
+            6.223369551994919
+          ],
+          "lowerBound": -0.203774610726974
+        }
+      },
+      "samplesH12MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.04375,
+          "variance": 0.2111778846153846,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.10321832577553412,
+            0.1907183257755341
+          ],
+          "lowerBound": -0.13801997259525056
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.1,
+          "variance": 103.82307692307694,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.1587157303180073,
+            3.3587157303180075
+          ],
+          "lowerBound": -3.930369577049524
+        }
+      },
+      "depthN100": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0375,
+          "variance": 0.15560897435897436,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.1636585966380325,
+            0.0886585966380325
+          ],
+          "lowerBound": -0.19353256370066038
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.1125,
+          "variance": 63.19855769230768,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -2.42995405063204,
+            2.6549540506320395
+          ],
+          "lowerBound": -3.0319993379995527
+        }
+      },
+      "depthN100MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0125,
+          "variance": 0.3171474358974358,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.19260680888097964,
+            0.16760680888097962
+          ],
+          "lowerBound": -0.23525554641967356
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.6,
+          "variance": 124.01538461538462,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -4.161535778070117,
+            2.9615357780701173
+          ],
+          "lowerBound": -5.004896479296896
+        }
+      },
+      "depthN300": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.09375,
+          "variance": 0.29707532051282054,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.08056421979609318,
+            0.2680642197960932
+          ],
+          "lowerBound": -0.12184129008308378
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.0125,
+          "variance": 142.1857371794871,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.801033328082167,
+            3.8260333280821675
+          ],
+          "lowerBound": -4.704066272893918
+        }
+      },
+      "depthN300MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.03125,
+          "variance": 0.2281650641025641,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.12151508390723009,
+            0.1840150839072301
+          ],
+          "lowerBound": -0.1576893851960919
+        },
+        "margin": {
+          "n": 40,
+          "mean": -1.2625,
+          "variance": 130.38445512820508,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -4.914345853682859,
+            2.389345853682859
+          ],
+          "lowerBound": -5.77909170262192
+        }
+      },
+      "interaction": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.13125,
+          "variance": 0.5031650641025642,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.09560834996188086,
+            0.3581083499618809
+          ],
+          "lowerBound": -0.14932770841422635
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.1,
+          "variance": 185.78461538461542,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -4.459175992458884,
+            4.259175992458885
+          ],
+          "lowerBound": -5.491415439387357
+        }
+      },
+      "interactionMinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.04375,
+          "variance": 0.531690705128205,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.18945027773238576,
+            0.27695027773238573
+          ],
+          "lowerBound": -0.24467138514499603
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.6625,
+          "variance": 201.33830128205125,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -5.200481585846368,
+            3.875481585846368
+          ],
+          "lowerBound": -6.275061646492963
+        }
+      }
+    },
+    "investment": {
+      "samplesH4": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0375,
+          "variance": 0.1844551282051281,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.09985513377178742,
+            0.17485513377178744
+          ],
+          "lowerBound": -0.13238040633766984
+        },
+        "margin": {
+          "n": 40,
+          "mean": 2.3875,
+          "variance": 96.27548076923078,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.7505320669657491,
+            5.5255320669657495
+          ],
+          "lowerBound": -1.4936083939716238
+        }
+      },
+      "samplesH4MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.025,
+          "variance": 0.3326923076923076,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.2094679446999392,
+            0.15946794469993922
+          ],
+          "lowerBound": -0.2531493857664399
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.3,
+          "variance": 160.8179487179487,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -4.3557090173333135,
+            3.755709017333314
+          ],
+          "lowerBound": -5.316088419357295
+        }
+      },
+      "samplesH12": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0375,
+          "variance": 0.12996794871794867,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.07779690822143459,
+            0.15279690822143457
+          ],
+          "lowerBound": -0.10509886092555656
+        },
+        "margin": {
+          "n": 40,
+          "mean": 4.125,
+          "variance": 84.0224358974359,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            1.193450962468658,
+            7.056549037531342
+          ],
+          "lowerBound": 0.4992691807787346
+        }
+      },
+      "samplesH12MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.1125,
+          "variance": 0.2594551282051283,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.2754035913346113,
+            0.050403591334611295
+          ],
+          "lowerBound": -0.3139786599514325
+        },
+        "margin": {
+          "n": 40,
+          "mean": 0.875,
+          "variance": 160.72756410256412,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.1795691407727107,
+            4.929569140772711
+          ],
+          "lowerBound": -4.139678623538438
+        }
+      },
+      "depthN100": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0125,
+          "variance": 0.1985576923076922,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.15500919523527718,
+            0.13000919523527715
+          ],
+          "lowerBound": -0.1887549336790484
+        },
+        "margin": {
+          "n": 40,
+          "mean": -2.4,
+          "variance": 117.41282051282052,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -5.865431268248965,
+            1.0654312682489655
+          ],
+          "lowerBound": -6.686034717592193
+        }
+      },
+      "depthN100MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.0125,
+          "variance": 0.4677884615384615,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.20623802266476884,
+            0.23123802266476887
+          ],
+          "lowerBound": -0.2580345126271636
+        },
+        "margin": {
+          "n": 40,
+          "mean": -3.1125,
+          "variance": 216.78830128205124,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -7.821378127166586,
+            1.5963781271665862
+          ],
+          "lowerBound": -8.936425962364964
+        }
+      },
+      "depthN300": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0125,
+          "variance": 0.19535256410256405,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.15385432048251788,
+            0.12885432048251785
+          ],
+          "lowerBound": -0.18732658814233305
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.6625,
+          "variance": 95.8511217948718,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.793608587064348,
+            2.468608587064348
+          ],
+          "lowerBound": -4.535045455356785
+        }
+      },
+      "depthN300MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.075,
+          "variance": 0.2666666666666666,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.24015202204835695,
+            0.09015202204835697
+          ],
+          "lowerBound": -0.2792595121320859
+        },
+        "margin": {
+          "n": 40,
+          "mean": -1.9375,
+          "variance": 158.93830128205127,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -5.969437698179577,
+            2.0944376981795774
+          ],
+          "lowerBound": -6.924188125053562
+        }
+      },
+      "interaction": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0.28525641025641024,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.17081155075212712,
+            0.17081155075212712
+          ],
+          "lowerBound": -0.2112591997991926
+        },
+        "margin": {
+          "n": 40,
+          "mean": 1.7375,
+          "variance": 209.88445512820513,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -2.8957919477498937,
+            6.370791947749893
+          ],
+          "lowerBound": -3.992941208499454
+        }
+      },
+      "interactionMinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0875,
+          "variance": 0.6684294871794874,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.3489732887137711,
+            0.17397328871377113
+          ],
+          "lowerBound": -0.4108893580340711
+        },
+        "margin": {
+          "n": 40,
+          "mean": 1.175,
+          "variance": 395.8019230769231,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -5.187656522828033,
+            7.537656522828033
+          ],
+          "lowerBound": -6.694313987789696
+        }
+      }
+    },
+    "blend": {
+      "samplesH4": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0.025,
+          "variance": 0.19487179487179487,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.11618027446475862,
+            0.1661802744647586
+          ],
+          "lowerBound": -0.14961132856370296
+        },
+        "margin": {
+          "n": 40,
+          "mean": 2.0625,
+          "variance": 95.3485576923077,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -1.0603893256993726,
+            5.185389325699372
+          ],
+          "lowerBound": -1.799879898219348
+        }
+      },
+      "samplesH4MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.0375,
+          "variance": 0.29663461538461544,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.21168487602856065,
+            0.13668487602856064
+          ],
+          "lowerBound": -0.25293131810983244
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.625,
+          "variance": 169.625,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -4.790282479618297,
+            3.5402824796182966
+          ],
+          "lowerBound": -5.7766085399792555
+        }
+      },
+      "samplesH12": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": 0,
+          "variance": 0.24358974358974358,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.157844345392639,
+            0.157844345392639
+          ],
+          "lowerBound": -0.19522140015499528
+        },
+        "margin": {
+          "n": 40,
+          "mean": 1.7375,
+          "variance": 132.24342948717947,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -1.9402870639053102,
+            5.415287063905311
+          ],
+          "lowerBound": -2.8111757115152676
+        }
+      },
+      "samplesH12MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.15,
+          "variance": 0.46410256410256423,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.36787455503254884,
+            0.06787455503254888
+          ],
+          "lowerBound": -0.41946657851947544
+        },
+        "margin": {
+          "n": 40,
+          "mean": -1.5125,
+          "variance": 227.24983974358977,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -6.333657528674239,
+            3.308657528674239
+          ],
+          "lowerBound": -7.475292780282099
+        }
+      },
+      "depthN100": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.1375,
+          "variance": 0.17932692307692305,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.2729323073768385,
+            -0.00206769262316156
+          ],
+          "lowerBound": -0.3050022605755067
+        },
+        "margin": {
+          "n": 40,
+          "mean": -3.1625,
+          "variance": 92.12035256410259,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -6.232068468045773,
+            -0.09293153195422743
+          ],
+          "lowerBound": -6.958932825723925
+        }
+      },
+      "depthN100MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.1125,
+          "variance": 0.5318910256410254,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.3457442040221634,
+            0.12074420402216339
+          ],
+          "lowerBound": -0.40097571304488167
+        },
+        "margin": {
+          "n": 40,
+          "mean": -3.875,
+          "variance": 231.2147435897436,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -8.738033833786243,
+            0.9880338337862442
+          ],
+          "lowerBound": -9.889585265448087
+        }
+      },
+      "depthN300": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.1625,
+          "variance": 0.21971153846153849,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.3124083975510293,
+            -0.012591602448970729
+          ],
+          "lowerBound": -0.34790624431053185
+        },
+        "margin": {
+          "n": 40,
+          "mean": -3.4875,
+          "variance": 125.19855769230766,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -7.065984925841374,
+            0.09098492584137441
+          ],
+          "lowerBound": -7.91335913304992
+        }
+      },
+      "depthN300MinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.225,
+          "variance": 0.29743589743589743,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.3994199751719052,
+            -0.05058002482809479
+          ],
+          "lowerBound": -0.44072208800611734
+        },
+        "margin": {
+          "n": 40,
+          "mean": -4.7625,
+          "variance": 175.85881410256403,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -9.00363014234702,
+            -0.5213698576529788
+          ],
+          "lowerBound": -10.00791669559961
+        }
+      },
+      "interaction": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.025,
+          "variance": 0.5217948717948716,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.2560199217950842,
+            0.20601992179508422
+          ],
+          "lowerBound": -0.31072472763814996
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.325,
+          "variance": 211.16089743589748,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -4.972359605107358,
+            4.322359605107358
+          ],
+          "lowerBound": -6.072840043784896
+        }
+      },
+      "interactionMinusReference": {
+        "complete": true,
+        "winShare": {
+          "n": 40,
+          "mean": -0.1125,
+          "variance": 1.0222756410256413,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -0.4358579444861778,
+            0.21085794448617784
+          ],
+          "lowerBound": -0.5124281096627535
+        },
+        "margin": {
+          "n": 40,
+          "mean": -0.8875,
+          "variance": 365.6344551282052,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -7.002874899243153,
+            5.227874899243153
+          ],
+          "lowerBound": -8.450976837470773
+        }
+      }
+    }
+  },
+  "selectedCandidate": {
+    "method": "blend",
+    "winShare": 0.575,
+    "margin": 2.5
+  },
+  "adoptionRecommended": false
+}

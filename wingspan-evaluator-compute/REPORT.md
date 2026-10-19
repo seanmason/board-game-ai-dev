@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **screen**. Snapshot 2026-10-19T03:37:42.744Z.
-Recorded 1599 / 1600 scheduled games; 1599 valid and 0 invalid records. 1 active games; worker limit 24, BelowNormal priority.
+Status: **running**; stage **confirmation**. Snapshot 2026-10-19T03:39:14.543Z.
+Recorded 1600 / 2800 scheduled games; 1600 valid and 0 invalid records. 24 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -32,7 +32,7 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 | screen/reference-n100-h4 | 80 / 80 | 40 / 40 | 43.8% | 32.2% to 55.3% | -2.69 | 343.7 ms |
 | screen/reference-n100-h12 | 80 / 80 | 40 / 40 | 41.2% | 30.5% to 52.0% | -1.98 | 1219.7 ms |
 | screen/reference-n300-h4 | 80 / 80 | 40 / 40 | 50.0% | 28.5% to 71.5% | 0.00 | 1018.9 ms |
-| screen/reference-n300-h12 | 79 / 80 | 39 / 40 | 55.1% | 45.4% to 64.8% | 1.00 | 3582.0 ms |
+| screen/reference-n300-h12 | 80 / 80 | 40 / 40 | 56.2% | 46.5% to 66.0% | 1.27 | 3643.3 ms |
 | screen/exceptional-n100-h4 | 80 / 80 | 40 / 40 | 38.1% | 28.2% to 48.0% | -2.83 | 560.0 ms |
 | screen/exceptional-n100-h12 | 80 / 80 | 40 / 40 | 34.4% | 23.9% to 44.9% | -5.11 | 1530.3 ms |
 | screen/exceptional-n300-h4 | 80 / 80 | 40 / 40 | 50.0% | 39.9% to 60.1% | 0.69 | 1698.2 ms |
@@ -49,6 +49,12 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 | screen/blend-n100-h12 | 80 / 80 | 40 / 40 | 41.2% | 31.1% to 51.4% | -2.73 | 1807.2 ms |
 | screen/blend-n300-h4 | 80 / 80 | 40 / 40 | 57.5% | 48.4% to 66.6% | 2.50 | 3176.9 ms |
 | screen/blend-n300-h12 | 80 / 80 | 40 / 40 | 41.2% | 31.1% to 51.4% | -0.99 | 5453.7 ms |
+| confirmation/evaluator | 0 / 200 | 0 / 100 | - | - to - | - | - |
+| confirmation/candidate-samples | 0 / 200 | 0 / 100 | - | - to - | - | - |
+| confirmation/candidate-depth | 0 / 200 | 0 / 100 | - | - to - | - | - |
+| confirmation/reference-samples | 0 / 200 | 0 / 100 | - | - to - | - | - |
+| confirmation/reference-depth | 0 / 200 | 0 / 100 | - | - to - | - | - |
+| confirmation/matched-time | 0 / 200 | 0 / 100 | - | - to - | - | - |
 
 These partial summaries are descriptive. Do not select a winner, claim compute scaling, or change defaults from the live screen. Fixed seed groups are the pairing unit; ties use exact final-outcome share. Invalid/capped records remain in raw evidence and are excluded from valid paired summaries. The runner halts on an invalid result.
 
