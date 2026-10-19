@@ -1,0 +1,258 @@
+{
+  "anchor": "reference",
+  "profile": "full",
+  "screen": {
+    "stage": "screen",
+    "expected": 480,
+    "received": 480,
+    "valid": 480,
+    "complete": true,
+    "designValid": true,
+    "status": "complete",
+    "missing": [],
+    "issues": [],
+    "alpha": 0.016666666666666666,
+    "groups": {
+      "power-aware": {
+        "matchup": "power-aware",
+        "profile": "full",
+        "expected": 120,
+        "valid": 120,
+        "pairs": 60,
+        "complete": true,
+        "shapeValid": true,
+        "winShare": {
+          "n": 60,
+          "mean": 0.4583333333333333,
+          "variance": 0.11052259887005644,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.3724525485135003,
+            0.5442141181531663
+          ],
+          "lowerBound": 0.36481058956336615
+        },
+        "margin": {
+          "n": 60,
+          "mean": -0.9666666666666667,
+          "variance": 71.40564971751412,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.149581278271981,
+            1.2162479449386474
+          ],
+          "lowerBound": -3.3438243081713006
+        },
+        "candidateLatency": {
+          "n": 5899,
+          "totalMs": 5915738.804100002,
+          "mean": 1002.8375663841333,
+          "p50": 1001.84039999987,
+          "p95": 1006.9577999999747,
+          "max": 2047.153500000015,
+          "overrunFrequency": 1
+        },
+        "opponentLatency": {
+          "n": 5921,
+          "totalMs": 5941073.423899969,
+          "mean": 1003.3902083938472,
+          "p50": 1001.8073999999324,
+          "p95": 1007.3239000001922,
+          "max": 4209.217299999902,
+          "overrunFrequency": 1
+        },
+        "meanRatio": 0.9994492252315293,
+        "p95Ratio": 0.9996365617849259,
+        "latencyGate": true,
+        "superiority": false,
+        "practicalGate": false,
+        "approximatelyEqualRealizedTime": true,
+        "legacyEndpointNotInstrumented": false
+      },
+      "noprior": {
+        "matchup": "noprior",
+        "profile": "full",
+        "expected": 120,
+        "valid": 120,
+        "pairs": 60,
+        "complete": true,
+        "shapeValid": true,
+        "winShare": {
+          "n": 60,
+          "mean": 0.425,
+          "variance": 0.11716101694915262,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.3365776553585582,
+            0.5134223446414418
+          ],
+          "lowerBound": 0.32870953993038543
+        },
+        "margin": {
+          "n": 60,
+          "mean": -2.408333333333333,
+          "variance": 56.19908192090396,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -4.344911676284729,
+            -0.47175499038193736
+          ],
+          "lowerBound": -4.5172348825945035
+        },
+        "candidateLatency": {
+          "n": 5578,
+          "totalMs": 5592488.778899968,
+          "mean": 1002.5974863571115,
+          "p50": 1001.8460999999661,
+          "p95": 1007.3385999999009,
+          "max": 1066.275599999819,
+          "overrunFrequency": 1
+        },
+        "opponentLatency": {
+          "n": 5838,
+          "totalMs": 5852971.198099976,
+          "mean": 1002.5644395512121,
+          "p50": 1001.7955999998376,
+          "p95": 1007.4610000000102,
+          "max": 1161.1654999998864,
+          "overrunFrequency": 1
+        },
+        "meanRatio": 1.0000329622761348,
+        "p95Ratio": 0.999878506463169,
+        "latencyGate": true,
+        "superiority": false,
+        "practicalGate": false,
+        "approximatelyEqualRealizedTime": true,
+        "legacyEndpointNotInstrumented": false
+      },
+      "both": {
+        "matchup": "both",
+        "profile": "full",
+        "expected": 120,
+        "valid": 120,
+        "pairs": 60,
+        "complete": true,
+        "shapeValid": true,
+        "winShare": {
+          "n": 60,
+          "mean": 0.44583333333333336,
+          "variance": 0.10824505649717515,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.3608420286540632,
+            0.5308246380126036
+          ],
+          "lowerBound": 0.35327921861640577
+        },
+        "margin": {
+          "n": 60,
+          "mean": -1.475,
+          "variance": 57.045974576271185,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.4261154249019654,
+            0.47611542490196523
+          ],
+          "lowerBound": -3.599732189296404
+        },
+        "candidateLatency": {
+          "n": 5691,
+          "totalMs": 5705316.529099999,
+          "mean": 1002.5156438411525,
+          "p50": 1001.8049000001047,
+          "p95": 1007.0734000001103,
+          "max": 1214.9287999998778,
+          "overrunFrequency": 1
+        },
+        "opponentLatency": {
+          "n": 5846,
+          "totalMs": 5861659.351699961,
+          "mean": 1002.6786438077252,
+          "p50": 1001.8181000000332,
+          "p95": 1007.4328000000678,
+          "max": 1589.996999999974,
+          "overrunFrequency": 1
+        },
+        "meanRatio": 0.9998374354858565,
+        "p95Ratio": 0.9996432516392583,
+        "latencyGate": true,
+        "superiority": false,
+        "practicalGate": false,
+        "approximatelyEqualRealizedTime": true,
+        "legacyEndpointNotInstrumented": false
+      },
+      "lean-es": {
+        "matchup": "lean-es",
+        "profile": "full",
+        "expected": 120,
+        "valid": 120,
+        "pairs": 60,
+        "complete": true,
+        "shapeValid": true,
+        "winShare": {
+          "n": 60,
+          "mean": 0.4666666666666667,
+          "variance": 0.10056497175141253,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            0.3847459339102923,
+            0.548587399423041
+          ],
+          "lowerBound": 0.37745635361357677
+        },
+        "margin": {
+          "n": 60,
+          "mean": -1.4416666666666667,
+          "variance": 55.15331920903954,
+          "degenerate": false,
+          "intervalMethod": "paired-t-approximate",
+          "ci95": [
+            -3.3601422989616188,
+            0.47680896562828523
+          ],
+          "lowerBound": -3.530854665640468
+        },
+        "candidateLatency": {
+          "n": 5916,
+          "totalMs": 5939897.81780001,
+          "mean": 1004.0395229547007,
+          "p50": 1003.1757000000216,
+          "p95": 1009.5178000000305,
+          "max": 1521.1919999998063,
+          "overrunFrequency": 1
+        },
+        "opponentLatency": {
+          "n": 5975,
+          "totalMs": 5990726.246199964,
+          "mean": 1002.6320077322115,
+          "p50": 1001.8185000000522,
+          "p95": 1007.5456000000704,
+          "max": 1149.184499999974,
+          "overrunFrequency": 1
+        },
+        "meanRatio": 1.0014038203564564,
+        "p95Ratio": 1.001957430016031,
+        "latencyGate": true,
+        "superiority": false,
+        "practicalGate": false,
+        "approximatelyEqualRealizedTime": true,
+        "legacyEndpointNotInstrumented": false
+      }
+    },
+    "recommendationSupported": false,
+    "adoptionRecommended": false,
+    "productionDefaultsChanged": false,
+    "autoPromotion": false
+  },
+  "selection": null,
+  "confirmation": null,
+  "adoptionRecommended": false,
+  "productionDefaultsChanged": false
+}
