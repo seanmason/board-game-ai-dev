@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **planned**; stage **screen**. Snapshot 2026-10-19T00:21:48.806Z.
-Recorded 0 / 1600 scheduled games; 0 valid and 0 invalid records. 0 active games; worker limit 18, BelowNormal priority.
+Status: **running**; stage **screen**. Snapshot 2026-10-19T00:30:07.601Z.
+Recorded 4 / 1600 scheduled games; 4 valid and 0 invalid records. 18 active games; worker limit 18, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -29,19 +29,19 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 
 | Stage / matchup | Valid / planned | Complete seat pairs | Winner share | Paired 95% interval | Mean margin | Mean candidate decision |
 | --- | ---: | ---: | ---: | --- | ---: | ---: |
-| screen/reference-n100-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
+| screen/reference-n100-h4 | 1 / 80 | 0 / 40 | - | - to - | - | 391.9 ms |
 | screen/reference-n100-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/reference-n300-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/reference-n300-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
-| screen/exceptional-n100-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
+| screen/exceptional-n100-h4 | 1 / 80 | 0 / 40 | - | - to - | - | 474.6 ms |
 | screen/exceptional-n100-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/exceptional-n300-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/exceptional-n300-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
-| screen/chains-n100-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
+| screen/chains-n100-h4 | 1 / 80 | 0 / 40 | - | - to - | - | 461.6 ms |
 | screen/chains-n100-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/chains-n300-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/chains-n300-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
-| screen/investment-n100-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
+| screen/investment-n100-h4 | 1 / 80 | 0 / 40 | - | - to - | - | 631.4 ms |
 | screen/investment-n100-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/investment-n300-h4 | 0 / 80 | 0 / 40 | - | - to - | - | - |
 | screen/investment-n300-h12 | 0 / 80 | 0 / 40 | - | - to - | - | - |
