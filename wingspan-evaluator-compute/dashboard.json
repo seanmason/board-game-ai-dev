@@ -3,12 +3,12 @@
   "study": "wingspan-evaluator-compute-2026-10-18",
   "revision": "a863dc5c8a3a9510729ea6f050633015bb3bec11",
   "startedAt": "2026-10-19T00:21:48.805Z",
-  "updatedAt": "2026-10-19T05:26:32.913Z",
+  "updatedAt": "2026-10-19T05:28:02.968Z",
   "status": "running",
   "stage": "confirmation",
   "workers": 24,
   "planned": 2800,
-  "finished": 2165,
+  "finished": 2168,
   "active": [
     {
       "id": "confirmation/candidate-depth/9270187/0",
@@ -17,26 +17,6 @@
       "seed": 9270187,
       "seat": 0,
       "startedAt": "2026-10-19T05:14:42.620Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
-      "id": "confirmation/candidate-depth/9278163/1",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9278163,
-      "seat": 1,
-      "startedAt": "2026-10-19T05:19:46.253Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
-      "id": "confirmation/candidate-depth/9279160/1",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9279160,
-      "seat": 1,
-      "startedAt": "2026-10-19T05:20:28.655Z",
       "game": "wingspan",
       "players": 2
     },
@@ -67,16 +47,6 @@
       "seed": 9284145,
       "seat": 0,
       "startedAt": "2026-10-19T05:22:24.890Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
-      "id": "confirmation/candidate-depth/9284145/1",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9284145,
-      "seat": 1,
-      "startedAt": "2026-10-19T05:22:45.109Z",
       "game": "wingspan",
       "players": 2
     },
@@ -247,6 +217,36 @@
       "seed": 9293118,
       "seat": 0,
       "startedAt": "2026-10-19T05:26:27.305Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9293118/1",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9293118,
+      "seat": 1,
+      "startedAt": "2026-10-19T05:26:49.855Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9294115/0",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9294115,
+      "seat": 0,
+      "startedAt": "2026-10-19T05:27:03.593Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9294115/1",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9294115,
+      "seat": 1,
+      "startedAt": "2026-10-19T05:27:50.607Z",
       "game": "wingspan",
       "players": 2
     }
@@ -1345,34 +1345,34 @@
         "pipeline": "study"
       },
       "planned": 200,
-      "finished": 165,
+      "finished": 168,
       "counts": {
-        "complete": 165,
+        "complete": 168,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 100,
-      "completeSeedGroups": 81,
+      "completeSeedGroups": 83,
       "winShare": {
-        "n": 81,
-        "mean": 0.5370370370370371,
-        "low": 0.46760061504812395,
-        "high": 0.6064734590259503,
+        "n": 83,
+        "mean": 0.536144578313253,
+        "low": 0.4684053935948562,
+        "high": 0.6038837630316498,
         "degenerate": false,
         "intervalMethod": "paired-t-approximate"
       },
       "margin": {
-        "n": 81,
-        "mean": 0.5617283950617284,
-        "low": -1.032813990382297,
-        "high": 2.156270780505754,
+        "n": 83,
+        "mean": 0.5421686746987951,
+        "low": -1.0236435804681778,
+        "high": 2.1079809298657683,
         "degenerate": false,
         "intervalMethod": "paired-t-approximate"
       },
       "chance": 0.5,
-      "meanDecisionMs": 5377.145083455029,
+      "meanDecisionMs": 5371.989411574712,
       "maxDecisionMs": 70329.15149999969,
       "limitations": [
         "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
