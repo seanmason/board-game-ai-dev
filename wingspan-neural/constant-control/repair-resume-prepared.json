@@ -1,0 +1,30 @@
+{
+  "status": "prepared-only",
+  "kind": "mechanical-transport-validation-repair",
+  "preparedAt": "2026-10-19T14:03:15.829Z",
+  "startedAt": "2026-10-19T13:56:48.668Z",
+  "deadline": "2026-10-19T14:11:48.668Z",
+  "planSha256": "9041b65d0911148c8cb360244bcc5704f6d7349ad7b268048fc55e290dda6a39",
+  "originalReceiptSha256": "5912ccaebc4910cf74001e2c76899d9e89668a4eac96c793ce13dbd5307e5178",
+  "originalHashes": {
+    "execution-receipt.json": "5912ccaebc4910cf74001e2c76899d9e89668a4eac96c793ce13dbd5307e5178",
+    "failure.json": "aeee429e1993829ddbfe9519b7340cff221b739a485d26bf20beb17bd8596ab2",
+    "checkpoint.json": "efed0e40b5f2abeed370d78517aeddb73dd1f1d45c2d788270f14b56e1cf7ea9",
+    "analysis.json": "ba2ad079b7b890b91433502da4fe9099da48acbf7099be60d42277dd68368043"
+  },
+  "retained": [
+    {
+      "name": "constant-attribution%2Freal-vs-zero%2F48006979%2F1.json",
+      "sha256": "37a2b8fae461232cab9637d580904f762daa9db191c88729dd2278078cd380b5"
+    }
+  ],
+  "sourceSha256": "8cf277768d4c8fdb550ba017543eab164904be01538c91da3fcb85421b948bd6",
+  "testsSha256": "b5f9f1df0927c70847b72a598df3647b399219721d8eea787062f3f59d91ffe7",
+  "admission": {
+    "remainingTasks": 63,
+    "remainingMs": 512840,
+    "estimateMs": 482052.60899999994,
+    "method": "ceil(remainingTasks/24)*frozen-canary-max*1.5; no outcomes used",
+    "deadline": "2026-10-19T14:11:48.668Z"
+  }
+}

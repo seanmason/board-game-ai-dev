@@ -61,13 +61,17 @@ This pilot concerns internal two-player simulator comparisons. It does not estab
 <!-- neural-diagnostics:start -->
 ## Post-pilot exploratory diagnostics
 
-Diagnostic status: **running**, stage **constant-attribution-repair**, updated 2026-10-19T14:05:14.745729+00:00. Original pilot results above are preserved.
+Mechanical transport-validation repair: the original validator mistakenly treated a scheduler-only startedAt field as a frozen task field. The original [failure](constant-control/failure.json), [failed analysis](constant-control/analysis.json), [checkpoint](constant-control/checkpoint.json) and [execution receipt](constant-control/execution-receipt.json) are retained unchanged. The [repair preparation](constant-control/repair-resume-prepared.json), [execution certificate](constant-control/repair-resume-execution.json), [tests](constant-control/repair-resume-tests.json), [repaired checkpoint](constant-control/repair-resume-checkpoint.json) and [repaired analysis](constant-control/repair-resume-analysis.json) identify the resumed accounting. All64 tasks, models and the original deadline2026-10-19T14:11:48.668Z remain fixed. Only a valid repair certificate enables repaired progress, and all final64-game/32-pair/model guards still apply. No new games or new clock are introduced by this publisher.
 
-[Diagnostic progress](diagnostics-progress.json) · [Feature inventory](independent-review/train-feature-inventory.json) · [Feature/capacity plan](feature-capacity-probe/plan.json) · [Feature/capacity report](feature-capacity-probe/report.json) · [Constant-output protocol](constant-control/protocol.md) · [Strict control analysis](constant-control/analysis.json)
+
+
+Diagnostic status: **running**, stage **constant-control-mechanical-resume**, updated 2026-10-19T14:06:37.650518+00:00. Original pilot results above are preserved.
+
+[Diagnostic progress](diagnostics-progress.json) · [Feature inventory](independent-review/train-feature-inventory.json) · [Feature/capacity plan](feature-capacity-probe/plan.json) · [Feature/capacity report](feature-capacity-probe/report.json) · [Constant-output protocol](constant-control/protocol.md) · [Strict repaired control analysis](constant-control/repair-resume-analysis.json)
 
 Feature/capacity cells completed: 4 / 4. Metrics use train/development data only; development scores were also used for within-cell checkpoint selection. Conditional bootstrap intervals are descriptive, not fresh confirmation. Compact inputs remove information as well as dimensions, so this is not a pure feature-count experiment. No new online candidate is selected.
 
-NN versus constant-output same-shape MLP: 1 /64 game records. The control retains the selected network’s hidden layers, normalization and dense work; only the final scalar head is zeroed. The internal linear transport slot is not the trained ridge model.
+NN versus constant-output same-shape MLP: 27 /64 game records. The control retains the selected network’s hidden layers, normalization and dense work; only the final scalar head is zeroed. The internal linear transport slot is not the trained ridge model.
 
 No winner-share statistic is shown while control validation is incomplete or inconsistent. Incomplete records are not invented outcomes.
 
