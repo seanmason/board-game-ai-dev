@@ -193,9 +193,27 @@
     },
     "collect-baseline": {
       "startedAt": 1792434531241,
+      "finishedAt": 1792435145480,
       "planned": 280,
-      "status": "running",
+      "status": "complete",
       "arm": "baseline",
+      "result": {
+        "poolWallMs": 614220,
+        "gameCount": 280,
+        "planned": 280,
+        "complete": true,
+        "processCpuMicros": {
+          "user": 15149578000,
+          "system": 31047000
+        },
+        "modelHashes": {}
+      }
+    },
+    "collect-hybrid": {
+      "startedAt": 1792435145516,
+      "planned": 1040,
+      "status": "running",
+      "arm": "hybrid",
       "result": {
         "processCpuMicros": {},
         "modelHashes": {}
