@@ -101,7 +101,7 @@ export function realExecutor({python='python',device='cuda',ownerToken=null,reta
  // Python's process_time includes every CPU thread in the fit subprocess; GPU time is represented by whole fit wall time.
  const cpuPath=resolve(stageOut,'fit-cpu.json');
  const wrapper="import runpy,sys,time,json,os\np=sys.argv.pop(1)\ns=time.process_time_ns()\nsys.argv=sys.argv[1:]\ntry:\n runpy.run_path(sys.argv[0],run_name='__main__')\nfinally:\n t=p+'.tmp'\n with open(t,'w') as f: json.dump({'processCpuMicros':(time.process_time_ns()-s)/1000},f)\n os.replace(t,p)";
- await command(python,['-c',wrapper,cpuPath,trainer,'--manifest',manifest,'--out',stageOut,'--warm-start',ctx.warmStart,'--device',device],ctx.deadlineEpochMs,stageOut,{processRoot:resolve(ctx.out,'processes'),ownerToken});
+ await command(python,['-X','utf8','-c',wrapper,cpuPath,trainer,'--manifest',manifest,'--out',stageOut,'--warm-start',ctx.warmStart,'--device',device],ctx.deadlineEpochMs,stageOut,{processRoot:resolve(ctx.out,'processes'),ownerToken});
  const fitWallMs=Date.now()-start,fitProcessCpuMicros=read(cpuPath).processCpuMicros,summary=completedTraining(stageOut,manifest,trainer);
  if(!summary||summary.warmStartSha256!==hash(readFileSync(ctx.warmStart))||summary.normalizationFrozen!==true||summary.config?.seed!==1729)throw Error('Fit warm-start/normalization/config receipt mismatch');
  const model=read(resolve(stageOut,'model.json'));if(objectHash(model.normalization)!==objectHash(read(ctx.warmStart).normalization))throw Error('Fit normalization changed');
@@ -113,7 +113,7 @@ export async function main(argv=process.argv.slice(2)){
  const options=Object.fromEntries(argv.map(x=>{const [k,...v]=x.replace(/^--/,'').split('=');return [k,v.length?v.join('='):true];}));
  if(!options.out||!options.config)throw Error('--out=EXTERNAL_PATH and --config=FROZEN_JSON required; default prepares only; --run explicitly launches');
  const out=resolve(options.out);if(out===resolve(ROOT)||out.startsWith(resolve(ROOT)+'\\')||out.startsWith(resolve(ROOT)+'/')||/[/\\]OneDrive([/\\]|$)/i.test(out))throw Error('Output must be outside repository/OneDrive');
- const supplied=read(resolve(options.config)),old=existsSync(resolve(out,'manifest.json'))?read(resolve(out,'manifest.json')):null;
+ const supplied=read(resolve(options.config));if(!supplied.seedAudit?.path||read(supplied.seedAudit.path).status!=='passed'||hash(readFileSync(supplied.seedAudit.path))!==supplied.seedAudit.sha256)throw Error('Passed immutable seed audit required');supplied.runtimeConfig={...supplied.runtimeConfig,nodeExecutable:process.execPath,nodeVersion:process.version};const old=existsSync(resolve(out,'manifest.json'))?read(resolve(out,'manifest.json')):null;
  const frozenHashes=old?.config.frozenHashes??freezeSources([resolve(options.config),...Object.values(supplied.modelPaths??{})]);
  const lock=options.run?acquireCampaignLock(out):null;
  try{if(options.run)assertNoLiveChildren(out);const controller=createController({...supplied,out,frozenHashes,sourceRevision:old?.config.sourceRevision??execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8',windowsHide:true}).trim(),executeStage:realExecutor({...supplied.runtimeConfig,retained:supplied.retained,ownerToken:lock?.token})});return options.run?await controller.run():controller.prepare();}finally{lock?.release();}

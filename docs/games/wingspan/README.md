@@ -33,6 +33,12 @@ browser readiness. See the [frozen protocol](../../plans/wingspan-selfplay-loop-
 and [closed execution record](../../work/wingspan-selfplay-2026-10-19.md).
 Production settings are unchanged.
 
+The next authorized [data-efficiency comparison](../../plans/wingspan-data-efficiency-2026-10-19.md)
+keeps the small network fixed and compares original search-generated data with
+mostly one-step collection at matched collection time. Its [execution record](../../work/wingspan-data-efficiency-2026-10-19.md)
+distinguishes preflight from learning and strength evidence. The width comparison
+remains separately approved behind this priority.
+
 ## Scope and capabilities
 
 Original 170 birds (excluding ten Swift-Start birds), 26 bonuses, 16 goal faces;

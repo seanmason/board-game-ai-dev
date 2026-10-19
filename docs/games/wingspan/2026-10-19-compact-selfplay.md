@@ -45,7 +45,10 @@ checked before launch. Games share the implementation/catalog, so independent
 seeds do not establish independent rules correctness.
 
 Collection independently requests 100 samples for 80% of decisions and 300 for
-20%, at horizon four main actions across both players. Triggered powers settle
+20%, at horizon four subsequent main actions across both players, EXCLUDING the
+chosen root action. A normal main-action search therefore covers the root plus
+four later main actions. Earlier chat descriptions counted the root incorrectly;
+this is a reporting clarification, not a source or comparison change. Triggered powers settle
 before leaf evaluation. These are total samples per decision, not per action;
 mandatory supplied-root coverage can raise the count. Actual games finish for
 terminal targets; imagined rollout endpoints are not independently labelled
