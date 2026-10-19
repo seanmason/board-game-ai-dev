@@ -61,7 +61,7 @@ This pilot concerns internal two-player simulator comparisons. It does not estab
 <!-- neural-diagnostics:start -->
 ## Post-pilot exploratory diagnostics
 
-Diagnostic status: **running**, stage **constant-attribution-repair**, updated 2026-10-19T14:02:08.399953+00:00. Original pilot results above are preserved.
+Diagnostic status: **running**, stage **constant-attribution-repair**, updated 2026-10-19T14:03:41.221321+00:00. Original pilot results above are preserved.
 
 [Diagnostic progress](diagnostics-progress.json) · [Feature inventory](independent-review/train-feature-inventory.json) · [Feature/capacity plan](feature-capacity-probe/plan.json) · [Feature/capacity report](feature-capacity-probe/report.json) · [Constant-output protocol](constant-control/protocol.md) · [Strict control analysis](constant-control/analysis.json)
 
