@@ -96,3 +96,8 @@ evaluation and retains the deployed pipeline separately for practical comparison
 Eight reference canaries passed; the bounded strength study follows its frozen
 protocol. See the [live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator)
 for execution status. Browser defaults remain unchanged pending reviewed results.
+
+The [nine-hour unattended follow-up](../../work/wingspan-overnight-2026-10-18.md)
+prepares power-policy/prior ablations, a lean evaluator, bounded diagnostics,
+timing-based fixed workload admission and fresh practical confirmation. It awaits
+execution approval; no production defaults change.
