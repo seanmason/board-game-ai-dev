@@ -21,6 +21,10 @@ research reference, so it did not qualify for promotion. Development-only compac
 features are promising but unconfirmed; a rare long reference-fallback search also
 needs profiling. Production uses the reviewed opening package.
 
+The proposed [compact iterative self-play plan](../../plans/wingspan-selfplay-loop-2026-10-19.md)
+starts with a small residual evaluator and three bounded data/training cycles.
+It is a plan, not a running experiment or a production change.
+
 ## Scope and capabilities
 
 Original 170 birds (excluding ten Swift-Start birds), 26 bonuses, 16 goal faces;
