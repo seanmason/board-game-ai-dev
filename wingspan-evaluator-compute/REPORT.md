@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **confirmation**. Snapshot 2026-10-19T06:22:50.251Z.
-Recorded 2683 / 2800 scheduled games; 2683 valid and 0 invalid records. 24 active games; worker limit 24, BelowNormal priority.
+Status: **running**; stage **confirmation**. Snapshot 2026-10-19T06:24:24.198Z.
+Recorded 2744 / 2800 scheduled games; 2744 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -54,7 +54,7 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 | confirmation/candidate-depth | 200 / 200 | 100 / 100 | 52.5% | 46.1% to 58.9% | 0.66 | 5431.7 ms |
 | confirmation/reference-samples | 200 / 200 | 100 / 100 | 58.2% | 51.9% to 64.6% | 2.02 | 1103.9 ms |
 | confirmation/reference-depth | 197 / 200 | 97 / 100 | 53.6% | 47.1% to 60.2% | 1.48 | 3973.6 ms |
-| confirmation/matched-time | 86 / 200 | 43 / 100 | 36.0% | 26.4% to 45.7% | -5.23 | 342.9 ms |
+| confirmation/matched-time | 147 / 200 | 73 / 100 | 36.0% | 28.6% to 43.3% | -4.31 | 341.4 ms |
 
 These partial summaries are descriptive. Do not select a winner, claim compute scaling, or change defaults from the live screen. Fixed seed groups are the pairing unit; ties use exact final-outcome share. Invalid/capped records remain in raw evidence and are excluded from valid paired summaries. The runner halts on an invalid result.
 
