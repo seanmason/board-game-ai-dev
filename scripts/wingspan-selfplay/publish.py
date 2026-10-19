@@ -103,6 +103,9 @@ def public_manifest(manifest):
         if not re.fullmatch(r'[a-z][a-z0-9-]*',key): raise ValueError('Unsafe stage name')
         result['stages'][key]={k:entry[k] for k in ['kind','status','startedAt','finishedAt','contextHash','planned'] if k in entry}
         if entry.get('error'): result['stages'][key]['error']=text(entry['error'])
+        if entry.get('failure'):
+            failure=entry['failure']
+            result['stages'][key]['failure']={'reason':text((str(failure.get('reason','Stage failure reported')).splitlines() or ['Stage failure reported'])[0]),'taskId':text(failure.get('taskId') or failure.get('task',{}).get('id'))}
         result['stages'][key]['result']=summary(entry.get('result'))
         if entry.get('summary'): result['stages'][key]['summary']=comparisons(entry['summary'])
     if manifest.get('confirmation'): result['confirmation']=comparisons(manifest['confirmation'])
