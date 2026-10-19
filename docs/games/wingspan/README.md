@@ -42,10 +42,13 @@ Keep generation 3 as the research teacher. More examples per hour has not yet
 established more strength gained per hour. The width comparison remains a separate
 approved future question; no follow-up was automatically launched.
 
-The authorized [conservative refit follow-up](../../plans/wingspan-refit-2026-10-19.md)
-tests learning rate and freshly reset auxiliary-head gradients at fixed model
-size before further collection. At most one extra self-play cycle can follow a
-freshly confirmed stronger research teacher; production promotion is separate.
+The completed [conservative teacher refits](2026-10-19-refit.md) crossed two
+learning rates with auxiliary loss on/off using identical pooled replay. Gentler
+updates slightly improved development prediction, but the selected model scored
+46.75% winner share and -0.325 points in fresh 100-pair confirmation. No teacher
+was accepted and no conditional new self-play batch ran. The auxiliary-interference
+hypothesis received no supporting development evidence in this batch. Keep
+generation 3; inspect action-ranking quality before further optimizer tuning.
 
 ## Scope and capabilities
 

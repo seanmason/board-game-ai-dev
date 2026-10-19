@@ -1,7 +1,9 @@
 # Wingspan conservative teacher refits — October 19, 2026
 
-Status: authorized by the user to continue iterative training; implement and test
-before freezing a new runtime. Production opening-plan, expanded setup and h4 stay
+Status: stopped normally after failed fresh confirmation; see the
+[final evidence and decision](../games/wingspan/2026-10-19-refit.md). The original
+frozen protocol remains in the source archive at revision 29e5d95. Production
+opening-plan, expanded setup and h4 stay
 unchanged. Completed studies, source, data, models and deadlines remain preserved.
 
 ## Hypothesis and fixed fit design

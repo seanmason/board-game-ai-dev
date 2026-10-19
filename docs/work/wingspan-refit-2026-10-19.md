@@ -1,6 +1,8 @@
 # Wingspan teacher refits — October 19, 2026
 
-Status: running from 19:53:46.960 UTC; scientific source and deadline are frozen.
+Status: stopped normally at 20:37:24.466 UTC after failed fresh confirmation.
+The [final evidence and decision](../games/wingspan/2026-10-19-refit.md) own current
+interpretation; the launch/supervision entries below are historical receipts.
 The [protocol](../plans/wingspan-refit-2026-10-19.md) fixes the four recipes,
 replay, gates and one conditional further self-play iteration. All earlier
 campaigns and paused monitors remain untouched. Production is unchanged.
@@ -71,3 +73,32 @@ optimization epochs and explicitly marks the network-fitting stage. Phone/tablet
 and live-cache regressions, including the empty-metric case, passed. Frozen
 scientific files and original clocks are untouched; the display-only follow-up
 has its own Validation/Pages gate to verify.
+
+## Terminal closeout
+
+Four fits and 360 strength games completed in 43.6251 minutes. Gentle won the
+exploratory admission, then fresh confirmation failed: 93 wins / 106 losses /
+1 tie, 46.75% share and -0.325 points. No research teacher was accepted and no
+conditional self-play cycle ran. Controller and publisher exited normally;
+terminal evidence publication was confirmed at 20:37:56.181 UTC. Original
+19:53:46.960 start / 22:53:46.960 deadline and all 127 guards remained intact.
+
+Independent learning and performance reviews verify all 4,008 retained inputs,
+all four complete fit inventories/artifacts and 360 raw strength records/receipts.
+The development contrasts do not support auxiliary-head interference as a useful
+remedy here. Fresh paired uncertainty does not establish equivalence or harm.
+Preserve generation 3, all four refits and the negative result. No new experiment
+or production promotion runs from this closeout.
+
+Validation/Pages at the active-fit display repair 354acec passed. Actual public
+mobile Chromium inspection verified its labels, withheld partial results, source,
+zero page errors and no overflow. Final documentation/pinned evidence needs its
+own required Validation/Pages/public verification before the monitor pauses.
+
+Final evidence commit: `9894988d53ff063f43bd2622c9658452a92532ca`. The completed dashboard and
+bundled fallback pin this reviewed evidence; raw outcomes are unchanged.
+
+Final local checks: five refit-dashboard/static-package tests passed; dashboard
+phone/tablet and live-cache browser checks passed; documentation check passed
+88 files and 15 packaged entries; frontend syntax passed. No playing-strength
+tests were rerun for closeout.
