@@ -1,11 +1,14 @@
 {
   "schema": 1,
   "protocol": "wingspan-data-efficiency-v1",
-  "status": "running",
+  "status": "complete",
   "createdAt": 1792434075012,
   "startedAt": 1792434139312,
   "deadlineEpochMs": 1792444939312,
+  "finishedAt": 1792436408170,
   "productionPromotion": false,
+  "equalComputeClaimAllowed": true,
+  "stopReason": "Controller recorded a terminal stop reason; see reviewed report.",
   "workers": 28,
   "sourceRevision": "8a1f2fd7b652072372d0bba61dad1b152a07c776",
   "sourceHashes": {
@@ -342,12 +345,42 @@
     },
     "screen": {
       "startedAt": 1792436068099,
+      "finishedAt": 1792436408103,
       "planned": 80,
-      "status": "running",
+      "status": "complete",
       "result": {
-        "processCpuMicros": {},
+        "poolWallMs": 339967,
+        "gameCount": 80,
+        "complete": true,
+        "processCpuMicros": {
+          "user": 7101063000,
+          "system": 21515000
+        },
         "modelHashes": {}
       }
     }
+  },
+  "screen": {
+    "comparisons": {
+      "baseline-trained": {
+        "pairs": 40,
+        "outcomesWithheld": false,
+        "winShare": 0.49375,
+        "lowerWinnerShare": 0.3937769046461433,
+        "meanMargin": -1.2625,
+        "valid": true,
+        "latencyValid": true,
+        "passed": false,
+        "latency": {
+          "meanMs": 1002.3157499646967,
+          "p95Ms": 1005.9209999998566,
+          "p99Ms": 1011.2186999998521,
+          "maxMs": 1060.4146999998484,
+          "opponentMeanMs": 1002.4400053818212,
+          "opponentP95Ms": 1006.3524000002071
+        }
+      }
+    },
+    "passed": false
   }
 }

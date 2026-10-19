@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "study": "wingspan-data-efficiency",
-  "outcomeStatus": "running",
-  "status": "running",
+  "outcomeStatus": "complete",
+  "status": "finished",
   "stage": "screen",
-  "updatedAt": "2026-10-19T19:00:03.119Z",
-  "finished": 1676,
+  "updatedAt": "2026-10-19T19:01:35.580Z",
+  "finished": 1680,
   "planned": 1680,
-  "workers": 4,
+  "workers": 0,
   "collectionBudget": {
     "targetPoolMs": 600000,
     "baselineGroups": 280,
@@ -363,17 +363,19 @@
       }
     },
     {
-      "matchup": "screen",
-      "policy": "screen",
+      "matchup": "screen/baseline-trained",
+      "policy": "screen/baseline-trained",
       "opponentPolicyId": "Search-data model",
       "metricKind": "win-share",
-      "status": "running",
+      "status": "complete",
       "planned": 80,
-      "finished": 76,
-      "seedGroups": 0,
-      "completeSeedGroups": 0,
+      "finished": 80,
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "meanDecisionMs": 1002.3157499646959,
+      "maxDecisionMs": 1060.4146999998484,
       "counts": {
-        "complete": 76,
+        "complete": 80,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
@@ -381,7 +383,11 @@
         "error": 0
       },
       "latency": {
-        "n": 0
+        "n": 4249,
+        "meanMs": 1002.3157499646959,
+        "p95Ms": 1005.9209999998566,
+        "p99Ms": 1011.2186999998521,
+        "maxMs": 1060.4146999998484
       },
       "budget": {
         "timeMs": 1000,
@@ -389,27 +395,27 @@
         "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
       },
       "coverage": {
-        "decisions": 0,
-        "iterations": 0,
-        "roots": 0,
+        "decisions": 4249,
+        "iterations": 1431236,
+        "roots": 38588,
         "unvisited": 0,
-        "learnedLeafCount": 0,
-        "learnedFallbackCount": 0,
+        "learnedLeafCount": 444852,
+        "learnedFallbackCount": 986384,
         "errors": 0
       },
-      "inferenceComplete": false,
-      "outcomesWithheld": true,
+      "inferenceComplete": true,
+      "outcomesWithheld": false,
       "winShare": {
-        "n": 0,
-        "mean": null,
-        "low": null,
-        "high": null
+        "n": 40,
+        "mean": 0.49375,
+        "low": 0.3937769046461433,
+        "high": 0.5937230953538568
       },
       "margin": {
-        "n": 0,
-        "mean": null,
-        "low": null,
-        "high": null
+        "n": 40,
+        "mean": -1.2625,
+        "low": -3.663435274492424,
+        "high": 1.1384352744924244
       },
       "training": {}
     }
