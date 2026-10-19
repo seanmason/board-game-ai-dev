@@ -1,7 +1,9 @@
-# Wingspan data efficiency pilot
+# Wingspan data-efficiency evidence
 
-Frozen research implementation 8a1f2fd7b652072372d0bba61dad1b152a07c776. Production is unchanged.
+Controller status: **running**. Completed displayed games: 0 / 140.
 
-Compare a fixed small network trained from searched data with one trained from mostly one-step data at matched collection time. Calibration and collection scores stay closed. Fresh playing-strength screens and conditional confirmation follow fitting. This is one controlled first batch, not an automatic indefinite self-improvement loop.
+[Dashboard aggregates](dashboard.json) · [Public controller receipt](manifest.json) · [Frozen source](source.zip) · [Source inventory](source-manifest.json) · [Seed audit](seed-audit.json)
 
-See source.zip and its manifest for exact source, the seed audit for disjoint setup banks, baseline-noise.json for the separate training-only diagnostic, and dashboard.json for current progress. Raw private observations and game records remain local.
+Baseline collection versus hybrid cheap/search collection; architecture and frozen actor remain fixed. Collection costs, fitted prediction errors and playing strength are distinct. Outcomes remain hidden until each fixed valid seat-paired comparison completes. No automatic production promotion.
+
+Only allowlisted aggregates and exported model weights are public. Raw games, observations, features, labels, task inventories, read-file receipts and local paths remain private.
