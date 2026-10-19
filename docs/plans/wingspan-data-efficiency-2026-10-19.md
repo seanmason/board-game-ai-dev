@@ -1,7 +1,8 @@
 # Wingspan: cheaper self-play data at fixed model size
 
-Status: authorized by the user on October 19, 2026; implement and validate before
-freezing source and launching a new, separate bounded runtime. This supersedes
+Status: completed on October 19, 2026; see the [final evidence and decision](../games/wingspan/2026-10-19-data-efficiency.md).
+The exact originally frozen protocol remains in the source archive at revision
+8a1f2fd. The specification below records its fixed design. This superseded
 the priority of the approved width comparison, not its future authorization.
 Production remains opening-plan, expanded setup and horizon 4. The completed
 [compact campaign](../games/wingspan/2026-10-19-compact-selfplay.md), its source,

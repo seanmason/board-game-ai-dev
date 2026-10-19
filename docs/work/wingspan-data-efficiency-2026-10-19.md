@@ -1,6 +1,8 @@
 # Wingspan data-efficiency experiment — October 19, 2026
 
-Status: running; original clock and scientific source frozen on October 19, 2026.
+Status: completed normally at 19:00:08.170 UTC on October 19, 2026.
+The [final evidence and decision](../games/wingspan/2026-10-19-data-efficiency.md)
+own interpretation; launch details below are historical receipts.
 The user prioritized cheaper training-data generation over the separately approved
 network-width comparison. The [frozen design](../plans/wingspan-data-efficiency-2026-10-19.md)
 owns comparisons, budgets, selection and stop rules.
@@ -109,3 +111,33 @@ publisher/source/controller remain unchanged. The dashboard browser regression
 now includes the actual narrow feed shape; tablet/phone and live-cache checks
 passed after the repair. This presentation-only follow-up needs its own full
 Validation/Pages deployment verification by the monitor.
+
+## Terminal closeout
+
+All 1,680 games completed. Both fits passed export parity; hybrid passed development
+eligibility, but its complete 40-pair strength screen failed. No confirmation,
+rescue experiment, teacher replacement or production promotion ran. Original
+start/deadline and all 120 frozen guards remained intact. Controller and publisher
+exited normally; terminal publication was confirmed at 19:01:37.946 UTC.
+
+Independent learning and performance reviews retain safe aggregates alongside the
+public final review. The searched-data checkpoint is functionally identical to
+the parent generation-3 network, despite its reserialized file hash. The hybrid
+checkpoint's modest development improvement did not establish stronger play.
+Preserve both corpora, source archives, model exports and unfavorable results.
+
+Required Validation and Pages for the display repair at 3dc3ced passed. A real
+public mobile Chromium check confirmed labels, source revision, zero page errors
+and no horizontal overflow. Final documentation/bundled-feed publication needs
+its own required Validation/Pages/public verification before this monitor closes.
+No iPad Safari acceptance test or new playing-strength experiment is implied.
+
+Final reviewed evidence commit: `42a9ac1ee7d1b8b8ace5094b6e162539ab27a2df`. The dashboard and
+bundled snapshot pin this completed evidence, avoiding stale running branch feeds.
+Independent full integrity review verified all 1,680 new and 2,688 retained raw
+records, their receipt hashes/identities, and fit artifact/input guards.
+
+Final local verification: 23 dashboard/static-package tests passed; dashboard
+phone/tablet browser and live-cache regressions passed; documentation check passed
+85 files and 15 packaged entries; changed frontend syntax passed. No strength
+tournament was repeated during documentation/publication.

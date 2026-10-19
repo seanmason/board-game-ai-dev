@@ -33,11 +33,14 @@ browser readiness. See the [frozen protocol](../../plans/wingspan-selfplay-loop-
 and [closed execution record](../../work/wingspan-selfplay-2026-10-19.md).
 Production settings are unchanged.
 
-The next authorized [data-efficiency comparison](../../plans/wingspan-data-efficiency-2026-10-19.md)
-keeps the small network fixed and compares original search-generated data with
-mostly one-step collection at matched collection time. Its [execution record](../../work/wingspan-data-efficiency-2026-10-19.md)
-distinguishes preflight from learning and strength evidence. The width comparison
-remains separately approved behind this priority.
+The completed [data-efficiency pilot](2026-10-19-data-efficiency.md) collected
+1,040 hybrid games versus 280 searched games at approximately matched collection
+cost: about four times the throughput. Hybrid training slightly improved common
+development prediction, but its fresh 40-pair screen scored 49.375% winner share
+and -1.2625 points, so it did not qualify for confirmation or a teacher update.
+Keep generation 3 as the research teacher. More examples per hour has not yet
+established more strength gained per hour. The width comparison remains a separate
+approved future question; no follow-up was automatically launched.
 
 ## Scope and capabilities
 

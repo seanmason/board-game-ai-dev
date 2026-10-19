@@ -1,15 +1,423 @@
 {
   "schema": 1,
   "study": "wingspan-data-efficiency",
-  "revision": "awaiting source freeze",
-  "status": "planned",
-  "outcomeStatus": "prepared",
-  "stage": "preflight",
-  "updatedAt": null,
+  "outcomeStatus": "complete",
+  "status": "finished",
+  "stage": "screen",
+  "updatedAt": "2026-10-19T19:01:35.580Z",
+  "finished": 1680,
+  "planned": 1680,
   "workers": 0,
-  "finished": 0,
-  "planned": 0,
-  "active": [],
-  "rows": [],
-  "method": "Preparing a bounded comparison of search-generated and hybrid one-step data; no strength result yet. Production is unchanged."
+  "collectionBudget": {
+    "targetPoolMs": 600000,
+    "baselineGroups": 280,
+    "hybridGroups": 1040,
+    "baselinePoolWallMs": 614220,
+    "hybridPoolWallMs": 572748,
+    "actualRatio": 0.9324802188141057,
+    "equalComputeClaimAllowed": true
+  },
+  "fitCosts": {
+    "baselineWallMs": 94406,
+    "hybridWallMs": 124844
+  },
+  "rows": [
+    {
+      "matchup": "calibration-baseline",
+      "policy": "calibration-baseline",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "progress",
+      "status": "complete",
+      "planned": 140,
+      "finished": 140,
+      "seedGroups": 140,
+      "completeSeedGroups": 140,
+      "counts": {
+        "complete": 140,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 0
+      },
+      "budget": {
+        "horizon": 4,
+        "decisionSamples": "80% 100 / 20% 300",
+        "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
+      },
+      "coverage": {
+        "decisions": 0,
+        "iterations": 0,
+        "roots": 0,
+        "unvisited": 0,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {}
+    },
+    {
+      "matchup": "calibration-hybrid",
+      "policy": "calibration-hybrid",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "progress",
+      "status": "complete",
+      "planned": 140,
+      "finished": 140,
+      "seedGroups": 140,
+      "completeSeedGroups": 140,
+      "counts": {
+        "complete": 140,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 0
+      },
+      "budget": {
+        "horizon": 4,
+        "cheapDecisionProbability": 0.8,
+        "decisionSamples": "80% 100 / 20% 300",
+        "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
+      },
+      "coverage": {
+        "decisions": 0,
+        "iterations": 0,
+        "roots": 0,
+        "unvisited": 0,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {}
+    },
+    {
+      "matchup": "collect-baseline",
+      "policy": "collect-baseline",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "progress",
+      "status": "complete",
+      "planned": 280,
+      "finished": 280,
+      "seedGroups": 280,
+      "completeSeedGroups": 280,
+      "counts": {
+        "complete": 280,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 0
+      },
+      "budget": {
+        "horizon": 4,
+        "decisionSamples": "80% 100 / 20% 300",
+        "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
+      },
+      "coverage": {
+        "decisions": 0,
+        "iterations": 0,
+        "roots": 0,
+        "unvisited": 0,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {}
+    },
+    {
+      "matchup": "collect-hybrid",
+      "policy": "collect-hybrid",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "progress",
+      "status": "complete",
+      "planned": 1040,
+      "finished": 1040,
+      "seedGroups": 1040,
+      "completeSeedGroups": 1040,
+      "counts": {
+        "complete": 1040,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 0
+      },
+      "budget": {
+        "horizon": 4,
+        "cheapDecisionProbability": 0.8,
+        "decisionSamples": "80% 100 / 20% 300",
+        "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
+      },
+      "coverage": {
+        "decisions": 0,
+        "iterations": 0,
+        "roots": 0,
+        "unvisited": 0,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {}
+    },
+    {
+      "matchup": "train-baseline",
+      "policy": "train-baseline",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "loss",
+      "status": "complete",
+      "planned": 24,
+      "finished": 4,
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "counts": {
+        "complete": 4,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {},
+      "budget": {},
+      "coverage": {},
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {
+        "dev": {
+          "huber": 0.3567082430535259,
+          "mae": 7.0267262219890245,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "epochZero": {
+          "huber": 0.3567082430535259,
+          "mae": 7.0267262219890245,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "linear": {
+          "huber": 0.41322170189559015,
+          "mae": 7.672723738099854,
+          "saturation": 0,
+          "correctionMean": -1.713742968968587,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "selectedEpoch": 0,
+        "eligible": false
+      }
+    },
+    {
+      "matchup": "train-hybrid",
+      "policy": "train-hybrid",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "loss",
+      "status": "complete",
+      "planned": 24,
+      "finished": 5,
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "counts": {
+        "complete": 5,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {},
+      "budget": {},
+      "coverage": {},
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {
+        "dev": {
+          "huber": 0.35296052503722275,
+          "mae": 6.981338254995963,
+          "saturation": 0.03924773770686158,
+          "correctionMean": -1.5195716488976179,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "epochZero": {
+          "huber": 0.3567082430535259,
+          "mae": 7.0267262219890245,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "linear": {
+          "huber": 0.4132020390857102,
+          "mae": 7.6707857325385564,
+          "saturation": 0,
+          "correctionMean": -1.6709570324789738,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "selectedEpoch": 1,
+        "eligible": true
+      }
+    },
+    {
+      "matchup": "screen/baseline-trained",
+      "policy": "screen/baseline-trained",
+      "opponentPolicyId": "Search-data model",
+      "metricKind": "win-share",
+      "status": "complete",
+      "planned": 80,
+      "finished": 80,
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "meanDecisionMs": 1002.3157499646959,
+      "maxDecisionMs": 1060.4146999998484,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {
+        "n": 4249,
+        "meanMs": 1002.3157499646959,
+        "p95Ms": 1005.9209999998566,
+        "p99Ms": 1011.2186999998521,
+        "maxMs": 1060.4146999998484
+      },
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4,
+        "horizonConvention": "Searched horizon counts subsequent main actions; cheap one-step counts the root action only."
+      },
+      "coverage": {
+        "decisions": 4249,
+        "iterations": 1431236,
+        "roots": 38588,
+        "unvisited": 0,
+        "learnedLeafCount": 444852,
+        "learnedFallbackCount": 986384,
+        "errors": 0
+      },
+      "inferenceComplete": true,
+      "outcomesWithheld": false,
+      "winShare": {
+        "n": 40,
+        "mean": 0.49375,
+        "low": 0.3937769046461433,
+        "high": 0.5937230953538568
+      },
+      "margin": {
+        "n": 40,
+        "mean": -1.2625,
+        "low": -3.663435274492424,
+        "high": 1.1384352744924244
+      },
+      "training": {}
+    }
+  ]
 }
