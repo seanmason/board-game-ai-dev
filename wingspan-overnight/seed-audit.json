@@ -1,0 +1,2374 @@
+{
+  "schema": 1,
+  "createdAt": "2026-10-19T03:14:39.262Z",
+  "purpose": "Seed freshness audit; no outcomes, evaluation or full games executed.",
+  "status": "passed",
+  "scope": "All repository benchmarks/**/*.json plus existing runtime *manifest*.json (excluding node_modules/.git), and retained Wingspan top-level checkpoints/results. Extract only integer values under seed/gameSeed/seeds, recursively; conservative union includes other games and seeded diagnostics if present.",
+  "limitations": [
+    "This audit cannot certify unretained evidence or seeds encoded only in prose/source or under other property names.",
+    "Source SHA records identify the inspected bytes; live runtime checkpoints may subsequently advance.",
+    "Current study planned held-out seed banks are covered by its manifest, independent of whether outcomes exist.",
+    "Search RNG seeds are random-stream controls, not independent game deals; reused fixed mechanism fixture deals are intentional diagnostic reuse, never strength replicates."
+  ],
+  "historicalAllGames": {
+    "count": 1797,
+    "sha256": "feb0dc51ec739d462dcbc2a9ccc9ece611d77c3198e27d10bd0945ed758fedb2",
+    "arithmeticRuns": [
+      {
+        "start": 0,
+        "step": 1,
+        "count": 4
+      },
+      {
+        "start": 41377,
+        "step": 1,
+        "count": 2
+      },
+      {
+        "start": 51377,
+        "step": 1,
+        "count": 2
+      },
+      {
+        "start": 73001,
+        "step": 572900,
+        "count": 2
+      },
+      {
+        "start": 645902,
+        "step": 66449,
+        "count": 2
+      },
+      {
+        "start": 712352,
+        "step": 649,
+        "count": 2
+      },
+      {
+        "start": 713810,
+        "step": 809,
+        "count": 11
+      },
+      {
+        "start": 731043,
+        "step": 30950,
+        "count": 2
+      },
+      {
+        "start": 762990,
+        "step": 54111,
+        "count": 2
+      },
+      {
+        "start": 817103,
+        "step": 4,
+        "count": 2
+      },
+      {
+        "start": 817109,
+        "step": 2,
+        "count": 2
+      },
+      {
+        "start": 817117,
+        "step": 84,
+        "count": 2
+      },
+      {
+        "start": 817203,
+        "step": 4,
+        "count": 3
+      },
+      {
+        "start": 819191,
+        "step": 45140,
+        "count": 2
+      },
+      {
+        "start": 891001,
+        "step": 809,
+        "count": 16
+      },
+      {
+        "start": 910001,
+        "step": 1,
+        "count": 2
+      },
+      {
+        "start": 910019,
+        "step": 10004,
+        "count": 2
+      },
+      {
+        "start": 928400,
+        "step": 997,
+        "count": 9
+      },
+      {
+        "start": 937291,
+        "step": 82,
+        "count": 2
+      },
+      {
+        "start": 938370,
+        "step": 997,
+        "count": 2
+      },
+      {
+        "start": 941600,
+        "step": 997,
+        "count": 12
+      },
+      {
+        "start": 972001,
+        "step": 809,
+        "count": 16
+      },
+      {
+        "start": 1014748,
+        "step": 10004,
+        "count": 2
+      },
+      {
+        "start": 1052800,
+        "step": 997,
+        "count": 10
+      },
+      {
+        "start": 1083001,
+        "step": 809,
+        "count": 8
+      },
+      {
+        "start": 1168400,
+        "step": 997,
+        "count": 6
+      },
+      {
+        "start": 1194001,
+        "step": 809,
+        "count": 6
+      },
+      {
+        "start": 1276400,
+        "step": 997,
+        "count": 30
+      },
+      {
+        "start": 1388400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1498400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1608400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1642911,
+        "step": 75489,
+        "count": 2
+      },
+      {
+        "start": 1719397,
+        "step": 997,
+        "count": 19
+      },
+      {
+        "start": 1828400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1938400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 2048400,
+        "step": 997,
+        "count": 24
+      },
+      {
+        "start": 2158400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 2268400,
+        "step": 997,
+        "count": 24
+      },
+      {
+        "start": 2378400,
+        "step": 997,
+        "count": 30
+      },
+      {
+        "start": 2488400,
+        "step": 997,
+        "count": 24
+      },
+      {
+        "start": 2598400,
+        "step": 997,
+        "count": 30
+      },
+      {
+        "start": 2708400,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 2818400,
+        "step": 997,
+        "count": 100
+      },
+      {
+        "start": 2928400,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 3038400,
+        "step": 997,
+        "count": 100
+      },
+      {
+        "start": 3198741,
+        "step": 997,
+        "count": 2
+      },
+      {
+        "start": 4971833,
+        "step": 997,
+        "count": 2
+      },
+      {
+        "start": 5182600,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 6182600,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 6282600,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 6382600,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 6482600,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 7900000,
+        "step": 997,
+        "count": 4
+      },
+      {
+        "start": 8000000,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 8182600,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 9000000,
+        "step": 997,
+        "count": 184
+      },
+      {
+        "start": 9182600,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9183597,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9184594,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9185591,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9186588,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9187585,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9188582,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9189579,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9190576,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9191573,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9192570,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9193567,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9194564,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9195561,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9196558,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9197555,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9198552,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9199549,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9200546,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9201543,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9202540,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9203537,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9204534,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9205531,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9206528,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9207525,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9208522,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9209519,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9210516,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9211513,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9212510,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9213507,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9214504,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9215501,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9216498,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9217495,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9218492,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9219489,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9220486,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9221483,
+        "step": 848,
+        "count": 2
+      },
+      {
+        "start": 9223328,
+        "step": 997,
+        "count": 60
+      },
+      {
+        "start": 9282600,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9283597,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9284594,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9285591,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9286588,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9287585,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9288582,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9289579,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9290576,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9291573,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9292570,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9293567,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9294564,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9295561,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9296558,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9297555,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9298552,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9299549,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9300546,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9301543,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9302540,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9303537,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9304534,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9305531,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9306528,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9307525,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9308522,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9309519,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9310516,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9311513,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9312510,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9313507,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9314504,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9315501,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9316498,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9317495,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9318492,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9319489,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9320486,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9321483,
+        "step": 548,
+        "count": 2
+      },
+      {
+        "start": 9323028,
+        "step": 997,
+        "count": 60
+      },
+      {
+        "start": 9382600,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9383597,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9384594,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9385591,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9386588,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9387585,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9388582,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9389579,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9390576,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9391573,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9392570,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9393567,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9394564,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9395561,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9396558,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9397555,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9398552,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9399549,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9400546,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9401543,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9402540,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9403537,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9404534,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9405531,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9406528,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9407525,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9408522,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9409519,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9410516,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9411513,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9412510,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9413507,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9414504,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9415501,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9416498,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9417495,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9418492,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9419489,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9420486,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9421483,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9422480,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9423477,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9424474,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9425471,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9426468,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9427465,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9428462,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9429459,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9430456,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9431453,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9432450,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9433447,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9434444,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9435441,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9436438,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9437435,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9438432,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9439429,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9440426,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9441423,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9442420,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9443417,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9444414,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9445411,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9446408,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9447405,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9448402,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9449399,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9450396,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9451393,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9452390,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9453387,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9454384,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9455381,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9456378,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9457375,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9458372,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9459369,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9460366,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9461363,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9462360,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9463357,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9464354,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9465351,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9466348,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9467345,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9468342,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9469339,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9470336,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9471333,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9472330,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9473327,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9474324,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9475321,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9476318,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9477315,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9478312,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9479309,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9480306,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9481303,
+        "step": 248,
+        "count": 2
+      },
+      {
+        "start": 9482548,
+        "step": 997,
+        "count": 116
+      },
+      {
+        "start": 48319271,
+        "step": 104729,
+        "count": 6
+      },
+      {
+        "start": 90817231,
+        "step": 1319354795,
+        "count": 2
+      },
+      {
+        "start": 1410173023,
+        "step": 997,
+        "count": 5
+      }
+    ]
+  },
+  "historicalWingspanPaths": {
+    "count": 1377,
+    "sha256": "132562a095da96523bb5666b9207fa92b25b71ab7ed33b72b6e55ff5ebef4e19",
+    "arithmeticRuns": [
+      {
+        "start": 0,
+        "step": 1,
+        "count": 4
+      },
+      {
+        "start": 41377,
+        "step": 1,
+        "count": 2
+      },
+      {
+        "start": 51377,
+        "step": 1,
+        "count": 2
+      },
+      {
+        "start": 73001,
+        "step": 572900,
+        "count": 2
+      },
+      {
+        "start": 645902,
+        "step": 66449,
+        "count": 2
+      },
+      {
+        "start": 712352,
+        "step": 649,
+        "count": 2
+      },
+      {
+        "start": 713810,
+        "step": 809,
+        "count": 11
+      },
+      {
+        "start": 731043,
+        "step": 30950,
+        "count": 2
+      },
+      {
+        "start": 762990,
+        "step": 54111,
+        "count": 2
+      },
+      {
+        "start": 817103,
+        "step": 4,
+        "count": 2
+      },
+      {
+        "start": 817109,
+        "step": 2,
+        "count": 2
+      },
+      {
+        "start": 817117,
+        "step": 84,
+        "count": 2
+      },
+      {
+        "start": 817203,
+        "step": 4,
+        "count": 3
+      },
+      {
+        "start": 819191,
+        "step": 45140,
+        "count": 2
+      },
+      {
+        "start": 891001,
+        "step": 809,
+        "count": 16
+      },
+      {
+        "start": 910001,
+        "step": 1,
+        "count": 2
+      },
+      {
+        "start": 910019,
+        "step": 10004,
+        "count": 2
+      },
+      {
+        "start": 928400,
+        "step": 997,
+        "count": 9
+      },
+      {
+        "start": 937291,
+        "step": 82,
+        "count": 2
+      },
+      {
+        "start": 938370,
+        "step": 997,
+        "count": 2
+      },
+      {
+        "start": 941600,
+        "step": 997,
+        "count": 12
+      },
+      {
+        "start": 972001,
+        "step": 809,
+        "count": 16
+      },
+      {
+        "start": 1014748,
+        "step": 10004,
+        "count": 2
+      },
+      {
+        "start": 1052800,
+        "step": 997,
+        "count": 10
+      },
+      {
+        "start": 1083001,
+        "step": 809,
+        "count": 8
+      },
+      {
+        "start": 1168400,
+        "step": 997,
+        "count": 6
+      },
+      {
+        "start": 1194001,
+        "step": 809,
+        "count": 6
+      },
+      {
+        "start": 1276400,
+        "step": 997,
+        "count": 30
+      },
+      {
+        "start": 1388400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1498400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1608400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1642911,
+        "step": 75489,
+        "count": 2
+      },
+      {
+        "start": 1719397,
+        "step": 997,
+        "count": 19
+      },
+      {
+        "start": 1828400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 1938400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 2048400,
+        "step": 997,
+        "count": 24
+      },
+      {
+        "start": 2158400,
+        "step": 997,
+        "count": 20
+      },
+      {
+        "start": 2268400,
+        "step": 997,
+        "count": 24
+      },
+      {
+        "start": 2378400,
+        "step": 997,
+        "count": 30
+      },
+      {
+        "start": 2488400,
+        "step": 997,
+        "count": 24
+      },
+      {
+        "start": 2598400,
+        "step": 997,
+        "count": 30
+      },
+      {
+        "start": 2708400,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 2818400,
+        "step": 997,
+        "count": 100
+      },
+      {
+        "start": 2928400,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 3038400,
+        "step": 997,
+        "count": 100
+      },
+      {
+        "start": 3198741,
+        "step": 997,
+        "count": 2
+      },
+      {
+        "start": 4971833,
+        "step": 997,
+        "count": 2
+      },
+      {
+        "start": 7900000,
+        "step": 997,
+        "count": 4
+      },
+      {
+        "start": 8000000,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 9000000,
+        "step": 997,
+        "count": 600
+      },
+      {
+        "start": 48319271,
+        "step": 104729,
+        "count": 6
+      },
+      {
+        "start": 90817231,
+        "step": 1319354795,
+        "count": 2
+      },
+      {
+        "start": 1410173023,
+        "step": 997,
+        "count": 5
+      }
+    ]
+  },
+  "proposedGameBanks": {
+    "canary": {
+      "games": 8,
+      "count": 4,
+      "sha256": "a2cde53d597cf5ac195485354ac502c94404937a39b49c3fcca635f399c00d46",
+      "arithmeticRuns": [
+        {
+          "start": 21000000,
+          "step": 997,
+          "count": 4
+        }
+      ],
+      "overlapHistorical": []
+    },
+    "fullScreen": {
+      "games": 480,
+      "count": 60,
+      "sha256": "e39fbdc1093a53e355112e5b616e555ba945f78c3d67075ef445e58f5b582c22",
+      "arithmeticRuns": [
+        {
+          "start": 22000000,
+          "step": 997,
+          "count": 60
+        }
+      ],
+      "overlapHistorical": []
+    },
+    "compactScreen": {
+      "games": 320,
+      "count": 40,
+      "sha256": "bf4c07d2134cddb417149d36bcfbb719a586d40ec15aabc87903deb793dd6a2e",
+      "arithmeticRuns": [
+        {
+          "start": 23000000,
+          "step": 997,
+          "count": 40
+        }
+      ],
+      "overlapHistorical": []
+    },
+    "fullConfirmation": {
+      "games": 800,
+      "count": 400,
+      "sha256": "d7cbb1cb596e51c19368cd466c55b2e2dd7afbfd4fabfa7a387e296816683042",
+      "arithmeticRuns": [
+        {
+          "start": 24000000,
+          "step": 997,
+          "count": 200
+        },
+        {
+          "start": 24299100,
+          "step": 997,
+          "count": 200
+        }
+      ],
+      "overlapHistorical": []
+    },
+    "compactConfirmation": {
+      "games": 400,
+      "count": 200,
+      "sha256": "30735699063f9520694c93cd2d74cea4cf8eab5adb036e2a175c830578f58823",
+      "arithmeticRuns": [
+        {
+          "start": 25000000,
+          "step": 997,
+          "count": 100
+        },
+        {
+          "start": 25299100,
+          "step": 997,
+          "count": 100
+        }
+      ],
+      "overlapHistorical": []
+    },
+    "optionalScaling": {
+      "games": 200,
+      "count": 100,
+      "sha256": "7de053470d300d8168f4b1c2ce12476db164f3a41a45b79653959eb6e57f2191",
+      "arithmeticRuns": [
+        {
+          "start": 26000000,
+          "step": 997,
+          "count": 100
+        }
+      ],
+      "overlapHistorical": []
+    }
+  },
+  "proposedUnion": {
+    "count": 804,
+    "sha256": "a6d1fb8487795e4127a95b8ccec25539fa027484ac85b1bb8d5b2f6f3c46403f",
+    "arithmeticRuns": [
+      {
+        "start": 21000000,
+        "step": 997,
+        "count": 4
+      },
+      {
+        "start": 22000000,
+        "step": 997,
+        "count": 60
+      },
+      {
+        "start": 23000000,
+        "step": 997,
+        "count": 40
+      },
+      {
+        "start": 24000000,
+        "step": 997,
+        "count": 200
+      },
+      {
+        "start": 24299100,
+        "step": 997,
+        "count": 200
+      },
+      {
+        "start": 25000000,
+        "step": 997,
+        "count": 100
+      },
+      {
+        "start": 25299100,
+        "step": 997,
+        "count": 100
+      },
+      {
+        "start": 26000000,
+        "step": 997,
+        "count": 100
+      }
+    ]
+  },
+  "overlapHistorical": [],
+  "betweenProposedBanks": [],
+  "ordinaryDiagnosticDeals": {
+    "count": 24,
+    "sha256": "7bb98cc9f9caa815d5b3206ba1a5a0765c447f60457c07688e8f3c3f375e4052",
+    "arithmeticRuns": [
+      {
+        "start": 930001,
+        "step": 1,
+        "count": 24
+      }
+    ],
+    "defaultCount": 6,
+    "maxCount": 24,
+    "overlapHistorical": [],
+    "overlapProposed": [],
+    "description": "New ordinary position trajectories; full supported seed range audited, six used by default. Not strength outcomes."
+  },
+  "fixedMechanismFixtureDeals": {
+    "count": 24,
+    "sha256": "ac70f0d2d3190de11bcdee9e6825ac51eb5bda88bb96345346f1714266f0f9a2",
+    "arithmeticRuns": [
+      {
+        "start": 810001,
+        "step": 1,
+        "count": 24
+      }
+    ],
+    "description": "Intentionally reused existing 24 mechanism fixtures; excluded from freshness claims and from strength sample size."
+  },
+  "diagnosticSearchRng": {
+    "count": 480,
+    "sha256": "63edac4d876937c0dee9a899e06bb4316a7e431ceeec15aab7bd8e02234501ca",
+    "arithmeticRuns": [
+      {
+        "start": 940001,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1005538,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1071075,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1136612,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1202149,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1267686,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1333223,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1398760,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1464297,
+        "step": 97,
+        "count": 48
+      },
+      {
+        "start": 1529834,
+        "step": 97,
+        "count": 48
+      }
+    ],
+    "description": "940001+positionIndex*97+repeat*65537; up to48positions/10repeats. Not full-game deal seeds; reported separately."
+  },
+  "sources": [
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-comparison-20261018/initial-manifest.json",
+      "sha256": "9d61f863129885c6a42b3ebf981010d8b647a9a1ac4e49cf6ff70eae1d2ab692",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-comparison-20261018/manifest.json",
+      "sha256": "e86cf3f01b810e37aff7120bf5ab1d09836ec95f7c35f3f25d73912709ed048f",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018-v2/hive-baseline/manifest.json",
+      "sha256": "807be5d800b8cc99af6b1dcc3b2ab207a2ea109d2eccfd820a541c6cc017baba",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018-v2/hive-incumbent/manifest.json",
+      "sha256": "971c8440627f3265f54fceae27b5b96933988a983bcdedf3e28e82c832fde8e6",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018-v2/ttr-baseline/manifest.json",
+      "sha256": "c6963025a62c5c856f3b4a0290b5d00ee2e289f01e494794d1ec6c144381a989",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018-v2/ttr-incumbent/manifest.json",
+      "sha256": "884e2a27d420546f6b3a702175c740f4051a4f80f835a1169e536406dbe07c5d",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018/hive-baseline/manifest.json",
+      "sha256": "40c6447518da81f9a6072aefabf5c6d14a6dd09d96956169f96dd2725025a29d",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018/hive-incumbent/manifest.json",
+      "sha256": "1c683e3f09089931341b6f54fd1ff59f14071dcec04f5e44ce218ebdb486fb29",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018/ttr-baseline/manifest.json",
+      "sha256": "206d954de138db568a67b72928d6536973af228fa7f4e0f266643d7b58e0748a",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/ai-followup-20261018/ttr-incumbent/manifest.json",
+      "sha256": "ffa676c319f53056f4154845cd7a4d02fdf0b57140299912b30666b3a071a867",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/good-enough-20261018/hive-control/manifest.json",
+      "sha256": "987f65b7a9f1f93151b288b2df5a7637c34c315379ebce4521b88292d496f365",
+      "distinctSeedCount": 100,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/good-enough-20261018/hive-history/manifest.json",
+      "sha256": "fb0350371872c017dba8c53192814b7d6136d49e23af0553009d58d0f7c10bf0",
+      "distinctSeedCount": 100,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/good-enough-20261018/love-high/manifest.json",
+      "sha256": "b695b74dfefe309524e1de9e417a9e32c81342cb5b8bf506b35ac9e867549be8",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/good-enough-20261018/love-low/manifest.json",
+      "sha256": "cb150b9ef8c4e300a7a2d588ceba35673a7e2dab4a31adef81a589777583ae49",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/good-enough-20261018/sushi-high/manifest.json",
+      "sha256": "3ba146fc61b21629dad4c1d75cf7179b7201a5b8761d260acea8f8b1c289f973",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/good-enough-20261018/sushi-low/manifest.json",
+      "sha256": "7efe93cf81700ffd88886271077c8b42d5e06a27d14e00774818137a6c43eac1",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/good-enough-analysis-worktree/benchmarks/wingspan/2026-10-18-diverse/manifest.json",
+      "sha256": "679487fa80b1da2f32977a9d9860d14f1559aa08d53b11712874e82f06bd228e",
+      "distinctSeedCount": 44,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/hive-repetition-20261018/compute/manifest.json",
+      "sha256": "a98bf8551bafebd547649f4a1605b64a51020b16de7b93b25d867864211aa9ea",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/hive-repetition-20261018/control/manifest.json",
+      "sha256": "90adfe30ee960f46f3d35cc3ea34707ef77f511bacabba07d938b27dcb66f644",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/hive-repetition-20261018/history/manifest.json",
+      "sha256": "7c075d5c68496885f3c2b53510ae04e62da2306bded0cf1813246fc144628fb2",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-10000-vs-300-20261017/checkpoint.json",
+      "sha256": "58b4f67813e4bc850899a5deb74aac0bf49bfbfd89b6633ea4a73c29b4d3eb6b",
+      "distinctSeedCount": 10,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-10000-vs-300-20261017/manifest.json",
+      "sha256": "0324a38919ddc04f7529f346603e6a5ad73a2cf4de819fbce794f96ba6367717",
+      "distinctSeedCount": 10,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-20261017/checkpoint.json",
+      "sha256": "418bf7dc301ab18a8edd9513fb53574e0170f765e809e1b5d3bee1d5c6f50956",
+      "distinctSeedCount": 10,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-20261017/manifest.json",
+      "sha256": "659fe48e3e2f52b15b5fef7f23db17a0639ec6f78d180e5c12bfadd2b0ccb17e",
+      "distinctSeedCount": 10,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-20261017/checkpoint.json",
+      "sha256": "f35e3e4f377ea87573dd11a8c24beed4286ec7318d4d4deefffd9dc77699e69e",
+      "distinctSeedCount": 6,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-20261017/manifest.json",
+      "sha256": "d91ddb8e3c70a4686f1a8c45e2380a1cd25d338f6e38db7867f18b3328e70d62",
+      "distinctSeedCount": 6,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-budget-20261017/checkpoint.json",
+      "sha256": "c97a99a193aec40511643afea38212dcbcdfae1318b3effae88d2069e66260d6",
+      "distinctSeedCount": 6,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-budget-20261017/manifest.json",
+      "sha256": "09b5a5f7f39a19738f80485da46a9c6b18bce5241a832166f977a44efe6a583b",
+      "distinctSeedCount": 6,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-budget-3000-20261017/checkpoint.json",
+      "sha256": "2556d043b3c9bdfadf79308195aecbd83fc935bb52080ca0ee94553f0056a8d3",
+      "distinctSeedCount": 2,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-budget-3000-20261017/manifest.json",
+      "sha256": "f26201e307b62fde1ad5e4f9333e8c8696e5e0c4c0933196aab339cc7bf1826a",
+      "distinctSeedCount": 6,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-budget-confidence-20261017/checkpoint.json",
+      "sha256": "3500a8e1b4638f04c552bdd9fc71634b1cb0706b6cf9872f5957b9c343b69898",
+      "distinctSeedCount": 0,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-depth-budget-confidence-20261017/manifest.json",
+      "sha256": "4291f75c2692bcf06ac8949561fa240eb2738616874405c08e4ead6e8d3f20d8",
+      "distinctSeedCount": 24,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-diverse-20261018/checkpoint.json",
+      "sha256": "94fb218f0030aa1805f272640f0e482b55979a3ac2ce7605875a4238a27c8050",
+      "distinctSeedCount": 44,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-diverse-20261018/manifest.json",
+      "sha256": "3f5ad6fec082b005230993ff48fc3d29b246f375f23b12797416563c2c890ce2",
+      "distinctSeedCount": 44,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-evaluator-compute-20261018/canary/manifest.json",
+      "sha256": "df949f1a7b0e32f9d0b6c492e86b65638123e3e27cb31049760f3fe5bde6c1b2",
+      "distinctSeedCount": 4,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-evaluator-compute-20261018/study/executions/initial-18-workers/manifest.json",
+      "sha256": "f42fad41b583ce777909edd77c8774f8ffa4dc3f6fd19c5ba37c3d055adf4c9a",
+      "distinctSeedCount": 640,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-evaluator-compute-20261018/study/manifest.json",
+      "sha256": "f42fad41b583ce777909edd77c8774f8ffa4dc3f6fd19c5ba37c3d055adf4c9a",
+      "distinctSeedCount": 640,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-evaluator-confirmation-20261018/checkpoint.json",
+      "sha256": "462f49a063016b18a99a03795355fbfbf4e70955fdc228e0f189be1fb2284d4f",
+      "distinctSeedCount": 20,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-evaluator-confirmation-20261018/manifest.json",
+      "sha256": "b8241baea3054e85d04e9852d240c1316675440f83c3a271e0ee098831d32591",
+      "distinctSeedCount": 20,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-evaluators-20261018/checkpoint.json",
+      "sha256": "fce8db1c96fd213799a1c2d42197ef4ac0807a0863fe858fc2d0f2f3a803a462",
+      "distinctSeedCount": 20,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-evaluators-20261018/manifest.json",
+      "sha256": "74ad8dc9036ee95fd14f0583f1e68b37cf84ebf110650d542d7d01ae93cdd860",
+      "distinctSeedCount": 20,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-expansion-20261018/checkpoint.json",
+      "sha256": "b9c84142705a28b9badad61bcd9e14bd57a2ca172ed39e86c79d20f1a5798613",
+      "distinctSeedCount": 54,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-expansion-20261018/manifest.json",
+      "sha256": "9ddb9287620503e23ef831e0a0db3bae7941f720bbf149a5f1f355eab438b50f",
+      "distinctSeedCount": 54,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-final-20261018/checkpoint.json",
+      "sha256": "5b2f83444738a0709b8f6bfbde0c7ddfaa1fd7b15ee6699fb5e13af47fbdfd48",
+      "distinctSeedCount": 40,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-final-20261018/manifest.json",
+      "sha256": "14e5882e008df4ffcec11af788da2ffb31a3e80828bd6ef2ba9e0cd1672f9181",
+      "distinctSeedCount": 140,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-opening-20261018/checkpoint.json",
+      "sha256": "ff5e97f1207de3ed2db2cb95c3c6ee6fc5a0cc324368af5e907fdea941a0cb79",
+      "distinctSeedCount": 144,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-opening-20261018/manifest.json",
+      "sha256": "5d92f8f37c22da75adcc36c8e636ba1fc35cebf28ae06538f003bb34d5520aeb",
+      "distinctSeedCount": 140,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-opening-diagnostics-20261018/manifest.json",
+      "sha256": "8456c81e268d69c6f5e35667834e36087a6645d6bcfddbd9fe1e4a1b00c0127b",
+      "distinctSeedCount": 3,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-opening-diagnostics-v2-20261018/manifest.json",
+      "sha256": "1c717965fa5f4324ad5bf6caa46687381dea9d84383a767373af445c1451ecca",
+      "distinctSeedCount": 3,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-opening-diagnostics-v2-20261018/results.json",
+      "sha256": "7e8d2e364defe4d791f4896b7d0d5f99bf6b2ccdfca2e36b112f2e3ac3fdc9fb",
+      "distinctSeedCount": 6,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-realizable-20261018/checkpoint.json",
+      "sha256": "308e93e7bfb5b7fac7199d41b92357050638da8050df7ad855a7f12bc159aaf2",
+      "distinctSeedCount": 54,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-realizable-20261018/manifest.json",
+      "sha256": "dfd81e4bd382f09d13f98cf712b7ea24cd6278a1ffea9a3ba01fb3da575c595b",
+      "distinctSeedCount": 54,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-refinements-20261018/checkpoint.json",
+      "sha256": "cf7747a340a7d644a9e37f1b8ab7b8f841353c6e6b9aa8cd460804d99d6fb64d",
+      "distinctSeedCount": 20,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-refinements-20261018/manifest.json",
+      "sha256": "fe909cb4c55d1eeed7f33282227f6039cb1a4214203396fdaedc96b261cc9a60",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-scaling-20261017/checkpoint.json",
+      "sha256": "2e953b8fad86a13b4320775b2e7f0d3471ba6702ca741e5356c5a10ac6049312",
+      "distinctSeedCount": 24,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-scaling-20261017/manifest.json",
+      "sha256": "f416f56c2be2d124708375bab987306bfef979a291b1385cc69e4852d1c14b23",
+      "distinctSeedCount": 24,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-specialists-20261018/checkpoint.json",
+      "sha256": "e93dd8a6369895f1187fe6c7ae532df5060c9f60ad479b331c2174dd175892d7",
+      "distinctSeedCount": 20,
+      "category": "retained-wingspan-checkpoint-or-results"
+    },
+    {
+      "file": "C:/Users/mason/.codex/benchmark-runs/wingspan-specialists-20261018/manifest.json",
+      "sha256": "bcb7d3fffe383061cb454517f1819bf99629862820e2e9e2fa4af17229f0fe12",
+      "distinctSeedCount": 40,
+      "category": "runtime-manifest"
+    },
+    {
+      "file": "benchmarks/boop-baseline-heldout.json",
+      "sha256": "831c90f6f155c08201686c942fa8e2c4549e6186d4023876886cb50c89aa06e3",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-long/cycles.json",
+      "sha256": "1c934f0f462dd63f4619f6e0f3ca5fa78a8c2a816e6dd896de1fe9db7b8bb194",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-long/environment.json",
+      "sha256": "f25d2241a3f13f0576e53ad87e0320057f7d218e9f6c7c8c707ca8a6b7fd89eb",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-long/repetition-regression.json",
+      "sha256": "9912cc239813dc8813caac51e89b6f86e26497ec93d6ce92e0ab78f419688876",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-long/summary.json",
+      "sha256": "384c1c4e11ee47aca3efc6f1053ede8e2637f543da72f29421d8389db8a0793f",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-long/tactical-10000.json",
+      "sha256": "2af0c3089fac3e052324b5af5918575960a0220a7dfd5513519b0a185019cb2d",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-long/tactical-3000.json",
+      "sha256": "b1758fbf3cf5d2356fec66879ae3eae8d5345e22661365a3715ccb8c1189a1e2",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-long/tactical-5s-min3000.json",
+      "sha256": "d11a7eefb4dcb44722ac9a966086f1c437196d934d92b6834d536238d9ce2ba3",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/boop-tactical-heldout.json",
+      "sha256": "7d3c06177d671ba13205de0d019f198398096b09acaacff7d811e21a04cf2047",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/practical-ai-2026-10-17/artifact.json",
+      "sha256": "ef1ecd30e5d1b7db34ddfb5c5284bdd732cbe8dc4218d0cf6fb813ec22ac913f",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/practical-ai-2026-10-17/carcassonne-calibration.json",
+      "sha256": "c76966550998814f278ea1c460474b3bbdd8baddabe3283e5a7d8e447d2fe777",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/practical-ai-2026-10-17/kingdomino-findings.json",
+      "sha256": "2fcc32d003e241b6ffbc0891185b5b7cb1f88586f4ae410d71a821fae1851778",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/practical-ai-2026-10-17/kingdomino-plan.json",
+      "sha256": "4d4f4dc1cf2bbed502b11bc34b601f2ad866c1572e68d90c4fd4236455d6e9c9",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/practical-ai-2026-10-17/summary.json",
+      "sha256": "fcfd9e9814a6e1f7fae974dbbaec45e736cfb4a77f415aa11744f260387c6358",
+      "distinctSeedCount": 12,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/carcassonne-heuristic-development-2026-10-17.json",
+      "sha256": "eb5e07f41f294aaf8df271735c21f44b3664a43952a5db3cbed21f230ccbd63a",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/carcassonne-heuristic-holdout-2026-10-17.json",
+      "sha256": "0474ff96bad7901c4f1bfe721017f08ecff4929b581eb96b2ac89626ccae2734",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/carcassonne-nominal-budget-2026-10-17.json",
+      "sha256": "ab947ae3ea473f2ca65a4a01bcc11c2fcbc64fb13a747701bb6b564754620d1f",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/cascadia-search-pilot-2026-10-17.json",
+      "sha256": "385c677dd74f6fcbd60b82269b1393eae13e9ac245e177c97374148a2cf1b8bc",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/cascadia-tuned-pilot-2026-10-17.json",
+      "sha256": "20c151b4a7afc4d0f4c2ca4617133febd635708cf1456277590eb3b028b4a4a5",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/kingdomino-search-heldout-2026-10-17.json",
+      "sha256": "5ffc3369bf89f879a41ea05ffb04d6ae9e0215fd9ae1aab3497ca3525942aa76",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/kingdomino-tuned-heldout-2026-10-17.json",
+      "sha256": "03c96af166127396d44c966ded9b557de9f7561d8c9c6e6c8e03033ea2cb9589",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/patchwork-heldout-search-250ms.json",
+      "sha256": "f586dd5ff640842871fdfcc45beae687620bfcb8825309808933aa980f77ec42",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/patchwork-smoke-nodes16.json",
+      "sha256": "5f079298bd1aaab8660dccbb271358f19e5a8e7a6367eda261c0cfcaed48cd89",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/seven-wonders-duel-search-paired-2x100ms.json",
+      "sha256": "d3975c5060aee3141faabfa439d431823044640df27bd76f830512193bc10d57",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/seven-wonders-duel-tuned-4x30ms.json",
+      "sha256": "255186c925944a5d00cfdc76abbb9302bdeba3525318b87d7f6dc6696ec297da",
+      "distinctSeedCount": 2,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-2p-2026-10-17.json",
+      "sha256": "8fd27d157dbc2eaf8829495f2c136505c5b448b56dbd288f29036c1545f8d68f",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-3p-2026-10-17.json",
+      "sha256": "3d312b3c2e770c7915f924d70a10e5f6676109390ffbcbaef8243124c8608f5d",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-budget-2026-10-17.json",
+      "sha256": "fb644c6af913aaa952a2566c920eefc21d3d2015c6c7811f38d16a168acdbd72",
+      "distinctSeedCount": 16,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-budget-3p-2026-10-17.json",
+      "sha256": "b05cee46942754bbbd12caf633ab7122ef191106eb351f9818c1c6a880231780",
+      "distinctSeedCount": 8,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-budget-4p-2026-10-17.json",
+      "sha256": "596d9f55b2c52bc0f6381eb3da14bba6d0a25bed40c7cd11a018aa6e77ebcb3c",
+      "distinctSeedCount": 6,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-diagnostics-2026-10-17.json",
+      "sha256": "8f1b537a63c963f6c9d8a26fb9a1e3061fa36f392d5ba4b65e8e24ca937ff6b4",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-long-holdout-2026-10-17.json",
+      "sha256": "84d0cdb7f4fa732e8426d95b86f342f7e4d8fd3a61f28b7b5255fdeb106a1514",
+      "distinctSeedCount": 16,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-long-screen-2026-10-17.json",
+      "sha256": "f0718f9a161b1ac5d20f25c97a2fcf0de6568a9ac430ef18ce141a85c0bc00fc",
+      "distinctSeedCount": 12,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-short-screen-2026-10-17.json",
+      "sha256": "0d77aa7d57e8985c626351513b4303df8b3167fe227da98d75d07987a04cc134",
+      "distinctSeedCount": 12,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/splendor-search-visits-screen-2026-10-17.json",
+      "sha256": "a683cc2c6c9ea1b17c668c908471c05521971af5a56d012d87d0693b4de70df7",
+      "distinctSeedCount": 12,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/results/wingspan-time-budget-2026-10-17.json",
+      "sha256": "907832dca43b8fc376b43f6b083cd112045e3efa7800ff86631b7c97f78cf9ba",
+      "distinctSeedCount": 1,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-17-budget-screen/results.json",
+      "sha256": "f7ce313c8822896f0362b04686a960b953d47d49920e2d933e1e30e07654b521",
+      "distinctSeedCount": 10,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-17-depth/results.json",
+      "sha256": "3674280e5482c034e222a2c459643b8586ceed79fbe367d05bffdcc985e4c279",
+      "distinctSeedCount": 6,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-17-scaling/results.json",
+      "sha256": "6e95d2a26475baabc4db09512e7a99198d1cbad895f75ab3ef2d2762a071b667",
+      "distinctSeedCount": 24,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-confirmation/results.json",
+      "sha256": "0825b943a35c12c361ccf4691be4964991086f2b7062471a53a965b87f34efe6",
+      "distinctSeedCount": 20,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-diverse/manifest.json",
+      "sha256": "679487fa80b1da2f32977a9d9860d14f1559aa08d53b11712874e82f06bd228e",
+      "distinctSeedCount": 44,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-diverse/results.json",
+      "sha256": "bcd1219f7950bcd432898858042c81b5b8a6cfce43d1643c47401e05e13c349a",
+      "distinctSeedCount": 44,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-diverse/resume-records.json",
+      "sha256": "6645aa3a8e724f03470179f1802a9600e7c960297e0748de20a9db9a83bd47d4",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-evaluators/results.json",
+      "sha256": "bb92af5f6b567194449a4ffbf20de1450fd4a3b622e52e8f6c2fc2f3c618c9a7",
+      "distinctSeedCount": 20,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-expansion-screen/results.json",
+      "sha256": "1ef0daab9986e1af14e718a968ff5c9706d55ae2cd907e9a3a10a2c26ca22849",
+      "distinctSeedCount": 24,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-final-selection/evidence-summary.json",
+      "sha256": "d4fc90939255e0758152731f5a28f04f62d4332dceafffbccfb371597d2abd31",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-opening/completed-summary.json",
+      "sha256": "c4abcedfe4cd96177387fedddad716653e14a0e535879318e1bbc0bca131a1b2",
+      "distinctSeedCount": 0,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-opening/prior-final-summary.json",
+      "sha256": "6af1b053cf70c1adc016c2052e95630c0ec9557bf566904d0fcaedd86a8e0a99",
+      "distinctSeedCount": 6,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-refinements/results.json",
+      "sha256": "1383e27fae596179979a93c824346602ff28bd03dfddb0534ed36af814db14e4",
+      "distinctSeedCount": 20,
+      "category": "repository-benchmark-json"
+    },
+    {
+      "file": "benchmarks/wingspan/2026-10-18-specialists/results.json",
+      "sha256": "78676498161443dd099f88709dd9e9e223b24e73529d1662fbaece3214741e77",
+      "distinctSeedCount": 20,
+      "category": "repository-benchmark-json"
+    }
+  ],
+  "errors": []
+}
