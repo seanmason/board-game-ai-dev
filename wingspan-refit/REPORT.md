@@ -1,6 +1,6 @@
 # Wingspan teacher-refit evidence
 
-Controller status: **running**. Completed displayed games: 0 / 0.
+Controller status: **running**. Completed displayed games: 0 / 80.
 
 [Dashboard aggregates](dashboard.json) · [Public controller receipt](manifest.json) · [Frozen source](source.zip) · [Source inventory](source-manifest.json) · [Seed audit](seed-audit.json)
 
