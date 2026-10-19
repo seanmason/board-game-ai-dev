@@ -14,6 +14,7 @@ import {reconcileCard,reconcileFood,reconcileEggs,missingPublic,analysisBlocker,
   recordPhysicalAction,answerObservation,cancelObservation} from "./observations.js";
 import {powerDescription} from "./powers.js";
 import {advancedEditor,detailedAction} from "./move-editor.js";
+import {PRODUCTION_AI} from './production-ai.js';
 
 const root=document.querySelector("#app");
 const KEY="board-game-ai-wingspan-v1";
@@ -21,7 +22,7 @@ const MAX_WORKERS=Math.max(1,Math.min(4,(navigator.hardwareConcurrency||2)-1));
 const FIRST=newGame({players:2,mode:"digital",seed:912731});
 let history=[{state:FIRST,label:"New Wingspan session"}],index=0,game=FIRST;
 let seats=["human","human"],view="companion",analysisEnabled=true;
-let searchMethod="belief-rollout";
+let searchMethod=PRODUCTION_AI.method;
 let workerCount=Math.min(2,MAX_WORKERS),workers=[],partResults=new Map();
 let analysis=null,generation=0,options=[],notification="";
 let pinned=-1,hovered=-1;
@@ -517,7 +518,7 @@ function startAnalysis(){
     workers.push(w);
     w.postMessage({type:"start",generation:token,observation:obs,
       actions:options,seed:(Math.random()*0x100000000)>>>0,
-      method:searchMethod,horizon:4,leafEvaluator:"opening-plan",
+      method:searchMethod,horizon:PRODUCTION_AI.horizon,leafEvaluator:PRODUCTION_AI.leafEvaluator,
       running:analysisEnabled,chunk:searchMethod==="belief-rollout"?1:24});
   }
   refreshAnalysis();

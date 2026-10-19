@@ -6,15 +6,18 @@ User authorized integration into main; this is not finished-release approval.
 
 ## Current browser AI
 
-User-authorized Pages promotion on 2026-10-18: hidden-world rollouts now use
-the combined opening strategy at depth 4: expanded setup choices plus opening-plan,
-a bounded round-one correction to practical-combined. Fresh 200-game confirmation
-won 117�83 (58.5%), passing the predeclared paired win-share gate. Mean margin
-was +1.47; equal-sample compute cost was about 22% higher. See the
-[opening results](../../../benchmarks/wingspan/2026-10-18-opening/REPORT.md).
-The browser continues sampling while analysis runs. Explicit benchmark evaluator
-settings remain explicit and each desktop study retains its frozen manifest.
-Historical reports below retain the defaults and decisions at their execution time.
+Reviewed October19,2026: the best production-validated AI remains the combined
+opening strategy: opening-plan evaluation, expanded actual setup choices and
+horizon4. The browser and worker share `wingspan/production-ai.js`; analysis
+continues sampling while active. Explicit benchmark settings remain explicit.
+The original adoption won117–83 in fresh confirmation. The completed2,800-game
+study and480-game follow-up supplied no stronger replacement. Sample scaling
+was confirmed within the corrected research reference, which does not establish
+a new deployed budget. See the [selection and evidence](2026-10-19-selection.md).
+
+The next proposed direction is a [small neural value pilot](../../plans/wingspan-neural-pilot-2026-10-19.md),
+with a linear baseline, observation-safe training data and fresh equal-time play.
+No model training has started.
 
 ## Scope and capabilities
 
@@ -88,16 +91,8 @@ base-game/release claim. Do not restart the already implemented observation work
 The [refinement screen](../../../benchmarks/wingspan/2026-10-18-refinements/REPORT.md) found no qualifying improvement in 120 games. The [specialist experiment](../../../benchmarks/wingspan/2026-10-18-specialists/REPORT.md) also found no qualifying improvement in 120 games. The [diverse study](../../../benchmarks/wingspan/2026-10-18-diverse/REPORT.md) completed 656 games: row-unlocks won its screen but did not beat practical-combined in fresh confirmation (18-1-21). The completed expansion (1,512 games) and realizable-value (1,392 games) studies did not establish a stronger replacement. See the [all-study synthesis and final selection protocol](../../../benchmarks/wingspan/2026-10-18-final-selection/REPORT.md). The final 640-game screen found no qualifying replacement; practical-combined remained the reference. The [opening experiment](../../../benchmarks/wingspan/2026-10-18-opening/REPORT.md) completed 640 games and fresh confirmation; the combined setup expansion and opening evaluator won 117–83 and was adopted as the browser default. Evaluator-only confirmation did not pass the confidence gate.
 
 
-The approved [two-player evaluator/compute study](../../work/wingspan-evaluator-compute-2026-10-18.md)
-implements exceptional-power action economy, sustainable ordered row chains, early
-investment payback and a conservative blend, crossed with sample count and
-rollout horizon. Its research pipeline settles pending powers before leaf
-evaluation and retains the deployed pipeline separately for practical comparison.
-Eight reference canaries passed; the bounded strength study follows its frozen
-protocol. See the [live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator)
-for execution status. Browser defaults remain unchanged pending reviewed results.
-
-The [nine-hour unattended follow-up](../../work/wingspan-overnight-2026-10-18.md)
-prepares power-policy/prior ablations, a lean evaluator, bounded diagnostics,
-timing-based fixed workload admission and fresh practical confirmation. It awaits
-execution approval; no production defaults change.
+The completed [two-player evaluator/compute study](../../work/wingspan-evaluator-compute-2026-10-18.md)
+and [unattended follow-up](../../work/wingspan-overnight-2026-10-18.md) preserve their
+frozen protocols, source archives and raw favorable/unfavorable evidence. Final
+results and the current production decision are in the
+[October19 selection](2026-10-19-selection.md).

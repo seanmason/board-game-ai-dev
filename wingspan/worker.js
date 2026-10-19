@@ -1,5 +1,6 @@
 import {createSearch,runSearch,searchSummary} from "./analysis.js";
 import {seededRandom} from "./core.js";
+import {PRODUCTION_AI} from './production-ai.js';
 
 let generation=0,search=null,active=false,scheduled=null,chunk=24;
 let activeFrom=0,activeMilliseconds=0,reportedAt=0;
@@ -48,8 +49,8 @@ self.onmessage=event=>{
     try{
       search=createSearch(data.observation,data.actions,{
         rng:seededRandom(data.seed),exploration:data.exploration,
-        method:data.method??"heuristic",horizon:data.horizon??4,
-        leafEvaluator:data.leafEvaluator??"opening-plan"
+        method:data.method??PRODUCTION_AI.method,horizon:data.horizon??PRODUCTION_AI.horizon,
+        leafEvaluator:data.leafEvaluator??PRODUCTION_AI.leafEvaluator
       });
     }catch(error){
       search=null;

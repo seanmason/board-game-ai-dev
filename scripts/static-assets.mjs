@@ -28,7 +28,7 @@ export const games = {
   // Optional draft game: only packaged in a checkout that actually contains it.
   wingspan: ['wingspan/index.html', 'wingspan/styles.css',
     ...['catalog','scoring','powers','core','actions','observation-io','physical-ui','observations','analysis','belief',
-      'rollout','leaf-evaluators','development-evaluators','mechanics-evaluators','planning-evaluators','efficiency-evaluators','final-evaluators','opening-strategy','move-editor','worker','app'].map(n => `wingspan/${n}.js`),
+      'rollout','leaf-evaluators','development-evaluators','mechanics-evaluators','planning-evaluators','efficiency-evaluators','final-evaluators','opening-strategy','production-ai','move-editor','worker','app'].map(n => `wingspan/${n}.js`),
     ...['birds','bonuses','goal-tiles','power-index'].map(n => `wingspan/data/${n}.json`)]
 };
 
