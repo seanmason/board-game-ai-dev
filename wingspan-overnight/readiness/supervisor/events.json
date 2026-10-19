@@ -1,0 +1,172 @@
+[
+  {
+    "event": "mock-check",
+    "case": "complete-prior"
+  },
+  {
+    "event": "mock-spawn",
+    "case": "complete-prior",
+    "name": "publisher",
+    "command": [
+      "C:\\Users\\mason\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\mason\\.codex\\worktrees\\wingspan-overnight-20261018\\scripts\\wingspan-overnight\\publish.py",
+      "--config",
+      "C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\complete-prior\\fixture-config.json",
+      "--deadline",
+      "1792412863.2613022"
+    ]
+  },
+  {
+    "event": "mock-check",
+    "case": "complete-prior"
+  },
+  {
+    "event": "mock-owned",
+    "case": "complete-prior",
+    "pid": 424242,
+    "alive": false
+  },
+  {
+    "event": "mock-check",
+    "case": "complete-prior"
+  },
+  {
+    "event": "mock-spawn",
+    "case": "complete-prior",
+    "name": "runner",
+    "command": [
+      "C:\\Users\\mason\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "C:\\Users\\mason\\.codex\\worktrees\\wingspan-overnight-20261018\\scripts\\wingspan-overnight\\run.mjs",
+      "--config=C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\complete-prior\\fixture-config.json",
+      "--launch=C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\complete-prior\\out\\launch.json"
+    ]
+  },
+  {
+    "event": "mock-wait",
+    "process": "publisher",
+    "timeout": 150
+  },
+  {
+    "event": "mock-check",
+    "case": "duplicate-lock"
+  },
+  {
+    "event": "mock-spawn",
+    "case": "duplicate-lock",
+    "name": "publisher",
+    "command": [
+      "C:\\Users\\mason\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\mason\\.codex\\worktrees\\wingspan-overnight-20261018\\scripts\\wingspan-overnight\\publish.py",
+      "--config",
+      "C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\duplicate-lock\\fixture-config.json",
+      "--deadline",
+      "1792412863.4058733"
+    ]
+  },
+  {
+    "event": "mock-check",
+    "case": "duplicate-lock"
+  },
+  {
+    "event": "mock-owned",
+    "case": "duplicate-lock",
+    "pid": 424242,
+    "alive": false
+  },
+  {
+    "event": "mock-check",
+    "case": "duplicate-lock"
+  },
+  {
+    "event": "mock-spawn",
+    "case": "duplicate-lock",
+    "name": "runner",
+    "command": [
+      "C:\\Users\\mason\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+      "C:\\Users\\mason\\.codex\\worktrees\\wingspan-overnight-20261018\\scripts\\wingspan-overnight\\run.mjs",
+      "--config=C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\duplicate-lock\\fixture-config.json",
+      "--launch=C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\duplicate-lock\\out\\launch.json"
+    ]
+  },
+  {
+    "event": "mock-wait",
+    "process": "publisher",
+    "timeout": 150
+  },
+  {
+    "event": "mock-check",
+    "case": "duplicate-lock"
+  },
+  {
+    "event": "mock-check",
+    "case": "failed-prior"
+  },
+  {
+    "event": "mock-spawn",
+    "case": "failed-prior",
+    "name": "publisher",
+    "command": [
+      "C:\\Users\\mason\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\mason\\.codex\\worktrees\\wingspan-overnight-20261018\\scripts\\wingspan-overnight\\publish.py",
+      "--config",
+      "C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\failed-prior\\fixture-config.json",
+      "--deadline",
+      "1792412863.5155308"
+    ]
+  },
+  {
+    "event": "mock-check",
+    "case": "failed-prior"
+  },
+  {
+    "event": "mock-owned",
+    "case": "failed-prior",
+    "pid": 424242,
+    "alive": true
+  },
+  {
+    "event": "mock-wait",
+    "process": "publisher",
+    "timeout": 150
+  },
+  {
+    "event": "mock-check",
+    "case": "invalid-prior"
+  },
+  {
+    "event": "mock-spawn",
+    "case": "invalid-prior",
+    "name": "publisher",
+    "command": [
+      "C:\\Users\\mason\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\mason\\.codex\\worktrees\\wingspan-overnight-20261018\\scripts\\wingspan-overnight\\publish.py",
+      "--config",
+      "C:\\Users\\mason\\.codex\\benchmark-runs\\wingspan-overnight-20261018\\preparation-supervisor\\invalid-prior\\fixture-config.json",
+      "--deadline",
+      "1792412863.6243172"
+    ]
+  },
+  {
+    "event": "mock-check",
+    "case": "invalid-prior"
+  },
+  {
+    "event": "mock-owned",
+    "case": "invalid-prior",
+    "pid": 424242,
+    "alive": false
+  },
+  {
+    "event": "mock-wait",
+    "process": "publisher",
+    "timeout": 150
+  }
+]
