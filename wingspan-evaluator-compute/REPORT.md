@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **confirmation**. Snapshot 2026-10-19T04:08:52.211Z.
-Recorded 1798 / 2800 scheduled games; 1798 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
+Status: **running**; stage **confirmation**. Snapshot 2026-10-19T04:10:23.312Z.
+Recorded 1810 / 2800 scheduled games; 1810 valid and 0 invalid records. 23 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -49,8 +49,8 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 | screen/blend-n100-h12 | 80 / 80 | 40 / 40 | 41.2% | 31.1% to 51.4% | -2.73 | 1807.2 ms |
 | screen/blend-n300-h4 | 80 / 80 | 40 / 40 | 57.5% | 48.4% to 66.6% | 2.50 | 3176.9 ms |
 | screen/blend-n300-h12 | 80 / 80 | 40 / 40 | 41.2% | 31.1% to 51.4% | -0.99 | 5453.7 ms |
-| confirmation/evaluator | 196 / 200 | 96 / 100 | 51.8% | 44.8% to 58.8% | 1.33 | 3064.5 ms |
-| confirmation/candidate-samples | 2 / 200 | 0 / 100 | - | - to - | - | 2621.9 ms |
+| confirmation/evaluator | 199 / 200 | 99 / 100 | 52.8% | 45.9% to 59.7% | 1.47 | 3071.9 ms |
+| confirmation/candidate-samples | 11 / 200 | 5 / 100 | 50.0% | 6.1% to 93.9% | 1.10 | 2843.6 ms |
 | confirmation/candidate-depth | 0 / 200 | 0 / 100 | - | - to - | - | - |
 | confirmation/reference-samples | 0 / 200 | 0 / 100 | - | - to - | - | - |
 | confirmation/reference-depth | 0 / 200 | 0 / 100 | - | - to - | - | - |
