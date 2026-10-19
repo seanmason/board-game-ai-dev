@@ -3,8 +3,8 @@
   "study": "wingspan-data-efficiency",
   "outcomeStatus": "running",
   "status": "running",
-  "stage": "train-baseline",
-  "updatedAt": "2026-10-19T18:50:38.854Z",
+  "stage": "train-hybrid",
+  "updatedAt": "2026-10-19T18:52:11.085Z",
   "finished": 1600,
   "planned": 1600,
   "workers": 0,
@@ -17,7 +17,9 @@
     "actualRatio": 0.9324802188141057,
     "equalComputeClaimAllowed": true
   },
-  "fitCosts": {},
+  "fitCosts": {
+    "baselineWallMs": 94406
+  },
   "rows": [
     {
       "matchup": "calibration-baseline",
@@ -228,6 +230,73 @@
     {
       "matchup": "train-baseline",
       "policy": "train-baseline",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "loss",
+      "status": "complete",
+      "planned": 24,
+      "finished": 4,
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "counts": {
+        "complete": 4,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {},
+      "budget": {},
+      "coverage": {},
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {
+        "dev": {
+          "huber": 0.3567082430535259,
+          "mae": 7.0267262219890245,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "epochZero": {
+          "huber": 0.3567082430535259,
+          "mae": 7.0267262219890245,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "linear": {
+          "huber": 0.41322170189559015,
+          "mae": 7.672723738099854,
+          "saturation": 0,
+          "correctionMean": -1.713742968968587,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "selectedEpoch": 0,
+        "eligible": false
+      }
+    },
+    {
+      "matchup": "train-hybrid",
+      "policy": "train-hybrid",
       "opponentPolicyId": "No playing-strength measurement",
       "metricKind": "loss",
       "status": "running",
