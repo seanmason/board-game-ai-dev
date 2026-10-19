@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **confirmation**. Snapshot 2026-10-19T06:25:50.565Z.
-Recorded 2799 / 2800 scheduled games; 2799 valid and 0 invalid records. 1 active games; worker limit 24, BelowNormal priority.
+Status: **finished**; stage **complete**. Snapshot 2026-10-19T06:26:17.929Z.
+Recorded 2800 / 2800 scheduled games; 2800 valid and 0 invalid records. 0 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -53,7 +53,7 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 | confirmation/candidate-samples | 200 / 200 | 100 / 100 | 56.0% | 49.2% to 62.8% | 2.10 | 2983.6 ms |
 | confirmation/candidate-depth | 200 / 200 | 100 / 100 | 52.5% | 46.1% to 58.9% | 0.66 | 5431.7 ms |
 | confirmation/reference-samples | 200 / 200 | 100 / 100 | 58.2% | 51.9% to 64.6% | 2.02 | 1103.9 ms |
-| confirmation/reference-depth | 199 / 200 | 99 / 100 | 54.0% | 47.6% to 60.5% | 1.49 | 4020.3 ms |
+| confirmation/reference-depth | 200 / 200 | 100 / 100 | 54.0% | 47.6% to 60.4% | 1.48 | 4051.0 ms |
 | confirmation/matched-time | 200 / 200 | 100 / 100 | 37.2% | 31.0% to 43.5% | -3.79 | 341.1 ms |
 
 These partial summaries are descriptive. Do not select a winner, claim compute scaling, or change defaults from the live screen. Fixed seed groups are the pairing unit; ties use exact final-outcome share. Invalid/capped records remain in raw evidence and are excluded from valid paired summaries. The runner halts on an invalid result.
@@ -83,3 +83,20 @@ At the restart, 131 completed games were retained and 17 unsaved in-flight games
 Wrapper SHA256: `a9ff92bae8746d798c693b7701b1f90c293d428e104718d9640c386094dfc5ea`.
 
 The archived wrapper contains paths for the recorded machine and verifies the original manifest and amendment. Relocation or a separate execution requires its own explicit execution manifest; do not reuse this directory for a different study.
+
+## Completed analyses
+
+[Final analysis](analysis.json) · [Screen](screen-analysis.json) · [Confirmation](confirmation-analysis.json). Adoption flags are protocol outputs requiring review; production defaults were not changed by this runner.
+
+Selected challenger: blend.
+
+| Fresh comparison | Paired winner share | One-sided corrected lower bound | Mean margin | Superiority gate | Mean / p95 latency ratios |
+| --- | ---: | ---: | ---: | --- | --- |
+| evaluator | 53.2% | 44.8% | 1.56 | False | 2.976 / 2.633 |
+| candidate-samples | 56.0% | 47.7% | 2.10 | False | 2.977 / 3.001 |
+| candidate-depth | 52.5% | 44.7% | 0.66 | False | 1.752 / 2.261 |
+| reference-samples | 58.2% | 50.4% | 2.02 | True | 3.010 / 2.985 |
+| reference-depth | 54.0% | 46.1% | 1.48 | False | 3.538 / 4.793 |
+| matched-time | 37.2% | 29.6% | -3.79 | False | 1.024 / 1.042 |
+
+Protocol adoption recommendation: **False**. This flag is not an automatic production change. Failed gates do not establish equivalence; interpret confidence limits and runtime alongside point estimates.

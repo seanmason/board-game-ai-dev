@@ -1,0 +1,351 @@
+{
+  "stage": "confirmation",
+  "expected": 1200,
+  "received": 1200,
+  "valid": 1200,
+  "complete": true,
+  "missing": [],
+  "issues": [],
+  "alpha": 0.008333333333333333,
+  "groups": {
+    "evaluator": {
+      "matchup": "evaluator",
+      "expected": 200,
+      "valid": 200,
+      "pairs": 100,
+      "complete": true,
+      "winShare": {
+        "n": 100,
+        "mean": 0.5325,
+        "variance": 0.12077651515151519,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.4635426754977985,
+          0.6014573245022015
+        ],
+        "lowerBound": 0.44786485852693875
+      },
+      "margin": {
+        "n": 100,
+        "mean": 1.56,
+        "variance": 50.01151515151515,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.15678518378009887,
+          2.9632148162199012
+        ],
+        "lowerBound": -0.162243218471672
+      },
+      "candidateLatency": {
+        "n": 10145,
+        "totalMs": 31296594.391899906,
+        "mean": 3084.927983430252,
+        "p50": 2968.171900000423,
+        "p95": 5362.100800000131,
+        "max": 13965.024199999869,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 9986,
+        "totalMs": 10352936.477399938,
+        "mean": 1036.7450908672079,
+        "p50": 919.1538999993354,
+        "p95": 2036.167500000447,
+        "max": 6222.627299999818,
+        "overrunFrequency": null
+      },
+      "meanRatio": 2.975589670600511,
+      "p95Ratio": 2.633428143803962,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "candidate-samples": {
+      "matchup": "candidate-samples",
+      "expected": 200,
+      "valid": 200,
+      "pairs": 100,
+      "complete": true,
+      "winShare": {
+        "n": 100,
+        "mean": 0.56,
+        "variance": 0.1163131313131313,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.49232885428338224,
+          0.6276711457166179
+        ],
+        "lowerBound": 0.47694345694651713
+      },
+      "margin": {
+        "n": 100,
+        "mean": 2.105,
+        "variance": 75.5014898989899,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.380882275816979,
+          3.829117724183021
+        ],
+        "lowerBound": -0.01110512089667548
+      },
+      "candidateLatency": {
+        "n": 9798,
+        "totalMs": 29233429.187400065,
+        "mean": 2983.611878689535,
+        "p50": 2813.5983000006527,
+        "p95": 5309.671700000763,
+        "max": 16683.227100001648,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 9790,
+        "totalMs": 9812602.779999852,
+        "mean": 1002.3087620020278,
+        "p50": 943.8597999997437,
+        "p95": 1769.0971000008285,
+        "max": 29671.730899998918,
+        "overrunFrequency": null
+      },
+      "meanRatio": 2.9767392961127266,
+      "p95Ratio": 3.0013455451361466,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "candidate-depth": {
+      "matchup": "candidate-depth",
+      "expected": 200,
+      "valid": 200,
+      "pairs": 100,
+      "complete": true,
+      "winShare": {
+        "n": 100,
+        "mean": 0.525,
+        "variance": 0.10290404040404047,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.4613489797661379,
+          0.5886510202338622
+        ],
+        "lowerBound": 0.44687757948431406
+      },
+      "margin": {
+        "n": 100,
+        "mean": 0.66,
+        "variance": 53.549898989899006,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -0.7920062427327362,
+          2.112006242732736
+        ],
+        "lowerBound": -1.1221276370652968
+      },
+      "candidateLatency": {
+        "n": 10141,
+        "totalMs": 55083317.48899971,
+        "mean": 5431.744156296195,
+        "p50": 4430.873800000176,
+        "p95": 12574.536799998954,
+        "max": 70329.15149999969,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 9975,
+        "totalMs": 30928611.602499843,
+        "mean": 3100.612691979934,
+        "p50": 2919.380700001493,
+        "p95": 5561.3900999985635,
+        "max": 26402.267899999395,
+        "overrunFrequency": null
+      },
+      "meanRatio": 1.7518292982370811,
+      "p95Ratio": 2.26104203695443,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "reference-samples": {
+      "matchup": "reference-samples",
+      "expected": 200,
+      "valid": 200,
+      "pairs": 100,
+      "complete": true,
+      "winShare": {
+        "n": 100,
+        "mean": 0.5825,
+        "variance": 0.10360479797979806,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.51863262161454,
+          0.64636737838546
+        ],
+        "lowerBound": 0.5041120311484188
+      },
+      "margin": {
+        "n": 100,
+        "mean": 2.025,
+        "variance": 64.93623737373738,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.426057980105472,
+          3.623942019894528
+        ],
+        "lowerBound": 0.06252995003924
+      },
+      "candidateLatency": {
+        "n": 9930,
+        "totalMs": 10961276.199500058,
+        "mean": 1103.8546021651619,
+        "p50": 965.4827000014484,
+        "p95": 2224.2077000029385,
+        "max": 11425.717700000852,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 9934,
+        "totalMs": 3642961.768700093,
+        "mean": 366.7165058083444,
+        "p50": 322.9737000018358,
+        "p95": 745.1719000004232,
+        "max": 2338.161899998784,
+        "overrunFrequency": null
+      },
+      "meanRatio": 3.010103403259588,
+      "p95Ratio": 2.984824977970419,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": true,
+      "practicalGate": false
+    },
+    "reference-depth": {
+      "matchup": "reference-depth",
+      "expected": 200,
+      "valid": 200,
+      "pairs": 100,
+      "complete": true,
+      "winShare": {
+        "n": 100,
+        "mean": 0.54,
+        "variance": 0.1044444444444444,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.4758743430070037,
+          0.6041256569929964
+        ],
+        "lowerBound": 0.4612950315164566
+      },
+      "margin": {
+        "n": 100,
+        "mean": 1.475,
+        "variance": 49.729166666666686,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.07575183383567197,
+          2.874248166164328
+        ],
+        "lowerBound": -0.24237472928577208
+      },
+      "candidateLatency": {
+        "n": 10126,
+        "totalMs": 41020619.113600016,
+        "mean": 4051.019071064588,
+        "p50": 2740.5949000008404,
+        "p95": 11335.400499999523,
+        "max": 50452.865799997,
+        "overrunFrequency": null
+      },
+      "opponentLatency": {
+        "n": 9741,
+        "totalMs": 11152046.549199801,
+        "mean": 1144.8564366286625,
+        "p50": 980.8170999996364,
+        "p95": 2364.8691000007093,
+        "max": 11892.333899997175,
+        "overrunFrequency": null
+      },
+      "meanRatio": 3.5384515834962698,
+      "p95Ratio": 4.793246484550085,
+      "latencyGate": false,
+      "legacyEndpointNotInstrumented": false,
+      "approximatelyEqualRealizedTime": false,
+      "superiority": false,
+      "practicalGate": false
+    },
+    "matched-time": {
+      "matchup": "matched-time",
+      "expected": 200,
+      "valid": 200,
+      "pairs": 100,
+      "complete": true,
+      "winShare": {
+        "n": 100,
+        "mean": 0.3725,
+        "variance": 0.09784722222222214,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.31043262102345137,
+          0.4345673789765486
+        ],
+        "lowerBound": 0.29632127006139003
+      },
+      "margin": {
+        "n": 100,
+        "mean": -3.785,
+        "variance": 65.14775252525253,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -5.386543999328131,
+          -2.1834560006718693
+        ],
+        "lowerBound": -5.750663603351393
+      },
+      "candidateLatency": {
+        "n": 9723,
+        "totalMs": 3316106.4790998437,
+        "mean": 341.0579532140125,
+        "p50": 333.85669999942183,
+        "p95": 350.51910000294447,
+        "max": 4200.328099999577,
+        "overrunFrequency": 1
+      },
+      "opponentLatency": {
+        "n": 9641,
+        "totalMs": 3209671.618199922,
+        "mean": 332.9189522041201,
+        "p50": 330.5152999982238,
+        "p95": 336.3686999976635,
+        "max": 2594.170299999416,
+        "overrunFrequency": 1
+      },
+      "meanRatio": 1.0244473946466772,
+      "p95Ratio": 1.0420681234769444,
+      "latencyGate": true,
+      "legacyEndpointNotInstrumented": true,
+      "approximatelyEqualRealizedTime": true,
+      "superiority": false,
+      "practicalGate": false
+    }
+  },
+  "contrasts": {},
+  "selectedCandidate": null,
+  "adoptionRecommended": false
+}

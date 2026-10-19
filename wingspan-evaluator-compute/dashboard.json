@@ -3,24 +3,13 @@
   "study": "wingspan-evaluator-compute-2026-10-18",
   "revision": "a863dc5c8a3a9510729ea6f050633015bb3bec11",
   "startedAt": "2026-10-19T00:21:48.805Z",
-  "updatedAt": "2026-10-19T06:25:50.610Z",
-  "status": "running",
-  "stage": "confirmation",
+  "updatedAt": "2026-10-19T06:26:17.970Z",
+  "status": "finished",
+  "stage": "complete",
   "workers": 24,
   "planned": 2800,
-  "finished": 2799,
-  "active": [
-    {
-      "id": "confirmation/reference-depth/9490524/0",
-      "stage": "confirmation",
-      "matchup": "reference-depth",
-      "seed": 9490524,
-      "seat": 0,
-      "startedAt": "2026-10-19T06:15:25.557Z",
-      "game": "wingspan",
-      "players": 2
-    }
-  ],
+  "finished": 2800,
+  "active": [],
   "rows": [
     {
       "game": "wingspan",
@@ -1213,34 +1202,34 @@
         "pipeline": "study"
       },
       "planned": 200,
-      "finished": 199,
+      "finished": 200,
       "counts": {
-        "complete": 199,
+        "complete": 200,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 100,
-      "completeSeedGroups": 99,
+      "completeSeedGroups": 100,
       "winShare": {
-        "n": 99,
-        "mean": 0.5404040404040404,
-        "low": 0.4756242301066999,
-        "high": 0.6051838507013809,
+        "n": 100,
+        "mean": 0.54,
+        "low": 0.4758743430070037,
+        "high": 0.6041256569929964,
         "degenerate": false,
         "intervalMethod": "paired-t-approximate"
       },
       "margin": {
-        "n": 99,
-        "mean": 1.494949494949495,
-        "low": 0.08188273207912977,
-        "high": 2.9080162578198605,
+        "n": 100,
+        "mean": 1.475,
+        "low": 0.07575183383567197,
+        "high": 2.874248166164328,
         "degenerate": false,
         "intervalMethod": "paired-t-approximate"
       },
       "chance": 0.5,
-      "meanDecisionMs": 4020.332350268027,
+      "meanDecisionMs": 4051.0190710645966,
       "maxDecisionMs": 50452.865799997,
       "limitations": [
         "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
