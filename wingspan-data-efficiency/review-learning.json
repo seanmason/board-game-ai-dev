@@ -1,0 +1,428 @@
+{
+  "schema": 1,
+  "review": "independent read-only learning review",
+  "sourceRevision": "8a1f2fd7b652072372d0bba61dad1b152a07c776",
+  "status": "complete",
+  "counts": {
+    "calibration": 280,
+    "collection": 1320,
+    "screen": 80,
+    "confirmation": 0
+  },
+  "collection": {
+    "baseline": {
+      "games": 280,
+      "trainingGames": 224,
+      "developmentGames": 56,
+      "poolWallMs": 614220,
+      "cpuMicros": 15180625000
+    },
+    "hybrid": {
+      "games": 1040,
+      "trainingGames": 832,
+      "developmentGames": 208,
+      "poolWallMs": 572748,
+      "cpuMicros": 14331563000
+    }
+  },
+  "compute": {
+    "hybridBaselineWallRatio": 0.9324802188141057,
+    "hybridBaselineCpuRatio": 0.9440693647330067,
+    "freshGameCountRatio": 3.7142857142857144,
+    "hybridThroughputRatio": 3.983232715659542,
+    "matchedCollectionGatePassed": true
+  },
+  "training": {
+    "baseline": {
+      "selectedEpoch": 0,
+      "developmentEligible": false,
+      "parityPassed": true,
+      "dev": {
+        "huber": 0.3567082430535259,
+        "mae": 7.0267262219890245,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.0267262219890245,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "reference": {
+        "huber": 0.44741926499016316,
+        "mae": 8.0758552804278,
+        "saturation": 0,
+        "correctionMean": 0,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "linear": {
+        "huber": 0.41322170189559015,
+        "mae": 7.672723738099854,
+        "saturation": 0,
+        "correctionMean": -1.713742968968587,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "history": [
+        {
+          "epoch": 0,
+          "trainHuber": 0.30835479497909546,
+          "devHuber": 0.3567082430535259,
+          "devMae": 7.0267262219890245
+        },
+        {
+          "epoch": 1,
+          "trainHuber": 0.29488906264305115,
+          "devHuber": 0.35892296827168146,
+          "devMae": 7.050649661440653
+        },
+        {
+          "epoch": 2,
+          "trainHuber": 0.28755491971969604,
+          "devHuber": 0.36143852104495733,
+          "devMae": 7.0862730494643875
+        },
+        {
+          "epoch": 3,
+          "trainHuber": 0.2820427417755127,
+          "devHuber": 0.3638834473047838,
+          "devMae": 7.117427663385636
+        },
+        {
+          "epoch": 4,
+          "trainHuber": 0.2776704430580139,
+          "devHuber": 0.36586463459087615,
+          "devMae": 7.14656154770156
+        }
+      ],
+      "devByGeneration": {
+        "1": {
+          "huber": 0.36876307214159804,
+          "mae": 7.196679764935219,
+          "saturation": 0.014890252976190477,
+          "correctionMean": -1.8570119569723147,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "2": {
+          "huber": 0.3287663591420625,
+          "mae": 6.617145615027376,
+          "saturation": 0.03411574590773809,
+          "correctionMean": -1.5150872402236075,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "3": {
+          "huber": 0.3572811156623644,
+          "mae": 6.980554814904174,
+          "saturation": 0.04096330915178571,
+          "correctionMean": -1.446925645218951,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "4": {
+          "huber": 0.36307159234263797,
+          "mae": 7.164749702059144,
+          "saturation": 0.032299638605442174,
+          "correctionMean": -1.2997332687167504,
+          "examples": 5824,
+          "games": 56,
+          "setups": 56
+        },
+        "5": {
+          "huber": 0.36565907597896635,
+          "mae": 7.174501213019196,
+          "saturation": 0.04056347298534799,
+          "correctionMean": -1.1589351244434594,
+          "examples": 21632,
+          "games": 208,
+          "setups": 208
+        }
+      },
+      "fitWallMs": 94406,
+      "fitProcessCpuMicros": 92343750,
+      "readFilesBySplit": {
+        "train": 2528,
+        "dev": 648,
+        "other": 0
+      },
+      "artifactHashChecks": {
+        "model.json": true,
+        "zero-model.json": true,
+        "epoch-zero.json": true,
+        "linear-model.json": true,
+        "parity.json": true
+      },
+      "warmStartSha256": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+      "modelSha256": "32b28c19c50d9a9429c2757a56ee3e17afafbac5f6d5d4cb786b3689d2701f4c",
+      "inferenceFunctionSha256": "d93351f7af9bd9fe706157dcba916c7dee130777657dc1ca7642e609a66fe944",
+      "normalizationEqualsParent": true,
+      "layersEqualParent": true
+    },
+    "hybrid": {
+      "selectedEpoch": 1,
+      "developmentEligible": true,
+      "parityPassed": true,
+      "dev": {
+        "huber": 0.35296052503722275,
+        "mae": 6.981338254995963,
+        "saturation": 0.03924773770686158,
+        "correctionMean": -1.5195716488976179,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.0267262219890245,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "reference": {
+        "huber": 0.44741926499016316,
+        "mae": 8.0758552804278,
+        "saturation": 0,
+        "correctionMean": 0,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "linear": {
+        "huber": 0.4132020390857102,
+        "mae": 7.6707857325385564,
+        "saturation": 0,
+        "correctionMean": -1.6709570324789738,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "history": [
+        {
+          "epoch": 0,
+          "trainHuber": 0.3184881806373596,
+          "devHuber": 0.3567082430535259,
+          "devMae": 7.0267262219890245
+        },
+        {
+          "epoch": 1,
+          "trainHuber": 0.3086130917072296,
+          "devHuber": 0.35296052503722275,
+          "devMae": 6.981338254995963
+        },
+        {
+          "epoch": 2,
+          "trainHuber": 0.3027465343475342,
+          "devHuber": 0.35382114377685386,
+          "devMae": 6.997807206749272
+        },
+        {
+          "epoch": 3,
+          "trainHuber": 0.29825013875961304,
+          "devHuber": 0.3566960888806475,
+          "devMae": 7.037376826325075
+        },
+        {
+          "epoch": 4,
+          "trainHuber": 0.2946590185165405,
+          "devHuber": 0.3581442172378351,
+          "devMae": 7.058452270910706
+        },
+        {
+          "epoch": 5,
+          "trainHuber": 0.2907731533050537,
+          "devHuber": 0.35964313525816566,
+          "devMae": 7.076613349144643
+        }
+      ],
+      "devByGeneration": {
+        "1": {
+          "huber": 0.3671279658655614,
+          "mae": 7.169278019371699,
+          "saturation": 0.018337867373511903,
+          "correctionMean": -1.826871657880155,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "2": {
+          "huber": 0.32739879570699737,
+          "mae": 6.60499071034124,
+          "saturation": 0.041178385416666664,
+          "correctionMean": -1.568105297863975,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "3": {
+          "huber": 0.3528340031746964,
+          "mae": 6.940743695797643,
+          "saturation": 0.04920654296875,
+          "correctionMean": -1.5211504120559245,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "4": {
+          "huber": 0.35833940806029496,
+          "mae": 7.1045105736115755,
+          "saturation": 0.043817761479591835,
+          "correctionMean": -1.3721264977062406,
+          "examples": 5824,
+          "games": 56,
+          "setups": 56
+        },
+        "5": {
+          "huber": 0.35910245237856375,
+          "mae": 7.087168275857648,
+          "saturation": 0.04369813129578754,
+          "correctionMean": -1.309604378981796,
+          "examples": 21632,
+          "games": 208,
+          "setups": 208
+        }
+      },
+      "fitWallMs": 124844,
+      "fitProcessCpuMicros": 112968750,
+      "readFilesBySplit": {
+        "train": 3136,
+        "dev": 648,
+        "other": 0
+      },
+      "artifactHashChecks": {
+        "model.json": true,
+        "zero-model.json": true,
+        "epoch-zero.json": true,
+        "linear-model.json": true,
+        "parity.json": true
+      },
+      "warmStartSha256": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+      "modelSha256": "94475f4c0239bfd926629b523f1645a5a57bc30f5635a34e368f98aadb484a02",
+      "inferenceFunctionSha256": "aedaf663200c2e998b27df13bb7d50cfb5aad1115eede7b2a617cf5168c48783",
+      "normalizationEqualsParent": true,
+      "layersEqualParent": false
+    }
+  },
+  "commonDevelopment": {
+    "identicalFilesAndHashes": true,
+    "games": 648,
+    "uniqueSetupGroups": 592,
+    "sharedArmSetupGroups": 56,
+    "trainDevSetupOverlap": 0,
+    "trainingReplayMass": {
+      "retained": 0.75,
+      "freshOwn": 0.25
+    },
+    "developmentMass": {
+      "retained": 0.6,
+      "baselineFresh": 0.2,
+      "hybridFresh": 0.2
+    },
+    "weightingVerified": "trainer assigns equal generation then setup/game/round/viewer mass; retained generations 1-3, fresh baseline 4 and hybrid 5",
+    "caveat": "648 games are 592 unique setup groups; 56 fresh setups are paired across generator arms. Reused development is selection evidence, not a fresh audit or confirmation."
+  },
+  "modelComparison": {
+    "parentInferenceFunctionSha256": "d93351f7af9bd9fe706157dcba916c7dee130777657dc1ca7642e609a66fe944",
+    "baselineInferenceEqualsParent": true,
+    "hybridInferenceEqualsParent": false,
+    "baselineDifferentArtifactHashExplainedBy": "Exported identifier/metadata changes; normalization, all inference tensors and output transform are exactly unchanged."
+  },
+  "developmentChange": {
+    "hybridHuberDelta": -0.0037477180163031365,
+    "hybridHuberRelativeReduction": 0.010506395883149722,
+    "hybridMaeDelta": -0.04538796699306147,
+    "hybridMaeRelativeReduction": 0.006459333345168239,
+    "byGeneration": {
+      "1": {
+        "baselineMae": 7.196679764935219,
+        "hybridMae": 7.169278019371699,
+        "deltaMae": -0.027401745563519597
+      },
+      "2": {
+        "baselineMae": 6.617145615027376,
+        "hybridMae": 6.60499071034124,
+        "deltaMae": -0.012154904686136447
+      },
+      "3": {
+        "baselineMae": 6.980554814904174,
+        "hybridMae": 6.940743695797643,
+        "deltaMae": -0.03981111910653112
+      },
+      "4": {
+        "baselineMae": 7.164749702059144,
+        "hybridMae": 7.1045105736115755,
+        "deltaMae": -0.06023912844756829
+      },
+      "5": {
+        "baselineMae": 7.174501213019196,
+        "hybridMae": 7.087168275857648,
+        "deltaMae": -0.08733293716154833
+      }
+    }
+  },
+  "screen": {
+    "games": 80,
+    "validPairs": true,
+    "wins": 39,
+    "losses": 40,
+    "ties": 1,
+    "winnerShare": {
+      "pairs": 40,
+      "mean": 0.49375,
+      "ci95": [
+        0.3937769046479601,
+        0.5937230953520399
+      ],
+      "method": "paired Student t approximate"
+    },
+    "margin": {
+      "pairs": 40,
+      "mean": -1.2625,
+      "ci95": [
+        -3.6634352744487915,
+        1.1384352744487918
+      ],
+      "method": "paired Student t approximate"
+    },
+    "latencyPassed": true,
+    "passed": false,
+    "candidateFrozen": false
+  },
+  "findings": [
+    "Hybrid passed development eligibility separately from failing the playing-strength screen. Baseline selected epoch zero and did not pass development eligibility.",
+    "Hybrid produced about 3.7 times as many fresh games in slightly less collection wall time; a cheap-data throughput improvement is established for this implementation and hardware.",
+    "The small development improvement appears in every generation stratum but is checkpoint-selection evidence. No independent offline audit or confidence-gated strength confirmation was run.",
+    "Baseline inference tensors exactly equal the generation-3 parent; the screen therefore compares the new hybrid evaluator against the unchanged parent inference function within this research search package.",
+    "Both fits reduce training loss while later development loss worsens. These observations do not establish insufficient model capacity or justify larger models.",
+    "A near-even exploratory screen with a negative mean-margin estimate is inconclusive about small strength effects and does not qualify for advancement; no confirmation was correctly started.",
+    "Collection wall cost was matched within the prespecified tolerance; hybrid fitting cost more and sample count changes optimizer updates per epoch. This is not a pure data-quality effect at identical end-to-end compute.",
+    "The fixed actor and current residual targets do not by themselves create an improving teacher iteration loop. Faster collection alone has not produced a stronger replacement teacher."
+  ],
+  "recommendations": [
+    "Retain frozen generation 3 as the teacher; archive this hybrid checkpoint and preserve all negative screen results.",
+    "Prioritize improving cheap generator decision quality over network width: a next bounded, separately frozen study can spend its same search fraction on early/pivotal decisions rather than random decisions, with costs recalibrated before outcomes.",
+    "Use existing development and action diagnostics to choose one generator change; do not use the failed screen to tune or extend the same test.",
+    "Keep identical pooled development and explicit replay masses; require fresh playing strength before making a cheaper collector checkpoint the next teacher.",
+    "Do not interpret the 40-pair failed screen as proof the hybrid corpus is harmful or as proof cheap-data learning cannot work."
+  ],
+  "limitations": [
+    "Single generator comparison, optimization seed and selected checkpoint per arm; no variance across independent fit/corpus repetitions.",
+    "Same rules implementation and catalog underlie collection and evaluation; seed separation does not certify game correctness.",
+    "No raw features, observations, labels, individual game outcomes or local paths are included in this aggregate review."
+  ]
+}

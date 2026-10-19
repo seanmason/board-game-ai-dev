@@ -1,0 +1,273 @@
+{
+  "schema": 1,
+  "review": "independent read-only performance and corpus audit",
+  "generatedAt": "2026-10-19T19:07:32.346Z",
+  "status": "passed",
+  "issues": {},
+  "integrity": {
+    "newRawGames": 1680,
+    "newExamples": 166400,
+    "retainedReplayVerified": 2688,
+    "rawAndReceiptHashes": true,
+    "fitInventoryAndArtifactHashes": true,
+    "commonDevelopmentIdentical": true,
+    "sharedNormalization": true,
+    "baselineFunctionExactlyGen3": true,
+    "freshStages": {
+      "calibration-baseline": {
+        "games": 140,
+        "examples": 14560,
+        "validGames": 140,
+        "cheapDecisions": 0,
+        "searchedDecisions": 14168,
+        "oneStepEvaluations": 0,
+        "searchedIterations": 1981418,
+        "mainActions": 7280,
+        "errors": 0,
+        "illegalActions": 0
+      },
+      "calibration-hybrid": {
+        "games": 140,
+        "examples": 14560,
+        "validGames": 140,
+        "cheapDecisions": 11317,
+        "searchedDecisions": 3067,
+        "oneStepEvaluations": 77359,
+        "searchedIterations": 431906,
+        "mainActions": 7280,
+        "errors": 0,
+        "illegalActions": 0
+      },
+      "collect-baseline": {
+        "games": 280,
+        "examples": 29120,
+        "validGames": 280,
+        "cheapDecisions": 0,
+        "searchedDecisions": 29111,
+        "oneStepEvaluations": 0,
+        "searchedIterations": 4087665,
+        "mainActions": 14560,
+        "errors": 0,
+        "illegalActions": 0
+      },
+      "collect-hybrid": {
+        "games": 1040,
+        "examples": 108160,
+        "validGames": 1040,
+        "cheapDecisions": 84395,
+        "searchedDecisions": 22916,
+        "oneStepEvaluations": 574939,
+        "searchedIterations": 3191565,
+        "mainActions": 54080,
+        "errors": 0,
+        "illegalActions": 0
+      },
+      "screen": {
+        "games": 80,
+        "examples": 0,
+        "validGames": 80,
+        "cheapDecisions": 0,
+        "searchedDecisions": 8374,
+        "oneStepEvaluations": 0,
+        "searchedIterations": 2799574,
+        "mainActions": 4160,
+        "errors": 0,
+        "illegalActions": 0
+      }
+    }
+  },
+  "screen": {
+    "games": 80,
+    "pairs": 40,
+    "wins": 39,
+    "losses": 40,
+    "ties": 1,
+    "pairedWinnerShare": {
+      "n": 40,
+      "mean": 0.49375,
+      "variance": 0.09771634615384613,
+      "ci95": [
+        0.3937769046461433,
+        0.5937230953538568
+      ]
+    },
+    "pairedMargin": {
+      "n": 40,
+      "mean": -1.2625,
+      "variance": 56.3588141025641,
+      "ci95": [
+        -3.663435274492424,
+        1.1384352744924244
+      ]
+    },
+    "latency": {
+      "candidate": {
+        "decisions": 4249,
+        "meanMs": 1002.3157499646967,
+        "p95Ms": 1005.9209999998566,
+        "p99Ms": 1011.2186999998521,
+        "maxMs": 1060.4146999998484
+      },
+      "opponent": {
+        "decisions": 4125,
+        "meanMs": 1002.4400053818214,
+        "p95Ms": 1006.3524000002071,
+        "p99Ms": 1012.2388999999966,
+        "maxMs": 1108.8310000000056
+      },
+      "meanRatio": 0.9998760470287922,
+      "p95Ratio": 0.99957132312662,
+      "passed": true
+    },
+    "counters": {
+      "candidate": {
+        "decisions": 4249,
+        "iterations": 1431236,
+        "roots": 38588,
+        "unvisited": 0,
+        "rolloutCount": 1431236,
+        "learnedLeafCount": 444852,
+        "learnedFallbackCount": 986384,
+        "safetyCapCount": 0,
+        "unsettledLeaves": 0,
+        "settledLeaves": 1431236,
+        "illegalActions": 0,
+        "errors": 0,
+        "mainActions": 2080,
+        "powerDecisions": 2089,
+        "observationGenerationMs": 21390.52420001058,
+        "searchMs": 4237449.097399985,
+        "coverageFloorOverruns": 0,
+        "determinizationMs": 255033.16050012433,
+        "generationMs": 981654.6265003139,
+        "transitionMs": 1768693.0107001518,
+        "evaluationMs": 470247.1881996703
+      },
+      "opponent": {
+        "decisions": 4125,
+        "iterations": 1368338,
+        "roots": 36585,
+        "unvisited": 0,
+        "rolloutCount": 1368338,
+        "learnedLeafCount": 446513,
+        "learnedFallbackCount": 921825,
+        "safetyCapCount": 0,
+        "unsettledLeaves": 0,
+        "settledLeaves": 1368338,
+        "illegalActions": 0,
+        "errors": 0,
+        "mainActions": 2080,
+        "powerDecisions": 1965,
+        "observationGenerationMs": 21218.135099993553,
+        "searchMs": 4113846.887100018,
+        "coverageFloorOverruns": 0,
+        "determinizationMs": 244839.06440026313,
+        "generationMs": 968286.5735999106,
+        "transitionMs": 1687631.3215000853,
+        "evaluationMs": 469006.7754998689
+      }
+    },
+    "passed": false,
+    "recordedSummaryMatches": true
+  },
+  "fits": {
+    "baseline": {
+      "selectedEpoch": 0,
+      "eligible": false,
+      "parityPassed": true,
+      "devHuber": 0.3567082430535259,
+      "epochZeroHuber": 0.3567082430535259,
+      "zeroHuber": 0.44741926499016316,
+      "devMae": 7.0267262219890245,
+      "fitWallMs": 94406,
+      "fitCpuMs": 92343.75,
+      "fitStageWallMs": 124463,
+      "readFiles": 3176,
+      "inventory": {
+        "1/train": 768,
+        "1/dev": 128,
+        "2/train": 768,
+        "2/dev": 128,
+        "3/train": 768,
+        "3/dev": 128,
+        "4/train": 224,
+        "4/dev": 56,
+        "5/dev": 208
+      }
+    },
+    "hybrid": {
+      "selectedEpoch": 1,
+      "eligible": true,
+      "parityPassed": true,
+      "devHuber": 0.35296052503722275,
+      "epochZeroHuber": 0.3567082430535259,
+      "zeroHuber": 0.44741926499016316,
+      "devMae": 6.981338254995963,
+      "fitWallMs": 124844,
+      "fitCpuMs": 112968.75,
+      "fitStageWallMs": 155688,
+      "readFiles": 3784,
+      "inventory": {
+        "1/train": 768,
+        "1/dev": 128,
+        "2/train": 768,
+        "2/dev": 128,
+        "3/train": 768,
+        "3/dev": 128,
+        "4/dev": 56,
+        "5/train": 832,
+        "5/dev": 208
+      }
+    }
+  },
+  "costs": {
+    "baseline": {
+      "freshGames": 280,
+      "freshExamples": 29120,
+      "collectionWallMs": 614220,
+      "collectionCpuMs": 15180625,
+      "calibrationWallMs": 306587,
+      "calibrationCpuMs": 7175969,
+      "fitWallMs": 94406,
+      "fitCpuMs": 92343.75,
+      "fitStageWallMs": 124463,
+      "collectionPlusFitWallMs": 708626,
+      "collectionPlusFitCpuMs": 15272968.75,
+      "collectionPlusFitStageWallMs": 738683
+    },
+    "hybrid": {
+      "freshGames": 1040,
+      "freshExamples": 108160,
+      "collectionWallMs": 572748,
+      "collectionCpuMs": 14331563,
+      "calibrationWallMs": 85210,
+      "calibrationCpuMs": 2039500,
+      "fitWallMs": 124844,
+      "fitCpuMs": 112968.75,
+      "fitStageWallMs": 155688,
+      "collectionPlusFitWallMs": 697592,
+      "collectionPlusFitCpuMs": 14444531.75,
+      "collectionPlusFitStageWallMs": 728436
+    }
+  },
+  "hybridBaselineRatios": {
+    "freshGames": 3.7142857142857144,
+    "freshExamples": 3.7142857142857144,
+    "collectionWallMs": 0.9324802188141057,
+    "collectionCpuMs": 0.9440693647330067,
+    "fitWallMs": 1.3224159481388895,
+    "fitCpuMs": 1.2233502538071066,
+    "collectionPlusFitWallMs": 0.9844290217971116,
+    "collectionPlusFitCpuMs": 0.9457579588120352,
+    "collectionPlusFitStageWallMs": 0.986128014317373,
+    "gamesPerCollectionWall": 3.9832327156595424,
+    "gamesPerCollectionCpu": 3.934335603969265
+  },
+  "totalRuntimeWallMs": 2268858,
+  "screenWallMs": 339967,
+  "screenCpuMs": 7122578,
+  "confirmationRan": false,
+  "productionPromotion": false,
+  "meaning": "Hybrid produced more trajectories within the predeclared collection compute tolerance and improved shared development prediction slightly; the fresh paired playing-strength screen did not meet the promising-candidate gate. Baseline selected epochzero and is functionally the frozen generation3 actor; no confirmation, promotion, superiority or equivalence established.",
+  "recommendation": "Preserve this completed unfavorable pilot and all receipts; no rescue collection, retuning, restart or confirmation is warranted by the prespecified gate."
+}

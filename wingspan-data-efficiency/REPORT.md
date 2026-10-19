@@ -7,3 +7,5 @@ Controller status: **complete**. Completed displayed games: 1680 / 1680.
 Baseline collection versus hybrid cheap/search collection; architecture and frozen actor remain fixed. Collection costs, fitted prediction errors and playing strength are distinct. Outcomes remain hidden until each fixed valid seat-paired comparison completes. No automatic production promotion.
 
 Only allowlisted aggregates and exported model weights are public. Raw games, observations, features, labels, task inventories, read-file receipts and local paths remain private.
+
+Final independent analysis: [review and decision](REVIEW.md). The fixed exploratory screen failed; no confirmation or teacher update followed.
