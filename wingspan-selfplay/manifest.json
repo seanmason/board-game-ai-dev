@@ -30672,9 +30672,272 @@
     },
     "train-2": {
       "kind": "train",
-      "status": "running",
+      "status": "complete",
       "startedAt": 1792425711541,
+      "finishedAt": 1792425784549,
       "contextHash": "3834812f1691d56e2e75db7dbb7ceb27765e0df5c425c2fa5bf67bd3b3ebc277",
+      "result": {
+        "schema": 1,
+        "eligible": true,
+        "selectedEpoch": 1,
+        "optimizerReset": true,
+        "normalizationFrozen": true,
+        "parityPassed": true,
+        "device": "cuda",
+        "eligibilityMeaning": "Offline prediction only; playing-strength and runtime gates remain required",
+        "dev": {
+          "huber": 0.35086439050626006,
+          "mae": 6.927508073878873,
+          "saturation": 0.021610223679315477,
+          "correctionMean": -1.5747249548980877,
+          "examples": 26624,
+          "games": 256,
+          "setups": 256
+        },
+        "epochZero": {},
+        "reference": {
+          "huber": 0.43256970141572026,
+          "mae": 7.9117517526250865,
+          "saturation": 0,
+          "correctionMean": 0,
+          "examples": 26624,
+          "games": 256,
+          "setups": 256
+        },
+        "linear": {
+          "huber": 0.40200219944482507,
+          "mae": 7.525728142256948,
+          "saturation": 0,
+          "correctionMean": -1.692236041388371,
+          "examples": 26624,
+          "games": 256,
+          "setups": 256
+        },
+        "hashes": {
+          "model.json": "24b90a06c0653014533e29ce946da7dffd5b710b20f6f154a9145c211698918c",
+          "zero-model.json": "3f05da33dc38f278b8198dcdf2dff3c6750c012a75b46204a59a085971e2f0bf",
+          "epoch-zero.json": "f713a823a4e11acbaa54b458297a9f7c1554e378ca0019b0f952d1c94e87abcd",
+          "linear-model.json": "b5b01e51548182725bd80d3ab1e6d82b9af8dc873e43d2b24824efb85f13fa90",
+          "parity.json": "87be8ec3d86d43abf7589f00120a7c52faa845888a85b69111495e2c42767a2f"
+        },
+        "modelHashes": {
+          "generation-2": "24b90a06c0653014533e29ce946da7dffd5b710b20f6f154a9145c211698918c",
+          "generation-2-zero": "3f05da33dc38f278b8198dcdf2dff3c6750c012a75b46204a59a085971e2f0bf",
+          "generation-2-epoch-zero": "f713a823a4e11acbaa54b458297a9f7c1554e378ca0019b0f952d1c94e87abcd"
+        },
+        "config": {
+          "seed": 1729,
+          "epochs": 24,
+          "patience": 4,
+          "batchSize": 512,
+          "learningRate": 0.0005,
+          "weightDecay": 0.0001,
+          "auxiliaryWeight": 0.05,
+          "auxiliaryScale": 20,
+          "ridgeAlpha": 10,
+          "cpuThreads": 4,
+          "gpuBytes": 6442450944
+        },
+        "manifestSha256": "c036bfdbae8d1b2b455e1b8fc7cae44cf0b5c4ef4c3d6c7b820d44fba740a43a",
+        "trainerSha256": "ba99cb28f37073f0d5c9529f4e7a12359f38f09a390e834c279da80e1d54e07b",
+        "warmStartSha256": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+        "devGroupMaeInterval": {
+          "low": 6.482872262981615,
+          "high": 7.403352289024394,
+          "confidence": 0.95,
+          "replicates": 1000,
+          "seed": 1729,
+          "independentGroups": 256,
+          "method": "setup-group percentile bootstrap within generation; equal generation mass"
+        },
+        "history": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.3199496269226074,
+            "dev": {
+              "huber": 0.354952298352855,
+              "mae": 6.983735211012847,
+              "saturation": 0.016243780226934526,
+              "correctionMean": -1.370639391889906,
+              "examples": 26624,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.30161210894584656,
+            "dev": {
+              "huber": 0.35086439050626006,
+              "mae": 6.927508073878873,
+              "saturation": 0.021610223679315477,
+              "correctionMean": -1.5747249548980877,
+              "examples": 26624,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.2920001149177551,
+            "dev": {
+              "huber": 0.35211245539234537,
+              "mae": 6.953555553145563,
+              "saturation": 0.024709937686011905,
+              "correctionMean": -1.7030331927199662,
+              "examples": 26624,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.2837352752685547,
+            "dev": {
+              "huber": 0.3558041306390972,
+              "mae": 7.002806134652659,
+              "saturation": 0.03562970842633928,
+              "correctionMean": -1.8078602645695576,
+              "examples": 26624,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.27682653069496155,
+            "dev": {
+              "huber": 0.35842673679015147,
+              "mae": 7.044148951126907,
+              "saturation": 0.037189011346726183,
+              "correctionMean": -1.5645687446568597,
+              "examples": 26624,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.2710362672805786,
+            "dev": {
+              "huber": 0.36041496783424976,
+              "mae": 7.076895999105734,
+              "saturation": 0.04548892066592261,
+              "correctionMean": -1.5761806900735769,
+              "examples": 26624,
+              "games": 256,
+              "setups": 256
+            }
+          }
+        ],
+        "strata": {
+          "generation": {
+            "1": {
+              "huber": 0.3722938317968012,
+              "mae": 7.237016331256713,
+              "saturation": 0.012470935639880951,
+              "correctionMean": -1.7596757933798686,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            },
+            "2": {
+              "huber": 0.3294349492157188,
+              "mae": 6.617999816501033,
+              "saturation": 0.030749511718749997,
+              "correctionMean": -1.3897741164163064,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "round": {
+            "1": {
+              "huber": 0.5968019319553473,
+              "mae": 9.883150755303772,
+              "saturation": 0.0162353515625,
+              "correctionMean": -0.9590321331605764,
+              "examples": 8192,
+              "games": 256,
+              "setups": 256
+            },
+            "2": {
+              "huber": 0.40668699231309274,
+              "mae": 7.720995669531748,
+              "saturation": 0.04380580357142856,
+              "correctionMean": -1.9099989834586004,
+              "examples": 7168,
+              "games": 256,
+              "setups": 256
+            },
+            "3": {
+              "huber": 0.26689644220467124,
+              "mae": 5.985021816220156,
+              "saturation": 0.020345052083333332,
+              "correctionMean": -1.8689005253930113,
+              "examples": 6144,
+              "games": 256,
+              "setups": 256
+            },
+            "4": {
+              "huber": 0.13307219555192878,
+              "mae": 4.120864054459814,
+              "saturation": 0.0060546875,
+              "correctionMean": -1.5609681775801618,
+              "examples": 5120,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          "viewer": {
+            "0": {
+              "huber": 0.35621982796433505,
+              "mae": 7.012716418354389,
+              "saturation": 0.019825381324404763,
+              "correctionMean": -1.600840305694889,
+              "examples": 13312,
+              "games": 256,
+              "setups": 256
+            },
+            "1": {
+              "huber": 0.345508953048185,
+              "mae": 6.842299729403355,
+              "saturation": 0.023395066034226187,
+              "correctionMean": -1.5486096041012862,
+              "examples": 13312,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          "engineActivity": {
+            "absent": {
+              "huber": 0.42908148834100085,
+              "mae": 7.861779243178187,
+              "saturation": 0.024182274340965745,
+              "correctionMean": -1.5176371635397279,
+              "examples": 19282,
+              "games": 256,
+              "setups": 256
+            },
+            "present": {
+              "huber": 0.2538697973920365,
+              "mae": 5.728249296121721,
+              "saturation": 0.012091109592979377,
+              "correctionMean": -1.6189078400714982,
+              "examples": 7342,
+              "games": 160,
+              "setups": 160
+            }
+          }
+        },
+        "latency": {}
+      }
+    },
+    "screen-2": {
+      "kind": "screen",
+      "status": "running",
+      "startedAt": 1792425784628,
+      "contextHash": "07ad7c801b7c3a8f1c2ddf01c1448ebcd88a3f9cad814ba04c8f4ee146ea05c9",
       "result": {
         "hashes": {},
         "modelHashes": {},
