@@ -1,7 +1,7 @@
 # Wingspan unattended investigation
 
-Status: **planned**, stage **awaiting-approval**. Updated 2026-10-19T03:24:22.484Z.
-Recorded 0 / 0 scheduled games; maximum30 BelowNormal workers. Deadline not launched.
+Status: **running**, stage **waiting-for-current-study**. Updated 2026-10-19T03:32:46.482109+00:00.
+Recorded 0 / 0 scheduled games; maximum30 BelowNormal workers. Deadline 2026-10-19T12:32:46.412131+00:00.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-overnight) · [Protocol](protocol.md) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Manifest](manifest.json) · [Admission](admission.json) · [Diagnostic records](diagnostics/) · [Raw games](games/)
 
