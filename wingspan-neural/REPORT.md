@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **screen** · snapshot 2026-10-19T13:05:55.364Z.
-Recorded 649 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **screen** · snapshot 2026-10-19T13:07:30.370Z.
+Recorded 665 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -38,9 +38,9 @@ Offline status: **passed**. Held-out learning gate: `True`. Offline prediction a
 | canary/reference | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 1.50 [—, —] |
 | canary/deployed | 2 / 2 | 1 / 1 | 100.0% [0.0, 100.0]% | 7.50 [—, —] |
 | canary/neural | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 0.50 [—, —] |
-| screen/linear | 38 / 64 | 18 / 32 | 50.0% [37.9, 62.1]% | -0.67 [-4.31, 2.98] |
-| screen/reference | 37 / 64 | 18 / 32 | 52.8% [34.2, 71.3]% | 2.14 [-1.98, 6.26] |
-| screen/deployed | 38 / 64 | 18 / 32 | 54.2% [37.0, 71.4]% | 1.08 [-2.60, 4.76] |
+| screen/linear | 43 / 64 | 21 / 32 | 54.8% [42.5, 67.0]% | 1.00 [-2.84, 4.84] |
+| screen/reference | 42 / 64 | 21 / 32 | 52.4% [36.7, 68.0]% | 2.12 [-1.37, 5.61] |
+| screen/deployed | 44 / 64 | 21 / 32 | 58.3% [42.5, 74.2]% | 2.38 [-1.33, 6.09] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
 
