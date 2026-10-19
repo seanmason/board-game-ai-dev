@@ -49,15 +49,18 @@ first launch. Do not reset a clock, overwrite a failed stage, start duplicate
 controllers or overlap GPU fits with timed games. Preserve source/model/task/config
 hashes and all incomplete records. No production promotion is automatic.
 
-Before data collection, run 28 full collection games per arm as outcome-blind
+Before data collection, run 140 full collection games per arm as outcome-blind
 calibration, excluded from fitting/strength. Calibration includes redaction,
-features, four-world label baselines and raw record writes. One worker batch per
-arm is a noisy cost estimate, not a population timing guarantee.
+features, four-world label baselines and raw record writes. Wait for all 140 valid
+records, then estimate steady throughput using elapsed time between completions
+28 and 112 (84 completions); exclude startup and final-tail duration from sizing.
+Retain whole-batch wall and process CPU costs separately.
 
-Use only whole-batch timings to freeze each arm's collection count. Aim for
-20 minutes of pool wall time per arm, reducing the COMMON target if either arm's
+Use only that fixed steady timing window to freeze each arm's collection count.
+For a fast first learning cycle, aim for 10 minutes of pool wall time per arm,
+reducing the COMMON target if either arm's
 4,080-game cap or the original deadline requires it. Round down to balanced
-40-game blocks, require at least 280 per arm, and require predicted cost ratio
+40-game blocks, require at least 160 per arm, and require predicted cost ratio
 within [0.9,1.1]. If no feasible count pair exists, stop before broad collection.
 All maximum seed banks and sizing rules are frozen before outcomes. Scores do
 not enter allocation; no post-outcome extension, resizing or rescue is permitted.
@@ -153,3 +156,10 @@ report an unresolved failure/deadline and pause. Do not run indefinitely.
 The 32/16 versus 64/32 width comparison remains separately approved, behind this
 experiment. Do not combine it with a policy/data change or start it automatically
 as a rescue for an unfavorable result.
+
+The immediate goal is faster teacher improvement, not game volume alone. This
+first controlled batch checks whether cheap examples retain useful learning. A
+qualified research checkpoint can become the teacher for the next bounded batch;
+this controller does not silently start further cycles or retune from strength
+outcomes. Subsequent cycles should preserve replay and test improvement against
+their actual parent teacher before accepting a new teacher.

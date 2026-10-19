@@ -1,6 +1,6 @@
 import {objectHash} from '../wingspan-selfplay/common.mjs';
 
-export const LIMITS=Object.freeze({elapsedMs:3*3600e3,workers:28,calibrationPerArm:140,targetPoolMs:20*60e3,minGroups:280,maxGroups:4080,confirmationPairs:100,screenPairs:40,analysisReserveMs:5*60e3,fitReserveMs:12*60e3,confirmationReserveMs:43*60e3});
+export const LIMITS=Object.freeze({elapsedMs:3*3600e3,workers:28,calibrationPerArm:140,targetPoolMs:10*60e3,minGroups:160,maxGroups:4080,confirmationPairs:100,screenPairs:40,analysisReserveMs:5*60e3,fitReserveMs:12*60e3,confirmationReserveMs:43*60e3});
 export const ARMS=Object.freeze(['baseline','hybrid']);
 export const GEN3='frozen-generation-3';
 export const EXPLORATION=Object.freeze({trainingFraction:.2,temperature:1,safetyMargin:3,earlyActionsPerRound:2});
