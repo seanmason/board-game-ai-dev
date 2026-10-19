@@ -8,8 +8,8 @@ separate gates.
 
 The campaign completed all 4,064 games from 14:44:26.907 to 17:41:37.491 UTC
 (2 h 57 min), before its unchanged 20:44:26.907 UTC deadline. Controller and
-publisher exited normally after final publication. No additional games, model
-retuning or production promotion followed the audit or confirmation.
+publisher exited normally after final publication. After the audit, only the prespecified confirmation and exploratory scaling
+games ran; no model retuning or production promotion followed.
 
 [Dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-selfplay)
 · [Frozen protocol](https://github.com/seanmason/board-game-ai-dev/blob/04b01cd84c9cc57b1d55099c7524f484e4eeb56e/docs/plans/wingspan-selfplay-loop-2026-10-19.md)
