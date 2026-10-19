@@ -1,6 +1,8 @@
 # Wingspan neural pilot — execution record
 
-Status: implementation and bounded data collection active, October19,2026.
+Status: fixed pilot and bounded diagnostics complete, October19,2026.
+Lasting findings and the production decision are in the
+[neural pilot evidence](../games/wingspan/2026-10-19-neural-pilot.md).
 The [approved plan](../plans/wingspan-neural-pilot-2026-10-19.md) owns the fixed
 questions, sample profiles, model selection and strength gates. Production remains
 the [reviewed opening package](../games/wingspan/2026-10-19-selection.md).
@@ -64,9 +66,9 @@ rounds and both viewers. Synthetic MLP maximum PyTorch/scalar discrepancy was
 this86k-parameter shape. These are implementation checks, not trained Wingspan
 accuracy, strength or actual iPad Safari measurements.
 
-The real fit must pass its own30+-case parity, round/viewer coverage,0.001-point
-tolerance and20ms p95 encoding/inference ceiling before strength games. The
-selected checkpoint and both references remain fixed during all game tests.
+The real fit passed59 development parity cases per model, round/viewer coverage,
+0.001-point tolerance and20ms p95 encoding/inference ceiling before strength games.
+The selected checkpoint and both references stayed fixed through all game tests.
 
 ## Evidence and current results
 
@@ -78,7 +80,11 @@ playing strength. Publication does not promote a model.
 
 The [bounded diagnostic follow-up](../plans/wingspan-neural-diagnostics-2026-10-19.md)
 freezes a train/dev-only feature/capacity comparison and a fresh constant-value
-attribution control. Both wait until the complete fixed pilot has stopped.
+attribution control. Both ran after the complete fixed pilot stopped, with no
+overlapping GPU fit and timed strength games. A separately tested transport-only
+resume retained the first control record and original deadline; original failure
+artifacts remain alongside the repaired complete result. See the evidence report
+for conclusions, the long search tail and interpretation limits.
 
 The evidence publisher refreshes public snapshots every90seconds; the page polls
 every60seconds. It shows the current stage, collection counts, latest optimization
@@ -93,6 +99,15 @@ before the combined implementation commit. The full source archive and manifest,
 plus per-file dataset/model hashes, preserve exact reproduction inputs.
 
 ## Verification commands
+
+Implementation validation recorded1,024 passing Node tests,395 syntax-checked
+modules and11 passing Python training tests. Source commits85d5a31/91647e4 and the
+diagnostic protocol commit69943e7 passed GitHub Validation and Pages. Final artifact
+checks passed8 focused dashboard/static-packaging tests and the documentation
+check covering79 files/15 packaged entries. External mechanical-resume tests
+passed7 checks; the repair-aware publisher passed3 synthetic checks. Independent
+audits reconciled all600 confirmation games and64 repaired control games. These
+checks do not add human-strength, physical-table or real iPad acceptance evidence.
 
 Run Node tests with `node --test --test-concurrency=3`, syntax/docs checks with
 `node scripts/check-syntax.mjs` and `node scripts/check-docs.mjs`. Run Python

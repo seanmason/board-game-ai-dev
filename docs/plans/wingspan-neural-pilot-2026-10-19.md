@@ -1,6 +1,8 @@
 # Wingspan: small neural value pilot
 
-Status: user-authorized implementation and bounded execution, October19,2026.
+Status: fixed pilot completed, October19,2026; no production promotion.
+The [results and interpretation](../games/wingspan/2026-10-19-neural-pilot.md)
+record the fresh confirmation decision and exploratory follow-ups.
 Current progress and implementation evidence are recorded in the
 [active work record](../work/wingspan-neural-2026-10-19.md). Scope: original Wingspan, two players. The user explicitly
 requested a simplified neural approach; this plan gives bounded first milestones

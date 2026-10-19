@@ -1,5 +1,9 @@
 # Wingspan neural pilot diagnostics
 
+Status: completed with a recorded mechanical transport-validation repair.
+The [results](../games/wingspan/2026-10-19-neural-pilot.md) preserve the original
+clock, failed artifacts and complete repaired control alongside the size probe.
+
 Prepared after the completed192-game screen and before fresh confirmation
 results. The user authorized autonomous investigation while away. These bounded
 diagnostics do not change the frozen pilot, its selected checkpoint or its gates.
