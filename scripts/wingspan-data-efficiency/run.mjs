@@ -10,6 +10,7 @@ import {ARMS,GEN3,LIMITS,GATES,calibrationTasks,collectionTasks,screenTasks,conf
 export {acquireCampaignLock,assertNoLiveChildren};
 export function freezeSources(extraFiles=[]){
  const hashes=sourceHashes();
+ const protocol=resolve(ROOT,'docs/plans/wingspan-data-efficiency-2026-10-19.md');hashes[protocol]=hash(readFileSync(protocol));
  const dir=resolve(ROOT,'scripts/wingspan-data-efficiency');
  for(const name of readdirSync(dir))if(/\.(mjs|py|js)$/.test(name)){const p=resolve(dir,name);hashes[p]=hash(readFileSync(p));}
  for(const p of extraFiles)hashes[resolve(p)]=hash(readFileSync(p));
@@ -44,7 +45,7 @@ export function createController({out,executeStage,now=Date.now,workers=28,froze
  let state=existsSync(path)?read(path):{schema:1,protocol:'wingspan-data-efficiency-v1',config,configHash,status:'prepared',createdAt:now(),startedAt:null,deadlineEpochMs:null,stages:{},allocation:null,candidate:null,productionPromotion:false,disclosure:{calibration:'one whole batch per arm at 28 workers; noisy throughput estimate',horizonConvention:'searched horizon 4 excludes root; cheap one-step includes root only',trainingReplayMass:.75,commonDevelopment:true,outcomesClosedUntilFixedStageComplete:true}};
  if(state.configHash!==configHash||objectHash(state.config)!==configHash)throw Error('Resume configuration/source/model mismatch');
  const save=()=>atomic(path,state);
- function check(){guard(frozenHashes);verifyModels(modelPaths,modelHashes);for(const e of Object.values(state.stages))if(e.result?.models)verifyModels(e.result.models,e.result.modelHashes);if(state.startedAt!==null&&state.deadlineEpochMs!==state.startedAt+limits.elapsedMs)throw Error('Original deadline changed');if(state.allocation&&objectHash(state.allocation)!==state.allocationHash)throw Error('Frozen collection allocation changed');if(state.deadlineEpochMs!==null&&now()>=state.deadlineEpochMs)throw Error('Original absolute three-hour deadline reached');}
+ function check({allowExpired=false}={}){guard(frozenHashes);verifyModels(modelPaths,modelHashes);for(const e of Object.values(state.stages))if(e.result?.models)verifyModels(e.result.models,e.result.modelHashes);if(state.startedAt!==null&&state.deadlineEpochMs!==state.startedAt+limits.elapsedMs)throw Error('Original deadline changed');if(state.allocation&&objectHash(state.allocation)!==state.allocationHash)throw Error('Frozen collection allocation changed');if(!allowExpired&&state.deadlineEpochMs!==null&&now()>=state.deadlineEpochMs)throw Error('Original absolute three-hour deadline reached');}
  const rawPath=(key,task)=>resolve(out,'stages',key,'games',encodeURIComponent(task.id)+'.json');
  function verifyCollections(){if(testOnlySkipInputs)return;verifyRetained(retained);for(const [key,entry] of Object.entries(state.stages))for(const r of entry.result?.recordReceipts??[])verifyRawRecord(r,rawPath(key,r.task));}
  async function stage(key,kind,context={}){
@@ -64,6 +65,9 @@ export function createController({out,executeStage,now=Date.now,workers=28,froze
   }catch(e){state.stages[key]={...entry,status:'failed',finishedAt:now(),error:e.stack,failure:e.receipt??{reason:e.message}};save();throw e;}
  }
  async function run(){
+  // A terminal receipt remains immutable on later inspection, including after
+  // its absolute deadline. Source/model/data verification still applies.
+  if(['complete','stopped','failed'].includes(state.status)){check({allowExpired:true});verifyCollections();return state;}
   try{check();verifyCollections();if(['complete','stopped','failed'].includes(state.status))return state;
    if(state.startedAt===null){state.startedAt=now();state.deadlineEpochMs=state.startedAt+limits.elapsedMs;state.status='running';save();}
    const calibration={};for(const arm of ARMS)calibration[arm]=await stage('calibration-'+arm,'calibration',{arm,tasks:calibrationTasks(arm,limits.calibrationPerArm)});

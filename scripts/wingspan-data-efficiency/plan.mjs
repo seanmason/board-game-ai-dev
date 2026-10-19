@@ -33,10 +33,13 @@ export function freezeAllocation(calibrations,{workers=28,targetPoolMs=LIMITS.ta
  const rates={};for(const arm of ARMS){const c=calibrations[arm];if(c?.complete!==true||c.gameCount!==limits.calibrationPerArm||!Number.isFinite(c.poolWallMs)||c.poolWallMs<=0)throw Error('Complete whole-batch calibration timings required');rates[arm]=c.poolWallMs/c.gameCount;}
  // Only whole-batch elapsed cost enters allocation; scores and wins are never inputs.
  const reserve=limits.confirmationReserveMs+limits.fitReserveMs+limits.analysisReserveMs;
- const target=Math.min(targetPoolMs,(availableMs-reserve)/2);
+ const target=Math.min(targetPoolMs,(availableMs-reserve)/2,...ARMS.map(a=>limits.maxGroups*rates[a]));
  if(!Number.isFinite(target)||target<=0)throw Error('Insufficient deadline reserve');
  const counts=Object.fromEntries(ARMS.map(a=>[a,Math.min(limits.maxGroups,Math.floor(target/rates[a]/40)*40)]));
  if(Object.values(counts).some(n=>n<limits.minGroups))throw Error('Calibration cannot fund minimum collection plus fixed confirmation');
- return {counts,ratesMsPerGroup:rates,targetPoolMs:target,estimatedPoolMs:Object.fromEntries(ARMS.map(a=>[a,counts[a]*rates[a]])),reserveMs:reserve,outcomeBlind:true,frozen:true,workers};
+ const estimatedPoolMs=Object.fromEntries(ARMS.map(a=>[a,counts[a]*rates[a]]));
+ const expectedComputeMatch=computeMatch(Object.fromEntries(ARMS.map(a=>[a,{poolWallMs:estimatedPoolMs[a]}])));
+ if(!expectedComputeMatch.passed)throw Error('Rounded fixed counts cannot meet expected compute matching within [.9,1.1]');
+ return {counts,ratesMsPerGroup:rates,targetPoolMs:target,estimatedPoolMs,expectedComputeMatch,reserveMs:reserve,outcomeBlind:true,frozen:true,workers};
 }
 export function computeMatch(collections){const [a,b]=ARMS.map(k=>collections[k]?.poolWallMs);if(![a,b].every(n=>Number.isFinite(n)&&n>0))throw Error('Actual pool timing required');const hybridBaselineRatio=b/a,relativeDifference=Math.abs(hybridBaselineRatio-1),passed=hybridBaselineRatio>=.9&&hybridBaselineRatio<=1.1;return {hybridBaselineRatio,relativeDifference,passed,equalComputeClaimAllowed:passed,criterion:'hybrid / baseline actual whole-batch pool wall in [.9,1.1]; no rescue tuning'};}
