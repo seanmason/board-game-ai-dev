@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "study": "wingspan-evaluator-compute-2026-10-18",
+  "revision": "535440c87545e7c59b167c81ff6123aa3310af22",
+  "startedAt": "2026-10-19T00:13:11.396Z",
+  "updatedAt": "2026-10-19T00:15:53.937Z",
+  "status": "finished",
+  "stage": "complete",
+  "workers": 4,
+  "planned": 8,
+  "finished": 8,
+  "active": [],
+  "rows": [
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/reference-n100-h4",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 100 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 2,
+      "finished": 2,
+      "counts": {
+        "complete": 2,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 1,
+      "winShare": {
+        "mean": 0,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "margin": {
+        "mean": -8.5,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 218.21346203703717,
+      "maxDecisionMs": 482.33050000000367,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/reference-n100-h12",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 100 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 2,
+      "finished": 2,
+      "counts": {
+        "complete": 2,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 1,
+      "winShare": {
+        "mean": 0.5,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "margin": {
+        "mean": -2,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 461.5599223404255,
+      "maxDecisionMs": 1236.0758999999962,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/reference-n300-h4",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 300 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 2,
+      "finished": 2,
+      "counts": {
+        "complete": 2,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 1,
+      "winShare": {
+        "mean": 0.5,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "margin": {
+        "mean": 0,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 721.2782798245619,
+      "maxDecisionMs": 2605.8938999999955,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/reference-n300-h12",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 300 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 2,
+      "finished": 2,
+      "counts": {
+        "complete": 2,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 1,
+      "winShare": {
+        "mean": 1,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "margin": {
+        "mean": 3,
+        "low": null,
+        "high": null,
+        "n": 1
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1577.4019788888877,
+      "maxDecisionMs": 3683.902000000002,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    }
+  ],
+  "method": "Two-player Wingspan: reference and four evaluator hypotheses, crossed 100/300 root samples × horizons 4/12 against a fixed corrected reference. Forty independent seat pairs per screen cell. At most one selected challenger enters fresh direct strength/compute confirmation. The corrected research pipeline settles pending powers; the deployed pipeline is preserved for a separate matched-requested-time comparison. Production defaults remain unchanged during research."
+}

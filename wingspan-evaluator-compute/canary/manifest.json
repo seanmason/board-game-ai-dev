@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "study": "wingspan-evaluator-compute-2026-10-18",
+  "mode": "canary",
+  "revision": "535440c87545e7c59b167c81ff6123aa3310af22",
+  "hashes": {
+    "benchmarks/wingspan/evaluator-compute-methods.md": "8e259f2d1b398d917fe92d414f5a9e647918dfee02493320702eee92073d0a40",
+    "docs/work/wingspan-evaluator-compute-2026-10-18.md": "06dad3703b913ac07ca40c66f7b79c2699b7bb77e0711395ac4c0862433ea339",
+    "scripts/wingspan-study/analyze.mjs": "53129a8ba0e8df75fc04fde5fe467c209597bc145664ae33190ae8d0aecfce83",
+    "scripts/wingspan-study/dashboard.mjs": "feb0f7cbe455d48127a0dfab4c881a4a6222aadaef6072da398a72d8c0fdea46",
+    "scripts/wingspan-study/deployed/actions.js": "108d5640c3386cba3f0ae06d570c15d4ec715b58cef7be91ea214b4733b387d3",
+    "scripts/wingspan-study/deployed/analysis.js": "a57f5662a82f13c0973a170930741ba6a635dd7dabb1bf7294491535a884d24e",
+    "scripts/wingspan-study/deployed/app.js": "6e4835efbc7f198f467084e5641cf8b79bf94867605b636cab8af4252e78696c",
+    "scripts/wingspan-study/deployed/belief.js": "0fde8f487071c1c6f26f207b27b63b67ae5f9f31b281e409066653d02bcbd63f",
+    "scripts/wingspan-study/deployed/catalog.js": "185c438363ee794c6ae543ea6100ee871ee9f3ee4d524b07fd6ec28c59fba2a1",
+    "scripts/wingspan-study/deployed/core.js": "12d2fbdb7de586c0eaed87302cd2c7064934d1613d1d1b53569863fc9df4c900",
+    "scripts/wingspan-study/deployed/data/birds.json": "de9889d5c8849a871b425272587e4db3df5d7f127c378714ac8ec439b6e09188",
+    "scripts/wingspan-study/deployed/data/bonuses.json": "f18724196b0d5b7b41b759d2d447aee34f892b8b048e6f873e9876d0b0adbd5f",
+    "scripts/wingspan-study/deployed/data/goal-tiles.json": "7bd5e7213b350944deafcf5b0cd47db53566c47f0153b8018156c244b109d4a5",
+    "scripts/wingspan-study/deployed/data/power-index.json": "97dca3ec15464cb90247c7d4d831e8830a3c2628483fa6d221e4fc8d549742d8",
+    "scripts/wingspan-study/deployed/development-evaluators.js": "2eb7883624b7d80b7b1cb0f1b7288e1f8c1a94b66e00a3fc95eb65ed89ffeab4",
+    "scripts/wingspan-study/deployed/efficiency-evaluators.js": "6e34d2df0747459a433230029f5a960e868ebb32831cf679c2a8ac3682631834",
+    "scripts/wingspan-study/deployed/final-evaluators.js": "67c17b74731ead7320eca30a9cc1471e5034d43c1ad6d740a2112baf6a5acebe",
+    "scripts/wingspan-study/deployed/leaf-evaluators.js": "d5bc632a08cbb480b7cf110e6bd074749af10bd601b1eb1b6d821792ab0f84ce",
+    "scripts/wingspan-study/deployed/mechanics-evaluators.js": "307ae0c5ee8430a9275c8d0386f83412cfdbd0f0a54c20eb676aeb1a68730c2c",
+    "scripts/wingspan-study/deployed/move-editor.js": "b100cf1891968412477f0121f5292d0b6cf82b23df389de9017fe61224410b7e",
+    "scripts/wingspan-study/deployed/observation-io.js": "11b5bce8afc9e5405061ead0ea973bb9e9ffc501b7e5128ffb755a052a203b26",
+    "scripts/wingspan-study/deployed/observations.js": "6515146a62af99e070298e22e8a956003752bd1d9a23f75bbbcd4767751a8223",
+    "scripts/wingspan-study/deployed/opening-strategy.js": "aff4585de825ff3f18b8fb83c35d41294b852c8cdb9f24dde14a92bc9249307e",
+    "scripts/wingspan-study/deployed/physical-ui.js": "bd388fd31b044e52a9b4fb5649689b8429770448d8b1f811f65852d658ed55fd",
+    "scripts/wingspan-study/deployed/planning-evaluators.js": "8753be08436e1df2f9dea82b2e87358d3dbdb412be5533445ad362cd7efac4ce",
+    "scripts/wingspan-study/deployed/powers.js": "ae2546b9cac5ddc70f1b9b1e8dc00f9cd246371cc9ab6d3db5dd1a582e4877f8",
+    "scripts/wingspan-study/deployed/rollout.js": "e80a223cdf91b84503269022c81b7ea0f685e65a21d80cb58fad2266871e7e3a",
+    "scripts/wingspan-study/deployed/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
+    "scripts/wingspan-study/deployed/source.json": "928e28a7295199b136d45e6542f29fb66a91fe13c7fa2ac790d8f5ffd8e7b994",
+    "scripts/wingspan-study/deployed/worker.js": "9e6bd20b42addc3d1157838d1e53d97f6c487a906de2283d09475bc506825e05",
+    "scripts/wingspan-study/evaluators.mjs": "9f1b871b8e227180921e1232525c1a3ef2ebac644f184db56c08a7e6fe843f95",
+    "scripts/wingspan-study/fixtures.mjs": "01f32e9103f4947839a54d1d69f9648a9ac2e435e7d55fe41bdd478646c5ae3a",
+    "scripts/wingspan-study/game.mjs": "e8db68f2f557746f5f34cc21031744f112bbce89bdb23e94618bf6c9136a1369",
+    "scripts/wingspan-study/plan.mjs": "437d45318308477e81da41639be23254e2ecf2bf09be07ab6538cbccbe8c41fe",
+    "scripts/wingspan-study/preflight.mjs": "41111291f1268b0c62bc14cdf6b63ba213ff7fdc01d27ad99307ab67a0920748",
+    "scripts/wingspan-study/rollout.mjs": "91fbd6003c130edb2b83eeb3dd7f682072b2654692d92f2e1749010e2d187f54",
+    "scripts/wingspan-study/run.mjs": "a1d9644da3ca95b11ae235ada900edf52e75a069786d69c12c2a9dce344d6c06",
+    "scripts/wingspan-study/search.mjs": "bdbb417cbbaa9e34ac36513312f5f49e3c945acf04bfc2b32e052122d0cada6e",
+    "wingspan/actions.js": "108d5640c3386cba3f0ae06d570c15d4ec715b58cef7be91ea214b4733b387d3",
+    "wingspan/analysis.js": "a57f5662a82f13c0973a170930741ba6a635dd7dabb1bf7294491535a884d24e",
+    "wingspan/app.js": "6e4835efbc7f198f467084e5641cf8b79bf94867605b636cab8af4252e78696c",
+    "wingspan/belief.js": "0fde8f487071c1c6f26f207b27b63b67ae5f9f31b281e409066653d02bcbd63f",
+    "wingspan/catalog.js": "185c438363ee794c6ae543ea6100ee871ee9f3ee4d524b07fd6ec28c59fba2a1",
+    "wingspan/core.js": "12d2fbdb7de586c0eaed87302cd2c7064934d1613d1d1b53569863fc9df4c900",
+    "wingspan/data/birds.json": "de9889d5c8849a871b425272587e4db3df5d7f127c378714ac8ec439b6e09188",
+    "wingspan/data/bonuses.json": "f18724196b0d5b7b41b759d2d447aee34f892b8b048e6f873e9876d0b0adbd5f",
+    "wingspan/data/goal-tiles.json": "7bd5e7213b350944deafcf5b0cd47db53566c47f0153b8018156c244b109d4a5",
+    "wingspan/data/power-index.json": "97dca3ec15464cb90247c7d4d831e8830a3c2628483fa6d221e4fc8d549742d8",
+    "wingspan/development-evaluators.js": "2eb7883624b7d80b7b1cb0f1b7288e1f8c1a94b66e00a3fc95eb65ed89ffeab4",
+    "wingspan/efficiency-evaluators.js": "a2e3560addb1c8b1ae312573b3472b22d5cb74cc55ac3e479b684dc9a171370f",
+    "wingspan/final-evaluators.js": "71ca8daf96a9d96a412319d8518e2092c261eaf3425f3d8a451358520b269dd4",
+    "wingspan/leaf-evaluators.js": "d5bc632a08cbb480b7cf110e6bd074749af10bd601b1eb1b6d821792ab0f84ce",
+    "wingspan/mechanics-evaluators.js": "307ae0c5ee8430a9275c8d0386f83412cfdbd0f0a54c20eb676aeb1a68730c2c",
+    "wingspan/move-editor.js": "b100cf1891968412477f0121f5292d0b6cf82b23df389de9017fe61224410b7e",
+    "wingspan/observation-io.js": "11b5bce8afc9e5405061ead0ea973bb9e9ffc501b7e5128ffb755a052a203b26",
+    "wingspan/observations.js": "6515146a62af99e070298e22e8a956003752bd1d9a23f75bbbcd4767751a8223",
+    "wingspan/opening-strategy.js": "68f4240f27052637a1f833f07da74dd2ade380879ada3345ad92b7b8790a0803",
+    "wingspan/physical-ui.js": "bd388fd31b044e52a9b4fb5649689b8429770448d8b1f811f65852d658ed55fd",
+    "wingspan/planning-evaluators.js": "8753be08436e1df2f9dea82b2e87358d3dbdb412be5533445ad362cd7efac4ce",
+    "wingspan/powers.js": "ae2546b9cac5ddc70f1b9b1e8dc00f9cd246371cc9ab6d3db5dd1a582e4877f8",
+    "wingspan/rollout.js": "e80a223cdf91b84503269022c81b7ea0f685e65a21d80cb58fad2266871e7e3a",
+    "wingspan/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
+    "wingspan/worker.js": "9e6bd20b42addc3d1157838d1e53d97f6c487a906de2283d09475bc506825e05"
+  },
+  "workers": 4,
+  "priority": 10,
+  "cpuCount": 32,
+  "calibration": null,
+  "timeBudgetMs": null,
+  "tasks": [
+    {
+      "id": "canary/reference-n100-h4/7900000/0",
+      "stage": "canary",
+      "matchup": "reference-n100-h4",
+      "seed": 7900000,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "canary/reference-n100-h4/7900000/1",
+      "stage": "canary",
+      "matchup": "reference-n100-h4",
+      "seed": 7900000,
+      "seat": 1,
+      "candidate": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "canary/reference-n100-h12/7900997/0",
+      "stage": "canary",
+      "matchup": "reference-n100-h12",
+      "seed": 7900997,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "canary/reference-n100-h12/7900997/1",
+      "stage": "canary",
+      "matchup": "reference-n100-h12",
+      "seed": 7900997,
+      "seat": 1,
+      "candidate": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "canary/reference-n300-h4/7901994/0",
+      "stage": "canary",
+      "matchup": "reference-n300-h4",
+      "seed": 7901994,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "canary/reference-n300-h4/7901994/1",
+      "stage": "canary",
+      "matchup": "reference-n300-h4",
+      "seed": 7901994,
+      "seat": 1,
+      "candidate": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "canary/reference-n300-h12/7902991/0",
+      "stage": "canary",
+      "matchup": "reference-n300-h12",
+      "seed": 7902991,
+      "seat": 0,
+      "candidate": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    },
+    {
+      "id": "canary/reference-n300-h12/7902991/1",
+      "stage": "canary",
+      "matchup": "reference-n300-h12",
+      "seed": 7902991,
+      "seat": 1,
+      "candidate": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "opponent": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "rolloutStepLimit": 192
+    }
+  ],
+  "possibleConfirmation": null
+}

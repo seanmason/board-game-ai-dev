@@ -1,0 +1,679 @@
+{
+  "purpose": "Fixed diagnostic timing only; no game outcomes used for selection or tuning",
+  "createdAt": "2026-10-19T00:13:04.096Z",
+  "timeBudgetMs": 338,
+  "leafMs": {
+    "reference": 0.4216,
+    "exceptional": 0.5776402777777777,
+    "chains": 0.5249013888888889,
+    "investment": 0.9470611111111116,
+    "blend": 1.241576388888889
+  },
+  "rows": [
+    {
+      "id": "raven-alone",
+      "elapsedMs": 856.0012999999999,
+      "generationMs": 1.0224999999999795,
+      "roots": 16,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 242,
+        "steps": 1442,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 150.03179999999986,
+        "leafRewardSum": 431.9664441812507
+      }
+    },
+    {
+      "id": "raven-supported",
+      "elapsedMs": 917.3396,
+      "generationMs": 0.5090999999999894,
+      "roots": 13,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 538,
+        "steps": 1738,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 159.33239999999998,
+        "leafRewardSum": 901.2537866180566
+      }
+    },
+    {
+      "id": "raven-early",
+      "elapsedMs": 792.7415999999998,
+      "generationMs": 0.38779999999997017,
+      "roots": 13,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 309,
+        "steps": 1509,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 202.19579999999982,
+        "leafRewardSum": 946.0807725295138
+      }
+    },
+    {
+      "id": "raven-late",
+      "elapsedMs": 297.5762,
+      "generationMs": 0.36790000000019063,
+      "roots": 13,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 715,
+        "steps": 1915,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 156.17866153846168,
+        "leafRewardSum": 257.883002666666
+      }
+    },
+    {
+      "id": "raven-saturated",
+      "elapsedMs": 22290.9943,
+      "generationMs": 54.4373999999998,
+      "roots": 15,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 303,
+        "steps": 1503,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 184.948615384616,
+        "leafRewardSum": 1518.9741226666654
+      }
+    },
+    {
+      "id": "raven-full",
+      "elapsedMs": 323.0630000000019,
+      "generationMs": 0.433100000002014,
+      "roots": 14,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 250,
+        "steps": 1450,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 122.73299999999995,
+        "leafRewardSum": 1734.0378450888875
+      }
+    },
+    {
+      "id": "gull-no-egg",
+      "elapsedMs": 1052.7729999999974,
+      "generationMs": 0.48519999999916763,
+      "roots": 12,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 422,
+        "steps": 1622,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 108.3095999999999,
+        "leafRewardSum": 466.614542286459
+      }
+    },
+    {
+      "id": "gull-egg",
+      "elapsedMs": 1427.5770000000011,
+      "generationMs": 0.42229999999835854,
+      "roots": 14,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 705,
+        "steps": 1905,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 175.4244000000005,
+        "leafRewardSum": 1589.2372374086808
+      }
+    },
+    {
+      "id": "killdeer-demand",
+      "elapsedMs": 209.65740000000005,
+      "generationMs": 0.09850000000005821,
+      "roots": 11,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 672,
+        "steps": 1872,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 139.22030769230804,
+        "leafRewardSum": 846.688437044444
+      }
+    },
+    {
+      "id": "gull-saturated",
+      "elapsedMs": 226.89670000000115,
+      "generationMs": 0.39579999999841675,
+      "roots": 13,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 494,
+        "steps": 1694,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 189.83492307692336,
+        "leafRewardSum": 2035.7372015333353
+      }
+    },
+    {
+      "id": "draw-tuck-forward",
+      "elapsedMs": 305.88930000000255,
+      "generationMs": 0.058100000002013985,
+      "roots": 11,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 1165,
+        "steps": 2365,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 164.0603076923079,
+        "leafRewardSum": 2701.1620747111106
+      }
+    },
+    {
+      "id": "draw-tuck-reverse",
+      "elapsedMs": 247.9135000000024,
+      "generationMs": 0.05880000000252039,
+      "roots": 10,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 1129,
+        "steps": 2329,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 166.07907692307717,
+        "leafRewardSum": 2529.9282533777773
+      }
+    },
+    {
+      "id": "draw-tuck-forest",
+      "elapsedMs": 340.61039999999775,
+      "generationMs": 0.09230000000025029,
+      "roots": 10,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 1888,
+        "steps": 3088,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 184.06107692307677,
+        "leafRewardSum": 1279.2867377777775
+      }
+    },
+    {
+      "id": "draw-tuck-three",
+      "elapsedMs": 334.95610000000306,
+      "generationMs": 0.09660000000076252,
+      "roots": 11,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 1870,
+        "steps": 3070,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 144.21627692307615,
+        "leafRewardSum": 3252.3484110000013
+      }
+    },
+    {
+      "id": "food-tuck-forward",
+      "elapsedMs": 207.24209999999948,
+      "generationMs": 0.060199999999895226,
+      "roots": 11,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 1324,
+        "steps": 2524,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 162.04153846153858,
+        "leafRewardSum": 1540.5362659333334
+      }
+    },
+    {
+      "id": "food-tuck-reverse",
+      "elapsedMs": 186.13980000000083,
+      "generationMs": 0.05529999999998836,
+      "roots": 11,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 1137,
+        "steps": 2337,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 142.7759999999998,
+        "leafRewardSum": 1936.0811556
+      }
+    },
+    {
+      "id": "repeat-food",
+      "elapsedMs": 214.7472999999991,
+      "generationMs": 0.06820000000152504,
+      "roots": 11,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 1024,
+        "steps": 2224,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 146.4826153846158,
+        "leafRewardSum": 773.0222491999998
+      }
+    },
+    {
+      "id": "repeat-no-target",
+      "elapsedMs": 376.5675999999985,
+      "generationMs": 0.4488999999994121,
+      "roots": 18,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 397,
+        "steps": 1597,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 107.54653846153863,
+        "leafRewardSum": 132.1086146666672
+      }
+    },
+    {
+      "id": "predator-repeat",
+      "elapsedMs": 396.9131000000016,
+      "generationMs": 0.3993999999984226,
+      "roots": 11,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 973,
+        "steps": 2173,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 111.40476923076903,
+        "leafRewardSum": 1316.2106562666677
+      }
+    },
+    {
+      "id": "repeat-raven",
+      "elapsedMs": 1075.1418000000012,
+      "generationMs": 0.4985999999989872,
+      "roots": 15,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 955,
+        "steps": 2155,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 162.3023999999999,
+        "leafRewardSum": 605.2413506340281
+      }
+    },
+    {
+      "id": "investment-stock",
+      "elapsedMs": 798.9717000000019,
+      "generationMs": 0.38360000000102445,
+      "roots": 21,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 525,
+        "steps": 1725,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 129.6090000000002,
+        "leafRewardSum": 293.1513520746529
+      }
+    },
+    {
+      "id": "investment-no-stock",
+      "elapsedMs": 391.3606,
+      "generationMs": 0.06880000000091968,
+      "roots": 16,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 605,
+        "steps": 1805,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 122.95799999999977,
+        "leafRewardSum": 555.7450746545142
+      }
+    },
+    {
+      "id": "late-control",
+      "elapsedMs": 145.95089999999618,
+      "generationMs": 0.4948999999978696,
+      "roots": 14,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          0,
+          1200
+        ],
+        "powerSteps": 75,
+        "steps": 1275,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 300,
+        "safetyCapCount": 0,
+        "priorRewardSum": 171.01100769230783,
+        "leafRewardSum": 1938.3159999999987
+      }
+    },
+    {
+      "id": "capacity-control",
+      "elapsedMs": 264.1981999999989,
+      "generationMs": 0.37960000000020955,
+      "roots": 15,
+      "iterations": 300,
+      "diagnostics": {
+        "rolloutCount": 300,
+        "actionTurns": 1200,
+        "actionTurnsBySeat": [
+          600,
+          600
+        ],
+        "powerSteps": 213,
+        "steps": 1413,
+        "settledLeaf": 300,
+        "settledLeaves": 300,
+        "unsettledLeaves": 0,
+        "horizonReached": 300,
+        "terminalReached": 0,
+        "safetyCapCount": 0,
+        "priorRewardSum": 115.77911538461535,
+        "leafRewardSum": 766.8436913333321
+      }
+    }
+  ],
+  "sourceHashes": {
+    "benchmarks/wingspan/evaluator-compute-methods.md": "8e259f2d1b398d917fe92d414f5a9e647918dfee02493320702eee92073d0a40",
+    "docs/work/wingspan-evaluator-compute-2026-10-18.md": "06dad3703b913ac07ca40c66f7b79c2699b7bb77e0711395ac4c0862433ea339",
+    "scripts/wingspan-study/analyze.mjs": "53129a8ba0e8df75fc04fde5fe467c209597bc145664ae33190ae8d0aecfce83",
+    "scripts/wingspan-study/dashboard.mjs": "feb0f7cbe455d48127a0dfab4c881a4a6222aadaef6072da398a72d8c0fdea46",
+    "scripts/wingspan-study/deployed/actions.js": "108d5640c3386cba3f0ae06d570c15d4ec715b58cef7be91ea214b4733b387d3",
+    "scripts/wingspan-study/deployed/analysis.js": "a57f5662a82f13c0973a170930741ba6a635dd7dabb1bf7294491535a884d24e",
+    "scripts/wingspan-study/deployed/app.js": "6e4835efbc7f198f467084e5641cf8b79bf94867605b636cab8af4252e78696c",
+    "scripts/wingspan-study/deployed/belief.js": "0fde8f487071c1c6f26f207b27b63b67ae5f9f31b281e409066653d02bcbd63f",
+    "scripts/wingspan-study/deployed/catalog.js": "185c438363ee794c6ae543ea6100ee871ee9f3ee4d524b07fd6ec28c59fba2a1",
+    "scripts/wingspan-study/deployed/core.js": "12d2fbdb7de586c0eaed87302cd2c7064934d1613d1d1b53569863fc9df4c900",
+    "scripts/wingspan-study/deployed/data/birds.json": "de9889d5c8849a871b425272587e4db3df5d7f127c378714ac8ec439b6e09188",
+    "scripts/wingspan-study/deployed/data/bonuses.json": "f18724196b0d5b7b41b759d2d447aee34f892b8b048e6f873e9876d0b0adbd5f",
+    "scripts/wingspan-study/deployed/data/goal-tiles.json": "7bd5e7213b350944deafcf5b0cd47db53566c47f0153b8018156c244b109d4a5",
+    "scripts/wingspan-study/deployed/data/power-index.json": "97dca3ec15464cb90247c7d4d831e8830a3c2628483fa6d221e4fc8d549742d8",
+    "scripts/wingspan-study/deployed/development-evaluators.js": "2eb7883624b7d80b7b1cb0f1b7288e1f8c1a94b66e00a3fc95eb65ed89ffeab4",
+    "scripts/wingspan-study/deployed/efficiency-evaluators.js": "6e34d2df0747459a433230029f5a960e868ebb32831cf679c2a8ac3682631834",
+    "scripts/wingspan-study/deployed/final-evaluators.js": "67c17b74731ead7320eca30a9cc1471e5034d43c1ad6d740a2112baf6a5acebe",
+    "scripts/wingspan-study/deployed/leaf-evaluators.js": "d5bc632a08cbb480b7cf110e6bd074749af10bd601b1eb1b6d821792ab0f84ce",
+    "scripts/wingspan-study/deployed/mechanics-evaluators.js": "307ae0c5ee8430a9275c8d0386f83412cfdbd0f0a54c20eb676aeb1a68730c2c",
+    "scripts/wingspan-study/deployed/move-editor.js": "b100cf1891968412477f0121f5292d0b6cf82b23df389de9017fe61224410b7e",
+    "scripts/wingspan-study/deployed/observation-io.js": "11b5bce8afc9e5405061ead0ea973bb9e9ffc501b7e5128ffb755a052a203b26",
+    "scripts/wingspan-study/deployed/observations.js": "6515146a62af99e070298e22e8a956003752bd1d9a23f75bbbcd4767751a8223",
+    "scripts/wingspan-study/deployed/opening-strategy.js": "aff4585de825ff3f18b8fb83c35d41294b852c8cdb9f24dde14a92bc9249307e",
+    "scripts/wingspan-study/deployed/physical-ui.js": "bd388fd31b044e52a9b4fb5649689b8429770448d8b1f811f65852d658ed55fd",
+    "scripts/wingspan-study/deployed/planning-evaluators.js": "8753be08436e1df2f9dea82b2e87358d3dbdb412be5533445ad362cd7efac4ce",
+    "scripts/wingspan-study/deployed/powers.js": "ae2546b9cac5ddc70f1b9b1e8dc00f9cd246371cc9ab6d3db5dd1a582e4877f8",
+    "scripts/wingspan-study/deployed/rollout.js": "e80a223cdf91b84503269022c81b7ea0f685e65a21d80cb58fad2266871e7e3a",
+    "scripts/wingspan-study/deployed/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
+    "scripts/wingspan-study/deployed/source.json": "928e28a7295199b136d45e6542f29fb66a91fe13c7fa2ac790d8f5ffd8e7b994",
+    "scripts/wingspan-study/deployed/worker.js": "9e6bd20b42addc3d1157838d1e53d97f6c487a906de2283d09475bc506825e05",
+    "scripts/wingspan-study/evaluators.mjs": "9f1b871b8e227180921e1232525c1a3ef2ebac644f184db56c08a7e6fe843f95",
+    "scripts/wingspan-study/fixtures.mjs": "01f32e9103f4947839a54d1d69f9648a9ac2e435e7d55fe41bdd478646c5ae3a",
+    "scripts/wingspan-study/game.mjs": "e8db68f2f557746f5f34cc21031744f112bbce89bdb23e94618bf6c9136a1369",
+    "scripts/wingspan-study/plan.mjs": "437d45318308477e81da41639be23254e2ecf2bf09be07ab6538cbccbe8c41fe",
+    "scripts/wingspan-study/preflight.mjs": "41111291f1268b0c62bc14cdf6b63ba213ff7fdc01d27ad99307ab67a0920748",
+    "scripts/wingspan-study/rollout.mjs": "91fbd6003c130edb2b83eeb3dd7f682072b2654692d92f2e1749010e2d187f54",
+    "scripts/wingspan-study/run.mjs": "a1d9644da3ca95b11ae235ada900edf52e75a069786d69c12c2a9dce344d6c06",
+    "scripts/wingspan-study/search.mjs": "bdbb417cbbaa9e34ac36513312f5f49e3c945acf04bfc2b32e052122d0cada6e",
+    "wingspan/actions.js": "108d5640c3386cba3f0ae06d570c15d4ec715b58cef7be91ea214b4733b387d3",
+    "wingspan/analysis.js": "a57f5662a82f13c0973a170930741ba6a635dd7dabb1bf7294491535a884d24e",
+    "wingspan/app.js": "6e4835efbc7f198f467084e5641cf8b79bf94867605b636cab8af4252e78696c",
+    "wingspan/belief.js": "0fde8f487071c1c6f26f207b27b63b67ae5f9f31b281e409066653d02bcbd63f",
+    "wingspan/catalog.js": "185c438363ee794c6ae543ea6100ee871ee9f3ee4d524b07fd6ec28c59fba2a1",
+    "wingspan/core.js": "12d2fbdb7de586c0eaed87302cd2c7064934d1613d1d1b53569863fc9df4c900",
+    "wingspan/data/birds.json": "de9889d5c8849a871b425272587e4db3df5d7f127c378714ac8ec439b6e09188",
+    "wingspan/data/bonuses.json": "f18724196b0d5b7b41b759d2d447aee34f892b8b048e6f873e9876d0b0adbd5f",
+    "wingspan/data/goal-tiles.json": "7bd5e7213b350944deafcf5b0cd47db53566c47f0153b8018156c244b109d4a5",
+    "wingspan/data/power-index.json": "97dca3ec15464cb90247c7d4d831e8830a3c2628483fa6d221e4fc8d549742d8",
+    "wingspan/development-evaluators.js": "2eb7883624b7d80b7b1cb0f1b7288e1f8c1a94b66e00a3fc95eb65ed89ffeab4",
+    "wingspan/efficiency-evaluators.js": "a2e3560addb1c8b1ae312573b3472b22d5cb74cc55ac3e479b684dc9a171370f",
+    "wingspan/final-evaluators.js": "71ca8daf96a9d96a412319d8518e2092c261eaf3425f3d8a451358520b269dd4",
+    "wingspan/leaf-evaluators.js": "d5bc632a08cbb480b7cf110e6bd074749af10bd601b1eb1b6d821792ab0f84ce",
+    "wingspan/mechanics-evaluators.js": "307ae0c5ee8430a9275c8d0386f83412cfdbd0f0a54c20eb676aeb1a68730c2c",
+    "wingspan/move-editor.js": "b100cf1891968412477f0121f5292d0b6cf82b23df389de9017fe61224410b7e",
+    "wingspan/observation-io.js": "11b5bce8afc9e5405061ead0ea973bb9e9ffc501b7e5128ffb755a052a203b26",
+    "wingspan/observations.js": "6515146a62af99e070298e22e8a956003752bd1d9a23f75bbbcd4767751a8223",
+    "wingspan/opening-strategy.js": "68f4240f27052637a1f833f07da74dd2ade380879ada3345ad92b7b8790a0803",
+    "wingspan/physical-ui.js": "bd388fd31b044e52a9b4fb5649689b8429770448d8b1f811f65852d658ed55fd",
+    "wingspan/planning-evaluators.js": "8753be08436e1df2f9dea82b2e87358d3dbdb412be5533445ad362cd7efac4ce",
+    "wingspan/powers.js": "ae2546b9cac5ddc70f1b9b1e8dc00f9cd246371cc9ab6d3db5dd1a582e4877f8",
+    "wingspan/rollout.js": "e80a223cdf91b84503269022c81b7ea0f685e65a21d80cb58fad2266871e7e3a",
+    "wingspan/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
+    "wingspan/worker.js": "9e6bd20b42addc3d1157838d1e53d97f6c487a906de2283d09475bc506825e05"
+  }
+}
