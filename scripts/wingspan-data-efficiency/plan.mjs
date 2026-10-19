@@ -1,6 +1,6 @@
 import {objectHash} from '../wingspan-selfplay/common.mjs';
 
-export const LIMITS=Object.freeze({elapsedMs:3*3600e3,workers:28,calibrationPerArm:28,targetPoolMs:20*60e3,minGroups:280,maxGroups:4080,confirmationPairs:100,screenPairs:40,analysisReserveMs:5*60e3,fitReserveMs:12*60e3,confirmationReserveMs:43*60e3});
+export const LIMITS=Object.freeze({elapsedMs:3*3600e3,workers:28,calibrationPerArm:140,targetPoolMs:20*60e3,minGroups:280,maxGroups:4080,confirmationPairs:100,screenPairs:40,analysisReserveMs:5*60e3,fitReserveMs:12*60e3,confirmationReserveMs:43*60e3});
 export const ARMS=Object.freeze(['baseline','hybrid']);
 export const GEN3='frozen-generation-3';
 export const EXPLORATION=Object.freeze({trainingFraction:.2,temperature:1,safetyMargin:3,earlyActionsPerRound:2});
@@ -29,9 +29,10 @@ const pairs=(stage,bank,matchup,candidate,opponent,n)=>Array.from({length:n},(_,
 export const screenTasks=(hybrid,baseline)=>pairs('screen',2,'baseline-trained',hybrid,baseline,LIMITS.screenPairs);
 export const confirmationTasks=(hybrid,baseline)=>[...pairs('confirmation',3,'baseline-trained',hybrid,baseline,LIMITS.confirmationPairs),...pairs('confirmation',4,'frozen-generation-3',hybrid,GEN3,LIMITS.confirmationPairs)];
 export function freezeAllocation(calibrations,{workers=28,targetPoolMs=LIMITS.targetPoolMs,availableMs=Infinity,limits=LIMITS}={}){
- if(!Number.isInteger(workers)||workers<1||workers>28)throw Error('Worker cap is 28');
- const rates={};for(const arm of ARMS){const c=calibrations[arm];if(c?.complete!==true||c.gameCount!==limits.calibrationPerArm||!Number.isFinite(c.poolWallMs)||c.poolWallMs<=0)throw Error('Complete whole-batch calibration timings required');rates[arm]=c.poolWallMs/c.gameCount;}
- // Only whole-batch elapsed cost enters allocation; scores and wins are never inputs.
+ if(workers!==28)throw Error('Steady calibration requires exactly 28 workers');
+ const rates={};for(const arm of ARMS){const c=calibrations[arm],start=c?.completionElapsedMs?.[28],end=c?.completionElapsedMs?.[112];if(c?.complete!==true||c.gameCount!==140||limits.calibrationPerArm!==140||c.steadyWorkers!==28||c.steadyCompletions!==84||!Number.isFinite(c.poolWallMs)||c.poolWallMs<=0||!Number.isFinite(start)||start<0||!Number.isFinite(end)||end<=start||end>c.poolWallMs||c.steadyElapsedMs!==end-start)throw Error('Complete 140-game calibration with valid 28-worker steady timing window required');rates[arm]=c.steadyElapsedMs/84;}
+ // Only the fixed completion28->112 timing window enters allocation; outcomes,
+ // warmup and the final slow tail are excluded from throughput estimation.
  const reserve=limits.confirmationReserveMs+limits.fitReserveMs+limits.analysisReserveMs;
  const target=Math.min(targetPoolMs,(availableMs-reserve)/2,...ARMS.map(a=>limits.maxGroups*rates[a]));
  if(!Number.isFinite(target)||target<=0)throw Error('Insufficient deadline reserve');
