@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **training** · snapshot 2026-10-19T12:55:02.736Z.
-Recorded 528 / 528 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **canary** · snapshot 2026-10-19T12:56:35.033Z.
+Recorded 528 / 536 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -18,23 +18,26 @@ Feature version: `wingspan-observation-v1`; 1316 features. Auxiliary targets: bi
 | --- | --- |
 | Data/evaluation CPU pool | At most24 BelowNormal workers; Ryzen9 5950X /32 logical processors |
 | Memory / GPU | About96GiB RAM; RTX3080 10GiB; training ceiling6GiB VRAM |
-| Training device | awaiting measured manifest |
-| Python / PyTorch / CUDA | — / — / — |
+| Training device | NVIDIA GeForce RTX 3080 |
+| Python / PyTorch / CUDA | 3.13.14 / 2.11.0+cu128 / 12.8 |
 | Networks | Regularized linear control and input→64→32→margin ReLU MLP |
 | Fixed value scale / auxiliary loss | Margin30 points; auxiliary coefficient0.1 |
 | Optimizer defaults | AdamW learning rate0.001, weight decay0.0001; batch512; at most100 epochs, patience10 |
-| Recorded trainer configuration | `{}` |
+| Recorded trainer configuration | `{"auxiliaryNames": ["own.birds", "own.bonuses", "own.goals", "own.eggs", "own.cached", "own.tucked", "other.birds", "other.bonuses", "other.goals", "other.eggs", "other.cached", "other.tucked"], "auxiliaryScale": 20.0, "auxiliary_weight": 0.1, "batch_size": 512, "cpu_threads": 4, "epochs": 100, "learning_rate": 0.001, "optimizationSeeds": [1729, 2718, 31415], "patience": 10, "ridge_alpha": 10.0, "valueScale": 30.0, "weight_decay": 0.0001}` |
 
 Normalization fits train groups only. Three fixed optimization seeds are compared using development Huber loss, then CPU latency, then seed. Test labels do not choose the model. Exported JSON models include normalization, frozen feature names, dense weights, model metadata and point scale. Python/JavaScript and browser parity evidence is retained when available. The selected binary training checkpoints remain outside Git.
 
-Selected checkpoint metadata: `{}`.
-Offline status: **not evaluated**. Held-out learning gate: `not evaluated`. Offline prediction accuracy does not establish playing strength.
+Selected checkpoint metadata: `{"bestEpoch": 1, "checkpoint": "checkpoint-1729.pt", "checkpointSha256": "65ff14ed53c551d43451991b8e97b5291e0b271caf332d90e3da0af0026c48ab", "cpuInferenceMs": 0.04997500102035701, "devValueHuber": 0.07632496953010559, "seed": 1729}`.
+Offline status: **passed**. Held-out learning gate: `True`. Offline prediction accuracy does not establish playing strength.
 
 ## Playing-strength results
 
 | Comparison | Valid / scheduled | Complete setup pairs | Winner share (descriptive95% paired interval) | Mean margin (95% interval) |
 | --- | ---: | ---: | --- | --- |
-| No strength games recorded | — | — | — | — |
+| canary/linear | 0 / 2 | 0 / 1 | — | — [—, —] |
+| canary/reference | 0 / 2 | 0 / 1 | — | — [—, —] |
+| canary/deployed | 0 / 2 | 0 / 1 | — | — [—, —] |
+| canary/neural | 0 / 2 | 0 / 1 | — | — [—, —] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
 

@@ -3,13 +3,94 @@
   "study": "wingspan-neural-pilot-2026-10-19",
   "revision": "abe5bd2433b8bb54852f94876e1b0781147f5830",
   "startedAt": "2026-10-19T12:34:09.856Z",
-  "updatedAt": "2026-10-19T12:55:02.736Z",
+  "updatedAt": "2026-10-19T12:56:35.033Z",
   "status": "running",
-  "stage": "training",
+  "stage": "canary",
   "workers": 24,
-  "planned": 528,
+  "planned": 536,
   "finished": 528,
-  "active": [],
+  "active": [
+    {
+      "id": "neural/canary/linear/44000000/0",
+      "stage": "canary",
+      "matchup": "linear",
+      "seed": 44000000,
+      "seat": 0,
+      "startedAt": "2026-10-19T12:55:35.627Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "neural/canary/linear/44000000/1",
+      "stage": "canary",
+      "matchup": "linear",
+      "seed": 44000000,
+      "seat": 1,
+      "startedAt": "2026-10-19T12:55:35.645Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "neural/canary/reference/44000997/0",
+      "stage": "canary",
+      "matchup": "reference",
+      "seed": 44000997,
+      "seat": 0,
+      "startedAt": "2026-10-19T12:55:35.663Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "neural/canary/reference/44000997/1",
+      "stage": "canary",
+      "matchup": "reference",
+      "seed": 44000997,
+      "seat": 1,
+      "startedAt": "2026-10-19T12:55:35.682Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "neural/canary/deployed/44001994/0",
+      "stage": "canary",
+      "matchup": "deployed",
+      "seed": 44001994,
+      "seat": 0,
+      "startedAt": "2026-10-19T12:55:35.700Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "neural/canary/deployed/44001994/1",
+      "stage": "canary",
+      "matchup": "deployed",
+      "seed": 44001994,
+      "seat": 1,
+      "startedAt": "2026-10-19T12:55:35.719Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "neural/canary/neural/44002991/0",
+      "stage": "canary",
+      "matchup": "neural",
+      "seed": 44002991,
+      "seat": 0,
+      "startedAt": "2026-10-19T12:55:35.737Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "neural/canary/neural/44002991/1",
+      "stage": "canary",
+      "matchup": "neural",
+      "seed": 44002991,
+      "seat": 1,
+      "startedAt": "2026-10-19T12:55:35.759Z",
+      "game": "wingspan",
+      "players": 2
+    }
+  ],
   "rows": [
     {
       "game": "wingspan",
@@ -102,6 +183,270 @@
       ],
       "examples": 53248,
       "status": "finished"
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "training",
+      "policy": "training",
+      "policyId": "Training \u00b7 1,316\u219264\u219232\u2192margin MLP and linear control",
+      "opponentPolicyId": "No playing-strength result in this stage",
+      "scope": "Optimization runs, not games. Selection uses development loss/latency; held-out offline accuracy is not a win rate.",
+      "budget": {},
+      "planned": 3,
+      "finished": 3,
+      "counts": {
+        "complete": 3,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 3,
+      "completeSeedGroups": 3,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "loss",
+      "limitations": [
+        "Data generation and offline fitting are not playing-strength evidence."
+      ],
+      "training": {
+        "latestFit": {
+          "seed": 31415,
+          "epoch": 10,
+          "devValueHuber": 0.08094246685504913
+        },
+        "selected": {
+          "seed": 1729,
+          "bestEpoch": 1,
+          "devValueHuber": 0.07632496953010559,
+          "cpuInferenceMs": 0.04997500102035701,
+          "checkpoint": "checkpoint-1729.pt",
+          "checkpointSha256": "65ff14ed53c551d43451991b8e97b5291e0b271caf332d90e3da0af0026c48ab"
+        },
+        "offlineStatus": "passed",
+        "heldOutLearning": true,
+        "testGroupMAE": {
+          "n": 128,
+          "mean": 9.115621407238976,
+          "ci95": [
+            8.195346926358958,
+            10.165650162016474
+          ],
+          "method": "setup-group-percentile-bootstrap",
+          "repetitions": 2000,
+          "seed": 821337
+        }
+      }
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/linear",
+      "policy": "canary/linear",
+      "policyId": "Functional canary \u00b7 neural 50% blend",
+      "opponentPolicyId": "linear \u00b7 study \u00b7 1000ms requested",
+      "scope": "Functional validation only; canary outcomes do not establish superiority",
+      "budget": {
+        "method": "neural",
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "win-share",
+      "limitations": [
+        "Representative supplied roots are covered; candidate generation still prunes complete legal play. Requested whole-decision time is soft because of mandatory root coverage.",
+        "Only valid complete seat pairs contribute to intervals; partial, duplicate, invalid and quarantined records cannot pass gates.",
+        "Offline test games are separate from fresh playing-strength setups. No independent human-strength or iPad acceptance claim."
+      ],
+      "status": "running"
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/reference",
+      "policy": "canary/reference",
+      "policyId": "Functional canary \u00b7 neural 50% blend",
+      "opponentPolicyId": "reference \u00b7 study \u00b7 1000ms requested",
+      "scope": "Functional validation only; canary outcomes do not establish superiority",
+      "budget": {
+        "method": "neural",
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "win-share",
+      "limitations": [
+        "Representative supplied roots are covered; candidate generation still prunes complete legal play. Requested whole-decision time is soft because of mandatory root coverage.",
+        "Only valid complete seat pairs contribute to intervals; partial, duplicate, invalid and quarantined records cannot pass gates.",
+        "Offline test games are separate from fresh playing-strength setups. No independent human-strength or iPad acceptance claim."
+      ],
+      "status": "running"
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/deployed",
+      "policy": "canary/deployed",
+      "policyId": "Functional canary \u00b7 neural 50% blend",
+      "opponentPolicyId": "reference \u00b7 deployed \u00b7 1000ms requested",
+      "scope": "Functional validation only; canary outcomes do not establish superiority",
+      "budget": {
+        "method": "neural",
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "win-share",
+      "limitations": [
+        "Representative supplied roots are covered; candidate generation still prunes complete legal play. Requested whole-decision time is soft because of mandatory root coverage.",
+        "Only valid complete seat pairs contribute to intervals; partial, duplicate, invalid and quarantined records cannot pass gates.",
+        "Offline test games are separate from fresh playing-strength setups. No independent human-strength or iPad acceptance claim."
+      ],
+      "status": "running"
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/neural",
+      "policy": "canary/neural",
+      "policyId": "Functional canary \u00b7 neural 50% blend",
+      "opponentPolicyId": "neural \u00b7 study \u00b7 1000ms requested",
+      "scope": "Functional validation only; canary outcomes do not establish superiority",
+      "budget": {
+        "method": "neural",
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "win-share",
+      "limitations": [
+        "Representative supplied roots are covered; candidate generation still prunes complete legal play. Requested whole-decision time is soft because of mandatory root coverage.",
+        "Only valid complete seat pairs contribute to intervals; partial, duplicate, invalid and quarantined records cannot pass gates.",
+        "Offline test games are separate from fresh playing-strength setups. No independent human-strength or iPad acceptance claim."
+      ],
+      "status": "running"
     }
   ],
   "method": "Original two-player Wingspan neural value pilot: actor/off-turn redacted observations, frozen setup-group train/dev/test splits, 80%100/20%300-sample deployed teacher, one linear control and a small MLP. One fixed 50% learned/reference blend faces fresh corrected/deployed controls at 1000ms requested per whole decision. Data/training rows have no win-rate statistic; offline accuracy does not establish stronger play. Production defaults remain unchanged."

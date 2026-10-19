@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "createdAt": "2026-10-19T12:55:25.645Z",
+  "tolerancePoints": 0.001,
+  "results": {
+    "mlp": {
+      "sha256": "99b347e9dbf9bed9a4241b79c6cf0d24a83de9ecc01c02c56b31ae657354c4c1",
+      "parameterCount": 86401,
+      "parityCases": 59,
+      "maxParityError": 0,
+      "inferenceIncludingEncoding": {
+        "n": 240,
+        "meanMs": 0.21753125000000023,
+        "p95Ms": 0.2580999999999989
+      },
+      "passed": true
+    },
+    "linear": {
+      "sha256": "36d2d8de1b57c1b1af912f9f4731d048af0caa4dd684cd7d1180690ab20fc5c9",
+      "parameterCount": 1317,
+      "parityCases": 59,
+      "maxParityError": 0,
+      "inferenceIncludingEncoding": {
+        "n": 240,
+        "meanMs": 0.05090249999999976,
+        "p95Ms": 0.09479999999999222
+      },
+      "passed": true
+    }
+  }
+}

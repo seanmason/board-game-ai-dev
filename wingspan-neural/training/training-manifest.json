@@ -1,0 +1,2614 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-19T12:55:09Z",
+  "config": {
+    "epochs": 100,
+    "patience": 10,
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "auxiliary_weight": 0.1,
+    "ridge_alpha": 10.0,
+    "cpu_threads": 4,
+    "optimizationSeeds": [
+      1729,
+      2718,
+      31415
+    ],
+    "valueScale": 30.0,
+    "auxiliaryScale": 20.0,
+    "auxiliaryNames": [
+      "own.birds",
+      "own.bonuses",
+      "own.goals",
+      "own.eggs",
+      "own.cached",
+      "own.tucked",
+      "other.birds",
+      "other.bonuses",
+      "other.goals",
+      "other.eggs",
+      "other.cached",
+      "other.tucked"
+    ]
+  },
+  "device": "cuda",
+  "maxVramGiB": 6.0,
+  "torchVersion": "2.11.0+cu128",
+  "numpyVersion": "2.5.2",
+  "pythonVersion": "3.13.14",
+  "cudaVersion": "12.8",
+  "cudaDevice": "NVIDIA GeForce RTX 3080",
+  "trainerSha256": "5d581964ccb9c316fa8ebeb3a7e325eed4d96ee87be48cb36120ecd63b891b69",
+  "datasetManifestSha256": "94a960ffeebeea5b0071f5683183564bdb833b9deb6ee194622b2b9d68332cf6",
+  "datasetSources": [
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42000000.json",
+      "sha256": "f76348a83a144e2745771087da5146acc64e995b875b9005df8d87529f45f4a8",
+      "taskId": "neural/data/full/42000000"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42000997.json",
+      "sha256": "15fa9d8629fe18010d8b00145d8c5dbe957d21a7a5c52a30c84af00a44bb437e",
+      "taskId": "neural/data/full/42000997"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42001994.json",
+      "sha256": "148ce15b905279bf7cd35bd516ca7873c8553e6f7a3d5babe6df906958789fbe",
+      "taskId": "neural/data/full/42001994"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42002991.json",
+      "sha256": "6eaa946eaf83ec25b790b72d8c81ba1d67eb5abd1226b288fcf57a5f68994609",
+      "taskId": "neural/data/full/42002991"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42003988.json",
+      "sha256": "d34d463eff6381d6d8fa59a154c720fc1e76d9578fa633c31cad1b6fcb36f62c",
+      "taskId": "neural/data/full/42003988"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42004985.json",
+      "sha256": "e31617f27bf2be6ab506073a656d27148a4c1353183e962eb0bf44cd22af26f1",
+      "taskId": "neural/data/full/42004985"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42005982.json",
+      "sha256": "2128256d32bb5f4e6bf2d718bda270b22c373566f0aa85761147cdb844c754db",
+      "taskId": "neural/data/full/42005982"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42006979.json",
+      "sha256": "71b971020cc981418fabed64134d29823c1d016ab41007f2cf5b08ac37149bb5",
+      "taskId": "neural/data/full/42006979"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42007976.json",
+      "sha256": "a488cac4587f71433c4ce60071bb1cbeae133b487be9d1b292583096a2d55852",
+      "taskId": "neural/data/full/42007976"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42008973.json",
+      "sha256": "755dbbb252ad36899d91723edc3956a36cbff8039d4f73714354b221fdbebacb",
+      "taskId": "neural/data/full/42008973"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42009970.json",
+      "sha256": "e92c784cd46b953372a9ce0c03b0cec050f63d5e78825c25e9b6005bda205c42",
+      "taskId": "neural/data/full/42009970"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42010967.json",
+      "sha256": "5df66da949a48f071ba11f009c3563eb978fe58dbe7ecb6d8e0a99eb3f2bbae5",
+      "taskId": "neural/data/full/42010967"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42011964.json",
+      "sha256": "352f43fc5345288c8871e13f5d0e698dcede73655cc0ba40dbf711c752d325d5",
+      "taskId": "neural/data/full/42011964"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42012961.json",
+      "sha256": "04cc919e4f5e7faf6654587f140d37a22ef2fb531ab7262f25a530ea965bfa10",
+      "taskId": "neural/data/full/42012961"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42013958.json",
+      "sha256": "fd0b9b53c8af532904610901070451371f77ff433ce05f49fb2103305ec52e17",
+      "taskId": "neural/data/full/42013958"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42014955.json",
+      "sha256": "f26e0de3b27da9a4b984354d614700263b8bcb80267e87e0d7c7f2ac37b8bdb4",
+      "taskId": "neural/data/full/42014955"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42015952.json",
+      "sha256": "a20b992a5bbaafdf1ce363aafcaac6de68073909bcac00c0e6f092755806b7d1",
+      "taskId": "neural/data/full/42015952"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42016949.json",
+      "sha256": "937673b5cc2c830ca3dd0e951a078e49268b61490a3d6d85adf8cfcd1e3fed16",
+      "taskId": "neural/data/full/42016949"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42017946.json",
+      "sha256": "3fb8bee365ee3f7dfdbbf982bde7a979d67d479cace0e09800949267bcc12bff",
+      "taskId": "neural/data/full/42017946"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42018943.json",
+      "sha256": "73c497156634cdd92ba259c439a41962cf28275a4b8d6ca3ec85b8d3773340a8",
+      "taskId": "neural/data/full/42018943"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42019940.json",
+      "sha256": "b87de23777fc37bf69996403ad7640cae07f27909900bccc3837bc04d8a216bf",
+      "taskId": "neural/data/full/42019940"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42020937.json",
+      "sha256": "14a04b18a47120d7b6d4938a4a23cc88476cec97d13c66040f8a5395d8109bdc",
+      "taskId": "neural/data/full/42020937"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42021934.json",
+      "sha256": "3f864587ac81152459156cc2ff9f2b287152d580254c6244ea7ba968fa4bc5f2",
+      "taskId": "neural/data/full/42021934"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42022931.json",
+      "sha256": "db3d8eacac20ac81661b0bef5c231c9d84a5c5363ca1391e97dfe6a2511437e8",
+      "taskId": "neural/data/full/42022931"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42023928.json",
+      "sha256": "6c198d17a3f0a6aaaac6a67dfb8b01983e393d89448dcea0a2582e28b46ad75c",
+      "taskId": "neural/data/full/42023928"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42024925.json",
+      "sha256": "051fd8ea2be5c04617d5f2352eefc5303509cc52c69f3d13920c58a589085e45",
+      "taskId": "neural/data/full/42024925"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42025922.json",
+      "sha256": "74df870248846e4156ef897be23af310450484eabb35f2b4cabc60fcc8b31dc1",
+      "taskId": "neural/data/full/42025922"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42026919.json",
+      "sha256": "acab21d383c1c2df0f8ddcda1d101950ee47f0eda3ad925d1394189c4c21fb1c",
+      "taskId": "neural/data/full/42026919"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42027916.json",
+      "sha256": "1e17f0113bef0a10e84d0d39bf100b32c97b719c997d386fed975321aaa7a5ff",
+      "taskId": "neural/data/full/42027916"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42028913.json",
+      "sha256": "84ed60cfa23d98620eb85601082d02652dea755d28f1e25a3ed826e1315de650",
+      "taskId": "neural/data/full/42028913"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42029910.json",
+      "sha256": "36192964e7815ea21e9159814970f8db6b3e2f3e66359761bcb83471a4e5c455",
+      "taskId": "neural/data/full/42029910"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42030907.json",
+      "sha256": "d667f9b1e3ce75416aeac9b33e31d7a8610505ddfeb51820b21f508ac80323f0",
+      "taskId": "neural/data/full/42030907"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42031904.json",
+      "sha256": "3404e2648bf590bd46644f653ee6ed7f3b504139d9ebfc07fc29be6682da7d47",
+      "taskId": "neural/data/full/42031904"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42032901.json",
+      "sha256": "621f53acfb6b8bc3324dc6108e93221c4d6bffcf0b8cb802fe09fedc0d201062",
+      "taskId": "neural/data/full/42032901"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42033898.json",
+      "sha256": "1b863758f52a80c32bfadf156bccd69a5a5159a16077cd2cd6626e18a6d3cef8",
+      "taskId": "neural/data/full/42033898"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42034895.json",
+      "sha256": "7bb673e67b56332f0d5f7ec541a0144b20c928c3b30333b68826577ea5f2c7a7",
+      "taskId": "neural/data/full/42034895"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42035892.json",
+      "sha256": "ce95d718bea502b5274877335d02bf49e53c89ddce65be41bbe80211fafda36e",
+      "taskId": "neural/data/full/42035892"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42036889.json",
+      "sha256": "6b37721f5ff1994f18765d5a4388c18f44d4a1541a69b61fb3d5d36be4234ebd",
+      "taskId": "neural/data/full/42036889"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42037886.json",
+      "sha256": "f6fdc5939d58c4d492cf99761b94a3fd88307f7a1e4519bb603e5fcad01025e4",
+      "taskId": "neural/data/full/42037886"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42038883.json",
+      "sha256": "580fad26f2752ae89e7ffedf3701bc2c07c61381cbdac1a299e26d0aae9c7149",
+      "taskId": "neural/data/full/42038883"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42039880.json",
+      "sha256": "6d327149b5edbc302f9a172b043abf527fe54e1b5d487cfca92a247e5ef05aa0",
+      "taskId": "neural/data/full/42039880"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42040877.json",
+      "sha256": "ed78cefb781cf49a073a8290633a2775ca0e6683c88c7057a72668b09376da74",
+      "taskId": "neural/data/full/42040877"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42041874.json",
+      "sha256": "9f18d8c7e111553bcf5d89c7eedc41a6cb700058caf6993a69bee69a11e52583",
+      "taskId": "neural/data/full/42041874"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42042871.json",
+      "sha256": "f2225ced32412d4741a26ee6edc7bf4abedf98ef38618b1b38e235abbf3d7b50",
+      "taskId": "neural/data/full/42042871"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42043868.json",
+      "sha256": "9ec3eec8e95e36e60dda32a4b261a582e5b44a78834031c54b4e7705916e3650",
+      "taskId": "neural/data/full/42043868"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42044865.json",
+      "sha256": "beccf1e3f6e42ece27bae153c97e4ae3068d217ca0514260080a492362675d63",
+      "taskId": "neural/data/full/42044865"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42045862.json",
+      "sha256": "47d6e11d578ed644d2616f82aa6be50804b6b3cffa7f3a7138ce2175865595d5",
+      "taskId": "neural/data/full/42045862"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42046859.json",
+      "sha256": "616234ea5c64a789d64e6412cbb4a72655ffb5304646f0b594fba9aa0c3393a0",
+      "taskId": "neural/data/full/42046859"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42047856.json",
+      "sha256": "a1bdda7c69c997ed70fe520c89c54ce8ed6b16dabda94dd35fab581ff63c35fd",
+      "taskId": "neural/data/full/42047856"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42048853.json",
+      "sha256": "3a2ffcad82173fe3ab73f3ea3d580378dc1ff96c5dd8d155dd389af517dee427",
+      "taskId": "neural/data/full/42048853"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42049850.json",
+      "sha256": "c84f14f51cf9bb9407408a18f923a2414310d78da9d05e97708f7a0f90768f3e",
+      "taskId": "neural/data/full/42049850"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42050847.json",
+      "sha256": "43737b65e2941a4f755c1ac58d5426cad95edda3d884aa9bc8f8e14fda10809f",
+      "taskId": "neural/data/full/42050847"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42051844.json",
+      "sha256": "cbe544c4338179a5c7c99f3c4e65484f8b084b58a7417bfb036addef08a622e4",
+      "taskId": "neural/data/full/42051844"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42052841.json",
+      "sha256": "046832168520bf01d0029409ad560682080d89da98bd72c085574bc76f4bc7d8",
+      "taskId": "neural/data/full/42052841"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42053838.json",
+      "sha256": "e5c21db31b6d19e8260f64aaa91480f1f88f78943b3865db7b3af88ba4ac5c3a",
+      "taskId": "neural/data/full/42053838"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42054835.json",
+      "sha256": "4b65356911e35802e928dc745ac034e45827d1e7232568f122ced3bd97642598",
+      "taskId": "neural/data/full/42054835"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42055832.json",
+      "sha256": "adcc755307ef5f1c6be459ff1a29506aab5887f3cdf437072a07880067a25b72",
+      "taskId": "neural/data/full/42055832"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42056829.json",
+      "sha256": "65d4a7067a28c7774b73bc45c451e13995f8dc48c0f4764861e4ef40d325656c",
+      "taskId": "neural/data/full/42056829"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42057826.json",
+      "sha256": "43456b3e78cc86904bdf653eb2b354355798ee7e0086023545b4b2492edc4e61",
+      "taskId": "neural/data/full/42057826"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42058823.json",
+      "sha256": "069077518a222e7fbfd8be48e4586e0b970a8e34a0b0ac86fb95cfa3d56f7748",
+      "taskId": "neural/data/full/42058823"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42059820.json",
+      "sha256": "be2ba61d57b73b2f2e76af2e68275c471977ea0579a16fbc5c6620177a093090",
+      "taskId": "neural/data/full/42059820"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42060817.json",
+      "sha256": "9d97d3adf65621d1116a72b01c64c6f7ad55a5040e89778c99a307ae63075366",
+      "taskId": "neural/data/full/42060817"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42061814.json",
+      "sha256": "e45af62540a2d3f0ae50f252ea1751695eec9d3def881cb89a41a6d8727b5cd6",
+      "taskId": "neural/data/full/42061814"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42062811.json",
+      "sha256": "201f4f1177d659ca85996ea06911b02881b986f1aff5f4dca44480cfca5ee8fe",
+      "taskId": "neural/data/full/42062811"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42063808.json",
+      "sha256": "0ae5400179e89bd525b87ad9c49f9629e009934d33d4a8aefa38c82657451e0b",
+      "taskId": "neural/data/full/42063808"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42064805.json",
+      "sha256": "efe236bcdc9ec2c45e10e042989dcea8716b536e8ce80ed9267f83df463ebdb9",
+      "taskId": "neural/data/full/42064805"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42065802.json",
+      "sha256": "f16618e3cf32531ab48ad387f5fca77bb249f451a63a12e92230014cfb124b93",
+      "taskId": "neural/data/full/42065802"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42066799.json",
+      "sha256": "5b8410051844c1edfe3d3dd7196973584d625b3bee31793a273ba63394d51a09",
+      "taskId": "neural/data/full/42066799"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42067796.json",
+      "sha256": "9f99555699f2df68a6ec566145f0cfd3dd07a52b700dc3e2b0d89fd2686bbeff",
+      "taskId": "neural/data/full/42067796"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42068793.json",
+      "sha256": "39a50e4568b26f428d91f8bc2a9ba9d3ca07c01c6763450a30c21c2e7fd15be8",
+      "taskId": "neural/data/full/42068793"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42069790.json",
+      "sha256": "1d92e8b9f4d646f2bfb3c9283b403ef21e8a458cb8fb137c974ab6dddcdf0946",
+      "taskId": "neural/data/full/42069790"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42070787.json",
+      "sha256": "5348eb5b5b1054b6d2a959d1293bc3a14b458720c8ee7cc7cd2de704edbaab3e",
+      "taskId": "neural/data/full/42070787"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42071784.json",
+      "sha256": "1b28f1fb0fcf762cf2c8a3cbe3b7a2f59f91d35972db78cbc234c387536d0ec2",
+      "taskId": "neural/data/full/42071784"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42072781.json",
+      "sha256": "afebf2b1f4f8a606d461586e7c56669d247f42edc58f52f7e47c1da1743e7b0e",
+      "taskId": "neural/data/full/42072781"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42073778.json",
+      "sha256": "0f05f3e2cd2ec84aa1a0a0d3ce591a5699d8407892dae7ecd3fa6ddcc9518909",
+      "taskId": "neural/data/full/42073778"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42074775.json",
+      "sha256": "a05fc67b09f3472f2418be5da1315eaa113d763f9f4a90957f16744f5e165105",
+      "taskId": "neural/data/full/42074775"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42075772.json",
+      "sha256": "90aaae95ba48f9ad82285feafcdc8fe68baea442bf4e637bcd120518f40ec9b2",
+      "taskId": "neural/data/full/42075772"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42076769.json",
+      "sha256": "5614ca6132996cc6f5c26b48ce0bf1d31564197e104c1fdface7d32481bf53f1",
+      "taskId": "neural/data/full/42076769"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42077766.json",
+      "sha256": "8e430d5451f3d612cea874fbffd80ece516c1054d687e4670fc1511e13c014e2",
+      "taskId": "neural/data/full/42077766"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42078763.json",
+      "sha256": "57f4162e8fc6f291827c4cb9bdd2ddccc2303964496bfcfecea95f27a54dcb05",
+      "taskId": "neural/data/full/42078763"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42079760.json",
+      "sha256": "46983eb6f8625d3bd5b3c2933d666c236871a66ab6b981fa0ca2d6f669b4909e",
+      "taskId": "neural/data/full/42079760"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42080757.json",
+      "sha256": "33ef62a89c184b5f0896012288956c7aa6e86b61d4dcee66299a8947f4807ad5",
+      "taskId": "neural/data/full/42080757"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42081754.json",
+      "sha256": "1965fcc26c925b2cbc1a3f0ad3464e535c9f21ae86e64e7b6f4c195806ef8931",
+      "taskId": "neural/data/full/42081754"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42082751.json",
+      "sha256": "1e1ad0cb067ea6cc4c52a3e36107ab8bfecab9beec4844d08ab060ea0de266b5",
+      "taskId": "neural/data/full/42082751"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42083748.json",
+      "sha256": "00c66c29e5996e99191ed134bf3c0a03944e57957327bc4c98ead92ae2db9926",
+      "taskId": "neural/data/full/42083748"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42084745.json",
+      "sha256": "9f814785d90fcd33c5fbc64013b718c284c8567d78ed50248ff735fbed904850",
+      "taskId": "neural/data/full/42084745"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42085742.json",
+      "sha256": "adf0f44d6125f2f265a73993d15b8cce60c074047a11a6570bc043f220a96ecb",
+      "taskId": "neural/data/full/42085742"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42086739.json",
+      "sha256": "cdabaeddbc3e0200e288a22d7eb35ef640b6f894f7d18f604ccb94c3932089ba",
+      "taskId": "neural/data/full/42086739"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42087736.json",
+      "sha256": "bbab613366821af5bb9701b5497ae2b5afb74bea63c7172acb0775eaf5478ab7",
+      "taskId": "neural/data/full/42087736"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42088733.json",
+      "sha256": "08a7965ca1bd242e2fe5d87870e3146bbfec6ffff84fc36350a2bf8944ffc076",
+      "taskId": "neural/data/full/42088733"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42089730.json",
+      "sha256": "de78fc42f4c9f8053a6b9d2ff227736d4e7b5f795dffdc12ad0f6674c2716510",
+      "taskId": "neural/data/full/42089730"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42090727.json",
+      "sha256": "b26482f51bc3118835b01aca2646763900072b2c0312996c99331543c211ed6f",
+      "taskId": "neural/data/full/42090727"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42091724.json",
+      "sha256": "f1c2b75e97dc848056c66c6d475a9d6ca85049e863457ccef3a9c484c12ba3b5",
+      "taskId": "neural/data/full/42091724"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42092721.json",
+      "sha256": "b6eb285076070b2c94cd90dbd7db80909a4d2cd0a0488383ec5662dd0f192685",
+      "taskId": "neural/data/full/42092721"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42093718.json",
+      "sha256": "512b7bf814a244406f5e57838cc62577cf06cbdff0e3ef1572deab9c3a6e2b7a",
+      "taskId": "neural/data/full/42093718"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42094715.json",
+      "sha256": "8a0be9954b817539a2963ca21ae6e8cd1b765b6cc6d815f47ead923428099581",
+      "taskId": "neural/data/full/42094715"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42095712.json",
+      "sha256": "1f1b5129552871d94a720899315fca26d1b9e812662913e1a7720332e9e40ed9",
+      "taskId": "neural/data/full/42095712"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42096709.json",
+      "sha256": "0e4b2bd0e7eddae4ec2978c3d1b1523475ae30377bee77bee32db2cb0845ff4d",
+      "taskId": "neural/data/full/42096709"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42097706.json",
+      "sha256": "6980571293ec89d9e89c0b7bd8dfb1fd143d4e47c3a9ce1a429f31c5959baeb3",
+      "taskId": "neural/data/full/42097706"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42098703.json",
+      "sha256": "01b812c6704cfa7038f5df1544b4d475a13d25e9db9aa6de772494bf8d6c6945",
+      "taskId": "neural/data/full/42098703"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42099700.json",
+      "sha256": "4ddb1a48704af138679d33b0c83cc9e1e4a45ec2acb3dde0cef954682e8f5b7f",
+      "taskId": "neural/data/full/42099700"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42100697.json",
+      "sha256": "228cbff52f70a5daadb92de2ddadea49194b1fea4590e081edfdbaf2b82470a5",
+      "taskId": "neural/data/full/42100697"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42101694.json",
+      "sha256": "89ec86ffa4a19e182e67c7a01be709a3b2758dc8585e3e3da2cfa2e30c7c26de",
+      "taskId": "neural/data/full/42101694"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42102691.json",
+      "sha256": "b581d5b5fc968e43a7bc3b94765251ae252eaa35abc08951d66db4afcc4bff12",
+      "taskId": "neural/data/full/42102691"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42103688.json",
+      "sha256": "010ecc0b138bc2fd2f86fcbe934036f2702657ab934bc27ac13e7a8a53483927",
+      "taskId": "neural/data/full/42103688"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42104685.json",
+      "sha256": "b553f5e56dc783c4086b4323d14a86bac3d09d5afb4b675693e42575d79f28d0",
+      "taskId": "neural/data/full/42104685"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42105682.json",
+      "sha256": "41af6a7155c9c9f131f963bcdb916b52809f7ece5b0d4a1be9eed278cf0f598a",
+      "taskId": "neural/data/full/42105682"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42106679.json",
+      "sha256": "0c755bf5beb1a9343a1a705bc6f2122d721692ba84e803b37bb29bc917da6d05",
+      "taskId": "neural/data/full/42106679"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42107676.json",
+      "sha256": "8e326be1536e4ea78a37af2c452daafec02202d9c385942c6271fa9a1c0fcdc8",
+      "taskId": "neural/data/full/42107676"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42108673.json",
+      "sha256": "9b2c6a172216ef95b28c5ac66e4671d1394ecb58fbd1bcb57f58632146f69c4d",
+      "taskId": "neural/data/full/42108673"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42109670.json",
+      "sha256": "51f22a469eb5768010cc76d3e76415c03a92107779597c36566f6c732227b739",
+      "taskId": "neural/data/full/42109670"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42110667.json",
+      "sha256": "96346b72887cb85351e17f651469d1dec8e45c72ad20bbd33520b86816967437",
+      "taskId": "neural/data/full/42110667"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42111664.json",
+      "sha256": "ffdef060d45566247dd84fef139ea26f49b2187a1d23cc36839027c93a81d16d",
+      "taskId": "neural/data/full/42111664"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42112661.json",
+      "sha256": "b9247c35b4888f9598862e446e56a10e9d38db23a8e50c6f3c0e4a9082d8446c",
+      "taskId": "neural/data/full/42112661"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42113658.json",
+      "sha256": "48cecbb9734043af7eabbe3e16894e4d1b58b66069b94ff58a4ef3b7d3363027",
+      "taskId": "neural/data/full/42113658"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42114655.json",
+      "sha256": "4bd76589558eb3d8a9a9766877f63aeb5e4546fb5a374929f0177f053204ef88",
+      "taskId": "neural/data/full/42114655"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42115652.json",
+      "sha256": "8119efdc59a1954eb6b546ed84d638c7520c7bf37cf9bb4461599ec424d9577e",
+      "taskId": "neural/data/full/42115652"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42116649.json",
+      "sha256": "6bf8ad4c27829e871847eac6c90fcaa20228198090347c1cce7fcf285a8fe9d5",
+      "taskId": "neural/data/full/42116649"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42117646.json",
+      "sha256": "e36aad9f5ad3614ffad15b6337e8f979f385e285baadc5a3990deea3112be2c0",
+      "taskId": "neural/data/full/42117646"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42118643.json",
+      "sha256": "aae6fff49a76f1c41ce496303880443e86d5826940d3e4ba0f707cda1238025b",
+      "taskId": "neural/data/full/42118643"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42119640.json",
+      "sha256": "133c9406d8b1b6f15e4e19bf0e78e93c7a0efea9ce6a2a0a07e58cce4c807ae2",
+      "taskId": "neural/data/full/42119640"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42120637.json",
+      "sha256": "18aa92c1410811aa80fc656b7475bc559e5edc067b1dae86fc2c155b51586799",
+      "taskId": "neural/data/full/42120637"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42121634.json",
+      "sha256": "af0a0eb07218623e2fe71d50a0a8efb8818f93f099c8e9b979ea5ebdf80eb366",
+      "taskId": "neural/data/full/42121634"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42122631.json",
+      "sha256": "e68fb9d276c63e8c08dc30175357d7ca8699bf25ee10f0be0fcdeb5c6938ad8f",
+      "taskId": "neural/data/full/42122631"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42123628.json",
+      "sha256": "d05f5c532b9ec1221ea3e9da7a7d023f583b896ab70c0b8a7fa25aa9b2f92bd1",
+      "taskId": "neural/data/full/42123628"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42124625.json",
+      "sha256": "fe2eec70962ff5f18dc271af5aaf2e54717d8c26b27e7375e55ac47d3c203940",
+      "taskId": "neural/data/full/42124625"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42125622.json",
+      "sha256": "60a459cd7d02da883f72306b1d3220a6c25deae5a7fdd1a124c537d5a0ec93d6",
+      "taskId": "neural/data/full/42125622"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42126619.json",
+      "sha256": "66df46babb1431371a3d4a786ed228b8212e301eab0f50beaa7c28640a86d52d",
+      "taskId": "neural/data/full/42126619"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42127616.json",
+      "sha256": "686aa27b9f34cf7794d06fde16851551a83ed0f5d3bd9e35c1d8f061d7dcec5f",
+      "taskId": "neural/data/full/42127616"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42128613.json",
+      "sha256": "ab1bd138bd65a17f9b56afae18742d57e06d049d11c2001b24efa6ff4b3f3f56",
+      "taskId": "neural/data/full/42128613"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42129610.json",
+      "sha256": "56fec673c444bb2a37101bbeb91334a0edb3684784b4d937642d6f4fbe524628",
+      "taskId": "neural/data/full/42129610"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42130607.json",
+      "sha256": "b1abd755a428f7c093c143cc67cc03957aa0aa0955b6688108cbb3ed661d243e",
+      "taskId": "neural/data/full/42130607"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42131604.json",
+      "sha256": "384f3b81bf122744888a950cd5c14c764d34dd7ffde12039e2426618c2ac3f5d",
+      "taskId": "neural/data/full/42131604"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42132601.json",
+      "sha256": "7fc88752096be2f23a8dcadf7e4c6bdb159442d2fd8e5526732bd58c7edefe38",
+      "taskId": "neural/data/full/42132601"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42133598.json",
+      "sha256": "29fd160db939639d78777fbef6c376514066ce2ee82f76652f71605663d2ac9f",
+      "taskId": "neural/data/full/42133598"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42134595.json",
+      "sha256": "d0601b5c99d22cef2358143cac9586acf8cff96b90b2dc33714dbd20763da82f",
+      "taskId": "neural/data/full/42134595"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42135592.json",
+      "sha256": "06f8684f687964da76fa0379cdbf5f68b7f71463adb85d52928464f534e7ec93",
+      "taskId": "neural/data/full/42135592"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42136589.json",
+      "sha256": "bfba21d5db4ba99762d16885a92f28c55c994330cc515a01f66f4f356211b483",
+      "taskId": "neural/data/full/42136589"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42137586.json",
+      "sha256": "1609756590094d2f86cf20df2c176da80d2c76eaf13a4e4ef2e29859cf557728",
+      "taskId": "neural/data/full/42137586"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42138583.json",
+      "sha256": "27f4e0ba77ce1a75280fac52da3ad59a81c9ef6f90fd7501df5145e9364b365d",
+      "taskId": "neural/data/full/42138583"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42139580.json",
+      "sha256": "30d634be7ebac41c8ad1d15e6672b8889e044f29eca3822de3b89cdfb9051fd0",
+      "taskId": "neural/data/full/42139580"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42140577.json",
+      "sha256": "5333af0d25472d89e188b4dfa6dd32c0f81731b9919852ac6d7defb2be511693",
+      "taskId": "neural/data/full/42140577"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42141574.json",
+      "sha256": "d012943b773648da74fac167a02a043bdef408394f3c675651d673eaf971bba0",
+      "taskId": "neural/data/full/42141574"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42142571.json",
+      "sha256": "2acde2b6fe22e9674c29c3809a124107cf65a5d39f3ab11813b1742c2b9adccd",
+      "taskId": "neural/data/full/42142571"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42143568.json",
+      "sha256": "3b4fd6324071af68a293414683aa9549d0734c958411d6a630234b66331365b1",
+      "taskId": "neural/data/full/42143568"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42144565.json",
+      "sha256": "1de5a42a00994c7d8083938c419752f6757edbceb0e97cc15544c0c27adac2da",
+      "taskId": "neural/data/full/42144565"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42145562.json",
+      "sha256": "a8b8031a4b535276f4fc2354403f1be721b4af87f189797d58247b63b8587311",
+      "taskId": "neural/data/full/42145562"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42146559.json",
+      "sha256": "64f12235258896da94d9d9fbeaaa38e2258a2910e5ec9f0aab64b84dc052967b",
+      "taskId": "neural/data/full/42146559"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42147556.json",
+      "sha256": "41b51c116b942474c048e8a5230dba3c0b65cfcb26c6ce224bb49735fda9cdba",
+      "taskId": "neural/data/full/42147556"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42148553.json",
+      "sha256": "636e93fc2a1aeb2b104b2c9b7827efaf7b2ce629057b27b04e199109184862b0",
+      "taskId": "neural/data/full/42148553"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42149550.json",
+      "sha256": "769071a09816c9988102d19267b28fdab2a1205baad5e047fd702bcad86a976e",
+      "taskId": "neural/data/full/42149550"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42150547.json",
+      "sha256": "058faf2f7b93c58969a0062d9d209988f3ded70f2e40d68e07a64408af339ae0",
+      "taskId": "neural/data/full/42150547"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42151544.json",
+      "sha256": "6883b776f7dbac2e07ed5fc2a7c5d6b83d8c22165e2b2028f46b6ebef2ace35a",
+      "taskId": "neural/data/full/42151544"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42152541.json",
+      "sha256": "fb41eb1b65edca7575abb6b3fb19a943b28df0114845fed938a5cea63ec22d1c",
+      "taskId": "neural/data/full/42152541"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42153538.json",
+      "sha256": "e9b74e5e70b1c9767dfb1a476622753edea7d4d8fd682a08f2929ed244e5bb5c",
+      "taskId": "neural/data/full/42153538"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42154535.json",
+      "sha256": "86c25f56cd24c53b9d65f62aae84efa584b18a894373662f4bc3f532244babfa",
+      "taskId": "neural/data/full/42154535"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42155532.json",
+      "sha256": "b53803406394a46b6bed2d7c6456d6a134077b8e52a318bba783fcdcf60ce35b",
+      "taskId": "neural/data/full/42155532"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42156529.json",
+      "sha256": "7407e74f111b7b911e35de9dd74136e7d9c1f850ce2406b2ce29380ff0843a20",
+      "taskId": "neural/data/full/42156529"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42157526.json",
+      "sha256": "48e60de9587c48e0967b18d3f1604789438f6f418d285b0d1733f86da3122cc6",
+      "taskId": "neural/data/full/42157526"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42158523.json",
+      "sha256": "0eea195bd39a8f4ef709560336e4aeb376c0dc8454511163f5a91e11223e3960",
+      "taskId": "neural/data/full/42158523"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42159520.json",
+      "sha256": "3d159de0eae67ee3332e744d2ffc8d806308dc825894a93feccc7e9bb1c343f0",
+      "taskId": "neural/data/full/42159520"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42160517.json",
+      "sha256": "30e3a85796cbf23111640d6a36f83ed3023676ec894f724f4057f1b4ea04c1bb",
+      "taskId": "neural/data/full/42160517"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42161514.json",
+      "sha256": "2506d13ae0ca6f7854641998313b6d2b4c1238377514cf4c2abeaee8ab0cc220",
+      "taskId": "neural/data/full/42161514"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42162511.json",
+      "sha256": "2892eb12017b15ba0beb71e7b9d8f09bc3d73141c496d0fafb58367499380e83",
+      "taskId": "neural/data/full/42162511"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42163508.json",
+      "sha256": "dcda0bc21aa25662e323bd9abdcbea59067a0b55be7c98990b1ea4f9108b046e",
+      "taskId": "neural/data/full/42163508"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42164505.json",
+      "sha256": "de36c8d0ad3a97193554b3b4474e58dfb8acca35d94960c0a36202a0b4ab9718",
+      "taskId": "neural/data/full/42164505"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42165502.json",
+      "sha256": "b386721ae392154432710a000d2b2e137cf56d319a5380bdeb4d6a1dc7eb5560",
+      "taskId": "neural/data/full/42165502"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42166499.json",
+      "sha256": "3be362368a06e57ba9dd16c44ce7c578bbfdfb781706fde64a21dbb8306e53ca",
+      "taskId": "neural/data/full/42166499"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42167496.json",
+      "sha256": "e3f49e74fd17283da3f98bcb66e02084573b41a20c5172bc6894e00689ce1d50",
+      "taskId": "neural/data/full/42167496"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42168493.json",
+      "sha256": "f389d809149558eeb93f44bc93534b401e1b8fd1e430137b67920165f956fbb1",
+      "taskId": "neural/data/full/42168493"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42169490.json",
+      "sha256": "106c39df0a87ea40bf8ab413e8eb9b5e9690899511ad6863fa4476693aa80624",
+      "taskId": "neural/data/full/42169490"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42170487.json",
+      "sha256": "d7fa3a65dfd8f0ee5a751b38c71ef6ec02664e52a3665fb6083422bb943d6f4b",
+      "taskId": "neural/data/full/42170487"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42171484.json",
+      "sha256": "a3291b1b295ea04f6a23ae645bb7a0d623cc779ec1b5e8ad3dbf9d52cde78612",
+      "taskId": "neural/data/full/42171484"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42172481.json",
+      "sha256": "985d2c69dbd136e78ed84f7ff299804e8a5647d8f1da2f89caa1ff9f907b7a05",
+      "taskId": "neural/data/full/42172481"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42173478.json",
+      "sha256": "aa3aeac072cc02773347598b3837931dff11694c1ab62787a556b82212f71a03",
+      "taskId": "neural/data/full/42173478"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42174475.json",
+      "sha256": "caefa837dec6ed915bf23bc063758e9dae9ce098e762e9652a33ab632106d7c8",
+      "taskId": "neural/data/full/42174475"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42175472.json",
+      "sha256": "880649687e5362d0a503b67734c61085b63f6e0da591a89d650277b22fe36ce9",
+      "taskId": "neural/data/full/42175472"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42176469.json",
+      "sha256": "5086097149a5d865a87260759a7a0d3cd17f81897780995a2e586f6f65797de2",
+      "taskId": "neural/data/full/42176469"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42177466.json",
+      "sha256": "59bbac6a28c05da1c89fb308c860f2033fbad41d641bbdf49d26eb745266ae66",
+      "taskId": "neural/data/full/42177466"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42178463.json",
+      "sha256": "0e02e6bee28df7e077faedc49f47a7e8f40cd8da757d99211d3c86e8ba07cb06",
+      "taskId": "neural/data/full/42178463"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42179460.json",
+      "sha256": "6043fceff355b8b6090be2cc830ebee8eee85bfd694d27cc931403584a9a10ac",
+      "taskId": "neural/data/full/42179460"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42180457.json",
+      "sha256": "183671a3305272de64779f43257f5157a155130d01c2cb81b1d8b4e22182d700",
+      "taskId": "neural/data/full/42180457"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42181454.json",
+      "sha256": "199ffb764ad913ebf656989ce26b5a06de3835f6071546aa24dc9cd73d445a26",
+      "taskId": "neural/data/full/42181454"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42182451.json",
+      "sha256": "bd5139d3058d3757452fdf9b3c71136525c9c42aa68c63bb08c97cf7370ee8b8",
+      "taskId": "neural/data/full/42182451"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42183448.json",
+      "sha256": "f2e9a420f3d84290b02b8054eb0162cafc14ea23451c0b2770b49c146ed5f324",
+      "taskId": "neural/data/full/42183448"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42184445.json",
+      "sha256": "0466c7418537e888e79bc18d2c5e6ffa635077d09274abfb6ef366808204760c",
+      "taskId": "neural/data/full/42184445"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42185442.json",
+      "sha256": "0d18bd8a84a10ebbbd29676dba21c07d369b617c5df7db3e843a963bf60c2405",
+      "taskId": "neural/data/full/42185442"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42186439.json",
+      "sha256": "ab8b9da6d7fc5c0e423f6f39af1d264e7685cb42cd3de677eeb3f896ad70e0fb",
+      "taskId": "neural/data/full/42186439"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42187436.json",
+      "sha256": "dcb989ea45e9b13e86a428cfa653d7d98d31d4557b7a411a43893af7dc6d4fe0",
+      "taskId": "neural/data/full/42187436"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42188433.json",
+      "sha256": "eea60ebb313ac1663a86140f00f2280671aca420071e906d55a106ecdc7eb991",
+      "taskId": "neural/data/full/42188433"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42189430.json",
+      "sha256": "5b9bf0e8e84fce05f7dd51b0a142f44a49844ad91afee64b58ceaf6a4fa089b3",
+      "taskId": "neural/data/full/42189430"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42190427.json",
+      "sha256": "1f4e795a9bcd5734e06e5ef72030a693c00cd37b97749f04ad08037b6c91c6a0",
+      "taskId": "neural/data/full/42190427"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42191424.json",
+      "sha256": "b7da223fe264b3d2b8dc172385d7a9bc19fde3c7c9e15c17f004b41a5d8afd29",
+      "taskId": "neural/data/full/42191424"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42192421.json",
+      "sha256": "ce58de6630806cc8328eeef6d7948129a549419b4c6ddcc9ef8d6a5e6b39e5ca",
+      "taskId": "neural/data/full/42192421"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42193418.json",
+      "sha256": "5eeed12e7524a703cd17e5051f193002aa3ac591a0311300c75f08adab94b6c7",
+      "taskId": "neural/data/full/42193418"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42194415.json",
+      "sha256": "bd3d2b468e24b0943f6f97e80459fffbe8e8e0709e8e8a448ad277d120f792f8",
+      "taskId": "neural/data/full/42194415"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42195412.json",
+      "sha256": "d5d5353a2192510862398f637c7fd98daba915f1c776a02db0269403095d0e6b",
+      "taskId": "neural/data/full/42195412"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42196409.json",
+      "sha256": "487be6f4a99e9338032bcc430b544bc15fcacec63d8c7c3e9e87839be6778a72",
+      "taskId": "neural/data/full/42196409"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42197406.json",
+      "sha256": "e3ad1bac2134cb1cf75b2833429a57d872ad31a93c9f5407dfdfadadcbf0b1ba",
+      "taskId": "neural/data/full/42197406"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42198403.json",
+      "sha256": "32031abf938a722d1ea5d126493054607701aa13abf2d3f096cadd8e58ec9d9c",
+      "taskId": "neural/data/full/42198403"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42199400.json",
+      "sha256": "df9446bb4b04f1c540a52d168c012ec1f918351d386649b1f16a15f0d5cdfe8e",
+      "taskId": "neural/data/full/42199400"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42200397.json",
+      "sha256": "2f99764f6063928048e137b491d13833b07c6620224de57887cf29777f7830ab",
+      "taskId": "neural/data/full/42200397"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42201394.json",
+      "sha256": "f42bbf1aff57e48febc661a04010abe760906974e41127d10f6aec0f916bc151",
+      "taskId": "neural/data/full/42201394"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42202391.json",
+      "sha256": "dc1a0dbd7225d7c38c1463237c784c99ecf5c2a17fa2811f5359828f6513aa9f",
+      "taskId": "neural/data/full/42202391"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42203388.json",
+      "sha256": "02f86f827cb5025f805edc90053e60079c0c62d93f3d09245c3934634b7c8984",
+      "taskId": "neural/data/full/42203388"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42204385.json",
+      "sha256": "bb3b136edcfcf824e30b83474d9a1c71fc877c21f50ad92c6645cec8c80ba06e",
+      "taskId": "neural/data/full/42204385"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42205382.json",
+      "sha256": "5dbbccb28f0bce0afa7937cd434d768aa4562c7f906beebd7e5da380f5854a34",
+      "taskId": "neural/data/full/42205382"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42206379.json",
+      "sha256": "da7d794b3180eac9f265ea9011d42a53427bb88cd2fd350d26800a811b3736a3",
+      "taskId": "neural/data/full/42206379"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42207376.json",
+      "sha256": "6257f8401c761940209a7eae62b0b2eff5cbc7e18c25c9662a6ccb10efa930b2",
+      "taskId": "neural/data/full/42207376"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42208373.json",
+      "sha256": "8a90682aee3db6b9baa8de3491b88d9a99049035471e5e714fbe13ac704827de",
+      "taskId": "neural/data/full/42208373"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42209370.json",
+      "sha256": "69435f9f97d1c2c22b860aba8fb13c92b39611d377fefc656a6825b4a2c40dc0",
+      "taskId": "neural/data/full/42209370"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42210367.json",
+      "sha256": "4218a78d0b6596dd42b9f654165cae3d7f27b0169585a8fe5ef3d9bc91e8231b",
+      "taskId": "neural/data/full/42210367"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42211364.json",
+      "sha256": "8289e07dd50b8a078f50b73246538654928817db43b004e186ed8bdf736f6bb8",
+      "taskId": "neural/data/full/42211364"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42212361.json",
+      "sha256": "d516a41ba84fecbfa22bd4a441992fc358ba0628e898c0ea35121baccdc47320",
+      "taskId": "neural/data/full/42212361"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42213358.json",
+      "sha256": "3c43818616f6ca99f199753aef03abac2f568228518a18a59a7b608a4d7cb1f3",
+      "taskId": "neural/data/full/42213358"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42214355.json",
+      "sha256": "c0c26b44e9e39296b52f31370c38db9fa052bd18ba78a2e94c1b86ee53656591",
+      "taskId": "neural/data/full/42214355"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42215352.json",
+      "sha256": "6bf725e0cedd89c2f603b48b805b1229cd53c8dd196dca96f01aec94df7c7b25",
+      "taskId": "neural/data/full/42215352"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42216349.json",
+      "sha256": "8b17334aede52d12cfc7fe1aa698c41df668d5451c737050b1f2e6c4a93adcb2",
+      "taskId": "neural/data/full/42216349"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42217346.json",
+      "sha256": "f14dbd97da8644443ea941155798eee012b05ad22637cca3032344e2ec9778d2",
+      "taskId": "neural/data/full/42217346"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42218343.json",
+      "sha256": "b745afdeb9bc79035754cf391aae12151f00b788895cb5b8db95475dee7687f2",
+      "taskId": "neural/data/full/42218343"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42219340.json",
+      "sha256": "46b4b665b502ddc0cff2b2aeef716c13ffde77f923311d09e8c5fd86f04aaa7f",
+      "taskId": "neural/data/full/42219340"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42220337.json",
+      "sha256": "72174cb7fbfc4c5ae032b364295bdd0f80b5c86adabd92c803528fd3e7d827fd",
+      "taskId": "neural/data/full/42220337"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42221334.json",
+      "sha256": "1eb1a1015a5b127df8cb14621cb083833653d8d52d931df64b3bf4c3e4ecc107",
+      "taskId": "neural/data/full/42221334"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42222331.json",
+      "sha256": "287822172adeab85b8faca05143c29bfea8f893597c26d12921d08a1602dd262",
+      "taskId": "neural/data/full/42222331"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42223328.json",
+      "sha256": "bc08f2c8c948eafc5a500c18f5c3e92c5670354951fd99c654e60fbf24b7648f",
+      "taskId": "neural/data/full/42223328"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42224325.json",
+      "sha256": "0f3cb3db8d8009147f010651ab97f12a351e89895ce163d59105280a535761c7",
+      "taskId": "neural/data/full/42224325"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42225322.json",
+      "sha256": "fc5a45860846369a6006b33c7694100f22f6b3a7c40d08f1d2f472790f849670",
+      "taskId": "neural/data/full/42225322"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42226319.json",
+      "sha256": "b430c20264e1a7aa2cf93826cf3a5afb73aada7bf5876bc39e9e8e52d4dfb229",
+      "taskId": "neural/data/full/42226319"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42227316.json",
+      "sha256": "0f1c43429a74770a63b638b74c0654eea175fa689d182688df7728c16fe2588d",
+      "taskId": "neural/data/full/42227316"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42228313.json",
+      "sha256": "a19a72b78012a15d5e9bd6ff836e4c2cfcd7f1edb286840638e0a65fc8b31f7c",
+      "taskId": "neural/data/full/42228313"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42229310.json",
+      "sha256": "2fc246c28ae89ac7f53329c7c871bb3b18474f7f3edbf779f8cccd7d589e11b4",
+      "taskId": "neural/data/full/42229310"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42230307.json",
+      "sha256": "11758ff8d5a852cd75227caf7c243b4b9cdf88fddcdcf0d7b79443bd7610caae",
+      "taskId": "neural/data/full/42230307"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42231304.json",
+      "sha256": "75e34f8d10f749ec3f5aef95f247bafba4090c9090880240fba49a4e3ff84e57",
+      "taskId": "neural/data/full/42231304"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42232301.json",
+      "sha256": "c67932b638705d0c5a94a6b0562ca4817e8146cc0c0781adea3a6ada43eac823",
+      "taskId": "neural/data/full/42232301"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42233298.json",
+      "sha256": "b17eb37b646221a4627b181efd336d62096379207aa230eee8d14e4e09a7a59f",
+      "taskId": "neural/data/full/42233298"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42234295.json",
+      "sha256": "26264e941dd0ae90212bcf39a828e58413b1a71249a6835cd198df15eebc5e7e",
+      "taskId": "neural/data/full/42234295"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42235292.json",
+      "sha256": "53f1c19b86265f07f8bc13323435f3d410458454b7e6b1150fcca08f218768b8",
+      "taskId": "neural/data/full/42235292"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42236289.json",
+      "sha256": "bb344cf652e1266e6cfe1abbce94adc00607ceb6344f95641514af8c39c0c814",
+      "taskId": "neural/data/full/42236289"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42237286.json",
+      "sha256": "fec8a92da27d498efadcd00ffc95fc550d75ec60cd6e51a9343dfeb1bbc1b053",
+      "taskId": "neural/data/full/42237286"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42238283.json",
+      "sha256": "a67624ed876ebac568139a993d482cafc7cc071e5a9a849573c0f24df93df280",
+      "taskId": "neural/data/full/42238283"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42239280.json",
+      "sha256": "a4d71e09cd754d7134a067291c57e26f847321b78927f165282513be9503fcf8",
+      "taskId": "neural/data/full/42239280"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42240277.json",
+      "sha256": "85d220768b6ddf50db37484f8c8b787fb2078314ba82849d1986f77bd5a6308d",
+      "taskId": "neural/data/full/42240277"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42241274.json",
+      "sha256": "260ce442b5733cd7ba77a358f1bcdbe8c4826869afa6a5dda3d9ac92be778d25",
+      "taskId": "neural/data/full/42241274"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42242271.json",
+      "sha256": "f50e68cf389cdec8866811da6335a2b03629f1f475f4abc0dc1baa44ba071a37",
+      "taskId": "neural/data/full/42242271"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42243268.json",
+      "sha256": "4a0cadf80546c23ff1dc1ac35453b4ccea896d9f582dcb0050e74b4e23fe2793",
+      "taskId": "neural/data/full/42243268"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42244265.json",
+      "sha256": "16deabb48bc2c9227bc9998bbd6c08048c1c054573314cfb35953af52b4aba73",
+      "taskId": "neural/data/full/42244265"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42245262.json",
+      "sha256": "e8aee82305517981a746dad6c901fe07861a7d95a72ba85125c613aac2a683a9",
+      "taskId": "neural/data/full/42245262"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42246259.json",
+      "sha256": "bcc69d1c6c4261ecbe178f64b8e0de42fd1930b09200d907876c48df75567595",
+      "taskId": "neural/data/full/42246259"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42247256.json",
+      "sha256": "d04ac13c3bae3d80d75006c847e4ec959d826d08239ed6ae06af587a71207eda",
+      "taskId": "neural/data/full/42247256"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42248253.json",
+      "sha256": "84d451d6f67aaf0947d6dd061b04c1e29d47f03ea21982ef32eacfbba1df5f90",
+      "taskId": "neural/data/full/42248253"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42249250.json",
+      "sha256": "16dd8212736084697d444353e8902c6d855ec60cf279615af335f8df0d6c94d8",
+      "taskId": "neural/data/full/42249250"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42250247.json",
+      "sha256": "db432a76ac6ed268787e417d9310daae66864365cd1abc0718ffd0e046899c63",
+      "taskId": "neural/data/full/42250247"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42251244.json",
+      "sha256": "0c62aa3e57a8c2e076fefe07adfbdd75c4236f54dc1a939302887d52acd905ec",
+      "taskId": "neural/data/full/42251244"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42252241.json",
+      "sha256": "48b29ce87355b9bba2291275c324bedc821ee71bc1a3373cc95ce9b4a1c56ef5",
+      "taskId": "neural/data/full/42252241"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42253238.json",
+      "sha256": "8062e9556078ccd847d71b0fa73ec00c00573c0b32ba4df4b1f9009b4d20161e",
+      "taskId": "neural/data/full/42253238"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42254235.json",
+      "sha256": "57dcb6fb79812fa7be9f238b329de6dc1da2f865b1663a5431d2db0a078a61de",
+      "taskId": "neural/data/full/42254235"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42255232.json",
+      "sha256": "a38920a2ef5376fbd030892c23ea735a7458878c7700892d46b6acc42bb0a931",
+      "taskId": "neural/data/full/42255232"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42256229.json",
+      "sha256": "a4108f44565154ec0f435bd6bd9033d2fa03e5319c3d39cbd5f0a7e0f4bd2fbc",
+      "taskId": "neural/data/full/42256229"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42257226.json",
+      "sha256": "ff155ef8bf6f3668e6bcdc72565ff85526fd637d18c86a3b8e797b0052694e37",
+      "taskId": "neural/data/full/42257226"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42258223.json",
+      "sha256": "031603c0cf6123c7fa36dc43240e4fd554eb954a4cff307c0f50bf7e244b7f1e",
+      "taskId": "neural/data/full/42258223"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42259220.json",
+      "sha256": "6a08fef2301b8885e1b5cca4e6bdd9ad582a284f4e62eda7ffbf4bfc010edf80",
+      "taskId": "neural/data/full/42259220"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42260217.json",
+      "sha256": "41402dcc3cb0a4cac81da27384a0c96c6f5e7068b6054fd6afd7c21d6eaabeec",
+      "taskId": "neural/data/full/42260217"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42261214.json",
+      "sha256": "55a216997deba28ec162feb0741f74a81e7238343db1dd883c572d22182fd19e",
+      "taskId": "neural/data/full/42261214"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42262211.json",
+      "sha256": "a39832555a5501121120fee17429e022f83d2f9c2dc767c930ba996b2ee80746",
+      "taskId": "neural/data/full/42262211"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42263208.json",
+      "sha256": "ca5e7259d7cc98bcab939a14fdd1461b4b9c874a713fafc6649bafc0b805a5ad",
+      "taskId": "neural/data/full/42263208"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42264205.json",
+      "sha256": "3b89debae7d15e336f871045b21326df422ed44f6b2040300e98b195637e1b7b",
+      "taskId": "neural/data/full/42264205"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42265202.json",
+      "sha256": "ae10806051513188b4ef40bac05b2b40aa71c39c698364c51daf60f0b47b681f",
+      "taskId": "neural/data/full/42265202"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42266199.json",
+      "sha256": "8ae12a0c252b8b1aa6a19348eefbbc121719c0776f045f19c8ff85c1e0ddb559",
+      "taskId": "neural/data/full/42266199"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42267196.json",
+      "sha256": "31a38ad452d50535013862c4d14ef05b83fd7d6a36d397787b9b1ddf14b5b7ae",
+      "taskId": "neural/data/full/42267196"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42268193.json",
+      "sha256": "dbf2b6e3805be45cdac532f30d8e94d9f29982537a562bb2d35096d32229d69d",
+      "taskId": "neural/data/full/42268193"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42269190.json",
+      "sha256": "ef72fcbcc98056b45674f865509f06cb40914904bb143081c58233e9542d7c3e",
+      "taskId": "neural/data/full/42269190"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42270187.json",
+      "sha256": "33367fc5ef52326f5317f7aef083cf8e50b2e3e6ff7f6b5231b64f915946b291",
+      "taskId": "neural/data/full/42270187"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42271184.json",
+      "sha256": "b0385cb9f36c2cc6c8d857f3f9a442db8459e08038f757962f537b59ddae36d7",
+      "taskId": "neural/data/full/42271184"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42272181.json",
+      "sha256": "6a420b5c2043f690b8c5172b81f2264c2f7ce8ba5cef7d53fdbc8d64edd896e0",
+      "taskId": "neural/data/full/42272181"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42273178.json",
+      "sha256": "e47d4393ad878743ff07d50c3b92e6201f55597faa115e185e572de1aa4a0295",
+      "taskId": "neural/data/full/42273178"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42274175.json",
+      "sha256": "2183f6f7a0130d01fa5a197bcedcbd10d1f8b629646032e2616ce9ce88d06366",
+      "taskId": "neural/data/full/42274175"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42275172.json",
+      "sha256": "93705e98128dd4896fb78d492cba8e8903d21f168473fb63486364927892b0ef",
+      "taskId": "neural/data/full/42275172"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42276169.json",
+      "sha256": "ff0bc3045df0d895d4b670329e1f00e14e484a6af2ffaa7711097d781fb6fa9a",
+      "taskId": "neural/data/full/42276169"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42277166.json",
+      "sha256": "42399a5e48b86df68f9f078688d9125c62508c834bd65a8729b39369cdfb8d1a",
+      "taskId": "neural/data/full/42277166"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42278163.json",
+      "sha256": "c09aa1816822c710d189d967391a4a2d81ceb2794f593c15ad023046fb369134",
+      "taskId": "neural/data/full/42278163"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42279160.json",
+      "sha256": "cfbee67685faf5f5e2af6e3d9786c0129f6d1c92320ef2a9be9ed02c48773fb7",
+      "taskId": "neural/data/full/42279160"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42280157.json",
+      "sha256": "72f1552c9e717251655514e83bc748c961f0a21f9854670da643e5d2952da0e6",
+      "taskId": "neural/data/full/42280157"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42281154.json",
+      "sha256": "28c1b8a14037a422bb0826e6a242779b5ca1a1cf4aa08443977944f476f6bae7",
+      "taskId": "neural/data/full/42281154"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42282151.json",
+      "sha256": "f1271fc419b3e8bf348d73e2aca0891568413e74dd0df4f853ee0c7d81e8411c",
+      "taskId": "neural/data/full/42282151"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42283148.json",
+      "sha256": "a0a8802f69c5fbc2f6a98a7affbd894c818d9c811c9c9a140658f8655e82bf36",
+      "taskId": "neural/data/full/42283148"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42284145.json",
+      "sha256": "61ee8fb59a71d6242548c35f8b7c0d8c1c215e22cfbf22fbaa7ce4f0c127c9ff",
+      "taskId": "neural/data/full/42284145"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42285142.json",
+      "sha256": "9e02287cc8626049f607a4e4074dd30c3fc722236ac92a8323ea540452950ae0",
+      "taskId": "neural/data/full/42285142"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42286139.json",
+      "sha256": "a0c418aba3b2a8ae9e710ef0ea69d6431aff3505c324b54bbbf0540a230f3777",
+      "taskId": "neural/data/full/42286139"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42287136.json",
+      "sha256": "9491ea1569475e0b78a6ab9a2c4dc66aa28c7cad474224a3d92a3bb13ece5e0b",
+      "taskId": "neural/data/full/42287136"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42288133.json",
+      "sha256": "08c7f7b5da9988629615a75968e116966dab1d8f0ce612524a119672ecf1d367",
+      "taskId": "neural/data/full/42288133"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42289130.json",
+      "sha256": "512c75a43224ff9d988c8af87f9aae47fe5fa07428ec9b8381f1ea5ac60e4f84",
+      "taskId": "neural/data/full/42289130"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42290127.json",
+      "sha256": "158b08474220e16cb28efbfa8bc90608d53930f72548d15f5b9649bf0f1d0365",
+      "taskId": "neural/data/full/42290127"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42291124.json",
+      "sha256": "cd25da05ea5c64bce234838b750537dccae035304beff357aaaaed208921a5af",
+      "taskId": "neural/data/full/42291124"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42292121.json",
+      "sha256": "fb8a314ba57cf54d06d510a553e4c7497b0ebd15b021426d56bb8fee1a2f58cd",
+      "taskId": "neural/data/full/42292121"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42293118.json",
+      "sha256": "f481e0173b65834e6a4a09f742c26dbccc5d260de5604d602b89c7c1ac1ffecd",
+      "taskId": "neural/data/full/42293118"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42294115.json",
+      "sha256": "4e4d418d2ccba6caec969b0f042e74d103439414a2ffac9e83d35825f51a1136",
+      "taskId": "neural/data/full/42294115"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42295112.json",
+      "sha256": "f2c789f57635052e63480414f4ec65bc4c688c3b9dab02cae5a20384f2c801cb",
+      "taskId": "neural/data/full/42295112"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42296109.json",
+      "sha256": "124532c1a87824006b597df19009615824e88aa065e0bc516699d9171f19b7f8",
+      "taskId": "neural/data/full/42296109"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42297106.json",
+      "sha256": "58de9d5c4de149482f62650332c498eb22b412c4a19cd05f842e6ec89aba7110",
+      "taskId": "neural/data/full/42297106"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42298103.json",
+      "sha256": "3dfba5fc3b6d9bfd63edd2ee59f7437b1b9649887ffa46dc304facd248c2a3ad",
+      "taskId": "neural/data/full/42298103"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42299100.json",
+      "sha256": "83dd87ecdb5ae22853cfa27646b21d546dd523a3d25be887ae6a86eb2931af26",
+      "taskId": "neural/data/full/42299100"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42300097.json",
+      "sha256": "af4bf85ec536719ce1a49ee03ace224381c2591e7be1ccc3c14cf9345e17a21d",
+      "taskId": "neural/data/full/42300097"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42301094.json",
+      "sha256": "b9656cf06300ba97e0e57f3f015372f3f1b5ac5a1d55efc9507b15fdeec84eb0",
+      "taskId": "neural/data/full/42301094"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42302091.json",
+      "sha256": "921e0e981f2dfeab296246db7b788b55a9f2592aad9deb54483f5ee059ef251b",
+      "taskId": "neural/data/full/42302091"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42303088.json",
+      "sha256": "1dbc39b7bc86d2dc83d138884d8564fe9f4e44e6c42a687f63469372b5085b6b",
+      "taskId": "neural/data/full/42303088"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42304085.json",
+      "sha256": "a27737f0591ca200aa89727de989ae179b25421fa4d42166cf2b971df8550788",
+      "taskId": "neural/data/full/42304085"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42305082.json",
+      "sha256": "363d4232a57bc3379dfded4b5532052a356228ed363371a7510bb4e72c388ad7",
+      "taskId": "neural/data/full/42305082"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42306079.json",
+      "sha256": "a5dbef6353322670a1cc1bd1e2a3de654ef6b9efcc5f55552dd5c57e1ee7194d",
+      "taskId": "neural/data/full/42306079"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42307076.json",
+      "sha256": "b7b48a8b8597b055b17a906335781406f00705840faa5c1f0fbde49a4478ac50",
+      "taskId": "neural/data/full/42307076"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42308073.json",
+      "sha256": "62996f17a19b4acd597323678852623fd5b1be5cf7b323e5bd3e94417bddb934",
+      "taskId": "neural/data/full/42308073"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42309070.json",
+      "sha256": "2b90528311188feae2d4fe5bd5ee0542f4fd9e4e599273e791bdc5ece40ed26e",
+      "taskId": "neural/data/full/42309070"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42310067.json",
+      "sha256": "abfbc812d0bff434fc5319b50a7ae570f2d16532c21747d486fe9252660bcae0",
+      "taskId": "neural/data/full/42310067"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42311064.json",
+      "sha256": "b1d0a6f93de9fde5cc594be03e6fd5548680e7636c728aa104e6c9c76a0fac19",
+      "taskId": "neural/data/full/42311064"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42312061.json",
+      "sha256": "f46b523415f43af639f0885b36804ecbac6fb196b0425219c1541178e820b075",
+      "taskId": "neural/data/full/42312061"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42313058.json",
+      "sha256": "135f00a9cea630517c1770dc0f8fd933648c417f7ea3a91d38d4f0931957affc",
+      "taskId": "neural/data/full/42313058"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42314055.json",
+      "sha256": "c272f7d566c92e330b1b87f41c644dfcbac7c696c4b0f546de381b087d75656e",
+      "taskId": "neural/data/full/42314055"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42315052.json",
+      "sha256": "2efec35b1367a1851f2a89dbad60428f5dd8032718e68530bf1ff38b87221381",
+      "taskId": "neural/data/full/42315052"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42316049.json",
+      "sha256": "c77cbd3b2ca3a465eed5e857e280b1af6d663bd2c212528d7d01f65625ce78d5",
+      "taskId": "neural/data/full/42316049"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42317046.json",
+      "sha256": "606bf094028ac4b98fc46b3e888ac156b24574e9c5f64fe4bef3ddc96be40927",
+      "taskId": "neural/data/full/42317046"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42318043.json",
+      "sha256": "a527394d8fb18ff88dc25abb132c1c706728653db58f57b16cc5dfb4682437f3",
+      "taskId": "neural/data/full/42318043"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42319040.json",
+      "sha256": "2e60988084e57a33ed65381ae2a2b1c91c890fe9de43b405f1d278fbce225447",
+      "taskId": "neural/data/full/42319040"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42320037.json",
+      "sha256": "b7120765c5d2189f73b4a2e628acf2735c16449023dbea48dc27f7c1b944a9f9",
+      "taskId": "neural/data/full/42320037"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42321034.json",
+      "sha256": "6e5b82e8f9e9886473354e69d1c4629e6946279069bb5849232636bbf7c47c4f",
+      "taskId": "neural/data/full/42321034"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42322031.json",
+      "sha256": "63480000476b745db0a5afcc62bc7d3150bc95308a14c98fbec72cec7b4c17ce",
+      "taskId": "neural/data/full/42322031"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42323028.json",
+      "sha256": "93d67d912c062b6ac5b42bf72e4f6768eae0a88d188794deeb8caefcf75d2466",
+      "taskId": "neural/data/full/42323028"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42324025.json",
+      "sha256": "d7035dfd26f2bbd7cef0298024ab43f1cf08642478f0358c8c3d0f29819a36ee",
+      "taskId": "neural/data/full/42324025"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42325022.json",
+      "sha256": "285103f34c549790d8e01985fa91a30b21e4e929d5378513d56e14c1bdbc2adc",
+      "taskId": "neural/data/full/42325022"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42326019.json",
+      "sha256": "9ccf6565748cd02fcfc4c59cf33ed954978cb1acaa75e444c0bea9c444d7dd96",
+      "taskId": "neural/data/full/42326019"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42327016.json",
+      "sha256": "36dda17d44ca46c263032928a43ed567fdda8b56dca41712cdf6c491a4e4b101",
+      "taskId": "neural/data/full/42327016"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42328013.json",
+      "sha256": "59f84cd25c3b6158b131ea1aaa2516b8b9968076578335958408599395a0cb03",
+      "taskId": "neural/data/full/42328013"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42329010.json",
+      "sha256": "d7c31f2a61b34bdb8427f6dbe137d5088cd39f262b79c34af33b70711f155a0c",
+      "taskId": "neural/data/full/42329010"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42330007.json",
+      "sha256": "e880d4a3991faf86258d0ddd1d61dfcc82a92497628d19c2c3dc312dfa0f3b3b",
+      "taskId": "neural/data/full/42330007"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42331004.json",
+      "sha256": "ccc28621a43316576f597e7bb6a438f26447d5a61401d33c7c8dbdb190ebac9a",
+      "taskId": "neural/data/full/42331004"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42332001.json",
+      "sha256": "a4272d6a3687629cd8889e69d870b9c7894bd731caaf450e07773c5e1b6f3c99",
+      "taskId": "neural/data/full/42332001"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42332998.json",
+      "sha256": "22581dade028b457d106b35576352babbdcf0629f4a32635c1433faec52a81a8",
+      "taskId": "neural/data/full/42332998"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42333995.json",
+      "sha256": "e7bceba64e5d69012da07a9b749d7e1378ad91327c14dbe7d8edea325b2fba22",
+      "taskId": "neural/data/full/42333995"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42334992.json",
+      "sha256": "0f07065b235d621f0d8d3f5138917692106728df4376024c8e9dd9b21f0808ba",
+      "taskId": "neural/data/full/42334992"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42335989.json",
+      "sha256": "908face83a1a4ebe218070d3674ae2aef50b45d23da8a10c78b7f20a73286c40",
+      "taskId": "neural/data/full/42335989"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42336986.json",
+      "sha256": "91963599c72513d09134b67c8330ecc2f8cdaf6baf6f46fb5d54d770bb4545ae",
+      "taskId": "neural/data/full/42336986"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42337983.json",
+      "sha256": "d18cd6408f3e1ab723a81d36b3a74b94fdae32ad4810b590c7a8469f961122d2",
+      "taskId": "neural/data/full/42337983"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42338980.json",
+      "sha256": "cd969759d3ef25ab1f9474310650265742aaca81a7ce673cb19707e35f649e18",
+      "taskId": "neural/data/full/42338980"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42339977.json",
+      "sha256": "e43122e8c0029541f6917b78f4662e07cb8dc1af590c7aefe7349df835557afb",
+      "taskId": "neural/data/full/42339977"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42340974.json",
+      "sha256": "450bf93617fce320819e7e281db59331097e94e66b47ef0984242cccfd3602ec",
+      "taskId": "neural/data/full/42340974"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42341971.json",
+      "sha256": "4471984a3f13167f10d0beb19e2089ffd091d433ad5425af02c414572f771e4c",
+      "taskId": "neural/data/full/42341971"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42342968.json",
+      "sha256": "c50b7b0b8a6a7ce4ebe653b7cc91f739c27b9cf462e4ad37685c3a9c23039f3f",
+      "taskId": "neural/data/full/42342968"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42343965.json",
+      "sha256": "c642d9b80d87c59c7596586324cb4aca0e1504267c963e36a26dc11a8987f6f6",
+      "taskId": "neural/data/full/42343965"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42344962.json",
+      "sha256": "498df916ee842685e4deb82a02ef7bf853a66085b4fd3449817c8f06fef21789",
+      "taskId": "neural/data/full/42344962"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42345959.json",
+      "sha256": "01c5176e21403891a3b9292550d8bf4dbbc6d98721ea6efe576c0064c79008fa",
+      "taskId": "neural/data/full/42345959"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42346956.json",
+      "sha256": "880854fed44845614dfc358fb21c5bd649670fc038bca81f5a7a718456e183a5",
+      "taskId": "neural/data/full/42346956"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42347953.json",
+      "sha256": "d5b4d6d11a28e0bc213d92c0f09aa6ba86a6a9cd51592d10c6a9f0b1ec7e6f6f",
+      "taskId": "neural/data/full/42347953"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42348950.json",
+      "sha256": "dfcba9a0fea3dec7a2de4e30df3d633b9bdb665992055734038ff79ec0154f8a",
+      "taskId": "neural/data/full/42348950"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42349947.json",
+      "sha256": "744c08cc2f80a8dea02008a3db8f4af50926a16cbbbb149b91a934e4ebdc04db",
+      "taskId": "neural/data/full/42349947"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42350944.json",
+      "sha256": "a44da2305206e65ee196bc6f4cedec96c0d4cec3d00b811511f22728ea5df4fa",
+      "taskId": "neural/data/full/42350944"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42351941.json",
+      "sha256": "1af720d2817edc07ffa6ad9e923b708caf1f53a6cbeea3bfa84fb5a37b3f5a23",
+      "taskId": "neural/data/full/42351941"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42352938.json",
+      "sha256": "7ea4145ffe5af2d54cff322d55d7aa758b4c3d0c3c62274ff19c188e66b49db7",
+      "taskId": "neural/data/full/42352938"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42353935.json",
+      "sha256": "bcc92b69a3eb10d5841c17c98d52fee605128b88c4c81c3c52663a367a272c4f",
+      "taskId": "neural/data/full/42353935"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42354932.json",
+      "sha256": "b9fff8b8c439ad49b32db8ea6d1a385a72c6a79604700369cb145873fb128716",
+      "taskId": "neural/data/full/42354932"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42355929.json",
+      "sha256": "359671da22bd7a69f106503b07d4632f9a53ebcea6568a1b249b64672fc65edf",
+      "taskId": "neural/data/full/42355929"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42356926.json",
+      "sha256": "372abbc9926cfedcfd36c5bd2bcc809ec5fc10dd381c1ccd5d6c3c35fdba3448",
+      "taskId": "neural/data/full/42356926"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42357923.json",
+      "sha256": "eab358452fbad279b72c1487de0adc476e9272d053081d58a6bad5dfa9fc4a9c",
+      "taskId": "neural/data/full/42357923"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42358920.json",
+      "sha256": "20bc8d977aa3ca96d71ad83e1455935fa5cb4031119487649f1f330388f83e41",
+      "taskId": "neural/data/full/42358920"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42359917.json",
+      "sha256": "9ed79e4c2b41930dd99f506140ed2db748fc3c5ec680eb8ae6467d0f9072761a",
+      "taskId": "neural/data/full/42359917"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42360914.json",
+      "sha256": "8fe0a42c65e58ba673f81d27ad745f6634e1c1a382a0aef80b7941b8c9a7243c",
+      "taskId": "neural/data/full/42360914"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42361911.json",
+      "sha256": "8e7da36ed3d2ba7e8af67d10f2a3cbbf95d21e4589873c1e5d288335fe91b8a2",
+      "taskId": "neural/data/full/42361911"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42362908.json",
+      "sha256": "5ba687c7b17841ba5544fbd703d21e8b8082081e012eb782cfa98768a0a766d4",
+      "taskId": "neural/data/full/42362908"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42363905.json",
+      "sha256": "713299a6a9bcb4ca62fafc03079b28f44ea7719f512f9943c85f690b79a8f3b3",
+      "taskId": "neural/data/full/42363905"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42364902.json",
+      "sha256": "d1cffd231b7fec10ae5e8dde7f13252bcac7c3df189b7361ed1f66d3eed158df",
+      "taskId": "neural/data/full/42364902"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42365899.json",
+      "sha256": "6d7c1eb550d803e22de46a81d503c02ffd09ca57dd7182d750e066872c31c04e",
+      "taskId": "neural/data/full/42365899"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42366896.json",
+      "sha256": "5c756af4c5218b202e51b88e42f95a30d2b9ea0be3e20b9256ae3a41e9730307",
+      "taskId": "neural/data/full/42366896"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42367893.json",
+      "sha256": "f60ac38f41649abb8693b29f66379f6f988ca0f779c44e7abcf06da2f8afa3f7",
+      "taskId": "neural/data/full/42367893"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42368890.json",
+      "sha256": "eafd297d17638dc609ee1f2b705fc02af737212bac13cbf1212d6e1cc2e99c39",
+      "taskId": "neural/data/full/42368890"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42369887.json",
+      "sha256": "a5185b3d3682fdd21f28470c53d65ff2cba75e743e4d275285cc8d0bb6e68eef",
+      "taskId": "neural/data/full/42369887"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42370884.json",
+      "sha256": "20efc3c1ec4189aa3f6983996b295b57c7a21d3475c8ab7a5c13f7d1712ca01b",
+      "taskId": "neural/data/full/42370884"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42371881.json",
+      "sha256": "689b51a228dca72fce06a129a4009a2cf0099285d592930d39303290bf299fb8",
+      "taskId": "neural/data/full/42371881"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42372878.json",
+      "sha256": "994ccbfe1a4b874b92050e8849625f566ab0a5a67001f4e91c3d9dbd23515a62",
+      "taskId": "neural/data/full/42372878"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42373875.json",
+      "sha256": "422f63ebe8bebf0f90b600b3fc425b879348de8f9eb75cb9623579554e395042",
+      "taskId": "neural/data/full/42373875"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42374872.json",
+      "sha256": "180b69ff635a483aaaa9f5dcc488214aaba29e15d89d64ff253265f185f5232c",
+      "taskId": "neural/data/full/42374872"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42375869.json",
+      "sha256": "a581f2f17d39b16a386027ccd01de5511aa01d145326035b50e37c9f95f87338",
+      "taskId": "neural/data/full/42375869"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42376866.json",
+      "sha256": "db195c2ba61f7275636dd4e19993f4fdb3977461462aee9ca7820ba654eaad4b",
+      "taskId": "neural/data/full/42376866"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42377863.json",
+      "sha256": "3f1a0d8e751fe2d4b2a75af9f74dc0e975acb45c46e17279634538344bf33f48",
+      "taskId": "neural/data/full/42377863"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42378860.json",
+      "sha256": "94d5ead0fff3468236d908d1d4fa5ed020972e0cc41ab03e292dd45974cb0f0b",
+      "taskId": "neural/data/full/42378860"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42379857.json",
+      "sha256": "f5b30d5fbee0c52d9c85a009b56881a77e08fd73176bd3cf8edd02925c329ce6",
+      "taskId": "neural/data/full/42379857"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42380854.json",
+      "sha256": "0de0a077afd5e18fdcfa370ec389563ecdb611952d7a9981eec104d575811ecf",
+      "taskId": "neural/data/full/42380854"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42381851.json",
+      "sha256": "a5e9c5662d54d1d405f6fb7437d473937b64732c961817765e9cf82d507ff4c2",
+      "taskId": "neural/data/full/42381851"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42382848.json",
+      "sha256": "fe1fc3f44932fd76b430ce68da0c95a4cb5fd8a3eefbdb2a3c42e6c654ddb47b",
+      "taskId": "neural/data/full/42382848"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42383845.json",
+      "sha256": "4482e96fb0bf4b7880492f4bee13a7daadd5d166d0da538dd44a4718db32d75d",
+      "taskId": "neural/data/full/42383845"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42384842.json",
+      "sha256": "e6b89cdf7279c4f258023cccc7e7954faf61635af21f9e44e722ac49064c16fb",
+      "taskId": "neural/data/full/42384842"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42385839.json",
+      "sha256": "255c1c6771249e1fffcea4232dcaeaf86cc161ce5af1ebed7bc3eebd042dec41",
+      "taskId": "neural/data/full/42385839"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42386836.json",
+      "sha256": "38ed678c4d4b42afb1637d25f8894dbdbb657cc07f9c8e716595e732b235d702",
+      "taskId": "neural/data/full/42386836"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42387833.json",
+      "sha256": "d395f86d03ecae9e2e578a6172a447d7bd3254d23312edfd46740596646a6629",
+      "taskId": "neural/data/full/42387833"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42388830.json",
+      "sha256": "469369ded0992687f0498815e198db4ef33f87e88dcd5009e3d744802852abd1",
+      "taskId": "neural/data/full/42388830"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42389827.json",
+      "sha256": "77151d006447890c607e65a5f098eadf660788f3a5289407f0c26ce737717cdd",
+      "taskId": "neural/data/full/42389827"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42390824.json",
+      "sha256": "e8b9eafa691e5d9400e5c8ea4c72b9d019d408a97983b1533114427d3b2222a6",
+      "taskId": "neural/data/full/42390824"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42391821.json",
+      "sha256": "074c007547f9f42788dbd10bdb23145d521b1d14664449bd417c4440de046bed",
+      "taskId": "neural/data/full/42391821"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42392818.json",
+      "sha256": "b500b9a50e0d8e5362c17a9b87216fafed6bfbf4fb3ad3065fa6a6cce74c396e",
+      "taskId": "neural/data/full/42392818"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42393815.json",
+      "sha256": "c44d248a382c2147bc524e99e8a29368fae80889aa8ef9a5dcdea74110f4c0d6",
+      "taskId": "neural/data/full/42393815"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42394812.json",
+      "sha256": "cd5429bc6324391a1079661ca2439080b1a1f00dc0c8c8dbb4f20b2ddc457ebb",
+      "taskId": "neural/data/full/42394812"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42395809.json",
+      "sha256": "ab3cebf279d06261d1265073c52b48aa37a74eaa374705cfb173fa1f844ba281",
+      "taskId": "neural/data/full/42395809"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42396806.json",
+      "sha256": "5d7aa83071b79532502bbf75c30b5efda95442f206faf0a7c4b6accab14c818a",
+      "taskId": "neural/data/full/42396806"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42397803.json",
+      "sha256": "d1d38c19208e7a28e9a704c927beea8bfb29f38b0968974c957d977de8cf7e66",
+      "taskId": "neural/data/full/42397803"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42398800.json",
+      "sha256": "44fd6aac2ee54c481fd92443e7ebc4b46ba6953ca1aa6a83fc420f9307b6f97c",
+      "taskId": "neural/data/full/42398800"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42399797.json",
+      "sha256": "8e499ee4012ad83da7ec7fdd984663fe4f0d9c10afc4e0ce7e1c3f3569b101e7",
+      "taskId": "neural/data/full/42399797"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42400794.json",
+      "sha256": "3084617da621f9789a2faaffebb91ea4cf5b510fb66a3a3d6eef49329d33d539",
+      "taskId": "neural/data/full/42400794"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42401791.json",
+      "sha256": "fc68641e7c66b822668daef4eb5be3db276b2ba28b1d7648b53bbcf26a5046ae",
+      "taskId": "neural/data/full/42401791"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42402788.json",
+      "sha256": "68a2ba39fc7490a086458fcb5f9d80d06882f24b65fd99ca36f43ff13c4b0890",
+      "taskId": "neural/data/full/42402788"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42403785.json",
+      "sha256": "6084c5bac6daf01f9d1f6b7bd09bb417a1557d4e8795f418ce47f5a3a362e021",
+      "taskId": "neural/data/full/42403785"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42404782.json",
+      "sha256": "770c58cab17400771f96280d2e36af5601f87d0b2b77cc854260ead37b193585",
+      "taskId": "neural/data/full/42404782"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42405779.json",
+      "sha256": "6fcd418eb87810d781f7937071435476f2c016b91380205d5491259bc92e74b5",
+      "taskId": "neural/data/full/42405779"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42406776.json",
+      "sha256": "ed09d9711c9d6c8477545e7a62c6a11941f04a1b1825004f7d33f56f8ad86c2a",
+      "taskId": "neural/data/full/42406776"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42407773.json",
+      "sha256": "088b08c4a7394ce2e854e6a19765272f6ce94a6f849ef4eb8d8e89d3ae0e3b91",
+      "taskId": "neural/data/full/42407773"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42408770.json",
+      "sha256": "759cf1a0e9eb73cdedbaae7eca0d62c8a7cd4aa813982e937d32915f31657f45",
+      "taskId": "neural/data/full/42408770"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42409767.json",
+      "sha256": "dcedbbec05de9abe5b2748875bbc2d189376f2a453ecc9c9b68c55af1ef6cb58",
+      "taskId": "neural/data/full/42409767"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42410764.json",
+      "sha256": "3c52553e9ed393d14ea073ead4612618d21cd5304ffc8548ba79b9daf4707098",
+      "taskId": "neural/data/full/42410764"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42411761.json",
+      "sha256": "6db171cf5212154bb6a550ba635010f9e9842487182f4ed5c347bf7ddfc56bfd",
+      "taskId": "neural/data/full/42411761"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42412758.json",
+      "sha256": "dde31bd089732fcc745ca481bb51b98f2affd3b46a481c7d51b004de9400ae09",
+      "taskId": "neural/data/full/42412758"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42413755.json",
+      "sha256": "4d081430e56e6f75ca73858b75d63864cceecd68277fabf248727014935db69e",
+      "taskId": "neural/data/full/42413755"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42414752.json",
+      "sha256": "699e76a188a856c69de085238ce2ff636c9157b4a0de62b90fa57edb4f50c8a8",
+      "taskId": "neural/data/full/42414752"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42415749.json",
+      "sha256": "656c0ce2146e8735a86c554d63efafe65c8925109a815b6a1867536612bb8c3a",
+      "taskId": "neural/data/full/42415749"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42416746.json",
+      "sha256": "faa029a5a4ad05490069095c41a0a5718ae05af56898072484dcad647546ee3f",
+      "taskId": "neural/data/full/42416746"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42417743.json",
+      "sha256": "5aaf7b15993f31f8e54c17c56dc56da5b3b1e515272ca2c5ce54ec2852e26b40",
+      "taskId": "neural/data/full/42417743"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42418740.json",
+      "sha256": "5b8fc1be7d47bfa218821491ed46ffc74524266162a95be4adea2870d56d1aa9",
+      "taskId": "neural/data/full/42418740"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42419737.json",
+      "sha256": "985dd44dcd26b9745100a0093ab91b752f73c21f848ac83458b843b7d24e3bf8",
+      "taskId": "neural/data/full/42419737"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42420734.json",
+      "sha256": "e0fcaf71dcdc2fc734efb0dedf25d66b00e38bde0365d8a884f3d2f662682ef5",
+      "taskId": "neural/data/full/42420734"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42421731.json",
+      "sha256": "d235d84719ae861df5208f0318ced79a3608a9e0db15aa25f153d7d8f7ed7f8c",
+      "taskId": "neural/data/full/42421731"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42422728.json",
+      "sha256": "5e543dcda2512ddb5d8d7a7029f249901d841d8dabdd8ed201d05cbdc3cc6424",
+      "taskId": "neural/data/full/42422728"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42423725.json",
+      "sha256": "2f4c552f5c4fdbffa1f51aaba44b23a45ba7f8e1d63b3d86ac819f380637c281",
+      "taskId": "neural/data/full/42423725"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42424722.json",
+      "sha256": "fb8e395c17b63795f6d457e9d94150c44580ba2a5addff270cefe0dd357c4858",
+      "taskId": "neural/data/full/42424722"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42425719.json",
+      "sha256": "ae1dcd2737f1003f2c6ee2089f741d731d0f28bcbf2d1dab8360ed39ad33b22c",
+      "taskId": "neural/data/full/42425719"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42426716.json",
+      "sha256": "86196bd3d7ee099e8cb3c2be9e86fb6901241d03fef911f169a1097f553851da",
+      "taskId": "neural/data/full/42426716"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42427713.json",
+      "sha256": "82a238c473811bd3c1c7ed34c0c31faaad1e659819a2c3edd6f88d315bd830ac",
+      "taskId": "neural/data/full/42427713"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42428710.json",
+      "sha256": "4d933cbcfa7462dedf9f608156629b727487d119177cc601d1c25d15a3a6f0af",
+      "taskId": "neural/data/full/42428710"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42429707.json",
+      "sha256": "b4cd55e005ba4f4ff93d922d39ae52fe0346d04539df598e5755e93456632159",
+      "taskId": "neural/data/full/42429707"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42430704.json",
+      "sha256": "ec4382f277c7f9f5e2545732a6bf806831d91f4132bf2c114f7b2c56306a28f4",
+      "taskId": "neural/data/full/42430704"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42431701.json",
+      "sha256": "6c5bdb826524b73a053867602ab57721aa4209648905a73e4e9f7d4a72dd5bb6",
+      "taskId": "neural/data/full/42431701"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42432698.json",
+      "sha256": "91b7523bd5509aa2417914f415be8574b430da44d00444b951fa8b5475012617",
+      "taskId": "neural/data/full/42432698"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42433695.json",
+      "sha256": "07d9b91e8c4f7c647f256ff8a188fb3aa3a98219b42783ead63f2449142f7291",
+      "taskId": "neural/data/full/42433695"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42434692.json",
+      "sha256": "dac70a833e1d4252fa7b9f3caa867bdcff9b3a4bbc9ee377b475b20ccc7567d0",
+      "taskId": "neural/data/full/42434692"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42435689.json",
+      "sha256": "8a8290e7a3d1cb39bd54097dc7eb4a25e63ba86ae915110f2542a33e43144a48",
+      "taskId": "neural/data/full/42435689"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42436686.json",
+      "sha256": "280b43c4537992b086d590a7354fbfa7ce9f05a9c3c55f42b6a3f0d95d476053",
+      "taskId": "neural/data/full/42436686"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42437683.json",
+      "sha256": "389ad29d18eb3d91519ebd999cfc858ed83e82d9f18bf8de7b6b8d76ee4dec57",
+      "taskId": "neural/data/full/42437683"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42438680.json",
+      "sha256": "f27dbdb50f71da4676d9a30b2b33e10fd0cfa688d3fba27798b95c09b2e03fa1",
+      "taskId": "neural/data/full/42438680"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42439677.json",
+      "sha256": "74033c6cf46f2a9d6d82774a6b109d75bde5635836e8ef147f7c1c438ae59729",
+      "taskId": "neural/data/full/42439677"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42440674.json",
+      "sha256": "5e184f9ae491981ae805d4c70f65dd1854c44abedfa8c2e0d75fc46a9497ffdc",
+      "taskId": "neural/data/full/42440674"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42441671.json",
+      "sha256": "4c01dcc6f45fb4553dba6dcb20293e18853339f7190524f64c06ac50fdd7f3eb",
+      "taskId": "neural/data/full/42441671"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42442668.json",
+      "sha256": "6592709e38c75a7b31b250501261c43f72753467c12c85d72f042ee395885626",
+      "taskId": "neural/data/full/42442668"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42443665.json",
+      "sha256": "615aea24d4e7bf2e7df5394eba992e762128220aa2058e96ecad28b2157b25de",
+      "taskId": "neural/data/full/42443665"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42444662.json",
+      "sha256": "78f99448db91c902a03195414e5db53e627990936129bee1b59cb3436b1ab69b",
+      "taskId": "neural/data/full/42444662"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42445659.json",
+      "sha256": "08b4a0feef082a074c1b62ee01501faac6428023cc131ef95548640a80311b7b",
+      "taskId": "neural/data/full/42445659"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42446656.json",
+      "sha256": "35ed06d12dbae41f8ad3ed4ecdd490bfd8a49e96a17d292ec9f5c93ea4b5b383",
+      "taskId": "neural/data/full/42446656"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42447653.json",
+      "sha256": "9d37f5255d114c85d55eb0c3cc333be28cb14fd85c8a6e06187b2bb921c3b29f",
+      "taskId": "neural/data/full/42447653"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42448650.json",
+      "sha256": "3d9425696ce60c3a8d9ed608c5069a3b4b60bc5004252abba0ecd3841f20ccdd",
+      "taskId": "neural/data/full/42448650"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42449647.json",
+      "sha256": "2e90fb5adedde8f8b505129d41345edee00344d8e31c8dd42ab086c6fe547935",
+      "taskId": "neural/data/full/42449647"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42450644.json",
+      "sha256": "15422a02278718b2389cf5fe607b69e33549ad52114eebefd776441f516af906",
+      "taskId": "neural/data/full/42450644"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42451641.json",
+      "sha256": "c81714af8282c3624c17cda93209f3c332cb447d912468316d46d4f685c92481",
+      "taskId": "neural/data/full/42451641"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42452638.json",
+      "sha256": "f6f735c4a88316804cf93f67eb7c2d02d24dc87ed57cc2e25456bd77512d0a6c",
+      "taskId": "neural/data/full/42452638"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42453635.json",
+      "sha256": "9c51625a7874459796e61ab60257065e5442dc513258d82f72702d3c3d26bdc7",
+      "taskId": "neural/data/full/42453635"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42454632.json",
+      "sha256": "4997e1c7b6d5217267d44121c0c62f70c3f28159b4d43ab2decb5cb9430bf06f",
+      "taskId": "neural/data/full/42454632"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42455629.json",
+      "sha256": "7cac7a40d2e86ad67763b1d12b75d60a567093c9be6b55992ab0e9190e0e53b4",
+      "taskId": "neural/data/full/42455629"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42456626.json",
+      "sha256": "182002970d93b1a737f587feafd6c3164ea127532717a975a4c535377e97f7c7",
+      "taskId": "neural/data/full/42456626"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42457623.json",
+      "sha256": "41f50828bb9397488eabefd4a62ebb0b100e1e29596b293fe1d429cce104b36c",
+      "taskId": "neural/data/full/42457623"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42458620.json",
+      "sha256": "7e3dc364f52ad63d4a920c21122fd059aa50e047f4e760340e983b961a76c39c",
+      "taskId": "neural/data/full/42458620"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42459617.json",
+      "sha256": "78e60c84aa00dd1e27db48a0fce51ff92e4f33572b168bfe9f33de8541eff362",
+      "taskId": "neural/data/full/42459617"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42460614.json",
+      "sha256": "5ad2eae363112b63bec03cd40599267858eff1df4d4e85d998fb6bdf4d2fa017",
+      "taskId": "neural/data/full/42460614"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42461611.json",
+      "sha256": "b6bce378e6c28be5a2fd8169a74f6ea90390cd45cfd6ebcf0617b2a184271ce8",
+      "taskId": "neural/data/full/42461611"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42462608.json",
+      "sha256": "39bd257a3854a60c74161d5728b79b07e46f7bcf8571c9f67fa0a8c31b87930d",
+      "taskId": "neural/data/full/42462608"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42463605.json",
+      "sha256": "1c0e8baf47df4d5f9ce0e6ca1c67995306c35e71029ad7220603020dfbd35abd",
+      "taskId": "neural/data/full/42463605"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42464602.json",
+      "sha256": "1195169a23fbd28b37d7686ea219c6e667efb529d9c064575b4312282a47e1c1",
+      "taskId": "neural/data/full/42464602"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42465599.json",
+      "sha256": "2c8e9a865c5e5a8c94ee51f50f32674f31be8961032d6e886e8577696b732a55",
+      "taskId": "neural/data/full/42465599"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42466596.json",
+      "sha256": "48647795c176586c5eaa17dbd45114176cd092b49ea8a907088c3dd7b131b72b",
+      "taskId": "neural/data/full/42466596"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42467593.json",
+      "sha256": "d49da427daffd28bc7acb5a0448a81c1c002d6fe8c4bd6bbea07f553b3faa89a",
+      "taskId": "neural/data/full/42467593"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42468590.json",
+      "sha256": "544f7f23be3961ae96d64932b871d8e6f110a47df9b2f561e606a82903c977da",
+      "taskId": "neural/data/full/42468590"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42469587.json",
+      "sha256": "eb430843a3428045c0ad9f57eb7158177337d68452f79fae3a94825d958979cd",
+      "taskId": "neural/data/full/42469587"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42470584.json",
+      "sha256": "9db38f3683b3f2b1cb1d412a5b4ffeb3f7b00d7b37a98c7dd904eaf4fbc9dae9",
+      "taskId": "neural/data/full/42470584"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42471581.json",
+      "sha256": "eceb2d0921cd5fb349acb4b9bf34a7da65655b5cce322478ade8f4d43425c1f0",
+      "taskId": "neural/data/full/42471581"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42472578.json",
+      "sha256": "f61532f42320810245321f23ac2f25007d7be5b0b80aba097a449760891adb1b",
+      "taskId": "neural/data/full/42472578"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42473575.json",
+      "sha256": "efe86285c612dfa4e4d1dc7bed5bdf01998326a81def2cb98974e6203dcdbd59",
+      "taskId": "neural/data/full/42473575"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42474572.json",
+      "sha256": "0f974bdddcb49e8962a5154a6766cf093fac75b036e702d7e8bb4940fef8a673",
+      "taskId": "neural/data/full/42474572"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42475569.json",
+      "sha256": "238c74d4c2419cbc8fa04275c8c790fd7d2011b5979b7f33d2b5dad3cd9c638f",
+      "taskId": "neural/data/full/42475569"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42476566.json",
+      "sha256": "15cbecb47b296908095d175e3aee3b7909f205baa4f059dbf86cf4006dc29247",
+      "taskId": "neural/data/full/42476566"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42477563.json",
+      "sha256": "f5ff9c5576d57fb84cd238d3406060dd460bb501c4a2380dc9ec3368753aee1e",
+      "taskId": "neural/data/full/42477563"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42478560.json",
+      "sha256": "d40c8c5896456342fc0e6d413eb317a7044706c074b9a6a8bc014beacec7025f",
+      "taskId": "neural/data/full/42478560"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42479557.json",
+      "sha256": "be913c930dbf6dcf751138ecc591e7769283be4f4881eea3f016d56aad52fff3",
+      "taskId": "neural/data/full/42479557"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42480554.json",
+      "sha256": "ea90c90b3a234b55d3af926020cb10b300401dad82cad969b96f401694bea305",
+      "taskId": "neural/data/full/42480554"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42481551.json",
+      "sha256": "df11311374450eb59fc72b1c88fd57fa0f482e653b5103de6713dd862efeb44e",
+      "taskId": "neural/data/full/42481551"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42482548.json",
+      "sha256": "502e09dc2f67bf2ac2814cffffc4711c54dd7956495f0ffb9c140df3b525bd30",
+      "taskId": "neural/data/full/42482548"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42483545.json",
+      "sha256": "c2d78b495f127ed61effca865e15ed20ee7d5abceb7037cf5460e401b9530eb3",
+      "taskId": "neural/data/full/42483545"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42484542.json",
+      "sha256": "1a4ab853e0587c98a65253d1c406c43f0b0d68e2be86e685af72490875ad0d3c",
+      "taskId": "neural/data/full/42484542"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42485539.json",
+      "sha256": "da893c99fc4382cb361830023f123b94503d7c21efef1e69fa0ab52ff49d12c2",
+      "taskId": "neural/data/full/42485539"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42486536.json",
+      "sha256": "84e50cfbc433cf44c6acb577b14375cbe5a24634c8daba0a518838b10e9924bd",
+      "taskId": "neural/data/full/42486536"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42487533.json",
+      "sha256": "bd21c534958964773fc0d5412cbc94b23131df1749e4420625e994c0051379b6",
+      "taskId": "neural/data/full/42487533"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42488530.json",
+      "sha256": "ef1804e64fd13946f430af7eb8670145b2cd5794d967a3b964bfb4f8cdf7cea9",
+      "taskId": "neural/data/full/42488530"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42489527.json",
+      "sha256": "55b81a27a8a7345495d30ce41f5ff7cd2625f8351b4312ee7448ba57e8fc2980",
+      "taskId": "neural/data/full/42489527"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42490524.json",
+      "sha256": "64425f720fb088b943a133eeb202075d71c75c0eb7fd33ab31f5ca4235138bc9",
+      "taskId": "neural/data/full/42490524"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42491521.json",
+      "sha256": "dec28ee8e96fa7c2e2e2a5cd8bcffbed1af79a080175766c301d42d5f5bf5a75",
+      "taskId": "neural/data/full/42491521"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42492518.json",
+      "sha256": "b2b0864e658f7e5c228a76be9b48757cc1992898556886dc8274b0e2bd156a19",
+      "taskId": "neural/data/full/42492518"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42493515.json",
+      "sha256": "3e39f39ec9151ea3dddcba0aedd8f118e8b3af81a06b0ffdeb9882a341a6871b",
+      "taskId": "neural/data/full/42493515"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42494512.json",
+      "sha256": "6dda297ee10d26b75728ceff30d83ab9aaa3830647aad8cebb9a03643a1c27e4",
+      "taskId": "neural/data/full/42494512"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42495509.json",
+      "sha256": "55519fdde61a05e2bc4e310354d42296fb45a7591366851fa1df320ec5c7ad3f",
+      "taskId": "neural/data/full/42495509"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42496506.json",
+      "sha256": "da8c719725906fdd18b9dc1def6087e623f50805b3a062c63fa8d409c06e357f",
+      "taskId": "neural/data/full/42496506"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42497503.json",
+      "sha256": "70cf9a3f356e631ff1408ac5ac18702edc89c3b3576904101f2b35b51ee472fd",
+      "taskId": "neural/data/full/42497503"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42498500.json",
+      "sha256": "4eb90dac59b6436713fc4f3328d00fa03effa27ed3eae924e72be7d27f5bb76e",
+      "taskId": "neural/data/full/42498500"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42499497.json",
+      "sha256": "69677736d575d42c33642a7be7f4202512d7c8d45a9d5e0ffe378a961ab66d47",
+      "taskId": "neural/data/full/42499497"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42500494.json",
+      "sha256": "4145ba34efa5f983ecc36376b7d77b14d7f93bb5666528e5814c843dafb3a1cb",
+      "taskId": "neural/data/full/42500494"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42501491.json",
+      "sha256": "6092da1a8766554fa089a6557e8ead57ad77a6586cb9ee1eaae8d941112ddc27",
+      "taskId": "neural/data/full/42501491"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42502488.json",
+      "sha256": "b76345f61fccb51ef612172c76421a7bc80b682fbb4725162841b87dbd2f61ec",
+      "taskId": "neural/data/full/42502488"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42503485.json",
+      "sha256": "88a8ecdbf4ec9c4a88cdb561710f4e8d36e46f6760d173c03192b7318bd2d32e",
+      "taskId": "neural/data/full/42503485"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42504482.json",
+      "sha256": "d52133d4494d37b196046192243c2fcf5418f48797ac6a0f37ccc282f264f86f",
+      "taskId": "neural/data/full/42504482"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42505479.json",
+      "sha256": "8aee8263dd3d3e8fda04f38f9a73b83679091b0511b5304b4f365dc56486d4a7",
+      "taskId": "neural/data/full/42505479"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42506476.json",
+      "sha256": "c250efc8b5511f345131a3852c8f6f03b7aaf60cbc74254f2861f9a6335522db",
+      "taskId": "neural/data/full/42506476"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42507473.json",
+      "sha256": "b64d7d0bb33f2a2ef0db5af909bd378632331da47b61bc023628bc6b7ebaf415",
+      "taskId": "neural/data/full/42507473"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42508470.json",
+      "sha256": "b8bbf3ec3f87f9a2a9ba43d378a835d9a025e9e08440a27b65c6ce086422be3f",
+      "taskId": "neural/data/full/42508470"
+    },
+    {
+      "file": "games\\neural%2Fdata%2Ffull%2F42509467.json",
+      "sha256": "867715cc82a66111f4efcf6ce45c72fb1fe9d0fa7faea29f483266b95798e6ff",
+      "taskId": "neural/data/full/42509467"
+    }
+  ],
+  "splitGroups": {
+    "train": 320,
+    "dev": 64,
+    "test": 128
+  },
+  "normalizationFitSplit": "train-only",
+  "featureClipping": false,
+  "selectionRule": "minimum development value Huber, then CPU latency, then seed; test evaluated only after frozen selection"
+}
