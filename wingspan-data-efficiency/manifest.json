@@ -153,7 +153,12 @@
     "outcomeBlind": true,
     "frozen": true
   },
-  "computeMatch": {},
+  "computeMatch": {
+    "hybridBaselineRatio": 0.9324802188141057,
+    "relativeDifference": 0.0675197811858943,
+    "passed": true,
+    "equalComputeClaimAllowed": true
+  },
   "stages": {
     "calibration-baseline": {
       "startedAt": 1792434139329,
@@ -211,11 +216,19 @@
     },
     "collect-hybrid": {
       "startedAt": 1792435145516,
+      "finishedAt": 1792435718291,
       "planned": 1040,
-      "status": "running",
+      "status": "complete",
       "arm": "hybrid",
       "result": {
-        "processCpuMicros": {},
+        "poolWallMs": 572748,
+        "gameCount": 1040,
+        "planned": 1040,
+        "complete": true,
+        "processCpuMicros": {
+          "user": 14283860000,
+          "system": 47703000
+        },
         "modelHashes": {}
       }
     }
