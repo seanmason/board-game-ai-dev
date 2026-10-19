@@ -1,6 +1,6 @@
 # Wingspan data-efficiency evidence
 
-Controller status: **running**. Completed displayed games: 782 / 1600.
+Controller status: **running**. Completed displayed games: 959 / 1600.
 
 [Dashboard aggregates](dashboard.json) · [Public controller receipt](manifest.json) · [Frozen source](source.zip) · [Source inventory](source-manifest.json) · [Seed audit](seed-audit.json)
 
