@@ -1,7 +1,8 @@
 # Wingspan: small neural value pilot
 
-Status: proposed implementation plan, October19,2026. No training or new strength
-games have started. Scope: original Wingspan, two players. The user explicitly
+Status: user-authorized implementation and bounded execution, October19,2026.
+Current progress and implementation evidence are recorded in the
+[active work record](../work/wingspan-neural-2026-10-19.md). Scope: original Wingspan, two players. The user explicitly
 requested a simplified neural approach; this plan gives bounded first milestones
 and evidence gates before a larger training investment.
 

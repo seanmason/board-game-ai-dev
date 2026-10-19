@@ -15,9 +15,10 @@ study and480-game follow-up supplied no stronger replacement. Sample scaling
 was confirmed within the corrected research reference, which does not establish
 a new deployed budget. See the [selection and evidence](2026-10-19-selection.md).
 
-The next proposed direction is a [small neural value pilot](../../plans/wingspan-neural-pilot-2026-10-19.md),
+The active research direction is a [small neural value pilot](../../plans/wingspan-neural-pilot-2026-10-19.md),
 with a linear baseline, observation-safe training data and fresh equal-time play.
-No model training has started.
+See the [current work record](../../work/wingspan-neural-2026-10-19.md) for execution
+status and evidence. Production uses the reviewed opening package.
 
 ## Scope and capabilities
 
