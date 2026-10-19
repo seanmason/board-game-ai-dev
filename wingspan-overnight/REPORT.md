@@ -1,7 +1,7 @@
 # Wingspan unattended investigation
 
-Status: **running**, stage **screen**. Updated 2026-10-19T06:47:18.140Z.
-Recorded 157 / 488 scheduled games; maximum30 BelowNormal workers. Deadline 2026-10-19T12:32:46.412131+00:00.
+Status: **running**, stage **screen**. Updated 2026-10-19T06:48:51.078Z.
+Recorded 184 / 488 scheduled games; maximum30 BelowNormal workers. Deadline 2026-10-19T12:32:46.412131+00:00.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-overnight) · [Protocol](protocol.md) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Manifest](manifest.json) · [Admission](admission.json) · [Diagnostic records](diagnostics/) · [Raw games](games/)
 
@@ -13,9 +13,9 @@ The existing study finishes first. Fixed ten-minute mechanism diagnostics preced
 | canary/noprior | 2 / 2 | 1 / 1 | 50.0% | 3.50 |
 | canary/both | 2 / 2 | 1 / 1 | 50.0% | 3.50 |
 | canary/lean-es | 2 / 2 | 1 / 1 | 50.0% | 2.50 |
-| screen/power-aware | 37 / 120 | 18 / 60 | 44.4% | 0.81 |
-| screen/noprior | 37 / 120 | 18 / 60 | 44.4% | -1.89 |
-| screen/both | 38 / 120 | 19 / 60 | 48.7% | -0.03 |
-| screen/lean-es | 37 / 120 | 18 / 60 | 47.2% | -2.42 |
+| screen/power-aware | 43 / 120 | 21 / 60 | 45.2% | 0.62 |
+| screen/noprior | 45 / 120 | 22 / 60 | 43.2% | -3.23 |
+| screen/both | 44 / 120 | 22 / 60 | 46.6% | -0.98 |
+| screen/lean-es | 44 / 120 | 21 / 60 | 50.0% | -1.86 |
 
 Partial summaries are descriptive. Invalid, incomplete and deadline-truncated stages cannot pass. Canary outcomes are validation evidence only. The raw source snapshot, hashed seed audit and per-game records preserve favorable and unfavorable results. Study results concern internal two-player comparisons, not human strength or real iPad latency.
