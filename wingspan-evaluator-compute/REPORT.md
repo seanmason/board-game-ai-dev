@@ -1,7 +1,7 @@
 # Wingspan evaluator and compute study
 
-Status: **running**; stage **screen**. Snapshot 2026-10-19T00:55:52.471Z.
-Recorded 172 / 1600 scheduled games; 172 valid and 0 invalid records. 24 active games; worker limit 24, BelowNormal priority.
+Status: **running**; stage **screen**. Snapshot 2026-10-19T00:57:22.521Z.
+Recorded 190 / 1600 scheduled games; 190 valid and 0 invalid records. 24 active games; worker limit 24, BelowNormal priority.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator) · [Frozen protocol](protocol.md) · [Evaluator formulas](methods.md) · [Manifest](manifest.json) · [Checkpoint](checkpoint.json) · [Source archive](execution-source.zip) · [Source archive digest](archive-sha256.txt) · [Seed audit](seed-audit.json)
 
@@ -29,24 +29,24 @@ Initial cost estimate from eight canaries and diagnostic timings: roughly 3-8 ho
 
 | Stage / matchup | Valid / planned | Complete seat pairs | Winner share | Paired 95% interval | Mean margin | Mean candidate decision |
 | --- | ---: | ---: | ---: | --- | ---: | ---: |
-| screen/reference-n100-h4 | 9 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -5.38 | 353.4 ms |
-| screen/reference-n100-h12 | 9 / 80 | 4 / 40 | 25.0% | 0.0% to 70.9% | -0.75 | 1110.3 ms |
+| screen/reference-n100-h4 | 10 / 80 | 5 / 40 | 50.0% | 6.1% to 93.9% | -2.40 | 353.8 ms |
+| screen/reference-n100-h12 | 10 / 80 | 5 / 40 | 40.0% | 0.0% to 91.9% | 0.90 | 1085.2 ms |
 | screen/reference-n300-h4 | 9 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | 0.00 | 947.7 ms |
 | screen/reference-n300-h12 | 8 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -2.75 | 3467.3 ms |
-| screen/exceptional-n100-h4 | 9 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -4.00 | 505.4 ms |
-| screen/exceptional-n100-h12 | 9 / 80 | 4 / 40 | 12.5% | 0.0% to 52.3% | -8.75 | 1480.9 ms |
-| screen/exceptional-n300-h4 | 9 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | 1.38 | 1429.4 ms |
-| screen/exceptional-n300-h12 | 7 / 80 | 3 / 40 | 66.7% | 0.0% to 100.0% | 1.50 | 4030.1 ms |
-| screen/chains-n100-h4 | 9 / 80 | 4 / 40 | 25.0% | 0.0% to 70.9% | -7.12 | 514.4 ms |
-| screen/chains-n100-h12 | 9 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -3.12 | 1233.8 ms |
-| screen/chains-n300-h4 | 9 / 80 | 4 / 40 | 75.0% | 29.1% to 100.0% | 4.00 | 1392.4 ms |
-| screen/chains-n300-h12 | 7 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | -2.33 | 3561.9 ms |
-| screen/investment-n100-h4 | 9 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -6.62 | 618.0 ms |
-| screen/investment-n100-h12 | 9 / 80 | 4 / 40 | 37.5% | 0.0% to 77.3% | -6.62 | 1186.1 ms |
-| screen/investment-n300-h4 | 8 / 80 | 4 / 40 | 37.5% | 0.0% to 100.0% | -1.12 | 2111.2 ms |
-| screen/investment-n300-h12 | 7 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | -5.50 | 3665.7 ms |
-| screen/blend-n100-h4 | 9 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | -2.12 | 983.4 ms |
-| screen/blend-n100-h12 | 9 / 80 | 4 / 40 | 62.5% | 0.0% to 100.0% | 4.00 | 1583.5 ms |
+| screen/exceptional-n100-h4 | 10 / 80 | 5 / 40 | 30.0% | 0.0% to 64.0% | -4.30 | 511.3 ms |
+| screen/exceptional-n100-h12 | 10 / 80 | 5 / 40 | 20.0% | 0.0% to 54.0% | -5.70 | 1444.6 ms |
+| screen/exceptional-n300-h4 | 10 / 80 | 5 / 40 | 50.0% | 0.0% to 100.0% | 0.90 | 1447.7 ms |
+| screen/exceptional-n300-h12 | 9 / 80 | 4 / 40 | 62.5% | 0.0% to 100.0% | 2.75 | 4669.8 ms |
+| screen/chains-n100-h4 | 10 / 80 | 5 / 40 | 30.0% | 0.0% to 64.0% | -5.70 | 528.1 ms |
+| screen/chains-n100-h12 | 10 / 80 | 5 / 40 | 40.0% | 12.2% to 67.8% | -3.60 | 1213.7 ms |
+| screen/chains-n300-h4 | 10 / 80 | 5 / 40 | 65.0% | 23.4% to 100.0% | 2.40 | 1424.3 ms |
+| screen/chains-n300-h12 | 9 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | -0.25 | 3961.6 ms |
+| screen/investment-n100-h4 | 10 / 80 | 5 / 40 | 30.0% | 0.0% to 64.0% | -6.30 | 632.9 ms |
+| screen/investment-n100-h12 | 10 / 80 | 5 / 40 | 40.0% | 12.2% to 67.8% | -6.90 | 1166.8 ms |
+| screen/investment-n300-h4 | 9 / 80 | 4 / 40 | 37.5% | 0.0% to 100.0% | -1.12 | 2139.9 ms |
+| screen/investment-n300-h12 | 8 / 80 | 3 / 40 | 50.0% | 0.0% to 100.0% | -5.50 | 3589.3 ms |
+| screen/blend-n100-h4 | 10 / 80 | 5 / 40 | 60.0% | 32.2% to 87.8% | 0.40 | 1011.3 ms |
+| screen/blend-n100-h12 | 10 / 80 | 5 / 40 | 50.0% | 0.0% to 100.0% | -0.20 | 1604.9 ms |
 | screen/blend-n300-h4 | 9 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | -0.88 | 2809.1 ms |
 | screen/blend-n300-h12 | 9 / 80 | 4 / 40 | 50.0% | 0.0% to 100.0% | -1.88 | 4748.9 ms |
 
