@@ -1,7 +1,7 @@
 # Wingspan compact self-play evidence
 
 Status: **running** (running); stage **scaling**.
-Snapshot: 2026-10-19T17:33:34.735Z. Actual games completed: 3904 / 4064 across displayed stages.
+Snapshot: 2026-10-19T17:35:12.509Z. Actual games completed: 3930 / 4064 across displayed stages.
 
 A finished snapshot may reflect an early stop; it does not imply all proposed cycles ran. Collection and offline prediction losses are not playing-strength evidence. Production promotion remains separate.
 
@@ -16,7 +16,7 @@ A finished snapshot may reflect an early stop; it does not imply all proposed cy
 | screen-3/reference | 80 / 80 | 40 / 40 | 0.7125 [0.6175, 0.8075] | 6.0875 [3.6283, 8.5467] |
 | confirmation/zero | 200 / 200 | 100 / 100 | 0.7600 [0.7015, 0.8185] | 7.6150 [6.1097, 9.1203] |
 | confirmation/reference | 200 / 200 | 100 / 100 | 0.6550 [0.5961, 0.7139] | 5.7950 [4.0922, 7.4978] |
-| scaling | 0 / 160 | 0 / 0 | — [—, —] | — [—, —] |
+| scaling | 26 / 160 | 0 / 0 | — [—, —] | — [—, —] |
 
 Intervals and winner shares stay hidden until the fixed scheduled comparison is complete with valid seat pairs. Unfavorable, invalid, capped and partial outcomes remain in aggregate counts. Requested whole-decision time is a soft bound; see latency mean, p95, p99 and maximum in dashboard rows.
 
