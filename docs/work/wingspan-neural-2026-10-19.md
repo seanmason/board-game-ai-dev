@@ -76,6 +76,10 @@ own current counters, fitting curves, offline errors, latency and paired results
 The report distinguishes data collection, offline fitting, validation and actual
 playing strength. Publication does not promote a model.
 
+The [bounded diagnostic follow-up](../plans/wingspan-neural-diagnostics-2026-10-19.md)
+freezes a train/dev-only feature/capacity comparison and a fresh constant-value
+attribution control. Both wait until the complete fixed pilot has stopped.
+
 The evidence publisher refreshes public snapshots every90seconds; the page polls
 every60seconds. It shows the current stage, collection counts, latest optimization
 seed/epoch and development loss, then held-out error and paired game results as
