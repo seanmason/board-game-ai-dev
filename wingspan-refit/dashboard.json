@@ -4,7 +4,7 @@
   "outcomeStatus": "running",
   "status": "running",
   "stage": "f0-control",
-  "updatedAt": "2026-10-19T19:57:11.571Z",
+  "updatedAt": "2026-10-19T19:58:43.734Z",
   "revision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
   "method": "Fixed small network teacher refits: two learning rates crossed with auxiliary loss on/off. Development selects at most two distinct candidates; fresh parent comparisons decide research teacher updates. Production is unchanged.",
   "finished": 0,
@@ -22,18 +22,19 @@
       "stage": "f0-control",
       "modelHashes": {
         "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
-        "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48"
+        "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+        "refit-f0-control": "7439c56ebdc656e3056d7873697abe848509aafc0c9d64fcb1ad3d1dd8095c8c"
       },
       "game": "wingspan",
       "players": 2,
       "scope": "Two-player research; complete fixed pairs required for strength results",
-      "status": "running",
+      "status": "complete",
       "planned": 24,
-      "finished": 0,
+      "finished": 5,
       "seedGroups": 0,
       "completeSeedGroups": 0,
       "counts": {
-        "complete": 0,
+        "complete": 5,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
@@ -58,9 +59,72 @@
         "high": null
       },
       "training": {
-        "latestFit": {},
-        "curves": [],
-        "eligible": false
+        "dev": {
+          "huber": 0.3534988517531311,
+          "mae": 6.979908682003219,
+          "saturation": 0.042939698415423846,
+          "correctionMean": -1.8238030290614604,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "epochZero": {
+          "huber": 0.3567082430535259,
+          "mae": 7.026726221989025,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "linear": {
+          "huber": 0.4126781113886092,
+          "mae": 7.665541760886219,
+          "saturation": 0,
+          "correctionMean": -1.6976722673355016,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "latestFit": {
+          "seed": 1729,
+          "epoch": 5,
+          "devValueHuber": 0.36000522350103803
+        },
+        "curves": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.3218126893043518,
+            "devValueHuber": 0.3567082430535259
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.3083571791648865,
+            "devValueHuber": 0.3534988517531311
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.3006645143032074,
+            "devValueHuber": 0.3550939120059662
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.2956564426422119,
+            "devValueHuber": 0.3568734315226644
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.2922704517841339,
+            "devValueHuber": 0.3592811930082485
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.2886757254600525,
+            "devValueHuber": 0.36000522350103803
+          }
+        ],
+        "selectedEpoch": 1,
+        "eligible": true
       }
     }
   ]
