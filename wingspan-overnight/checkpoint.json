@@ -1,14 +1,79 @@
 {
   "revision": "ff7ef8c623ee80a151d8d9729688fdb6fae0d47e",
   "startedAt": "2026-10-19T03:32:46.412137+00:00",
-  "updatedAt": "2026-10-19T06:26:20.361Z",
+  "updatedAt": "2026-10-19T06:36:20.801Z",
   "deadline": "2026-10-19T12:32:46.412131+00:00",
   "status": "running",
-  "stage": "diagnostics",
+  "stage": "canary",
   "workers": 30,
-  "planned": 0,
+  "planned": 8,
   "finished": 0,
-  "active": [],
+  "active": [
+    {
+      "id": "overnight/canary/canary/power-aware/21000000/0",
+      "stage": "canary",
+      "matchup": "power-aware",
+      "seed": 21000000,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.698Z"
+    },
+    {
+      "id": "overnight/canary/canary/power-aware/21000000/1",
+      "stage": "canary",
+      "matchup": "power-aware",
+      "seed": 21000000,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.714Z"
+    },
+    {
+      "id": "overnight/canary/canary/noprior/21000997/0",
+      "stage": "canary",
+      "matchup": "noprior",
+      "seed": 21000997,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.727Z"
+    },
+    {
+      "id": "overnight/canary/canary/noprior/21000997/1",
+      "stage": "canary",
+      "matchup": "noprior",
+      "seed": 21000997,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.740Z"
+    },
+    {
+      "id": "overnight/canary/canary/both/21001994/0",
+      "stage": "canary",
+      "matchup": "both",
+      "seed": 21001994,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.753Z"
+    },
+    {
+      "id": "overnight/canary/canary/both/21001994/1",
+      "stage": "canary",
+      "matchup": "both",
+      "seed": 21001994,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.769Z"
+    },
+    {
+      "id": "overnight/canary/canary/lean-es/21002991/0",
+      "stage": "canary",
+      "matchup": "lean-es",
+      "seed": 21002991,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.782Z"
+    },
+    {
+      "id": "overnight/canary/canary/lean-es/21002991/1",
+      "stage": "canary",
+      "matchup": "lean-es",
+      "seed": 21002991,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.798Z"
+    }
+  ],
   "anchor": "reference",
   "selection": null
 }

@@ -3,14 +3,284 @@
   "study": "wingspan-overnight-2026-10-18",
   "revision": "ff7ef8c623ee80a151d8d9729688fdb6fae0d47e",
   "startedAt": "2026-10-19T03:32:46.412137+00:00",
-  "updatedAt": "2026-10-19T06:26:20.363Z",
+  "updatedAt": "2026-10-19T06:36:20.802Z",
   "status": "running",
-  "stage": "diagnostics",
+  "stage": "canary",
   "workers": 30,
-  "planned": 0,
+  "planned": 8,
   "finished": 0,
-  "active": [],
+  "active": [
+    {
+      "id": "overnight/canary/canary/power-aware/21000000/0",
+      "stage": "canary",
+      "matchup": "power-aware",
+      "seed": 21000000,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.698Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "overnight/canary/canary/power-aware/21000000/1",
+      "stage": "canary",
+      "matchup": "power-aware",
+      "seed": 21000000,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.714Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "overnight/canary/canary/noprior/21000997/0",
+      "stage": "canary",
+      "matchup": "noprior",
+      "seed": 21000997,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.727Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "overnight/canary/canary/noprior/21000997/1",
+      "stage": "canary",
+      "matchup": "noprior",
+      "seed": 21000997,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.740Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "overnight/canary/canary/both/21001994/0",
+      "stage": "canary",
+      "matchup": "both",
+      "seed": 21001994,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.753Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "overnight/canary/canary/both/21001994/1",
+      "stage": "canary",
+      "matchup": "both",
+      "seed": 21001994,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.769Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "overnight/canary/canary/lean-es/21002991/0",
+      "stage": "canary",
+      "matchup": "lean-es",
+      "seed": 21002991,
+      "seat": 0,
+      "startedAt": "2026-10-19T06:36:20.782Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "overnight/canary/canary/lean-es/21002991/1",
+      "stage": "canary",
+      "matchup": "lean-es",
+      "seed": 21002991,
+      "seat": 1,
+      "startedAt": "2026-10-19T06:36:20.798Z",
+      "game": "wingspan",
+      "players": 2
+    }
+  ],
   "deadline": "2026-10-19T12:32:46.412131+00:00",
-  "rows": [],
-  "method": "Nine-hour unattended Wingspan investigation. Stage: diagnostics. Four focused interventions; timing-admitted fixed profile; one finalist confirmed against the same reference and deployed AI. Paired seeds and strict validity/latency gates. Diagnostics and canaries are separate from strength evidence. Deadline: 2026-10-19T12:32:46.412131+00:00."
+  "rows": [
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/power-aware",
+      "policy": "reference",
+      "policyId": "canary/power-aware · reference / power-aware / prior 0.18 / 1000 ms requested",
+      "opponentPolicyId": "reference / original / prior 0.18 / 1000 ms requested",
+      "scope": "Validation only",
+      "budget": {
+        "method": "reference",
+        "policy": "power-aware",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Partial results are descriptive. One-second requested budgets include preparation; root coverage can overrun. No automatic production changes."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/noprior",
+      "policy": "reference",
+      "policyId": "canary/noprior · reference / original / prior 0 / 1000 ms requested",
+      "opponentPolicyId": "reference / original / prior 0.18 / 1000 ms requested",
+      "scope": "Validation only",
+      "budget": {
+        "method": "reference",
+        "policy": "original",
+        "priorWeight": 0,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Partial results are descriptive. One-second requested budgets include preparation; root coverage can overrun. No automatic production changes."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/both",
+      "policy": "reference",
+      "policyId": "canary/both · reference / power-aware / prior 0 / 1000 ms requested",
+      "opponentPolicyId": "reference / original / prior 0.18 / 1000 ms requested",
+      "scope": "Validation only",
+      "budget": {
+        "method": "reference",
+        "policy": "power-aware",
+        "priorWeight": 0,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Partial results are descriptive. One-second requested budgets include preparation; root coverage can overrun. No automatic production changes."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "canary/lean-es",
+      "policy": "lean-es",
+      "policyId": "canary/lean-es · lean-es / original / prior 0.18 / 1000 ms requested",
+      "opponentPolicyId": "reference / original / prior 0.18 / 1000 ms requested",
+      "scope": "Validation only",
+      "budget": {
+        "method": "lean-es",
+        "policy": "original",
+        "priorWeight": 0.18,
+        "pipeline": "study",
+        "budget": 300,
+        "horizon": 4,
+        "timeMs": 1000
+      },
+      "planned": 2,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Partial results are descriptive. One-second requested budgets include preparation; root coverage can overrun. No automatic production changes."
+      ]
+    }
+  ],
+  "method": "Nine-hour unattended Wingspan investigation. Stage: canary. Four focused interventions; timing-admitted fixed profile; one finalist confirmed against the same reference and deployed AI. Paired seeds and strict validity/latency gates. Diagnostics and canaries are separate from strength evidence. Deadline: 2026-10-19T12:32:46.412131+00:00."
 }
