@@ -92,6 +92,15 @@ seed/epoch and development loss, then held-out error and paired game results as
 they become available. Phone/tablet Chromium checks cover the training display;
 these automated checks do not establish real iPad Safari acceptance.
 
+After completion, the neural dashboard pins final evidence commit `b5451fb`
+and versions its module URL. Actual phone/tablet browser inspection caught a
+cached branch response still claiming an active run after final publication;
+immutable evidence avoids confusing that stale response with current progress.
+The updated local dashboard passed the complete browser smoke check and loaded
+the real immutable public feed at390×844 and820×1180 with all1,392 completed
+records, no overflow and zero active workers. Final public deployment remains
+subject to the required GitHub Validation/Pages checks.
+
 Runtime root on the recorded desktop:
 `C:\Users\mason\.codex\benchmark-runs\wingspan-neural-20261019`.
 Generation and dataset manifests identify source bytes even when collection began
