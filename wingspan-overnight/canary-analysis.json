@@ -1,0 +1,238 @@
+{
+  "stage": "canary",
+  "expected": 8,
+  "received": 8,
+  "valid": 8,
+  "complete": true,
+  "designValid": true,
+  "status": "complete",
+  "missing": [],
+  "issues": [],
+  "alpha": 0.016666666666666666,
+  "groups": {
+    "power-aware": {
+      "matchup": "power-aware",
+      "profile": "canary",
+      "expected": 2,
+      "valid": 2,
+      "pairs": 1,
+      "complete": true,
+      "shapeValid": true,
+      "winShare": {
+        "n": 1,
+        "mean": 0.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "bounded-Hoeffding-backup",
+        "ci95": [
+          -0.8581015157406195,
+          1.8581015157406195
+        ],
+        "lowerBound": -0.9307942832954883
+      },
+      "margin": {
+        "n": 1,
+        "mean": -11,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "unbounded-degenerate",
+        "ci95": null,
+        "lowerBound": null
+      },
+      "candidateLatency": {
+        "n": 100,
+        "totalMs": 100086.60010000016,
+        "mean": 1000.8660010000016,
+        "p50": 1000.6584999999031,
+        "p95": 1002.1950000000652,
+        "max": 1005.1062000000384,
+        "overrunFrequency": 1
+      },
+      "opponentLatency": {
+        "n": 121,
+        "totalMs": 121106.96119999979,
+        "mean": 1000.8839768595024,
+        "p50": 1000.6792999999598,
+        "p95": 1002.2208000000101,
+        "max": 1006.1231999999145,
+        "overrunFrequency": 1
+      },
+      "meanRatio": 0.9999820400167089,
+      "p95Ratio": 0.9999742571697325,
+      "latencyGate": true,
+      "superiority": false,
+      "practicalGate": false,
+      "approximatelyEqualRealizedTime": true,
+      "legacyEndpointNotInstrumented": false
+    },
+    "noprior": {
+      "matchup": "noprior",
+      "profile": "canary",
+      "expected": 2,
+      "valid": 2,
+      "pairs": 1,
+      "complete": true,
+      "shapeValid": true,
+      "winShare": {
+        "n": 1,
+        "mean": 0.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "bounded-Hoeffding-backup",
+        "ci95": [
+          -0.8581015157406195,
+          1.8581015157406195
+        ],
+        "lowerBound": -0.9307942832954883
+      },
+      "margin": {
+        "n": 1,
+        "mean": 3.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "unbounded-degenerate",
+        "ci95": null,
+        "lowerBound": null
+      },
+      "candidateLatency": {
+        "n": 83,
+        "totalMs": 83075.1225000004,
+        "mean": 1000.9050903614507,
+        "p50": 1000.5877000000328,
+        "p95": 1002.8385000000708,
+        "max": 1007.3456000000006,
+        "overrunFrequency": 1
+      },
+      "opponentLatency": {
+        "n": 98,
+        "totalMs": 98090.48160000017,
+        "mean": 1000.9232816326548,
+        "p50": 1000.7082999999402,
+        "p95": 1002.5372000000207,
+        "max": 1005.5945000000065,
+        "overrunFrequency": 1
+      },
+      "meanRatio": 0.9999818255089696,
+      "p95Ratio": 1.0003005374763652,
+      "latencyGate": true,
+      "superiority": false,
+      "practicalGate": false,
+      "approximatelyEqualRealizedTime": true,
+      "legacyEndpointNotInstrumented": false
+    },
+    "both": {
+      "matchup": "both",
+      "profile": "canary",
+      "expected": 2,
+      "valid": 2,
+      "pairs": 1,
+      "complete": true,
+      "shapeValid": true,
+      "winShare": {
+        "n": 1,
+        "mean": 0.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "bounded-Hoeffding-backup",
+        "ci95": [
+          -0.8581015157406195,
+          1.8581015157406195
+        ],
+        "lowerBound": -0.9307942832954883
+      },
+      "margin": {
+        "n": 1,
+        "mean": 3.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "unbounded-degenerate",
+        "ci95": null,
+        "lowerBound": null
+      },
+      "candidateLatency": {
+        "n": 111,
+        "totalMs": 111088.90840000042,
+        "mean": 1000.8009765765804,
+        "p50": 1000.6746000000276,
+        "p95": 1001.8804999999702,
+        "max": 1003.3783000000985,
+        "overrunFrequency": 1
+      },
+      "opponentLatency": {
+        "n": 104,
+        "totalMs": 104076.14220000035,
+        "mean": 1000.7321365384649,
+        "p50": 1000.6903999999631,
+        "p95": 1001.6370999999344,
+        "max": 1005.1488999999128,
+        "overrunFrequency": 1
+      },
+      "meanRatio": 1.0000687896746812,
+      "p95Ratio": 1.000243002181165,
+      "latencyGate": true,
+      "superiority": false,
+      "practicalGate": false,
+      "approximatelyEqualRealizedTime": true,
+      "legacyEndpointNotInstrumented": false
+    },
+    "lean-es": {
+      "matchup": "lean-es",
+      "profile": "canary",
+      "expected": 2,
+      "valid": 2,
+      "pairs": 1,
+      "complete": true,
+      "shapeValid": true,
+      "winShare": {
+        "n": 1,
+        "mean": 0.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "bounded-Hoeffding-backup",
+        "ci95": [
+          -0.8581015157406195,
+          1.8581015157406195
+        ],
+        "lowerBound": -0.9307942832954883
+      },
+      "margin": {
+        "n": 1,
+        "mean": 2.5,
+        "variance": 0,
+        "degenerate": true,
+        "intervalMethod": "unbounded-degenerate",
+        "ci95": null,
+        "lowerBound": null
+      },
+      "candidateLatency": {
+        "n": 111,
+        "totalMs": 111153.65469999984,
+        "mean": 1001.3842765765751,
+        "p50": 1001.234800000093,
+        "p95": 1002.9771000000183,
+        "max": 1004.9649999999674,
+        "overrunFrequency": 1
+      },
+      "opponentLatency": {
+        "n": 109,
+        "totalMs": 109111.31340000045,
+        "mean": 1001.0212238532151,
+        "p50": 1000.7473999999929,
+        "p95": 1003.0354999999981,
+        "max": 1006.1463999999687,
+        "overrunFrequency": 1
+      },
+      "meanRatio": 1.0003626823434997,
+      "p95Ratio": 0.9999417767367358,
+      "latencyGate": true,
+      "superiority": false,
+      "practicalGate": false,
+      "approximatelyEqualRealizedTime": true,
+      "legacyEndpointNotInstrumented": false
+    }
+  },
+  "recommendationSupported": false,
+  "adoptionRecommended": false,
+  "productionDefaultsChanged": false,
+  "autoPromotion": false
+}
