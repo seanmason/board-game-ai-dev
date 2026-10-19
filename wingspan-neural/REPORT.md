@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **screen** · snapshot 2026-10-19T13:02:48.365Z.
-Recorded 603 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **screen** · snapshot 2026-10-19T13:04:21.651Z.
+Recorded 627 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -38,9 +38,9 @@ Offline status: **passed**. Held-out learning gate: `True`. Offline prediction a
 | canary/reference | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 1.50 [—, —] |
 | canary/deployed | 2 / 2 | 1 / 1 | 100.0% [0.0, 100.0]% | 7.50 [—, —] |
 | canary/neural | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 0.50 [—, —] |
-| screen/linear | 23 / 64 | 11 / 32 | 50.0% [28.8, 71.2]% | -0.59 [-6.70, 5.52] |
-| screen/reference | 22 / 64 | 11 / 32 | 56.8% [35.5, 78.2]% | 3.59 [-1.40, 8.58] |
-| screen/deployed | 22 / 64 | 11 / 32 | 52.3% [28.0, 76.6]% | 0.00 [-4.57, 4.57] |
+| screen/linear | 30 / 64 | 15 / 32 | 50.0% [35.2, 64.8]% | -0.77 [-5.07, 3.54] |
+| screen/reference | 30 / 64 | 15 / 32 | 56.7% [38.2, 75.1]% | 3.73 [-0.31, 7.77] |
+| screen/deployed | 31 / 64 | 15 / 32 | 51.7% [31.8, 71.6]% | 1.13 [-3.27, 5.53] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
 
