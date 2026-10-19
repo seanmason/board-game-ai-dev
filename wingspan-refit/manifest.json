@@ -1,11 +1,13 @@
 {
   "schema": 1,
   "protocol": "wingspan-refit-v1",
-  "status": "running",
+  "status": "stopped",
   "createdAt": 1792439565060,
   "startedAt": 1792439626960,
   "deadlineEpochMs": 1792450426960,
+  "finishedAt": 1792442244466,
   "productionPromotion": false,
+  "stopReason": "Controller recorded a terminal stop reason; see reviewed report.",
   "workers": 28,
   "sourceRevision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
   "sourceHashes": {
@@ -466,14 +468,44 @@
     },
     "c0": {
       "startedAt": 1792441428595,
+      "finishedAt": 1792442244350,
       "planned": 200,
       "phase": 0,
       "recipe": "gentle",
       "kind": "confirmation",
-      "status": "running",
+      "status": "complete",
       "result": {
-        "processCpuMicros": {},
+        "poolWallMs": 815684,
+        "gameCount": 200,
+        "complete": true,
+        "processCpuMicros": {
+          "user": 17981734000,
+          "system": 48844000
+        },
         "modelHashes": {}
+      },
+      "comparisonSummary": {
+        "comparisons": {
+          "parent": {
+            "pairs": 100,
+            "outcomesWithheld": false,
+            "winShare": 0.4675,
+            "lowerWinnerShare": 0.4030129490734418,
+            "meanMargin": -0.325,
+            "valid": true,
+            "latencyValid": true,
+            "passed": false,
+            "latency": {
+              "meanMs": 1002.2182057349712,
+              "p95Ms": 1005.6011999999173,
+              "p99Ms": 1009.5603000000119,
+              "maxMs": 1294.6721999999136,
+              "opponentMeanMs": 1002.1840665843889,
+              "opponentP95Ms": 1005.6310999998823
+            }
+          }
+        },
+        "passed": false
       }
     }
   },

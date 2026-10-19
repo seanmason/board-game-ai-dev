@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "study": "wingspan-refit",
-  "outcomeStatus": "running",
-  "status": "running",
+  "outcomeStatus": "stopped",
+  "status": "finished",
   "stage": "c0",
-  "updatedAt": "2026-10-19T20:36:19.379Z",
+  "updatedAt": "2026-10-19T20:37:52.914Z",
   "revision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
   "method": "Fixed small network teacher refits: two learning rates crossed with auxiliary loss on/off. Development selects at most two distinct candidates; fresh parent comparisons decide research teacher updates. Production is unchanged.",
-  "finished": 342,
+  "finished": 360,
   "planned": 360,
-  "workers": 18,
+  "workers": 0,
   "collectionBudget": {},
   "fitCosts": {},
   "rows": [
@@ -632,13 +632,15 @@
       }
     },
     {
-      "matchup": "c0",
-      "policy": "c0",
+      "matchup": "c0/parent",
+      "policy": "c0/parent",
       "policyId": "Fresh teacher confirmation",
       "opponentPolicyId": "Actual parent teacher",
       "metricKind": "win-share",
       "stage": "c0",
       "comparison": "parent",
+      "candidateModelId": "refit-f0-gentle",
+      "opponentModelId": "frozen-generation-3",
       "modelHashes": {
         "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
         "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
@@ -650,13 +652,15 @@
       "game": "wingspan",
       "players": 2,
       "scope": "Two-player research; complete fixed pairs required for strength results",
-      "status": "running",
+      "status": "complete",
       "planned": 200,
-      "finished": 182,
-      "seedGroups": 0,
-      "completeSeedGroups": 0,
+      "finished": 200,
+      "seedGroups": 100,
+      "completeSeedGroups": 100,
+      "meanDecisionMs": 1002.2182057349563,
+      "maxDecisionMs": 1294.6721999999136,
       "counts": {
-        "complete": 182,
+        "complete": 200,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
@@ -664,34 +668,38 @@
         "error": 0
       },
       "latency": {
-        "n": 0
+        "n": 10497,
+        "meanMs": 1002.2182057349563,
+        "p95Ms": 1005.6011999999173,
+        "p99Ms": 1009.5603000000119,
+        "maxMs": 1294.6721999999136
       },
       "budget": {
         "timeMs": 1000,
         "horizon": 4
       },
       "coverage": {
-        "decisions": 0,
-        "iterations": 0,
-        "roots": 0,
+        "decisions": 10497,
+        "iterations": 3465040,
+        "roots": 86739,
         "unvisited": 0,
-        "learnedLeafCount": 0,
-        "learnedFallbackCount": 0,
+        "learnedLeafCount": 1162309,
+        "learnedFallbackCount": 2302731,
         "errors": 0
       },
-      "inferenceComplete": false,
-      "outcomesWithheld": true,
+      "inferenceComplete": true,
+      "outcomesWithheld": false,
       "winShare": {
-        "n": 0,
-        "mean": null,
-        "low": null,
-        "high": null
+        "n": 100,
+        "mean": 0.4675,
+        "low": 0.4030129490734418,
+        "high": 0.5319870509265582
       },
       "margin": {
-        "n": 0,
-        "mean": null,
-        "low": null,
-        "high": null
+        "n": 100,
+        "mean": -0.325,
+        "low": -1.99361987679626,
+        "high": 1.3436198767962602
       },
       "training": {
         "latestFit": {},
