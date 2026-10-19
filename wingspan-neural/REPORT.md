@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **confirmation** · snapshot 2026-10-19T13:54:26.334Z.
-Recorded 1311 / 1328 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **confirmation** · snapshot 2026-10-19T13:55:59.822Z.
+Recorded 1328 / 1328 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -42,13 +42,15 @@ Offline status: **passed**. Held-out learning gate: `True`. Offline prediction a
 | screen/reference | 64 / 64 | 32 / 32 | 57.0% [44.9, 69.2]% | 3.11 [0.07, 6.15] |
 | screen/deployed | 64 / 64 | 32 / 32 | 61.7% [50.3, 73.2]% | 2.70 [-0.25, 5.66] |
 | confirmation/deployed | 400 / 400 | 200 / 200 | 57.0% [52.1, 61.9]% | 1.77 [0.52, 3.01] |
-| confirmation/reference | 183 / 200 | 91 / 100 | 50.0% [43.1, 56.9]% | -0.13 [-1.71, 1.45] |
+| confirmation/reference | 200 / 200 | 100 / 100 | 50.0% [43.4, 56.6]% | -0.04 [-1.53, 1.45] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
 
 The screen uses32 fresh paired setups per comparison. A single preselected neural checkpoint can advance only after complete valid results, at least55% winner share and positive margin versus deployed, positive margin versus corrected reference, and mean/p95 latency ceilings1.10/1.25. If eligible, fresh confirmation uses200 pairs versus deployed and100 versus corrected reference. Each superiority claim uses one-sided alpha0.05/2, positive margins, complete validity and the latency gates. The independent unit is the setup pair, not individual observations or games. Partial intervals are descriptive; invalid or incomplete stages cannot establish a passing result. Canary outcomes validate execution only.
 
 [Screen strict analysis](screen/analysis.json): complete=`True`, eligible=`True`, adoptionRecommended=`False`.
+
+[Confirmation strict analysis](confirmation/analysis.json): complete=`True`, eligible=`False`, adoptionRecommended=`False`.
 
 ## Retained evidence and limits
 
