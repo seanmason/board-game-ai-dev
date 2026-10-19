@@ -1,6 +1,6 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **confirmation** · snapshot 2026-10-19T13:55:59.822Z.
+Status: **finished** · stage **complete** · snapshot 2026-10-19T14:01:53.883Z.
 Recorded 1328 / 1328 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
