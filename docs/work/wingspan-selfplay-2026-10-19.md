@@ -88,11 +88,27 @@ source/model/process receipts remain in the external runtime.
 The source archive, seed inventory and live summaries are published on development
 branch `benchmarks/wingspan-selfplay-2026-10-19` under `wingspan-selfplay/`.
 The [new dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-selfplay)
-is deployed through required full Validation/Pages; publication verification is
-pending at this record update. Snapshot-only evidence pushes follow the same CI
+passed full Validation/Pages for implementation `04b01cd` and launch record
+`f59a0ff`. Actual public touch-Chromium inspection at 14:56 UTC confirmed the new
+study selector, remote evidence feed, calibration and generation-1 collection,
+24 active workers, no page errors and no phone/tablet overflow. This remains an
+automated desktop check, not actual iPad Safari acceptance.
+Snapshot-only evidence pushes follow the same CI
 exclusion as previous studies; main application changes still require full checks.
 Do not infer a running campaign
 from this document; inspect the runtime manifest and actual process receipts.
+
+Calibration passed all 32 games and 3,192 measured decisions: mean 1,001.75 ms,
+p95 1,004.78 ms, p99 1,007.84 ms and maximum 1,013.68 ms. Generation 1 then started
+collecting its frozen 1,024 groups, with no failures at the first supervision check.
+These are functional timing/data results, not learned playing-strength evidence.
+
+Display correction: the frozen snapshot builder inherited the collection budget
+caption for the calibration row. Actual calibration tasks use 1,000 ms per whole
+decision, not the collection's 80/20 sample mix. The website now displays the
+correct calibration budget without changing frozen source, data, clocks or
+comparisons. Original snapshots remain preserved; read their calibration budget
+caption with this correction. Deployment of this caption-only update is pending.
 
 ## Runtime and reproduction
 
