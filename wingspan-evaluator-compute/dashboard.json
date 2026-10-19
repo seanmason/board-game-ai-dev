@@ -3,12 +3,12 @@
   "study": "wingspan-evaluator-compute-2026-10-18",
   "revision": "a863dc5c8a3a9510729ea6f050633015bb3bec11",
   "startedAt": "2026-10-19T00:21:48.805Z",
-  "updatedAt": "2026-10-19T04:52:16.822Z",
+  "updatedAt": "2026-10-19T04:53:46.871Z",
   "status": "running",
   "stage": "confirmation",
   "workers": 24,
   "planned": 2800,
-  "finished": 2045,
+  "finished": 2048,
   "active": [
     {
       "id": "confirmation/candidate-depth/9213358/1",
@@ -27,16 +27,6 @@
       "seed": 9220337,
       "seat": 0,
       "startedAt": "2026-10-19T04:41:42.704Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
-      "id": "confirmation/candidate-depth/9220337/1",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9220337,
-      "seat": 1,
-      "startedAt": "2026-10-19T04:42:56.655Z",
       "game": "wingspan",
       "players": 2
     },
@@ -121,16 +111,6 @@
       "players": 2
     },
     {
-      "id": "confirmation/candidate-depth/9227316/0",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9227316,
-      "seat": 0,
-      "startedAt": "2026-10-19T04:48:19.533Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
       "id": "confirmation/candidate-depth/9227316/1",
       "stage": "confirmation",
       "matchup": "candidate-depth",
@@ -211,16 +191,6 @@
       "players": 2
     },
     {
-      "id": "confirmation/candidate-depth/9231304/1",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9231304,
-      "seat": 1,
-      "startedAt": "2026-10-19T04:50:35.175Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
       "id": "confirmation/candidate-depth/9232301/0",
       "stage": "confirmation",
       "matchup": "candidate-depth",
@@ -247,6 +217,36 @@
       "seed": 9233298,
       "seat": 0,
       "startedAt": "2026-10-19T04:51:35.760Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9233298/1",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9233298,
+      "seat": 1,
+      "startedAt": "2026-10-19T04:53:04.956Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9234295/0",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9234295,
+      "seat": 0,
+      "startedAt": "2026-10-19T04:53:08.482Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9234295/1",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9234295,
+      "seat": 1,
+      "startedAt": "2026-10-19T04:53:26.862Z",
       "game": "wingspan",
       "players": 2
     }
@@ -1345,9 +1345,9 @@
         "pipeline": "study"
       },
       "planned": 200,
-      "finished": 45,
+      "finished": 48,
       "counts": {
-        "complete": 45,
+        "complete": 48,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
@@ -1372,7 +1372,7 @@
         "intervalMethod": "paired-t-approximate"
       },
       "chance": 0.5,
-      "meanDecisionMs": 5118.396598080321,
+      "meanDecisionMs": 5083.339238401684,
       "maxDecisionMs": 31169.488299999386,
       "limitations": [
         "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
