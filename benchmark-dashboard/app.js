@@ -1,6 +1,6 @@
 const dataRoot='https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/ai-comparison-2026-10-18/';
 // Pin completed neural evidence: cached branch responses can still say running.
-const studies={'wingspan-selfplay':{remote:'https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/wingspan-selfplay-2026-10-19/wingspan-selfplay/dashboard.json',fallback:'snapshot-wingspan-selfplay.json',report:'wingspan-selfplay/REPORT.md',branch:'benchmarks/wingspan-selfplay-2026-10-19'},'wingspan-neural':{remote:'https://raw.githubusercontent.com/seanmason/board-game-ai-dev/b5451fb44e89d965e89e21f4ace67683aa0f2d08/wingspan-neural/dashboard.json',fallback:'snapshot-wingspan-neural.json',report:'wingspan-neural/REPORT.md',branch:'benchmarks/wingspan-neural-2026-10-19'},'wingspan-overnight':{remote:'https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/wingspan-overnight-2026-10-18/wingspan-overnight/dashboard.json',fallback:'snapshot-wingspan-overnight.json',report:'wingspan-overnight/REPORT.md',branch:'benchmarks/wingspan-overnight-2026-10-18'},'wingspan-evaluator':{remote:dataRoot+'wingspan-evaluator-compute/dashboard.json',fallback:'snapshot-wingspan-evaluator.json',report:'wingspan-evaluator-compute/REPORT.md'},original:{remote:dataRoot+'dashboard.json',fallback:'snapshot.json',report:'REPORT.md'},followup:{remote:dataRoot+'followup/dashboard.json',fallback:'snapshot-followup.json',report:'followup/REPORT.md'},'hive-repetition':{remote:dataRoot+'hive-repetition/dashboard.json',fallback:'snapshot-hive-repetition.json',report:'hive-repetition/REPORT.md'},'good-enough':{remote:dataRoot+'good-enough/dashboard.json',fallback:'snapshot-good-enough.json',report:'good-enough/REPORT.md'}};
+const studies={'wingspan-selfplay':{liveRef:'benchmarks/wingspan-selfplay-2026-10-19',remote:'https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/wingspan-selfplay-2026-10-19/wingspan-selfplay/dashboard.json',fallback:'snapshot-wingspan-selfplay.json',report:'wingspan-selfplay/REPORT.md',branch:'benchmarks/wingspan-selfplay-2026-10-19'},'wingspan-neural':{remote:'https://raw.githubusercontent.com/seanmason/board-game-ai-dev/b5451fb44e89d965e89e21f4ace67683aa0f2d08/wingspan-neural/dashboard.json',fallback:'snapshot-wingspan-neural.json',report:'wingspan-neural/REPORT.md',branch:'benchmarks/wingspan-neural-2026-10-19'},'wingspan-overnight':{remote:'https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/wingspan-overnight-2026-10-18/wingspan-overnight/dashboard.json',fallback:'snapshot-wingspan-overnight.json',report:'wingspan-overnight/REPORT.md',branch:'benchmarks/wingspan-overnight-2026-10-18'},'wingspan-evaluator':{remote:dataRoot+'wingspan-evaluator-compute/dashboard.json',fallback:'snapshot-wingspan-evaluator.json',report:'wingspan-evaluator-compute/REPORT.md'},original:{remote:dataRoot+'dashboard.json',fallback:'snapshot.json',report:'REPORT.md'},followup:{remote:dataRoot+'followup/dashboard.json',fallback:'snapshot-followup.json',report:'followup/REPORT.md'},'hive-repetition':{remote:dataRoot+'hive-repetition/dashboard.json',fallback:'snapshot-hive-repetition.json',report:'hive-repetition/REPORT.md'},'good-enough':{remote:dataRoot+'good-enough/dashboard.json',fallback:'snapshot-good-enough.json',report:'good-enough/REPORT.md'}};
 const requestedStudy=new URLSearchParams(location.search).get('study');
 let selectedStudy=Object.hasOwn(studies,requestedStudy)?requestedStudy:'original',refreshGeneration=0;
 const $=id=>document.getElementById(id),names={wingspan:'Wingspan','ticket-to-ride':'Ticket to Ride','love-letter':'Love Letter',jaipur:'Jaipur','sushi-go':'Sushi Go!','lost-cities':'Lost Cities',hive:'Hive'};
@@ -23,10 +23,33 @@ function render(){if(!snapshot)return;const s=snapshot,age=Date.now()-Date.parse
  if(row.limitations?.length)card.append(element('p',Array.isArray(row.limitations)?row.limitations.join(' '):row.limitations,'subtle'));$('results').append(card);}
  $('active').replaceChildren(...(s.active?.length?s.active.map(r=>element('li',`${names[r.game]??r.game}, ${r.players} players · ${r.id}`)):[element('li',s.status==='finished'?'No active games.':'No active games reported in this snapshot.')]));
 }
+// Branch CDN responses can lag successful pushes. Resolve immutable bytes only
+// when needed, with at most one public API lookup per study every three minutes.
+const liveRefs=new Map();
+async function resolveLiveSnapshot(config,data){
+ let result={data,url:config.remote};
+ const older=snapshot?.study===data.study&&Date.parse(snapshot.updatedAt)>Date.parse(data.updatedAt);
+ const stale=data.status==='running'&&Date.now()-Date.parse(data.updatedAt)>180000;
+ if(!config.liveRef||data.study!=='wingspan-selfplay'||(!older&&!stale))return result;
+ let ref=liveRefs.get(config.remote);
+ if(!ref||Date.now()-ref.checkedAt>=180000){
+  ref={checkedAt:Date.now(),sha:ref?.sha??null};liveRefs.set(config.remote,ref);
+  try{const branch=config.liveRef.split('/').map(encodeURIComponent).join('/');
+   const response=await fetch(`https://api.github.com/repos/seanmason/board-game-ai-dev/git/ref/heads/${branch}?snapshot=${Math.floor(Date.now()/180000)}`,{cache:'no-store'});
+   if(!response.ok)throw Error('Live reference unavailable');const value=await response.json();
+   if(/^[a-f0-9]{40}$/.test(value.object?.sha??''))ref.sha=value.object.sha;
+  }catch{/* Keep the last known snapshot when API access is unavailable. */}
+ }
+ if(ref?.sha)try{const url=config.remote.replace('/'+config.liveRef+'/','/'+ref.sha+'/');
+  const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Immutable snapshot unavailable');
+  const current=await response.json();if(current.schema===1&&Array.isArray(current.rows)&&current.study===data.study&&Date.parse(current.updatedAt)>=Date.parse(data.updatedAt))result={data:current,url};
+ }catch{/* Branch or last known data remains available with its honest timestamp. */}
+ return result;
+}
 async function refresh(){
  const generation=++refreshGeneration,config=studies[selectedStudy],remote=config.remote;let lastError;
  for(const [url,kind]of [[`${remote}?snapshot=${Math.floor(Date.now()/60000)}`,'remote'],[config.fallback,'fallback']]){
-  try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Snapshot unavailable');const data=await response.json();if(data.schema!==1||!Array.isArray(data.rows))throw Error('Unsupported snapshot');if(generation!==refreshGeneration)return;snapshot=data;source=kind;$('download').href=kind==='remote'?remote:config.fallback;$('report').href='https://github.com/seanmason/board-game-ai-dev/blob/'+(config.branch??'benchmarks/ai-comparison-2026-10-18')+'/'+config.report;render();return;}catch(error){lastError=error;}
+  try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error('Snapshot unavailable');let data=await response.json(),loadedURL=kind==='remote'?remote:config.fallback;if(data.schema!==1||!Array.isArray(data.rows))throw Error('Unsupported snapshot');if(kind==='remote'){const resolved=await resolveLiveSnapshot(config,data);data=resolved.data;loadedURL=resolved.url;}if(generation!==refreshGeneration)return;if(snapshot?.study===data.study&&Date.parse(snapshot.updatedAt)>Date.parse(data.updatedAt)){render();return;}snapshot=data;source=kind;$('download').href=loadedURL;$('report').href='https://github.com/seanmason/board-game-ai-dev/blob/'+(config.branch??'benchmarks/ai-comparison-2026-10-18')+'/'+config.report;render();return;}catch(error){lastError=error;}
  }
  if(generation!==refreshGeneration)return;
  $('status').textContent=`Cannot refresh: ${lastError.message}. ${snapshot?'Showing the last successfully loaded snapshot.':'Please try again shortly.'}`;

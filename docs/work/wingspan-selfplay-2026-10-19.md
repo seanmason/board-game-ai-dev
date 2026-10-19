@@ -108,7 +108,20 @@ caption for the calibration row. Actual calibration tasks use 1,000 ms per whole
 decision, not the collection's 80/20 sample mix. The website now displays the
 correct calibration budget without changing frozen source, data, clocks or
 comparisons. Original snapshots remain preserved; read their calibration budget
-caption with this correction. Deployment of this caption-only update is pending.
+caption with this correction. Caption update `a66279d` passed Validation/Pages;
+actual public browser inspection at 15:06 UTC confirmed it.
+
+The same inspection found a separate delivery issue: the raw branch CDN still
+returned a 15:00 snapshot despite a healthy publisher and newer pushed evidence.
+The website now resolves the evidence branch's immutable commit when a running
+snapshot is stale or older than the last displayed data. Reference lookups are
+limited to once per three minutes per page; API failure retains the newest known
+snapshot with its honest timestamp. The browser regression covers stale recovery,
+lookup throttling, monotonic progress and an API outage. A local frontend check
+against the real public reference/immutable feed passed at 15:08 UTC. This is a
+presentation/infrastructure repair only; all 105 frozen experimental source files,
+tasks, data and the original deadline remain unchanged. Deployment of this cache
+repair is pending.
 
 ## Runtime and reproduction
 
