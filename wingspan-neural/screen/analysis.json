@@ -1,0 +1,153 @@
+{
+  "stage": "screen",
+  "designValid": true,
+  "complete": true,
+  "received": 192,
+  "valid": 192,
+  "expected": 192,
+  "issues": [],
+  "missing": [],
+  "groups": {
+    "linear": {
+      "expected": 64,
+      "valid": 64,
+      "pairs": 32,
+      "complete": true,
+      "winShare": {
+        "n": 32,
+        "mean": 0.5859375,
+        "variance": 0.09116683467741936,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.47707707589475584,
+          0.6947979241052441
+        ],
+        "lowerBound": 0.47707707589475584
+      },
+      "margin": {
+        "n": 32,
+        "mean": 2.390625,
+        "variance": 77.46345766129032,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -0.7825938312581586,
+          5.563843831258159
+        ],
+        "lowerBound": -0.7825938312581586
+      },
+      "candidateLatency": {
+        "n": 3304,
+        "mean": 1003.130311380145,
+        "p95": 1008.0996000000159,
+        "max": 1488.163499999995
+      },
+      "opponentLatency": {
+        "n": 3377,
+        "mean": 1002.614259638733,
+        "p95": 1006.8157000000065,
+        "max": 1153.737199999974
+      },
+      "meanRatio": 1.0005147061658568,
+      "p95Ratio": 1.0012752085610201,
+      "latencyGate": true,
+      "practicalGate": false
+    },
+    "reference": {
+      "expected": 64,
+      "valid": 64,
+      "pairs": 32,
+      "complete": true,
+      "winShare": {
+        "n": 32,
+        "mean": 0.5703125,
+        "variance": 0.11384828629032258,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.44866173827069245,
+          0.6919632617293076
+        ],
+        "lowerBound": 0.44866173827069245
+      },
+      "margin": {
+        "n": 32,
+        "mean": 3.109375,
+        "variance": 70.99571572580645,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.07151570525891904,
+          6.1472342947410805
+        ],
+        "lowerBound": 0.07151570525891904
+      },
+      "candidateLatency": {
+        "n": 3385,
+        "mean": 1003.7951154209745,
+        "p95": 1007.0733999999939,
+        "max": 3660.448000000033
+      },
+      "opponentLatency": {
+        "n": 3179,
+        "mean": 1002.3443998427192,
+        "p95": 1006.5801999999967,
+        "max": 1132.5230000000447
+      },
+      "meanRatio": 1.001447322475671,
+      "p95Ratio": 1.0004899758608377,
+      "latencyGate": true,
+      "practicalGate": false
+    },
+    "deployed": {
+      "expected": 64,
+      "valid": 64,
+      "pairs": 32,
+      "complete": true,
+      "winShare": {
+        "n": 32,
+        "mean": 0.6171875,
+        "variance": 0.10074344758064516,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.5027522063860679,
+          0.7316227936139321
+        ],
+        "lowerBound": 0.5027522063860679
+      },
+      "margin": {
+        "n": 32,
+        "mean": 2.703125,
+        "variance": 67.22353830645162,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -0.25292834907578987,
+          5.659178349075789
+        ],
+        "lowerBound": -0.25292834907578987
+      },
+      "candidateLatency": {
+        "n": 3316,
+        "mean": 1002.4104437273818,
+        "p95": 1006.5688000000082,
+        "max": 1118.4598000000697
+      },
+      "opponentLatency": {
+        "n": 3181,
+        "mean": 1002.1317029236088,
+        "p95": 1005.9409999999916,
+        "max": 1082.6018000000622
+      },
+      "meanRatio": 1.0002781478751344,
+      "p95Ratio": 1.0006240922678533,
+      "latencyGate": true,
+      "practicalGate": false
+    }
+  },
+  "eligible": true,
+  "adoptionRecommended": false,
+  "productionDefaultsChanged": false
+}

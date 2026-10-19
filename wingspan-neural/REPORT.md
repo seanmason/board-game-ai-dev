@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **screen** · snapshot 2026-10-19T13:10:36.921Z.
-Recorded 710 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **confirmation** · snapshot 2026-10-19T13:12:10.217Z.
+Recorded 728 / 1328 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -38,13 +38,17 @@ Offline status: **passed**. Held-out learning gate: `True`. Offline prediction a
 | canary/reference | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 1.50 [—, —] |
 | canary/deployed | 2 / 2 | 1 / 1 | 100.0% [0.0, 100.0]% | 7.50 [—, —] |
 | canary/neural | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 0.50 [—, —] |
-| screen/linear | 58 / 64 | 29 / 32 | 57.8% [46.1, 69.4]% | 2.14 [-1.12, 5.40] |
-| screen/reference | 58 / 64 | 29 / 32 | 55.2% [42.1, 68.2]% | 2.22 [-0.59, 5.04] |
-| screen/deployed | 58 / 64 | 29 / 32 | 61.2% [48.9, 73.5]% | 3.05 [0.05, 6.05] |
+| screen/linear | 64 / 64 | 32 / 32 | 58.6% [47.7, 69.5]% | 2.39 [-0.78, 5.56] |
+| screen/reference | 64 / 64 | 32 / 32 | 57.0% [44.9, 69.2]% | 3.11 [0.07, 6.15] |
+| screen/deployed | 64 / 64 | 32 / 32 | 61.7% [50.3, 73.2]% | 2.70 [-0.25, 5.66] |
+| confirmation/deployed | 0 / 400 | 0 / 200 | — | — [—, —] |
+| confirmation/reference | 0 / 200 | 0 / 100 | — | — [—, —] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
 
 The screen uses32 fresh paired setups per comparison. A single preselected neural checkpoint can advance only after complete valid results, at least55% winner share and positive margin versus deployed, positive margin versus corrected reference, and mean/p95 latency ceilings1.10/1.25. If eligible, fresh confirmation uses200 pairs versus deployed and100 versus corrected reference. Each superiority claim uses one-sided alpha0.05/2, positive margins, complete validity and the latency gates. The independent unit is the setup pair, not individual observations or games. Partial intervals are descriptive; invalid or incomplete stages cannot establish a passing result. Canary outcomes validate execution only.
+
+[Screen strict analysis](screen/analysis.json): complete=`True`, eligible=`True`, adoptionRecommended=`False`.
 
 ## Retained evidence and limits
 
