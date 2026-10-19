@@ -54,19 +54,21 @@ export function summarizeComparison(records,{confirmation=false,gates=GATES}={})
  // actual parent. Its per-matchup test already enforces the full100 paired gate.
  return {...summary,passed:Object.keys(summary.comparisons).length===1&&summary.comparisons.parent?.passed===true};
 }
+export function verifyRecordedGames(stages,rawPath){for(const [key,e]of Object.entries(stages))for(const r of [...(e.result?.recordReceipts??[]),...(e.result?.records??[])])verifyRawRecord(r,rawPath(key,r.task));}
 function verifyModels(paths,hashes){for(const [id,p] of Object.entries(paths))if(hash(readFileSync(p))!==hashes[id])throw Error('Frozen model changed '+id);}
 export function createController({out,executeStage,now=Date.now,workers=28,frozenHashes={},runtimeConfig={},sourceRevision=null,parentModel,historyModel,inventory=[],seedAudit=null,testOnlySkipInputs=false}){
  if(workers!==28)throw Error('Exactly28 BelowNormal workers required');
  const modelPaths={...(parentModel?{[PARENT]:modelPath(parentModel)}:{}),...(historyModel?{[HISTORY]:modelPath(historyModel)}:{})};
  if(!testOnlySkipInputs){validateInventory(inventory);validateSeedAudit(seedAudit);if(!modelPaths[PARENT]||!modelPaths[HISTORY])throw Error('Parent/history model paths required');}
  const modelHashes=Object.fromEntries(Object.entries(modelPaths).map(([id,p])=>[id,hash(readFileSync(p))]));
+ if(!testOnlySkipInputs&&modelHashes[PARENT]!=='6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843')throw Error('Documented confirmed generation3 parent required');
  const config={workers,frozenHashes,runtimeConfig,sourceRevision,parentModel,historyModel,modelPaths,modelHashes,inventory,seedAudit,limits:LIMITS,gates:GATES,recipes:RECIPES};
  // JSON normalization also makes optional fields stable across manifest reload.
  const frozenConfig=JSON.parse(JSON.stringify(config)),configHash=objectHash(frozenConfig),path=resolve(out,'manifest.json');
  let state=existsSync(path)?read(path):{schema:1,protocol:'wingspan-refit-v1',config:frozenConfig,configHash,status:'prepared',createdAt:now(),startedAt:null,deadlineEpochMs:null,stages:{},bestTeacher:null,accepted:[],productionPromotion:false,outcomesClosedUntilFixedStageComplete:true};
  if(state.configHash!==configHash||objectHash(state.config)!==configHash)throw Error('Resume configuration/source/model mismatch');
  const save=()=>atomic(path,state),rawPath=(key,task)=>resolve(out,'stages',key,'games',encodeURIComponent(task.id)+'.json');
- function verifyData(){if(testOnlySkipInputs)return;verifyInventory(inventory);for(const [key,e] of Object.entries(state.stages))for(const r of e.result?.recordReceipts??[])verifyRawRecord(r,rawPath(key,r.task));}
+ function verifyData(){if(testOnlySkipInputs)return;verifyInventory(inventory);verifyRecordedGames(state.stages,rawPath);}
  function check({allowExpired=false}={}){guard(frozenHashes);if(objectHash(JSON.parse(JSON.stringify(config)))!==configHash||objectHash(state.config)!==configHash)throw Error('Frozen configuration changed');verifyModels(modelPaths,modelHashes);for(const e of Object.values(state.stages))if(e.result?.models)verifyModels(e.result.models,e.result.modelHashes);if(state.startedAt!==null&&state.deadlineEpochMs!==state.startedAt+LIMITS.elapsedMs)throw Error('Original absolute deadline changed');if(!allowExpired&&state.deadlineEpochMs!==null&&now()>=state.deadlineEpochMs)throw Error('Original absolute three-hour deadline reached');}
  async function stage(key,kind,context){
   check();const contextHash=objectHash(context),prior=state.stages[key];if(prior?.contextHash&&prior.contextHash!==contextHash)throw Error('Frozen stage context mismatch '+key);if(prior?.status==='complete')return prior.result;if(prior)throw Error('Partial/failed stage retained; refusing retry '+key);
@@ -74,7 +76,7 @@ export function createController({out,executeStage,now=Date.now,workers=28,froze
   try{const result=await executeStage(kind,{...context,key,out,state,workers,deadlineEpochMs:state.deadlineEpochMs,modelPaths:{...modelPaths,...Object.assign({},...Object.values(state.stages).map(e=>e.result?.models??{}))},check});check();if(kind==='train')verifyData();if(!result||result.complete===false||result.status==='failed')throw Error('Incomplete stage '+key);
    let stored=result;
    if(context.tasks){const records=result.records??result.results;if(result.complete!==true||!Array.isArray(records)||records.length!==context.tasks.length)throw Error('Incomplete fixed batch '+key);const expected=new Map(context.tasks.map(t=>[t.id,t])),seen=new Set();for(const r of records){const t=r.task;if(!t||seen.has(t.id)||!expected.has(t.id))throw Error('Fixed batch task mismatch');const {modelPaths:ignored,...task}=t;if(objectHash(task)!==objectHash(expected.get(t.id)))throw Error('Fixed task fields changed');seen.add(t.id);}
-    if(kind==='collect')stored={complete:true,gameCount:records.length,poolWallMs:result.poolWallMs,priority:result.priority,recordReceipts:records.map(r=>({task:r.task,rawSha256:r.rawSha256,exampleCount:r.exampleCount,collectionDiagnostics:r.collectionDiagnostics})),outcomesClosed:true};
+    if(kind==='collect')stored={complete:true,gameCount:records.length,poolWallMs:result.poolWallMs,processCpuMicros:result.processCpuMicros,priority:result.priority,recordReceipts:records.map(r=>({task:r.task,rawSha256:r.rawSha256,exampleCount:r.exampleCount,collectionDiagnostics:r.collectionDiagnostics})),outcomesClosed:true};
     else stored={...result,records:records.map(r=>compactRecord(r,r.rawSha256))};
    }
    if(kind==='train'&&(!stored.candidate||typeof stored.inferenceHash!=='string'))throw Error('Fit candidate/fingerprint missing');
@@ -125,13 +127,13 @@ export function realExecutor({python='python',device='cuda',nodeExecutable=proce
  const model=read(resolve(stageOut,'model.json'));if(objectHash(model.normalization)!==objectHash(read(ctx.warmStart).normalization))throw Error('Frozen normalization changed');
  const parityOut=resolve(stageOut,'export-preflight');await invoke(nodeExecutable,[resolve(ROOT,'scripts/wingspan-selfplay/preflight.mjs'),'--models='+stageOut,'--out='+parityOut],parityOut);
  const candidate=`refit-${ctx.key}`,models={[candidate]:resolve(stageOut,'model.json')},modelHashes={[candidate]:hash(readFileSync(models[candidate]))};
- return {...summary,candidate,models,modelHashes,wrapperReceipt,inferenceHash:inferenceHash(model),parityPassed:read(resolve(stageOut,'parity.json')).passed===true&&read(resolve(parityOut,'preflight.json')).status==='passed',fitWallMs:Date.now()-startedAt};
+ return {...summary,candidate,models,modelHashes,wrapperReceipt,inferenceHash:inferenceHash(model),parityPassed:read(resolve(stageOut,'parity.json')).passed===true&&read(resolve(parityOut,'preflight.json')).status==='passed',trainerWallMs:wrapperReceipt.trainerWallMs,trainerProcessCpuMicros:wrapperReceipt.trainerProcessCpuMicros,fitWallMs:Date.now()-startedAt};
 };}
 export async function main(argv=process.argv.slice(2)){
  const options=Object.fromEntries(argv.map(x=>{const [k,...v]=x.replace(/^--/,'').split('=');return [k,v.length?v.join('='):true];}));if(!options.out||!options.config)throw Error('--out=EXTERNAL_PATH and --config=FROZEN_JSON required; default prepares only; --run launches');
  const out=resolve(options.out),root=resolve(ROOT);if(out===root||out.startsWith(root+'\\')||out.startsWith(root+'/')||/[/\\]OneDrive([/\\]|$)/i.test(out))throw Error('Output must be outside repository/OneDrive');
  const supplied=read(resolve(options.config));validateSeedAudit(supplied.seedAudit);
- const runtimeConfig={...supplied.runtimeConfig,nodeExecutable:process.execPath,nodeVersion:process.version};if(!runtimeConfig.python||!/^cuda(?::\d+)?$/.test(runtimeConfig.device??''))throw Error('Explicit Python/CUDA runtime configuration required');
+ const runtimeConfig={...supplied.runtimeConfig,nodeExecutable:process.execPath,nodeVersion:process.version};if(!runtimeConfig.python||runtimeConfig.device!=='cuda')throw Error('Explicit Python/CUDA runtime configuration required');
  const old=existsSync(resolve(out,'manifest.json'))?read(resolve(out,'manifest.json')):null,frozenHashes=old?.config.frozenHashes??freezeSources([resolve(options.config),supplied.seedAudit.path,modelPath(supplied.parentModel),modelPath(supplied.historyModel)]),lock=options.run?acquireCampaignLock(out):null;
  try{if(options.run)assertNoLiveChildren(out);const controller=createController({...supplied,runtimeConfig,out,frozenHashes,sourceRevision:old?.config.sourceRevision??execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8',windowsHide:true}).trim(),executeStage:realExecutor({...runtimeConfig,ownerToken:lock?.token})});return options.run?await controller.run():controller.prepare();}finally{lock?.release();}
 }

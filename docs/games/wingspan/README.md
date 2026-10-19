@@ -42,6 +42,11 @@ Keep generation 3 as the research teacher. More examples per hour has not yet
 established more strength gained per hour. The width comparison remains a separate
 approved future question; no follow-up was automatically launched.
 
+The authorized [conservative refit follow-up](../../plans/wingspan-refit-2026-10-19.md)
+tests learning rate and freshly reset auxiliary-head gradients at fixed model
+size before further collection. At most one extra self-play cycle can follow a
+freshly confirmed stronger research teacher; production promotion is separate.
+
 ## Scope and capabilities
 
 Original 170 birds (excluding ten Swift-Start birds), 26 bonuses, 16 goal faces;

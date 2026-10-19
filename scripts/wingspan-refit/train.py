@@ -7,6 +7,7 @@ import importlib.util
 import json
 from pathlib import Path
 import re
+import time
 from types import MappingProxyType
 
 
@@ -125,7 +126,10 @@ def fit(manifest, out, warm_start, recipe, device='cpu'):
         wrapperSha256=wrapper_hash, baseTrainerSha256=base_hash,
         warmStartSha256=warm_hash, **snapshot)
     base.write(out / 'recipe-receipt.json', receipt)
+    fit_wall, fit_cpu = time.perf_counter_ns(), time.process_time_ns()
     summary = base.fit(manifest, out, warm_start, device)
+    receipt.update(trainerWallMs=(time.perf_counter_ns()-fit_wall)/1e6,
+        trainerProcessCpuMicros=(time.process_time_ns()-fit_cpu)/1000)
     verify_snapshot(snapshot)
     if digest(warm_start) != warm_hash or digest(BASE_TRAINER) != base_hash or digest(__file__) != wrapper_hash:
         raise ValueError('Warm start or trainer changed during refit')

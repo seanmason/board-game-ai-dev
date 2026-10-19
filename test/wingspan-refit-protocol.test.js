@@ -41,3 +41,5 @@ test('changed task seed cannot enter a whole-batch result',async t=>{const event
 
 
 
+
+test('completed strength raw hashes remain guarded alongside collection receipts',async t=>{const {verifyRecordedGames}=await import('../scripts/wingspan-refit/run.mjs');const {writeFileSync,mkdtempSync,rmSync}=await import('node:fs'),{tmpdir}=await import('node:os'),{join}=await import('node:path'),{createHash}=await import('node:crypto');const d=mkdtempSync(join(tmpdir(),'refit-raw-'));t.after(()=>rmSync(d,{recursive:true,force:true}));const p=join(d,'game.json'),raw='{"original":true}';writeFileSync(p,raw);const record={task:{id:'game'},rawSha256:createHash('sha256').update(raw).digest('hex')},stages={screen:{result:{records:[record]}},collect:{result:{recordReceipts:[record]}}};verifyRecordedGames(stages,()=>p);writeFileSync(p,'changed');assert.throws(()=>verifyRecordedGames(stages,()=>p),/hash mismatch/i);});
