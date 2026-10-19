@@ -3,14 +3,183 @@
   "study": "wingspan-selfplay",
   "revision": "04b01cd84c9cc57b1d55099c7524f484e4eeb56e",
   "startedAt": "2026-10-19T14:44:26.907Z",
-  "updatedAt": "2026-10-19T16:50:23.594Z",
+  "updatedAt": "2026-10-19T16:51:58.519Z",
   "status": "running",
   "outcomeStatus": "running",
-  "stage": "train-3",
+  "stage": "screen-3",
   "stopReason": null,
-  "workers": 0,
-  "active": [],
-  "planned": 3344,
+  "workers": 24,
+  "active": [
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123000000/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123000000/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123000997/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123000997/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123001994/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123001994/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123002991/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123002991/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123003988/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123003988/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123004985/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123004985/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123005982/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123005982/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123006979/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123006979/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123007976/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123007976/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123008973/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123008973/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123009970/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123009970/1",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123010967/0",
+      "elapsedMs": null
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "stage": "screen-3",
+      "id": "screen/3/champion/123010967/1",
+      "elapsedMs": null
+    }
+  ],
+  "planned": 3504,
   "finished": 3344,
   "rows": [
     {
@@ -886,9 +1055,9 @@
       "scope": "Optimization epochs; development Huber selects one candidate, including epoch zero",
       "budget": {},
       "planned": 24,
-      "finished": 0,
+      "finished": 6,
       "counts": {
-        "complete": 0,
+        "complete": 6,
         "capped": 0,
         "invalid": 0,
         "unresolved": 0,
@@ -917,19 +1086,245 @@
         "Data generation and prediction loss do not establish playing strength."
       ],
       "generation": 3,
-      "status": "running",
+      "status": "complete",
       "progressLabel": "Optimization epochs completed",
       "training": {
-        "latestFit": null,
-        "selectedEpoch": null,
-        "eligible": false,
-        "curves": [],
-        "dev": null,
+        "latestFit": {
+          "seed": 1729,
+          "epoch": 6,
+          "devValueHuber": 0.3606112875267282
+        },
+        "selectedEpoch": 2,
+        "eligible": true,
+        "curves": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.3287670910358429,
+            "devValueHuber": 0.3661964014643614
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.30922049283981323,
+            "devValueHuber": 0.3523727011280263
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.29943615198135376,
+            "devValueHuber": 0.351603515648675
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.2918652296066284,
+            "devValueHuber": 0.35331125218841114
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.2864767909049988,
+            "devValueHuber": 0.35752292970213545
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.28113460540771484,
+            "devValueHuber": 0.3588846669676041
+          },
+          {
+            "epoch": 6,
+            "trainHuber": 0.27782711386680603,
+            "devValueHuber": 0.3606112875267282
+          }
+        ],
+        "dev": {
+          "huber": 0.351603515648675,
+          "mae": 6.931460064955589,
+          "saturation": 0.0299897693452381,
+          "correctionMean": -1.6063416141382914,
+          "examples": 39936,
+          "games": 384,
+          "setups": 384
+        },
         "epochZero": null,
-        "linear": null,
-        "strata": {}
+        "linear": {
+          "huber": 0.4173083245436354,
+          "mae": 7.710761130806682,
+          "saturation": 0,
+          "correctionMean": -1.7023132546800999,
+          "examples": 39936,
+          "games": 384,
+          "setups": 384
+        },
+        "strata": {
+          "generation": {
+            "1": {
+              "huber": 0.36876307214159804,
+              "mae": 7.196679764935219,
+              "saturation": 0.014890252976190477,
+              "correctionMean": -1.8570119569723147,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            },
+            "2": {
+              "huber": 0.3287663591420625,
+              "mae": 6.617145615027376,
+              "saturation": 0.03411574590773809,
+              "correctionMean": -1.5150872402236075,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            },
+            "3": {
+              "huber": 0.3572811156623644,
+              "mae": 6.980554814904174,
+              "saturation": 0.04096330915178571,
+              "correctionMean": -1.446925645218951,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "round": {
+            "1": {
+              "huber": 0.6037135452149844,
+              "mae": 10.006478837785227,
+              "saturation": 0.029947916666666664,
+              "correctionMean": -1.4505619721187482,
+              "examples": 12288,
+              "games": 384,
+              "setups": 384
+            },
+            "2": {
+              "huber": 0.41311577440783953,
+              "mae": 7.801242093976243,
+              "saturation": 0.056547619047619055,
+              "correctionMean": -1.8489083816049017,
+              "examples": 10752,
+              "games": 384,
+              "setups": 384
+            },
+            "3": {
+              "huber": 0.26516984842545466,
+              "mae": 5.95638240330863,
+              "saturation": 0.027343750000000007,
+              "correctionMean": -1.6896063848961003,
+              "examples": 9216,
+              "games": 384,
+              "setups": 384
+            },
+            "4": {
+              "huber": 0.12441489454642123,
+              "mae": 3.9617369247522545,
+              "saturation": 0.006119791666666667,
+              "correctionMean": -1.4362897179334142,
+              "examples": 7680,
+              "games": 384,
+              "setups": 384
+            }
+          },
+          "viewer": {
+            "0": {
+              "huber": 0.35542589769082633,
+              "mae": 6.999969861456034,
+              "saturation": 0.026233103918650795,
+              "correctionMean": -1.44198858814023,
+              "examples": 19968,
+              "games": 384,
+              "setups": 384
+            },
+            "1": {
+              "huber": 0.3477811336065235,
+              "mae": 6.862950268455143,
+              "saturation": 0.033746434771825394,
+              "correctionMean": -1.770694640136352,
+              "examples": 19968,
+              "games": 384,
+              "setups": 384
+            }
+          },
+          "engineActivity": {
+            "absent": {
+              "huber": 0.43826761261767844,
+              "mae": 7.99229174009122,
+              "saturation": 0.03072702986033064,
+              "correctionMean": -1.6189852039580825,
+              "examples": 28456,
+              "games": 384,
+              "setups": 384
+            },
+            "present": {
+              "huber": 0.24690364323933978,
+              "mae": 5.6213811246604966,
+              "saturation": 0.02296916821945763,
+              "correctionMean": -1.4820218860228738,
+              "examples": 11480,
+              "games": 248,
+              "setups": 248
+            }
+          }
+        }
       },
-      "modelHashes": {}
+      "modelHashes": {
+        "generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+        "generation-3-zero": "3cb6e7226800cd36ddde43e5b6b04f3c724e5c0a1b33d7a3d7433b0545e89e3c",
+        "generation-3-epoch-zero": "f713a823a4e11acbaa54b458297a9f7c1554e378ca0019b0f952d1c94e87abcd"
+      }
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen-3",
+      "policy": "screen-3",
+      "policyId": "screen \u00b7 awaiting complete pairs",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Original two-player research experiment",
+      "budget": {},
+      "planned": 160,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "win-share",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "status": "running",
+      "latency": {
+        "n": 0,
+        "meanMs": null,
+        "p95Ms": null,
+        "p99Ms": null,
+        "maxMs": null
+      },
+      "coverage": {
+        "decisions": 0,
+        "roots": 0,
+        "unvisited": 0,
+        "iterations": 0,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      }
     }
   ],
   "failures": [],
