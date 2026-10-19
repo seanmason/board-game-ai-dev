@@ -86,3 +86,10 @@ base-game/release claim. Do not restart the already implemented observation work
 [Game directory](../INDEX.md)
 
 The [refinement screen](../../../benchmarks/wingspan/2026-10-18-refinements/REPORT.md) found no qualifying improvement in 120 games. The [specialist experiment](../../../benchmarks/wingspan/2026-10-18-specialists/REPORT.md) also found no qualifying improvement in 120 games. The [diverse study](../../../benchmarks/wingspan/2026-10-18-diverse/REPORT.md) completed 656 games: row-unlocks won its screen but did not beat practical-combined in fresh confirmation (18-1-21). The completed expansion (1,512 games) and realizable-value (1,392 games) studies did not establish a stronger replacement. See the [all-study synthesis and final selection protocol](../../../benchmarks/wingspan/2026-10-18-final-selection/REPORT.md). The final 640-game screen found no qualifying replacement; practical-combined remained the reference. The [opening experiment](../../../benchmarks/wingspan/2026-10-18-opening/REPORT.md) completed 640 games and fresh confirmation; the combined setup expansion and opening evaluator won 117–83 and was adopted as the browser default. Evaluator-only confirmation did not pass the confidence gate.
+
+
+The [next two-player evaluator/compute plan](../../work/wingspan-evaluator-compute-2026-10-18.md)
+proposes exceptional-power action economy, sustainable ordered row chains, early
+investment payback and a conservative blend, crossed with sample count and
+rollout horizon. A resolved-power leaf-boundary regression is a prerequisite.
+The plan has not run and changes no browser defaults.
