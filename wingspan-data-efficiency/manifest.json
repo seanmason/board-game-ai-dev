@@ -288,8 +288,62 @@
     },
     "train-hybrid": {
       "startedAt": 1792435912378,
-      "status": "running",
+      "finishedAt": 1792436068066,
+      "status": "complete",
       "arm": "hybrid",
+      "result": {
+        "fitWallMs": 124844,
+        "fitProcessCpuMicros": 112968750,
+        "selectedEpoch": 1,
+        "eligible": true,
+        "parityPassed": true,
+        "normalizationFrozen": true,
+        "processCpuMicros": {},
+        "modelHashes": {
+          "trained-hybrid": "94475f4c0239bfd926629b523f1645a5a57bc30f5635a34e368f98aadb484a02"
+        },
+        "dev": {
+          "huber": 0.35296052503722275,
+          "mae": 6.981338254995963,
+          "saturation": 0.03924773770686158,
+          "correctionMean": -1.5195716488976179,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "reference": {
+          "huber": 0.44741926499016316,
+          "mae": 8.0758552804278,
+          "saturation": 0,
+          "correctionMean": 0,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "epochZero": {
+          "huber": 0.3567082430535259,
+          "mae": 7.0267262219890245,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "linear": {
+          "huber": 0.4132020390857102,
+          "mae": 7.6707857325385564,
+          "saturation": 0,
+          "correctionMean": -1.6709570324789738,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        }
+      }
+    },
+    "screen": {
+      "startedAt": 1792436068099,
+      "planned": 80,
+      "status": "running",
       "result": {
         "processCpuMicros": {},
         "modelHashes": {}
