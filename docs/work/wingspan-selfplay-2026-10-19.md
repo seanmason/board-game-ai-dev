@@ -1,6 +1,10 @@
 # Compact Wingspan self-play implementation — October 19
 
-Status: implementation validated; preparing the authorized bounded campaign.
+Status: bounded campaign running from frozen source `04b01cd`.
+Actual start: October 19, 2026, 14:44:26.907 UTC; original hard deadline:
+20:44:26.907 UTC (15:44 Central). At launch the controller PID was 30572 and
+publisher PID 90168, both BelowNormal. Inspect receipts/processes for current
+health; these identifiers alone are not proof of liveness.
 The user authorized implementation of the [iterative plan](../plans/wingspan-selfplay-loop-2026-10-19.md),
 including its bounded automated collection/training/evaluation campaign. Production
 remains opening-plan, expanded setup choices and horizon 4.
@@ -81,8 +85,13 @@ A conservative seed audit found no overlap among 3,624 proposed independent setu
 seeds and 4,287 retained historical seed identities/ranges. The audit and exact
 source/model/process receipts remain in the external runtime.
 
-Source revision, run receipt and public deployment verification will be appended
-after launch. Do not infer a running campaign
+The source archive, seed inventory and live summaries are published on development
+branch `benchmarks/wingspan-selfplay-2026-10-19` under `wingspan-selfplay/`.
+The [new dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-selfplay)
+is deployed through required full Validation/Pages; publication verification is
+pending at this record update. Snapshot-only evidence pushes follow the same CI
+exclusion as previous studies; main application changes still require full checks.
+Do not infer a running campaign
 from this document; inspect the runtime manifest and actual process receipts.
 
 ## Runtime and reproduction
