@@ -89,3 +89,23 @@ inventory was corrected before any collection result; both Git revisions remain.
 uses the evidence branch feed, refreshed every 90 seconds. Monitoring heartbeat:
 `review-wingspan-data-efficiency-campaign`; older completed campaign monitors stay
 paused. Production opening-plan + expanded setup + h4 remains unchanged.
+
+## First live status and display repair
+
+Both 140-game calibrations completed without failures. Outcome-blind allocation
+froze 280 searched and 1,040 hybrid fresh games, estimating 571,230 ms versus
+595,016 ms pool wall (ratio 1.0416). Steady calibration rates were approximately
+2,040 versus 572 ms per completed group across the loaded pool: 3.57 times as many
+hybrid examples per collection time. This is throughput evidence, not stronger
+play. Actual full collection costs remain a later gate.
+
+Full Validation passed for both scientific revision 8a1f2fd and launch-record
+revision e7a3bf6; Pages deployed 8a1f2fd successfully. An actual public mobile
+Chromium load verified the new live study and feed. It revealed missing display
+metadata removed by the intentionally narrow publisher allowlist. The canonical
+frontend now supplies fixed study/game labels and source revision, explains
+omitted individual active-game IDs, and retains withheld outcomes. The frozen
+publisher/source/controller remain unchanged. The dashboard browser regression
+now includes the actual narrow feed shape; tablet/phone and live-cache checks
+passed after the repair. This presentation-only follow-up needs its own full
+Validation/Pages deployment verification by the monitor.

@@ -12,7 +12,15 @@ function displayBudget(study,row){
  if(study==='wingspan-selfplay'&&row.matchup?.startsWith('scaling/'))return {candidateSamples:300,opponentSamples:100,horizon:4};
  return row.budget;
 }
-function render(){if(!snapshot)return;const s=snapshot,age=Date.now()-Date.parse(s.updatedAt),stale=s.status==='running'&&age>180000;
+// This study intentionally publishes a narrow allowlist. Supply fixed public
+// study labels here; never infer missing outcomes or individual active tasks.
+function displaySnapshot(data){
+ if(data.study!=='wingspan-data-efficiency')return data;
+ const labels={'calibration-baseline':'Search generator calibration','calibration-hybrid':'Hybrid generator calibration','collect-baseline':'Search generator collection','collect-hybrid':'Hybrid generator collection','train-baseline':'Search-data network training','train-hybrid':'Hybrid-data network training'};
+ const budget=data.collectionBudget??{},costs=Number.isFinite(budget.baselineGroups)?` Fixed fresh collection: ${budget.baselineGroups} searched games and ${budget.hybridGroups} hybrid games.`:'';
+ return {...data,revision:data.revision??'8a1f2fd7b652072372d0bba61dad1b152a07c776',method:data.method??'Fixed small networks, identical warm start and common development pool. Compare searched examples with mostly one-step examples at matched collection time. Calibration and collection are not playing-strength evidence. Search horizon 4 excludes the root; cheap one-step includes the root and its powers. Training and fresh strength checks follow collection.'+costs,rows:(data.rows??[]).map(row=>({...row,game:row.game??'wingspan',players:row.players??2,policyId:row.policyId??labels[row.matchup]??row.policy,scope:row.scope??(row.metricKind==='loss'?'Common development prediction metrics; not playing-strength evidence':row.metricKind==='progress'?'Whole game groups; collection outcomes withheld':'Fresh seat-paired playing-strength comparison')}))};
+}
+function render(){if(!snapshot)return;const s=displaySnapshot(snapshot),age=Date.now()-Date.parse(s.updatedAt),stale=s.status==='running'&&age>180000;
  $('status').textContent=`${stale?'Running snapshot is stale; process health unconfirmed':s.status==='finished'?(s.outcomeStatus==='failed'?'Run stopped after a failure':s.outcomeStatus==='stopped'?'Run stopped':'Run finished'):s.status==='running'?'Run in progress':s.status==='interrupted'?'Run interrupted':s.status==='deadline'?'Time limit reached; incomplete comparisons remain inconclusive':'Run planned'} · Last update ${s.updatedAt?new Date(s.updatedAt).toLocaleString():'not started'}${source==='fallback'?' · bundled snapshot':''}${s.stopReason?' · '+s.stopReason:''}`;
  $('totals').textContent=`${s.finished??0} / ${s.planned??0} games recorded · ${s.workers??0} workers${s.stage?' · Stage: '+s.stage:''}`;
  $('method').textContent=s.method??'Forty independent setups per matchup, with all seats rotated. Benchmarks start after the implementation is validated and published.';
@@ -26,7 +34,7 @@ function render(){if(!snapshot)return;const s=snapshot,age=Date.now()-Date.parse
  if(row.winShare.n>1&&row.winShare.low===row.winShare.high)card.append(element('p','The interval has zero observed variation in this sample. It does not imply certainty about future wins.','warnings'));
  if(row.finished>row.counts.complete)card.append(element('p','Incomplete games excluded from the share estimate. Inspect completion counts before comparing policies.','warnings'));
  if(row.limitations?.length)card.append(element('p',Array.isArray(row.limitations)?row.limitations.join(' '):row.limitations,'subtle'));$('results').append(card);}
- $('active').replaceChildren(...(s.active?.length?s.active.map(r=>element('li',`${names[r.game]??r.game}, ${r.players} players · ${r.id}`)):[element('li',s.status==='finished'?'No active games.':'No active games reported in this snapshot.')]));
+ $('active').replaceChildren(...(s.active?.length?s.active.map(r=>element('li',`${names[r.game]??r.game}, ${r.players} players · ${r.id}`)):[element('li',s.status==='finished'?'No active games.':s.study==='wingspan-data-efficiency'&&s.workers>0?`${s.workers} active workers; individual game IDs are omitted from the public feed.`:'No active games reported in this snapshot.')]));
 }
 // Branch CDN responses can lag successful pushes. Resolve immutable bytes only
 // when needed, with at most one public API lookup per study every three minutes.
