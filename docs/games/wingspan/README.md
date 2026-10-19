@@ -21,9 +21,10 @@ research reference, so it did not qualify for promotion. Development-only compac
 features are promising but unconfirmed; a rare long reference-fallback search also
 needs profiling. Production uses the reviewed opening package.
 
-The proposed [compact iterative self-play plan](../../plans/wingspan-selfplay-loop-2026-10-19.md)
+The authorized [compact iterative self-play plan](../../plans/wingspan-selfplay-loop-2026-10-19.md)
 starts with a small residual evaluator and three bounded data/training cycles.
-It is a plan, not a running experiment or a production change.
+Its [execution record](../../work/wingspan-selfplay-2026-10-19.md) distinguishes
+implementation checks from campaign evidence. Production settings are unchanged.
 
 ## Scope and capabilities
 

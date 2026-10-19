@@ -1,7 +1,8 @@
 # Wingspan: compact iterative self-play learning
 
-Status: proposed October 19, 2026; implementation and new experiments have not
-started. Scope: two-player original Wingspan. This replaces the old pilot's
+Status: implemented and validated October 19, 2026; the bounded campaign is
+authorized. The [execution record](../work/wingspan-selfplay-2026-10-19.md) owns
+current process and publication status. Scope: two-player original Wingspan. This replaces the old pilot's
 conditional next-step proposal, not its preserved experimental protocol.
 
 ## Objective and evidence
@@ -113,8 +114,8 @@ Feature extraction must be deterministic and consume none of the search RNG.
 
 ## 3. First bounded campaign: three generations
 
-Proposed experiment cap after implementation: three cycles or six elapsed hours,
-whichever comes first, including confirmation and analysis. This is a proposed new
+Authorized experiment cap after implementation: three cycles or six elapsed hours,
+whichever comes first, including confirmation and analysis. This is a separate new
 budget, not an extension of the completed pilot's clock. A 32-game calibration,
 excluded from learning/strength claims, determines whether fewer cycles are needed.
 Measure actual collection/evaluation throughput before promising a finish time.

@@ -215,6 +215,11 @@ export function findFoodPayment(owned,card){
     function pick(from,left,result){
       if(!left)return satisfiesCost(card,result)?result:null;
       for(let i=from;i<=types.length-left;i++){
+        // Equal tokens are interchangeable. Repeating the same type at this
+        // depth cannot produce a new payment; raven stocks made these duplicate
+        // combinations explode before reaching a necessary 2:1 substitution.
+        // Keep the first occurrence, preserving the original first legal plan.
+        if(i>from&&types[i]===types[i-1])continue;
         const t=pick(i+1,left-1,[...result,types[i]]);
         if(t)return t;
       }
