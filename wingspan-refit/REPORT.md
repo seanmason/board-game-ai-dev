@@ -7,3 +7,5 @@ Controller status: **stopped**. Completed displayed games: 360 / 360.
 Conservative teacher refits at fixed network size. Auxiliary-head gradients and learning rate are tested on the same replay and development pool. One further self-play cycle is conditional on fresh confirmation. Outcomes remain hidden until each fixed valid seat-paired comparison completes. No automatic production promotion.
 
 Only allowlisted aggregates and exported model weights are public. Raw games, observations, features, labels, task inventories, read-file receipts and local paths remain private.
+
+Final independent [review and decision](REVIEW.md): fresh confirmation did not qualify; generation 3 remains the teacher and the conditional collection never ran.

@@ -1,0 +1,624 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "purpose": "Independent read-only final performance and integrity audit; no experiments or restart",
+  "errors": [],
+  "sourceCount": 127,
+  "retained": {
+    "games": 4008,
+    "uniqueSetups": 3728,
+    "counts": {
+      "1/train": 768,
+      "1/dev": 128,
+      "2/train": 768,
+      "2/dev": 128,
+      "3/train": 768,
+      "3/dev": 128,
+      "4/train": 224,
+      "4/dev": 56,
+      "5/train": 832,
+      "5/dev": 208
+    },
+    "fitReadInventoryCountPerRecipe": 4008
+  },
+  "fits": [
+    {
+      "recipe": "control",
+      "candidate": "refit-f0-control",
+      "selectedEpoch": 1,
+      "eligible": true,
+      "dev": {
+        "huber": 0.3534988517531311,
+        "mae": 6.979908682003219,
+        "saturation": 0.042939698415423846,
+        "correctionMean": -1.8238030290614604,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "reference": {
+        "huber": 0.4474192649901631,
+        "mae": 8.0758552804278,
+        "saturation": 0,
+        "correctionMean": 0,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "trainerWallMs": 118314.5173,
+      "trainerCpuMicros": 112765625,
+      "fitWallMs": 182468,
+      "stageWallMs": 241656
+    },
+    {
+      "recipe": "value-only",
+      "candidate": "refit-f0-value-only",
+      "selectedEpoch": 1,
+      "eligible": true,
+      "dev": {
+        "huber": 0.3535140422944652,
+        "mae": 6.97966484288297,
+        "saturation": 0.043033647202871526,
+        "correctionMean": -1.8260176615321486,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "reference": {
+        "huber": 0.4474192649901631,
+        "mae": 8.0758552804278,
+        "saturation": 0,
+        "correctionMean": 0,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "trainerWallMs": 115946.5223,
+      "trainerCpuMicros": 109750000,
+      "fitWallMs": 180356,
+      "stageWallMs": 240795
+    },
+    {
+      "recipe": "gentle",
+      "candidate": "refit-f0-gentle",
+      "selectedEpoch": 1,
+      "eligible": true,
+      "dev": {
+        "huber": 0.3522410204016781,
+        "mae": 6.96650272614608,
+        "saturation": 0.035246002021601906,
+        "correctionMean": -1.7130251270939216,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "reference": {
+        "huber": 0.4474192649901631,
+        "mae": 8.0758552804278,
+        "saturation": 0,
+        "correctionMean": 0,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "trainerWallMs": 118389.9314,
+      "trainerCpuMicros": 110703125,
+      "fitWallMs": 183260,
+      "stageWallMs": 243137
+    },
+    {
+      "recipe": "gentle-value",
+      "candidate": "refit-f0-gentle-value",
+      "selectedEpoch": 1,
+      "eligible": true,
+      "dev": {
+        "huber": 0.35235923487462745,
+        "mae": 6.968353977974139,
+        "saturation": 0.03644496628278714,
+        "correctionMean": -1.709766439107272,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "reference": {
+        "huber": 0.4474192649901631,
+        "mae": 8.0758552804278,
+        "saturation": 0,
+        "correctionMean": 0,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "trainerWallMs": 116436.7473,
+      "trainerCpuMicros": 111250000,
+      "fitWallMs": 180030,
+      "stageWallMs": 239366
+    }
+  ],
+  "strength": [
+    {
+      "stage": "s0-gentle",
+      "kind": "screen",
+      "games": 80,
+      "pairs": 40,
+      "wlt": {
+        "wins": 44,
+        "losses": 35,
+        "ties": 1
+      },
+      "share": 0.55625,
+      "summary": {
+        "comparisons": {
+          "parent": {
+            "pairs": 40,
+            "winShare": 0.55625,
+            "shareSummary": {
+              "n": 40,
+              "mean": 0.55625,
+              "variance": 0.09451121794871792,
+              "degenerate": false,
+              "intervalMethod": "paired-t-approximate",
+              "ci95": [
+                0.45793014957751743,
+                0.6545698504224826
+              ],
+              "lowerBound": 0.45793014957751743
+            },
+            "marginSummary": {
+              "n": 40,
+              "mean": 0.1875,
+              "variance": 52.21394230769231,
+              "degenerate": false,
+              "intervalMethod": "paired-t-approximate",
+              "ci95": [
+                -2.1234618267729246,
+                2.4984618267729246
+              ],
+              "lowerBound": -2.1234618267729246
+            },
+            "lowerWinnerShare": 0.45793014957751743,
+            "meanMargin": 0.1875,
+            "valid": true,
+            "latency": {
+              "meanMs": 1002.2127748366039,
+              "p95Ms": 1005.8074999998789,
+              "p99Ms": 1010.2291999999434,
+              "maxMs": 1030.6846000000369,
+              "opponentMeanMs": 1002.1910612767928,
+              "opponentP95Ms": 1005.6807999999728
+            },
+            "latencyValid": true,
+            "passed": true
+          }
+        },
+        "passed": true,
+        "bound": "paired Student t approximate, one-sided alpha .025 per comparison; bounded Hoeffding backup for degenerate samples"
+      },
+      "diagnostics": {
+        "candidate": {
+          "decisions": 4284,
+          "iterations": 1497958,
+          "roots": 37963,
+          "unvisited": 0,
+          "rolloutCount": 1497958,
+          "learnedLeafCount": 473855,
+          "learnedFallbackCount": 1024103,
+          "safetyCapCount": 0,
+          "unsettledLeaves": 0,
+          "settledLeaves": 1497958,
+          "illegalActions": 0,
+          "errors": 0,
+          "mainActions": 2080,
+          "powerDecisions": 2124,
+          "observationGenerationMs": 19548.596299991477,
+          "searchMs": 4273930.931100008,
+          "coverageFloorOverruns": 0,
+          "determinizationMs": 248093.289399805,
+          "generationMs": 1026338.4596004512,
+          "transitionMs": 1779248.6515001038,
+          "evaluationMs": 456144.2060999831,
+          "learnedInferenceFraction": 0.316333969310221,
+          "fallbackFraction": 0.683666030689779
+        },
+        "opponent": {
+          "decisions": 4292,
+          "iterations": 1490617,
+          "roots": 35073,
+          "unvisited": 0,
+          "rolloutCount": 1490617,
+          "learnedLeafCount": 474701,
+          "learnedFallbackCount": 1015916,
+          "safetyCapCount": 0,
+          "unsettledLeaves": 0,
+          "settledLeaves": 1490617,
+          "illegalActions": 0,
+          "errors": 0,
+          "mainActions": 2080,
+          "powerDecisions": 2132,
+          "observationGenerationMs": 19439.213800006546,
+          "searchMs": 4281964.821199999,
+          "coverageFloorOverruns": 0,
+          "determinizationMs": 245761.95230021002,
+          "generationMs": 1033772.5546003275,
+          "transitionMs": 1794549.175399747,
+          "evaluationMs": 454053.2818000631,
+          "learnedInferenceFraction": 0.31845940305256143,
+          "fallbackFraction": 0.6815405969474385
+        }
+      },
+      "gameWallSumMs": 8597977.954099998,
+      "poolWallMs": 351855,
+      "stageWallMs": 351913,
+      "processCpuMicros": {
+        "user": 7510594000,
+        "system": 22891000
+      },
+      "workerCpuSumNotAdditive": 197927672000,
+      "priority": {
+        "actual": 10,
+        "belowNormalRequired": true
+      },
+      "seedMin": 1000000000,
+      "seedMax": 1000038883,
+      "effectiveCpuCores": 21.410765798411276
+    },
+    {
+      "stage": "s0-gentle-value",
+      "kind": "screen",
+      "games": 80,
+      "pairs": 40,
+      "wlt": {
+        "wins": 40,
+        "losses": 39,
+        "ties": 1
+      },
+      "share": 0.50625,
+      "summary": {
+        "comparisons": {
+          "parent": {
+            "pairs": 40,
+            "winShare": 0.50625,
+            "shareSummary": {
+              "n": 40,
+              "mean": 0.50625,
+              "variance": 0.0784855769230769,
+              "degenerate": false,
+              "intervalMethod": "paired-t-approximate",
+              "ci95": [
+                0.4166527960847023,
+                0.5958472039152977
+              ],
+              "lowerBound": 0.4166527960847023
+            },
+            "marginSummary": {
+              "n": 40,
+              "mean": -1.6125,
+              "variance": 49.775480769230775,
+              "degenerate": false,
+              "intervalMethod": "paired-t-approximate",
+              "ci95": [
+                -3.8688541232774876,
+                0.6438541232774877
+              ],
+              "lowerBound": -3.8688541232774876
+            },
+            "lowerWinnerShare": 0.4166527960847023,
+            "meanMargin": -1.6125,
+            "valid": true,
+            "latency": {
+              "meanMs": 1002.2146802403531,
+              "p95Ms": 1005.6668999998365,
+              "p99Ms": 1010.1091000000015,
+              "maxMs": 1023.7120000000577,
+              "opponentMeanMs": 1002.2238850200555,
+              "opponentP95Ms": 1005.6938999998383
+            },
+            "latencyValid": true,
+            "passed": false
+          }
+        },
+        "passed": false,
+        "bound": "paired Student t approximate, one-sided alpha .025 per comparison; bounded Hoeffding backup for degenerate samples"
+      },
+      "diagnostics": {
+        "candidate": {
+          "decisions": 4327,
+          "iterations": 1460670,
+          "roots": 38275,
+          "unvisited": 0,
+          "rolloutCount": 1460670,
+          "learnedLeafCount": 454087,
+          "learnedFallbackCount": 1006583,
+          "safetyCapCount": 0,
+          "unsettledLeaves": 0,
+          "settledLeaves": 1460670,
+          "illegalActions": 0,
+          "errors": 0,
+          "mainActions": 2080,
+          "powerDecisions": 2167,
+          "observationGenerationMs": 19486.736000000732,
+          "searchMs": 4317096.185399998,
+          "coverageFloorOverruns": 0,
+          "determinizationMs": 246814.83359999093,
+          "generationMs": 1065373.9361991007,
+          "transitionMs": 1750036.697600728,
+          "evaluationMs": 471706.8505001187,
+          "learnedInferenceFraction": 0.3108758309542881,
+          "fallbackFraction": 0.6891241690457119
+        },
+        "opponent": {
+          "decisions": 4239,
+          "iterations": 1405071,
+          "roots": 37995,
+          "unvisited": 0,
+          "rolloutCount": 1405071,
+          "learnedLeafCount": 454182,
+          "learnedFallbackCount": 950889,
+          "safetyCapCount": 0,
+          "unsettledLeaves": 0,
+          "settledLeaves": 1405071,
+          "illegalActions": 0,
+          "errors": 0,
+          "mainActions": 2080,
+          "powerDecisions": 2079,
+          "observationGenerationMs": 19270.32880000281,
+          "searchMs": 4229156.719800009,
+          "coverageFloorOverruns": 0,
+          "determinizationMs": 239739.96379997302,
+          "generationMs": 1060249.1879995766,
+          "transitionMs": 1689143.2846997578,
+          "evaluationMs": 465837.8676998387,
+          "learnedInferenceFraction": 0.3232448751700092,
+          "fallbackFraction": 0.6767551248299908
+        }
+      },
+      "gameWallSumMs": 8588049.944300003,
+      "poolWallMs": 366879,
+      "stageWallMs": 366939,
+      "processCpuMicros": {
+        "user": 7333625000,
+        "system": 22484000
+      },
+      "workerCpuSumNotAdditive": 194151715000,
+      "priority": {
+        "actual": 10,
+        "belowNormalRequired": true
+      },
+      "seedMin": 1010000000,
+      "seedMax": 1010038883,
+      "effectiveCpuCores": 20.050504389730673
+    },
+    {
+      "stage": "c0",
+      "kind": "confirmation",
+      "games": 200,
+      "pairs": 100,
+      "wlt": {
+        "wins": 93,
+        "losses": 106,
+        "ties": 1
+      },
+      "share": 0.4675,
+      "summary": {
+        "comparisons": {
+          "parent": {
+            "pairs": 100,
+            "winShare": 0.4675,
+            "shareSummary": {
+              "n": 100,
+              "mean": 0.4675,
+              "variance": 0.105625,
+              "degenerate": false,
+              "intervalMethod": "paired-t-approximate",
+              "ci95": [
+                0.4030129490734418,
+                0.5319870509265582
+              ],
+              "lowerBound": 0.4030129490734418
+            },
+            "marginSummary": {
+              "n": 100,
+              "mean": -0.325,
+              "variance": 70.71906565656563,
+              "degenerate": false,
+              "intervalMethod": "paired-t-approximate",
+              "ci95": [
+                -1.99361987679626,
+                1.3436198767962602
+              ],
+              "lowerBound": -1.99361987679626
+            },
+            "lowerWinnerShare": 0.4030129490734418,
+            "meanMargin": -0.325,
+            "valid": true,
+            "latency": {
+              "meanMs": 1002.218205734969,
+              "p95Ms": 1005.6011999999173,
+              "p99Ms": 1009.5603000000119,
+              "maxMs": 1294.6721999999136,
+              "opponentMeanMs": 1002.1840665843893,
+              "opponentP95Ms": 1005.6310999998823
+            },
+            "latencyValid": true,
+            "passed": false
+          }
+        },
+        "passed": false,
+        "bound": "paired Student t approximate, one-sided alpha .025 per comparison; bounded Hoeffding backup for degenerate samples"
+      },
+      "diagnostics": {
+        "candidate": {
+          "decisions": 10497,
+          "iterations": 3465040,
+          "roots": 86739,
+          "unvisited": 0,
+          "rolloutCount": 3465040,
+          "learnedLeafCount": 1162309,
+          "learnedFallbackCount": 2302731,
+          "safetyCapCount": 0,
+          "unsettledLeaves": 0,
+          "settledLeaves": 3465040,
+          "illegalActions": 0,
+          "errors": 0,
+          "mainActions": 5200,
+          "powerDecisions": 5097,
+          "observationGenerationMs": 46903.11790002859,
+          "searchMs": 10473381.387699995,
+          "coverageFloorOverruns": 1,
+          "determinizationMs": 610306.9394003369,
+          "generationMs": 2504654.0399987125,
+          "transitionMs": 4338269.662899176,
+          "evaluationMs": 1130574.3191999611,
+          "learnedInferenceFraction": 0.33543884053286543,
+          "fallbackFraction": 0.6645611594671346
+        },
+        "opponent": {
+          "decisions": 10534,
+          "iterations": 3435609,
+          "roots": 91534,
+          "unvisited": 0,
+          "rolloutCount": 3435609,
+          "learnedLeafCount": 1156394,
+          "learnedFallbackCount": 2279215,
+          "safetyCapCount": 0,
+          "unsettledLeaves": 0,
+          "settledLeaves": 3435609,
+          "illegalActions": 0,
+          "errors": 0,
+          "mainActions": 5200,
+          "powerDecisions": 5134,
+          "observationGenerationMs": 47150.126299975906,
+          "searchMs": 10509856.831100002,
+          "coverageFloorOverruns": 0,
+          "determinizationMs": 604784.5619997394,
+          "generationMs": 2559917.126399441,
+          "transitionMs": 4327300.053501177,
+          "evaluationMs": 1129725.482799876,
+          "learnedInferenceFraction": 0.33659068887059035,
+          "fallbackFraction": 0.6634093111294097
+        }
+      },
+      "gameWallSumMs": 21084145.481300008,
+      "poolWallMs": 815684,
+      "stageWallMs": 815755,
+      "processCpuMicros": {
+        "user": 17981734000,
+        "system": 48844000
+      },
+      "workerCpuSumNotAdditive": 494276091000,
+      "priority": {
+        "actual": 10,
+        "belowNormalRequired": true
+      },
+      "seedMin": 1020000000,
+      "seedMax": 1020098703,
+      "effectiveCpuCores": 22.10485678277372
+    }
+  ],
+  "totals": {
+    "games": 360,
+    "elapsedMs": 2617506,
+    "elapsedMinutes": 43.6251,
+    "originalBudgetMs": 10800000,
+    "remainingAtStopMs": 8182494,
+    "gamePoolWallMs": 1534418,
+    "gameWallSumMs": 38270173.379700005,
+    "gameProcessCpuMicros": 32920172000,
+    "trainerProcessCpuMicros": 444468750,
+    "measuredBatchPlusTrainerCpuSeconds": 33364.64075,
+    "trainerWallMs": 469087.7183,
+    "cpuScope": "Game CPU counts each shared process batch once; per-game process CPU counters are not additive. Trainer CPU excludes command/preflight/controller overhead. GPU occupancy was not directly measured.",
+    "neuralDiagnostics": {
+      "candidate": {
+        "decisions": 19108,
+        "iterations": 6423668,
+        "rolloutCount": 6423668,
+        "learnedLeafCount": 2090251,
+        "learnedFallbackCount": 4333417,
+        "safetyCapCount": 0,
+        "unsettledLeaves": 0,
+        "illegalActions": 0,
+        "errors": 0,
+        "coverageFloorOverruns": 1,
+        "learnedInferenceFraction": 0.32539835495856884,
+        "fallbackFraction": 0.6746016450414312
+      },
+      "opponent": {
+        "decisions": 19065,
+        "iterations": 6331297,
+        "rolloutCount": 6331297,
+        "learnedLeafCount": 2085277,
+        "learnedFallbackCount": 4246020,
+        "safetyCapCount": 0,
+        "unsettledLeaves": 0,
+        "illegalActions": 0,
+        "errors": 0,
+        "coverageFloorOverruns": 0,
+        "learnedInferenceFraction": 0.3293601611170665,
+        "fallbackFraction": 0.6706398388829334
+      }
+    },
+    "gameProcessCpuHours": 9.144492222222222,
+    "trainerProcessCpuSeconds": 444.46875,
+    "effectiveGamePoolCpuCores": 21.45450066409544
+  },
+  "sequentialStages": true,
+  "manifestUnchanged": true,
+  "acceptedTeacher": false,
+  "optionalCycle": false,
+  "productionPromotion": false,
+  "summaryRecomputation": {
+    "method": "Raw games sorted by filename rather than original completion order; every paired gate/interval/latency recomputed",
+    "numericTolerance": 1e-09,
+    "maximumAbsoluteDifference": 2.1600499167107046e-12,
+    "passed": true
+  },
+  "notes": [
+    "One candidate coverage-floor overrun occurred during confirmation; maximum decision time 1294.6722ms remained within prespecified latency gates.",
+    "Neural inference used only roughly one third of leaves; remaining leaves used the existing reference fallback. This is legal runtime behavior, not an illegal-action/model-load failure.",
+    "Four offline-eligible refits selected epoch 1, but development gains and promising screen did not establish playing-strength improvement."
+  ],
+  "processReceipts": {
+    "count": 8,
+    "statuses": {
+      "complete": 8
+    },
+    "allFinishedBeforeDeadline": true
+  }
+}

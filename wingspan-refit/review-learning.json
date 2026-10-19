@@ -1,0 +1,598 @@
+{
+  "schema": 1,
+  "reviewType": "independent learning and design closeout",
+  "status": "passed-with-unfavorable-strength-result",
+  "sourceRevision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
+  "allRecomputedLearningChecksPassed": true,
+  "parentModelSha256": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+  "commonDatasetSha256": "e2cc6deff94fbd4e868ffe4d2ffb4326d31ba3e2670bc0932189d8ddd36f86b8",
+  "dataset": {
+    "counts": [
+      {
+        "generation": 1,
+        "split": "dev",
+        "games": 128
+      },
+      {
+        "generation": 1,
+        "split": "train",
+        "games": 768
+      },
+      {
+        "generation": 2,
+        "split": "dev",
+        "games": 128
+      },
+      {
+        "generation": 2,
+        "split": "train",
+        "games": 768
+      },
+      {
+        "generation": 3,
+        "split": "dev",
+        "games": 128
+      },
+      {
+        "generation": 3,
+        "split": "train",
+        "games": 768
+      },
+      {
+        "generation": 4,
+        "split": "dev",
+        "games": 56
+      },
+      {
+        "generation": 4,
+        "split": "train",
+        "games": 224
+      },
+      {
+        "generation": 5,
+        "split": "dev",
+        "games": 208
+      },
+      {
+        "generation": 5,
+        "split": "train",
+        "games": 832
+      }
+    ],
+    "trainGames": 3360,
+    "devGames": 648,
+    "devUniqueSetups": 592,
+    "splitSetupsDisjoint": true,
+    "onlyTrainDev": true,
+    "generationMass": {
+      "1": 0.2,
+      "2": 0.2,
+      "3": 0.2,
+      "4": 0.2,
+      "5": 0.2
+    },
+    "scope": "Reviewed common inventory metadata and actual trainer read-file receipts; did not open raw labels, audit files or strength game files."
+  },
+  "fits": {
+    "control": {
+      "config": {
+        "seed": 1729,
+        "epochs": 24,
+        "patience": 4,
+        "batchSize": 512,
+        "weightDecay": 0.0001,
+        "auxiliaryScale": 20,
+        "ridgeAlpha": 10,
+        "cpuThreads": 4,
+        "gpuBytes": 6442450944,
+        "learningRate": 0.0005,
+        "auxiliaryWeight": 0.05
+      },
+      "selectedEpoch": 1,
+      "dev": {
+        "huber": 0.3534988517531311,
+        "mae": 6.979908682003219,
+        "saturation": 0.042939698415423846,
+        "correctionMean": -1.8238030290614604,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "selectedTrainHuber": 0.3083571791648865,
+      "improvementPercent": 0.8997244563011653,
+      "history": [
+        {
+          "epoch": 0,
+          "trainHuber": 0.3218126893043518,
+          "devHuber": 0.3567082430535259,
+          "devMae": 7.026726221989025
+        },
+        {
+          "epoch": 1,
+          "trainHuber": 0.3083571791648865,
+          "devHuber": 0.3534988517531311,
+          "devMae": 6.979908682003219
+        },
+        {
+          "epoch": 2,
+          "trainHuber": 0.3006645143032074,
+          "devHuber": 0.3550939120059662,
+          "devMae": 7.004800815945428
+        },
+        {
+          "epoch": 3,
+          "trainHuber": 0.2956564426422119,
+          "devHuber": 0.3568734315226644,
+          "devMae": 7.028135444375339
+        },
+        {
+          "epoch": 4,
+          "trainHuber": 0.2922704517841339,
+          "devHuber": 0.3592811930082485,
+          "devMae": 7.0611106038009765
+        },
+        {
+          "epoch": 5,
+          "trainHuber": 0.2886757254600525,
+          "devHuber": 0.36000522350103803,
+          "devMae": 7.070447032513147
+        }
+      ],
+      "layerWeightChanges": [
+        {
+          "deltaL2": 1.1892855760626027,
+          "maxAbsDelta": 0.07427486777305603
+        },
+        {
+          "deltaL2": 0.37475113832943424,
+          "maxAbsDelta": 0.10552603006362915
+        },
+        {
+          "deltaL2": 0.09694815318046121,
+          "maxAbsDelta": 0.055616989731788635
+        }
+      ],
+      "checks": {
+        "normalizationExactlyParent": true,
+        "modelHashMatches": true,
+        "manifestHashMatches": true,
+        "warmStartHashMatches": true,
+        "exactTrainDevReadInventory": true,
+        "parityPassed": true,
+        "recomputedEligible": true
+      }
+    },
+    "value-only": {
+      "config": {
+        "seed": 1729,
+        "epochs": 24,
+        "patience": 4,
+        "batchSize": 512,
+        "weightDecay": 0.0001,
+        "auxiliaryScale": 20,
+        "ridgeAlpha": 10,
+        "cpuThreads": 4,
+        "gpuBytes": 6442450944,
+        "learningRate": 0.0005,
+        "auxiliaryWeight": 0
+      },
+      "selectedEpoch": 1,
+      "dev": {
+        "huber": 0.3535140422944652,
+        "mae": 6.97966484288297,
+        "saturation": 0.043033647202871526,
+        "correctionMean": -1.8260176615321486,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "selectedTrainHuber": 0.30835628509521484,
+      "improvementPercent": 0.8954659224349237,
+      "history": [
+        {
+          "epoch": 0,
+          "trainHuber": 0.3218126893043518,
+          "devHuber": 0.3567082430535259,
+          "devMae": 7.026726221989025
+        },
+        {
+          "epoch": 1,
+          "trainHuber": 0.30835628509521484,
+          "devHuber": 0.3535140422944652,
+          "devMae": 6.97966484288297
+        },
+        {
+          "epoch": 2,
+          "trainHuber": 0.3006129264831543,
+          "devHuber": 0.35511692577760523,
+          "devMae": 7.0050338087543995
+        },
+        {
+          "epoch": 3,
+          "trainHuber": 0.2955610156059265,
+          "devHuber": 0.35713315252554106,
+          "devMae": 7.031271982225943
+        },
+        {
+          "epoch": 4,
+          "trainHuber": 0.29204607009887695,
+          "devHuber": 0.3591626852028604,
+          "devMae": 7.05982485004531
+        },
+        {
+          "epoch": 5,
+          "trainHuber": 0.2885952591896057,
+          "devHuber": 0.35996543406085635,
+          "devMae": 7.069145645317981
+        }
+      ],
+      "layerWeightChanges": [
+        {
+          "deltaL2": 1.192334472262737,
+          "maxAbsDelta": 0.07352165877819061
+        },
+        {
+          "deltaL2": 0.296913023637946,
+          "maxAbsDelta": 0.04643265902996063
+        },
+        {
+          "deltaL2": 0.08524502091957256,
+          "maxAbsDelta": 0.04873473942279816
+        }
+      ],
+      "checks": {
+        "normalizationExactlyParent": true,
+        "modelHashMatches": true,
+        "manifestHashMatches": true,
+        "warmStartHashMatches": true,
+        "exactTrainDevReadInventory": true,
+        "parityPassed": true,
+        "recomputedEligible": true
+      }
+    },
+    "gentle": {
+      "config": {
+        "seed": 1729,
+        "epochs": 24,
+        "patience": 4,
+        "batchSize": 512,
+        "weightDecay": 0.0001,
+        "auxiliaryScale": 20,
+        "ridgeAlpha": 10,
+        "cpuThreads": 4,
+        "gpuBytes": 6442450944,
+        "learningRate": 0.0001,
+        "auxiliaryWeight": 0.05
+      },
+      "selectedEpoch": 1,
+      "dev": {
+        "huber": 0.3522410204016781,
+        "mae": 6.96650272614608,
+        "saturation": 0.035246002021601906,
+        "correctionMean": -1.7130251270939216,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "selectedTrainHuber": 0.31528240442276,
+      "improvementPercent": 1.2523463471455165,
+      "history": [
+        {
+          "epoch": 0,
+          "trainHuber": 0.3218126893043518,
+          "devHuber": 0.3567082430535259,
+          "devMae": 7.026726221989025
+        },
+        {
+          "epoch": 1,
+          "trainHuber": 0.31528240442276,
+          "devHuber": 0.3522410204016781,
+          "devMae": 6.96650272614608
+        },
+        {
+          "epoch": 2,
+          "trainHuber": 0.31239181756973267,
+          "devHuber": 0.35252707531955735,
+          "devMae": 6.96896337402023
+        },
+        {
+          "epoch": 3,
+          "trainHuber": 0.3100798726081848,
+          "devHuber": 0.35270703198890907,
+          "devMae": 6.971212373079024
+        },
+        {
+          "epoch": 4,
+          "trainHuber": 0.30795830488204956,
+          "devHuber": 0.3531506380887791,
+          "devMae": 6.977482734097366
+        },
+        {
+          "epoch": 5,
+          "trainHuber": 0.3060550093650818,
+          "devHuber": 0.3534124992939264,
+          "devMae": 6.981202091293415
+        }
+      ],
+      "layerWeightChanges": [
+        {
+          "deltaL2": 0.3484102270641182,
+          "maxAbsDelta": 0.017613694071769714
+        },
+        {
+          "deltaL2": 0.18470539212753317,
+          "maxAbsDelta": 0.039143890142440796
+        },
+        {
+          "deltaL2": 0.022613704220743713,
+          "maxAbsDelta": 0.012692540884017944
+        }
+      ],
+      "checks": {
+        "normalizationExactlyParent": true,
+        "modelHashMatches": true,
+        "manifestHashMatches": true,
+        "warmStartHashMatches": true,
+        "exactTrainDevReadInventory": true,
+        "parityPassed": true,
+        "recomputedEligible": true
+      }
+    },
+    "gentle-value": {
+      "config": {
+        "seed": 1729,
+        "epochs": 24,
+        "patience": 4,
+        "batchSize": 512,
+        "weightDecay": 0.0001,
+        "auxiliaryScale": 20,
+        "ridgeAlpha": 10,
+        "cpuThreads": 4,
+        "gpuBytes": 6442450944,
+        "learningRate": 0.0001,
+        "auxiliaryWeight": 0
+      },
+      "selectedEpoch": 1,
+      "dev": {
+        "huber": 0.35235923487462745,
+        "mae": 6.968353977974139,
+        "saturation": 0.03644496628278714,
+        "correctionMean": -1.709766439107272,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "epochZero": {
+        "huber": 0.3567082430535259,
+        "mae": 7.026726221989025,
+        "saturation": 0.032566483925300885,
+        "correctionMean": -1.4555386471150167,
+        "examples": 67392,
+        "games": 648,
+        "setups": 592
+      },
+      "selectedTrainHuber": 0.3152562975883484,
+      "improvementPercent": 1.2192059655447451,
+      "history": [
+        {
+          "epoch": 0,
+          "trainHuber": 0.3218126893043518,
+          "devHuber": 0.3567082430535259,
+          "devMae": 7.026726221989025
+        },
+        {
+          "epoch": 1,
+          "trainHuber": 0.3152562975883484,
+          "devHuber": 0.35235923487462745,
+          "devMae": 6.968353977974139
+        },
+        {
+          "epoch": 2,
+          "trainHuber": 0.3123602271080017,
+          "devHuber": 0.3526275298029278,
+          "devMae": 6.970325402671511
+        },
+        {
+          "epoch": 3,
+          "trainHuber": 0.3100585341453552,
+          "devHuber": 0.3527767224175437,
+          "devMae": 6.971943106290324
+        },
+        {
+          "epoch": 4,
+          "trainHuber": 0.30794385075569153,
+          "devHuber": 0.353227815648404,
+          "devMae": 6.977960886848845
+        },
+        {
+          "epoch": 5,
+          "trainHuber": 0.30603402853012085,
+          "devHuber": 0.3534749686291011,
+          "devMae": 6.98149236049063
+        }
+      ],
+      "layerWeightChanges": [
+        {
+          "deltaL2": 0.3469608826177664,
+          "maxAbsDelta": 0.01716195046901703
+        },
+        {
+          "deltaL2": 0.09828874114821033,
+          "maxAbsDelta": 0.017444521188735962
+        },
+        {
+          "deltaL2": 0.019446867077586975,
+          "maxAbsDelta": 0.010564744472503662
+        }
+      ],
+      "checks": {
+        "normalizationExactlyParent": true,
+        "modelHashMatches": true,
+        "manifestHashMatches": true,
+        "warmStartHashMatches": true,
+        "exactTrainDevReadInventory": true,
+        "parityPassed": true,
+        "recomputedEligible": true
+      }
+    }
+  },
+  "factorialContrasts": {
+    "auxOffAtOriginalLR": {
+      "deltaDevHuber": 1.5190541334086927e-05,
+      "deltaDevMae": -0.0002438391202490564
+    },
+    "auxOffAtGentleLR": {
+      "deltaDevHuber": 0.00011821447294935172,
+      "deltaDevMae": 0.0018512518280582313
+    },
+    "lowerLRWithAux": {
+      "deltaDevHuber": -0.0012578313514530204,
+      "deltaDevMae": -0.013405955857138885
+    },
+    "lowerLRWithoutAux": {
+      "deltaDevHuber": -0.0011548074198377556,
+      "deltaDevMae": -0.011310864908831597
+    }
+  },
+  "contrastMeaning": "Negative favors first configuration. Single fixed seed, independently development-selected checkpoints; contrasts describe this corpus and training run.",
+  "comparisons": {
+    "s0-gentle": {
+      "pairs": 40,
+      "winShare": 0.55625,
+      "shareSummary": {
+        "n": 40,
+        "mean": 0.55625,
+        "variance": 0.09451121794871793,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.45793014957751743,
+          0.6545698504224826
+        ],
+        "lowerBound": 0.45793014957751743
+      },
+      "marginSummary": {
+        "n": 40,
+        "mean": 0.1875,
+        "variance": 52.21394230769231,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -2.1234618267729246,
+          2.4984618267729246
+        ],
+        "lowerBound": -2.1234618267729246
+      },
+      "lowerWinnerShare": 0.45793014957751743,
+      "meanMargin": 0.1875,
+      "valid": true,
+      "latencyValid": true,
+      "passed": true
+    },
+    "s0-gentle-value": {
+      "pairs": 40,
+      "winShare": 0.50625,
+      "shareSummary": {
+        "n": 40,
+        "mean": 0.50625,
+        "variance": 0.0784855769230769,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.4166527960847023,
+          0.5958472039152977
+        ],
+        "lowerBound": 0.4166527960847023
+      },
+      "marginSummary": {
+        "n": 40,
+        "mean": -1.6125,
+        "variance": 49.77548076923078,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -3.8688541232774885,
+          0.6438541232774881
+        ],
+        "lowerBound": -3.8688541232774885
+      },
+      "lowerWinnerShare": 0.4166527960847023,
+      "meanMargin": -1.6125,
+      "valid": true,
+      "latencyValid": true,
+      "passed": false
+    },
+    "c0": {
+      "pairs": 100,
+      "winShare": 0.4675,
+      "shareSummary": {
+        "n": 100,
+        "mean": 0.4675,
+        "variance": 0.105625,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          0.4030129490734418,
+          0.5319870509265582
+        ],
+        "lowerBound": 0.4030129490734418
+      },
+      "marginSummary": {
+        "n": 100,
+        "mean": -0.325,
+        "variance": 70.71906565656563,
+        "degenerate": false,
+        "intervalMethod": "paired-t-approximate",
+        "ci95": [
+          -1.99361987679626,
+          1.3436198767962602
+        ],
+        "lowerBound": -1.99361987679626
+      },
+      "lowerWinnerShare": 0.4030129490734418,
+      "meanMargin": -0.325,
+      "valid": true,
+      "latencyValid": true,
+      "passed": false
+    }
+  },
+  "acceptedTeacherCount": 0,
+  "conditionalCollectionStarted": false,
+  "conclusions": [
+    "All four recipes selected epoch1 and passed frozen offline eligibility. Lower learning rate improved selected development metrics in both auxiliary configurations.",
+    "Removing auxiliary loss slightly worsened selected development Huber at both learning rates. This does not support auxiliary interference as the main remedy, or establish a general advantage to retaining auxiliary loss.",
+    "Every recipe later reduced training loss while development loss worsened; gentle learning rate reduced this deterioration over the fixed epochs but did not remove it.",
+    "Reused development data and checkpoint/recipe selection preclude an independent offline generalization claim.",
+    "Gentle passed its exploratory screen but failed fresh confirmation:46.75 percent winner share and minus0.325 points mean margin. No stronger teacher was established or accepted.",
+    "Screens used different seed banks; their difference cannot causally establish auxiliary-loss effects on strength. Terminal-value error and parent agreement do not establish candidate-action ranking quality.",
+    "Confirmation intervals permit modest benefit or harm. Failure does not establish equivalence, a weaker model or unsuitable cheap data."
+  ],
+  "recommendation": "Retain generation3. Before further fit tuning or collection, run a bounded training-only candidate-action diagnostic at fixed outcome-blind positions with fixed supplied candidates and matched belief randomness where valid. Measure correction dispersion, changed choices and preference stability against independent deeper-search samples; teacher preferences are a noisy proxy rather than ground truth. Propose a small searched-action-target pilot only if useful signal appears. Do not open old audit or recycle strength labels. This campaign does not justify architecture expansion or more learning-rate search alone."
+}

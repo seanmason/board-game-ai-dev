@@ -1,0 +1,185 @@
+# Two-player Wingspan conservative teacher refits — October 19, 2026
+
+Decision: keep generation 3 as the research teacher. All four refits slightly
+improved common development prediction, but the selected gentler-rate model did
+not pass its fresh parent confirmation: **46.75% winner share, -0.325 points**.
+The conditional self-play cycle was correctly skipped. Production opening-plan,
+expanded setup and horizon 4 remain unchanged.
+
+The campaign stopped normally after 360 valid strength games and four fits,
+from 19:53:46.960 to 20:37:24.466 UTC (43.625 minutes). Its original
+22:53:46.960 UTC deadline was not reset. No extra recipe, rescue tournament,
+teacher update, new collection or automatic production promotion followed.
+
+[Dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-refit)
+· [Frozen protocol](https://github.com/seanmason/board-game-ai-dev/blob/29e5d95d9bc38a80a798c9e969225fecdc7c8580/docs/plans/wingspan-refit-2026-10-19.md)
+· [Implementation and execution](https://github.com/seanmason/board-game-ai-dev/blob/main/docs/work/wingspan-refit-2026-10-19.md)
+· [Public source, weights and receipts](https://github.com/seanmason/board-game-ai-dev/tree/benchmarks/wingspan-refit-2026-10-19/wingspan-refit)
+
+## Question and controls
+
+The previous [data-efficiency pilot](https://github.com/seanmason/board-game-ai-dev/blob/5f769fd41926944addb6f6da2395ef0eeb05bd18/docs/games/wingspan/2026-10-19-data-efficiency.md) established
+about four times faster hybrid generation without a stronger teacher. Later
+training epochs improved training loss while worsening development loss.
+Inspection found a plausible interference mechanism: warm starts restore the
+exported inference layers, but initialize the auxiliary prediction head randomly.
+Its nonzero loss sends gradients through the learned trunk. This study tested
+that mechanism and a smaller learning rate without changing model capacity.
+
+Every recipe began with the same generation-3 model, frozen normalization and
+192-input, 32/16 residual network. Architecture, targets, seed 1729, batch 512,
+AdamW weight decay 0.0001, 24-epoch cap, patience four, epoch-zero selection and
+auxiliary scaling stayed fixed. The auxiliary head is not used in inference.
+Four fixed recipes crossed learning rate 0.0005/0.0001 with auxiliary weight
+0.05/0. Disabling it blocks its gradients; it does not recover an old auxiliary head.
+
+All fits used one identical pooled inventory: generations 1–3 contribute 2,304
+train / 384 dev games, generation 4 contributes 224 / 56, and generation 5
+contributes 832 / 208. Total: **3,360 train / 648 dev games**, with 592 unique
+dev setups because 56 intentionally occur in both collection arms. Correlated
+viewers, turns and related trajectories retain their whole-setup split.
+No old audit, calibration, screen, confirmation or scaling records supplied
+training/selection labels. Previously used development data remain research
+selection data, not a new sealed test.
+
+Unchanged equal-generation weighting gives 60% old replay / 20% searched-fresh /
+20% hybrid-fresh mass in both training and development. This pooled training bank
+differs from the prior individual-arm fits, which is why the original recipe was
+refit as a control. These results are not a controlled comparison with the prior
+study's smaller training banks. Exact inputs, trainer/recipe receipts and exported
+weights were hash-guarded before/after fitting; JavaScript parity passed for all.
+
+## Development results
+
+| Recipe | Learning rate | Auxiliary weight | Selected epoch | Dev Huber | Dev margin MAE |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Parent, epoch zero | — | — | 0 | 0.356708 | 7.02673 |
+| control | 0.0005 | 0.05 | 1 | 0.353499 | 6.97991 |
+| value-only | 0.0005 | 0 | 1 | 0.353514 | 6.97966 |
+| gentle | 0.0001 | 0.05 | 1 | 0.352241 | 6.96650 |
+| gentle-value | 0.0001 | 0 | 1 | 0.352359 | 6.96835 |
+
+All four passed development eligibility and parity. Every fit ran epochs 1–5,
+then retained epoch 1 after four non-improving epochs. Training loss continued
+falling while development loss worsened. More epochs were not useful here.
+
+The gentler rate ranked better in the common development objective at either
+auxiliary setting. The selected gentle recipe improved Huber 1.252% and MAE
+0.857% relative to the parent. At either rate, removing auxiliary loss did not
+improve Huber; the changes were small. These controlled development comparisons
+do **not support auxiliary-head interference as an important cause in this batch**.
+They do not prove auxiliary loss is always helpful or harmless. There is no new
+capacity comparison or evidence that a larger network solves this plateau.
+
+Development Huber ranked the two gentler models as the fixed finalists. Ties,
+MAE eligibility, exact inference deduplication and screen/confirmation gates were
+frozen before outcomes. Development improvements alone did not accept a teacher.
+
+## Fresh screens and confirmation
+
+Each exploratory screen used 40 fresh setups with both seats, against the actual
+parent generation-3 teacher. The two finalists used different disjoint setup banks;
+their screen percentages are not a paired causal comparison of auxiliary loss.
+
+| Comparison | Wins / losses / ties | Winner share | Paired 95% interval | Mean margin | Margin 95% interval |
+| --- | ---: | ---: | --- | ---: | --- |
+| gentle screen | 44 / 35 / 1 | 55.625% | 45.793% to 65.457% | +0.1875 | -2.1235 to +2.4985 |
+| gentle-value screen | 40 / 39 / 1 | 50.625% | 41.665% to 59.585% | -1.6125 | -3.8689 to +0.6439 |
+| gentle fresh confirmation | 93 / 106 / 1 | **46.750%** | **40.301% to 53.199%** | **-0.3250** | **-1.9936 to +1.3436** |
+
+The gentle screen met the frozen exploratory threshold of at least 52.5% share
+and positive margin with valid complete pairs and acceptable timing. Its broad
+interval was not evidence of a confirmed gain. The auxiliary-free finalist did
+not qualify. The controller selected only gentle for the independent 100-pair,
+200-game confirmation; no training or retuning followed screen outcomes.
+
+Confirmation failed the required one-sided paired alpha .025 lower winner-share
+bound above 50%, and its mean margin was negative. The interval includes no
+change and modest improvement or harm: this does not prove inferiority or
+equivalence. Keep the exploratory screen and fresh confirmation separate; pooling
+them would obscure the selection process. No accepted teacher meant no subsequent
+1,040-game generation-6 cycle, second fit, screen or confirmation.
+
+## Timing, actual work and validity
+
+Both sides requested 1,000 ms per complete decision at unchanged research horizon
+4: the chosen root plus four subsequent main actions across players, settling
+powers. Candidate actions remain representative AI roots, not full human-action
+enumeration or full-tree search. Values and chance draws use actor-redacted
+observations and sampled beliefs, not true opponent hands or future deck order.
+
+In fresh confirmation, candidate/opponent mean decision time was
+1,002.218 / 1,002.184 ms; candidate p95 / p99 / maximum was
+1,005.601 / 1,009.560 / 1,294.672 ms. Mean/p95 ratios and absolute p99/maximum
+all passed. One candidate decision recorded a mandatory root-coverage floor
+overrun; observed latency still passed. This was a failed strength gate, not an
+invalid comparison.
+
+| Fit cost | control | value-only | gentle | gentle-value |
+| --- | ---: | ---: | ---: | ---: |
+| Trainer wall seconds | 118.315 | 115.947 | 118.390 | 116.437 |
+| Trainer process CPU seconds | 112.766 | 109.750 | 110.703 | 111.250 |
+| Fit pipeline wall seconds | 182.468 | 180.356 | 183.260 | 180.030 |
+
+Trainer wall includes loading, optimization and export. Pipeline wall includes
+additional wrapper/verification/export preflight work; stage/whole-run wall also
+includes outer integrity checks. They are not interchangeable GPU-kernel timings.
+Fits ran sequentially on CUDA between game batches, capped at four CPU math
+threads and 6 GiB GPU memory. Game pools used at most 28 BelowNormal workers.
+
+Screen pool walls were 351.855 and 366.879 seconds; fresh confirmation took
+815.684 seconds. Batch process CPU is counted once per Node worker pool, rather
+than summing per-game process-wide CPU receipts and multiplying concurrent work.
+Measured game-pool CPU totaled 9.1445 core-hours (about 21.45 active CPU cores
+on average during pools); four trainer processes used 444.47 CPU seconds. Their
+combined measured CPU was 33,364.64 seconds, excluding outer controller/preflight
+overhead. Across all 360 comparisons, candidate rollout endpoints used the neural
+correction 32.54% of the time; the rest used reference fallback. The parent used
+neural correction on 32.94%. These are mixed search systems, not standalone
+neural policies. All original clocks, source/model hashes and unfavorable
+evidence were retained.
+Controller and publisher exited normally after terminal publication; no active
+benchmark process remains from this campaign.
+
+No game errors, illegal actions, search caps, unvisited roots or unsettled leaves
+were reported. Independent reviews recompute the paired outcomes and verify the
+360 raw strength-game receipts, all 4,008 retained input records, fit inventory,
+export/model hashes and source guards. There was no GPU overlap with timed games.
+The separate two-game CPU infrastructure smoke fit was excluded from every
+research fit, selection and strength comparison.
+
+## Provenance and practical limits
+
+Scientific revision: `29e5d95d9bc38a80a798c9e969225fecdc7c8580`.
+All 127 frozen source/config/model/audit guards matched at closeout. Exact
+123-file source/plan archive SHA-256:
+`39d511bd669cf40c9e38443af71aef71ed2673b395182645f68251d4f5ae0da8`.
+Initial parent model SHA-256:
+`6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843`.
+Selected gentle model SHA-256:
+`9fb0bcb74d7246138e44a6524a4a7d42a5d0328b4f358a26255ad84aa7276bd3`.
+
+The setup audit covered all 1,360 maximum planned new IDs against 12,333 retained
+historical/planned IDs. Only 180 new setups actually played both seats in this
+run; unused conditional banks remain preserved and unused. Rules/catalog code is
+shared, so fresh seeds do not independently certify rules correctness. Timed
+choices can differ with machine load. These findings establish neither human,
+multiplayer, browser neural integration nor physical-table strength.
+
+Raw labels, observations and actual game files remain local in the documented
+runtime. Public artifacts contain safe aggregate reviews/receipts, exported
+weights and exact frozen source. Production still uses the reviewed opening
+package; the research parent remains generation 3.
+
+## Next question
+
+This study improved development prediction without a stronger decision-maker.
+Further optimizer tweaks, larger models or another unconditional cheap self-play
+batch are not supported as the immediate remedy by these outcomes. The useful
+next diagnostic is whether learned corrections improve **comparisons among
+candidate actions** at the states where search uses them, rather than only global
+score-margin prediction. A small searched-action distillation or policy-target
+pilot is a reasonable next proposal. Compare any resulting policy against the
+actual parent on fresh setups. This closeout launches no new experiment.
+
+[Independent learning review](review-learning.json) · [Independent performance and integrity audit](review-performance.json)
