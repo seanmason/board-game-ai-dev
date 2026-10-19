@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **canary** · snapshot 2026-10-19T12:56:35.033Z.
-Recorded 528 / 536 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **screen** · snapshot 2026-10-19T12:58:08.471Z.
+Recorded 536 / 728 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -34,10 +34,13 @@ Offline status: **passed**. Held-out learning gate: `True`. Offline prediction a
 
 | Comparison | Valid / scheduled | Complete setup pairs | Winner share (descriptive95% paired interval) | Mean margin (95% interval) |
 | --- | ---: | ---: | --- | --- |
-| canary/linear | 0 / 2 | 0 / 1 | — | — [—, —] |
-| canary/reference | 0 / 2 | 0 / 1 | — | — [—, —] |
-| canary/deployed | 0 / 2 | 0 / 1 | — | — [—, —] |
-| canary/neural | 0 / 2 | 0 / 1 | — | — [—, —] |
+| canary/linear | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | -5.00 [—, —] |
+| canary/reference | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 1.50 [—, —] |
+| canary/deployed | 2 / 2 | 1 / 1 | 100.0% [0.0, 100.0]% | 7.50 [—, —] |
+| canary/neural | 2 / 2 | 1 / 1 | 50.0% [0.0, 100.0]% | 0.50 [—, —] |
+| screen/linear | 0 / 64 | 0 / 32 | — | — [—, —] |
+| screen/reference | 0 / 64 | 0 / 32 | — | — [—, —] |
+| screen/deployed | 0 / 64 | 0 / 32 | — | — [—, —] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
 
