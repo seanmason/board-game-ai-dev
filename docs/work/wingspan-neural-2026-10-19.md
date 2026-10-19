@@ -76,6 +76,12 @@ own current counters, fitting curves, offline errors, latency and paired results
 The report distinguishes data collection, offline fitting, validation and actual
 playing strength. Publication does not promote a model.
 
+The evidence publisher refreshes public snapshots every90seconds; the page polls
+every60seconds. It shows the current stage, collection counts, latest optimization
+seed/epoch and development loss, then held-out error and paired game results as
+they become available. Phone/tablet Chromium checks cover the training display;
+these automated checks do not establish real iPad Safari acceptance.
+
 Runtime root on the recorded desktop:
 `C:\Users\mason\.codex\benchmark-runs\wingspan-neural-20261019`.
 Generation and dataset manifests identify source bytes even when collection began
