@@ -143,9 +143,27 @@
   "stages": {
     "calibration-baseline": {
       "startedAt": 1792434139329,
+      "finishedAt": 1792434445951,
+      "planned": 140,
+      "status": "complete",
+      "arm": "baseline",
+      "result": {
+        "poolWallMs": 306587,
+        "gameCount": 140,
+        "planned": 140,
+        "complete": true,
+        "processCpuMicros": {
+          "user": 7162516000,
+          "system": 13453000
+        },
+        "modelHashes": {}
+      }
+    },
+    "calibration-hybrid": {
+      "startedAt": 1792434445980,
       "planned": 140,
       "status": "running",
-      "arm": "baseline",
+      "arm": "hybrid",
       "result": {
         "processCpuMicros": {},
         "modelHashes": {}
