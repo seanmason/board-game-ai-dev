@@ -18,13 +18,20 @@ a new deployed budget. See the [selection and evidence](2026-10-19-selection.md)
 The completed [small neural value pilot](2026-10-19-neural-pilot.md) achieved57%
 winner share against deployed in fresh confirmation, but50% against the corrected
 research reference, so it did not qualify for promotion. Development-only compact
-features are promising but unconfirmed; a rare long reference-fallback search also
-needs profiling. Production uses the reviewed opening package.
+features were promising but unconfirmed in that pilot. The rare long reference-
+fallback search was subsequently reconstructed and repaired before the compact
+campaign; see its execution record. Production uses the reviewed opening package.
 
-The authorized [compact iterative self-play plan](../../plans/wingspan-selfplay-loop-2026-10-19.md)
-starts with a small residual evaluator and three bounded data/training cycles.
-Its [execution record](../../work/wingspan-selfplay-2026-10-19.md) distinguishes
-implementation checks from campaign evidence. Production settings are unchanged.
+The completed [compact self-play campaign](2026-10-19-compact-selfplay.md) ran
+4,064 valid games. Its 192-input, 32/16 residual model achieved 76% winner share
+against same-cost zero output and 65.5% against corrected research reference R
+in separate fresh 100-pair confirmations at equal decision time. The sealed audit
+also improved prediction. Small 300-vs-100 sample comparisons had positive mean
+margins but inconclusive winner-share intervals and slower tails. This establishes
+research benefit, not superiority over the actual deployed package or physical/
+browser readiness. See the [frozen protocol](../../plans/wingspan-selfplay-loop-2026-10-19.md)
+and [closed execution record](../../work/wingspan-selfplay-2026-10-19.md).
+Production settings are unchanged.
 
 ## Scope and capabilities
 

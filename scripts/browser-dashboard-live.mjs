@@ -10,6 +10,13 @@ export async function verifyLiveDashboard(browser,base){
  const errors=[];
  await context.route('https://raw.githubusercontent.com/**',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(route.request().url().includes('/'+sha+'/')?fresh:old)}));
  await context.route('https://api.github.com/repos/seanmason/board-game-ai-dev/git/ref/heads/**',route=>{lookups++;return route.fulfill({status:apiAvailable?200:503,contentType:'application/json',body:JSON.stringify({object:{sha}})});});
+ // Exercise live-cache behavior even after the real study is pinned complete.
+ await context.route('**/benchmark-dashboard/app.js*',async route=>{
+  const response=await route.fetch(),body=await response.text();
+  const live='https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/wingspan-selfplay-2026-10-19/wingspan-selfplay/dashboard.json';
+  const patched=body.replace(/https:\/\/raw\.githubusercontent\.com\/seanmason\/board-game-ai-dev\/[a-f0-9]{40}\/wingspan-selfplay\/dashboard\.json/,live);
+  await route.fulfill({response,body:patched});
+ });
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  try{
   await page.goto(base+'benchmark-dashboard/?study=wingspan-selfplay',{waitUntil:'networkidle'});

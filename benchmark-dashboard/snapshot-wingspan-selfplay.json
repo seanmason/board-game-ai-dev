@@ -1,14 +1,1679 @@
 {
   "schema": 1,
   "study": "wingspan-selfplay",
-  "revision": "awaiting frozen implementation",
-  "updatedAt": null,
-  "status": "planned",
+  "revision": "04b01cd84c9cc57b1d55099c7524f484e4eeb56e",
+  "startedAt": "2026-10-19T14:44:26.907Z",
+  "updatedAt": "2026-10-19T17:41:39.220Z",
+  "status": "finished",
+  "outcomeStatus": "complete",
+  "stage": "analysis",
+  "stopReason": null,
   "workers": 0,
-  "stage": "implementation",
-  "finished": 0,
-  "planned": 0,
   "active": [],
-  "rows": [],
-  "method": "Two-player compact residual self-play: up to three generations of 1,024 independent game groups, bounded six-hour campaign after calibration. Implementation checks are not playing-strength evidence. Production AI remains unchanged."
+  "planned": 4064,
+  "finished": 4064,
+  "rows": [
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "calibration",
+      "policy": "calibration",
+      "policyId": "Calibration \u00b7 excluded from learning",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Outcome-blind runtime calibration; excluded from learning",
+      "budget": {
+        "horizon": 4,
+        "decisionSamples": "80% 100 / 20% 300"
+      },
+      "planned": 32,
+      "finished": 32,
+      "counts": {
+        "complete": 32,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 32,
+      "completeSeedGroups": 32,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.7765831552474,
+      "maxDecisionMs": 1013.6830000000009,
+      "metricKind": "progress",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "generation": 0,
+      "status": "complete",
+      "latency": {
+        "n": 1591,
+        "meanMs": 1001.7765831552474,
+        "p95Ms": 1004.8501000000006,
+        "p99Ms": 1007.858400000001,
+        "maxMs": 1013.6830000000009
+      },
+      "coverage": {
+        "decisions": 1591,
+        "roots": 13193,
+        "unvisited": 0,
+        "iterations": 812748,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "examples": 0
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "collect-1",
+      "policy": "collect-1",
+      "policyId": "Generation 1 \u00b7 collection",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Whole independent setup groups; train/dev/sealed audit remain separate",
+      "budget": {
+        "horizon": 4,
+        "decisionSamples": "80% 100 / 20% 300"
+      },
+      "planned": 1024,
+      "finished": 1024,
+      "counts": {
+        "complete": 1024,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1024,
+      "completeSeedGroups": 1024,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 452.00983339856396,
+      "maxDecisionMs": 5101.665099999984,
+      "metricKind": "progress",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "generation": 1,
+      "status": "complete",
+      "latency": {
+        "n": 51101,
+        "meanMs": 452.00983339856396,
+        "p95Ms": 1137.1287000000011,
+        "p99Ms": 1759.2641000000294,
+        "maxMs": 5101.665099999984
+      },
+      "coverage": {
+        "decisions": 51101,
+        "roots": 427401,
+        "unvisited": 0,
+        "iterations": 7153399,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "examples": 106496
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "train-1",
+      "policy": "train-1",
+      "policyId": "Generation 1 \u00b7 compact residual fit",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Optimization epochs; development Huber selects one candidate, including epoch zero",
+      "budget": {},
+      "planned": 24,
+      "finished": 7,
+      "counts": {
+        "complete": 7,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "loss",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "generation": 1,
+      "status": "complete",
+      "progressLabel": "Optimization epochs completed",
+      "training": {
+        "latestFit": {
+          "seed": 1729,
+          "epoch": 7,
+          "devValueHuber": 0.39152592475934406
+        },
+        "selectedEpoch": 3,
+        "eligible": true,
+        "curves": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.371069073677063,
+            "devValueHuber": 0.4398439331165145
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.32047373056411743,
+            "devValueHuber": 0.39005623842184367
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.29042771458625793,
+            "devValueHuber": 0.37551799153814236
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.27483218908309937,
+            "devValueHuber": 0.37259923179419474
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.26207154989242554,
+            "devValueHuber": 0.3753316771405697
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.25168487429618835,
+            "devValueHuber": 0.382053829390151
+          },
+          {
+            "epoch": 6,
+            "trainHuber": 0.24182642996311188,
+            "devValueHuber": 0.3830646716965677
+          },
+          {
+            "epoch": 7,
+            "trainHuber": 0.23323699831962585,
+            "devValueHuber": 0.39152592475934406
+          }
+        ],
+        "dev": {
+          "huber": 0.37259923179419474,
+          "mae": 7.250734311259345,
+          "saturation": 0.005283900669642856,
+          "correctionMean": -1.5383450959427185,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "epochZero": null,
+        "linear": {
+          "huber": 0.41642693121182234,
+          "mae": 7.734748433348242,
+          "saturation": 0,
+          "correctionMean": -1.6702928006137867,
+          "examples": 13312,
+          "games": 128,
+          "setups": 128
+        },
+        "strata": {
+          "generation": {
+            "1": {
+              "huber": 0.37259923179419474,
+              "mae": 7.250734311259345,
+              "saturation": 0.005283900669642856,
+              "correctionMean": -1.5383450959427185,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "round": {
+            "1": {
+              "huber": 0.6053553638663149,
+              "mae": 9.997898841335822,
+              "saturation": 0.00439453125,
+              "correctionMean": -0.6811127643907184,
+              "examples": 4096,
+              "games": 128,
+              "setups": 128
+            },
+            "2": {
+              "huber": 0.43936016137435174,
+              "mae": 8.157118756517004,
+              "saturation": 0.012834821428571428,
+              "correctionMean": -1.8902967031268156,
+              "examples": 3584,
+              "games": 128,
+              "setups": 128
+            },
+            "3": {
+              "huber": 0.29681795626990615,
+              "mae": 6.459594318875602,
+              "saturation": 0.0039062499999999996,
+              "correctionMean": -2.0346061333893886,
+              "examples": 3072,
+              "games": 128,
+              "setups": 128
+            },
+            "4": {
+              "huber": 0.14886344566620638,
+              "mae": 4.388325328308957,
+              "saturation": 0,
+              "correctionMean": -1.5473647828639518,
+              "examples": 2560,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "viewer": {
+            "0": {
+              "huber": 0.3727544032614337,
+              "mae": 7.283212610219581,
+              "saturation": 0.005818684895833333,
+              "correctionMean": -1.7253832374660272,
+              "examples": 6656,
+              "games": 128,
+              "setups": 128
+            },
+            "1": {
+              "huber": 0.3724440603269561,
+              "mae": 7.218256012299111,
+              "saturation": 0.00474911644345238,
+              "correctionMean": -1.3513069544194098,
+              "examples": 6656,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "engineActivity": {
+            "absent": {
+              "huber": 0.4463461546413544,
+              "mae": 8.121077787846641,
+              "saturation": 0.006871559972145909,
+              "correctionMean": -1.3784666633726739,
+              "examples": 9861,
+              "games": 128,
+              "setups": 128
+            },
+            "present": {
+              "huber": 0.27709434687279244,
+              "mae": 6.081974626855863,
+              "saturation": 0.004518645357686453,
+              "correctionMean": -1.8334984267528924,
+              "examples": 3451,
+              "games": 73,
+              "setups": 73
+            }
+          }
+        }
+      },
+      "modelHashes": {
+        "generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+        "generation-1-zero": "212d855d93126d93a7ab2abb1ae3e53e46fcfa08876790c8e9b3f5574a881f80",
+        "generation-1-epoch-zero": "aa853ff8250a7d502b7b4b60894824afe31431653099f6a731115a63d54ec203"
+      }
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen-1/champion",
+      "policy": "screen-1/champion",
+      "policyId": "Generation 1 screen \u00b7 champion",
+      "opponentPolicyId": "reference",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.6375,
+        "low": 0.5351571130920821,
+        "high": 0.7398428869079178
+      },
+      "margin": {
+        "n": 40,
+        "mean": 5.1,
+        "low": 2.1941835026554437,
+        "high": 8.005816497344556
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.8816582721508,
+      "maxDecisionMs": 1018.8996000001207,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 1,
+      "status": "complete",
+      "latency": {
+        "n": 4086,
+        "meanMs": 1001.8816582721508,
+        "p95Ms": 1004.8184999995865,
+        "p99Ms": 1007.2957999999635,
+        "maxMs": 1018.8996000001207
+      },
+      "coverage": {
+        "decisions": 4086,
+        "roots": 37718,
+        "unvisited": 0,
+        "iterations": 1645908,
+        "learnedLeafCount": 555956,
+        "learnedFallbackCount": 1089952,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "collect-2",
+      "policy": "collect-2",
+      "policyId": "Generation 2 \u00b7 collection",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Whole independent setup groups; train/dev/sealed audit remain separate",
+      "budget": {
+        "horizon": 4,
+        "decisionSamples": "80% 100 / 20% 300"
+      },
+      "planned": 1024,
+      "finished": 1024,
+      "counts": {
+        "complete": 1024,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1024,
+      "completeSeedGroups": 1024,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 467.8309993749096,
+      "maxDecisionMs": 4776.3180999998,
+      "metricKind": "progress",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "generation": 2,
+      "status": "complete",
+      "latency": {
+        "n": 51512,
+        "meanMs": 467.8309993749096,
+        "p95Ms": 1184.5553000001237,
+        "p99Ms": 1812.7514999997802,
+        "maxMs": 4776.3180999998
+      },
+      "coverage": {
+        "decisions": 51512,
+        "roots": 449782,
+        "unvisited": 0,
+        "iterations": 7199778,
+        "learnedLeafCount": 3362000,
+        "learnedFallbackCount": 3837778,
+        "errors": 0
+      },
+      "examples": 106496
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "train-2",
+      "policy": "train-2",
+      "policyId": "Generation 2 \u00b7 compact residual fit",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Optimization epochs; development Huber selects one candidate, including epoch zero",
+      "budget": {},
+      "planned": 24,
+      "finished": 5,
+      "counts": {
+        "complete": 5,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "loss",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "generation": 2,
+      "status": "complete",
+      "progressLabel": "Optimization epochs completed",
+      "training": {
+        "latestFit": {
+          "seed": 1729,
+          "epoch": 5,
+          "devValueHuber": 0.36041496783424976
+        },
+        "selectedEpoch": 1,
+        "eligible": true,
+        "curves": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.3199496269226074,
+            "devValueHuber": 0.354952298352855
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.30161210894584656,
+            "devValueHuber": 0.35086439050626006
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.2920001149177551,
+            "devValueHuber": 0.35211245539234537
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.2837352752685547,
+            "devValueHuber": 0.3558041306390972
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.27682653069496155,
+            "devValueHuber": 0.35842673679015147
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.2710362672805786,
+            "devValueHuber": 0.36041496783424976
+          }
+        ],
+        "dev": {
+          "huber": 0.35086439050626006,
+          "mae": 6.927508073878873,
+          "saturation": 0.021610223679315477,
+          "correctionMean": -1.5747249548980877,
+          "examples": 26624,
+          "games": 256,
+          "setups": 256
+        },
+        "epochZero": null,
+        "linear": {
+          "huber": 0.40200219944482507,
+          "mae": 7.525728142256948,
+          "saturation": 0,
+          "correctionMean": -1.692236041388371,
+          "examples": 26624,
+          "games": 256,
+          "setups": 256
+        },
+        "strata": {
+          "generation": {
+            "1": {
+              "huber": 0.3722938317968012,
+              "mae": 7.237016331256713,
+              "saturation": 0.012470935639880951,
+              "correctionMean": -1.7596757933798686,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            },
+            "2": {
+              "huber": 0.3294349492157188,
+              "mae": 6.617999816501033,
+              "saturation": 0.030749511718749997,
+              "correctionMean": -1.3897741164163064,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "round": {
+            "1": {
+              "huber": 0.5968019319553473,
+              "mae": 9.883150755303772,
+              "saturation": 0.0162353515625,
+              "correctionMean": -0.9590321331605764,
+              "examples": 8192,
+              "games": 256,
+              "setups": 256
+            },
+            "2": {
+              "huber": 0.40668699231309274,
+              "mae": 7.720995669531748,
+              "saturation": 0.04380580357142856,
+              "correctionMean": -1.9099989834586004,
+              "examples": 7168,
+              "games": 256,
+              "setups": 256
+            },
+            "3": {
+              "huber": 0.26689644220467124,
+              "mae": 5.985021816220156,
+              "saturation": 0.020345052083333332,
+              "correctionMean": -1.8689005253930113,
+              "examples": 6144,
+              "games": 256,
+              "setups": 256
+            },
+            "4": {
+              "huber": 0.13307219555192878,
+              "mae": 4.120864054459814,
+              "saturation": 0.0060546875,
+              "correctionMean": -1.5609681775801618,
+              "examples": 5120,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          "viewer": {
+            "0": {
+              "huber": 0.35621982796433505,
+              "mae": 7.012716418354389,
+              "saturation": 0.019825381324404763,
+              "correctionMean": -1.600840305694889,
+              "examples": 13312,
+              "games": 256,
+              "setups": 256
+            },
+            "1": {
+              "huber": 0.345508953048185,
+              "mae": 6.842299729403355,
+              "saturation": 0.023395066034226187,
+              "correctionMean": -1.5486096041012862,
+              "examples": 13312,
+              "games": 256,
+              "setups": 256
+            }
+          },
+          "engineActivity": {
+            "absent": {
+              "huber": 0.42908148834100085,
+              "mae": 7.861779243178187,
+              "saturation": 0.024182274340965745,
+              "correctionMean": -1.5176371635397279,
+              "examples": 19282,
+              "games": 256,
+              "setups": 256
+            },
+            "present": {
+              "huber": 0.2538697973920365,
+              "mae": 5.728249296121721,
+              "saturation": 0.012091109592979377,
+              "correctionMean": -1.6189078400714982,
+              "examples": 7342,
+              "games": 160,
+              "setups": 160
+            }
+          }
+        }
+      },
+      "modelHashes": {
+        "generation-2": "24b90a06c0653014533e29ce946da7dffd5b710b20f6f154a9145c211698918c",
+        "generation-2-zero": "3f05da33dc38f278b8198dcdf2dff3c6750c012a75b46204a59a085971e2f0bf",
+        "generation-2-epoch-zero": "f713a823a4e11acbaa54b458297a9f7c1554e378ca0019b0f952d1c94e87abcd"
+      }
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen-2/champion",
+      "policy": "screen-2/champion",
+      "policyId": "Generation 2 screen \u00b7 champion",
+      "opponentPolicyId": "generation-1",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.49375,
+        "low": 0.3757307579883046,
+        "high": 0.6117692420116955
+      },
+      "margin": {
+        "n": 40,
+        "mean": -0.7625,
+        "low": -3.476704787321389,
+        "high": 1.951704787321389
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.7445322651637,
+      "maxDecisionMs": 1016.0449999999255,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 2,
+      "status": "complete",
+      "latency": {
+        "n": 4088,
+        "meanMs": 1001.7445322651637,
+        "p95Ms": 1004.4117999998853,
+        "p99Ms": 1006.6458000000566,
+        "maxMs": 1016.0449999999255
+      },
+      "coverage": {
+        "decisions": 4088,
+        "roots": 34617,
+        "unvisited": 0,
+        "iterations": 1629930,
+        "learnedLeafCount": 579395,
+        "learnedFallbackCount": 1050535,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen-2/reference",
+      "policy": "screen-2/reference",
+      "policyId": "Generation 2 screen \u00b7 reference",
+      "opponentPolicyId": "reference",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.6375,
+        "low": 0.54177769711024,
+        "high": 0.7332223028897599
+      },
+      "margin": {
+        "n": 40,
+        "mean": 5.6125,
+        "low": 3.49278826660487,
+        "high": 7.732211733395129
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.6971466888939,
+      "maxDecisionMs": 1022.4747000001371,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 2,
+      "status": "complete",
+      "latency": {
+        "n": 4198,
+        "meanMs": 1001.6971466888939,
+        "p95Ms": 1004.4643999999389,
+        "p99Ms": 1007.3756000008434,
+        "maxMs": 1022.4747000001371
+      },
+      "coverage": {
+        "decisions": 4198,
+        "roots": 38583,
+        "unvisited": 0,
+        "iterations": 1840145,
+        "learnedLeafCount": 620616,
+        "learnedFallbackCount": 1219529,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "collect-3",
+      "policy": "collect-3",
+      "policyId": "Generation 3 \u00b7 collection",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Whole independent setup groups; train/dev/sealed audit remain separate",
+      "budget": {
+        "horizon": 4,
+        "decisionSamples": "80% 100 / 20% 300"
+      },
+      "planned": 1024,
+      "finished": 1024,
+      "counts": {
+        "complete": 1024,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 1024,
+      "completeSeedGroups": 1024,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 460.2736778875872,
+      "maxDecisionMs": 6146.340499999933,
+      "metricKind": "progress",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "generation": 3,
+      "status": "complete",
+      "latency": {
+        "n": 51808,
+        "meanMs": 460.2736778875872,
+        "p95Ms": 1157.075599999167,
+        "p99Ms": 1787.4852999998257,
+        "maxMs": 6146.340499999933
+      },
+      "coverage": {
+        "decisions": 51808,
+        "roots": 453023,
+        "unvisited": 0,
+        "iterations": 7240891,
+        "learnedLeafCount": 3361400,
+        "learnedFallbackCount": 3879491,
+        "errors": 0
+      },
+      "examples": 106496
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "train-3",
+      "policy": "train-3",
+      "policyId": "Generation 3 \u00b7 compact residual fit",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Optimization epochs; development Huber selects one candidate, including epoch zero",
+      "budget": {},
+      "planned": 24,
+      "finished": 6,
+      "counts": {
+        "complete": 6,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "loss",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "generation": 3,
+      "status": "complete",
+      "progressLabel": "Optimization epochs completed",
+      "training": {
+        "latestFit": {
+          "seed": 1729,
+          "epoch": 6,
+          "devValueHuber": 0.3606112875267282
+        },
+        "selectedEpoch": 2,
+        "eligible": true,
+        "curves": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.3287670910358429,
+            "devValueHuber": 0.3661964014643614
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.30922049283981323,
+            "devValueHuber": 0.3523727011280263
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.29943615198135376,
+            "devValueHuber": 0.351603515648675
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.2918652296066284,
+            "devValueHuber": 0.35331125218841114
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.2864767909049988,
+            "devValueHuber": 0.35752292970213545
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.28113460540771484,
+            "devValueHuber": 0.3588846669676041
+          },
+          {
+            "epoch": 6,
+            "trainHuber": 0.27782711386680603,
+            "devValueHuber": 0.3606112875267282
+          }
+        ],
+        "dev": {
+          "huber": 0.351603515648675,
+          "mae": 6.931460064955589,
+          "saturation": 0.0299897693452381,
+          "correctionMean": -1.6063416141382914,
+          "examples": 39936,
+          "games": 384,
+          "setups": 384
+        },
+        "epochZero": null,
+        "linear": {
+          "huber": 0.4173083245436354,
+          "mae": 7.710761130806682,
+          "saturation": 0,
+          "correctionMean": -1.7023132546800999,
+          "examples": 39936,
+          "games": 384,
+          "setups": 384
+        },
+        "strata": {
+          "generation": {
+            "1": {
+              "huber": 0.36876307214159804,
+              "mae": 7.196679764935219,
+              "saturation": 0.014890252976190477,
+              "correctionMean": -1.8570119569723147,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            },
+            "2": {
+              "huber": 0.3287663591420625,
+              "mae": 6.617145615027376,
+              "saturation": 0.03411574590773809,
+              "correctionMean": -1.5150872402236075,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            },
+            "3": {
+              "huber": 0.3572811156623644,
+              "mae": 6.980554814904174,
+              "saturation": 0.04096330915178571,
+              "correctionMean": -1.446925645218951,
+              "examples": 13312,
+              "games": 128,
+              "setups": 128
+            }
+          },
+          "round": {
+            "1": {
+              "huber": 0.6037135452149844,
+              "mae": 10.006478837785227,
+              "saturation": 0.029947916666666664,
+              "correctionMean": -1.4505619721187482,
+              "examples": 12288,
+              "games": 384,
+              "setups": 384
+            },
+            "2": {
+              "huber": 0.41311577440783953,
+              "mae": 7.801242093976243,
+              "saturation": 0.056547619047619055,
+              "correctionMean": -1.8489083816049017,
+              "examples": 10752,
+              "games": 384,
+              "setups": 384
+            },
+            "3": {
+              "huber": 0.26516984842545466,
+              "mae": 5.95638240330863,
+              "saturation": 0.027343750000000007,
+              "correctionMean": -1.6896063848961003,
+              "examples": 9216,
+              "games": 384,
+              "setups": 384
+            },
+            "4": {
+              "huber": 0.12441489454642123,
+              "mae": 3.9617369247522545,
+              "saturation": 0.006119791666666667,
+              "correctionMean": -1.4362897179334142,
+              "examples": 7680,
+              "games": 384,
+              "setups": 384
+            }
+          },
+          "viewer": {
+            "0": {
+              "huber": 0.35542589769082633,
+              "mae": 6.999969861456034,
+              "saturation": 0.026233103918650795,
+              "correctionMean": -1.44198858814023,
+              "examples": 19968,
+              "games": 384,
+              "setups": 384
+            },
+            "1": {
+              "huber": 0.3477811336065235,
+              "mae": 6.862950268455143,
+              "saturation": 0.033746434771825394,
+              "correctionMean": -1.770694640136352,
+              "examples": 19968,
+              "games": 384,
+              "setups": 384
+            }
+          },
+          "engineActivity": {
+            "absent": {
+              "huber": 0.43826761261767844,
+              "mae": 7.99229174009122,
+              "saturation": 0.03072702986033064,
+              "correctionMean": -1.6189852039580825,
+              "examples": 28456,
+              "games": 384,
+              "setups": 384
+            },
+            "present": {
+              "huber": 0.24690364323933978,
+              "mae": 5.6213811246604966,
+              "saturation": 0.02296916821945763,
+              "correctionMean": -1.4820218860228738,
+              "examples": 11480,
+              "games": 248,
+              "setups": 248
+            }
+          }
+        }
+      },
+      "modelHashes": {
+        "generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+        "generation-3-zero": "3cb6e7226800cd36ddde43e5b6b04f3c724e5c0a1b33d7a3d7433b0545e89e3c",
+        "generation-3-epoch-zero": "f713a823a4e11acbaa54b458297a9f7c1554e378ca0019b0f952d1c94e87abcd"
+      }
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen-3/champion",
+      "policy": "screen-3/champion",
+      "policyId": "Generation 3 screen \u00b7 champion",
+      "opponentPolicyId": "generation-1",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.6125,
+        "low": 0.51341209515999,
+        "high": 0.7115879048400101
+      },
+      "margin": {
+        "n": 40,
+        "mean": 1.3125,
+        "low": -0.9856592067230454,
+        "high": 3.6106592067230454
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.8665529828558,
+      "maxDecisionMs": 1039.8113000001758,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 3,
+      "status": "complete",
+      "latency": {
+        "n": 4375,
+        "meanMs": 1001.8665529828558,
+        "p95Ms": 1004.8389999996871,
+        "p99Ms": 1007.8485999992117,
+        "maxMs": 1039.8113000001758
+      },
+      "coverage": {
+        "decisions": 4375,
+        "roots": 35068,
+        "unvisited": 0,
+        "iterations": 1662728,
+        "learnedLeafCount": 560191,
+        "learnedFallbackCount": 1102537,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen-3/reference",
+      "policy": "screen-3/reference",
+      "policyId": "Generation 3 screen \u00b7 reference",
+      "opponentPolicyId": "reference",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.7125,
+        "low": 0.6174651193113491,
+        "high": 0.807534880688651
+      },
+      "margin": {
+        "n": 40,
+        "mean": 6.0875,
+        "low": 3.628312853138941,
+        "high": 8.54668714686106
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.7624138333293,
+      "maxDecisionMs": 1024.3117000004277,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 3,
+      "status": "complete",
+      "latency": {
+        "n": 4200,
+        "meanMs": 1001.7624138333293,
+        "p95Ms": 1004.6531999995932,
+        "p99Ms": 1007.4217000007629,
+        "maxMs": 1024.3117000004277
+      },
+      "coverage": {
+        "decisions": 4200,
+        "roots": 37625,
+        "unvisited": 0,
+        "iterations": 1787618,
+        "learnedLeafCount": 601147,
+        "learnedFallbackCount": 1186471,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "audit",
+      "policy": "audit",
+      "policyId": "Frozen finalist \u00b7 sealed offline audit",
+      "opponentPolicyId": "No playing-strength measurement",
+      "scope": "Once-only frozen-candidate prediction audit; no checkpoint reselection",
+      "budget": {},
+      "planned": 0,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "loss",
+      "limitations": [
+        "Data generation and prediction loss do not establish playing strength."
+      ],
+      "status": "complete",
+      "training": {
+        "dev": {
+          "huber": 0.3330472716596574,
+          "mae": 6.70966037748287,
+          "saturation": 0.022942630828373015,
+          "correctionMean": -1.6568822088599264,
+          "examples": 39936,
+          "games": 384,
+          "setups": 384
+        },
+        "linear": {
+          "huber": 0.38198210323460496,
+          "mae": 7.271278051955164,
+          "saturation": 0,
+          "correctionMean": -1.707015742961734,
+          "examples": 39936,
+          "games": 384,
+          "setups": 384
+        },
+        "eligible": true,
+        "valid": true
+      }
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "confirmation/zero",
+      "policy": "confirmation/zero",
+      "policyId": "Fresh confirmation \u00b7 zero",
+      "opponentPolicyId": "generation-3-zero",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "planned": 200,
+      "finished": 200,
+      "counts": {
+        "complete": 200,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 100,
+      "completeSeedGroups": 100,
+      "winShare": {
+        "n": 100,
+        "mean": 0.76,
+        "low": 0.7014672135492304,
+        "high": 0.8185327864507697
+      },
+      "margin": {
+        "n": 100,
+        "mean": 7.615,
+        "low": 6.109741937651175,
+        "high": 9.120258062348826
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.8437661203785,
+      "maxDecisionMs": 1024.0204000007361,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 0,
+      "status": "complete",
+      "latency": {
+        "n": 10617,
+        "meanMs": 1001.8437661203785,
+        "p95Ms": 1004.6796000003815,
+        "p99Ms": 1007.6222999989986,
+        "maxMs": 1024.0204000007361
+      },
+      "coverage": {
+        "decisions": 10617,
+        "roots": 98806,
+        "unvisited": 0,
+        "iterations": 4096218,
+        "learnedLeafCount": 1412536,
+        "learnedFallbackCount": 2683682,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "confirmation/reference",
+      "policy": "confirmation/reference",
+      "policyId": "Fresh confirmation \u00b7 reference",
+      "opponentPolicyId": "reference",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": 1000,
+        "horizon": 4
+      },
+      "planned": 200,
+      "finished": 200,
+      "counts": {
+        "complete": 200,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 100,
+      "completeSeedGroups": 100,
+      "winShare": {
+        "n": 100,
+        "mean": 0.655,
+        "low": 0.5961031527863809,
+        "high": 0.7138968472136191
+      },
+      "margin": {
+        "n": 100,
+        "mean": 5.795,
+        "low": 4.0922470937211095,
+        "high": 7.49775290627889
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1001.7922977255848,
+      "maxDecisionMs": 1022.9658000003546,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 0,
+      "status": "complete",
+      "latency": {
+        "n": 10816,
+        "meanMs": 1001.7922977255848,
+        "p95Ms": 1004.6023000013083,
+        "p99Ms": 1007.1562000010163,
+        "maxMs": 1022.9658000003546
+      },
+      "coverage": {
+        "decisions": 10816,
+        "roots": 100247,
+        "unvisited": 0,
+        "iterations": 4374517,
+        "learnedLeafCount": 1474161,
+        "learnedFallbackCount": 2900356,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "scaling/candidate",
+      "policy": "scaling/candidate",
+      "policyId": "Exploratory compute scaling \u00b7 candidate",
+      "opponentPolicyId": "generation-3",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": null,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.5625,
+        "low": 0.45273828000254196,
+        "high": 0.6722617199974581
+      },
+      "margin": {
+        "n": 40,
+        "mean": 2.825,
+        "low": 0.11718908661962901,
+        "high": 5.532810913380372
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 1089.3030595936443,
+      "maxDecisionMs": 5103.638000000268,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 0,
+      "status": "complete",
+      "latency": {
+        "n": 4331,
+        "meanMs": 1089.3030595936443,
+        "p95Ms": 1940.813199998811,
+        "p99Ms": 2835.781700000167,
+        "maxMs": 5103.638000000268
+      },
+      "coverage": {
+        "decisions": 4331,
+        "roots": 37433,
+        "unvisited": 0,
+        "iterations": 1299300,
+        "learnedLeafCount": 564000,
+        "learnedFallbackCount": 735300,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "scaling/reference",
+      "policy": "scaling/reference",
+      "policyId": "Exploratory compute scaling \u00b7 reference",
+      "opponentPolicyId": "reference",
+      "scope": "Original two-player research experiment",
+      "budget": {
+        "timeMs": null,
+        "horizon": 4
+      },
+      "planned": 80,
+      "finished": 80,
+      "counts": {
+        "complete": 80,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 40,
+      "winShare": {
+        "n": 40,
+        "mean": 0.6,
+        "low": 0.49016363754577,
+        "high": 0.70983636245423
+      },
+      "margin": {
+        "n": 40,
+        "mean": 2.9125,
+        "low": 0.03281956612098069,
+        "high": 5.79218043387902
+      },
+      "chance": 0.5,
+      "meanDecisionMs": 950.0185791502004,
+      "maxDecisionMs": 5037.698699999601,
+      "metricKind": "win-share",
+      "limitations": [
+        "Only fixed-count complete valid seat-paired comparisons expose winner shares and intervals. Partial outcomes remain hidden.",
+        "Screening is exploratory. Confirmation and latency gates are distinct from offline prediction eligibility."
+      ],
+      "generation": 0,
+      "status": "complete",
+      "latency": {
+        "n": 4048,
+        "meanMs": 950.0185791502004,
+        "p95Ms": 1817.148299999535,
+        "p99Ms": 2839.7959000002593,
+        "maxMs": 5037.698699999601
+      },
+      "coverage": {
+        "decisions": 4048,
+        "roots": 33302,
+        "unvisited": 0,
+        "iterations": 1214400,
+        "learnedLeafCount": 0,
+        "learnedFallbackCount": 0,
+        "errors": 0
+      },
+      "inferenceComplete": true
+    }
+  ],
+  "failures": [],
+  "generation": 3,
+  "sourceHashes": {
+    "docs/plans/wingspan-selfplay-loop-2026-10-19.md": "9302387d072b5ea0ba94e2154c580cbe36f98034376cb4bd6c439d61e6c0b827",
+    "scripts/wingspan-neural/analyze.mjs": "4c1fe2a8422df1d533f43dd376b32bda01d764cedb2b7d98faca59c2a194f96e",
+    "scripts/wingspan-neural/browser-preflight.mjs": "1bcd063036b6c68f1f678ffcc2d92ef3539133c8a84a5d666d7a2de49055f6d8",
+    "scripts/wingspan-neural/collect.mjs": "5bd8f7469a0df7fec2e17dc8225f954a1e6ee8f55b07af916daf696961567132",
+    "scripts/wingspan-neural/common.mjs": "5f48d123710b87ba805c2d01ae031146327ff9f9e9a3c0539239be41fa920852",
+    "scripts/wingspan-neural/dashboard.mjs": "a67be0b13430a7a0d9d76842b9d196bff595a387f98cbd84c0ac8ad4542808fc",
+    "scripts/wingspan-neural/data-run.mjs": "0c33590f4d9426ceb28a2b8b017891b067b981c6a1871ad3cdade6f20576db89",
+    "scripts/wingspan-neural/data-worker.mjs": "6f38e5dd8b8625a84347f53fef1898965fc355396b27c84c00cdbc906bf5291b",
+    "scripts/wingspan-neural/encoder.mjs": "922a0fc1447a252f823de73e2d9d5a0c2fcbb4ef63703d60d37de7ba77a785c0",
+    "scripts/wingspan-neural/eval-run.mjs": "7cf29b117f67f2f1662b671f7d37216261248b3640bb68e151e29312a0d63621",
+    "scripts/wingspan-neural/eval-worker.mjs": "33ac214cf3d1fd410881ce994d44ab8f877407bc3cf84900a556911171f4d30c",
+    "scripts/wingspan-neural/game.mjs": "2777be5256a266a246bf8ffa9363c5c03a7f00287970973f1319360dc769a89b",
+    "scripts/wingspan-neural/inference.mjs": "b770568c2fd59d7e312bb2af9fd17d452caa333f8983fea14111c07d8d287428",
+    "scripts/wingspan-neural/pilot.py": "1e397bce95f11009d3778d2928657b0e2392fd9b359db34fd1b800001f3d17ef",
+    "scripts/wingspan-neural/plan.mjs": "be9a177337a0ed6c90227fac5373a838affb3906362de7c73633d3ea94f6d374",
+    "scripts/wingspan-neural/preflight.mjs": "8e49db4155f6118e5acc74b234f4dc7b37f71dcdaca0c6b370fa85d153d339b7",
+    "scripts/wingspan-neural/publish.py": "d08264d6083f4ff5f7dba830b8935c25ffcfdced5d056239ed6693418b90884a",
+    "scripts/wingspan-neural/rollout.mjs": "7949ca83ddbaa5591574abeaded5dbe6d3da2c0751aba26853e9772145be3617",
+    "scripts/wingspan-neural/search.mjs": "004e9c5b00d0b7bce715948c9b6280a7b9fe5f6b6f4deef48536d8dee90bb04f",
+    "scripts/wingspan-neural/seed-audit.mjs": "cadcb7e5b6e73449b72574a8a4c40a9d7a9c0abbd06d7294e465595264df5625",
+    "scripts/wingspan-neural/targets.mjs": "c4b2171ffb5c273270a5f4e8b5b5d7feda4581d053084ff31496225554345342",
+    "scripts/wingspan-neural/train.py": "8e2a62c092911b6e58f66e43fa610173d62a800433892061cd6f4783a618570b",
+    "scripts/wingspan-neural/training-tests.py": "4c6be907f5bfad5fbe7d5cee1cfa09803be1d412c9183ccfb42b96ca9068ae69",
+    "scripts/wingspan-selfplay/browser-preflight.mjs": "379aaee24933c9ab27c9a6e47825109a7454b4077883cd425de6d9d1b43a6e0a",
+    "scripts/wingspan-selfplay/collect.mjs": "3809ebdd221b6538c0be373a7f6b9a869dea1d1ea2677455878ff961b030c630",
+    "scripts/wingspan-selfplay/common.mjs": "3f5085b7f4928bc632562d119425c72a5f08bf905309b8d934e259d3aacad2a5",
+    "scripts/wingspan-selfplay/dashboard.mjs": "b1193856361ecec12511f72fe0e500938a24a128ade7e34476bfa7deb3017d3e",
+    "scripts/wingspan-selfplay/encoder.mjs": "853fcf1eab313ec821ca453f97e0e34ec75fb35901b6e04baa53ac9ac46740be",
+    "scripts/wingspan-selfplay/game.mjs": "e0a272c06171e80eb38c540537167050763813fd5c644e24a6fc265fe89abf86",
+    "scripts/wingspan-selfplay/inference.mjs": "4d39ffee2e82e41ef1b9f2eef63f73f371973c6e4fb2b3b286e1578b5b63f530",
+    "scripts/wingspan-selfplay/payment-profile.mjs": "57e56870e89fefae6f9af221a01f5ae3b93f995bd31e8d277a10bda58dcfe116",
+    "scripts/wingspan-selfplay/plan.mjs": "7f331f9dec925765469aca9be1e5427d4a147d83c89f77d169fdf1ef22493a93",
+    "scripts/wingspan-selfplay/preflight.mjs": "5a5168c832d7df2f3c8821a8a404db8fe581f2c4aad354b1914da6ca82784d65",
+    "scripts/wingspan-selfplay/profile.mjs": "38cecf75ac84f1cdcc856790eee1d9419d3180f507e0553603e2d3f876dd3718",
+    "scripts/wingspan-selfplay/publish.py": "9669a6188be03336ef69dc1acc1b0476e9a2616f3938f52b04c26c03869cc25a",
+    "scripts/wingspan-selfplay/rollout.mjs": "1fa367b133e5fee4232c9a9b704be007e5d35e329d8af7e46097b05196ee7c0d",
+    "scripts/wingspan-selfplay/run.mjs": "2f0d30d91334d65fed730f52657c103eff85202e710b6fb25859de2eee90233b",
+    "scripts/wingspan-selfplay/runtime.mjs": "92b574f14bf3acfce20565a6dd5d74d36f76e62c745e772911aecac626ceb2fb",
+    "scripts/wingspan-selfplay/search.mjs": "cc8197b412e17649c00ff7e744370bc00120479fdc29594f6741cf4e26052c47",
+    "scripts/wingspan-selfplay/seed-audit.mjs": "275398fa551912f9d9864c043594c73212a6efcfcef7f75093bec5cf7acfd0bf",
+    "scripts/wingspan-selfplay/train.py": "ba99cb28f37073f0d5c9529f4e7a12359f38f09a390e834c279da80e1d54e07b",
+    "scripts/wingspan-selfplay/training-tests.py": "486da194960b68cc92eed444ab3964f884d655a8566555707c1215bff97eae11",
+    "scripts/wingspan-selfplay/worker.mjs": "c67aab1793bf9ca08655dc5c9d08703782968cdefa5f643a8ede59b68c304ce7",
+    "scripts/wingspan-study/analyze.mjs": "53129a8ba0e8df75fc04fde5fe467c209597bc145664ae33190ae8d0aecfce83",
+    "scripts/wingspan-study/dashboard.mjs": "3d74834d35d962e17e580bf07418231cb0b93116a240ac378c7b9de26550269a",
+    "scripts/wingspan-study/deployed/actions.js": "108d5640c3386cba3f0ae06d570c15d4ec715b58cef7be91ea214b4733b387d3",
+    "scripts/wingspan-study/deployed/analysis.js": "a57f5662a82f13c0973a170930741ba6a635dd7dabb1bf7294491535a884d24e",
+    "scripts/wingspan-study/deployed/app.js": "6e4835efbc7f198f467084e5641cf8b79bf94867605b636cab8af4252e78696c",
+    "scripts/wingspan-study/deployed/belief.js": "0fde8f487071c1c6f26f207b27b63b67ae5f9f31b281e409066653d02bcbd63f",
+    "scripts/wingspan-study/deployed/catalog.js": "185c438363ee794c6ae543ea6100ee871ee9f3ee4d524b07fd6ec28c59fba2a1",
+    "scripts/wingspan-study/deployed/core.js": "12d2fbdb7de586c0eaed87302cd2c7064934d1613d1d1b53569863fc9df4c900",
+    "scripts/wingspan-study/deployed/data/birds.json": "de9889d5c8849a871b425272587e4db3df5d7f127c378714ac8ec439b6e09188",
+    "scripts/wingspan-study/deployed/data/bonuses.json": "f18724196b0d5b7b41b759d2d447aee34f892b8b048e6f873e9876d0b0adbd5f",
+    "scripts/wingspan-study/deployed/data/goal-tiles.json": "7bd5e7213b350944deafcf5b0cd47db53566c47f0153b8018156c244b109d4a5",
+    "scripts/wingspan-study/deployed/data/power-index.json": "97dca3ec15464cb90247c7d4d831e8830a3c2628483fa6d221e4fc8d549742d8",
+    "scripts/wingspan-study/deployed/development-evaluators.js": "2eb7883624b7d80b7b1cb0f1b7288e1f8c1a94b66e00a3fc95eb65ed89ffeab4",
+    "scripts/wingspan-study/deployed/efficiency-evaluators.js": "6e34d2df0747459a433230029f5a960e868ebb32831cf679c2a8ac3682631834",
+    "scripts/wingspan-study/deployed/final-evaluators.js": "67c17b74731ead7320eca30a9cc1471e5034d43c1ad6d740a2112baf6a5acebe",
+    "scripts/wingspan-study/deployed/leaf-evaluators.js": "d5bc632a08cbb480b7cf110e6bd074749af10bd601b1eb1b6d821792ab0f84ce",
+    "scripts/wingspan-study/deployed/mechanics-evaluators.js": "307ae0c5ee8430a9275c8d0386f83412cfdbd0f0a54c20eb676aeb1a68730c2c",
+    "scripts/wingspan-study/deployed/move-editor.js": "b100cf1891968412477f0121f5292d0b6cf82b23df389de9017fe61224410b7e",
+    "scripts/wingspan-study/deployed/observation-io.js": "11b5bce8afc9e5405061ead0ea973bb9e9ffc501b7e5128ffb755a052a203b26",
+    "scripts/wingspan-study/deployed/observations.js": "6515146a62af99e070298e22e8a956003752bd1d9a23f75bbbcd4767751a8223",
+    "scripts/wingspan-study/deployed/opening-strategy.js": "aff4585de825ff3f18b8fb83c35d41294b852c8cdb9f24dde14a92bc9249307e",
+    "scripts/wingspan-study/deployed/physical-ui.js": "bd388fd31b044e52a9b4fb5649689b8429770448d8b1f811f65852d658ed55fd",
+    "scripts/wingspan-study/deployed/planning-evaluators.js": "8753be08436e1df2f9dea82b2e87358d3dbdb412be5533445ad362cd7efac4ce",
+    "scripts/wingspan-study/deployed/powers.js": "ae2546b9cac5ddc70f1b9b1e8dc00f9cd246371cc9ab6d3db5dd1a582e4877f8",
+    "scripts/wingspan-study/deployed/rollout.js": "e80a223cdf91b84503269022c81b7ea0f685e65a21d80cb58fad2266871e7e3a",
+    "scripts/wingspan-study/deployed/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
+    "scripts/wingspan-study/deployed/source.json": "928e28a7295199b136d45e6542f29fb66a91fe13c7fa2ac790d8f5ffd8e7b994",
+    "scripts/wingspan-study/deployed/worker.js": "9e6bd20b42addc3d1157838d1e53d97f6c487a906de2283d09475bc506825e05",
+    "scripts/wingspan-study/evaluators.mjs": "8269d229e08633f11a58820588ddc01b271df6605c452d39a6718e22448072c4",
+    "scripts/wingspan-study/fixtures.mjs": "01f32e9103f4947839a54d1d69f9648a9ac2e435e7d55fe41bdd478646c5ae3a",
+    "scripts/wingspan-study/game.mjs": "e8db68f2f557746f5f34cc21031744f112bbce89bdb23e94618bf6c9136a1369",
+    "scripts/wingspan-study/plan.mjs": "437d45318308477e81da41639be23254e2ecf2bf09be07ab6538cbccbe8c41fe",
+    "scripts/wingspan-study/preflight.mjs": "fdc9042bfeeb78e108a1ff92f65fb22893e955047bc39b8a1463456cbdbba36f",
+    "scripts/wingspan-study/rollout.mjs": "91fbd6003c130edb2b83eeb3dd7f682072b2654692d92f2e1749010e2d187f54",
+    "scripts/wingspan-study/run.mjs": "5b7588396cfdf68916b27a72f5b8084bd31c6043c4e614683aa0f649430f5eb5",
+    "scripts/wingspan-study/search.mjs": "bdbb417cbbaa9e34ac36513312f5f49e3c945acf04bfc2b32e052122d0cada6e",
+    "wingspan/actions.js": "108d5640c3386cba3f0ae06d570c15d4ec715b58cef7be91ea214b4733b387d3",
+    "wingspan/analysis.js": "a57f5662a82f13c0973a170930741ba6a635dd7dabb1bf7294491535a884d24e",
+    "wingspan/app.js": "4755d45a04811f3d590b68d77c8acd58fbf19f737781de9602d5ee82b024cf86",
+    "wingspan/belief.js": "0fde8f487071c1c6f26f207b27b63b67ae5f9f31b281e409066653d02bcbd63f",
+    "wingspan/catalog.js": "185c438363ee794c6ae543ea6100ee871ee9f3ee4d524b07fd6ec28c59fba2a1",
+    "wingspan/core.js": "e2f9d210fe9faa7405a8d6faef894f79135fe090ccd5b968b54513046f55b6c6",
+    "wingspan/data/birds.json": "de9889d5c8849a871b425272587e4db3df5d7f127c378714ac8ec439b6e09188",
+    "wingspan/data/bonuses.json": "f18724196b0d5b7b41b759d2d447aee34f892b8b048e6f873e9876d0b0adbd5f",
+    "wingspan/data/goal-tiles.json": "7bd5e7213b350944deafcf5b0cd47db53566c47f0153b8018156c244b109d4a5",
+    "wingspan/data/power-index.json": "97dca3ec15464cb90247c7d4d831e8830a3c2628483fa6d221e4fc8d549742d8",
+    "wingspan/development-evaluators.js": "2eb7883624b7d80b7b1cb0f1b7288e1f8c1a94b66e00a3fc95eb65ed89ffeab4",
+    "wingspan/efficiency-evaluators.js": "6e34d2df0747459a433230029f5a960e868ebb32831cf679c2a8ac3682631834",
+    "wingspan/final-evaluators.js": "67c17b74731ead7320eca30a9cc1471e5034d43c1ad6d740a2112baf6a5acebe",
+    "wingspan/leaf-evaluators.js": "d5bc632a08cbb480b7cf110e6bd074749af10bd601b1eb1b6d821792ab0f84ce",
+    "wingspan/mechanics-evaluators.js": "307ae0c5ee8430a9275c8d0386f83412cfdbd0f0a54c20eb676aeb1a68730c2c",
+    "wingspan/move-editor.js": "b100cf1891968412477f0121f5292d0b6cf82b23df389de9017fe61224410b7e",
+    "wingspan/observation-io.js": "11b5bce8afc9e5405061ead0ea973bb9e9ffc501b7e5128ffb755a052a203b26",
+    "wingspan/observations.js": "6515146a62af99e070298e22e8a956003752bd1d9a23f75bbbcd4767751a8223",
+    "wingspan/opening-strategy.js": "aff4585de825ff3f18b8fb83c35d41294b852c8cdb9f24dde14a92bc9249307e",
+    "wingspan/physical-ui.js": "bd388fd31b044e52a9b4fb5649689b8429770448d8b1f811f65852d658ed55fd",
+    "wingspan/planning-evaluators.js": "8753be08436e1df2f9dea82b2e87358d3dbdb412be5533445ad362cd7efac4ce",
+    "wingspan/powers.js": "ae2546b9cac5ddc70f1b9b1e8dc00f9cd246371cc9ab6d3db5dd1a582e4877f8",
+    "wingspan/production-ai.js": "b4336f1e5606e8a6262c6bfcabcfe23903b87a832222b17413e8060172981e9f",
+    "wingspan/rollout.js": "e80a223cdf91b84503269022c81b7ea0f685e65a21d80cb58fad2266871e7e3a",
+    "wingspan/scoring.js": "f468449e34537fd9b1710d273f80a496fd64339a41aad5809b51c819debcf0d8",
+    "wingspan/worker.js": "1f2b2c10c80914046ff4d23a1425e96f40c2db4c97898116794c3c2fc6c33b23"
+  },
+  "champion": "generation-3",
+  "finalist": {
+    "candidate": "generation-3",
+    "generation": 3,
+    "modelHashes": {
+      "generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+      "generation-3-zero": "3cb6e7226800cd36ddde43e5b6b04f3c724e5c0a1b33d7a3d7433b0545e89e3c",
+      "generation-3-epoch-zero": "f713a823a4e11acbaa54b458297a9f7c1554e378ca0019b0f952d1c94e87abcd"
+    }
+  },
+  "profileLatency": {
+    "p99Ms": 1001.1134999999999,
+    "maxMs": 1001.1134999999999
+  },
+  "method": "Original two-player Wingspan compact residual self-play research. Collection is not strength evidence; training rows report prediction loss. Winner shares require every scheduled valid seat pair. Production promotion is separate.",
+  "limitations": [
+    "Stopped campaigns retain their stop reason; finished status does not mean every proposed cycle ran.",
+    "No raw observations, hidden state, game files or sealed audit records are read for this snapshot."
+  ]
 }

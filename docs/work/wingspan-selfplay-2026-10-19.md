@@ -1,6 +1,9 @@
 # Compact Wingspan self-play implementation — October 19
 
-Status: bounded campaign running from frozen source `04b01cd`.
+Status: complete. All 4,064 games finished by 17:41:37.491 UTC; controller and
+publisher exited normally after final publication. Frozen source is `04b01cd`.
+The [final evidence and remaining gates](../games/wingspan/2026-10-19-compact-selfplay.md)
+own results; timestamped progress below is historical. Production is unchanged.
 Actual start: October 19, 2026, 14:44:26.907 UTC; original hard deadline:
 20:44:26.907 UTC (15:44 Central). At launch the controller PID was 30572 and
 publisher PID 90168, both BelowNormal. Inspect receipts/processes for current
@@ -167,6 +170,31 @@ interpreting gains; the experiment is not a fully neural search policy.
 Production remains opening-plan plus expanded setup and horizon 4. The controller
 continues the already approved cycles and fixed final comparisons without
 outcome-based retuning, extra tournaments or a reset of the original deadline.
+
+## Closeout
+
+All three collection/training cycles, screens, the once-only sealed audit,
+400 fresh confirmation games and 160 exploratory scaling games completed before
+the original deadline. Independent reviewer/coordinator calculations reproduced
+paired results, split/read inventories, model hashes, validity and timing.
+Final publisher receipt at 17:41:42 UTC records success and 4,064/4,064 games.
+Both actual launch PIDs are absent after normal completion; no restart occurred.
+
+The final report explicitly records the unexecuted training-only label-baseline
+noise check, fixed-sample tails exceeding timed thresholds, and the automatic
+analysis receipt's omission of scaling. Dashboard caption corrections and an
+immutable final evidence feed preserve original frozen bytes. No test outcomes
+selected another model. Future capacity work is separately authorized for up to
+28 workers; this completed study remains 24 workers and retains its original clock.
+
+Closeout validation in the canonical checkout passed 20 relevant static-asset,
+self-play-dashboard and neural-dashboard tests, 418 syntax modules, 82 maintained
+documentation files, and the phone/tablet dashboard browser suite including live
+cache recovery, fixed sample captions and sealed-audit labelling. The dashboard
+publisher test now decodes its Python script file URL correctly when the Windows
+checkout path contains spaces. This test-only path repair does not alter frozen
+experimental code. Required remote Validation/Pages and actual public final-feed
+verification are the remaining publication checks at this commit.
 
 ## Runtime and reproduction
 
