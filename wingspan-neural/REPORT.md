@@ -1,7 +1,7 @@
 # Wingspan neural value pilot
 
-Status: **running** · stage **confirmation** · snapshot 2026-10-19T13:35:36.191Z.
-Recorded 1047 / 1328 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
+Status: **running** · stage **confirmation** · snapshot 2026-10-19T13:37:09.771Z.
+Recorded 1064 / 1328 scheduled actual games across the displayed stages. Data generation and training are not win-rate measurements.
 
 [Live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-neural) · [Dataset manifest](dataset/manifest.json) · [Seed audit](seed-audit.json) · [Source archive](execution-source.zip) · [Private-runtime inventory hashes](runtime-inventory.json) · [Model selection](training/selection.json) · [Offline report](training/offline-report.json)
 
@@ -41,7 +41,7 @@ Offline status: **passed**. Held-out learning gate: `True`. Offline prediction a
 | screen/linear | 64 / 64 | 32 / 32 | 58.6% [47.7, 69.5]% | 2.39 [-0.78, 5.56] |
 | screen/reference | 64 / 64 | 32 / 32 | 57.0% [44.9, 69.2]% | 3.11 [0.07, 6.15] |
 | screen/deployed | 64 / 64 | 32 / 32 | 61.7% [50.3, 73.2]% | 2.70 [-0.25, 5.66] |
-| confirmation/deployed | 319 / 400 | 159 / 200 | 57.1% [51.5, 62.6]% | 1.54 [0.12, 2.96] |
+| confirmation/deployed | 336 / 400 | 167 / 200 | 57.3% [52.0, 62.7]% | 1.61 [0.25, 2.98] |
 | confirmation/reference | 0 / 200 | 0 / 100 | — | — [—, —] |
 
 One fixed blend uses50% reference relative value plus50% learned viewer-relative margin; the margin prediction is not subtracted twice. Terminal scoring remains exact. Setup/pending or unsupported visibility contexts fall back to the reference. All pilot comparisons request1000ms per whole decision, including preparation, with a soft coverage floor. Linear, corrected-reference and actual-deployed controls remain distinct.
