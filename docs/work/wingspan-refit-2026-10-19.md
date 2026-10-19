@@ -53,3 +53,21 @@ its initial live push without errors. Phase `f0-control` began normally.
 deployment is gated by comprehensive Validation/Pages. New monitor:
 `review-wingspan-conservative-teacher-refits`; old monitors remain paused.
 No stronger teacher is claimed at launch. Production remains unchanged.
+
+## First supervision check
+
+The control and auxiliary-free fits at learning rate 0.0005 completed, each
+selecting epoch 1 and passing export parity. Common development Huber was
+0.35349885 and 0.35351404 respectively: essentially the same result at this
+research selection stage. Both gentler recipes still need completion before
+finalist selection; no playing-strength result is claimed. All 127 guards matched,
+and controller/publisher command lines and successful publication were verified.
+
+The new public dashboard study deployed at scientific revision 29e5d95 and full
+Validation passed for launch metadata 1d62b5c. Actual mobile Chromium inspection
+found that an empty live-training metric object displayed undefined seed/epoch.
+The canonical frontend now waits for valid epoch fields, labels fit progress as
+optimization epochs and explicitly marks the network-fitting stage. Phone/tablet
+and live-cache regressions, including the empty-metric case, passed. Frozen
+scientific files and original clocks are untouched; the display-only follow-up
+has its own Validation/Pages gate to verify.
