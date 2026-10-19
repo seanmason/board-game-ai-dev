@@ -136,7 +136,7 @@ def public_model(value):
 def report(dash):
     lines=['# Wingspan compact self-play evidence','',f"Status: **{dash['status']}** ({dash.get('outcomeStatus')}); stage **{dash['stage']}**.",f"Snapshot: {dash['updatedAt']}. Actual games completed: {dash['finished']} / {dash['planned']} across displayed stages.",'']
     if dash.get('stopReason'): lines += ['Stop reason: '+dash['stopReason'],'']
-    lines += ['A finished snapshot may reflect an early stop; it does not imply all proposed cycles ran. Collection and offline prediction losses are not playing-strength evidence. Production promotion remains separate.','', '[Dashboard](dashboard.json) · [Public controller receipt](manifest.json)','', '| Comparison | Valid / scheduled | Complete pairs | Winner share | Margin |','| --- | ---: | ---: | ---: | ---: |']
+    lines += ['A finished snapshot may reflect an early stop; it does not imply all proposed cycles ran. Collection and offline prediction losses are not playing-strength evidence. Production promotion remains separate.','', '[Dashboard](dashboard.json) · [Public controller receipt](manifest.json) · [Frozen source bytes](source.zip) · [Source inventory](source-manifest.json)','', '| Comparison | Valid / scheduled | Complete pairs | Winner share | Margin |','| --- | ---: | ---: | ---: | ---: |']
     for row in dash['rows']:
         if row['metricKind']!='win-share': continue
         share=row['winShare']; margin=row['margin']
