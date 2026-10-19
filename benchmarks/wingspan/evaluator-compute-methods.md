@@ -45,6 +45,19 @@ Supported brown codes: 33,41,43,49; hand-tuck 4,27,32,35,62; typed food-tuck
 9,23,36; draws 21,24,34,56,59; supply cache 31; supply foods
 16,25,29,40,57,60,63,66; egg powers 14,30,12,26,52,65. Draw/discard powers defer
 one mandatory discard until the row ends, allowing interim hand consumption.
+The original implementation schedules mandatory discards as pending code 1000
+and cannot resolve that pending choice from an empty hand. This study therefore
+reserves every already-pending discard before a nonreplenishing tuck. It may
+reduce that reservation by guaranteed net draws from known later producers
+(codes 24/34/56/59: 2/1/1/1 cards respectively); draw-and-discard 21 adds no
+net supply. A tuck-and-draw 4 can use a reserved card because its net stock
+change is zero. Cards are still discarded only after the row ends. This small
+lookahead deliberately ignores conditional/repeated future production and may
+undervalue valid chains. It is a conservative match to the existing implemented
+pending-choice model, not new rules certification. The official
+[Wood Duck entry](https://wingspan.rulepop.com/#power/wood-duck) describes the
+end-of-turn discard cost but does not settle the disputed empty-hand case.
+
 Many listed codes occur only as white powers in the original catalog; those
 remain inactive. Predator dice/card outcomes, feeder powers, pink powers,
 conditional fewest-birds powers, movement, extra plays and other unsupported
@@ -58,9 +71,11 @@ for codes 33/41/43/49 in the chosen row schedule. The schedule maximizes total
 supported power gain over its base-only counterpart, with skip available.
 Subtract the exact adopted `practical-combined` engine slices for every installed
 brown 33 and 41: `.65*.9*foodUseful*T/3` and
-`.65*.5*min(1,slots/5)*max(0,1-hand/10)*T/3` respectively. `foodUseful` is
+`.65*.5*min(1,slots/5)*max(0,1-rawHand/10)*T/3` respectively. `foodUseful` is
 `min(1,max(0,demand-stockFood)/max(1,T))`, with demand exactly the baseline's
-`min(1.2*T,sum(hand costs),min(slots,hand,T/2.5)*3)`.
+`min(1.2*T,sum(eligible hand costs),min(slots,eligibleHand,T/2.5)*3)`.
+Eligible cards have at least one nonfull matching habitat. Gull saturation uses
+the raw hand count, exactly matching production's separate code-41 formula.
 Repeats have no baseline slice. This replaces existing exceptional engine credit;
 printed points, held resources, goals, generic row production and opening
 credit are not awarded again.
@@ -122,7 +137,9 @@ and predator repeat controls, typed-stock placement controls and one-action endg
 
 Run `node --test test/wingspan-study-evaluators.test.js`. Hand-checked ledger
 assertions cover exact egg locations/costs, optional skips, order-dependent
-food-tuck output and carry between activations. Reference equality, bounds,
+food-tuck output, carry between activations, exact mixed-full-habitat baseline
+subtraction, and deferred mandatory-discard reservation with replenishment.
+Reference equality, bounds,
 terminal/zero-future equality, state purity, determinism and paired hidden-world
 invariance cover all 24 fixtures. No full tournament is part of these tests.
 The official [publisher rules reference](https://wingspan.rulepop.com/) supports
