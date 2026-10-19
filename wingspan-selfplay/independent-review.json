@@ -1,0 +1,220 @@
+{
+  "schema": 1,
+  "status": "complete",
+  "sourceRevision": "04b01cd84c9cc57b1d55099c7524f484e4eeb56e",
+  "finalModelHashes": {
+    "generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+    "generation-3-zero": "3cb6e7226800cd36ddde43e5b6b04f3c724e5c0a1b33d7a3d7433b0545e89e3c",
+    "generation-3-epoch-zero": "f713a823a4e11acbaa54b458297a9f7c1554e378ca0019b0f952d1c94e87abcd"
+  },
+  "gameCount": 4064,
+  "productionPromotion": false,
+  "baselineSamplingNoiseCheck": "unexecuted; evidence not found",
+  "confirmation": {
+    "checkedAtUtc": "2026-10-19T17:35:03.269133+00:00",
+    "independentUnit": "setup; mean of both seats",
+    "comparisons": {
+      "zero": {
+        "pairs": 100,
+        "counts": {
+          "wins": 151,
+          "losses": 47,
+          "ties": 2
+        },
+        "share": 0.76,
+        "shareCI95": [
+          0.7014672135515231,
+          0.8185327864484769
+        ],
+        "margin": 7.615,
+        "marginCI95": [
+          6.109741937710137,
+          9.120258062289864
+        ]
+      },
+      "reference": {
+        "pairs": 100,
+        "counts": {
+          "losses": 68,
+          "wins": 130,
+          "ties": 2
+        },
+        "share": 0.655,
+        "shareCI95": [
+          0.596103152788688,
+          0.7138968472113121
+        ],
+        "margin": 5.795,
+        "marginCI95": [
+          4.092247093787808,
+          7.497752906212192
+        ]
+      }
+    }
+  },
+  "scaling": {
+    "independentUnit": "setup, averaging both seats",
+    "comparisons": {
+      "candidate": {
+        "pairs": 40,
+        "counts": {
+          "wins": 45,
+          "losses": 35
+        },
+        "share": 0.5625,
+        "shareCI95": [
+          0.4527382800025419,
+          0.6722617199974581
+        ],
+        "margin": 2.825,
+        "marginCI95": [
+          0.11718908661962679,
+          5.532810913380374
+        ],
+        "counters": {
+          "candidate": {
+            "decisions": 4331,
+            "iterations": 1299300,
+            "roots": 37433,
+            "unvisited": 0,
+            "rolloutCount": 1299300,
+            "learnedLeafCount": 564000,
+            "learnedFallbackCount": 735300,
+            "safetyCapCount": 0,
+            "unsettledLeaves": 0,
+            "settledLeaves": 1299300,
+            "illegalActions": 0,
+            "errors": 0,
+            "mainActions": 2080,
+            "powerDecisions": 2171,
+            "observationGenerationMs": 17228.489300053567,
+            "searchMs": 4700543.06180002,
+            "coverageFloorOverruns": 0,
+            "determinizationMs": 213994.43689786457,
+            "generationMs": 1185884.993203735,
+            "transitionMs": 1756861.0325032417,
+            "evaluationMs": 612771.3927997984
+          },
+          "opponent": {
+            "decisions": 4229,
+            "iterations": 422906,
+            "roots": 36941,
+            "unvisited": 0,
+            "rolloutCount": 422906,
+            "learnedLeafCount": 188000,
+            "learnedFallbackCount": 234906,
+            "safetyCapCount": 0,
+            "unsettledLeaves": 0,
+            "settledLeaves": 422906,
+            "illegalActions": 0,
+            "errors": 0,
+            "mainActions": 2080,
+            "powerDecisions": 2069,
+            "observationGenerationMs": 17368.851299915463,
+            "searchMs": 1536732.676100023,
+            "coverageFloorOverruns": 0,
+            "determinizationMs": 69898.8035009224,
+            "generationMs": 383844.85760089196,
+            "transitionMs": 579826.4003985841,
+            "evaluationMs": 201861.73620014824
+          }
+        },
+        "timing": {
+          "candidate": {
+            "decisions": 4331,
+            "meanMs": 1089.3030595936443,
+            "p95Ms": 1940.813199998811,
+            "maxMs": 5103.638000000268
+          },
+          "opponent": {
+            "decisions": 4229,
+            "meanMs": 367.48676457789986,
+            "p95Ms": 645.487199999392,
+            "maxMs": 1624.1980999987572
+          }
+        }
+      },
+      "reference": {
+        "pairs": 40,
+        "counts": {
+          "losses": 32,
+          "wins": 48
+        },
+        "share": 0.6,
+        "shareCI95": [
+          0.4901636375457699,
+          0.70983636245423
+        ],
+        "margin": 2.9125,
+        "marginCI95": [
+          0.03281956612097847,
+          5.792180433879022
+        ],
+        "counters": {
+          "candidate": {
+            "decisions": 4048,
+            "iterations": 1214400,
+            "roots": 33302,
+            "unvisited": 0,
+            "rolloutCount": 1214400,
+            "learnedLeafCount": 0,
+            "learnedFallbackCount": 0,
+            "safetyCapCount": 0,
+            "unsettledLeaves": 0,
+            "settledLeaves": 1214400,
+            "illegalActions": 0,
+            "errors": 0,
+            "mainActions": 2080,
+            "powerDecisions": 1888,
+            "observationGenerationMs": 16467.410400016233,
+            "searchMs": 3829207.797999995,
+            "coverageFloorOverruns": 0,
+            "determinizationMs": 180465.63959933445,
+            "generationMs": 959988.5217056982,
+            "transitionMs": 1453095.4430955257,
+            "evaluationMs": 387236.3727012817
+          },
+          "opponent": {
+            "decisions": 3983,
+            "iterations": 398306,
+            "roots": 34052,
+            "unvisited": 0,
+            "rolloutCount": 398306,
+            "learnedLeafCount": 0,
+            "learnedFallbackCount": 0,
+            "safetyCapCount": 0,
+            "unsettledLeaves": 0,
+            "settledLeaves": 398306,
+            "illegalActions": 0,
+            "errors": 0,
+            "mainActions": 2080,
+            "powerDecisions": 1823,
+            "observationGenerationMs": 16630.23460003361,
+            "searchMs": 1250329.752499979,
+            "coverageFloorOverruns": 0,
+            "determinizationMs": 58866.85709995404,
+            "generationMs": 319949.48830164224,
+            "transitionMs": 472853.6008983385,
+            "evaluationMs": 120337.3692997545
+          }
+        },
+        "timing": {
+          "candidate": {
+            "decisions": 4048,
+            "meanMs": 950.0185791502004,
+            "p95Ms": 1817.148299999535,
+            "maxMs": 5037.698699999601
+          },
+          "opponent": {
+            "decisions": 3983,
+            "meanMs": 318.0918872960112,
+            "p95Ms": 618.2398999985307,
+            "maxMs": 2361.5667999982834
+          }
+        }
+      }
+    },
+    "finishedAtUtc": "2026-10-19T17:41:37.491000+00:00",
+    "elapsedMinutes": 177.1764
+  }
+}
