@@ -3,12 +3,12 @@
   "study": "wingspan-evaluator-compute-2026-10-18",
   "revision": "a863dc5c8a3a9510729ea6f050633015bb3bec11",
   "startedAt": "2026-10-19T00:21:48.805Z",
-  "updatedAt": "2026-10-19T05:01:32.150Z",
+  "updatedAt": "2026-10-19T05:03:17.207Z",
   "status": "running",
   "stage": "confirmation",
   "workers": 24,
   "planned": 2800,
-  "finished": 2076,
+  "finished": 2080,
   "active": [
     {
       "id": "confirmation/candidate-depth/9220337/0",
@@ -31,42 +31,12 @@
       "players": 2
     },
     {
-      "id": "confirmation/candidate-depth/9238283/0",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9238283,
-      "seat": 0,
-      "startedAt": "2026-10-19T04:55:48.449Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
-      "id": "confirmation/candidate-depth/9238283/1",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9238283,
-      "seat": 1,
-      "startedAt": "2026-10-19T04:55:51.328Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
       "id": "confirmation/candidate-depth/9239280/0",
       "stage": "confirmation",
       "matchup": "candidate-depth",
       "seed": 9239280,
       "seat": 0,
       "startedAt": "2026-10-19T04:55:57.372Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
-      "id": "confirmation/candidate-depth/9239280/1",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9239280,
-      "seat": 1,
-      "startedAt": "2026-10-19T04:56:23.733Z",
       "game": "wingspan",
       "players": 2
     },
@@ -87,16 +57,6 @@
       "seed": 9240277,
       "seat": 1,
       "startedAt": "2026-10-19T04:56:31.910Z",
-      "game": "wingspan",
-      "players": 2
-    },
-    {
-      "id": "confirmation/candidate-depth/9241274/0",
-      "stage": "confirmation",
-      "matchup": "candidate-depth",
-      "seed": 9241274,
-      "seat": 0,
-      "startedAt": "2026-10-19T04:56:53.424Z",
       "game": "wingspan",
       "players": 2
     },
@@ -247,6 +207,46 @@
       "seed": 9248253,
       "seat": 1,
       "startedAt": "2026-10-19T05:01:27.055Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9249250/0",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9249250,
+      "seat": 0,
+      "startedAt": "2026-10-19T05:02:13.597Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9249250/1",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9249250,
+      "seat": 1,
+      "startedAt": "2026-10-19T05:02:22.555Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9250247/0",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9250247,
+      "seat": 0,
+      "startedAt": "2026-10-19T05:02:26.818Z",
+      "game": "wingspan",
+      "players": 2
+    },
+    {
+      "id": "confirmation/candidate-depth/9250247/1",
+      "stage": "confirmation",
+      "matchup": "candidate-depth",
+      "seed": 9250247,
+      "seat": 1,
+      "startedAt": "2026-10-19T05:02:31.008Z",
       "game": "wingspan",
       "players": 2
     }
@@ -1345,34 +1345,34 @@
         "pipeline": "study"
       },
       "planned": 200,
-      "finished": 76,
+      "finished": 80,
       "counts": {
-        "complete": 76,
+        "complete": 80,
         "capped": 0,
         "unresolved": 0,
         "illegal": 0,
         "error": 0
       },
       "seedGroups": 100,
-      "completeSeedGroups": 37,
+      "completeSeedGroups": 38,
       "winShare": {
-        "n": 37,
-        "mean": 0.5405405405405406,
-        "low": 0.4202075124489809,
-        "high": 0.6608735686321002,
+        "n": 38,
+        "mean": 0.5394736842105263,
+        "low": 0.4224399651407236,
+        "high": 0.6565074032803291,
         "degenerate": false,
         "intervalMethod": "paired-t-approximate"
       },
       "margin": {
-        "n": 37,
-        "mean": 0.2972972972972973,
-        "low": -2.5284123373962344,
-        "high": 3.123006931990829,
+        "n": 38,
+        "mean": 0.2236842105263158,
+        "low": -2.52812608838266,
+        "high": 2.975494509435292,
         "degenerate": false,
         "intervalMethod": "paired-t-approximate"
       },
       "chance": 0.5,
-      "meanDecisionMs": 5270.645444634237,
+      "meanDecisionMs": 5260.963507903714,
       "maxDecisionMs": 46166.340300001204,
       "limitations": [
         "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
