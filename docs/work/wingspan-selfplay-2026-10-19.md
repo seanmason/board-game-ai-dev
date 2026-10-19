@@ -120,11 +120,53 @@ snapshot with its honest timestamp. The browser regression covers stale recovery
 lookup throttling, monotonic progress and an API outage. A local frontend check
 against the real public reference/immutable feed passed at 15:08 UTC. This is a
 presentation/infrastructure repair only; all 105 frozen experimental source files,
-tasks, data and the original deadline remain unchanged. Deployment of this cache
-repair is pending.
+tasks, data and the original deadline remain unchanged. Cache repair `764cdd7`
+and missing-verdict correction `74b44d1` passed required Validation/Pages. Actual
+public phone-browser verification at 15:26 UTC loaded the live screen stage,
+with no errors or overflow; a forced stale-feed check also verified immutable
+recovery after deployment.
 Training cards also omit the held-out learning verdict until an explicit boolean
 is present; a missing field is not a failed audit. Browser regression covers
 development-only cards alongside the cache recovery checks.
+
+## First completed generation screen
+
+At the 15:36 UTC supervision check, generation 1 had completed collection,
+CUDA training and its fixed 40-pair exploratory screen. Generation 2 collection
+was running (239/1,024 groups); both actual controller/publisher command lines
+and BelowNormal priority were verified, all 105 frozen source hashes matched,
+and publication had no consecutive failures. These are timestamped observations,
+not a promise of current liveness.
+
+Generation 1 used 768 training groups and 128 development groups; its 128 sealed
+audit groups remain unopened. Development selection chose epoch 3, with mean
+absolute residual prediction error 7.251 points versus 8.016 for zero correction
+and 7.735 for the linear control. Development Huber loss improved from 0.43984
+to 0.37260. Training continued through epoch 7 under the frozen patience rule;
+development error worsened after epoch 3, so later weights were not selected.
+Export parity passed. These are development-selected prediction measurements,
+not audit or playing-strength confirmation.
+
+The complete screen against reference R produced 50 wins, 28 losses and two ties:
+63.75% win share, +5.10 mean points. Independent regrouping verified every setup
+appears in both seats and reproduced paired approximate t intervals: share
+53.52–73.98%, margin +2.19–+8.01 points (95%, 40 independent pairs). This is an
+exploratory promotion screen for the training champion; fresh final confirmation
+and equal-cost zero attribution are still pending. It does not justify a
+production promotion or quantify strength against human players.
+
+Both sides requested 1,000 ms per complete decision at horizon 4. Candidate
+latency was mean 1,001.88 ms, p95 1,004.82 ms, p99 1,007.30 ms and maximum
+1,018.90 ms; all validity and latency gates passed. Candidate/opponent completed
+1,645,908/1,652,729 rollouts across 4,086/3,941 decisions. No illegal actions,
+errors, unvisited supplied roots, unsettled leaves, safety caps or coverage-floor
+overruns were recorded. Only 555,956 candidate leaves used the neural correction;
+1,089,952 used the explicit fallback. Preserve these applicability limits when
+interpreting gains; the experiment is not a fully neural search policy.
+
+Production remains opening-plan plus expanded setup and horizon 4. The controller
+continues the already approved cycles and fixed final comparisons without
+outcome-based retuning, extra tournaments or a reset of the original deadline.
 
 ## Runtime and reproduction
 
