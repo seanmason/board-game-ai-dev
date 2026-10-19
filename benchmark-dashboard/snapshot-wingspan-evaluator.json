@@ -1,0 +1,916 @@
+{
+  "schema": 1,
+  "study": "wingspan-evaluator-compute-2026-10-18",
+  "revision": "awaiting study freeze",
+  "startedAt": "2026-10-19T00:13:02.398Z",
+  "updatedAt": "2026-10-19T00:13:02.402Z",
+  "status": "planned",
+  "stage": "screen",
+  "workers": 18,
+  "planned": 1600,
+  "finished": 0,
+  "active": [],
+  "rows": [
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/reference-n100-h4",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 100 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/reference-n100-h12",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 100 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/reference-n300-h4",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 300 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/reference-n300-h12",
+      "policy": "reference",
+      "policyId": "Screen · Reference · 300 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "reference",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/exceptional-n100-h4",
+      "policy": "exceptional",
+      "policyId": "Screen · Exceptional powers · 100 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "exceptional",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/exceptional-n100-h12",
+      "policy": "exceptional",
+      "policyId": "Screen · Exceptional powers · 100 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "exceptional",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/exceptional-n300-h4",
+      "policy": "exceptional",
+      "policyId": "Screen · Exceptional powers · 300 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "exceptional",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/exceptional-n300-h12",
+      "policy": "exceptional",
+      "policyId": "Screen · Exceptional powers · 300 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "exceptional",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/chains-n100-h4",
+      "policy": "chains",
+      "policyId": "Screen · Ordered chains · 100 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "chains",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/chains-n100-h12",
+      "policy": "chains",
+      "policyId": "Screen · Ordered chains · 100 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "chains",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/chains-n300-h4",
+      "policy": "chains",
+      "policyId": "Screen · Ordered chains · 300 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "chains",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/chains-n300-h12",
+      "policy": "chains",
+      "policyId": "Screen · Ordered chains · 300 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "chains",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/investment-n100-h4",
+      "policy": "investment",
+      "policyId": "Screen · Early investment · 100 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "investment",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/investment-n100-h12",
+      "policy": "investment",
+      "policyId": "Screen · Early investment · 100 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "investment",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/investment-n300-h4",
+      "policy": "investment",
+      "policyId": "Screen · Early investment · 300 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "investment",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/investment-n300-h12",
+      "policy": "investment",
+      "policyId": "Screen · Early investment · 300 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "investment",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/blend-n100-h4",
+      "policy": "blend",
+      "policyId": "Screen · Conservative blend · 100 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "blend",
+        "budget": 100,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/blend-n100-h12",
+      "policy": "blend",
+      "policyId": "Screen · Conservative blend · 100 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "blend",
+        "budget": 100,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/blend-n300-h4",
+      "policy": "blend",
+      "policyId": "Screen · Conservative blend · 300 samples · horizon 4",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "blend",
+        "budget": 300,
+        "horizon": 4,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "screen/blend-n300-h12",
+      "policy": "blend",
+      "policyId": "Screen · Conservative blend · 300 samples · horizon 12",
+      "opponentPolicyId": "Reference · 300 samples · horizon 4",
+      "scope": "full match",
+      "budget": {
+        "method": "blend",
+        "budget": 300,
+        "horizon": 12,
+        "pipeline": "study"
+      },
+      "planned": 80,
+      "finished": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 40,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "margin": {
+        "mean": null,
+        "low": null,
+        "high": null,
+        "n": 0
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "limitations": [
+        "Root samples use a representative action generator; complete legal human actions remain available. Horizon counts subsequent ordinary actions across both players.",
+        "Fresh confirmation is separate from screening. Multiple-comparison decisions and matched compute contrasts are in the report."
+      ]
+    }
+  ],
+  "method": "Two-player Wingspan: reference and four evaluator hypotheses, crossed 100/300 root samples × horizons 4/12 against a fixed corrected reference. Forty independent seat pairs per screen cell. At most one selected challenger enters fresh direct strength/compute confirmation. The corrected research pipeline settles pending powers; the deployed pipeline is preserved for a separate matched-requested-time comparison. Production defaults remain unchanged during research."
+}

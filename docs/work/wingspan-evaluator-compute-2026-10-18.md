@@ -1,6 +1,10 @@
 # Two-player Wingspan: evaluator quality and compute scaling
 
-Status: proposed next batch; no games launched and no AI settings changed.
+Status: implementation and reference canaries complete; execution authorized.
+The frozen protocol below governs the strength screen and held-out branch.
+The [live dashboard](https://seanmason.github.io/board-game-ai-dev/benchmark-dashboard/?study=wingspan-evaluator)
+and its linked raw evidence report own current execution status. No production
+AI settings change during this study.
 Planning source: `66444d1868c364e11712253d73542d50b9cb0705`.
 
 ## Questions and decision
@@ -290,3 +294,16 @@ all earlier studies and the original production source snapshot.
 4. Freeze formulas and exact task/source manifests, then execute the bounded
    screen and its predeclared held-out branch. Publish all outcomes and review
    adoption against the above separate gates.
+
+
+## Preflight implementation notes
+
+The eight reference canaries finished at the initial integrated source, with
+exact source bytes archived beside their manifest. Subsequent evaluator ledger
+corrections affect challenger residuals only; the reference delegates exactly
+to adopted opening-plan. Independent fixtures cover those corrections before
+screening. Runner validation was also tightened for source inventories, root
+coverage, conservative dashboard intervals and the eighteen-worker study limit.
+The final timing calibration and study manifest are frozen after those changes.
+Power-flow counters describe net resource changes for the pending power owner,
+not exhaustive gross attribution across shared/nested powers.

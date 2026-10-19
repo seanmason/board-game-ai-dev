@@ -1,8 +1,8 @@
 const dataRoot='https://raw.githubusercontent.com/seanmason/board-game-ai-dev/benchmarks/ai-comparison-2026-10-18/';
-const studies={original:{remote:dataRoot+'dashboard.json',fallback:'snapshot.json',report:'REPORT.md'},followup:{remote:dataRoot+'followup/dashboard.json',fallback:'snapshot-followup.json',report:'followup/REPORT.md'},'hive-repetition':{remote:dataRoot+'hive-repetition/dashboard.json',fallback:'snapshot-hive-repetition.json',report:'hive-repetition/REPORT.md'},'good-enough':{remote:dataRoot+'good-enough/dashboard.json',fallback:'snapshot-good-enough.json',report:'good-enough/REPORT.md'}};
+const studies={'wingspan-evaluator':{remote:dataRoot+'wingspan-evaluator-compute/dashboard.json',fallback:'snapshot-wingspan-evaluator.json',report:'wingspan-evaluator-compute/REPORT.md'},original:{remote:dataRoot+'dashboard.json',fallback:'snapshot.json',report:'REPORT.md'},followup:{remote:dataRoot+'followup/dashboard.json',fallback:'snapshot-followup.json',report:'followup/REPORT.md'},'hive-repetition':{remote:dataRoot+'hive-repetition/dashboard.json',fallback:'snapshot-hive-repetition.json',report:'hive-repetition/REPORT.md'},'good-enough':{remote:dataRoot+'good-enough/dashboard.json',fallback:'snapshot-good-enough.json',report:'good-enough/REPORT.md'}};
 const requestedStudy=new URLSearchParams(location.search).get('study');
 let selectedStudy=Object.hasOwn(studies,requestedStudy)?requestedStudy:'original',refreshGeneration=0;
-const $=id=>document.getElementById(id),names={'ticket-to-ride':'Ticket to Ride','love-letter':'Love Letter',jaipur:'Jaipur','sushi-go':'Sushi Go!','lost-cities':'Lost Cities',hive:'Hive'};
+const $=id=>document.getElementById(id),names={wingspan:'Wingspan','ticket-to-ride':'Ticket to Ride','love-letter':'Love Letter',jaipur:'Jaipur','sushi-go':'Sushi Go!','lost-cities':'Lost Cities',hive:'Hive'};
 let snapshot=null,source='';
 const number=(n,d=1)=>Number.isFinite(n)?n.toFixed(d):'—',percent=n=>Number.isFinite(n)?`${(100*n).toFixed(1)}%`:'—';
 const element=(tag,text,className)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e;};
