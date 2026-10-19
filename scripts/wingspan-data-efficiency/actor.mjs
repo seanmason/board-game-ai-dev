@@ -33,9 +33,8 @@ export function chooseCheapAction(state,arm,options={}){
   const finished=clock();return {action:candidates[0].action,summary:{candidates,diagnostics,method:'prior',horizon:0},elapsedMs:finished-started,generationMs:generated-started,searchMs:finished-generated,roots:choices.length,iterations:0,unvisited:0,explored:false,selectedVisits:0,floorOverrun:false,actorMode:'cheap-prior',oneStepEvaluations:0};
  }
  if(state.phase!=='play')throw Error('Cheap actor requires main action or power phase');
- if(arm.method!=='residual')throw Error('Cheap main actor requires residual model');
- const model=compileModel(models[arm.modelId]),rng=seededRandom((seed^Math.imul(step,193)^Math.imul(actor+1,982451653))>>>0);
- const allowModel=supportedModelObservation(observation,actor),valueOptions={method:'residual',model,allowModel};
+ const model=arm.method==='residual'?compileModel(models[arm.modelId]):undefined,rng=seededRandom((seed^Math.imul(step,193)^Math.imul(actor+1,982451653))>>>0);
+ const allowModel=arm.method==='residual'&&supportedModelObservation(observation,actor),valueOptions={method:arm.method,model,allowModel};
  const initialLearnedMargin=allowModel?predictObservation(model,observation,actor):undefined;
  const candidates=choices.map(choice=>{
   let tick=clock();const initial=determinize(observation,rng);diagnostics.determinizationMs+=clock()-tick;
@@ -52,7 +51,7 @@ export function chooseCheapAction(state,arm,options={}){
   const settled=boundary(leaf);diagnostics.steps+=steps;diagnostics.settledLeaves+=Number(settled);diagnostics.unsettledLeaves+=Number(!settled);diagnostics.safetyCapCount+=Number(!settled);
   if(!settled)throw Error('Cheap successor power settlement cap');
   tick=clock();const delta=relativeScore(leaf,actor,valueOptions)-before;diagnostics.evaluationMs+=clock()-tick;
-  const learned=Number(usesLearnedValue(leaf,valueOptions));diagnostics.learnedLeafCount+=learned;diagnostics.learnedFallbackCount+=1-learned;diagnostics.rolloutCount++;
+  const learned=Number(usesLearnedValue(leaf,valueOptions));diagnostics.learnedLeafCount+=learned;diagnostics.learnedFallbackCount+=Number(arm.method==='residual'&&!learned);diagnostics.rolloutCount++;
   return {...choice,visits:1,sum:.82*delta+.18*policyGrade(initial,choice.action,actor),variance:0};
  }).sort((a,b)=>b.sum-a.sum);
  let selected=candidates[0],explored=false;
@@ -61,7 +60,7 @@ export function chooseCheapAction(state,arm,options={}){
   let target=explorationRng()*weights.reduce((a,b)=>a+b,0);for(let i=0;i<eligible.length;i++){target-=weights[i];if(target<=0){selected=eligible[i];break;}}
   explored=selected!==candidates[0];
  }
- const finished=clock();return {action:selected.action,summary:{candidates,diagnostics,method:'residual',modelId:model.id,horizon:1,horizonConvention:'root-action-inclusive',iterations:choices.length},elapsedMs:finished-started,generationMs:generated-started,searchMs:finished-generated,roots:choices.length,iterations:choices.length,unvisited:0,explored,selectedVisits:1,floorOverrun:false,actorMode:'cheap-successor',oneStepEvaluations:choices.length};
+ const finished=clock();return {action:selected.action,summary:{candidates,diagnostics,method:arm.method,modelId:model?.id??null,horizon:1,horizonConvention:'root-action-inclusive',iterations:choices.length},elapsedMs:finished-started,generationMs:generated-started,searchMs:finished-generated,roots:choices.length,iterations:choices.length,unvisited:0,explored,selectedVisits:1,floorOverrun:false,actorMode:'cheap-successor',oneStepEvaluations:choices.length};
 }
 
 export function createActor(task){

@@ -9,6 +9,7 @@ import {diagnosticPositions} from '../scripts/wingspan-study/fixtures.mjs';
 import {createZeroModel,compileModel} from '../scripts/wingspan-selfplay/inference.mjs';
 import {FEATURE_NAMES,encodeObservation} from '../scripts/wingspan-selfplay/encoder.mjs';
 import {chooseAction as incumbent} from '../scripts/wingspan-selfplay/game.mjs';
+import {policyGrade} from '../scripts/wingspan-selfplay/rollout.mjs';
 import {chooseCheapAction,createActor} from '../scripts/wingspan-data-efficiency/actor.mjs';
 import {collectGame,validateDataEfficiencyRecord} from '../scripts/wingspan-data-efficiency/collect.mjs';
 
@@ -97,6 +98,29 @@ test('cheap power decisions use existing deterministic priors with no unsupporte
  const r=chooseCheapAction(state,arm,{seed:12,models:{}});
  assert.equal(r.actorMode,'cheap-prior');assert.equal(r.iterations,0);assert.equal(r.oneStepEvaluations,0);assert.equal(r.summary.diagnostics.learnedLeafCount,0);
  assert.doesNotThrow(()=>assertValid(applyAction(state,r.action)));
+ // policyGrade's power branch reads only action.skip; redacted actor state is
+ // sufficient, and actual hidden identities/chance cannot influence its score.
+ const obs=publicObservation(state,state.pending[0].owner),copy=structuredClone(state);copy.deck.reverse();copy.rngState^=17;
+ assert.deepEqual(rewardView(r),rewardView(chooseCheapAction(copy,arm,{seed:12,models:{}})));
+ for(const c of r.summary.candidates)assert.equal(c.sum,policyGrade(obs,c.action,state.pending[0].owner));
+});
+
+test('hybrid versus reference completes with private-safe cheap reference successors and zero learned counts',()=>{
+ const dir=mkdtempSync(join(tmpdir(),'wingspan-actor-reference-')),path=join(dir,'zero.json');
+ try{
+  writeFileSync(path,JSON.stringify(createZeroModel()));
+  const reference={method:'reference',budget:100,horizon:4},t={...task,kind:'collect',opponent:reference,modelPaths:{fixed:path}};
+  const record=collectGame(t,{models:{fixed:zero}});
+  assert.equal(record.validation.valid,true);assert.deepEqual(validateDataEfficiencyRecord(record,t),[]);
+  const d=record.result.diagnostics.opponent;assert.equal(d.mainActions,26);assert.equal(d.learnedLeafCount,0);assert.equal(d.learnedFallbackCount,0);
+  assert.equal(record.result.decisions.filter(x=>x.role==='opponent'&&x.actorMode==='cheap-successor').length,26);
+  for(const e of record.valueExamples){assert.equal(e.observation.deck,undefined);assert.deepEqual(e.observation.players[1-e.viewer].hand,[]);}
+  const state=finalFixture();state.players[1].hand.push(state.deck.pop());const other=structuredClone(state);
+  [other.players[1].hand[0],other.deck[0]]=[other.deck[0],other.players[1].hand[0]];other.deck.reverse();other.rngState^=42;
+  const opts={seed:27,step:4};const a=chooseCheapAction(state,reference,opts),b=chooseCheapAction(other,reference,opts);
+  assert.deepEqual(rewardView(a),rewardView(b));assert.equal(a.summary.method,'reference');assert.equal(a.summary.modelId,null);
+  assert.equal(a.summary.diagnostics.learnedLeafCount,0);assert.equal(a.summary.diagnostics.learnedFallbackCount,0);
+ }finally{unlinkSync(path);rmdirSync(dir);}
 });
 
 test('collection validator rejects falsified cheap work and malformed mode without throwing',()=>{
