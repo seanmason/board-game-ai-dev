@@ -57,3 +57,19 @@ The screen uses32 fresh paired setups per comparison. A single preselected neura
 Raw observations, teacher candidate actions, per-game dataset/evaluation records, virtual environments and .pt checkpoints remain outside Git in the private local runtime. `runtime-inventory.json` records relative filenames, byte sizes and SHA256 digests for completed artifacts, while public manifests retain seed/split assignments and source hashes. Only explicitly allowlisted small summaries, manifests, model/parity/loss JSONs and the source zip are published. Missing linked stages mean no artifact has been produced yet. Favorable, unfavorable, partial and failed summaries are retained.
 
 This pilot concerns internal two-player simulator comparisons. It does not establish calibrated win probabilities, optimal play, independent human strength, or actual iPad Safari performance. Production defaults remain unchanged; publication is evidence sharing, not automatic promotion.
+
+<!-- neural-diagnostics:start -->
+## Post-pilot exploratory diagnostics
+
+Diagnostic status: **running**, stage **constant-attribution-repair**, updated 2026-10-19T14:02:08.399953+00:00. Original pilot results above are preserved.
+
+[Diagnostic progress](diagnostics-progress.json) · [Feature inventory](independent-review/train-feature-inventory.json) · [Feature/capacity plan](feature-capacity-probe/plan.json) · [Feature/capacity report](feature-capacity-probe/report.json) · [Constant-output protocol](constant-control/protocol.md) · [Strict control analysis](constant-control/analysis.json)
+
+Feature/capacity cells completed: 4 / 4. Metrics use train/development data only; development scores were also used for within-cell checkpoint selection. Conditional bootstrap intervals are descriptive, not fresh confirmation. Compact inputs remove information as well as dimensions, so this is not a pure feature-count experiment. No new online candidate is selected.
+
+NN versus constant-output same-shape MLP: 1 /64 game records. The control retains the selected network’s hidden layers, normalization and dense work; only the final scalar head is zeroed. The internal linear transport slot is not the trained ridge model.
+
+No winner-share statistic is shown while control validation is incomplete or inconsistent. Incomplete records are not invented outcomes.
+
+These are post-pilot exploratory diagnostics, not promotion gates or evidence of independent human strength. Raw game observations, binary checkpoints and virtual environments remain outside Git. Only explicitly listed plans, source, tests, checkpoints, summaries and reports are copied. Main pilot progress files and source remain unchanged.
+<!-- neural-diagnostics:end -->

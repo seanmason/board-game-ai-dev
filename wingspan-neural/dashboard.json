@@ -3,12 +3,12 @@
   "study": "wingspan-neural-pilot-2026-10-19",
   "revision": "abe5bd2433b8bb54852f94876e1b0781147f5830",
   "startedAt": "2026-10-19T12:34:09.856Z",
-  "updatedAt": "2026-10-19T14:01:53.883Z",
-  "status": "finished",
-  "stage": "complete",
+  "updatedAt": "2026-10-19T14:02:08.399953+00:00",
+  "status": "running",
+  "stage": "constant-attribution-repair",
   "workers": 24,
-  "planned": 1328,
-  "finished": 1328,
+  "planned": 1392,
+  "finished": 1329,
   "active": [],
   "rows": [
     {
@@ -611,7 +611,214 @@
         "Offline test games are separate from fresh playing-strength setups. No independent human-strength or iPad acceptance claim."
       ],
       "status": "finished"
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "diagnostics/feature-capacity",
+      "policy": "diagnostics/feature-capacity",
+      "policyId": "Feature/capacity probe \u00b7 train/development only",
+      "opponentPolicyId": "Post-pilot exploratory diagnostic; no promotion claim",
+      "scope": "Optimization cells, not games. Development loss/MAE already used for checkpoint selection; no new test or playing-strength claim.",
+      "budget": {},
+      "planned": 4,
+      "finished": 4,
+      "counts": {
+        "complete": 4,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "loss",
+      "limitations": [
+        "The original pilot remains frozen; diagnostic outcomes cannot promote a new model or establish human strength."
+      ],
+      "training": {
+        "heldOutLearning": null,
+        "latestFit": null,
+        "selected": null,
+        "probeStatus": "complete",
+        "completedCells": 4,
+        "plannedCells": 4,
+        "cells": {
+          "full-64-32": {
+            "featureCount": 1316,
+            "widths": [
+              64,
+              32
+            ],
+            "selected": {
+              "seed": 1729,
+              "bestEpoch": 1,
+              "devValueHuber": 0.07632496953010559,
+              "cpuInferenceMs": 0.04997500102035701,
+              "checkpoint": "checkpoint-1729.pt",
+              "checkpointSha256": "65ff14ed53c551d43451991b8e97b5291e0b271caf332d90e3da0af0026c48ab"
+            },
+            "cpuInferenceMs": 0.05874500027857721
+          },
+          "full-16-8": {
+            "featureCount": 1316,
+            "widths": [
+              16,
+              8
+            ],
+            "selected": {
+              "seed": 2718,
+              "bestEpoch": 1,
+              "devValueHuber": 0.07744238525629044,
+              "cpuInferenceMs": 0.053267000475898385,
+              "checkpoint": "checkpoint-2718.pt",
+              "checkpointSha256": "eef0de7e01ccbc18cc5c5e753ebd0c6f92a32a75f0ab0a2f83852f161d1d7ca6"
+            },
+            "cpuInferenceMs": 0.052699000807479024
+          },
+          "compact-64-32": {
+            "featureCount": 491,
+            "widths": [
+              64,
+              32
+            ],
+            "selected": {
+              "seed": 2718,
+              "bestEpoch": 2,
+              "devValueHuber": 0.06800977140665054,
+              "cpuInferenceMs": 0.049777000676840544,
+              "checkpoint": "checkpoint-2718.pt",
+              "checkpointSha256": "80f142be011772c34c3908f48c9868641a362f9c2cadaddb1162368cfccf9c23"
+            },
+            "cpuInferenceMs": 0.05111500038765371
+          },
+          "compact-16-8": {
+            "featureCount": 491,
+            "widths": [
+              16,
+              8
+            ],
+            "selected": {
+              "seed": 2718,
+              "bestEpoch": 2,
+              "devValueHuber": 0.07000633329153061,
+              "cpuInferenceMs": 0.04800199996680021,
+              "checkpoint": "checkpoint-2718.pt",
+              "checkpointSha256": "538f2452d1f60bd577abcc2d6fb17c66cd80e4b195938aff0c540b4a54072c32"
+            },
+            "cpuInferenceMs": 0.04829100100323558
+          }
+        },
+        "pairedDevComparisons": {
+          "full-16-8MinusFullControlMAE": {
+            "n": 64,
+            "mean": -0.15048881208181575,
+            "ci95": [
+              -0.5227219655346604,
+              0.2128587118626316
+            ],
+            "method": "setup-group-percentile-bootstrap",
+            "repetitions": 2000,
+            "seed": 821337
+          },
+          "compact-64-32MinusFullControlMAE": {
+            "n": 64,
+            "mean": -0.5480658942917495,
+            "ci95": [
+              -1.202707337281033,
+              0.1671733325672549
+            ],
+            "method": "setup-group-percentile-bootstrap",
+            "repetitions": 2000,
+            "seed": 821337
+          },
+          "compact-16-8MinusFullControlMAE": {
+            "n": 64,
+            "mean": -0.4516001194038275,
+            "ci95": [
+              -1.149137435796281,
+              0.31183126190917376
+            ],
+            "method": "setup-group-percentile-bootstrap",
+            "repetitions": 2000,
+            "seed": 821337
+          }
+        }
+      }
+    },
+    {
+      "game": "wingspan",
+      "players": 2,
+      "matchup": "diagnostics/constant-control",
+      "policy": "diagnostics/constant-control",
+      "policyId": "NN versus constant-output same-shape MLP \u00b7 attribution control",
+      "opponentPolicyId": "Same hidden layers/normalization/dense work; final scalar head zeroed. Internal linear slot is NOT the trained ridge.",
+      "scope": "Fixed64 games/32fresh setup pairs. While incomplete: progress only, no winner-share estimate.",
+      "budget": {},
+      "planned": 64,
+      "finished": 1,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "seedGroups": 32,
+      "completeSeedGroups": 0,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "chance": 0.5,
+      "meanDecisionMs": null,
+      "maxDecisionMs": null,
+      "metricKind": "progress",
+      "limitations": [
+        "The original pilot remains frozen; diagnostic outcomes cannot promote a new model or establish human strength."
+      ],
+      "diagnosticValidation": {
+        "complete": false,
+        "issues": [
+          "not-64-valid-32-pair-strict-complete",
+          "unfinished-checkpoint",
+          "pair-design",
+          "summary-realModelWinnerShare",
+          "summary-realModelScoreMargin",
+          "invalid-interval-realModelWinnerShare",
+          "invalid-interval-realModelScoreMargin"
+        ]
+      }
     }
   ],
-  "method": "Original two-player Wingspan neural value pilot: actor/off-turn redacted observations, frozen setup-group train/dev/test splits, 80%100/20%300-sample deployed teacher, one linear control and a small MLP. One fixed 50% learned/reference blend faces fresh corrected/deployed controls at 1000ms requested per whole decision. Data/training rows have no win-rate statistic; offline accuracy does not establish stronger play. Production defaults remain unchanged."
+  "method": "Original two-player Wingspan neural value pilot: actor/off-turn redacted observations, frozen setup-group train/dev/test splits, 80%100/20%300-sample deployed teacher, one linear control and a small MLP. One fixed 50% learned/reference blend faces fresh corrected/deployed controls at 1000ms requested per whole decision. Data/training rows have no win-rate statistic; offline accuracy does not establish stronger play. Production defaults remain unchanged. Post-pilot diagnostics are shown separately: train/development feature/capacity probes and NN versus same-shape constant-output attribution. Main pilot results remain unchanged.",
+  "originalPilot": {
+    "status": "finished",
+    "stage": "complete",
+    "finished": 1328,
+    "planned": 1328
+  }
 }

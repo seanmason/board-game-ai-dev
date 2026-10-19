@@ -1,0 +1,66 @@
+{
+  "purpose": "Focused synthetic deterministic inference/algebra/readiness tests, plus bounded fixed-position timing; NO games launched.",
+  "passed": true,
+  "createdAt": "2026-10-19T13:15:20.885Z",
+  "checks": [
+    {
+      "name": "same architecture, encoder schema, normalization and real hidden layers",
+      "passed": true
+    },
+    {
+      "name": "only final scalar head is zero and no trained ridge is mislabeled",
+      "passed": true
+    },
+    {
+      "name": "exact zero for all certified development cases and bounded artificial vectors",
+      "passed": true
+    },
+    {
+      "name": "constant nonterminal blend halves only reference delta while retaining prior",
+      "passed": true
+    },
+    {
+      "name": "setup/power root fallback stays full-reference and terminal score is not halved",
+      "passed": true
+    },
+    {
+      "name": "exact fixed inventory and labels; no promotion or implicit execution",
+      "passed": true
+    },
+    {
+      "name": "bounded same-shape forward timing sanity (not a strength or selection gate)",
+      "passed": true
+    }
+  ],
+  "exactZeroCases": 64,
+  "timing": {
+    "real": {
+      "n": 120,
+      "meanMs": 0.5146983333333353,
+      "p95Ms": 0.5634000000000015,
+      "maxMs": 0.8840999999999894
+    },
+    "zero": {
+      "n": 120,
+      "meanMs": 0.5170683333333348,
+      "p95Ms": 0.57000000000005,
+      "maxMs": 0.9175999999999931
+    },
+    "provisionalUnderActivePilot": true,
+    "operationCounts": {
+      "parameters": 86401,
+      "multiplyAddsPerLayer": [
+        84224,
+        2048,
+        32
+      ],
+      "sameEncoder": true,
+      "sameNormalization": true,
+      "sameRealHiddenWeights": true,
+      "noZeroFastPath": true
+    },
+    "zeroRealMeanRatio": 1.0046046389632752,
+    "zeroRealP95Ratio": 1.0117145899894366
+  },
+  "interpretation": "Dense operation counts and all hidden computations are identical; head output is the only manipulated value. Provisional under-load timing is not evidence about playing strength."
+}
