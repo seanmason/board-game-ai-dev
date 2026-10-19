@@ -3,8 +3,8 @@
   "study": "wingspan-refit",
   "outcomeStatus": "running",
   "status": "running",
-  "stage": "f0-gentle",
-  "updatedAt": "2026-10-19T20:06:25.968Z",
+  "stage": "f0-gentle-value",
+  "updatedAt": "2026-10-19T20:07:58.365Z",
   "revision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
   "method": "Fixed small network teacher refits: two learning rates crossed with auxiliary loss on/off. Development selects at most two distinct candidates; fresh parent comparisons decide research teacher updates. Production is unchanged.",
   "finished": 0,
@@ -24,7 +24,8 @@
         "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
         "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
         "refit-f0-control": "7439c56ebdc656e3056d7873697abe848509aafc0c9d64fcb1ad3d1dd8095c8c",
-        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb"
+        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb",
+        "refit-f0-gentle": "9fb0bcb74d7246138e44a6524a4a7d42a5d0328b4f358a26255ad84aa7276bd3"
       },
       "game": "wingspan",
       "players": 2,
@@ -139,7 +140,8 @@
         "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
         "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
         "refit-f0-control": "7439c56ebdc656e3056d7873697abe848509aafc0c9d64fcb1ad3d1dd8095c8c",
-        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb"
+        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb",
+        "refit-f0-gentle": "9fb0bcb74d7246138e44a6524a4a7d42a5d0328b4f358a26255ad84aa7276bd3"
       },
       "game": "wingspan",
       "players": 2,
@@ -254,7 +256,124 @@
         "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
         "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
         "refit-f0-control": "7439c56ebdc656e3056d7873697abe848509aafc0c9d64fcb1ad3d1dd8095c8c",
-        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb"
+        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb",
+        "refit-f0-gentle": "9fb0bcb74d7246138e44a6524a4a7d42a5d0328b4f358a26255ad84aa7276bd3"
+      },
+      "game": "wingspan",
+      "players": 2,
+      "scope": "Two-player research; complete fixed pairs required for strength results",
+      "status": "complete",
+      "planned": 24,
+      "finished": 5,
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "counts": {
+        "complete": 5,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {},
+      "budget": {},
+      "coverage": {},
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {
+        "dev": {
+          "huber": 0.3522410204016781,
+          "mae": 6.96650272614608,
+          "saturation": 0.035246002021601906,
+          "correctionMean": -1.7130251270939216,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "epochZero": {
+          "huber": 0.3567082430535259,
+          "mae": 7.026726221989025,
+          "saturation": 0.032566483925300885,
+          "correctionMean": -1.4555386471150167,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "linear": {
+          "huber": 0.4126781113886092,
+          "mae": 7.665541760886219,
+          "saturation": 0,
+          "correctionMean": -1.6976722673355016,
+          "examples": 67392,
+          "games": 648,
+          "setups": 592
+        },
+        "latestFit": {
+          "seed": 1729,
+          "epoch": 5,
+          "devValueHuber": 0.3534124992939264
+        },
+        "curves": [
+          {
+            "epoch": 0,
+            "trainHuber": 0.3218126893043518,
+            "devValueHuber": 0.3567082430535259
+          },
+          {
+            "epoch": 1,
+            "trainHuber": 0.31528240442276,
+            "devValueHuber": 0.3522410204016781
+          },
+          {
+            "epoch": 2,
+            "trainHuber": 0.31239181756973267,
+            "devValueHuber": 0.35252707531955735
+          },
+          {
+            "epoch": 3,
+            "trainHuber": 0.3100798726081848,
+            "devValueHuber": 0.35270703198890907
+          },
+          {
+            "epoch": 4,
+            "trainHuber": 0.30795830488204956,
+            "devValueHuber": 0.3531506380887791
+          },
+          {
+            "epoch": 5,
+            "trainHuber": 0.3060550093650818,
+            "devValueHuber": 0.3534124992939264
+          }
+        ],
+        "selectedEpoch": 1,
+        "eligible": true
+      }
+    },
+    {
+      "matchup": "f0-gentle-value",
+      "policy": "f0-gentle-value",
+      "policyId": "Phase 0 gentle-value fit",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "loss",
+      "stage": "f0-gentle-value",
+      "modelHashes": {
+        "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+        "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48",
+        "refit-f0-control": "7439c56ebdc656e3056d7873697abe848509aafc0c9d64fcb1ad3d1dd8095c8c",
+        "refit-f0-value-only": "2ebeae67dc9079c675e4176e3733b225b455757dfbeafa3586dbc4496670feeb",
+        "refit-f0-gentle": "9fb0bcb74d7246138e44a6524a4a7d42a5d0328b4f358a26255ad84aa7276bd3"
       },
       "game": "wingspan",
       "players": 2,
