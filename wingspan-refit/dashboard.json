@@ -3,8 +3,8 @@
   "study": "wingspan-refit",
   "outcomeStatus": "running",
   "status": "running",
-  "stage": "prepared",
-  "updatedAt": "2026-10-19T19:54:07.235Z",
+  "stage": "f0-control",
+  "updatedAt": "2026-10-19T19:55:39.414Z",
   "revision": "29e5d95d9bc38a80a798c9e969225fecdc7c8580",
   "method": "Fixed small network teacher refits: two learning rates crossed with auxiliary loss on/off. Development selects at most two distinct candidates; fresh parent comparisons decide research teacher updates. Production is unchanged.",
   "finished": 0,
@@ -12,5 +12,56 @@
   "workers": 0,
   "collectionBudget": {},
   "fitCosts": {},
-  "rows": []
+  "rows": [
+    {
+      "matchup": "f0-control",
+      "policy": "f0-control",
+      "policyId": "Phase 0 control fit",
+      "opponentPolicyId": "No playing-strength measurement",
+      "metricKind": "loss",
+      "stage": "f0-control",
+      "modelHashes": {
+        "frozen-generation-3": "6131bafd429500d55fa5c60900923e6f46973a25905b3bb2df10ac7bb1922843",
+        "frozen-generation-1": "45fd3e08279e324395e9ce8e93914f704ab33116d1a9119a428d472ba0b0dd48"
+      },
+      "game": "wingspan",
+      "players": 2,
+      "scope": "Two-player research; complete fixed pairs required for strength results",
+      "status": "running",
+      "planned": 24,
+      "finished": 0,
+      "seedGroups": 0,
+      "completeSeedGroups": 0,
+      "counts": {
+        "complete": 0,
+        "capped": 0,
+        "invalid": 0,
+        "unresolved": 0,
+        "illegal": 0,
+        "error": 0
+      },
+      "latency": {},
+      "budget": {},
+      "coverage": {},
+      "inferenceComplete": false,
+      "outcomesWithheld": true,
+      "winShare": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "margin": {
+        "n": 0,
+        "mean": null,
+        "low": null,
+        "high": null
+      },
+      "training": {
+        "latestFit": {},
+        "curves": [],
+        "eligible": false
+      }
+    }
+  ]
 }
